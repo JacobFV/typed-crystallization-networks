@@ -1,0 +1,100 @@
+{
+  "_doc": [
+    "What the learner is told to do, in the language the episode is in.",
+    "Keyed by ISO 639-3; the hand-written packs are reached by their own iso.",
+    "",
+    "Every episode ends with this and it was English in all of them -- the",
+    "scene translated, the options translated, and then 'Answer with exactly",
+    "one of:' in English underneath. It is the one sentence a learner has to",
+    "act on rather than reason about.",
+    "",
+    "`instruction` must contain {choices} and `instruction_many` must contain",
+    "{n}; a test asserts both, because a template quietly missing its",
+    "placeholder would drop the answer set from the prompt entirely.",
+    "",
+    "Written by hand, and only for languages the wording could be checked in.",
+    "Everything else falls back to English, which is visible and honest; a",
+    "confidently ungrammatical instruction would not be."
+  ],
+
+  "spa": {
+    "instruction": "Responde exactamente con una de estas opciones: {choices}\nResponde solo con la respuesta.",
+    "instruction_many": "Responde con exactamente una de las {n} opciones anteriores.\nResponde solo con la respuesta.",
+    "options_heading": "Opciones:"
+  },
+  "fra": {
+    "instruction": "Réponds avec exactement l'une de ces options : {choices}\nDonne uniquement la réponse.",
+    "instruction_many": "Réponds avec exactement l'une des {n} options ci-dessus.\nDonne uniquement la réponse.",
+    "options_heading": "Options :"
+  },
+  "deu": {
+    "instruction": "Antworte mit genau einer dieser Optionen: {choices}\nGib nur die Antwort an.",
+    "instruction_many": "Antworte mit genau einer der oben genannten {n} Optionen.\nGib nur die Antwort an.",
+    "options_heading": "Optionen:"
+  },
+  "ita": {
+    "instruction": "Rispondi con esattamente una di queste opzioni: {choices}\nRispondi solo con la risposta.",
+    "instruction_many": "Rispondi con esattamente una delle {n} opzioni elencate sopra.\nRispondi solo con la risposta.",
+    "options_heading": "Opzioni:"
+  },
+  "por": {
+    "instruction": "Responda com exatamente uma destas opções: {choices}\nResponda apenas com a resposta.",
+    "instruction_many": "Responda com exatamente uma das {n} opções acima.\nResponda apenas com a resposta.",
+    "options_heading": "Opções:"
+  },
+  "rus": {
+    "instruction": "Ответьте ровно одним из вариантов: {choices}\nВ ответе укажите только вариант.",
+    "instruction_many": "Ответьте ровно одним из {n} вариантов выше.\nВ ответе укажите только вариант.",
+    "options_heading": "Варианты:"
+  },
+  "pol": {
+    "instruction": "Odpowiedz dokładnie jedną z opcji: {choices}\nPodaj tylko odpowiedź.",
+    "instruction_many": "Odpowiedz dokładnie jedną z {n} powyższych opcji.\nPodaj tylko odpowiedź.",
+    "options_heading": "Opcje:"
+  },
+  "nld": {
+    "instruction": "Antwoord met precies één van deze opties: {choices}\nGeef alleen het antwoord.",
+    "instruction_many": "Antwoord met precies één van de {n} bovenstaande opties.\nGeef alleen het antwoord.",
+    "options_heading": "Opties:"
+  },
+  "swe": {
+    "instruction": "Svara med exakt ett av dessa alternativ: {choices}\nSvara endast med svaret.",
+    "instruction_many": "Svara med exakt ett av de {n} alternativen ovan.\nSvara endast med svaret.",
+    "options_heading": "Alternativ:"
+  },
+  "ell": {
+    "instruction": "Απάντησε με ακριβώς μία από τις επιλογές: {choices}\nΔώσε μόνο την απάντηση.",
+    "instruction_many": "Απάντησε με ακριβώς μία από τις {n} παραπάνω επιλογές.\nΔώσε μόνο την απάντηση.",
+    "options_heading": "Επιλογές:"
+  },
+  "cmn": {
+    "instruction": "请从以下选项中选择一个作答：{choices}\n只回答答案本身。",
+    "instruction_many": "请从上面 {n} 个选项中选择一个作答。\n只回答答案本身。",
+    "options_heading": "选项："
+  },
+  "jpn": {
+    "instruction": "次の選択肢のうち、ちょうど一つで答えてください：{choices}\n答えのみを返してください。",
+    "instruction_many": "上の {n} 個の選択肢のうち、ちょうど一つで答えてください。\n答えのみを返してください。",
+    "options_heading": "選択肢："
+  },
+  "tur": {
+    "instruction": "Tam olarak şu seçeneklerden biriyle yanıtla: {choices}\nSadece yanıtı yaz.",
+    "instruction_many": "Yukarıdaki {n} seçenekten tam olarak biriyle yanıtla.\nSadece yanıtı yaz.",
+    "options_heading": "Seçenekler:"
+  },
+  "swh": {
+    "instruction": "Jibu kwa kuchagua moja tu kati ya haya: {choices}\nAndika jibu pekee.",
+    "instruction_many": "Jibu kwa kuchagua moja tu kati ya machaguo {n} hapo juu.\nAndika jibu pekee.",
+    "options_heading": "Chaguo:"
+  },
+  "arb": {
+    "instruction": "أجب بواحد فقط من هذه الخيارات: {choices}\nاكتب الإجابة فقط.",
+    "instruction_many": "أجب بواحد فقط من الخيارات الـ {n} أعلاه.\nاكتب الإجابة فقط.",
+    "options_heading": "الخيارات:"
+  },
+  "hin": {
+    "instruction": "इनमें से ठीक एक विकल्प से उत्तर दें: {choices}\nकेवल उत्तर लिखें।",
+    "instruction_many": "ऊपर दिए गए {n} विकल्पों में से ठीक एक से उत्तर दें।\nकेवल उत्तर लिखें।",
+    "options_heading": "विकल्प:"
+  }
+}

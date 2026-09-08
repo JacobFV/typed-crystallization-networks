@@ -1,0 +1,14 @@
+recursive-include generators *.json
+recursive-include generators/computer/engine *.ts *.mjs *.json
+prune generators/computer/engine/node_modules
+prune generators/computer/engine/packages/kernel/dist
+prune generators/computer/engine/packages/protocol/dist
+prune generators/computer/engine/packages/catalog/dist
+prune generators/computer/engine/packages/app-sdk/dist
+prune generators/computer/engine/packages/os-common/dist
+prune generators/computer/engine/packages/os-linux/dist
+prune generators/computer/engine/packages/os-macos/dist
+prune generators/computer/engine/packages/os-windows/dist
+prune generators/computer/engine/packages/ui-surfaces/dist
+prune generators/computer/engine/packages/seed-2026/dist
+global-exclude *.tsbuildinfo

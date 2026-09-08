@@ -1,0 +1,148 @@
+"""Type-checked soft choices; exact hard-forward trials; frozen gradient boundaries."""
+from __future__ import annotations
+import math
+from dataclasses import replace
+import torch
+from torch import nn
+from .types import Value, decode
+from .operators import Registry, BINARY, UNARY, COMPARE, CONVERSIONS
+
+def tensor(value,device=None): return torch.tensor(value.flat(),dtype=torch.float32,device=device)
+def ste(soft,hard): return soft+(hard-soft).detach()
+
+def exact_tensor(registry,op,xs):
+    shape=torch.broadcast_shapes(*(x.shape[:-1] for x in xs)) if xs else ()
+    batch=math.prod(shape) if shape else 1
+    flat=[x.detach().expand(*shape,x.shape[-1]).reshape(batch,-1).cpu().tolist() for x in xs]
+    vals=[]
+    for i in range(batch):
+        args=[Value.unflat(t,x[i]) for t,x in zip(op.inputs,flat)]
+        vals.append(registry.exact(op,args).flat())
+    device=xs[0].device if xs else None
+    return torch.tensor(vals,dtype=torch.float32,device=device).reshape(*shape,op.output.width)
+
+def relaxed(registry,op,xs,temperature=1.):
+    n=op.name; p=dict(op.parameters)
+    if op.gradient=="none": return exact_tensor(registry,op,xs)
+    a=xs[0] if xs else None; b=xs[1] if len(xs)>1 else None
+    if n=="identity": return a
+    if n=="not": return 1-a
+    if n in {"and","or","xor","nand","nor","xnor"}:
+        base={"and":a*b,"or":a+b-a*b,"xor":a+b-2*a*b}
+        return base[n] if n in base else 1-base[{"nand":"and","nor":"or","xnor":"xor"}[n]]
+    if n.startswith("truth_"):
+        k=int(n[6:]); terms=((1-a)*(1-b),(1-a)*b,a*(1-b),a*b)
+        return sum(v*((k>>i)&1) for i,v in enumerate(terms))
+    if n=="mux": return a*xs[1]+(1-a)*xs[2]
+    if n in COMPARE:
+        if n=="eq": return torch.exp(-((a-b)**2).sum(-1,keepdim=True)/temperature)
+        d=b-a if n in {"lt","le"} else a-b
+        return torch.sigmoid(d/temperature)
+    if n in BINARY | UNARY:
+        if n in {"div","mod","idiv"} and torch.any(b==0): raise ValueError("invalid denominator in relaxed candidate")
+        if n=="log" and torch.any(a<=0): raise ValueError("invalid relaxed log domain")
+        if n=="sqrt" and torch.any(a<0): raise ValueError("invalid relaxed sqrt domain")
+        funcs={"add":lambda:a+b,"sub":lambda:a-b,"mul":lambda:a*b,"div":lambda:a/b,"pow":lambda:a**b,"mod":lambda:torch.remainder(a,b),"idiv":lambda:ste(a/b,torch.floor(a/b)),"min":lambda:torch.minimum(a,b),"max":lambda:torch.maximum(a,b),"shl":lambda:a*2**b,"shr":lambda:a/2**b,"atan2":lambda:torch.atan2(a,b),"neg":lambda:-a,"abs":lambda:a.abs(),"exp":lambda:a.exp(),"log":lambda:a.log(),"sin":lambda:a.sin(),"cos":lambda:a.cos(),"sqrt":lambda:a.sqrt()}
+        y=funcs[n]()
+        if not torch.all(torch.isfinite(y)): raise ValueError("nonfinite relaxed result")
+        return y
+    if n=="tuple": return torch.cat(xs,dim=-1) if xs else torch.empty(0)
+    if n=="project":
+        widths=[t.width for t in op.inputs[0].items]; i=p["index"]; start=sum(widths[:i])
+        return a[...,start:start+widths[i]]
+    if n=="index":
+        width=op.output.width; count=len(op.inputs[0].items)
+        weights=torch.softmax(-(b-torch.arange(count,device=a.device))**2/temperature,dim=-1)
+        return (a.reshape(*a.shape[:-1],count,width)*weights.unsqueeze(-1)).sum(-2)
+    if n in {"sum","mean","reduce_min","reduce_max","count"}:
+        if n=="count":
+            return a.sum(-1,keepdim=True) if op.inputs[0].kind=="set" else torch.full((*a.shape[:-1],1),float(len(op.inputs[0].items)),device=a.device)
+        return {"sum":lambda:a.sum(-1,keepdim=True),"mean":lambda:a.mean(-1,keepdim=True),"reduce_min":lambda:a.min(-1,keepdim=True).values,"reduce_max":lambda:a.max(-1,keepdim=True).values}[n]()
+    if n=="union": return a+b-a*b
+    if n=="intersection": return a*b
+    if n in {"delay","difference","accumulation"}:
+        return torch.cat((b,a),-1) if n=="delay" else (torch.cat((a-b,a),-1) if n=="difference" else torch.cat((a+b,a+b),-1))
+    if n=="fft":
+        z=torch.fft.fft(a,dim=-1); return torch.view_as_real(z).flatten(-2)
+    if n=="ifft":
+        z=torch.view_as_complex(a.reshape(*a.shape[:-1],-1,2).contiguous())
+        return torch.view_as_real(torch.fft.ifft(z,dim=-1)).flatten(-2)
+    if n=="fourier_basis": return torch.cat((a.cos(),a.sin()),-1)
+    if n in CONVERSIONS:
+        if op.output.kind=="bool": return torch.sigmoid((a-p.get("threshold",.5))/temperature)
+        return a
+    raise NotImplementedError(f"missing declared relaxation for {n}")
+
+class SoftProgram(nn.Module):
+    def __init__(self,program,registry=None):
+        super().__init__(); self.registry=registry or Registry(); self.program=program.validate(self.registry)
+        self.choices=nn.ParameterList([nn.Parameter(torch.zeros(len(n.candidates)),requires_grad=n.selected is None) for n in program.nodes])
+        self.constants=nn.ParameterDict({k:nn.Parameter(tensor(dict(program.constants)[k])) for k in program.trainable_constants})
+        self.temperatures={n.name:1. for n in program.nodes}
+        self.frozen={n.name:n.selected for n in program.nodes if n.selected is not None}
+        self.trials={}
+        self.quantization={}
+    def forward(self,inputs,state=None,return_trace=False):
+        if set(inputs)!=set(dict(self.program.inputs)): raise ValueError("input ports mismatch")
+        values={k:(tensor(v,self.choices[0].device if len(self.choices) else None) if isinstance(v,Value) else v) for k,v in inputs.items()}
+        for k,t in self.program.inputs:
+            if values[k].shape[-1]!=t.width: raise TypeError("input width mismatch")
+            if isinstance(inputs[k],Value) and inputs[k].type!=t: raise TypeError("input type mismatch")
+        ref=next(iter(values.values()),torch.zeros(1))
+        for k,v in self.program.constants: values[k]=self.constants[k] if k in self.constants else tensor(v,ref.device)
+        for k,v,_ in self.program.state: values[k]=tensor(v,ref.device) if state is None else state[k]
+        for n,logits in zip(self.program.nodes,self.choices):
+            if n.name in self.frozen:
+                c=n.candidates[self.frozen[n.name]]
+                values[n.name]=exact_tensor(self.registry,c.operator,[values[s] for s in c.sources]).detach()
+                continue
+            tau=self.temperatures[n.name]
+            ys=[relaxed(self.registry,c.operator,[values[s] for s in c.sources],tau) for c in n.candidates]
+            ys=torch.broadcast_tensors(*ys)
+            weights=torch.softmax(logits/tau,0)
+            y=sum(w*z for w,z in zip(weights,ys))
+            if n.name in self.trials:
+                c=n.candidates[self.trials[n.name]]
+                y=ste(y,exact_tensor(self.registry,c.operator,[values[s] for s in c.sources]))
+            if n.name in self.quantization:
+                qtype,pressure=self.quantization[n.name]
+                if qtype!=n.output or not 0<=pressure<=1:raise ValueError("precision relaxation must target the declared node encoding")
+                hard=exact_tensor(self.registry,self.registry.resolve("quantize",(n.output,),qtype),[y])
+                y=y+pressure*(hard-y).detach()
+            if not torch.all(torch.isfinite(y)): raise ValueError("nonfinite graph output")
+            values[n.name]=y
+        out={k:values[v] for k,v in self.program.outputs}; newstate={k:values[u] for k,_,u in self.program.state}
+        return (out,newstate,values) if return_trace else (out,newstate)
+    def entropy(self):
+        terms=[]
+        for n,p in zip(self.program.nodes,self.choices):
+            if n.name not in self.frozen:
+                q=torch.softmax(p/self.temperatures[n.name],0); terms.append(-(q*q.clamp_min(1e-12).log()).sum())
+        return sum(terms,torch.zeros((),device=self.choices[0].device if len(self.choices) else None))
+    def complexity(self):
+        terms=[]
+        for n,p in zip(self.program.nodes,self.choices):
+            costs=torch.tensor([c.operator.cost for c in n.candidates],device=p.device)
+            terms.append((torch.softmax(p/self.temperatures[n.name],0)*costs).sum())
+        return sum(terms,torch.zeros((),device=self.choices[0].device if len(self.choices) else None))
+    def selections(self): return {n.name:self.frozen.get(n.name,int(p.argmax())) for n,p in zip(self.program.nodes,self.choices)}
+    def export(self):
+        constants=tuple((k,Value.unflat(v.type,self.constants[k].detach().cpu().tolist()) if k in self.constants else v) for k,v in self.program.constants)
+        return replace(self.program.harden(self.selections()),constants=constants,trainable_constants=()).validate(self.registry)
+    def freeze(self,name,index=None):
+        i=next(i for i,n in enumerate(self.program.nodes) if n.name==name)
+        self.frozen[name]=int(self.choices[i].argmax()) if index is None else index
+        self.choices[i].requires_grad_(False); self.trials.pop(name,None)
+        for key,param in self.constants.items():
+            users=[n.name for n in self.program.nodes if any(key in c.sources for c in n.candidates)]
+            if users and all(u in self.frozen for u in users): param.requires_grad_(False)
+    def probe_loss(self,trace,targets,signals):
+        self.program.validate_signals(signals); total=torch.tensor(0.,device=next(iter(trace.values())).device)
+        for s in signals:
+            pred=trace[s.source]; target=targets[s.target]
+            if isinstance(target,Value): target=tensor(target,pred.device)
+            if s.loss=="mse": loss=(pred-target).square().mean()
+            elif s.loss=="bce": loss=nn.functional.binary_cross_entropy(pred.clamp(1e-6,1-1e-6),target)
+            else: loss=nn.functional.cross_entropy(pred,target.long().squeeze(-1))
+            total=total+s.weight*loss
+        return total

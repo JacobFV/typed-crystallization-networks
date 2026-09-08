@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": { "composite": true, "outDir": "dist", "rootDir": "src" },
+  "references": [
+    { "path": "../../packages/protocol" },
+    { "path": "../../packages/catalog" },
+    { "path": "../../packages/os-core" },
+    { "path": "../../packages/os-macos" },
+    { "path": "../../packages/os-windows" },
+    { "path": "../../packages/os-ubuntu" },
+    { "path": "../../packages/ui-surfaces" }
+  ],
+  "include": ["src"]
+}

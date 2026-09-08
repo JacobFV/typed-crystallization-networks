@@ -1,0 +1,155 @@
+{
+ "_doc": [
+  "Definite and indefinite articles, by noun class and number.",
+  "Keyed by ISO 639-3. A language listed here overrides what the translation",
+  "table yields; a language absent from it is derived as before.",
+  "",
+  "Wiktionary translates `the` with one entry per gender and almost never",
+  "one per number, so the plural article was missing everywhere except",
+  "French: German said 'der' for a plural, Spanish 'el', Italian 'il',",
+  "Portuguese 'o'. It translates `one` rather than the article, so Italian",
+  "offered the citation form 'uno' and wrote 'uno cono' where 'un cono'",
+  "belongs, and Portuguese had no feminine at all and wrote 'um esfera'.",
+  "",
+  "Keys are class.number, and a class of `-` matches any. Only languages",
+  "whose paradigm could be checked; a language whose article is a suffix",
+  "rather than a word -- Swedish, Romanian, the Scandinavian languages --",
+  "is not here, because the engine writes articles as separate tokens and",
+  "supplying one would put it in the wrong place.",
+  "",
+  "The Scandinavian languages appear with an indefinite paradigm and no",
+  "definite one, which is not an oversight: their indefinite article is a free",
+  "word and their definite is a suffix on the noun. Writing the suffix here",
+  "would put it in front of the noun as a word of its own."
+ ],
+ "cat": {
+  "def": {
+   "m.sg": "el",
+   "f.sg": "la",
+   "m.pl": "els",
+   "f.pl": "les"
+  },
+  "indef": {
+   "m.sg": "un",
+   "f.sg": "una",
+   "m.pl": "uns",
+   "f.pl": "unes"
+  }
+ },
+ "dan": {
+  "indef": {
+   "c.sg": "en",
+   "m.sg": "en",
+   "f.sg": "en",
+   "n.sg": "et"
+  }
+ },
+ "deu": {
+  "def": {
+   "m.sg": "der",
+   "f.sg": "die",
+   "n.sg": "das",
+   "-.pl": "die"
+  },
+  "indef": {
+   "m.sg": "ein",
+   "f.sg": "eine",
+   "n.sg": "ein"
+  }
+ },
+ "ell": {
+  "def": {
+   "m.sg": "ο",
+   "f.sg": "η",
+   "n.sg": "το",
+   "m.pl": "οι",
+   "f.pl": "οι",
+   "n.pl": "τα"
+  },
+  "indef": {
+   "m.sg": "ένας",
+   "f.sg": "μία",
+   "n.sg": "ένα"
+  }
+ },
+ "fra": {
+  "def": {
+   "m.sg": "le",
+   "f.sg": "la",
+   "-.pl": "les"
+  },
+  "indef": {
+   "m.sg": "un",
+   "f.sg": "une",
+   "-.pl": "des"
+  }
+ },
+ "ita": {
+  "def": {
+   "m.sg": "il",
+   "f.sg": "la",
+   "m.pl": "i",
+   "f.pl": "le"
+  },
+  "indef": {
+   "m.sg": "un",
+   "f.sg": "una"
+  }
+ },
+ "nld": {
+  "def": {
+   "m.sg": "de",
+   "f.sg": "de",
+   "c.sg": "de",
+   "n.sg": "het",
+   "-.pl": "de"
+  },
+  "indef": {
+   "-.sg": "een"
+  }
+ },
+ "nob": {
+  "indef": {
+   "c.sg": "en",
+   "m.sg": "en",
+   "f.sg": "ei",
+   "n.sg": "et"
+  }
+ },
+ "por": {
+  "def": {
+   "m.sg": "o",
+   "f.sg": "a",
+   "m.pl": "os",
+   "f.pl": "as"
+  },
+  "indef": {
+   "m.sg": "um",
+   "f.sg": "uma",
+   "m.pl": "uns",
+   "f.pl": "umas"
+  }
+ },
+ "spa": {
+  "def": {
+   "m.sg": "el",
+   "f.sg": "la",
+   "m.pl": "los",
+   "f.pl": "las"
+  },
+  "indef": {
+   "m.sg": "un",
+   "f.sg": "una",
+   "m.pl": "unos",
+   "f.pl": "unas"
+  }
+ },
+ "swe": {
+  "indef": {
+   "c.sg": "en",
+   "m.sg": "en",
+   "f.sg": "en",
+   "n.sg": "ett"
+  }
+ }
+}

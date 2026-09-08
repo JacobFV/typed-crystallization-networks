@@ -1,0 +1,486 @@
+{
+ "code": "swahili",
+ "_note": "Nouns carry a CLASS and a STEM. Both the plural and every agreeing word in the clause are derived from the class — nothing is stored twice. Class 9/10 nouns are identical in both numbers, which the class pairing expresses without a special case.",
+ "nouns": {
+  "book": {
+   "lemma": "kitabu",
+   "stem": "tabu",
+   "class": "7"
+  },
+  "chair": {
+   "lemma": "kiti",
+   "stem": "ti",
+   "class": "7"
+  },
+  "object": {
+   "lemma": "kitu",
+   "stem": "tu",
+   "class": "7"
+  },
+  "cup": {
+   "lemma": "kikombe",
+   "stem": "kombe",
+   "class": "7"
+  },
+  "food": {
+   "lemma": "chakula",
+   "stem": "akula",
+   "class": "7"
+  },
+  "person": {
+   "lemma": "mtu",
+   "stem": "tu",
+   "class": "1"
+  },
+  "child": {
+   "lemma": "mtoto",
+   "stem": "toto",
+   "class": "1"
+  },
+  "animal": {
+   "lemma": "mnyama",
+   "stem": "nyama",
+   "class": "1"
+  },
+  "agent": {
+   "lemma": "wakala",
+   "stem": "wakala",
+   "class": "1"
+  },
+  "tree": {
+   "lemma": "mti",
+   "stem": "ti",
+   "class": "3"
+  },
+  "door": {
+   "lemma": "mlango",
+   "stem": "lango",
+   "class": "3"
+  },
+  "hand": {
+   "lemma": "mkono",
+   "stem": "kono",
+   "class": "3"
+  },
+  "stone": {
+   "lemma": "jiwe",
+   "stem": "we",
+   "class": "5"
+  },
+  "eye": {
+   "lemma": "jicho",
+   "stem": "cho",
+   "class": "5"
+  },
+  "word": {
+   "lemma": "neno",
+   "stem": "neno",
+   "class": "5"
+  },
+  "question": {
+   "lemma": "swali",
+   "stem": "swali",
+   "class": "5"
+  },
+  "answer": {
+   "lemma": "jibu",
+   "stem": "jibu",
+   "class": "5"
+  },
+  "box": {
+   "lemma": "sanduku",
+   "stem": "sanduku",
+   "class": "5"
+  },
+  "cart": {
+   "lemma": "gari",
+   "stem": "gari",
+   "class": "5"
+  },
+  "shape": {
+   "lemma": "umbo",
+   "stem": "umbo",
+   "class": "5"
+  },
+  "water": {
+   "lemma": "maji",
+   "stem": "maji",
+   "class": "6"
+  },
+  "house": {
+   "lemma": "nyumba",
+   "stem": "nyumba",
+   "class": "9"
+  },
+  "table": {
+   "lemma": "meza",
+   "stem": "meza",
+   "class": "9"
+  },
+  "bird": {
+   "lemma": "ndege",
+   "stem": "ndege",
+   "class": "9"
+  },
+  "fish": {
+   "lemma": "samaki",
+   "stem": "samaki",
+   "class": "9"
+  },
+  "bottle": {
+   "lemma": "chupa",
+   "stem": "chupa",
+   "class": "9"
+  },
+  "lamp": {
+   "lemma": "taa",
+   "stem": "taa",
+   "class": "9"
+  },
+  "machine": {
+   "lemma": "mashine",
+   "stem": "mashine",
+   "class": "9"
+  },
+  "paper": {
+   "lemma": "karatasi",
+   "stem": "karatasi",
+   "class": "9"
+  },
+  "number": {
+   "lemma": "namba",
+   "stem": "namba",
+   "class": "9"
+  },
+  "color": {
+   "lemma": "rangi",
+   "stem": "rangi",
+   "class": "9"
+  },
+  "rule": {
+   "lemma": "sheria",
+   "stem": "sheria",
+   "class": "9"
+  },
+  "task": {
+   "lemma": "kazi",
+   "stem": "kazi",
+   "class": "9"
+  },
+  "key": {
+   "lemma": "ufunguo",
+   "stem": "funguo",
+   "class": "11"
+  },
+  "cube": {
+   "lemma": "mchemraba",
+   "stem": "chemraba",
+   "class": "3"
+  },
+  "sphere": {
+   "lemma": "tufe",
+   "stem": "tufe",
+   "class": "5"
+  },
+  "cone": {
+   "lemma": "koni",
+   "stem": "koni",
+   "class": "9"
+  },
+  "disc": {
+   "lemma": "duara",
+   "stem": "duara",
+   "class": "9"
+  },
+  "prism": {
+   "lemma": "prizma",
+   "stem": "prizma",
+   "class": "9"
+  },
+  "rod": {
+   "lemma": "ufito",
+   "stem": "fito",
+   "class": "11"
+  }
+ },
+ "adjectives": {
+  "big": {
+   "base": "kubwa",
+   "concord": true
+  },
+  "large": {
+   "base": "pana",
+   "concord": true
+  },
+  "small": {
+   "base": "dogo",
+   "concord": true
+  },
+  "tiny": {
+   "base": "titi",
+   "concord": true
+  },
+  "heavy": {
+   "base": "zito",
+   "concord": true
+  },
+  "glossy": {
+   "base": "zuri",
+   "concord": true
+  },
+  "fragile": {
+   "base": "dhaifu",
+   "concord": true
+  },
+  "red": {
+   "base": "ekundu",
+   "concord": true
+  },
+  "medium": {
+   "base": "wastani",
+   "concord": false
+  },
+  "blue": {
+   "base": "buluu",
+   "concord": false
+  },
+  "green": {
+   "base": "kijani",
+   "concord": false
+  },
+  "yellow": {
+   "base": "manjano",
+   "concord": false
+  },
+  "purple": {
+   "base": "zambarau",
+   "concord": false
+  },
+  "orange": {
+   "base": "chungwa",
+   "concord": false
+  },
+  "warm": {
+   "base": "vuguvugu",
+   "concord": false
+  },
+  "metallic": {
+   "base": "chuma",
+   "concord": false
+  },
+  "opaque": {
+   "base": "hafifu",
+   "concord": false
+  }
+ },
+ "verbs": {},
+ "names": {},
+ "words": {
+  "arrange": "panga",
+  "assume": "dhania",
+  "difference": "tofauti",
+  "different": "tofauti",
+  "even number": "namba shufwa",
+  "exceed": "zidi",
+  "false": "si kweli",
+  "first": "kwanza",
+  "high": "juu",
+  "invert": "geuza",
+  "keep": "weka",
+  "last": "mwisho",
+  "limit": "kikomo",
+  "low": "chini",
+  "modulus": "moduli",
+  "no": "hapana",
+  "nothing": "hakuna kitu",
+  "order": "mpangilio",
+  "previous": "iliyotangulia",
+  "remove": "ondoa",
+  "same": "sawa",
+  "take": "chukua",
+  "true": "kweli",
+  "yes": "ndiyo"
+ },
+ "closed": {
+  "the": "",
+  "a": "",
+  "is": "ni",
+  "are": "ni",
+  "not": "si",
+  "and": "na",
+  "or": "au",
+  "of": "ya",
+  "if": "kama",
+  "then": "basi",
+  "to": "kwa",
+  "at": "katika",
+  "empty": "tupu",
+  "q_particle": "je",
+  "what": "nini",
+  "which": "gani",
+  "who": "nani",
+  "where": "wapi",
+  "when": "lini",
+  "why": "kwa nini",
+  "how": "vipi",
+  "how_many": "ngapi",
+  "all": "zote",
+  "some": "baadhi",
+  "none": "hakuna",
+  "most": "wengi",
+  "few": "chache",
+  "eq": "ni sawa na",
+  "step": "hatua",
+  "round": "raundi",
+  "trial": "jaribio",
+  "case": "kesi",
+  "rule": "kanuni",
+  "ne": "si sawa na",
+  "gt": "ni kubwa kuliko",
+  "lt": "ni ndogo kuliko",
+  "ge": "ni angalau",
+  "le": "ni kingi zaidi",
+  "block": "kizuizi",
+  "turn": "zamu"
+ },
+ "predicate_words": {
+  "requires": "inahitaji",
+  "provides": "inatoa",
+  "causes": "inasababisha",
+  "means": "ina maana",
+  "says": "anasema",
+  "has": "ina",
+  "supports": "inaunga mkono",
+  "contradicts": "inapingana na",
+  "precedes": "inatangulia",
+  "isa": "ni aina ya",
+  "is_a": "ni aina ya"
+ },
+ "field_intros": {
+  "scene": "Katika tukio:",
+  "world": "Dunia ina:",
+  "facts": "Unajua mambo haya:",
+  "rules": "Sheria ni:",
+  "examples": "Unaonyeshwa mifano hii:",
+  "premises": "Misingi ni:",
+  "options": "Chaguo ni:",
+  "candidates": "Wagombea ni:",
+  "observations": "Uchunguzi:",
+  "goal": "Lengo ni",
+  "state": "Hali ya sasa ni",
+  "question": "Swali"
+ },
+ "concord": {
+  "class_pairs": {
+   "1": "2",
+   "3": "4",
+   "5": "6",
+   "7": "8",
+   "9": "10",
+   "11": "10",
+   "14": "14",
+   "15": "15",
+   "16": "16"
+  },
+  "noun_prefix": {
+   "1": "m",
+   "2": "wa",
+   "3": "m",
+   "4": "mi",
+   "5": "",
+   "6": "ma",
+   "7": "ki",
+   "8": "vi",
+   "9": "",
+   "10": "",
+   "11": "u",
+   "14": "u",
+   "15": "ku",
+   "16": "pa"
+  },
+  "adjective_prefix": {
+   "1": [
+    "m",
+    "mw"
+   ],
+   "2": [
+    "wa",
+    "w"
+   ],
+   "3": [
+    "m",
+    "mw"
+   ],
+   "4": [
+    "mi",
+    "my"
+   ],
+   "5": [
+    "",
+    "j"
+   ],
+   "6": [
+    "ma",
+    "m"
+   ],
+   "7": [
+    "ki",
+    "ch"
+   ],
+   "8": [
+    "vi",
+    "vy"
+   ],
+   "9": [
+    "N",
+    "ny"
+   ],
+   "10": [
+    "N",
+    "ny"
+   ],
+   "11": [
+    "m",
+    "mw"
+   ],
+   "14": [
+    "m",
+    "mw"
+   ],
+   "15": [
+    "ku",
+    "kw"
+   ],
+   "16": [
+    "pa",
+    "p"
+   ]
+  },
+  "subject_prefix": {
+   "1": "a",
+   "2": "wa",
+   "3": "u",
+   "4": "i",
+   "5": "li",
+   "6": "ya",
+   "7": "ki",
+   "8": "vi",
+   "9": "i",
+   "10": "zi",
+   "11": "u",
+   "14": "u",
+   "15": "ku",
+   "16": "pa"
+  },
+  "nasal_class": {
+   "b": "m",
+   "v": "m",
+   "d": "n",
+   "g": "n",
+   "j": "n",
+   "z": "n",
+   "r": "nd",
+   "l": "nd"
+  }
+ }
+}

@@ -1,0 +1,220 @@
+{
+  "format": "tcn.curriculum/1",
+  "stages": [
+    {
+      "name": "typed_synthesis",
+      "operation": "synthesize",
+      "configuration": {
+        "steps": 300
+      },
+      "gates": {
+        "exact_conformance": {
+          "min": 1
+        },
+        "fully_frozen": {
+          "min": 1
+        }
+      }
+    },
+    {
+      "name": "logic",
+      "operation": "sample",
+      "configuration": {
+        "generator": "logic",
+        "steps": 2
+      },
+      "gates": {
+        "replay": {
+          "min": 1
+        }
+      }
+    },
+    {
+      "name": "arithmetic",
+      "operation": "sample",
+      "configuration": {
+        "generator": "arithmetic",
+        "steps": 2
+      },
+      "gates": {
+        "replay": {
+          "min": 1
+        }
+      }
+    },
+    {
+      "name": "relations",
+      "operation": "sample",
+      "configuration": {
+        "generator": "relations",
+        "steps": 2
+      },
+      "gates": {
+        "replay": {
+          "min": 1
+        }
+      }
+    },
+    {
+      "name": "signal",
+      "operation": "sample",
+      "configuration": {
+        "generator": "signal",
+        "steps": 2
+      },
+      "gates": {
+        "replay": {
+          "min": 1
+        }
+      }
+    },
+    {
+      "name": "language",
+      "operation": "sample",
+      "configuration": {
+        "generator": "language",
+        "steps": 2
+      },
+      "gates": {
+        "replay": {
+          "min": 1
+        }
+      }
+    },
+    {
+      "name": "raster_text",
+      "operation": "sample",
+      "configuration": {
+        "generator": "raster_text",
+        "steps": 2
+      },
+      "gates": {
+        "replay": {
+          "min": 1
+        }
+      }
+    },
+    {
+      "name": "geometry",
+      "operation": "sample",
+      "configuration": {
+        "generator": "geometry",
+        "steps": 2
+      },
+      "gates": {
+        "replay": {
+          "min": 1
+        }
+      }
+    },
+    {
+      "name": "computer",
+      "operation": "sample",
+      "configuration": {
+        "generator": "computer",
+        "steps": 2
+      },
+      "gates": {
+        "replay": {
+          "min": 1
+        }
+      }
+    },
+    {
+      "name": "world_2d",
+      "operation": "sample",
+      "configuration": {
+        "generator": "world_2d",
+        "steps": 2
+      },
+      "gates": {
+        "replay": {
+          "min": 1
+        }
+      }
+    },
+    {
+      "name": "world_3d",
+      "operation": "sample",
+      "configuration": {
+        "generator": "world_3d",
+        "steps": 2
+      },
+      "gates": {
+        "replay": {
+          "min": 1
+        }
+      }
+    },
+    {
+      "name": "joint_prediction_policy",
+      "requires": [
+        "typed_synthesis",
+        "logic",
+        "arithmetic"
+      ],
+      "operation": "joint",
+      "configuration": {
+        "episodes": 160
+      },
+      "gates": {
+        "episodes": {
+          "min": 160
+        },
+        "evaluation_mean_return": {
+          "min": 3.8
+        },
+        "fully_frozen": {
+          "min": 1
+        },
+        "frozen_evaluation_mean_return": {
+          "min": 3.8
+        }
+      }
+    },
+    {
+      "name": "embodied_composition",
+      "requires": [
+        "language",
+        "raster_text",
+        "computer",
+        "world_3d"
+      ],
+      "operation": "sample",
+      "configuration": {
+        "generator": "embodied_world",
+        "steps": 2
+      },
+      "gates": {
+        "replay": {
+          "min": 1
+        }
+      }
+    },
+    {
+      "name": "linked_systems",
+      "operation": "sample",
+      "requires": [
+        "arithmetic",
+        "logic"
+      ],
+      "configuration": {
+        "generator": "composition",
+        "children": {
+          "numbers": {
+            "generator": "arithmetic"
+          },
+          "bits": {
+            "generator": "logic"
+          }
+        },
+        "steps": 2
+      },
+      "gates": {
+        "replay": {
+          "min": 1
+        }
+      }
+    }
+  ]
+}

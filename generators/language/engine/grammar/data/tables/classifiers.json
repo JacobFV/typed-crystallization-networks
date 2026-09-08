@@ -1,0 +1,33 @@
+{
+ "_doc": [
+  "The general classifier a language counts with, by ISO 639-3.",
+  "",
+  "WALS 55A says whether a language needs one and the profile has carried",
+  "that answer all along -- a derived grammar even announces 'numeral",
+  "classifiers obligatory' in its notes -- but nothing ever wrote one, so",
+  "Mandarin counted 三立方體 where 三个立方体 is the language.",
+  "",
+  "Only the general classifier, and only where the numeral and the noun sit",
+  "either side of it in the order the profile already knows: Mandarin and",
+  "Cantonese and Vietnamese put Num-CLF-N, Thai and Bengali N-Num-CLF, and",
+  "both fall out of WALS 89A without anything further.",
+  "",
+  "Japanese and Korean are absent deliberately. Both need a classifier and",
+  "both place it in ways this parameter cannot express -- Japanese floats",
+  "the numeral away from its noun entirely -- so writing one in would put a",
+  "real word in the wrong place, which is worse than the gap.",
+  "",
+  "A language WALS marks 'optional' is absent too. Optional means the bare",
+  "numeral is grammatical, and it is the one this engine can already write.",
+  "",
+  "The numeral and the classifier are joined by the language's own word",
+  "joiner, so Chinese and Thai write them together and Vietnamese apart.",
+  "Bengali is absent for the same reason Japanese is: its classifier is an",
+  "enclitic on the numeral rather than a word beside it, and this parameter",
+  "cannot say so."
+ ],
+ "cmn": "个",
+ "yue": "個",
+ "vie": "cái",
+ "tha": "อัน"
+}

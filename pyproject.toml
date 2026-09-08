@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "typed-crystallization-network"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = ["numpy>=2", "torch>=2.6", "Pillow>=11", "mujoco>=3.3"]
+[project.optional-dependencies]
+test = ["pytest>=8"]
+[project.scripts]
+tcn = "tcn.cli:main"
+[tool.setuptools.packages.find]
+include = ["tcn*", "generators*", "examples*"]
+namespaces = false
+[tool.setuptools.package-data]
+"*" = ["*.json", "*.toml"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true

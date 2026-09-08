@@ -1,0 +1,113 @@
+{
+  "_doc": [
+    "What happens where two words meet. Keyed by ISO 639-3, read by",
+    "typology.sandhi_for(), applied by linearize.Sandhi at every boundary the",
+    "engine composes.",
+    "",
+    "Two tables per language, because there are two processes:",
+    "",
+    "  elide     one word -> what it becomes before ANY vowel-initial word.",
+    "            French le/la -> l'. Phonologically conditioned.",
+    "  contract  a NAMED PAIR -> the single word it is written as.",
+    "            Spanish 'de el' -> 'del'. Not phonological at all: it is the",
+    "            identity of both words, so no vowel test would find it.",
+    "",
+    "Contraction is checked first, being the more specific statement.",
+    "",
+    "Only OBLIGATORY changes belong here. Optional ones are omitted: Italian",
+    "'di' -> \"d'\" is idiomatic in fixed collocations and merely permitted",
+    "elsewhere, so printing 'di ogni' is correct while \"d'ogni\" may not be.",
+    "",
+    "Languages absent from this file do nothing at word boundaries, which is",
+    "most of them. Spanish has contraction but no elision: its 'el agua' is a",
+    "feminine noun taking the masculine article before stressed /a/, a",
+    "different rule in a different part of the grammar, and modelling it as",
+    "elision would wrongly catch 'la avenida' too.",
+    "",
+    "A value ending in a space stays a separate word: French 'ce' -> 'cet ' is",
+    "suppletion rather than elision, but the environment is identical and this",
+    "table expresses it.",
+    "",
+    "Deliberately NOT included, because the environment is narrower than the",
+    "mechanism can state: French 'si' -> \"s'\", which happens before 'il(s)'",
+    "but not 'elle'; and French 'ce' -> \"c'\", which happens only before a",
+    "form of 'etre'. Catalan 'la' keeps its vowel before unstressed i- and u-",
+    "(la universitat) and the lexicon records no stress, so the common case is",
+    "taken and that exception is knowingly missed."
+  ],
+
+  "fra": {
+    "elide": {
+      "le": "l'", "la": "l'",
+      "de": "d'", "ne": "n'", "que": "qu'", "se": "s'",
+      "je": "j'", "me": "m'", "te": "t'",
+      "ce": "cet "
+    },
+    "contract": {
+      "de le": "du", "de les": "des",
+      "à le": "au", "à les": "aux"
+    }
+  },
+
+  "ita": {
+    "elide": {
+      "lo": "l'", "la": "l'", "il": "l'",
+      "una": "un'",
+      "quello": "quell'", "quella": "quell'",
+      "questo": "quest'", "questa": "quest'"
+    },
+    "contract": {
+      "di il": "del", "di lo": "dello", "di la": "della",
+      "di i": "dei", "di gli": "degli", "di le": "delle",
+      "a il": "al", "a lo": "allo", "a la": "alla",
+      "a i": "ai", "a gli": "agli", "a le": "alle",
+      "in il": "nel", "in lo": "nello", "in la": "nella",
+      "in i": "nei", "in gli": "negli", "in le": "nelle",
+      "da il": "dal", "da lo": "dallo", "da la": "dalla",
+      "su il": "sul", "su lo": "sullo", "su la": "sulla"
+    }
+  },
+
+  "cat": {
+    "elide": { "el": "l'", "la": "l'", "de": "d'" },
+    "contract": { "de el": "del", "de els": "dels",
+                  "a el": "al", "a els": "als",
+                  "per el": "pel", "per els": "pels" }
+  },
+
+  "oci": {
+    "elide": { "lo": "l'", "la": "l'", "de": "d'" },
+    "contract": { "de lo": "del", "a lo": "al" }
+  },
+
+  "spa": {
+    "contract": { "de el": "del", "a el": "al" }
+  },
+
+  "por": {
+    "contract": {
+      "de o": "do", "de a": "da", "de os": "dos", "de as": "das",
+      "em o": "no", "em a": "na", "em os": "nos", "em as": "nas",
+      "a o": "ao", "a os": "aos",
+      "por o": "pelo", "por a": "pela"
+    }
+  },
+
+  "glg": {
+    "contract": {
+      "de o": "do", "de a": "da", "de os": "dos", "de as": "das",
+      "en o": "no", "en a": "na",
+      "a o": "ao", "a os": "aos"
+    }
+  },
+
+  "deu": {
+    "contract": {
+      "in dem": "im", "in das": "ins",
+      "an dem": "am", "an das": "ans",
+      "zu dem": "zum", "zu der": "zur",
+      "von dem": "vom", "bei dem": "beim",
+      "auf das": "aufs", "für das": "fürs"
+    }
+  }
+}

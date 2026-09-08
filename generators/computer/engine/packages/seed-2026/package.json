@@ -1,0 +1,23 @@
+{
+  "name": "@tcn-computer/ecosystem-seed-2026",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "typecheck": "tsc -b --pretty false",
+    "check:architecture": "node --import tsx src/check.ts"
+  },
+  "dependencies": {
+    "@tcn-computer/catalog": "*",
+    "@tcn-computer/os-core": "*",
+    "@tcn-computer/os-macos": "*",
+    "@tcn-computer/os-ubuntu": "*",
+    "@tcn-computer/os-windows": "*",
+    "@tcn-computer/protocol": "*",
+    "@tcn-computer/ui-surfaces": "*"
+  }
+}

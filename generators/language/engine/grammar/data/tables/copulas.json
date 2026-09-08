@@ -1,0 +1,104 @@
+{
+ "_doc": [
+  "The present-tense third-person copula, where deriving it gets it wrong.",
+  "Keyed by ISO 639-3, with `sg` and `pl`. A language listed here overrides",
+  "the dictionary; a language absent from it is derived as before.",
+  "",
+  "An empty string is a value, not a gap. Arabic, Turkish and Tamil write a",
+  "nominal sentence with no copula at all, and the dictionary's answer for",
+  "`be` in those languages is a verb that means something else -- Arabic",
+  "كَانَ is the past tense, Turkish olur is 'becomes'. Writing nothing is",
+  "the correct present tense, not a failure to find a word.",
+  "",
+  "The rest are languages whose copula is suppletive or simply absent from",
+  "the paradigm data, so the citation form was printed where a finite verb",
+  "belongs: Polish 'być' rather than 'jest', Icelandic 'vera' rather than",
+  "'er', Swahili's infinitive 'kuwa' rather than 'ni'.",
+  "",
+  "Only languages the forms could be checked in. Everything else is derived,",
+  "and the derivation is right far more often than not -- German ist, French",
+  "est, Greek είναι, Finnish on, Hindi है, Chinese 是 all come out of the",
+  "paradigm data without help.",
+  "",
+  "Hungarian and Russian belong with Arabic here for the same reason: both",
+  "drop the third-person present copula before a predicate nominal. Hungarian",
+  "'o1 van bibor gomb' and Russian 'o0 est zholty kub' are what the paradigm",
+  "data produces and neither is how the language is written."
+ ],
+ "arb": {
+  "sg": "",
+  "pl": ""
+ },
+ "ben": {
+  "sg": "হয়",
+  "pl": "হয়"
+ },
+ "fas": {
+  "sg": "است",
+  "pl": "هستند"
+ },
+ "hin": {
+  "sg": "है",
+  "pl": "हैं"
+ },
+ "hrv": {
+  "sg": "je",
+  "pl": "su"
+ },
+ "hun": {
+  "sg": "",
+  "pl": ""
+ },
+ "ind": {
+  "sg": "adalah",
+  "pl": "adalah"
+ },
+ "isl": {
+  "sg": "er",
+  "pl": "eru"
+ },
+ "jpn": {
+  "sg": "です",
+  "pl": "です"
+ },
+ "nob": {
+  "sg": "er",
+  "pl": "er"
+ },
+ "pol": {
+  "sg": "jest",
+  "pl": "są"
+ },
+ "rus": {
+  "sg": "",
+  "pl": ""
+ },
+ "slv": {
+  "sg": "je",
+  "pl": "so"
+ },
+ "srp": {
+  "sg": "је",
+  "pl": "су"
+ },
+ "swh": {
+  "sg": "ni",
+  "pl": "ni"
+ },
+ "tam": {
+  "sg": "",
+  "pl": ""
+ },
+ "tur": {
+  "sg": "",
+  "pl": ""
+ },
+ "ukr": {
+  "sg": "є",
+  "pl": "є"
+ },
+ "vie": {
+  "sg": "là",
+  "pl": "là"
+ }
+}
