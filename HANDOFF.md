@@ -1,7 +1,7 @@
 # Handoff — 2026-09-09
 
 One overnight session. Read this, then `research/FINDINGS.md`, then `STATUS.md`.
-`research/FINDINGS.md` is the authoritative record: 28 numbered sections, each
+`research/FINDINGS.md` is the authoritative record: 29 numbered sections, each
 with measurements, and it supersedes older claims wherever they disagree.
 
 ## The one-paragraph version
@@ -9,10 +9,11 @@ with measurements, and it supersedes older claims wherever they disagree.
 The substrate had four defects that silently prevented gradient learning; all
 four are fixed and merged. Composition now works end to end: a module learned in
 one curriculum stage persists and is consumed as a candidate operator by a later
-stage, demonstrated on the shipped 15-stage curriculum. Eleven capabilities are
-measured, several with uniqueness certificates. The largest remaining gaps are
-that the visual ladder stops at edges, and that no task in the repository poses
-genuine credit assignment.
+stage, demonstrated on the shipped 15-stage curriculum. Thirteen capabilities are
+measured, several with uniqueness certificates, and a task now poses genuine
+delayed credit assignment with two things solving it. The largest remaining gaps
+are that the visual ladder stops at edges and that the action hierarchy is
+written but unmeasured.
 
 ## What is true now, with evidence
 
