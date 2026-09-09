@@ -1,0 +1,48 @@
+{
+  "combinations": 4,
+  "identical": 4,
+  "mismatched": [],
+  "rows": [
+    {
+      "actions": "read_write",
+      "document": "count = 7",
+      "identical": true,
+      "objective": false,
+      "probe": false,
+      "records": 3,
+      "seed": 0,
+      "split": "train"
+    },
+    {
+      "actions": "read_write",
+      "document": "count = 7",
+      "identical": true,
+      "objective": false,
+      "probe": true,
+      "records": 3,
+      "seed": 0,
+      "split": "train"
+    },
+    {
+      "actions": "read_write",
+      "document": "count = 7",
+      "identical": true,
+      "objective": false,
+      "probe": false,
+      "records": 3,
+      "seed": 0,
+      "split": "validation"
+    },
+    {
+      "actions": "read_write",
+      "document": "count = 7",
+      "identical": true,
+      "objective": false,
+      "probe": true,
+      "records": 3,
+      "seed": 0,
+      "split": "validation"
+    }
+  ],
+  "seconds": 16.833532305026893
+}

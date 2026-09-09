@@ -21,7 +21,11 @@ U8=integer(8,signed=False);U16=integer(16,signed=False);U32=integer(32,signed=Fa
 # asked for. Neither type is `role="category"`: a category is sampled bit by bit
 # and, being outside `Type.numeric`, admits no arithmetic, so a program could not
 # compute the argument it wants to emit.
-SLOT=integer(2,signed=False)
+# `SLOT` wraps rather than erroring, so it is a 2-bit ring and `add(slot, 1)` is a
+# total function on it: a program can advance the dial to the next slot without an
+# out-of-range value, which is what lets a policy sweep the panel deterministically
+# from the executed-action input `tcn/policy.py:action_inputs` already provides.
+SLOT=integer(2,signed=False,overflow='wrap')
 DIAL=integer(4,signed=False)
 # The default shell menu, frozen as a literal. It used to be `tuple(action_schema)`,
 # which would silently grow when the panel verbs were added to the schema; the
@@ -32,10 +36,13 @@ PANEL_VERBS=frozenset(PANEL_MENU)-{'wait'}
 PANEL_ROOT='/home/agent'
 PANEL_OUT=PANEL_ROOT+'/out.txt'
 PANEL_SLOTS=4
-# Decoy keys, none of which begins with `t`, so `terminal[0] == 't'` is an exact
-# predicate for "the panel is showing the task record" and the perceptual problem
-# is the same shape as the shell task's `brand = eq(terminal[0], '{')`.
-PANEL_KEYS=('note','memo','log','data','ref','aux')
+# Decoy keys, none of which begins with `t`.
+PANEL_DECOY_KEYS=('note','memo','log','data','ref','aux')
+# Every task key begins with `t` and no decoy key does, and the task keys have four
+# different lengths, so the brand predicate is a single byte comparison while the
+# digit's address is not a constant -- the same pair of perceptual problems the
+# shell task posed, at a narrower action interface.
+PANEL_TASK_KEYS=('tmp','task','tally','target')
 PANEL_DIGITS=9                                 # task digit 0..8, so the answer 1..9 is in range
 # Capacity-declared relations over kernel state, in the shape ARCHITECTURE section 1
 # already gives relations: sets of tuples. The leading index field is load-bearing
@@ -110,12 +117,12 @@ class Implementation(Generator):
         the kernel seed from the default stream, in the same order, whether or not
         the panel is configured.
 
-        Hand-initialisations, stated (AGENTS.md): the task record is always keyed
-        `task` and the decoys never begin with `t`, so `terminal[0] == 't'` is an
-        exact predicate; the digit is always the last byte, so the address must be
-        computed from the record's length; and the register starts at a value the
-        agent did not choose, which is what gives a myopic policy something to be
-        myopic about. Every one of the three is a property of the generated data,
+        Hand-initialisations, stated (AGENTS.md): every task key begins with `t`
+        and no decoy key does, so `terminal[0] == 't'` is an exact predicate; the
+        digit is always the last byte of a record whose length varies, so the
+        address must be computed rather than constant; and the register starts at
+        a value the agent did not choose, which is what gives a myopic policy
+        something to be myopic about. Every one of the three is a property of the generated data,
         not of a model input, and none of them is the answer.
         """
         rng=address.rng('panel')
@@ -124,8 +131,8 @@ class Implementation(Generator):
         task=rng.randrange(slots);digit=rng.randrange(int(configuration.get('panel_digits',PANEL_DIGITS)))
         records=[]
         for i in range(slots):
-            if i==task:records.append(f'task = {digit}')
-            else:records.append(f'{PANEL_KEYS[rng.randrange(len(PANEL_KEYS))]} = {rng.randrange(10)}')
+            if i==task:records.append(f'{PANEL_TASK_KEYS[rng.randrange(len(PANEL_TASK_KEYS))]} = {digit}')
+            else:records.append(f'{PANEL_DECOY_KEYS[rng.randrange(len(PANEL_DECOY_KEYS))]} = {rng.randrange(10)}')
         register=rng.randrange(1<<DIAL.bits) if configuration.get('panel_register') is None else int(configuration['panel_register'])
         return {'slots':slots,'task':task,'digit':digit,'records':records,'register':register,
                 'paths':[f'{PANEL_ROOT}/slot{i}.txt' for i in range(slots)],'answer':digit+1}
@@ -161,9 +168,17 @@ class Implementation(Generator):
         if spec:state['probe']=spec;state['probe_request']=request
         return state
     def advance(self,s,actions,dt,rng):
-        changes=[]
+        changes=[];committed=False
         for a in actions:
             if s['interface']=='keyboard' and a.verb not in {'wait','type','key'}:raise ValueError('action unavailable at keyboard interface')
+            if s['interface']!='panel' and a.verb in PANEL_VERBS:raise ValueError('action unavailable outside the panel interface')
+            if s['interface']=='panel' and a.verb not in PANEL_MENU:raise ValueError('action unavailable at panel interface')
+            if a.verb=='look':
+                slot=int(a.arg('slot'))
+                if 0<=slot<s['panel']['slots']:changes.append({'kind':'read','path':s['panel']['paths'][slot]})
+            if a.verb=='dial':s['panel']['register']=int(a.arg('value'))
+            if a.verb=='commit':
+                committed=True;changes.append({'kind':'write','path':PANEL_OUT,'text':str(s['panel']['register'])})
             if a.verb=='type':s['buffer']+=read_text(dict(a.arguments)['text'])
             if a.verb=='key':
                 code=a.arg('code')
@@ -175,7 +190,19 @@ class Implementation(Generator):
             if a.verb=='read':changes.append({'kind':'read','path':read_text(dict(a.arguments)['path'])})
         request=s.get('probe_request')
         for event in changes:event['time']=s['time']+dt;s['events'].append(event)
-        if changes:s['result']=execute(s['seed'],s['events'],s['time']+dt,request)
+        if changes:s['result']=execute(s['seed'],s['events'],s['time']+dt,request,s.get('session'))
+        if s['interface']=='panel':
+            # The reward is read back off the filesystem, not off the register: the
+            # commit has to actually land in the file for it to count, exactly as the
+            # shell task's exact-match reward is on file content. `commit` ends the
+            # episode, so the reward arrives once, on the step the episode ends, and
+            # every action that made it possible was taken strictly earlier.
+            reward=0.
+            if committed:
+                row=self.probe_content(s,PANEL_OUT)
+                reward=float(row is not None and row['content']==str(s['panel']['answer']))
+            s['done']=committed or s['tick']+1>=s['horizon']
+            return s,{'events':Value.of(integer(32,signed=False),len(changes))},{'goal':reward}
         objective=s['objective'];reward=0.
         if objective.get('path'):
             row=self.probe_content(s,objective['path'])
@@ -227,11 +254,20 @@ class Implementation(Generator):
         output=s['result']['output'];text=output.get('stdout',output.get('content',json.dumps(output)))
         screen=render_text(str(text)[-512:]+'\n'+s['result']['prompt']+s['buffer'],s['screen_width'],s['screen_height'],11)
         observations={'pixels':image_value(screen)}
-        if s['interface']=='shell':observations['terminal']=text_value(str(text)[-1024:],4096)
-        menu=('wait','type','key') if s['interface']=='keyboard' else tuple(self.action_schema)
+        if s['interface'] in {'shell','panel'}:observations['terminal']=text_value(str(text)[-1024:],4096)
+        menu=('wait','type','key') if s['interface']=='keyboard' else PANEL_MENU if s['interface']=='panel' else SHELL_MENU
         snap=s['result']['snapshot']
         latents={'event_count':Value.of(integer(32,signed=False),len(s['events']))}
         probes={'state_counts':vector_value([len(snap['computers']),len(snap['packets']),len(s['result']['trajectory'])])}
         if s.get('probe'):
             extra_latents,extra_probes=self.state_view(s);latents.update(extra_latents);probes.update(extra_probes)
+        if s.get('panel'):
+            # Privileged panel state, probes and latents only. `answer` is the dense
+            # target the staged arm supervises on; `showing_task` is the perceptual
+            # predicate; `register` is state the agent's own `dial` changed and cannot
+            # observe. `StepRecord.actor_view` reaches none of them.
+            p=s['panel']
+            latents['register']=Value.of(DIAL,p['register'])
+            probes['answer']=Value.of(DIAL,p['answer']);probes['task_slot']=Value.of(SLOT,p['task'])
+            probes['showing_task']=Value.of(BOOL,str(text)[:1]=='t')
         return observations,latents,probes,{'agent_0':menu}

@@ -74,6 +74,22 @@ def relaxed(registry,op,xs,temperature=1.,carrier_scaled=False):
     (see `SoftProgram.surrogate_scale`): one temperature per node divides both
     the candidate softmax and the operator relaxation, so widening a surrogate
     through `temperature` also flattens that node's choice distribution.
+
+    It applies to `eq` **only**, and that restriction is a measurement, not an
+    omission. `eq`'s surrogate is a monotone function of `||a-b||` at every
+    temperature, so widening it changes the conditioning and cannot move which
+    candidate is closest to equal. The ordering comparisons are different:
+    `sigmoid(d/tau)` enters the loss against a threshold that is itself being
+    chosen, and the minimizing threshold moves with `tau`. Measured on `le` over
+    byte operands, the shipped `tau = 1` is numerically dead past `|d| >= 17` yet
+    still puts its loss minimum on the correct threshold, while the carrier width
+    restores the derivative and moves the minimum onto a wrong one, with the loss
+    spread collapsing by two to three orders of magnitude. The temperature that
+    works there is the task's decision margin, which is a property of the
+    decision being learned rather than of the declared type -- so no constant is
+    derived for that family, and a caller supplies a margin per node through
+    `SoftProgram.surrogate_scale`, which the choice/surrogate split now makes
+    possible without flattening that node's candidate softmax.
     """
     n=op.name; p=dict(op.parameters)
     if op.gradient=="none": return exact_tensor(registry,op,xs)
@@ -101,7 +117,16 @@ def relaxed(registry,op,xs,temperature=1.,carrier_scaled=False):
         y=funcs[n]()
         if not torch.all(torch.isfinite(y)): raise ValueError("nonfinite relaxed result")
         return y
-    if n=="tuple": return torch.cat(xs,dim=-1) if xs else torch.empty(0)
+    if n=="tuple":
+        # `torch.cat` does not broadcast, so packing a batched intermediate
+        # alongside an unbatched trainable constant -- an ordinary thing to want,
+        # and what every arithmetic operator already does -- raised
+        # "Tensors must have same number of dimensions". Broadcast the leading
+        # batch axes first and concatenate only the declared widths, which is the
+        # same rule `exact_tensor` applies to the exact path.
+        if not xs: return torch.empty(0)
+        shape=torch.broadcast_shapes(*(x.shape[:-1] for x in xs))
+        return torch.cat([x.expand(*shape,x.shape[-1]) for x in xs],dim=-1)
     if n=="project":
         widths=[t.width for t in op.inputs[0].items]; i=p["index"]; start=sum(widths[:i])
         return a[...,start:start+widths[i]]
@@ -129,6 +154,44 @@ def relaxed(registry,op,xs,temperature=1.,carrier_scaled=False):
     raise NotImplementedError(f"missing declared relaxation for {n}")
 
 class SoftProgram(nn.Module):
+    """Relaxed execution of one typed scaffold, with three distinct fixed-choice states.
+
+    A node whose operator choice is settled can be settled in three different ways,
+    and only two of them are gradient boundaries. Conflating them severed the
+    gradient to everything upstream of a hand-wired node (FINDINGS section 18).
+
+    1. **Declared** -- `Node.selected` is set in the program. The choice is a
+       hand-supplied prior or fixed plumbing, and per AGENTS.md supplying known
+       structure is the intended mode. Its choice logit does not train, but its
+       value path stays differentiable through the operator's declared
+       relaxation, exactly as if the node had been written with that one
+       candidate and no selection. These are `self.pinned` (also listed in
+       `self.frozen`, which every caller reads as "this node's choice is
+       settled").
+    2. **Declared with no relaxation** -- the same, where the candidate operator
+       declares `gradient="none"`: every module call, and the set operations.
+       `relaxed()` routes those to exact execution, so the boundary is a property
+       of the operator contract, which is where ARCHITECTURE section 4 puts it.
+       A frozen module still stops gradients, and nothing about that changes.
+    3. **Crystallized** -- committed by `freeze()` during crystallization. This is
+       an irreversible commitment to the exported discrete program, so the node
+       executes exactly and detached, per ARCHITECTURE section 5's "freezing
+       removes that internal gradient machinery". The scheduler's connectivity
+       guard exists precisely to check that this has not disconnected the
+       remaining trainable region, and weakening the boundary would weaken the
+       guard. `freeze()` therefore drops the node from `self.pinned`.
+
+    Temperatures are likewise two quantities, not one. `temperatures[n]` is the
+    candidate-choice softmax temperature; the relaxation sees
+    `temperatures[n] * surrogate_scale[n]`. They were one field, so a surrogate
+    could not be widened without flattening that node's choice distribution --
+    which took language-track choice gradients from 9e-2 to 2e-5 and collapsed
+    every seed (FINDINGS sections 16 and 19). `surrogate_scale` defaults to 1.
+    everywhere, so every shipped run is bit-identical and the crystallizer's
+    anneal still sharpens surrogates proportionally because it scales the shared
+    term. This is the interface introduced on the surrogate branch and adopted
+    here verbatim, so the two changes merge rather than compete.
+    """
     def __init__(self,program,registry=None):
         super().__init__(); self.registry=registry or Registry(); self.program=program.validate(self.registry)
         self.choices=nn.ParameterList([nn.Parameter(torch.zeros(len(n.candidates)),requires_grad=n.selected is None) for n in program.nodes])
@@ -146,6 +209,7 @@ class SoftProgram(nn.Module):
         self.surrogate_scale={n.name:1. for n in program.nodes}
         self.carrier_scaled=False
         self.frozen={n.name:n.selected for n in program.nodes if n.selected is not None}
+        self.pinned=dict(self.frozen)
         self.trials={}
         self.quantization={}
     def forward(self,inputs,state=None,return_trace=False):
@@ -160,7 +224,16 @@ class SoftProgram(nn.Module):
         for n,logits in zip(self.program.nodes,self.choices):
             if n.name in self.frozen:
                 c=n.candidates[self.frozen[n.name]]
-                values[n.name]=exact_tensor(self.registry,c.operator,[values[s] for s in c.sources]).detach()
+                xs=[values[s] for s in c.sources]
+                # A declared selection fixes the choice, not the value path: the
+                # node evaluates its one candidate through the declared
+                # relaxation, so a `gradient="none"` operator still stops
+                # gradients and everything else stays differentiable. A
+                # crystallized node is the other case and executes exactly.
+                values[n.name]=(relaxed(self.registry,c.operator,xs,
+                                        self.temperatures[n.name]*self.surrogate_scale[n.name],self.carrier_scaled)
+                                if n.name in self.pinned
+                                else exact_tensor(self.registry,c.operator,xs).detach())
                 continue
             tau=self.temperatures[n.name]
             sur=tau*self.surrogate_scale[n.name]
@@ -305,6 +378,11 @@ class SoftProgram(nn.Module):
     def freeze(self,name,index=None):
         i=next(i for i,n in enumerate(self.program.nodes) if n.name==name)
         self.frozen[name]=int(self.choices[i].argmax()) if index is None else index
+        # Crystallization commits this node to the exported discrete program, so
+        # it stops being a differentiable declared selection and becomes an exact
+        # gradient boundary. Freezing a declared node is therefore a real change
+        # of state, not a no-op.
+        self.pinned.pop(name,None)
         self.choices[i].requires_grad_(False); self.trials.pop(name,None)
         for key,param in self.constants.items():
             users=[n.name for n in self.program.nodes if any(key in c.sources for c in n.candidates)]

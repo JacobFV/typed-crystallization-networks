@@ -173,7 +173,7 @@ class JointTrainer:
         return self.history
     def save(self,outdir):
         p=Path(outdir);p.mkdir(parents=True,exist_ok=True)
-        torch.save({'format':'tcn.training/1','source':source_fingerprint(),'modules':[m.to_dict() for m in self.model.registry.modules.values()],'requires_grad':{k:p.requires_grad for k,p in self.model.named_parameters()},'trials':self.model.trials,'quantization':{k:(t.to_dict(),pressure) for k,(t,pressure) in self.model.quantization.items()},'program':self.model.program.to_dict(),'state':self.model.state_dict(),'optimizer':self.optimizer.state_dict(),'temperatures':self.model.temperatures,'frozen':self.model.frozen,'config':self.config.to_dict(),'completed':self.completed,'history':self.history,'rng':torch.get_rng_state()},p/'checkpoint.pt')
+        torch.save({'format':'tcn.training/1','source':source_fingerprint(),'modules':[m.to_dict() for m in self.model.registry.modules.values()],'requires_grad':{k:p.requires_grad for k,p in self.model.named_parameters()},'trials':self.model.trials,'quantization':{k:(t.to_dict(),pressure) for k,(t,pressure) in self.model.quantization.items()},'program':self.model.program.to_dict(),'state':self.model.state_dict(),'optimizer':self.optimizer.state_dict(),'temperatures':self.model.temperatures,'surrogate_scale':self.model.surrogate_scale,'carrier_scaled':self.model.carrier_scaled,'frozen':self.model.frozen,'pinned':self.model.pinned,'config':self.config.to_dict(),'completed':self.completed,'history':self.history,'rng':torch.get_rng_state()},p/'checkpoint.pt')
         (p/'metrics.json').write_text(json.dumps(self.history,indent=2))
     @classmethod
     def load(cls,path,registry=None):
@@ -186,6 +186,11 @@ class JointTrainer:
         registry=registry or Registry()
         for spec in d['modules']:registry.register_module(Program.from_dict(spec,registry))
         m=SoftProgram(Program.from_dict(d['program'],registry),registry);m.load_state_dict(d['state']);m.temperatures=d['temperatures'];m.frozen=d['frozen']
+        # Two temperatures and two fixed-choice states, restored separately: a
+        # checkpoint written before they were split carries neither, and its
+        # declared selections are the pinned set the constructor already built.
+        m.surrogate_scale=d.get('surrogate_scale',dict(m.surrogate_scale));m.carrier_scaled=d.get('carrier_scaled',False)
+        m.pinned={k:v for k,v in d.get('pinned',m.pinned).items() if k in m.frozen}
         for k,p in m.named_parameters():p.requires_grad_(d['requires_grad'][k])
         m.trials=d['trials'];m.quantization={k:(Type.from_dict(v[0]),v[1]) for k,v in d['quantization'].items()}
         t=cls(m,TrainConfig.from_dict(d['config']));t.optimizer.load_state_dict(d['optimizer']);t.completed=d['completed'];t.history=d['history'];torch.set_rng_state(d['rng']);return t
