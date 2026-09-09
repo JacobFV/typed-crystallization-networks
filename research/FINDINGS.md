@@ -413,6 +413,12 @@ inside it.
   reaches exactly 0.0 in float32 at **|a-b| >= 11** (the report says 12; the
   measured threshold is 11, with 1.6e-28 still representable at 8). On 0-255
   data that kills the gradient for all but near-equal bytes.
+- **P1, verified here.** `relaxed` implements `tuple` as a bare
+  `torch.cat(xs, dim=-1)`, which does not broadcast: mixing a batched value
+  with an unbatched constant raises `RuntimeError: Tensors must have same
+  number of dimensions: got 2 and 1`, while a binary arithmetic operator on the
+  same pair broadcasts to `(8, 1)` correctly. A scaffold that packs a trainable
+  constant alongside a batched intermediate hits this.
 - **The image boundary is representational, not a budget.** `role="byte"`
   excludes pixels from `Type.numeric` (confirmed), so `sum`, `mean`,
   `reduce_max`, all arithmetic and all ordering comparisons are type-illegal on
