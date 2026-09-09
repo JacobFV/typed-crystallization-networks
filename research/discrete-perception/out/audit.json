@@ -1,0 +1,293 @@
+{
+ "train_seeds": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11
+ ],
+ "held_seeds": [
+  100,
+  101,
+  102,
+  103,
+  104,
+  105,
+  106,
+  107,
+  108,
+  109,
+  110,
+  111
+ ],
+ "resolutions": [
+  4,
+  8,
+  12,
+  16,
+  24,
+  32
+ ],
+ "camera": "one declared `camera` action, delta=(-2.4,-2.4,-4.2)",
+ "rows": [
+  {
+   "resolution": 4,
+   "pixels_per_image": 16,
+   "foreground_fraction_train": 0.5104166666666666,
+   "depth_zero_equals_no_object": true,
+   "distinct_object_ids_train": [
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "foreground": {
+    "distinct_rgb_train": 59,
+    "colliding_rgb_train": 0,
+    "collision_fraction": 0.0,
+    "train_pairs": 192,
+    "held_coverage": 0.5625,
+    "held_accuracy": 1.0,
+    "majority_accuracy": 0.4375
+   },
+   "object_ids": {
+    "distinct_rgb_train": 59,
+    "colliding_rgb_train": 0,
+    "collision_fraction": 0.0,
+    "train_pairs": 192,
+    "held_coverage": 0.5625,
+    "held_accuracy": 0.5625,
+    "majority_accuracy": 0.5625
+   },
+   "depth_q": {
+    "distinct_rgb_train": 59,
+    "colliding_rgb_train": 15,
+    "collision_fraction": 0.2542372881355932,
+    "train_pairs": 192,
+    "held_coverage": 0.5625,
+    "held_accuracy": 0.5625,
+    "majority_accuracy": 0.5625
+   }
+  },
+  {
+   "resolution": 8,
+   "pixels_per_image": 64,
+   "foreground_fraction_train": 0.5143229166666666,
+   "depth_zero_equals_no_object": true,
+   "distinct_object_ids_train": [
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "foreground": {
+    "distinct_rgb_train": 111,
+    "colliding_rgb_train": 0,
+    "collision_fraction": 0.0,
+    "train_pairs": 768,
+    "held_coverage": 0.5677083333333334,
+    "held_accuracy": 1.0,
+    "majority_accuracy": 0.4322916666666667
+   },
+   "object_ids": {
+    "distinct_rgb_train": 111,
+    "colliding_rgb_train": 0,
+    "collision_fraction": 0.0,
+    "train_pairs": 768,
+    "held_coverage": 0.5677083333333334,
+    "held_accuracy": 0.5677083333333334,
+    "majority_accuracy": 0.5677083333333334
+   },
+   "depth_q": {
+    "distinct_rgb_train": 111,
+    "colliding_rgb_train": 59,
+    "collision_fraction": 0.5315315315315315,
+    "train_pairs": 768,
+    "held_coverage": 0.5677083333333334,
+    "held_accuracy": 0.5677083333333334,
+    "majority_accuracy": 0.5677083333333334
+   }
+  },
+  {
+   "resolution": 12,
+   "pixels_per_image": 144,
+   "foreground_fraction_train": 0.5092592592592593,
+   "depth_zero_equals_no_object": true,
+   "distinct_object_ids_train": [
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "foreground": {
+    "distinct_rgb_train": 152,
+    "colliding_rgb_train": 0,
+    "collision_fraction": 0.0,
+    "train_pairs": 1728,
+    "held_coverage": 0.5636574074074074,
+    "held_accuracy": 1.0,
+    "majority_accuracy": 0.4363425925925926
+   },
+   "object_ids": {
+    "distinct_rgb_train": 152,
+    "colliding_rgb_train": 0,
+    "collision_fraction": 0.0,
+    "train_pairs": 1728,
+    "held_coverage": 0.5636574074074074,
+    "held_accuracy": 0.5636574074074074,
+    "majority_accuracy": 0.5636574074074074
+   },
+   "depth_q": {
+    "distinct_rgb_train": 152,
+    "colliding_rgb_train": 92,
+    "collision_fraction": 0.6052631578947368,
+    "train_pairs": 1728,
+    "held_coverage": 0.5636574074074074,
+    "held_accuracy": 0.5636574074074074,
+    "majority_accuracy": 0.5636574074074074
+   }
+  },
+  {
+   "resolution": 16,
+   "pixels_per_image": 256,
+   "foreground_fraction_train": 0.5126953125,
+   "depth_zero_equals_no_object": true,
+   "distinct_object_ids_train": [
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "foreground": {
+    "distinct_rgb_train": 176,
+    "colliding_rgb_train": 0,
+    "collision_fraction": 0.0,
+    "train_pairs": 3072,
+    "held_coverage": 0.5703125,
+    "held_accuracy": 1.0,
+    "majority_accuracy": 0.4296875
+   },
+   "object_ids": {
+    "distinct_rgb_train": 176,
+    "colliding_rgb_train": 0,
+    "collision_fraction": 0.0,
+    "train_pairs": 3072,
+    "held_coverage": 0.5703125,
+    "held_accuracy": 0.5703125,
+    "majority_accuracy": 0.5703125
+   },
+   "depth_q": {
+    "distinct_rgb_train": 176,
+    "colliding_rgb_train": 116,
+    "collision_fraction": 0.6590909090909091,
+    "train_pairs": 3072,
+    "held_coverage": 0.5703125,
+    "held_accuracy": 0.5703125,
+    "majority_accuracy": 0.5703125
+   }
+  },
+  {
+   "resolution": 24,
+   "pixels_per_image": 576,
+   "foreground_fraction_train": 0.51171875,
+   "depth_zero_equals_no_object": true,
+   "distinct_object_ids_train": [
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "foreground": {
+    "distinct_rgb_train": 202,
+    "colliding_rgb_train": 0,
+    "collision_fraction": 0.0,
+    "train_pairs": 6912,
+    "held_coverage": 0.5677083333333334,
+    "held_accuracy": 1.0,
+    "majority_accuracy": 0.4322916666666667
+   },
+   "object_ids": {
+    "distinct_rgb_train": 202,
+    "colliding_rgb_train": 0,
+    "collision_fraction": 0.0,
+    "train_pairs": 6912,
+    "held_coverage": 0.5677083333333334,
+    "held_accuracy": 0.5677083333333334,
+    "majority_accuracy": 0.5677083333333334
+   },
+   "depth_q": {
+    "distinct_rgb_train": 202,
+    "colliding_rgb_train": 158,
+    "collision_fraction": 0.7821782178217822,
+    "train_pairs": 6912,
+    "held_coverage": 0.5677083333333334,
+    "held_accuracy": 0.5677083333333334,
+    "majority_accuracy": 0.5677083333333334
+   }
+  },
+  {
+   "resolution": 32,
+   "pixels_per_image": 1024,
+   "foreground_fraction_train": 0.51171875,
+   "depth_zero_equals_no_object": true,
+   "distinct_object_ids_train": [
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "foreground": {
+    "distinct_rgb_train": 224,
+    "colliding_rgb_train": 0,
+    "collision_fraction": 0.0,
+    "train_pairs": 12288,
+    "held_coverage": 0.569580078125,
+    "held_accuracy": 1.0,
+    "majority_accuracy": 0.430419921875
+   },
+   "object_ids": {
+    "distinct_rgb_train": 224,
+    "colliding_rgb_train": 0,
+    "collision_fraction": 0.0,
+    "train_pairs": 12288,
+    "held_coverage": 0.569580078125,
+    "held_accuracy": 0.569580078125,
+    "majority_accuracy": 0.569580078125
+   },
+   "depth_q": {
+    "distinct_rgb_train": 224,
+    "colliding_rgb_train": 188,
+    "collision_fraction": 0.8392857142857143,
+    "train_pairs": 12288,
+    "held_coverage": 0.569580078125,
+    "held_accuracy": 0.569580078125,
+    "majority_accuracy": 0.569580078125
+   }
+  }
+ ]
+}

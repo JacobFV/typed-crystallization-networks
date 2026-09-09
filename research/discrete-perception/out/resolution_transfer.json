@@ -1,0 +1,135 @@
+{
+ "arguments": {
+  "search_resolution": 8,
+  "resolutions": [
+   8,
+   16,
+   24,
+   32,
+   48
+  ],
+  "train": 8,
+  "per_image": 0,
+  "apply": 3,
+  "objects": 6,
+  "probe_budget": 2000,
+  "tag": "resolution_transfer"
+ },
+ "search_resolution": 8,
+ "search_seconds": 887.0387073869933,
+ "space_size": 32000,
+ "conforming_train": 1952,
+ "conforming_train_and_validation": 1640,
+ "selections": {
+  "pos": 0,
+  "obs": 0,
+  "g_at": 0,
+  "b_at": 0,
+  "red": 0,
+  "green": 0,
+  "blue": 0,
+  "cmp_r": 0,
+  "cmp_g": 0,
+  "cmp_b": 2,
+  "rg": 0,
+  "foreground": 1,
+  "record": 0
+ },
+ "rows": [
+  {
+   "resolution": 8,
+   "observation_width": 192,
+   "positions": 64,
+   "caller_nodes": 3,
+   "applied_pixels": 192,
+   "foreground_fraction": 0.2864583333333333,
+   "max_error_over_dense_probe": 0.0,
+   "max_count_error": 0,
+   "median_apply_seconds": 0.07624091301113367,
+   "space_size": 32000,
+   "search_probe": {
+    "programs_per_second": 83.21301534332083,
+    "projected_exhaustive_seconds": 384.55522694345564,
+    "evaluated": 2000,
+    "seconds": 24.034701683965977,
+    "records": 48
+   }
+  },
+  {
+   "resolution": 16,
+   "observation_width": 768,
+   "positions": 256,
+   "caller_nodes": 3,
+   "applied_pixels": 768,
+   "foreground_fraction": 0.2734375,
+   "max_error_over_dense_probe": 0.0,
+   "max_count_error": 0,
+   "median_apply_seconds": 1.1724221800104715,
+   "space_size": 32000,
+   "search_probe": {
+    "programs_per_second": 56.21405847931607,
+    "projected_exhaustive_seconds": 569.2526187514886,
+    "evaluated": 2000,
+    "seconds": 35.57828867196804,
+    "records": 48
+   }
+  },
+  {
+   "resolution": 24,
+   "observation_width": 1728,
+   "positions": 576,
+   "caller_nodes": 3,
+   "applied_pixels": 1728,
+   "foreground_fraction": 0.2708333333333333,
+   "max_error_over_dense_probe": 0.0,
+   "max_count_error": 0,
+   "median_apply_seconds": 5.221025145961903,
+   "space_size": 32000,
+   "search_probe": {
+    "programs_per_second": 15.262974284119998,
+    "projected_exhaustive_seconds": 2096.57694524806,
+    "evaluated": 2000,
+    "seconds": 131.03605907800375,
+    "records": 48
+   }
+  },
+  {
+   "resolution": 32,
+   "observation_width": 3072,
+   "positions": 1024,
+   "caller_nodes": 3,
+   "applied_pixels": 3072,
+   "foreground_fraction": 0.2737630208333333,
+   "max_error_over_dense_probe": 0.0,
+   "max_count_error": 0,
+   "median_apply_seconds": 12.715932823950425,
+   "space_size": 32000,
+   "search_probe": {
+    "programs_per_second": 16.837682025784513,
+    "projected_exhaustive_seconds": 1900.4991275519133,
+    "evaluated": 2000,
+    "seconds": 118.78119547199458,
+    "records": 48
+   }
+  },
+  {
+   "resolution": 48,
+   "observation_width": 6912,
+   "positions": 2304,
+   "caller_nodes": 3,
+   "applied_pixels": 6912,
+   "foreground_fraction": 0.27445023148148145,
+   "max_error_over_dense_probe": 0.0,
+   "max_count_error": 0,
+   "median_apply_seconds": 64.02586649201112,
+   "space_size": 32000,
+   "search_probe": {
+    "programs_per_second": 12.29967937918144,
+    "projected_exhaustive_seconds": 2601.693833919242,
+    "evaluated": 2000,
+    "seconds": 162.60586461995263,
+    "records": 48
+   }
+  }
+ ]
+}

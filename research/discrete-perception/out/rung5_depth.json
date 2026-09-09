@@ -1,0 +1,232 @@
+{
+ "arguments": {
+  "resolution": 8,
+  "train": 8,
+  "held": 8,
+  "per_image": 32,
+  "objects": 6,
+  "cuts": 16,
+  "joint_budget": 100000,
+  "gradient_seeds": 4,
+  "tag": "rung5_depth"
+ },
+ "depth_threshold": 0.5730269551277161,
+ "near_fraction_train": 0.2578125,
+ "ceiling_colour": {
+  "distinct_keys": 87,
+  "colliding_keys": 5,
+  "train_accuracy": 0.98828125,
+  "held_out_accuracy": 0.810546875,
+  "majority_baseline": 0.810546875
+ },
+ "ceiling_position": {
+  "distinct_keys": 64,
+  "colliding_keys": 64,
+  "train_accuracy": 0.7421875,
+  "held_out_accuracy": 0.810546875,
+  "majority_baseline": 0.810546875
+ },
+ "ceiling_colour_and_position": {
+  "distinct_keys": 329,
+  "colliding_keys": 0,
+  "train_accuracy": 1.0,
+  "held_out_accuracy": 0.810546875,
+  "majority_baseline": 0.810546875
+ },
+ "train_examples": 256,
+ "colour_family": {
+  "solved": false,
+  "selections": null,
+  "exact_max_error": 0.0,
+  "evaluated": 32000,
+  "space_size": 32000,
+  "exhausted": true,
+  "unique": false,
+  "seconds": 30.580417899996974,
+  "continuous": [],
+  "wall": 30.645905128971208
+ },
+ "position_family_cuts": [
+  12,
+  24,
+  36,
+  48,
+  60,
+  72,
+  84,
+  96,
+  108,
+  120,
+  132,
+  144,
+  156,
+  168,
+  180
+ ],
+ "position_family": {
+  "solved": false,
+  "selections": null,
+  "exact_max_error": 0.0,
+  "evaluated": 100000,
+  "space_size": 15360000,
+  "exhausted": false,
+  "unique": null,
+  "seconds": 109.07295572699513,
+  "continuous": [],
+  "wall": 109.07889532402623,
+  "programs_per_second": 916.8175496251853,
+  "projected_exhaustive_seconds": 16753.60599966645
+ },
+ "position_only_conformance": {
+  "solved": false,
+  "selections": null,
+  "exact_max_error": 0.0,
+  "evaluated": 480,
+  "space_size": 480,
+  "exhausted": true,
+  "unique": false,
+  "seconds": 0.4024233300006017,
+  "continuous": [],
+  "wall": 0.4094630840118043
+ },
+ "position_only_best": {
+  "evaluated": 480,
+  "space_size": 480,
+  "exhausted": true,
+  "best_train_accuracy": 0.8203125,
+  "selections": {
+   "pos": 0,
+   "obs": 0,
+   "g_at": 0,
+   "b_at": 0,
+   "red": 0,
+   "green": 0,
+   "blue": 0,
+   "cmp_r": 0,
+   "cmp_g": 0,
+   "cmp_b": 0,
+   "rg": 0,
+   "fg": 0,
+   "side": 16,
+   "near": 4,
+   "record": 0
+  },
+  "held_out_accuracy": 0.80859375,
+  "seconds": 61.626892886008136
+ },
+ "gradient": {
+  "rows": [
+   {
+    "seed": 0,
+    "ok": false,
+    "train_err": 1.0,
+    "relaxed_loss": 0.2961171567440033,
+    "selections": {
+     "pos": 0,
+     "obs": 0,
+     "g_at": 0,
+     "b_at": 0,
+     "red": 0,
+     "green": 0,
+     "blue": 0,
+     "cmp_r": 4,
+     "cmp_g": 1,
+     "cmp_b": 1,
+     "rg": 9,
+     "fg": 6,
+     "side": 21,
+     "near": 8,
+     "record": 0
+    },
+    "seconds": 165.4936101050116,
+    "held_err": 1.0,
+    "held_acc": 0.81640625
+   },
+   {
+    "seed": 1,
+    "ok": false,
+    "train_err": 1.0,
+    "relaxed_loss": 0.5521160960197449,
+    "selections": {
+     "pos": 0,
+     "obs": 0,
+     "g_at": 0,
+     "b_at": 0,
+     "red": 0,
+     "green": 0,
+     "blue": 0,
+     "cmp_r": 3,
+     "cmp_g": 3,
+     "cmp_b": 3,
+     "rg": 11,
+     "fg": 3,
+     "side": 4,
+     "near": 10,
+     "record": 0
+    },
+    "seconds": 259.0636470960453,
+    "held_err": 1.0,
+    "held_acc": 0.765625
+   },
+   {
+    "seed": 2,
+    "ok": false,
+    "train_err": 1.0,
+    "relaxed_loss": 0.2886013984680176,
+    "selections": {
+     "pos": 0,
+     "obs": 0,
+     "g_at": 0,
+     "b_at": 0,
+     "red": 0,
+     "green": 0,
+     "blue": 0,
+     "cmp_r": 0,
+     "cmp_g": 3,
+     "cmp_b": 0,
+     "rg": 6,
+     "fg": 14,
+     "side": 20,
+     "near": 1,
+     "record": 0
+    },
+    "seconds": 342.00106015399797,
+    "held_err": 1.0,
+    "held_acc": 0.81640625
+   },
+   {
+    "seed": 3,
+    "ok": false,
+    "train_err": 1.0,
+    "relaxed_loss": 0.2908288240432739,
+    "selections": {
+     "pos": 0,
+     "obs": 0,
+     "g_at": 0,
+     "b_at": 0,
+     "red": 0,
+     "green": 0,
+     "blue": 0,
+     "cmp_r": 0,
+     "cmp_g": 1,
+     "cmp_b": 2,
+     "rg": 1,
+     "fg": 4,
+     "side": 21,
+     "near": 8,
+     "record": 0
+    },
+    "seconds": 287.12275175901596,
+    "held_err": 1.0,
+    "held_acc": 0.81640625
+   }
+  ],
+  "summary": {
+   "n": 4,
+   "successes": 0,
+   "median_seconds": 273.09319942753064,
+   "median_train_err": 1.0
+  },
+  "init_noise": 0.5
+ }
+}

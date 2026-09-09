@@ -1,0 +1,82 @@
+{
+ "arguments": {
+  "resolutions": [
+   8,
+   16,
+   32,
+   64
+  ],
+  "train": 8,
+  "per_image": 48,
+  "objects": 6,
+  "baseline_resolution": 8,
+  "tag": "incremental"
+ },
+ "rows": [
+  {
+   "resolution": 8,
+   "observation_width": 192,
+   "records": 384,
+   "space_size": 32000,
+   "incremental": {
+    "count": 2608,
+    "node_evaluations": 36770,
+    "leaves_reached": 2608,
+    "seconds": 59.957628089003265,
+    "exhausted": true,
+    "unique": false
+   },
+   "enumerate_fit_equivalent": {
+    "count": 2608,
+    "evaluated": 32000,
+    "seconds": 1067.9262027349905,
+    "exhausted": true,
+    "unique": false
+   },
+   "identical_conforming_set": true,
+   "speedup": 17.811348393397456
+  },
+  {
+   "resolution": 16,
+   "observation_width": 768,
+   "records": 384,
+   "space_size": 32000,
+   "incremental": {
+    "count": 1888,
+    "node_evaluations": 36050,
+    "leaves_reached": 1888,
+    "seconds": 71.5991445829859,
+    "exhausted": true,
+    "unique": false
+   }
+  },
+  {
+   "resolution": 32,
+   "observation_width": 3072,
+   "records": 384,
+   "space_size": 32000,
+   "incremental": {
+    "count": 1664,
+    "node_evaluations": 35826,
+    "leaves_reached": 1664,
+    "seconds": 47.77626311901258,
+    "exhausted": true,
+    "unique": false
+   }
+  },
+  {
+   "resolution": 64,
+   "observation_width": 12288,
+   "records": 384,
+   "space_size": 32000,
+   "incremental": {
+    "count": 2608,
+    "node_evaluations": 36770,
+    "leaves_reached": 2608,
+    "seconds": 74.18322449503466,
+    "exhausted": true,
+    "unique": false
+   }
+  }
+ ]
+}

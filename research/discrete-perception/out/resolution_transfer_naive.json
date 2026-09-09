@@ -1,0 +1,98 @@
+{
+ "arguments": {
+  "search_resolution": 8,
+  "resolutions": [
+   8,
+   16,
+   24,
+   32,
+   48,
+   64
+  ],
+  "train": 8,
+  "per_image": 48,
+  "apply": 3,
+  "objects": 6,
+  "probe_budget": 2000,
+  "tag": "resolution_transfer"
+ },
+ "search_resolution": 8,
+ "search_seconds": 1062.1784401420155,
+ "space_size": 32000,
+ "conforming_train": 2608,
+ "conforming_train_and_validation": 2336,
+ "selections": {
+  "pos": 0,
+  "obs": 0,
+  "g_at": 0,
+  "b_at": 0,
+  "red": 0,
+  "green": 0,
+  "blue": 0,
+  "cmp_r": 0,
+  "cmp_g": 0,
+  "cmp_b": 0,
+  "rg": 1,
+  "foreground": 4,
+  "record": 0
+ },
+ "rows": [
+  {
+   "resolution": 8,
+   "observation_width": 192,
+   "positions": 64,
+   "caller_nodes": 3,
+   "applied_pixels": 192,
+   "foreground_fraction": 0.2864583333333333,
+   "max_error_over_dense_probe": 1.0,
+   "max_count_error": 8,
+   "median_apply_seconds": 0.17727309704059735,
+   "space_size": 32000,
+   "search_probe": {
+    "programs_per_second": 133.96352215845098,
+    "projected_exhaustive_seconds": 238.87099625635892,
+    "evaluated": 2000,
+    "seconds": 14.929437266022433,
+    "records": 48
+   }
+  },
+  {
+   "resolution": 16,
+   "observation_width": 768,
+   "positions": 256,
+   "caller_nodes": 3,
+   "applied_pixels": 768,
+   "foreground_fraction": 0.2734375,
+   "max_error_over_dense_probe": 1.0,
+   "max_count_error": 28,
+   "median_apply_seconds": 1.050003488024231,
+   "space_size": 32000,
+   "search_probe": {
+    "programs_per_second": 68.17647440291923,
+    "projected_exhaustive_seconds": 469.37012041546404,
+    "evaluated": 2000,
+    "seconds": 29.335632525966503,
+    "records": 48
+   }
+  },
+  {
+   "resolution": 24,
+   "observation_width": 1728,
+   "positions": 576,
+   "caller_nodes": 3,
+   "applied_pixels": 1728,
+   "foreground_fraction": 0.2708333333333333,
+   "max_error_over_dense_probe": 1.0,
+   "max_count_error": 65,
+   "median_apply_seconds": 4.200147870986257,
+   "space_size": 32000,
+   "search_probe": {
+    "programs_per_second": 19.635675788083347,
+    "projected_exhaustive_seconds": 1629.6867164317518,
+    "evaluated": 2000,
+    "seconds": 101.85541977698449,
+    "records": 48
+   }
+  }
+ ]
+}

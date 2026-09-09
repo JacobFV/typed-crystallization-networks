@@ -1,0 +1,20 @@
+full-alphabet space                                        4294967296
+brute force evaluated/solved/exhausted/rate                100000 / True / False / 465 programs/s
+brute force projected exhaustive wall clock (s)            9.233e+06
+observed-alphabet pool / space / reduction                 129 / 549552384 / 7.8x
+scoped enumeration evaluated/solved/exhausted/projected s  100000 / True / False / 1.938e+06
+  hill climb restart 0: solved=False evals=801 acc=0.7188  26.8s
+  hill climb restart 1: solved=False evals=2401 acc=0.6875 98.1s
+  hill climb restart 2: solved=False evals=3201 acc=0.7188 135.2s
+  hill climb restart 3: solved=True evals=801 acc=1.0000   21.1s
+  hill climb restart 4: solved=False evals=1601 acc=0.5938 53.5s
+  hill climb restart 5: solved=False evals=1601 acc=0.7188 62.2s
+hill climb successes / median evaluations                  1/6 / 1601
+  [grad full] seed 0: ok=True train=0 (664.0s) 
+  [grad full] seed 1: ok=True train=0 (586.7s) 
+  [grad full] seed 2: ok=True train=0 (728.5s) 
+  [grad full] seed 3: ok=True train=0 (614.9s) 
+  [grad full] seed 4: ok=True train=0 (332.9s) 
+  [grad full] seed 5: ok=True train=0 (209.1s) 
+gradient successes                                         6/6
+wrote /home/brandonin/Documents/typed-crystallization-networks/research/discrete-perception/out/full_alphabet.json

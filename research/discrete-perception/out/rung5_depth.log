@@ -1,0 +1,15 @@
+median foreground depth (the declared threshold)           0.5730
+ceiling_colour                   train/held/majority       0.9883 / 0.8105 / 0.8105
+ceiling_position                 train/held/majority       0.7422 / 0.8105 / 0.8105
+ceiling_colour_and_position      train/held/majority       1.0000 / 0.8105 / 0.8105
+colour-constant family space/solved/exhausted/seconds      32000 / False / True / 30.6
+position+colour family space/evaluated/exhausted/seconds   15360000 / 100000 / False / 109.1
+position+colour projected exhaustive wall clock (s)        1.68e+04
+position-only family space/solved/exhausted/seconds        480 / False / True / 0.4
+position-only best train/held-out accuracy                 0.8203 / 0.8086 (480 programs, 61.6s)
+  [grad depth] seed 0: ok=False train=1 (165.5s) 
+  [grad depth] seed 1: ok=False train=1 (259.1s) 
+  [grad depth] seed 2: ok=False train=1 (342.0s) 
+  [grad depth] seed 3: ok=False train=1 (287.1s) 
+gradient successes on the position+colour family           0/4
+wrote /home/brandonin/Documents/typed-crystallization-networks/research/discrete-perception/out/rung5_depth.json

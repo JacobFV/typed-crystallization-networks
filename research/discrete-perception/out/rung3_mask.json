@@ -1,0 +1,410 @@
+{
+ "rows": [
+  {
+   "resolution": 4,
+   "objects": 6,
+   "observation_width": 48,
+   "positions": 16,
+   "train_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "held_seeds": [
+    100,
+    101,
+    102,
+    103,
+    104,
+    105
+   ],
+   "per_image": 256,
+   "pool": [
+    24,
+    30,
+    43,
+    99,
+    150
+   ],
+   "data_seconds": 1.0782832489931025,
+   "train_examples": 128,
+   "train_foreground_fraction": 0.5,
+   "space_size": 32000,
+   "enumerate_first": {
+    "solved": true,
+    "selections": {
+     "pos": 0,
+     "obs": 0,
+     "g_at": 0,
+     "b_at": 0,
+     "red": 0,
+     "green": 0,
+     "blue": 0,
+     "cmp_r": 0,
+     "cmp_g": 0,
+     "cmp_b": 0,
+     "rg": 1,
+     "foreground": 4,
+     "record": 0
+    },
+    "exact_max_error": 0.0,
+    "evaluated": 21,
+    "space_size": 32000,
+    "exhausted": false,
+    "unique": null,
+    "seconds": 0.036821002955548465,
+    "continuous": [],
+    "wall": 0.04001160099869594
+   },
+   "enumerate_fit": {
+    "solved": true,
+    "selections": {
+     "pos": 0,
+     "obs": 0,
+     "g_at": 0,
+     "b_at": 0,
+     "red": 0,
+     "green": 0,
+     "blue": 0,
+     "cmp_r": 0,
+     "cmp_g": 0,
+     "cmp_b": 0,
+     "rg": 1,
+     "foreground": 4,
+     "record": 0
+    },
+    "exact_max_error": 0.0,
+    "evaluated": 32000,
+    "space_size": 32000,
+    "exhausted": true,
+    "unique": false,
+    "seconds": 61.79999658599263,
+    "continuous": [],
+    "wall": 61.805987846979406,
+    "held_out_max_error": 0.0,
+    "held_out_accuracy": 1.0
+   },
+   "identification": {
+    "space_size": 32000,
+    "curve": [
+     {
+      "supervised_records": 16,
+      "conforming": 2752,
+      "also_exact_on_held_out": 2608,
+      "unique": false,
+      "programs_swept": 32000,
+      "seconds": 46.167982871993445
+     },
+     {
+      "supervised_records": 64,
+      "conforming": 2608,
+      "also_exact_on_held_out": 2472,
+      "unique": false,
+      "programs_swept": 0,
+      "seconds": 52.74481048301095
+     },
+     {
+      "supervised_records": 128,
+      "conforming": 2464,
+      "also_exact_on_held_out": 2336,
+      "unique": false,
+      "programs_swept": 0,
+      "seconds": 48.27249174803728
+     }
+    ],
+    "conforming_train": 2464,
+    "conforming_held_out": 2336,
+    "unique_on_train": false
+   },
+   "conforming_examples": [
+    {
+     "pos": 0,
+     "obs": 0,
+     "g_at": 0,
+     "b_at": 0,
+     "red": 0,
+     "green": 0,
+     "blue": 0,
+     "cmp_r": 0,
+     "cmp_g": 0,
+     "cmp_b": 0,
+     "rg": 1,
+     "foreground": 4,
+     "record": 0
+    },
+    {
+     "pos": 0,
+     "obs": 0,
+     "g_at": 0,
+     "b_at": 0,
+     "red": 0,
+     "green": 0,
+     "blue": 0,
+     "cmp_r": 0,
+     "cmp_g": 0,
+     "cmp_b": 0,
+     "rg": 1,
+     "foreground": 6,
+     "record": 0
+    },
+    {
+     "pos": 0,
+     "obs": 0,
+     "g_at": 0,
+     "b_at": 0,
+     "red": 0,
+     "green": 0,
+     "blue": 0,
+     "cmp_r": 0,
+     "cmp_g": 0,
+     "cmp_b": 0,
+     "rg": 1,
+     "foreground": 12,
+     "record": 0
+    },
+    {
+     "pos": 0,
+     "obs": 0,
+     "g_at": 0,
+     "b_at": 0,
+     "red": 0,
+     "green": 0,
+     "blue": 0,
+     "cmp_r": 0,
+     "cmp_g": 0,
+     "cmp_b": 0,
+     "rg": 1,
+     "foreground": 14,
+     "record": 0
+    },
+    {
+     "pos": 0,
+     "obs": 0,
+     "g_at": 0,
+     "b_at": 0,
+     "red": 0,
+     "green": 0,
+     "blue": 0,
+     "cmp_r": 0,
+     "cmp_g": 0,
+     "cmp_b": 0,
+     "rg": 3,
+     "foreground": 4,
+     "record": 0
+    },
+    {
+     "pos": 0,
+     "obs": 0,
+     "g_at": 0,
+     "b_at": 0,
+     "red": 0,
+     "green": 0,
+     "blue": 0,
+     "cmp_r": 0,
+     "cmp_g": 0,
+     "cmp_b": 0,
+     "rg": 3,
+     "foreground": 6,
+     "record": 0
+    },
+    {
+     "pos": 0,
+     "obs": 0,
+     "g_at": 0,
+     "b_at": 0,
+     "red": 0,
+     "green": 0,
+     "blue": 0,
+     "cmp_r": 0,
+     "cmp_g": 0,
+     "cmp_b": 0,
+     "rg": 3,
+     "foreground": 12,
+     "record": 0
+    },
+    {
+     "pos": 0,
+     "obs": 0,
+     "g_at": 0,
+     "b_at": 0,
+     "red": 0,
+     "green": 0,
+     "blue": 0,
+     "cmp_r": 0,
+     "cmp_g": 0,
+     "cmp_b": 0,
+     "rg": 3,
+     "foreground": 14,
+     "record": 0
+    }
+   ],
+   "random_control": {
+    "draws": 2000,
+    "hits": 157,
+    "density": 0.0785,
+    "seconds": 2.790512209001463
+   },
+   "gradient": {
+    "init_noise": 0.5,
+    "steps": 400,
+    "lr": 0.15,
+    "rows": [
+     {
+      "seed": 0,
+      "ok": true,
+      "train_err": 0.0,
+      "relaxed_loss": 7.846607331885025e-05,
+      "selections": {
+       "pos": 0,
+       "obs": 0,
+       "g_at": 0,
+       "b_at": 0,
+       "red": 0,
+       "green": 0,
+       "blue": 0,
+       "cmp_r": 0,
+       "cmp_g": 1,
+       "cmp_b": 2,
+       "rg": 8,
+       "foreground": 3,
+       "record": 0
+      },
+      "seconds": 20.592094002990052,
+      "held_err": 0.0,
+      "held_acc": 1.0
+     },
+     {
+      "seed": 1,
+      "ok": true,
+      "train_err": 0.0,
+      "relaxed_loss": 6.48514469503425e-05,
+      "selections": {
+       "pos": 0,
+       "obs": 0,
+       "g_at": 0,
+       "b_at": 0,
+       "red": 0,
+       "green": 0,
+       "blue": 0,
+       "cmp_r": 0,
+       "cmp_g": 1,
+       "cmp_b": 2,
+       "rg": 8,
+       "foreground": 3,
+       "record": 0
+      },
+      "seconds": 28.79821798001649,
+      "held_err": 0.0,
+      "held_acc": 1.0
+     },
+     {
+      "seed": 2,
+      "ok": true,
+      "train_err": 0.0,
+      "relaxed_loss": 0.003967093303799629,
+      "selections": {
+       "pos": 0,
+       "obs": 0,
+       "g_at": 0,
+       "b_at": 0,
+       "red": 0,
+       "green": 0,
+       "blue": 0,
+       "cmp_r": 4,
+       "cmp_g": 0,
+       "cmp_b": 2,
+       "rg": 7,
+       "foreground": 4,
+       "record": 0
+      },
+      "seconds": 20.94282741198549,
+      "held_err": 0.0,
+      "held_acc": 1.0
+     },
+     {
+      "seed": 3,
+      "ok": true,
+      "train_err": 0.0,
+      "relaxed_loss": 0.003943891730159521,
+      "selections": {
+       "pos": 0,
+       "obs": 0,
+       "g_at": 0,
+       "b_at": 0,
+       "red": 0,
+       "green": 0,
+       "blue": 0,
+       "cmp_r": 4,
+       "cmp_g": 0,
+       "cmp_b": 2,
+       "rg": 8,
+       "foreground": 1,
+       "record": 0
+      },
+      "seconds": 23.12450944999,
+      "held_err": 0.0,
+      "held_acc": 1.0
+     }
+    ],
+    "summary": {
+     "n": 4,
+     "successes": 4,
+     "median_seconds": 22.033668430987746,
+     "median_train_err": 0.0
+    }
+   },
+   "module_matches_renderer_test": false,
+   "module": {
+    "nodes": 13,
+    "digest": "40ee875154ed9f3ac247500b",
+    "execution_cost": 13.0,
+    "selection": {
+     "pos": 0,
+     "obs": 0,
+     "g_at": 0,
+     "b_at": 0,
+     "red": 0,
+     "green": 0,
+     "blue": 0,
+     "cmp_r": 0,
+     "cmp_g": 0,
+     "cmp_b": 0,
+     "rg": 1,
+     "foreground": 4,
+     "record": 0
+    }
+   },
+   "caller_nodes": 3,
+   "apply": {
+    "episodes": 3,
+    "positions": 16,
+    "pixels": 48,
+    "foreground_fraction": 0.25,
+    "max_error_over_dense_probe": 1.0,
+    "max_count_error": 3,
+    "median_seconds_per_image": 0.004996928037144244
+   }
+  }
+ ],
+ "arguments": {
+  "resolutions": [
+   4,
+   8,
+   16,
+   24,
+   32
+  ],
+  "train": 8,
+  "held": 6,
+  "per_image": 256,
+  "apply": 3,
+  "gradient_seeds": 4,
+  "objects": 6,
+  "tag": "rung3_mask"
+ }
+}

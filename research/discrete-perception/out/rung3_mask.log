@@ -1,0 +1,28 @@
+
+=== resolution 4 ===
+training records (foreground fraction)                     128 (50.0%)
+stage A discrete space                                     32000
+enumerate_fit stop_at_first solved/evaluated/seconds       True / 21 / 0.04
+enumerate_fit solved/evaluated/exhausted/unique/seconds    True / 32000 / True / False / 61.8
+held-out error of the program enumerate_fit returns        0.0
+identification at    16 records: conforming / generalising 2752 / 2608 of 32000
+identification at    64 records: conforming / generalising 2608 / 2472 of 32000
+identification at   128 records: conforming / generalising 2464 / 2336 of 32000
+random-draw solution density                               0.0785
+  [grad R4] seed 0: ok=True train=0 (20.6s) 
+  [grad R4] seed 1: ok=True train=0 (28.8s) 
+  [grad R4] seed 2: ok=True train=0 (20.9s) 
+  [grad R4] seed 3: ok=True train=0 (23.1s) 
+gradient (init_noise 0.5) successes                        4/4 median 22.0s
+enumerated module identical to the renderer's own test     False
+stage B caller nodes for 16 positions                      3
+stage B held-out max error over the whole dense probe      1.0
+stage C held-out max foreground-count error                3
+wrote /home/brandonin/Documents/typed-crystallization-networks/research/discrete-perception/out/rung3_mask.json
+
+=== resolution 8 ===
+training records (foreground fraction)                     512 (51.8%)
+stage A discrete space                                     32000
+enumerate_fit stop_at_first solved/evaluated/seconds       True / 514 / 0.62
+enumerate_fit solved/evaluated/exhausted/unique/seconds    True / 32000 / True / False / 627.0
+held-out error of the program enumerate_fit returns        0.0

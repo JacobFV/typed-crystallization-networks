@@ -1,0 +1,9 @@
+free-offset space                                          288000
+enumerate_fit stop_at_first solved/evaluated/seconds       True / 21 / 0.90
+exhaustive solved/exhausted/unique/conforming/held-out-conforming/seconds True / True / False / 10432 / 9360 / 109.1
+  [grad offsets] seed 0: ok=False train=inf (3.0s) IndexError('index outside tuple')
+  [grad offsets] seed 1: ok=False train=inf (4.4s) IndexError('index outside tuple')
+  [grad offsets] seed 2: ok=False train=inf (2.1s) IndexError('index outside tuple')
+  [grad offsets] seed 3: ok=True train=0 (218.5s) 
+gradient successes                                         1/4
+wrote /home/brandonin/Documents/typed-crystallization-networks/research/discrete-perception/out/offsets_free.json

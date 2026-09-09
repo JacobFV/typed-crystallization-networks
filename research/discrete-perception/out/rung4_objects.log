@@ -1,0 +1,15 @@
+lookup ceiling foreground   train/held/majority            1.0000 / 1.0000 / 0.4492  (2 classes)
+lookup ceiling object_ids   train/held/majority            1.0000 / 0.5508 / 0.5508  (7 classes)
+lookup ceiling is_object_0  train/held/majority            1.0000 / 0.8574 / 0.8574  (2 classes)
+lookup ceiling raster_rank  train/held/majority            1.0000 / 0.5508 / 0.5508  (6 classes)
+lookup ceiling depth_bin    train/held/majority            0.9863 / 0.5508 / 0.5508  (3 classes)
+wrote /home/brandonin/Documents/typed-crystallization-networks/research/discrete-perception/out/rung4_objects.json
+distinct colours per object (mean/max/single)              3.31 / 18 colour-constant / is_object_0          space/solved/exhausted/unique/s 32000 / False / True / False / 2137.6
+relational / foreground                space/solved/exhausted/unique/s 16384 / False / True / False / 84.5
+relational / is_object_0               space/solved/exhausted/unique/s 16384 / False / True / False / 901.1
+  [grad relational] seed 0: ok=False train=1 (435.0s) 
+  [grad relational] seed 1: ok=False train=1 (274.5s) 
+  [grad relational] seed 2: ok=False train=1 (200.4s) 
+  [grad relational] seed 3: ok=False train=1 (210.9s) 
+multi-class relational R6              space/solved/exhausted/unique/s 46656 / False / True / False / 19.4
+wrote /home/brandonin/Documents/typed-crystallization-networks/research/discrete-perception/out/rung4_objects.json

@@ -1,0 +1,179 @@
+{
+ "arguments": {
+  "resolution": 8,
+  "train": 8,
+  "held": 6,
+  "per_image": 48,
+  "apply": 3,
+  "gradient_seeds": 1,
+  "flat_budget": 1000,
+  "objects": 6,
+  "tag": "rung35_window_subsampled"
+ },
+ "resolution": 8,
+ "offsets": [
+  3,
+  6,
+  24
+ ],
+ "window_positions": 56,
+ "stage1_foreground": {
+  "count": 2608,
+  "node_evaluations": 36770,
+  "leaves_reached": 2608,
+  "space_size": 32000,
+  "seconds": 25.458172685001045,
+  "exhausted": true,
+  "unique": false,
+  "solved": true,
+  "selections": {
+   "pos": 0,
+   "obs": 0,
+   "g_at": 0,
+   "b_at": 0,
+   "red": 0,
+   "green": 0,
+   "blue": 0,
+   "cmp_r": 0,
+   "cmp_g": 0,
+   "cmp_b": 0,
+   "rg": 1,
+   "foreground": 4,
+   "record": 0
+  },
+  "held_out_max_error": 0.0,
+  "accuracy_all_positions_train": 0.998046875,
+  "accuracy_all_positions_held_out": 0.9973958333333334
+ },
+ "train_examples": 384,
+ "edge_fraction": 0.1640625,
+ "staged": {
+  "enumerate_fit": {
+   "solved": false,
+   "selections": null,
+   "exact_max_error": 0.0,
+   "evaluated": 48,
+   "space_size": 48,
+   "exhausted": true,
+   "unique": false,
+   "seconds": 2.839727976010181,
+   "continuous": [],
+   "wall": 2.8515826980001293,
+   "held_out_max_error": null,
+   "held_out_accuracy": null,
+   "best_train_accuracy": 0.9947916666666666,
+   "best_selection": {
+    "shifted": 0,
+    "edge": 6
+   },
+   "best_held_out_accuracy": 0.9930555555555556
+  },
+  "space_size": 48,
+  "conforming": 0,
+  "unique": false,
+  "selection": null,
+  "gradient": {
+   "rows": [
+    {
+     "seed": 0,
+     "ok": false,
+     "train_err": 1.0,
+     "relaxed_loss": 0.42508506774902344,
+     "selections": {
+      "pos": 0,
+      "obs": 0,
+      "here_rec": 0,
+      "here": 0,
+      "here_flag": 0,
+      "shifted": 2,
+      "there_rec": 0,
+      "there": 0,
+      "there_flag": 0,
+      "edge": 2,
+      "record": 0
+     },
+     "seconds": 1181.7148173850146,
+     "held_err": 1.0,
+     "held_acc": 0.7916666666666666
+    }
+   ],
+   "summary": {
+    "n": 1,
+    "successes": 0,
+    "median_seconds": 1181.7148173850146,
+    "median_train_err": 1.0
+   },
+   "init_noise": 0.5
+  }
+ },
+ "flat": {
+  "space_size": 49152000000,
+  "enumerate_partial": {
+   "solved": false,
+   "selections": null,
+   "exact_max_error": 0.0,
+   "evaluated": 1000,
+   "space_size": 49152000000,
+   "exhausted": false,
+   "unique": null,
+   "seconds": 27.431393689999823,
+   "continuous": [],
+   "wall": 27.450575422029942
+  },
+  "programs_per_second": 36.45458234098227,
+  "projected_exhaustive_seconds": 1348307862.6508713,
+  "gradient": {
+   "rows": [
+    {
+     "seed": 0,
+     "ok": false,
+     "train_err": 1.0,
+     "relaxed_loss": 0.4217124283313751,
+     "selections": {
+      "pos": 0,
+      "obs": 0,
+      "shifted": 2,
+      "a_g": 0,
+      "a_b": 0,
+      "a_red": 0,
+      "a_green": 0,
+      "a_blue": 0,
+      "a_cmp_red": 4,
+      "a_cmp_green": 4,
+      "a_cmp_blue": 2,
+      "a_rg": 0,
+      "a_fg": 9,
+      "b_g": 0,
+      "b_b": 0,
+      "b_red": 0,
+      "b_green": 0,
+      "b_blue": 0,
+      "b_cmp_red": 0,
+      "b_cmp_green": 1,
+      "b_cmp_blue": 2,
+      "b_rg": 2,
+      "b_fg": 9,
+      "edge": 2,
+      "record": 0
+     },
+     "seconds": 885.8427809340064,
+     "held_err": 1.0,
+     "held_acc": 0.7881944444444444
+    }
+   ],
+   "summary": {
+    "n": 1,
+    "successes": 0,
+    "median_seconds": 885.8427809340064,
+    "median_train_err": 1.0
+   },
+   "init_noise": 0.5
+  },
+  "random_control": {
+   "draws": 1000,
+   "hits": 0,
+   "density": 0.0,
+   "seconds": 9.248862895998172
+  }
+ }
+}

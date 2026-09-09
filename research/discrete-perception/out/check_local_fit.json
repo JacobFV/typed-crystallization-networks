@@ -1,0 +1,64 @@
+{
+ "cases": [
+  {
+   "steps": 60,
+   "polish": 0,
+   "identical": true,
+   "fit": {
+    "relaxed_loss": 0.1718401461839676,
+    "exact_max_error": 0.0
+   },
+   "local_fit": {
+    "relaxed_loss": 0.1718401461839676,
+    "exact_max_error": 0.0
+   }
+  },
+  {
+   "steps": 60,
+   "polish": 200,
+   "identical": true,
+   "fit": {
+    "relaxed_loss": 0.1718401461839676,
+    "exact_max_error": 0.0
+   },
+   "local_fit": {
+    "relaxed_loss": 0.1718401461839676,
+    "exact_max_error": 0.0
+   }
+  },
+  {
+   "steps": 200,
+   "polish": 0,
+   "identical": true,
+   "fit": {
+    "relaxed_loss": 0.008625571615993977,
+    "exact_max_error": 0.0
+   },
+   "local_fit": {
+    "relaxed_loss": 0.008625571615993977,
+    "exact_max_error": 0.0
+   }
+  },
+  {
+   "steps": 200,
+   "polish": 200,
+   "identical": true,
+   "fit": {
+    "relaxed_loss": 0.008625571615993977,
+    "exact_max_error": 0.0
+   },
+   "local_fit": {
+    "relaxed_loss": 0.008625571615993977,
+    "exact_max_error": 0.0
+   }
+  }
+ ],
+ "init_noise_varies_outcome": true,
+ "noise_losses": [
+  0.22390307486057281,
+  0.18977977335453033,
+  0.09066499024629593,
+  0.27737703919410706
+ ],
+ "zero_noise_is_deterministic": true
+}

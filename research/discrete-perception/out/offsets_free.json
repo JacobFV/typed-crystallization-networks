@@ -1,0 +1,124 @@
+{
+ "arguments": {
+  "resolution": 8,
+  "train": 8,
+  "held": 6,
+  "per_image": 48,
+  "objects": 6,
+  "gradient_seeds": 4,
+  "tag": "offsets_free"
+ },
+ "space_size": 288000,
+ "train_examples": 384,
+ "enumerate_first": {
+  "solved": true,
+  "selections": {
+   "pos": 0,
+   "obs": 0,
+   "g_at": 0,
+   "b_at": 0,
+   "red": 0,
+   "green": 0,
+   "blue": 0,
+   "cmp_r": 0,
+   "cmp_g": 0,
+   "cmp_b": 0,
+   "rg": 1,
+   "foreground": 4,
+   "record": 0
+  },
+  "exact_max_error": 0.0,
+  "evaluated": 21,
+  "space_size": 288000,
+  "exhausted": false,
+  "unique": null,
+  "seconds": 0.9018540469696745,
+  "continuous": [],
+  "wall": 0.9689877739874646
+ },
+ "enumerate_fit": {
+  "count": 10432,
+  "node_evaluations": 147085,
+  "leaves_reached": 10432,
+  "space_size": 288000,
+  "seconds": 109.11141491000308,
+  "exhausted": true,
+  "unique": false,
+  "solved": true,
+  "selections": {
+   "pos": 0,
+   "obs": 0,
+   "g_at": 0,
+   "b_at": 0,
+   "red": 0,
+   "green": 0,
+   "blue": 0,
+   "cmp_r": 0,
+   "cmp_g": 0,
+   "cmp_b": 0,
+   "rg": 1,
+   "foreground": 4,
+   "record": 0
+  },
+  "conforming_held_out": 9360,
+  "evaluated": 288000,
+  "held_out_max_error": 0.0,
+  "held_out_accuracy": 1.0
+ },
+ "gradient": {
+  "rows": [
+   {
+    "seed": 0,
+    "ok": false,
+    "train_err": Infinity,
+    "seconds": 2.983994009962771,
+    "error": "IndexError('index outside tuple')"
+   },
+   {
+    "seed": 1,
+    "ok": false,
+    "train_err": Infinity,
+    "seconds": 4.419326993986033,
+    "error": "IndexError('index outside tuple')"
+   },
+   {
+    "seed": 2,
+    "ok": false,
+    "train_err": Infinity,
+    "seconds": 2.073345117038116,
+    "error": "IndexError('index outside tuple')"
+   },
+   {
+    "seed": 3,
+    "ok": true,
+    "train_err": 0.0,
+    "relaxed_loss": 0.000460880808532238,
+    "selections": {
+     "pos": 0,
+     "obs": 0,
+     "g_at": 1,
+     "b_at": 0,
+     "red": 0,
+     "green": 0,
+     "blue": 0,
+     "cmp_r": 0,
+     "cmp_g": 2,
+     "cmp_b": 2,
+     "rg": 10,
+     "foreground": 3,
+     "record": 0
+    },
+    "seconds": 218.4660218420322,
+    "held_err": 0.0,
+    "held_acc": 1.0
+   }
+  ],
+  "summary": {
+   "n": 4,
+   "successes": 1,
+   "median_seconds": 3.701660501974402,
+   "median_train_err": Infinity
+  },
+  "init_noise": 0.5
+ }
+}

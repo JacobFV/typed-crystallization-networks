@@ -527,3 +527,57 @@ both schedules drew from the same distribution and "unseen" was never unseen.
 Fixed with two regression tests; the invalid log is kept, since the identical
 columns are the diagnostic. This is the second time in this pass that a result
 too clean to be true turned out to be an instrumentation fault.
+
+## 14. Discrete perception: rung 3.5, and where each method actually wins
+
+Full detail in `research/discrete-perception/RESULTS.md`.
+
+**Highest rung reached: a learned two-position spatial operator over raw
+pixels** — an edge detector `fg(i) != fg(i+k)` with the neighbour offset
+searched. Staged: freeze the rung-3 foreground module, then exhaust 48 programs
+in 4.6 s returning exactly one, held-out max error 0.0, applied at every
+position. Undecomposed the same target is 4.9e10 programs, projected 7.6 years.
+Staging is what makes it reachable.
+
+**Positional application scales as claimed.** R=8 through R=48 (a 6,912-byte
+observation, 2,304 positions) with three caller nodes and max error 0.0 at every
+width, from a single R=8 search. The space stays 32,000 programs at every
+resolution because addresses are computed rather than chosen, against the
+ladder's (3R^2)^2.
+
+**A correction to section 8's framing.** Gradient descent wins prominently in
+two places, on identical spaces and data:
+
+- rung 3 at R=4 and R=8, 4/4 and 6/6 seeds exact on held-out where enumeration's
+  *returned* program was not, and faster than the certifying sweep;
+- the full 256-value byte alphabet, 4.3e9 programs, 6/6 with zero held-out
+  error, where brute force projects to 107 days.
+
+It loses exactly where the choice sits behind a `gradient="none"` boundary. So
+the boundary is sharper than "discrete search wins": relaxation is strong on
+*value* choices at a fixed address and useless on *address* choices, which is
+section 11's result restated from the other side.
+
+**Above rung 3.5 the wall is informational, not algorithmic.** For `object_ids`
+and `depth` the best possible per-pixel predictor — an RGB lookup table, an
+upper bound on the whole family — fits training pixels perfectly and scores
+exactly the majority baseline on held-out episodes, advantage 0.000. Objects are
+not one colour (mean 3.31 distinct RGBs, 34.6% single-coloured). Four candidate
+families were exhausted with no solution. Those are completeness certificates,
+not budget failures: the supervision does not determine the target from a single
+pixel, so no per-pixel program can exist.
+
+**Non-uniqueness is the norm and the tie-break was wrong.** Every rung-3 arm has
+2,464-2,608 of 32,000 conforming, about 5% of which disagree with the renderer
+on fresh episodes, and the count barely moves as supervision grows eightfold.
+`enumerate_fit`'s lexicographic pick was measurably wrong on fresh episodes at
+both R=4 and R=8. Requiring exactness at every position of a validation split is
+what fixed it.
+
+**Two faults, both verified here.** `tcn/search.py:evaluate` did not catch
+`IndexError`, so one address running off a tuple end aborted the whole sweep —
+the normal case for a window operator at an image border, and it killed 3 of 4
+seeds in the free-offset arm. Fixed with a regression test. And enumeration
+re-executes whole programs; a prefix-reusing walk returns the identical
+conforming set 17.8x faster at R=8 and is flat in observation width where the
+current loop is linear.

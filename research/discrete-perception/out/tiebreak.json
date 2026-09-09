@@ -1,0 +1,215 @@
+{
+ "rows": [
+  {
+   "resolution": 4,
+   "space_size": 32000,
+   "train_records": 128,
+   "validation_records": 128,
+   "conforming_train": 2464,
+   "conforming_train_and_validation": 2336,
+   "sweep_seconds": 232.6092054519686,
+   "gradient_rows": [
+    {
+     "seed": 0,
+     "ok": true,
+     "selections": {
+      "pos": 0,
+      "obs": 0,
+      "g_at": 0,
+      "b_at": 0,
+      "red": 0,
+      "green": 0,
+      "blue": 0,
+      "cmp_r": 0,
+      "cmp_g": 1,
+      "cmp_b": 2,
+      "rg": 8,
+      "foreground": 3,
+      "record": 0
+     }
+    },
+    {
+     "seed": 1,
+     "ok": true,
+     "selections": {
+      "pos": 0,
+      "obs": 0,
+      "g_at": 0,
+      "b_at": 0,
+      "red": 0,
+      "green": 0,
+      "blue": 0,
+      "cmp_r": 0,
+      "cmp_g": 1,
+      "cmp_b": 2,
+      "rg": 8,
+      "foreground": 3,
+      "record": 0
+     }
+    },
+    {
+     "seed": 2,
+     "ok": true,
+     "selections": {
+      "pos": 0,
+      "obs": 0,
+      "g_at": 0,
+      "b_at": 0,
+      "red": 0,
+      "green": 0,
+      "blue": 0,
+      "cmp_r": 4,
+      "cmp_g": 0,
+      "cmp_b": 2,
+      "rg": 7,
+      "foreground": 4,
+      "record": 0
+     }
+    },
+    {
+     "seed": 3,
+     "ok": true,
+     "selections": {
+      "pos": 0,
+      "obs": 0,
+      "g_at": 0,
+      "b_at": 0,
+      "red": 0,
+      "green": 0,
+      "blue": 0,
+      "cmp_r": 4,
+      "cmp_g": 0,
+      "cmp_b": 2,
+      "rg": 8,
+      "foreground": 1,
+      "record": 0
+     }
+    },
+    {
+     "seed": 4,
+     "ok": true,
+     "selections": {
+      "pos": 0,
+      "obs": 0,
+      "g_at": 0,
+      "b_at": 0,
+      "red": 0,
+      "green": 0,
+      "blue": 0,
+      "cmp_r": 4,
+      "cmp_g": 0,
+      "cmp_b": 2,
+      "rg": 8,
+      "foreground": 13,
+      "record": 0
+     }
+    },
+    {
+     "seed": 5,
+     "ok": true,
+     "selections": {
+      "pos": 0,
+      "obs": 0,
+      "g_at": 0,
+      "b_at": 0,
+      "red": 0,
+      "green": 0,
+      "blue": 0,
+      "cmp_r": 0,
+      "cmp_g": 1,
+      "cmp_b": 2,
+      "rg": 8,
+      "foreground": 5,
+      "record": 0
+     }
+    }
+   ],
+   "gradient_successes": 6,
+   "gradient_distinct_programs": 5,
+   "rules": {
+    "lexicographic": {
+     "max_error": 1.0,
+     "wrong_slots": 3,
+     "slots": 384,
+     "accuracy": 0.9921875,
+     "caller_nodes": 3,
+     "selections": {
+      "pos": 0,
+      "obs": 0,
+      "g_at": 0,
+      "b_at": 0,
+      "red": 0,
+      "green": 0,
+      "blue": 0,
+      "cmp_r": 0,
+      "cmp_g": 0,
+      "cmp_b": 0,
+      "rg": 1,
+      "foreground": 4,
+      "record": 0
+     },
+     "in_conforming_set": true
+    },
+    "validation_filtered": {
+     "max_error": 1.0,
+     "wrong_slots": 3,
+     "slots": 384,
+     "accuracy": 0.9921875,
+     "caller_nodes": 3,
+     "selections": {
+      "pos": 0,
+      "obs": 0,
+      "g_at": 0,
+      "b_at": 0,
+      "red": 0,
+      "green": 0,
+      "blue": 0,
+      "cmp_r": 0,
+      "cmp_g": 0,
+      "cmp_b": 0,
+      "rg": 1,
+      "foreground": 4,
+      "record": 0
+     },
+     "in_conforming_set": true
+    },
+    "gradient": {
+     "max_error": 0.0,
+     "wrong_slots": 0,
+     "slots": 384,
+     "accuracy": 1.0,
+     "caller_nodes": 3,
+     "selections": {
+      "pos": 0,
+      "obs": 0,
+      "g_at": 0,
+      "b_at": 0,
+      "red": 0,
+      "green": 0,
+      "blue": 0,
+      "cmp_r": 0,
+      "cmp_g": 1,
+      "cmp_b": 2,
+      "rg": 8,
+      "foreground": 3,
+      "record": 0
+     },
+     "in_conforming_set": true
+    }
+   },
+   "fraction_conforming_that_fail_validation": 0.05194805194805195
+  }
+ ],
+ "arguments": {
+  "resolutions": [
+   4,
+   8
+  ],
+  "train": 8,
+  "validation": 8,
+  "test": 8,
+  "objects": 6,
+  "gradient_seeds": 6,
+  "tag": "tiebreak"
+ }
+}
