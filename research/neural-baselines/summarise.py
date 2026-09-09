@@ -128,12 +128,14 @@ def latency():
     if not d:
         return
     rule("LATENCY / SIZE (neural architectures, measured back to back)")
-    print(f"{'arm':10s} {'model':18s} {'params':>7s} {'torch_save':>10s} {'f32':>8s} "
-          f"{'gzip':>8s} {'cold_ms':>8s} {'warm_p50':>9s} {'warm_p95':>9s}")
+    print(f"{'arm':10s} {'model':18s} {'params':>7s} {'MACs':>10s} {'torch_save':>10s} "
+          f"{'f32':>8s} {'gzip':>8s} {'cold_ms':>8s} {'warm_p50':>9s} {'warm_min':>9s} {'warm_p95':>9s}")
     for r in d["in_process"]:
         print(f"{r['arm']:10s} {r['model']:18s} {r['parameters']:7d} "
+              f"{r.get('macs_per_inference', 0):10d} "
               f"{r['torch_save_bytes']:10d} {r['float32_bytes']:8d} {r['gzip_bytes']:8d} "
-              f"{r['cold_first_call_ms']:8.3f} {r['warm_p50_ms']:9.4f} {r['warm_p95_ms']:9.4f}")
+              f"{r['cold_first_call_ms']:8.3f} {r['warm_p50_ms']:9.4f} "
+              f"{r.get('warm_min_ms', float('nan')):9.4f} {r['warm_p95_ms']:9.4f}")
     print("\ncold process (fresh interpreter, imports torch, one inference):")
     for r in d["cold_process"]:
         print("  " + json.dumps(r))

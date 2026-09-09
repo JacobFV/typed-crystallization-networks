@@ -40,6 +40,41 @@ import common as harness
 torch.set_num_threads(1)
 
 
+def count_macs(model, call):
+    """Multiply-accumulates for one batch-one forward pass.
+
+    The host is shared and every wall clock here is contended, so each latency is
+    reported beside a load-independent count -- the discipline
+    `research/inference-cost/RESULTS.md` imposes with its operator-application
+    column. This is the neural side's equivalent unit.
+    """
+    total = [0]
+
+    def hook(module, inputs, output):
+        if isinstance(module, torch.nn.Linear):
+            total[0] += module.in_features * module.out_features * output.numel() // max(
+                1, output.shape[-1])
+        elif isinstance(module, (torch.nn.Conv1d, torch.nn.Conv2d)):
+            kernel = 1
+            for k in module.kernel_size:
+                kernel *= k
+            positions = output.numel() // max(1, output.shape[1])
+            total[0] += module.in_channels * module.out_channels * kernel * positions
+        elif isinstance(module, torch.nn.GRU):
+            steps = inputs[0].shape[1] if module.batch_first else inputs[0].shape[0]
+            total[0] += 3 * steps * module.hidden_size * (module.input_size + module.hidden_size)
+        elif isinstance(module, torch.nn.MultiheadAttention):
+            length, dim = inputs[0].shape[1], module.embed_dim
+            total[0] += 4 * length * dim * dim + 2 * length * length * dim
+
+    handles = [m.register_forward_hook(hook) for m in model.modules()]
+    with torch.no_grad():
+        call()
+    for h in handles:
+        h.remove()
+    return total[0]
+
+
 def neural_rows(specs):
     import language_baseline as LB
     import visual_baseline as VB
@@ -64,15 +99,17 @@ def neural_rows(specs):
             length = torch.tensor([[44.0]])
             previous = torch.tensor([[1.0, 0.0, 0.0]])
             call = lambda m=model, t=tokens, l=length, p=previous: m(t, l, p)
+        macs = count_macs(model, call)
         with torch.no_grad():
             cold = harness.cold_call_ms(call)
             warm = harness.bench(call, repetitions=spec.get("repetitions", 100))
         rows.append({"method": "neural", "arm": arm, "model": name, **extra,
-                     **harness.torch_size_report(model),
+                     **harness.torch_size_report(model), "macs_per_inference": macs,
                      "cold_first_call_ms": cold, "warm_p50_ms": warm["p50_ms"],
                      "warm_p95_ms": warm["p95_ms"], "warm_min_ms": warm["min_ms"]})
         harness.report(f"neural {arm}/{name}",
-                       f"{rows[-1]['parameters']} params, warm {warm['p50_ms']:.4f} ms, "
+                       f"{rows[-1]['parameters']} params, {macs} MACs, "
+                       f"warm {warm['p50_ms']:.4f} ms (min {warm['min_ms']:.4f}), "
                        f"cold {cold:.3f} ms")
     return rows
 

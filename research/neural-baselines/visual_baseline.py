@@ -108,6 +108,29 @@ def screen(seed, split):
             "width": w, "height": h, "seed": seed, "split": split}
 
 
+def screen_pool(n, split="train", first=0):
+    """`n` renderable screens from `split`, skipping seeds the generator refuses.
+
+    OBSERVED AND REPORTED RATHER THAN WORKED AROUND SILENTLY: at the `FLAT`
+    configuration some seeds make `generators/gui/render.py:164` raise
+    `ValueError: y1 must be greater than or equal to y0` -- a widget laid out with
+    zero or negative height. Nothing under `generators/` is modified here; the
+    seed is skipped and the count is recorded in `out/*.json` as
+    `generator_seeds_refused`, because a silently shrunken training set would
+    misstate the budget.
+    """
+    out, refused, seed = [], [], first
+    while len(out) < n:
+        try:
+            out.append(screen(seed, split))
+        except ValueError:
+            refused.append(seed)
+        seed += 1
+        if seed - first > 8 * n + 64:
+            break
+    return out, refused
+
+
 def stack(screens):
     return {"pixels": torch.stack([s["pixels"] for s in screens]),
             "corner": torch.stack([s["corner"] for s in screens]),
@@ -293,7 +316,7 @@ def main():
     train = [screen(s, "train") for s in TRAIN_SEEDS]
     val = [screen(s, "validation") for s in VAL_SEEDS]
     test = [screen(TEST_FIRST + i, "test") for i in range(TEST_SCREENS)]
-    biggest = [screen(s, "train") for s in range(max(args.over_screens or [0]) or 0)]
+    biggest, refused = screen_pool(max(args.over_screens or [0]) or 0, "train")
     data = {"matched_6_screens": stack(train), "s1_budget_120_positions": stack(train)}
     masks = {"matched_6_screens": None,
              "s1_budget_120_positions": subsample_mask(train, 120)}
@@ -305,6 +328,7 @@ def main():
               "splits": {"train_seeds": list(TRAIN_SEEDS), "validation_seeds": list(VAL_SEEDS),
                          "test_seeds": [TEST_FIRST + i for i in range(TEST_SCREENS)],
                          "over_budget_train_screens": args.over_screens},
+              "generator_seeds_refused": refused,
               "trivial_reference_test": trivial_references(test),
               "trivial_reference_train": trivial_references(train),
               "arms": []}
