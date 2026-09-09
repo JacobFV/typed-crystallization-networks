@@ -486,3 +486,11 @@ Where each stops:
 
 Every table in this file is printed by `report.py` from the JSON in `out/`.
 Nothing is transcribed by hand.
+
+**Reproduction checked.** `recurrent_depth.py` and `environment_policy.py` were
+re-run against the shipped fixtures: every measured field is bit-identical —
+conforming counts, certificates, `unique`, `evaluated`, episodes, steps, returns,
+probe errors, selections and digests — and the only diff is the `seconds` fields,
+which are wall clock. `beam_search.py` is the same apart from wall clock, which
+is why section 4 quotes node evaluations as the load-independent measure and
+gives the wall-clock speedup as a range.
