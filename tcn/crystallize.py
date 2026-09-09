@@ -50,16 +50,35 @@ class Crystallizer:
     -- what this scheduler used to select on -- is exactly that falsified
     quantity. `selection="entropy"` restores the older rule for ablation only.
 
+    Commitment timing is separately controlled. `eligibility="plateau"` makes a
+    node eligible to freeze only once the unregularized task loss has stopped
+    improving, spending every other round descending the objective instead, and
+    accepts at most one freeze per opening so the next commitment waits for the
+    residual graph to settle around the last one. `anneal="plateau"` puts the
+    temperature/quantization schedule on the same signal instead of the fixed
+    0.8x-per-round clock. Both default to the fixed clock. Per ARCHITECTURE.md
+    section 5 the window, threshold and patience are experiment configuration.
+    `anneal="never"` holds the schedule still for the whole run; it exists to
+    separate "concentrate later" from "do not concentrate" and is an ablation.
+
     Residual retraining, the degradation tolerance, the connectivity guard, the
     conformance gate and transactional rollback are unchanged by the selection
     rule and apply to every trial.
     """
-    def __init__(self,model,optimizer,tolerance=.01,stability_window=3,entropy_limit=.5,selection="perturbation"):
+    def __init__(self,model,optimizer,tolerance=.01,stability_window=3,entropy_limit=.5,selection="perturbation",
+                 eligibility="immediate",anneal="round",plateau_window=3,plateau_tolerance=1e-3,plateau_patience=12):
         if selection not in ("perturbation","entropy"):raise ValueError("unknown selection rule "+selection)
+        if eligibility not in ("immediate","plateau"):raise ValueError("unknown eligibility rule "+eligibility)
+        if anneal not in ("round","plateau","never"):raise ValueError("unknown anneal rule "+anneal)
+        if plateau_window<1:raise ValueError("plateau window must be positive")
         self.model=model; self.optimizer=optimizer; self.tolerance=tolerance
         self.stability_window=stability_window; self.entropy_limit=entropy_limit
         self.selection=selection; self.objective=None
+        self.eligibility=eligibility; self.anneal=anneal
+        self.plateau_window=plateau_window; self.plateau_tolerance=plateau_tolerance
+        self.plateau_patience=plateau_patience
         self.history=[]; self.events=[]; self.selected={}; self.sweep_evaluations=0
+        self.progress=[]; self.gate_evaluations=0; self.rounds_waited=0; self.gate_log=[]
     def sample_stability(self):
         self.history.append(self.model.selections())
         self.history=self.history[-self.stability_window:]
@@ -116,6 +135,34 @@ class Crystallizer:
         order=sorted(range(len(scores)),key=lambda k:-scores[k])
         if scores[order[0]]==float("-inf"): return None
         return (scores[order[0]]-scores[order[1]],order[0])
+    def probe_progress(self,task):
+        """One unregularized task-loss reading for the plateau gate, counted apart."""
+        try:
+            with torch.no_grad(): value=float(task().detach())
+        except (ValueError,OverflowError,RuntimeError): value=float("inf")
+        self.gate_evaluations+=1
+        self.progress.append(value if value==value else float("inf"))
+        return self.progress[-1]
+    def plateaued(self):
+        """True when the task loss has stopped improving over the gate window.
+
+        Relative improvement of the best of the last `plateau_window` readings
+        against the reading that preceded them; below `plateau_tolerance` the
+        objective counts as stopped. A worsening objective is also stopped: the
+        gate asks whether more training is still buying anything, not whether the
+        loss moved. The window is re-armed whenever the gate opens, so each
+        commitment is measured against progress made since the previous one.
+        """
+        w=self.plateau_window; h=self.progress
+        if len(h)<w+1: return False
+        prior=h[-(w+1)]; recent=min(h[-w:])
+        if prior!=prior or prior==float("inf"): return False
+        return (prior-recent)/max(abs(prior),1e-12)<self.plateau_tolerance
+    def train_residual(self,total,steps):
+        """Descend the objective on a closed round, so the gate has progress to read."""
+        for _ in range(steps):
+            self.optimizer.zero_grad(); loss=total()
+            if loss.requires_grad: loss.backward(); self.optimizer.step()
     def candidates(self,loss=None):
         """Nodes ready to freeze, most decisive first, recording the chosen candidate."""
         m=self.model; loss=loss if loss is not None else self.objective
@@ -172,13 +219,30 @@ class Crystallizer:
     def run(self,loss_fn,rounds=12,retrain_steps=20,conformance=None):
         objective=Objective.of(loss_fn); self.objective=objective
         index_of={n.name:i for i,n in enumerate(self.model.program.nodes)}
+        gated=self.eligibility=="plateau" or self.anneal=="plateau"
         for _ in range(rounds):
             self.sample_stability()
-            for n in self.model.program.nodes:
-                if n.name not in self.model.frozen:
-                    self.model.temperatures[n.name]=max(.05,self.model.temperatures[n.name]*.8)
-                    if n.output.kind=="int" and n.output.numeric:
-                        self.model.quantization[n.name]=(n.output,min(1.,self.model.quantization.get(n.name,(n.output,0.))[1]+.1))
+            # The gate reads the unregularized task loss once per round. Both the
+            # eligibility rule and the anneal schedule can consume it; whichever
+            # of them is left on the fixed clock keeps the shipped behaviour.
+            open_gate=True
+            if gated:
+                self.probe_progress(objective.task)
+                open_gate=self.plateaued() or self.rounds_waited>=self.plateau_patience
+                self.gate_log.append({"loss":self.progress[-1],"open":open_gate,"waited":self.rounds_waited,
+                                      "frozen":len(self.model.frozen)})
+                if open_gate: self.rounds_waited=0; self.progress=self.progress[-1:]
+                else: self.rounds_waited+=1
+            if self.anneal=="round" or (self.anneal=="plateau" and open_gate):
+                for n in self.model.program.nodes:
+                    if n.name not in self.model.frozen:
+                        self.model.temperatures[n.name]=max(.05,self.model.temperatures[n.name]*.8)
+                        if n.output.kind=="int" and n.output.numeric:
+                            self.model.quantization[n.name]=(n.output,min(1.,self.model.quantization.get(n.name,(n.output,0.))[1]+.1))
+            if self.eligibility=="plateau" and not open_gate:
+                # Still improving: spend the round descending the objective rather
+                # than on an irreversible commitment measured mid-descent.
+                self.train_residual(objective.total,retrain_steps); continue
             stale=False
             for name in self.candidates(objective):
                 if self.selection=="entropy":
@@ -192,6 +256,10 @@ class Crystallizer:
                     score=self.score_node(index_of[name],self.model.program.nodes[index_of[name]],objective.total)
                     if score is None: continue
                     self.selected[name]=score[1]
-                stale=self.try_freeze(name,objective,retrain_steps,conformance,self.selected.get(name)).accepted or stale
+                accepted=self.try_freeze(name,objective,retrain_steps,conformance,self.selected.get(name)).accepted
+                stale=accepted or stale
+                # Under the plateau gate one commitment per opening: the next freeze
+                # waits for the residual graph to stop improving around this one.
+                if accepted and self.eligibility=="plateau": break
             if len(self.model.frozen)==len(self.model.program.nodes): break
         return self.events
