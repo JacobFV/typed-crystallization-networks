@@ -1,0 +1,178 @@
+{
+  "arithmetic_warmup0": {
+    "prediction": {
+      "||mean g||": 1.93505,
+      "mean ||g||": 3.13953,
+      "snr": 0.61635,
+      "episodes_to_signal": 2.6
+    },
+    "probe": {
+      "||mean g||": 0.0,
+      "mean ||g||": 0.0,
+      "snr": 0.0,
+      "episodes_to_signal": null
+    },
+    "actor": {
+      "||mean g||": 0.27934,
+      "mean ||g||": 1.26576,
+      "snr": 0.22069,
+      "episodes_to_signal": 20.5
+    },
+    "value": {
+      "||mean g||": 4.21783,
+      "mean ||g||": 4.9766,
+      "snr": 0.84753,
+      "episodes_to_signal": 1.4
+    },
+    "entropy": {
+      "||mean g||": 0.00226,
+      "mean ||g||": 0.00301,
+      "snr": 0.75263,
+      "episodes_to_signal": 1.8
+    },
+    "mdl": {
+      "||mean g||": 0.0,
+      "mean ||g||": 0.0,
+      "snr": 0.0,
+      "episodes_to_signal": null
+    },
+    "crystal": {
+      "||mean g||": 0.0,
+      "mean ||g||": 0.0,
+      "snr": 0.0,
+      "episodes_to_signal": null
+    }
+  },
+  "arithmetic_warmup200": {
+    "prediction": {
+      "||mean g||": 0.43534,
+      "mean ||g||": 1.58916,
+      "snr": 0.27394,
+      "episodes_to_signal": 13.3
+    },
+    "probe": {
+      "||mean g||": 0.0,
+      "mean ||g||": 0.0,
+      "snr": 0.0,
+      "episodes_to_signal": null
+    },
+    "actor": {
+      "||mean g||": 0.05886,
+      "mean ||g||": 0.16421,
+      "snr": 0.35846,
+      "episodes_to_signal": 7.8
+    },
+    "value": {
+      "||mean g||": 0.56881,
+      "mean ||g||": 2.47442,
+      "snr": 0.22988,
+      "episodes_to_signal": 18.9
+    },
+    "entropy": {
+      "||mean g||": 0.00274,
+      "mean ||g||": 0.00319,
+      "snr": 0.85711,
+      "episodes_to_signal": 1.4
+    },
+    "mdl": {
+      "||mean g||": 0.0,
+      "mean ||g||": 0.0,
+      "snr": 0.0,
+      "episodes_to_signal": null
+    },
+    "crystal": {
+      "||mean g||": 0.00074,
+      "mean ||g||": 0.00074,
+      "snr": 1.0,
+      "episodes_to_signal": 1.0
+    }
+  },
+  "joint_warmup0": {
+    "prediction": {
+      "||mean g||": 0.03386,
+      "mean ||g||": 0.08684,
+      "snr": 0.38988,
+      "episodes_to_signal": 6.6
+    },
+    "probe": {
+      "||mean g||": 0.03386,
+      "mean ||g||": 0.08684,
+      "snr": 0.38988,
+      "episodes_to_signal": 6.6
+    },
+    "actor": {
+      "||mean g||": 0.09685,
+      "mean ||g||": 0.40705,
+      "snr": 0.23792,
+      "episodes_to_signal": 17.7
+    },
+    "value": {
+      "||mean g||": 0.16268,
+      "mean ||g||": 0.58544,
+      "snr": 0.27788,
+      "episodes_to_signal": 13.0
+    },
+    "entropy": {
+      "||mean g||": 9e-05,
+      "mean ||g||": 0.00065,
+      "snr": 0.13935,
+      "episodes_to_signal": 51.5
+    },
+    "mdl": {
+      "||mean g||": 0.0,
+      "mean ||g||": 0.0,
+      "snr": 0.0,
+      "episodes_to_signal": null
+    },
+    "crystal": {
+      "||mean g||": 0.00065,
+      "mean ||g||": 0.00065,
+      "snr": 1.0,
+      "episodes_to_signal": 1.0
+    }
+  },
+  "joint_warmup40": {
+    "prediction": {
+      "||mean g||": 0.03616,
+      "mean ||g||": 0.07455,
+      "snr": 0.48498,
+      "episodes_to_signal": 4.3
+    },
+    "probe": {
+      "||mean g||": 0.03616,
+      "mean ||g||": 0.07455,
+      "snr": 0.48498,
+      "episodes_to_signal": 4.3
+    },
+    "actor": {
+      "||mean g||": 0.01328,
+      "mean ||g||": 0.30412,
+      "snr": 0.04368,
+      "episodes_to_signal": 524.2
+    },
+    "value": {
+      "||mean g||": 0.04022,
+      "mean ||g||": 0.75624,
+      "snr": 0.05318,
+      "episodes_to_signal": 353.5
+    },
+    "entropy": {
+      "||mean g||": 0.00336,
+      "mean ||g||": 0.00341,
+      "snr": 0.98529,
+      "episodes_to_signal": 1.0
+    },
+    "mdl": {
+      "||mean g||": 0.0,
+      "mean ||g||": 0.0,
+      "snr": 0.0,
+      "episodes_to_signal": null
+    },
+    "crystal": {
+      "||mean g||": 0.00066,
+      "mean ||g||": 0.00066,
+      "snr": 1.0,
+      "episodes_to_signal": 1.0
+    }
+  }
+}

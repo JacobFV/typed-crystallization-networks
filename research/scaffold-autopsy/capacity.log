@@ -1,0 +1,15 @@
+/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-ade8c718cdf726aec/research/scaffold-autopsy/capacity.py:61: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  trace.append({'step': i, 'loss': float(loss), 'grad': gn})
+hidden=8 lr=0.040 seed=0 loss=0.00001 acc=1.000
+hidden=8 lr=0.040 seed=1 loss=0.00000 acc=1.000
+hidden=8 lr=0.040 seed=2 loss=0.00000 acc=1.000
+hidden=8 lr=0.010 seed=0 loss=0.00001 acc=1.000
+hidden=8 lr=0.010 seed=1 loss=0.00000 acc=1.000
+hidden=8 lr=0.010 seed=2 loss=0.00005 acc=1.000
+hidden=32 lr=0.040 seed=0 loss=0.00000 acc=1.000
+hidden=32 lr=0.040 seed=1 loss=0.00000 acc=1.000
+hidden=32 lr=0.040 seed=2 loss=0.00000 acc=1.000
+hidden=32 lr=0.010 seed=0 loss=0.00001 acc=1.000
+hidden=32 lr=0.010 seed=1 loss=0.00001 acc=1.000
+hidden=32 lr=0.010 seed=2 loss=0.00001 acc=1.000
