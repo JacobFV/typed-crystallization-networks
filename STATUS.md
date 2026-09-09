@@ -45,7 +45,7 @@ fault was in the measurement, not the method under test.
 | 6 | Positional reuse | one frozen module applied at **1,024** positions of a 3,072-value observation with **three** caller nodes, exact; `--full` does 2,304 positions over 6,912 values | 17 structural symbols shared against 3N+13 per-position and 8N+1 inlined, at 0.93× execution cost (`research/positional-reuse/RESULTS.md`) | `scripts/demo.sh --only positional` |
 | 7 | Foreground/background segmentation from raw pixels | held-out max error 0.0 on 48 unseen episodes; background colour recovered over the full 0–255 byte alphabet | unique among 65,536 programs; constant predictor 0.854 (`research/perception-ladder/RESULTS.md` §4) | `scripts/demo.sh --only segmentation` |
 | 8 | Two-position edge detector, offset searched | held-out max error 0.0, accuracy 1.000, applied at every position | unique among 48 staged programs; undecomposed the same target is 4.9e10 programs, 7.6 years projected; constant predictor 0.844 (`research/discrete-perception/RESULTS.md` §5) | `scripts/demo.sh --only edge` |
-| 9 | A language task learned from raw prompt bytes | stage A discovers its own lexical unit — which byte opens a bracket, over the full 0–255 alphabet, and where the symbol field starts — unique among 10,496 programs; stage B reaches **1.000** on string lengths never trained on | majority constant 0.548, best fitted feature 0.648, random 0.500; gradient descent on the identical spaces conforms **0 of 44 runs** (`research/language-capability/RESULTS.md`) | `scripts/demo.sh --only language` |
+| 9 | A language task learned from raw prompt bytes | stage A discovers its own lexical unit — which byte opens a bracket, over the full 0–255 alphabet, and where the symbol field starts — unique among 10,496 programs; stage B reaches **1.000** on string lengths never trained on — **but only on the pre-audit stream; pass `hardening='none'` or the number is not reproducible, FINDINGS §39** | majority constant 0.548, best fitted feature 0.648, random 0.500; gradient descent on the identical spaces conforms **0 of 44 runs** (`research/language-capability/RESULTS.md`) | `scripts/demo.sh --only language` |
 | 10 | MuJoCo behind the generator contract | replay, snapshot/restore and cross-process reload all bit-identical, max \|Δ\| 0.0 | a scripted energy-pumping controller reaches upright 0.9994 where the zero-torque arm never exceeds −0.99 (`research/external-environments/RESULTS.md` §3) | `scripts/demo.sh --only control` |
 
 Three more results that are certificates rather than runs, so they have no demo:
@@ -450,10 +450,18 @@ three numbers are real and none may stand in for another. **Tiny inference
 cost** is likewise refuted as currently implemented, at 146× to 90,400× slower
 than the same function in plain Python, with 97.7% attributed to
 decode/encode/validate marshalling against 0.56% for operator semantics plus the
-graph walk. Whether that third one is a property of the *method* or only of the
-*interpreter* is not yet known and is the project's first open question; it is
-being decided by a compiled-runtime experiment with a four-arm A/B harness, not
-by argument. A discrete backend belongs in section 2's candidate inventory. Two capabilities the measurement pass wrote off, recursive
+graph walk. That third one has since been **decided, and it was the
+interpreter**. Compiling a frozen program to straight-line stdlib Python takes
+the visual parse from 103,487,972 element operations to **6,144**, all at the
+external boundary and none internal; peak allocation falls 48.4 MB → 0.121 MB;
+and profile attribution flips from 97.7% marshalling to 66.7% operator work.
+Against the interpreter that is 27× / 637× / 3,359× / 14,232× on mixed, language,
+visual and computer. What remains is **not** representational either: generated
+Python is 3.1× / 7.1× / 27.6× the hand-written equivalent, and the visual figure
+decomposes as 11.1× more bytecodes executed × 2.25× per bytecode — the
+synthesized program computes more than the task needs, which is a program-length
+problem that native code generation would not touch.
+(`research/compiled-runtime/RESULTS.md`, branch `compiled-runtime`.) A discrete backend belongs in section 2's candidate inventory. Two capabilities the measurement pass wrote off, recursive
 abstraction and structural generalization, turned out to be instrumentation
 faults and now work, which is the strongest argument in the file for fixing the
 instrument before believing any negative result. The gap between here and a
