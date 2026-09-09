@@ -1,0 +1,290 @@
+{
+ "arm_A": {
+  "by_role_seconds": {
+   "Type.decode (types.py:171,175)": 37.360490267,
+   "Type.encode (types.py:134,142)": 10.741944877,
+   "Type/Value dict round-trip": 2.2546052600000004,
+   "numeric/type guards called by both": 3.4463698860000003,
+   "operator semantics + graph walk": 0.367989972,
+   "other": 1.042257356,
+   "validate_raw (types.py:185)": 5.8811119970000005
+  },
+  "by_role_share": {
+   "Type.decode (types.py:171,175)": 0.6115170005948796,
+   "Type.encode (types.py:134,142)": 0.17582429632998617,
+   "Type/Value dict round-trip": 0.03690340882219234,
+   "numeric/type guards called by both": 0.05641022803945308,
+   "operator semantics + graph walk": 0.00602326474621243,
+   "other": 0.017059682237415365,
+   "validate_raw (types.py:185)": 0.09626211922986065
+  },
+  "hot_functions": [
+   {
+    "calls": 85268798,
+    "function": "types.py:171(decode)",
+    "role": "Type.decode (types.py:171,175)",
+    "tottime_s": 21.741698803000002
+   },
+   {
+    "calls": 76085509,
+    "function": "types.py:175(<genexpr>)",
+    "role": "Type.decode (types.py:171,175)",
+    "tottime_s": 15.618791464000001
+   },
+   {
+    "calls": 9103342,
+    "function": "types.py:134(encode)",
+    "role": "Type.encode (types.py:134,142)",
+    "tottime_s": 8.724163531
+   },
+   {
+    "calls": 9106480,
+    "function": "types.py:185(validate_raw)",
+    "role": "validate_raw (types.py:185)",
+    "tottime_s": 5.8811119970000005
+   },
+   {
+    "calls": 9045207,
+    "function": "types.py:142(<genexpr>)",
+    "role": "Type.encode (types.py:134,142)",
+    "tottime_s": 2.017781346
+   },
+   {
+    "calls": 18435310,
+    "function": "~:0(<built-in method math.isfinite>)",
+    "role": "numeric/type guards called by both",
+    "tottime_s": 1.651801815
+   },
+   {
+    "calls": 18156770,
+    "function": "~:0(<built-in method builtins.isinstance>)",
+    "role": "numeric/type guards called by both",
+    "tottime_s": 1.572399973
+   },
+   {
+    "calls": 278540,
+    "function": "types.py:89(from_dict)",
+    "role": "Type/Value dict round-trip",
+    "tottime_s": 0.605492024
+   },
+   {
+    "calls": 1389285,
+    "function": "dataclasses.py:1411(_asdict_inner)",
+    "role": "Type/Value dict round-trip",
+    "tottime_s": 0.579953762
+   },
+   {
+    "calls": 277857,
+    "function": "dataclasses.py:1357(fields)",
+    "role": "Type/Value dict round-trip",
+    "tottime_s": 0.399229113
+   },
+   {
+    "calls": 278540,
+    "function": "types.py:81(to_dict)",
+    "role": "Type/Value dict round-trip",
+    "tottime_s": 0.38762851200000004
+   },
+   {
+    "calls": 572500,
+    "function": "<string>:16(__eq__)",
+    "role": "other",
+    "tottime_s": 0.36237727000000003
+   },
+   {
+    "calls": 2784042,
+    "function": "~:0(<built-in method builtins.getattr>)",
+    "role": "numeric/type guards called by both",
+    "tottime_s": 0.222168098
+   },
+   {
+    "calls": 64346,
+    "function": "operators.py:175(exact)",
+    "role": "operator semantics + graph walk",
+    "tottime_s": 0.18432847000000002
+   },
+   {
+    "calls": 1389285,
+    "function": "dataclasses.py:1372(<genexpr>)",
+    "role": "Type/Value dict round-trip",
+    "tottime_s": 0.117898259
+   },
+   {
+    "calls": 565368,
+    "function": "<string>:11(__eq__)",
+    "role": "other",
+    "tottime_s": 0.10466897800000001
+   },
+   {
+    "calls": 277857,
+    "function": "dataclasses.py:1387(asdict)",
+    "role": "Type/Value dict round-trip",
+    "tottime_s": 0.10330368100000001
+   },
+   {
+    "calls": 4081,
+    "function": "graph.py:89(execute)",
+    "role": "operator semantics + graph walk",
+    "tottime_s": 0.09446491700000001
+   },
+   {
+    "calls": 555193,
+    "function": "types.py:93(<genexpr>)",
+    "role": "other",
+    "tottime_s": 0.09399048500000001
+   },
+   {
+    "calls": 278540,
+    "function": "types.py:46(__post_init__)",
+    "role": "other",
+    "tottime_s": 0.07665620000000001
+   }
+  ],
+  "profiled_total_seconds": 61.094769615000025
+ },
+ "arm_B": {
+  "by_role_seconds": {
+   "Type.decode (types.py:171,175)": 4.389144893,
+   "Type.encode (types.py:134,142)": 10.928146057,
+   "Type/Value dict round-trip": 0.0,
+   "numeric/type guards called by both": 2.429191073,
+   "operator semantics + graph walk": 0.244340549,
+   "other": 0.18489626400000003,
+   "validate_raw (types.py:185)": 0.0
+  },
+  "by_role_share": {
+   "Type.decode (types.py:171,175)": 0.24148397830112647,
+   "Type.encode (types.py:134,142)": 0.6012497307867135,
+   "Type/Value dict round-trip": 0.0,
+   "numeric/type guards called by both": 0.13365034389663794,
+   "operator semantics + graph walk": 0.013443239918304817,
+   "other": 0.010172707097217116,
+   "validate_raw (types.py:185)": 0.0
+  },
+  "hot_functions": [
+   {
+    "calls": 9103342,
+    "function": "types.py:134(encode)",
+    "role": "Type.encode (types.py:134,142)",
+    "tottime_s": 8.927467495
+   },
+   {
+    "calls": 9107325,
+    "function": "types.py:171(decode)",
+    "role": "Type.decode (types.py:171,175)",
+    "tottime_s": 2.5151889450000002
+   },
+   {
+    "calls": 9045207,
+    "function": "types.py:142(<genexpr>)",
+    "role": "Type.encode (types.py:134,142)",
+    "tottime_s": 2.000678562
+   },
+   {
+    "calls": 9048147,
+    "function": "types.py:175(<genexpr>)",
+    "role": "Type.decode (types.py:171,175)",
+    "tottime_s": 1.873955948
+   },
+   {
+    "calls": 18156770,
+    "function": "~:0(<built-in method builtins.isinstance>)",
+    "role": "numeric/type guards called by both",
+    "tottime_s": 1.632582495
+   },
+   {
+    "calls": 9078366,
+    "function": "~:0(<built-in method math.isfinite>)",
+    "role": "numeric/type guards called by both",
+    "tottime_s": 0.796111777
+   },
+   {
+    "calls": 64346,
+    "function": "operators.py:175(exact)",
+    "role": "operator semantics + graph walk",
+    "tottime_s": 0.18083544000000001
+   },
+   {
+    "calls": 130734,
+    "function": "harness.py:163(decoded_cached)",
+    "role": "other",
+    "tottime_s": 0.050080686000000006
+   },
+   {
+    "calls": 33781,
+    "function": "<string>:16(__eq__)",
+    "role": "other",
+    "tottime_s": 0.050057534
+   },
+   {
+    "calls": 4081,
+    "function": "graph.py:89(execute)",
+    "role": "operator semantics + graph walk",
+    "tottime_s": 0.040743449
+   },
+   {
+    "calls": 62150,
+    "function": "types.py:205(of)",
+    "role": "other",
+    "tottime_s": 0.030684996000000003
+   },
+   {
+    "calls": 65288,
+    "function": "<string>:2(__init__)",
+    "role": "other",
+    "tottime_s": 0.025667892
+   },
+   {
+    "calls": 194100,
+    "function": "operators.py:176(<genexpr>)",
+    "role": "operator semantics + graph walk",
+    "tottime_s": 0.015152312000000001
+   },
+   {
+    "calls": 123198,
+    "function": "~:0(<method 'startswith' of 'str' objects>)",
+    "role": "other",
+    "tottime_s": 0.012359738
+   },
+   {
+    "calls": 65288,
+    "function": "harness.py:178(<lambda>)",
+    "role": "other",
+    "tottime_s": 0.005005298
+   }
+  ],
+  "profiled_total_seconds": 18.175718836
+ },
+ "arm_C": {
+  "by_role_seconds": {
+   "boundary encode/validate (_b*)": 0.0016025610000000002,
+   "builtin guards (min/max/len/sorted)": 0.000209408,
+   "other": 0.000631344,
+   "straight-line operator work": 0.006276531,
+   "surviving scalar canonicalisers (_c*)": 0.000689537
+  },
+  "by_role_share": {
+   "boundary encode/validate (_b*)": 0.1703152417783912,
+   "builtin guards (min/max/len/sorted)": 0.02225523655594348,
+   "other": 0.06709729364769054,
+   "straight-line operator work": 0.6670503617613104,
+   "surviving scalar canonicalisers (_c*)": 0.0732818662566645
+  },
+  "hot_functions": [],
+  "profiled_total_seconds": 0.009409381
+ },
+ "arm_D": {
+  "by_role_seconds": {
+   "hand-written body": 0.000197233,
+   "other": 8.816e-06
+  },
+  "by_role_share": {
+   "hand-written body": 0.9572140607331265,
+   "other": 0.042785939266873414
+  },
+  "hot_functions": [],
+  "profiled_total_seconds": 0.000206049
+ },
+ "artifact": "visual",
+ "note": "cProfile inflates wall clock; the shares are the measurement"
+}

@@ -1,0 +1,134 @@
+{
+ "arms": {
+  "A": {
+   "boundary_decode_ms": 0.000496,
+   "boundary_encode_ms": 0.002112,
+   "complete_ms": 0.016192,
+   "peak_alloc_mb": 0.005256,
+   "program_min_ms": 0.01304,
+   "program_ms": 0.013584
+  },
+  "B": {
+   "boundary_decode_ms": 0.000224,
+   "boundary_encode_ms": 0.001616,
+   "complete_ms": 0.015007999999999999,
+   "peak_alloc_mb": 0.005256,
+   "program_min_ms": 0.012736,
+   "program_ms": 0.013168
+  },
+  "C": {
+   "boundary_decode_ms": 0.0,
+   "boundary_encode_ms": 0.00022400000000000002,
+   "complete_ms": 0.00072,
+   "peak_alloc_mb": 0.000472,
+   "program_min_ms": 0.000464,
+   "program_ms": 0.000496
+  },
+  "D": {
+   "boundary_decode_ms": 0.0,
+   "boundary_encode_ms": 0.0,
+   "complete_ms": 0.00016,
+   "peak_alloc_mb": 0.000232,
+   "program_min_ms": 0.000144,
+   "program_ms": 0.00016
+  }
+ },
+ "artifact": "mixed",
+ "build_seconds": 0.0005227520014159381,
+ "bytes": {
+  "A_artifact_json": 5164,
+  "A_artifact_json_gzip": 608,
+  "A_interpreter_source": 38575,
+  "C_generated_python": 2629,
+  "C_generated_python_gzip": 1108,
+  "D_hand_written_source": 146
+ },
+ "cases": 4,
+ "compile_seconds": 0.0019681910052895546,
+ "compiler": {
+  "boundary_encoders": 2,
+  "emitted_per_scope": {
+   "run": 4
+  },
+  "modules_emitted": 0,
+  "nodes_emitted": 4,
+  "nodes_folded": 0,
+  "nodes_pruned_dead": 0,
+  "scalar_canonicalisations": 3,
+  "source_bytes": 2629,
+  "source_lines": 63,
+  "structural_canonicalisations_elided": 0,
+  "type_table_entries": 2,
+  "widest_static_type": 1
+ },
+ "equivalence": {
+  "B_identical_to_A": true,
+  "C_identical_to_A": true,
+  "D_agreement": [
+   {
+    "discrepancy": 2.0608814543798815e-08,
+    "identical": false
+   },
+   {
+    "discrepancy": 2.6353140447632484e-08,
+    "identical": false
+   },
+   {
+    "discrepancy": 1.1604291416666968e-08,
+    "identical": false
+   },
+   {
+    "discrepancy": 1.509439573332827e-09,
+    "identical": false
+   }
+  ],
+  "D_identical_to_A": false
+ },
+ "peak_rss_mb_process": 23.5546875,
+ "ratios": {
+  "A_over_B_program": 1.0315917375455652,
+  "A_over_C_program": 27.387096774193548,
+  "A_over_D_complete": 101.2,
+  "A_over_D_program": 84.89999999999999,
+  "B_over_D_program": 82.29999999999998,
+  "C_over_D_complete": 4.5,
+  "C_over_D_program": 3.1
+ },
+ "repeats": 201,
+ "structure": {
+  "caller_nodes": 4,
+  "distinct_operators": 4,
+  "modules": 0,
+  "total_static_nodes": 4,
+  "widest_declared_value_elements": 1
+ },
+ "type_identity_live": {
+  "distinct_canonical_types": 2,
+  "distinct_type_objects": 15
+ },
+ "what": "answer = sin(xor(a, b) + x) -- the historical 4-operation reference",
+ "work": {
+  "encode_decode_validate_calls": {
+   "A": {
+    "decode": 15,
+    "encode": 7,
+    "total": 29,
+    "validate_raw": 7
+   },
+   "B": {
+    "decode": 11,
+    "encode": 7,
+    "total": 18,
+    "validate_raw": 0
+   },
+   "C": {
+    "boundary": 1,
+    "internal": 3,
+    "total": 4
+   }
+  },
+  "module_calls_C": {},
+  "operator_applications_A": 4,
+  "operator_applications_C": 4
+ }
+}
