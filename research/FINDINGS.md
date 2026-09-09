@@ -244,6 +244,10 @@ recorded episodes and replays are unaffected.
 | 8 | `nondegenerate` | 18.0% | 8.0% |
 | 8 | `min_relevant_inputs=4` | 0.0% | **100%** |
 
+The default draw was re-verified bit-identical across the same 192 seed/config
+combinations *after* the later fix that made an explicit `table` override a
+restricted pool, since that fix touched the table-selection branch.
+
 High-arity targets are rare at shallow depth by construction — a function of all
 w inputs needs at least w-1 two-input gates — so the rejection sampler reports
 the best arity it reached rather than failing opaquely.
