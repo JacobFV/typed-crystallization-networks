@@ -896,8 +896,10 @@ training ever run on the language generator.
 staged on the privileged `construction` latent, a typed program reaches **0.9986
 on 724 held-out episodes of unseen lengths with 0% string overlap** — one error
 in 724, not a perfect score; this section originally read "1.000" and is
-corrected here against its own `final_eval.json`, see §43 — against a
-0.548 majority constant, 0.5 random, and a 0.648 best fitted-feature baseline
+corrected here against its own `final_eval.json`, see §43. **This holds on the
+pre-audit stream only; §45 proves no conforming program exists in this scaffold
+on the re-drawn stream, and shows the capability was counting rather than
+balancedness.** Against a 0.548 majority constant, 0.5 random, and a 0.648 best fitted-feature baseline
 whose training-perfect features collapse to the constant off-distribution.
 Trained only on lengths {2,4,6} — twelve distinct strings — it is exact at
 lengths 8 through 16 and at a nesting depth never seen.
@@ -2183,4 +2185,77 @@ built by exhaustive search rather than by the system's own learning.
 as tabled. Gradient conformance re-aggregated from `out/gradient_{tight,wide}.json`
 records. Library publication confirmed on disk. 287 tests pass with the one known
 environmental failure; fixture reproduces 0.248836 → 0.002231 at 4/4 frozen.
+
+## 45. The language capability does not survive the re-drawn lesson, and the gap is one accumulator wide
+
+`research/language-post-audit/RESULTS.md`, branch `language-post-audit`
+(`090b780`), **not merged at time of writing**; `tcn/` and `generators/`
+byte-identical to main. This closes the hole §39 opened and §43 sharpened: the
+capability had **never** been measured on the non-exploitable stream. Everything
+below was re-derived here from raw JSON.
+
+**The answer is no, and it is a proved no.** The track's own two-stage method,
+run unchanged on a split that actually exists post-audit (train lengths
+{10,12,14}, held out {16,18,20,22}, depths 1–4 in every split, **0.0%
+train/test string overlap**), finds **no conforming program**:
+
+| arm | space | evaluated | exhausted | conforming | certificate |
+|---|---|---|---|---|---|
+| `positions=16` (unchanged default) | 45,375 | 45,375 | **true** | **0** | **`complete`** |
+| `positions=22` (length-matched) | 45,375 | 45,375 | **true** | **0** | **`complete`** |
+
+Accuracy is undefined because there is nothing to evaluate. Held-out majority
+0.5262, random 0.5, best fitted feature 0.4738. **Stage A survives untouched** —
+lexical perception is exact at certificate `unique` and 1.000 on unseen lengths.
+
+**It is an expressiveness limit, not a search failure**, and the distinction is
+carried by the certificate rather than by a timeout. Every stage-B member is a
+thresholded affine function of a bracket count over one prefix. §24's re-draw
+made bracket counts identical in both classes, so — verified here against the
+real typed program, not a simulator — **the honest counting program scores
+0.5262, exactly the majority**, predicting `yes` on every episode. The family's
+best member reaches 0.7031 only when selected *on the test split*, and 24 members
+tie at the best train accuracy of 0.75 with held-out spread 0.474–0.703, so
+training cannot pick among them. Post-audit, `balanced ⟺ min prefix ≥ 0`, and **a
+minimum is not a sum**.
+
+**The task is solvable in this family, one operator away — and no new operator is
+needed.** Adding a running `min` beside the existing running `add`, using `min`
+and `and` which core already has, gives a program scoring **1.000 on all 859
+held-out episodes at unseen lengths 16–22** (per-length 1.000 at 16, 18, 20 and
+22) against the same 0.5262 majority. Verified here from `dyck_witness.json`. It
+is not merely exhibited: the **unmodified** search recovers it exhaustively inside
+a stated window — space 84,375, evaluated 84,375, exhausted, **110 conforming**,
+certificate `complete`.
+
+**The control that makes the negative trustworthy.** The same code path, run on
+the pre-audit stream, reproduces §19 **to every digit**: accuracy
+**0.9986187845303868** on **n=724** against majority **0.5483425414364641**.
+Verified here. So the harness is not broken — it reproduces the recorded result
+where that result holds and proves non-existence where it does not. The single
+pre-audit error sits at length 16, the same truncation mechanism.
+
+**Two disclosures the track made itself**, both of the kind this project wants:
+the full 680,625-program Dyck enumeration was measured at 4.18 h and **stopped at
+~52%**, so it carries **no certificate** and is reported as a cost measurement
+only; and the 13 worktree test failures are environmental (`node`/`tsx` come from
+gitignored `node_modules`), verified identical with the track's own directory
+removed.
+
+**What this does to §19.** §19 is not withdrawn — it is now bounded. It reports a
+real program that really solves the task *as that lesson posed it*, and the
+pre-audit control reproduces it exactly. What is refuted is the implicit claim
+that the capability was about **balancedness**: it was about **counting**, and
+counting stopped being sufficient the moment the lesson was made
+non-exploitable. **Every future quotation of §19 must name the stream**, and the
+post-audit number is: no conforming program in the shipped scaffold, certificate
+`complete`.
+
+**Why this matters beyond the language track.** Two independent measurements this
+session now locate their limit in *what the representation can express* rather
+than in search or compute: this one, where the scaffold cannot say "running
+minimum", and §42/§41, where the algebra is provably total and eager so
+early-exit is inexpressible. See
+`research/algorithm-resynthesis/DESIGN.md` for the design study that follows from
+the pair.
 
