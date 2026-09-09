@@ -1171,3 +1171,56 @@ reward-only route.**
 Independently confirms the section 18 severing bug for a third time: pinning
 plumbing with a one-candidate node detached it and made `backward()` raise.
 Every gradient number in that track is from a corrected scaffold.
+
+## 24. The language curriculum was substantially exploitable; 14 lessons re-drawn
+
+Full detail in `research/lesson-audit/RESULTS.md`.
+
+A battery of 16 cheap exploits, each fitted on 600 training seeds and scored on
+400 disjoint test seeds, with a **null control** — every answer replaced by a
+uniform draw from its own choice set — bounding the selection bias of taking a
+max over 16 predictors at 0.060. About 750,000 episodes in under 11 minutes.
+
+**63 of 179 lessons are exploitable**, and **14 are solved at >= 0.80, seven at
+exactly 1.000**. The mechanism split confirms the project lead's suspicion
+directly: **copying 31**, surface and character statistics 18, implausible
+distractors 9, memorisation of a tiny episode space 5.
+
+Named cases: `ellipsis` appends the antecedent last, so the answer is always the
+option mentioned last; `tree_to_sequence`'s "first leaf" of an in-order
+rendering *is* the first token; `underspecification_reasoning`'s answer is the
+number of printed `fits` lines, because the `spare` distractor list is empty on
+every seed; `context_free_language` is the known bracket-count case, where both
+`char_count_tree` and 1-NN reach 1.000. `parse_depth` sits at 0.998 because 85%
+of prompts recur.
+
+**14 were re-drawn**: mean best exploit 0.934 to 0.394, none above 0.63, zero
+lessons at >= 0.80, and the oracle still 1.000 for every one. Exploitable count
+63 to 54; the count with excess >= 0.30 fell 24 to 14.
+
+Verified independently from the supervising session using the track's own
+battery rather than a hand-rolled probe — my first attempt used a loose
+heuristic that reported 1.000 in both regimes and measured nothing. On four
+sampled lessons the legacy stream scores 1.000 for every one, winning through
+`nearest_neighbour`, `choice_in_observation`, `prompt_length` and
+`choice_ranker` respectively, while the hardened default scores 0.580, 0.205,
+0.230 and 0.300 with the oracle unchanged at 1.0. Exploits collapse; the lessons
+stay answerable.
+
+**The default distribution changed deliberately**, which is the right call: an
+off-by-default fix fixes nothing. The old stream is preserved and verified as
+`hardening="none"`, bit-identical to the pre-audit generator over 179 lessons by
+12 configurations by 8 seeds — 17,184 episodes — against a digest taken from an
+independent pre-audit copy of the sources. Under the new default exactly 16
+lessons change, the 14 plus two composers that draw sub-episodes; the other 163
+are identical including instance ids. This also lands the language track's D3,
+since `difficulty` was previously unreachable.
+
+Three fixes change what a lesson asks and two cost a difficulty axis, all
+recorded. `presupposition` is incomplete at 0.868 to 0.575, and the residual is
+structural: the query's predicate type partitions the four labels, giving a hard
+0.500 floor measured at 0.501 over 4,000 seeds.
+
+**This retroactively qualifies a claim in `docs/VALIDATION.md`**, which cited
+"179 executable lessons" as evidence. That was only ever a sampling check, and
+63 of those lessons could be beaten by a cheap heuristic.

@@ -1,5 +1,4 @@
 """Local computer kernel integrated with typed actions and deterministic replay state."""
-import atexit
 import hashlib
 import json
 import subprocess
@@ -9,34 +8,6 @@ from tcn.types import BOOL,product,setof
 from generators.raster_text.generator import render_text
 TEXT=text_value('',512).type;PATH=text_value('',128).type;KEY=integer(16,signed=False)
 U8=integer(8,signed=False);U16=integer(16,signed=False);U32=integer(32,signed=False)
-# --- panel interface (gated) -------------------------------------------------
-# A narrow typed action argument, in the sense ARCHITECTURE section 1 already
-# gives: a bounded integer. `tcn/policy.py:parameter_width` charges a numeric
-# integer argument two policy parameters (mean, log sigma) and
-# `numeric_bounds` reads the declared bit width, so `SLOT` is 4 values from 2
-# parameters and `DIAL` is 16 values from 2 parameters. The shell interface's
-# `write.text` is 1026 parameters scored by exact string equality; this is the
-# same generator, the same kernel and the same reward mechanism with the action
-# argument narrowed, which is the change `research/computer-capability/RESULTS.md`
-# asked for. Neither type is `role="category"`: a category is sampled bit by bit
-# and, being outside `Type.numeric`, admits no arithmetic, so a program could not
-# compute the argument it wants to emit.
-SLOT=integer(2,signed=False)
-DIAL=integer(4,signed=False)
-# The default shell menu, frozen as a literal. It used to be `tuple(action_schema)`,
-# which would silently grow when the panel verbs were added to the schema; the
-# recorded `available_actions` of every pre-existing configuration must not move.
-SHELL_MENU=('wait','command','type','key','read','write')
-PANEL_MENU=('wait','look','dial','commit')
-PANEL_VERBS=frozenset(PANEL_MENU)-{'wait'}
-PANEL_ROOT='/home/agent'
-PANEL_OUT=PANEL_ROOT+'/out.txt'
-PANEL_SLOTS=4
-# Decoy keys, none of which begins with `t`, so `terminal[0] == 't'` is an exact
-# predicate for "the panel is showing the task record" and the perceptual problem
-# is the same shape as the shell task's `brand = eq(terminal[0], '{')`.
-PANEL_KEYS=('note','memo','log','data','ref','aux')
-PANEL_DIGITS=9                                 # task digit 0..8, so the answer 1..9 is in range
 # Capacity-declared relations over kernel state, in the shape ARCHITECTURE section 1
 # already gives relations: sets of tuples. The leading index field is load-bearing
 # exactly as in `generators/logic`'s `gates` channel -- a set is duplicate-free, and
@@ -51,84 +22,17 @@ def name_hash(text):
     does not depend on a JavaScript string hash and replays across interpreters."""
     return int.from_bytes(hashlib.sha256(text.encode('utf8')).digest()[:4],'little')
 
-class Session:
-    """One long-lived `engine/session.ts` process, addressed exactly like `bridge.ts`.
-
-    Opt-in and off by default: `execute` uses it only when `configuration['session']`
-    put one in `SESSIONS`. The transport is the only difference -- the same event
-    log is applied to the same kernel in the same order under the same logical
-    clock, and `research/credit-assignment/session_equivalence.py` checks the two
-    payloads agree byte for byte. It exists because `bridge.ts` reboots the kernel
-    for every transition, which costs ~1.9 s per acting step and puts a
-    credit-assignment study out of reach.
-    """
-    def __init__(self):
-        root=Path(__file__).parent/'engine'
-        self.process=subprocess.Popen(['node','--import','tsx',str(root/'session.ts')],stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,cwd=root,bufsize=1)
-        if json.loads(self.process.stdout.readline()).get('ready') is not True:raise RuntimeError('computer session did not start')
-        atexit.register(self.close)
-    def call(self,request):
-        if self.process.poll() is not None:raise RuntimeError('computer session exited: '+(self.process.stderr.read() or '')[-2000:])
-        self.process.stdin.write(json.dumps(request)+'\n');self.process.stdin.flush()
-        line=self.process.stdout.readline()
-        if not line:raise RuntimeError('computer session closed: '+(self.process.stderr.read() or '')[-2000:])
-        result=json.loads(line)
-        if 'error' in result:raise RuntimeError('computer transition failed: '+str(result['error'])[-2000:])
-        return result
-    def close(self):
-        if self.process.poll() is None:
-            try:self.process.stdin.close()
-            except Exception:pass
-            try:self.process.wait(timeout=10)
-            except Exception:self.process.kill()
-
-SESSIONS={}
-
-def session(name='default'):
-    """The named live session, started on first use. Nothing calls this by default."""
-    if name not in SESSIONS:SESSIONS[name]=Session()
-    return SESSIONS[name]
-
-def execute(seed,events,time,probe=None,transport=None):
-    request={'seed':seed,'events':events,'time':time}
-    if probe is not None:request['probe']=probe
-    if transport is not None:return session(transport).call(request)
+def execute(seed,events,time,probe=None):
     root=Path(__file__).parent/'engine'
     cmd=['node','--import','tsx',str(root/'bridge.ts')]
+    request={'seed':seed,'events':events,'time':time}
+    if probe is not None:request['probe']=probe
     p=subprocess.run(cmd,input=json.dumps(request),text=True,capture_output=True,cwd=root,timeout=90)
     if p.returncode:raise RuntimeError('computer transition failed: '+p.stderr[-2000:])
     return json.loads(p.stdout)
 
 class Implementation(Generator):
-    action_schema={'wait':{},'command':{'text':TEXT},'type':{'text':TEXT},'key':{'code':KEY},'read':{'path':PATH},'write':{'path':PATH,'text':TEXT},
-                   'look':{'slot':SLOT},'dial':{'value':DIAL},'commit':{}}
-    def panel_setup(self,address,configuration):
-        """The panel episode's hidden content, drawn on its own named random stream.
-
-        Named streams are `Address.rng`'s reason for existing, so nothing here can
-        move a draw any pre-existing configuration makes: `initialize` still takes
-        the kernel seed from the default stream, in the same order, whether or not
-        the panel is configured.
-
-        Hand-initialisations, stated (AGENTS.md): the task record is always keyed
-        `task` and the decoys never begin with `t`, so `terminal[0] == 't'` is an
-        exact predicate; the digit is always the last byte, so the address must be
-        computed from the record's length; and the register starts at a value the
-        agent did not choose, which is what gives a myopic policy something to be
-        myopic about. Every one of the three is a property of the generated data,
-        not of a model input, and none of them is the answer.
-        """
-        rng=address.rng('panel')
-        slots=int(configuration.get('panel_slots',PANEL_SLOTS))
-        if not 2<=slots<=(1<<SLOT.bits):raise ValueError('panel_slots must fit the declared slot type')
-        task=rng.randrange(slots);digit=rng.randrange(int(configuration.get('panel_digits',PANEL_DIGITS)))
-        records=[]
-        for i in range(slots):
-            if i==task:records.append(f'task = {digit}')
-            else:records.append(f'{PANEL_KEYS[rng.randrange(len(PANEL_KEYS))]} = {rng.randrange(10)}')
-        register=rng.randrange(1<<DIAL.bits) if configuration.get('panel_register') is None else int(configuration['panel_register'])
-        return {'slots':slots,'task':task,'digit':digit,'records':records,'register':register,
-                'paths':[f'{PANEL_ROOT}/slot{i}.txt' for i in range(slots)],'answer':digit+1}
+    action_schema={'wait':{},'command':{'text':TEXT},'type':{'text':TEXT},'key':{'code':KEY},'read':{'path':PATH},'write':{'path':PATH,'text':TEXT}}
     def probe_request(self,spec,objective):
         """Bridge-side request for the gated privileged state view.
 
@@ -144,20 +48,11 @@ class Implementation(Generator):
         return {'root':spec.get('root','/home/agent'),'depth':int(spec.get('depth',1)),'contents':paths}
     def initialize(self,address,configuration):
         seed=address.rng().randrange(2**31)
-        interface=configuration.get('interface','shell');panel=None
-        if interface=='panel':
-            panel=self.panel_setup(address,configuration)
-            events=[{'kind':'write','path':p,'text':t,'time':0} for p,t in zip(panel['paths'],panel['records'])]
-            spec={'root':PANEL_ROOT,'depth':0,'content_paths':list(panel['paths'])+[PANEL_OUT],'filesystem_capacity':0,'process_capacity':0}
-        else:
-            events=[{'kind':'write','path':'/home/agent/task.txt','text':configuration.get('document','count = 7'),'time':0}]
-            spec=configuration.get('probe')
+        events=[{'kind':'write','path':'/home/agent/task.txt','text':configuration.get('document','count = 7'),'time':0}]
+        spec=configuration.get('probe')
         request=self.probe_request(spec,configuration.get('objective',{}))
-        transport=configuration.get('session')
-        result=execute(seed,events,0,request,transport)
-        state={'time':0.,'tick':0,'seed':seed,'events':events,'result':result,'buffer':'','interface':interface,'horizon':configuration.get('horizon',8),'objective':configuration.get('objective',{}),'screen_width':configuration.get('screen_width',128),'screen_height':configuration.get('screen_height',48)}
-        if transport is not None:state['session']=transport
-        if panel is not None:state['panel']=panel
+        result=execute(seed,events,0,request)
+        state={'time':0.,'tick':0,'seed':seed,'events':events,'result':result,'buffer':'','interface':configuration.get('interface','shell'),'horizon':configuration.get('horizon',8),'objective':configuration.get('objective',{}),'screen_width':configuration.get('screen_width',128),'screen_height':configuration.get('screen_height',48)}
         if spec:state['probe']=spec;state['probe_request']=request
         return state
     def advance(self,s,actions,dt,rng):

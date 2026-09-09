@@ -16,7 +16,7 @@ FAMILY = {
 }
 
 
-def rows(d):
+def rows(d, null=None):
     out = []
     for lid, r in d["lessons"].items():
         if "exploits" not in r:
@@ -25,7 +25,14 @@ def rows(d):
               if not k.endswith("_error") and v == v}
         st = r["stats"]
         base = max(st["majority_share"], st["random_floor"])
+        nb = 0.0
+        if null and lid in null["lessons"]:
+            ns = null["lessons"][lid]["stats"]
+            nb = null["lessons"][lid]["best_score"] - max(ns["majority_share"],
+                                                          ns["random_floor"])
         out.append({
+            "null_lift": round(nb, 4),
+            "excess": round(r["best_score"] - base - nb, 4),
             "lesson": lid, "oracle": r["oracle"], "best": r["best_score"],
             "by": r["best_exploit"], "family": FAMILY.get(r["best_exploit"], "?"),
             "gap": round(r["oracle"] - r["best_score"], 4),
@@ -43,21 +50,23 @@ def rows(d):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--json", default=os.path.join(HERE, "audit_before.json"))
+    p.add_argument("--null", default="")
     p.add_argument("--md", default="")
     p.add_argument("--top", type=int, default=0)
     a = p.parse_args()
     d = json.load(open(a.json))
-    rs = sorted(rows(d), key=lambda r: (-r["best"], r["gap"]))
+    nl = json.load(open(a.null)) if a.null else None
+    rs = sorted(rows(d, nl), key=lambda r: (-r["excess"], -r["best"]))
     if a.top:
         rs = rs[:a.top]
-    hdr = ("| # | lesson | oracle | best cheap exploit | score | gap | baseline | lift | "
-           "family | #ans | H(bits) | copy | repeat |")
+    hdr = ("| # | lesson | oracle | best cheap exploit | score | gap | floor | "
+           "excess | family | #ans | H(bits) | copy | repeat |")
     lines = [hdr, "|" + "---|" * 13]
     for i, r in enumerate(rs, 1):
         lines.append(
             f"| {i} | `{r['lesson']}` | {r['oracle']:.3f} | `{r['by']}` | "
             f"**{r['best']:.3f}** | {r['gap']:.3f} | {r['baseline']:.3f} | "
-            f"{r['lift']:+.3f} | {r['family']} | {r['n_answers']} | {r['H']:.2f} | "
+            f"{r['excess']:+.3f} | {r['family']} | {r['n_answers']} | {r['H']:.2f} | "
             f"{r['copy_rate']:.2f} | {r['repeat']:.2f} |")
     txt = "\n".join(lines)
     if a.md:
