@@ -31,7 +31,7 @@ a file under `research/`.
 | edge detection | held-out 0.0, unique among 48 staged |
 | same-object relation | 1.0000 held-out vs 0.8842; transfers to `world_2d`/`world_3d` unchanged |
 | convolution from raw bytes | 3x3 Sobel-x, 4/4 seeds recover the exact kernel |
-| language | 1.000 on 724 held-out episodes of unseen lengths vs 0.548 majority |
+| language | 0.9986 on 724 held-out episodes of unseen lengths vs 0.548 majority (one error in 724; corrected from 1.000, FINDINGS §43) |
 | computer use | 10/10 held-out documents, generalizing to unseen commands and formats |
 | reward learning | 4.00/4 on 8/8 seeds from reward alone, no supervision, no hand-init |
 | module library | stage 2 given stage 1: 48 programs unique vs 4.9e10 without |

@@ -76,6 +76,33 @@ So both branches are merge-ready and only the quiet-tree rule is holding them.
 
 ## Waiting
 
+### `neural-baselines` (92ca646) — verified, research-only, SAFE TO MERGE ANY TIME
+
+Adds only `research/neural-baselines/`. **`tcn/` and `generators/` are
+byte-identical to main** — `git diff --stat main...HEAD -- tcn/ generators/` is
+empty — so the quiet-tree rule does not apply and no core fingerprint changes.
+Recorded as FINDINGS §43.
+
+**Independently verified here from raw JSON:**
+
+- Visual: nine arms, three widths × three budgets, **every one 0.0 exact trees**;
+  best rects 0.665 at 32× the typed program's screen budget. Trivial reference
+  present and load-bearing (`no corner here` = 0.9815 per position).
+- Language: best **validation-selected** arm 0.657 against a 0.548 majority. I
+  checked for understatement — test-max is 0.7818 — and the track is right:
+  selecting on validation is correct and test-max would be cherry-picking.
+- Computer: the 0.50 byte ceiling is computed in `out/computer_live_extra.json`
+  (`max_possible_byte_accuracy: 0.5`), the classifier attains it, and the arm is
+  labelled `NOT the matched protocol` in the raw file. Matched-protocol best live
+  score is 1 of 10.
+- The **0.9986 vs 1.000** correction is confirmed against
+  `research/language-capability/final_eval.json` and has been applied to
+  `research/FINDINGS.md` §19, `STATUS.md` and `HANDOFF.md` on main.
+
+The branch's reported 13 test failures are 12 × missing gitignored
+`node_modules` plus the known `test_panel_interface` one.
+
+
 ### `program-length` (8d0d710, from `compiled-runtime` 68db06a) — verified, NEGATIVE
 
 Forwards `rank` from `fit` to the discrete backends (`tcn/synthesis.py`), plus

@@ -893,8 +893,10 @@ Full detail in `research/language-capability/RESULTS.md`. This is the first
 training ever run on the language generator.
 
 **What was learned.** On `context_free_language` ("is this string balanced?"),
-staged on the privileged `construction` latent, a typed program reaches **1.000
-on 724 held-out episodes of unseen lengths with 0% string overlap**, against a
+staged on the privileged `construction` latent, a typed program reaches **0.9986
+on 724 held-out episodes of unseen lengths with 0% string overlap** — one error
+in 724, not a perfect score; this section originally read "1.000" and is
+corrected here against its own `final_eval.json`, see §43 — against a
 0.548 majority constant, 0.5 random, and a 0.648 best fitted-feature baseline
 whose training-perfect features collapse to the constant off-distribution.
 Trained only on lengths {2,4,6} — twelve distinct strings — it is exact at
@@ -2049,4 +2051,73 @@ the same 13 fail on the base commit". The 13 were **missing `node_modules`**: wi
 it symlinked the branch gives **336 passed, 1 failed**, and the base commit gives
 313 passed, 1 failed, in both cases the known worktree-only
 `test_panel_interface` failure already documented in `research/MERGE-QUEUE.md`.
+
+## 43. Matched neural baselines exist now, and the answer differs per artifact
+
+`research/neural-baselines/RESULTS.md`, branch `neural-baselines` (92ca646),
+**not merged**. §36 ended by recording that no matched neural baseline existed
+for the visual, computer or language artifacts, so "cheaper than a model" was
+unmeasured for all three. It is measured now. Everything below was re-derived
+here from the track's raw JSON, not from its summary.
+
+The question was never "can we beat an LLM". It was: **for equal observable
+information and comparable task quality, what does each method cost?** The answer
+is different for each artifact and the typed side does not win everywhere.
+
+**A correction to a shipped number, found by the track and confirmed here.** §19,
+`STATUS.md` and `HANDOFF.md` all reported the language capability as **1.000** on
+724 held-out episodes. The track's own `final_eval.json` records
+**0.9986187845303868** — exactly **one error in 724**. All three files are
+corrected. It is a small overstatement and it was in the three most-read
+documents in the repository.
+
+**Visual — the typed program wins quality and sample efficiency decisively.**
+Verified from `out/visual.json`: **nine** arms, three CNN widths (10,867 /
+40,099 / 153,859 parameters) × three budgets, and **every one scores 0.0 exact
+trees**. Best rectangle accuracy is 0.665 at 192 screens — 32× the typed
+program's 6 — and links reach 0.469. The typed program takes 20/20 rectangles,
+20/20 parent links and an exact tree on every held-out screen from 6 screens.
+The trivial reference is reported beside it and matters: `no corner here` scores
+**0.9815** per position, so per-position accuracy on this task is nearly
+uninformative and only the exact-tree column means anything.
+
+**But the CNN wins execution and size on that same artifact**, 300–556× faster
+(31–61 ms against 18,375 ms) and 250× smaller. Both facts are the result.
+
+**Language — typed wins quality; no baseline reaches comparable quality, so no
+cost trade is available.** 26 arms across 4 families, 2 supervision modes and 3
+learning rates. Best **validation-selected** arm reaches **0.657** test against
+the 0.548 majority; typed is 0.9986. I checked whether the track had understated
+its own baseline — test-max across all arms is 0.7818 and one arm medians 0.7072
+— and it had not: selecting on validation is the correct protocol and reporting
+test-max would be cherry-picking. **Worth recording separately: validation barely
+predicts test here** (0.8875 val → 0.6568 test; 0.8667 → 0.4413), which is itself
+a fact about the task rather than about any model.
+
+**Computer — typed wins quality; cost is a wash.** The classifier head can only
+emit a byte it saw as a training label; training targets are {1,3,4,6,7} and 5 of
+10 held-out targets fall outside that set, so **0.50 is a hard computed ceiling**
+(`out/computer_live_extra.json`, `max_possible_byte_accuracy: 0.5`) and the
+classifier attains it — 4.5 solved median, 5 max. Every arm gets the verb
+(0.933–1.000); none gets the byte. Under the **matched** protocol the best live
+score is **1 of 10**. The ceiling arm is explicitly labelled in the raw file as
+`NOT the matched protocol — reported to show the neural side's best achievable
+live score`, which is the right disclosure and is generous to the baseline.
+Typed scores 10/10. Latency 13.35 ms against 0.39–9.85 ms is the same order and
+either way is ~1.5% of the 866 ms kernel step.
+
+**The one cost axis the typed side wins across the board** is deployment
+footprint: 24–60 MB and 91–479 ms stdlib-only, against ~270 MB and 1.7–7.2 s just
+to import torch.
+
+**Verified against the track's own protocol rules:** `tcn/` and `generators/` are
+byte-identical to main (`git diff --stat main...HEAD -- tcn/ generators/` is
+empty), so no baseline number was taken against modified core. The stream defect
+of §39 did not propagate — the track pinned `hardening='none'` and hit the same
+wall independently.
+
+**A new fact for §39, from the track.** On the post-audit stream the counting
+oracle scores **exactly the majority** (0.5150) while the Dyck oracle scores
+1.000. The re-draw severed counting from balancedness, and both sides transfer at
+chance. That is a stronger statement of §39's warning than §39 itself makes.
 
