@@ -164,12 +164,17 @@ Confirmed against the real program, not the simulator (`verify_best_member.py` �
 | member | train | held-out seen | held-out **unseen** (majority 0.5262) |
 |---|---|---|---|
 | `c=110, plus=-2, minus=+2, le -2` (best in family, selected **on the test split**) | 0.7500 | 0.5833 | **0.7031** |
-| `c=101, plus=+1, minus=-1, eq 0` — the honest counting program, i.e. §19's semantics | 0.5000 | 0.4667 | **0.5262** = the majority, exactly |
+| `c=101, plus=+1, minus=-1, eq 0` — the counting program, §19's semantics | 0.5000 | 0.4667 | **0.5262** = the majority, exactly |
+
+§19's own recorded selection is the sign-flipped, offset-by-two variant of that
+row (`stage_b.json`: `symbols = length − 99`, `plus = −1`, `minus = +1`,
+`answer = eq(acc, 2)`) — the same function of the same bracket counts.
 
 Two things follow.
 
 **(a) The counting program lands exactly on the majority.** It predicts `yes` on
-every episode, because `#( == #)` always holds. That is §43's fact, reproduced
+every episode, because `#( == #)` always holds — its accuracy equals the positive
+rate on all three splits (0.500 / 0.4667 / 0.5262). That is §43's fact, reproduced
 here through the actual typed program rather than through an oracle.
 
 **(b) The family's only remaining signal is a truncation artifact.** The best
