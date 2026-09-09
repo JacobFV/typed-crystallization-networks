@@ -123,8 +123,11 @@ behaviour** (`eligibility="immediate"`, `anneal="round"`), verified by reading
 the constructor on the branch. Note the inherited `selection="perturbation"`
 default from 90dd08a IS a behavioural change; that belongs to the parent commit.
 
-Verified from the supervising session: contains 90dd08a, and
-`git merge-tree` shows it conflict-free against `positional-reuse`.
+Verified from the supervising session: contains 90dd08a,
+`git merge-tree` shows it conflict-free against `positional-reuse`, and
+**`104 passed in 64.89s`** run against that worktree rather than taken on the
+agent's word (gitignored `node_modules` symlinked in for the four computer
+tests, symlink removed afterwards, worktree left clean at ec953bc).
 
 Its verdict is the third independent confirmation that the scheduler does not
 beat plain argmax, and the agent killed its own apparent win: not-annealing
