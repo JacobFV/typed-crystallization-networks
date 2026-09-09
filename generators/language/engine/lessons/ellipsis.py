@@ -21,7 +21,12 @@ def gen_ellipsis(rng: random.Random, ctx):
     like?). Distractor clauses precede the antecedent so the answer is never the
     only verb or the only object in the discourse.
     """
-    d = ctx.at(2, 4, default=2)                  # clauses between the reader and the antecedent
+    # clauses between the reader and the antecedent.  The hardened draw pins
+    # this at the maximum the name pool allows: with only two distractors the
+    # antecedent is first or second and "the option that occurs earliest" is
+    # right half the time.  The knob has no range left under hardening, and the
+    # lesson's difficulty axis is that much poorer for it.
+    d = 4 if ctx.hardens("ellipsis") else ctx.at(2, 4, default=2)
     subs = rng.sample(NAMES, d + 2)
     verbs = rng.sample(TRANS_VERBS, d + 1)
     objs = rng.sample(OBJECTS, d + 2)

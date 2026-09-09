@@ -6,8 +6,10 @@ Raw data is in `out/`; every script named here regenerates its own file.
 
 `tcn/` was **not modified**. `generators/computer/generator.py` and
 `generators/computer/engine/bridge.ts` gained one gated probe channel, described and
-verified in section 3. The full Python suite is **179 passed** with the change in
-the tree.
+verified in section 3. The full Python suite was **179 passed** with the change in
+the tree at the time of measurement. The checkout is shared with other agents; the
+generator edit was swept into another agent's commit `a5d05cd` while this track ran,
+which is noted rather than intended.
 
 ---
 
@@ -35,11 +37,16 @@ Three things had to be true for that, and each is the real finding:
    program with exact error **52.0** and held-out accuracy **0.0**. The address choice
    receives **`grad is None`** — no gradient at all, because `unpack`, the only
    declared exit from `role="byte"`, is `gradient="none"`.
-3. **The scalar reward cannot start.** The `write.text` argument is a 1026-parameter
-   typed text. At a neutral policy the probability that one write is rewardable is
-   **5.65e-06**, i.e. **176,942 write actions**, i.e. about **27 days** of wall clock
-   at the measured 13.3 s per episode. This is measured analytically and checked by
-   20,000 draws (0 hits).
+3. **The scalar reward cannot start on this generator.** The `write.text` argument is
+   a 1026-parameter typed text and the reward is exact string equality. At a neutral
+   policy the probability that one write is rewardable is **5.65e-06**, i.e. **176,942
+   write actions**, i.e. about **27 days** of wall clock at the measured 13.3 s per
+   episode. Measured analytically and checked by 20,000 draws (0 hits). This is a
+   claim about *reward sparsity from a high-dimensional exact-match action argument*,
+   not about REINFORCE on typed programs: commit `98cdca8` establishes that REINFORCE
+   does train a typed program on a 256-way discrete choice in ~400 episodes, and
+   nothing here contradicts that. The difference is that a 256-way categorical choice
+   receives reward on a useful fraction of rollouts and this action argument does not.
 
 **The blocking constraint is not the environment.** The kernel is a real
 transition system. It is the *contract over it*: one bit of reward, an action
@@ -198,10 +205,17 @@ available actions, times — is compared.
 | 4 documents x 4 seeds x 3 action sequences x 2 objectives x 2 splits | **192** | **192** |
 
 466 s and 2,621 s respectively; 456 live episodes in total. This matches the
-192-combination precedent of `research/FINDINGS.md` section 10. Note that
-`Host.digest` necessarily changes anyway, because `source_fingerprint()` hashes all
-of `tcn/` and `generators/`; what is verified here is the semantic stream, which is
-the thing a recorded episode's *meaning* depends on.
+192-combination precedent of `research/FINDINGS.md` section 10.
+
+`state_check.py` (`out/state_check.json`) closes the remaining gap: it compares
+`Host.snapshot()`'s **`state`, `inputs`, `configuration`, `objective` and `records`**
+across four combinations, and `state['result']` is the raw bridge payload. All four
+are identical over ~9.48 MB of serialized snapshot each, so the transport payload is
+byte-identical when no probe is requested, not merely semantically equivalent.
+
+Note that `Host.digest` necessarily changes anyway, because `source_fingerprint()`
+hashes all of `tcn/` and `generators/`; what is verified here is everything the
+digest covers apart from that fingerprint.
 
 ### 3.2 One gated behaviour change, stated separately
 
@@ -238,7 +252,8 @@ satisfied when the file's whole content is `str(digit+1)`.
   An agent that writes at tick 0 cannot know what to write.
 * The digit varies per episode, so no constant text is right more than 1 time in 9;
   measured, the best constant byte scores **0.20** on both splits.
-* The name varies in length (5 to 15 characters), so no constant byte address finds
+* The name varies in length (documents of 5, 6, 7, 9 and 11 bytes in training and up
+  to 15 held out), so no constant byte address finds
   the digit; measured, the conforming address is **unique** in a 136-candidate
   address space (`out/tie_check.json`).
 * The reward is the shipped one — the kernel reads the file back and compares bytes —
@@ -450,6 +465,18 @@ which objective it is being scored against, and would need ~177,000 episodes bef
 its policy gradient saw a single nonzero reward.** Dense supervision through a probe
 channel is not a convenience here, it is the only available route.
 
+**Scope, against commit `98cdca8`.** That correction retracts the claim that scalar
+reward cannot train this substrate: with hand-supplied policy constants zeroed and all
+supervision removed, REINFORCE on a typed program reaches 4.00/4 in ~400 episodes on
+the logic generator, where the action is a **256-way discrete choice**. The obstacle
+measured here is a different one and is specific to this generator's action schema: a
+1026-parameter continuous text argument scored by exact string equality. A categorical
+action of 256 options is rewarded on a workable fraction of rollouts; this one is
+rewarded on 5.65e-06 of them. If the computer generator gained a narrower typed action
+argument -- a digit, a bounded integer, a small symbol alphabet -- the reward-only
+route would be worth testing here too, and that is the single change most likely to
+open it.
+
 ---
 
 ## 9. Faults found
@@ -504,10 +531,11 @@ Live environment episodes, since wall clock alone is not the right unit:
 | `equivalence.py` (36 combinations, both arms) | 72 | 466 |
 | `equivalence.py --wide` (192 combinations, both arms) | 384 | 2,621 |
 | `limits.py` | 6 | 15 |
+| `state_check.py` | 8 | 60 |
 | `probe_supervision.py` | 15 | 56 |
 | `closed_loop.py` | ~110 | 870 |
 | `ablation.py` | 30 | 87 |
-| **total** | **~650** | **~4,400 s** |
+| **total** | **~660** | **~4,460 s** |
 
 Non-environment compute: enumeration 168 s (transform) and 26 s (policy); the relaxed
 arms 210 s and 234 s; the conforming-set sweep 30 s. The host was heavily loaded
@@ -524,6 +552,7 @@ bounds.
 .venv/bin/python research/computer-capability/limits.py
 .venv/bin/python research/computer-capability/equivalence.py          # 36 combinations
 WIDE=1 .venv/bin/python research/computer-capability/equivalence.py   # 192 combinations
+.venv/bin/python research/computer-capability/state_check.py          # raw payload identity
 .venv/bin/python research/computer-capability/task.py                 # collects examples
 .venv/bin/python research/computer-capability/search_run.py
 .venv/bin/python research/computer-capability/tie_check.py
@@ -534,6 +563,12 @@ WIDE=1 .venv/bin/python research/computer-capability/equivalence.py   # 192 comb
 .venv/bin/python research/computer-capability/reinforce_feasibility.py
 .venv/bin/python -m pytest tests/ -q                                  # 179 passed
 ```
+
+Three regenerable artifacts are deliberately not kept in `out/`: the two example
+files (24 MB, from `task.py`) and the exported agent program (12 MB, from
+`closed_loop.py`). Their size is fault C6 -- almost all of it is the recursive
+serialization of 4,096 identical byte type dictionaries -- and the commands above
+recreate them in under three minutes.
 
 `generator_before.py` is a verbatim copy of `generators/computer/generator.py` as it
 stood before this track, with only its engine path repointed; it exists so

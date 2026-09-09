@@ -28,7 +28,22 @@ def _count_preserving_negative(rng: random.Random, s: str) -> str | None:
     n = len(s)
     if n < 4:
         return None
-    for keep_last in (True, False):                # first tier keeps both ends
+    opens = [i for i, c in enumerate(s) if c == "("]
+    closes = [i for i, c in enumerate(s) if c == ")"]
+    # One transposition, so the negative keeps the positive's *local* bracket
+    # statistics too -- a full reshuffle does not, and a byte at a fixed offset
+    # separates a constructed Dyck word from a uniform permutation at 0.77.
+    for inner in (True, False):
+        cand = [(i, j) for i in opens for j in closes if i < j
+                and (not inner or (i > 0 and j < n - 1))]
+        rng.shuffle(cand)
+        for i, j in cand[:96]:
+            t = list(s)
+            t[i], t[j] = t[j], t[i]
+            t = "".join(t)
+            if not _is_balanced(t):
+                return t
+    for keep_last in (True, False):
         body = list(s[1:-1] if keep_last else s[1:])
         tail = s[-1] if keep_last else ""
         for _ in range(64):

@@ -1104,3 +1104,70 @@ reaching 2.5 by 300.
 
 **A blocking defect for reproduction:** `TrainConfig`'s `> 0` weight checks make
 every arm in this report inexpressible in the shipped trainer.
+
+## 23. Computer use: a typed program acts in a live OS, closed loop
+
+Full detail in `research/computer-capability/RESULTS.md`. First training ever run
+on the computer generator.
+
+The task: `/home/agent/task.txt` holds `<name> = <digit>`, and the objective is
+satisfied when the file contains `str(digit+1)`. At tick 0 the terminal shows
+only the setup write's JSON, carrying the file's *length* rather than its
+content, so the program must issue a read, then write a value computed from what
+it saw, then stop. The exact frozen `Agent` of `tcn/agent.py` drives the shipped
+generator against the shipped reward:
+
+| arm | episodes | mean return / 2 |
+|---|---|---|
+| **held-out documents** | 10 | **2.00 (10/10 solved)** |
+| always write "5" | 10 | 0.30 |
+| read, then write the modal digit | 10 | 0.20 |
+| uniform random verb and digit | 10 | 0.60 |
+| six random points of its own search space | 30 | 0.10 |
+
+The learned content is `pos = sub(length, 1)` — a **computed** address chosen over
+fifteen constant ones, with enumeration certifying the conforming address unique
+in a 136-candidate space — plus `shift = add(value, 1)` and
+`brand = eq(terminal[0], '{')` as the perceptual predicate deciding read from
+write.
+
+**It generalizes outside training structure**, which matters here because the
+episode address was measured not to reach the task at all, so held-out seeds
+would mean nothing. Unseen documents 2.00/2; unseen reading commands `cat`,
+`head`, `tail`, `grep`, `sed`, `awk` all 2.00/2, with `wc -c` correctly at 0.00
+since its stdout is a byte count; unseen document formats `count=7`, bare `7`,
+`value: 7`, `  total = 7`, `answer -> 7` all 2.00/2.
+
+**No dense supervision existed, and the fix was the `gates`-shaped one.** Over
+eight documents, `state_counts` and `event_count` take one distinct series while
+`terminal` takes eight — they count the agent's own actions. A gated probe
+channel was added: capacity-declared `filesystem` and `processes` relations,
+declared file contents, and `goal_reached`, as probes and latents only. Verified
+independently here: the default observation set is `['pixels','terminal']` with
+probes `['state_counts']` across 27 configurations, the channel is absent unless
+`probe` is configured, and enabling it leaves observations unchanged. The agent
+reports the default stream bit-identical over 192 seed/config/action/objective/
+split combinations, and the channel is load-bearing — re-deriving every target
+from `StepRecord.probes` alone reproduces the identical program.
+
+**Gradient descent contributed nothing, for a fourth distinct reason.**
+Enumeration exhausted 7,480 programs in 168 s with 2 conforming at held-out max
+error 0.0; the relaxed arm returned exact error 52.0 and held-out accuracy 0.0.
+The address choice gets `grad is None` because `unpack`, the only declared exit
+from `role="byte"`, is `gradient="none"` — a **hard boundary no temperature fix
+reaches**, distinct from the three numerical mechanisms in section 16. The `eq`
+surrogate at the operating distance is 7.0e-251, exactly 0.0 in float32, against
+1.05e-01 under section 16's carrier scaling.
+
+**Scalar reward cannot start here, and the reason is precise.** `write.text` is a
+1026-parameter typed text scored by exact string equality, so the probability
+that one neutral write is rewardable is 5.65e-06 — about 176,942 write actions,
+roughly 27 days. This does not contradict section 22: that correction concerns a
+256-way categorical choice, while this is reward sparsity from a
+high-dimensional exact-match argument. **Giving the computer generator a
+narrower typed action argument is the single change most likely to open the
+reward-only route.**
+
+Independently confirms the section 18 severing bug for a third time: pinning
+plumbing with a one-candidate node detached it and made `backward()` raise.
+Every gradient number in that track is from a corrected scaffold.

@@ -28,9 +28,12 @@ def gen_symbol_equivalence(rng: random.Random, ctx):
         # exact.  A lexicon of several aliases forces the queried one to be
         # looked up; the distractor aliases denote other colours in the scene,
         # so every colour present is named the same number of times.
-        pool = sorted({o["color"] for o in objs})
-        rng.shuffle(pool)
-        pool = pool[:3]
+        # Aliasing only the scene's colours leaves "a colour that the lexicon
+        # names" as a two- or three-way narrowing of a six-way answer.  Every
+        # colour gets an alias -- some get two, which is what "many-to-one"
+        # means -- so the lexicon narrows nothing and the queried alias has to
+        # be matched.
+        pool = list(COLORS) + [rng.choice(list(COLORS)) for _ in range(2)]
         aliases = {}
         for c in pool:
             while True:

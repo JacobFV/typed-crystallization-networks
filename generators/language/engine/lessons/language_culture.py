@@ -66,9 +66,10 @@ def gen_language_culture(rng: random.Random, ctx):
                   rule=Lst([Pred("unheard_meaning_takes", Pred("last_heard_word"))]),
                   query=Pred("word_for", Num(asked), Ident(target)))
         return (obs, _shuffled(rng, list(origin.values())), lex[target],
-                {"generations": generations, "asked": asked, "meaning": target,
+                {"generations": generations, "meaning": target,
                  "founder_lexicon": dict(origin), "final_lexicon": dict(lex),
-                 "distinct_words_left": len(set(lex.values()))})
+                 "distinct_words_left": len(set(lex.values())),
+                 **({"asked": asked} if asked != generations else {})})
     raise RuntimeError("language_culture: no admissible world")
 
 

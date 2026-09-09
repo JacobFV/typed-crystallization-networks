@@ -11,6 +11,15 @@ from .._structure import Ident, Lst, Rec, Tok
 from ..lesson import Lesson
 
 
+def _cycle(table, start) -> int:
+    """The length of the cycle the chain from ``start`` is already inside."""
+    seen, x = {}, start
+    while x not in seen:
+        seen[x] = len(seen)
+        x = table[x]
+    return len(seen) - seen[x]
+
+
 def gen_next_symbol(rng: random.Random, ctx):
     """A hidden stochastic bigram grammar; the agent must infer it in-episode."""
     alphabet = list("abcd")
@@ -31,18 +40,19 @@ def gen_next_symbol(rng: random.Random, ctx):
     # question: the last symbol is not its own successor, the chain visits at
     # least three symbols, and the transition being asked about is *shown* --
     # without which the answer is not determined by the observation at all.
+    want = rng.choice([2, 3, 4, 5])
     table, seq = {}, []
-    for _ in range(400):
+    for _ in range(600):
         table = {a: rng.choice(alphabet) for a in alphabet}
         seq = [rng.choice(alphabet)]
         for _ in range(steps):
             seq.append(table[seq[-1]])
-        if (table[seq[-1]] != seq[-1] and len(set(seq)) >= 3
+        if (_cycle(table, seq[-1]) == want and len(set(seq)) >= 3
                 and seq.count(seq[-1]) >= 2):
             break
     obs = Rec(sequence=Lst([Tok(s) for s in seq]), query=Ident("next"))
     return (obs, alphabet, table[seq[-1]],
-            {"transition_table": table, "cycle": len(set(seq))})
+            {"transition_table": table, "cycle": _cycle(table, seq[-1])})
 
 
 class NextSymbol(Lesson):

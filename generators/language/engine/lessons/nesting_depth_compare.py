@@ -30,8 +30,8 @@ def gen_nesting_depth_compare(rng: random.Random, ctx):
         # redrawn with the *same* number of pairs and the flat pairs scattered
         # through the nesting, which makes the two strings identical in length
         # and in bracket counts with no fixed offset carrying the depth.
-        pairs = rng.randint(*ctx.span((max(ld, rd) + 2, max(ld, rd) + 6),
-                                      (max(ld, rd) + 4, max(ld, rd) + 12)))
+        pairs = rng.randint(*ctx.span((max(ld, rd) + 6, max(ld, rd) + 14),
+                                      (max(ld, rd) + 10, max(ld, rd) + 24)))
         left, right = _dyck(rng, ld, pairs), _dyck(rng, rd, pairs)
     dl, dr = _max_depth(left), _max_depth(right)
     obs = Rec(left=Lst([Tok(c) for c in left]), right=Lst([Tok(c) for c in right]),
