@@ -1,9 +1,15 @@
 # Typed Crystallization Networks
 
 TCN learns typed programs from synthetic transition systems, supervises intermediate
-regions, jointly trains prediction and control, and progressively freezes reusable
-programs. This repository contains the implementation, synthetic generators,
-training and curriculum runners, exact deployment runtime, and behavioral checks.
+regions, jointly trains prediction and control, and commits the result to immutable
+exact programs that later tasks reuse. This repository contains the implementation,
+synthetic generators, training and curriculum runners, exact deployment runtime, and
+behavioral checks.
+
+*Crystallization* names the conversion of a learned or searched soft structure into
+an immutable exact program. It does **not** name a freezing schedule: the specific
+strategy of progressive irreversible freezing has been refuted four times over and
+plain argmax at equal compute currently wins (ARCHITECTURE section 5).
 
 The [architecture](ARCHITECTURE.md) defines the substrate. The
 [blueprint](docs/BLUEPRINT.md) maps every system box to code; the
@@ -97,11 +103,25 @@ supersedes the summary claims above wherever the two disagree; per-track detail
 and raw data are under `research/<track>/`, indexed by
 [research/AGENDA.md](research/AGENDA.md).
 
-Read it before building on the architecture. In short: exactness and dense
-hierarchical supervision hold up under measurement, while progressive
-crystallization, recursive module reuse, and the description-size and latency
-advantages do not. Enumeration settles both flagship results in milliseconds,
-so the differentiable path currently earns its place only where search is
-coupled to an environment. Several claims in `docs/VALIDATION.md` were corrected
-as a result, and the findings list ten proposed core changes that have been
-recorded but deliberately not applied.
+Read it before building on the architecture. In short:
+
+- **Holds up under measurement.** Exact typed execution; dense hierarchical
+  supervision, which is the mechanism that actually works; recursive abstraction,
+  re-tested after an early negative and now on the output path in 27/27 successes
+  with the flat space of 230,400 exhausted without a solution (section 12); the
+  persistent module library and curriculum artifact flow (section 25).
+- **Refuted.** The *progressive irreversible freezing schedule*, four times over,
+  most recently in its reversible form (sections 7, 12, 37).
+- **Unproven, and the current priority.** The efficiency argument. The complete
+  inference path is measured at 146x to 90,400x slower than the same function in
+  plain Python, with **97.7%** attributed to decode/encode/validate marshalling
+  and **0.56%** to operator semantics plus the graph walk (section 36). No matched
+  neural baseline exists for the visual, language or computer artifacts, so
+  "cheaper than a model" is unmeasured for all three.
+- **Where the differentiable path earns its place.** Enumeration settles both
+  flagship results in milliseconds, so gradients currently pay only where search
+  is coupled to an environment.
+
+Several claims in `docs/VALIDATION.md` were corrected as a result, and the
+findings list ten proposed core changes that have been recorded but deliberately
+not applied.

@@ -1748,8 +1748,27 @@ engineering with measured speedups already in hand.
 
 ## 37. Seasons: reversible crystallization does not rescue the scheduler either
 
-Branch `seasons` (`afb4191`), `research/seasons/RESULTS.md`. **Deliberately not
+**The result, in one sentence:** reversible winter/summer crystallization repairs
+some failures of the incumbent scheduler but still loses to plain argmax at
+equalized compute; increasing selection pressure over a program population did
+not establish a benefit.
+
+Branch `seasons` (`afb4191`), pushed to `origin/seasons` so the result does not
+depend on one local clone. `research/seasons/RESULTS.md`. **Deliberately not
 merged** — see below.
+
+Reproduce from the branch (the scripts need the branch's `tcn/crystallize.py`;
+they will not run on `main`):
+
+```bash
+git switch seasons
+.venv/bin/python research/seasons/drive.py            # all arms, all tasks
+.venv/bin/python research/seasons/summarize.py research/seasons/results/joint-40.jsonl
+```
+
+Raw per-run records are committed under `research/seasons/results/*.jsonl`; the
+table below was re-derived from `joint-40.jsonl` independently of the branch's
+own summary.
 
 The proposal was well-motivated and answered a specific diagnosis. The
 loss-gated track concluded that "the interval in which the perturbation

@@ -18,8 +18,9 @@ scripts/demo.sh --list
 
 Artifacts land in `artifacts/demo/<name>/result.json`, with the table in
 `artifacts/demo/summary.md`. Exit status is non-zero if anything fails to
-reproduce. Note that `.venv/bin/tcn` does not run at all (blocker B7); use
-`.venv/bin/python -m tcn`.
+reproduce. `.venv/bin/tcn` was broken for the life of the project by a stale
+shebang from the repository rename and is fixed (blocker B7 closed);
+`.venv/bin/python -m tcn` always worked and remains equivalent.
 
 ---
 
@@ -90,7 +91,7 @@ Not "untried". Measured, with the arm that beat it.
 
 | claim | verdict | evidence |
 |---|---|---|
-| Progressive crystallization earns its complexity | **Refuted, three times independently.** Inert at shipped budgets — eleven arms bit-identical, and an arm with no crystallizer and zero extra objective evaluations reaches the same frozen program. Harmful at tight ones: 3/16 conformance against budget-matched argmax's 16/16 (p = 3.2e-06), discarding 94.8% of its optimizer steps. Step-matched argmax beats every scheduler arm on the joint task below saturation, at 2.4–2.5× fewer environment rollouts. | `research/crystallization-ablation/RESULTS.md`, `research/perturbation-selection/RESULTS.md`, `research/loss-gated-eligibility/RESULTS.md` |
+| Progressive crystallization earns its complexity | **Refuted, four times independently.** Inert at shipped budgets — eleven arms bit-identical, and an arm with no crystallizer and zero extra objective evaluations reaches the same frozen program. Harmful at tight ones: 3/16 conformance against budget-matched argmax's 16/16 (p = 3.2e-06), discarding 94.8% of its optimizer steps. Step-matched argmax beats every scheduler arm on the joint task below saturation, at 2.4–2.5× fewer environment rollouts. The reversible form the third track asked for was then built and also loses: seasons 2.938 against step-matched argmax 3.625 and 3.781 for argmax at the population's summed budget, the latter using 9.3× fewer environment episodes. | `research/crystallization-ablation/RESULTS.md`, `research/perturbation-selection/RESULTS.md`, `research/loss-gated-eligibility/RESULTS.md`, `research/seasons/RESULTS.md` (branch `seasons`) |
 | Outside-in ordering, degradation tolerance, rollback | **No positive effect anywhere.** Ordering is inert (arm A identical to arm C); tolerance is inert (arm E bit-identical to arm A in all five configurations). | `research/crystallization-ablation/RESULTS.md` |
 | The gradient-connectivity guard protects interior learning | **Does not detect what it claims.** `grad is None` tests autograd reachability, not learning signal; the entropy regularizer keeps every severed logit reachable. A fix was implemented and reverted after measurement: it also flags legitimately concentrated choices and blocked the joint fixture from crystallizing at all (286 deferrals against 4). | `research/crystallization-ablation/RESULTS.md`; `docs/VALIDATION.md` §3.9 |
 | Tiny description size | **Refuted.** Joint ships 68,768 bits to express 8 bits of learned content, against 4,896 for an equally-scoring 153-parameter MLP and 32 for an equally-scoring lookup table. Mixed is a tie (17,728 against 20,000). `description_bits` measures JSON verbosity. | `research/baselines/RESULTS.md` §7 |
@@ -439,10 +440,20 @@ answer this system recovers it exactly and generalizes where a fitted network
 does not; dense intermediate probes make that search tractable at depth; and
 freezing a learned module so a second search can call it collapses targets that
 are otherwise years of brute force into seconds. Three claims the architecture
-leads with — progressive crystallization, tiny description size, tiny inference
-cost — are refuted by measurement and should be removed from `ARCHITECTURE.md`
-sections 4 and 5 rather than softened; a discrete backend belongs in section 2's
-candidate inventory. Two capabilities the measurement pass wrote off, recursive
+led with have since been settled, and `ARCHITECTURE.md` sections 5 and 8.1 have
+been rewritten accordingly rather than softened. **Progressive crystallization**
+is refuted outright, four times, including in the reversible form its third
+refutation asked for. **Tiny description size** is refuted *as shipped* — the
+visual artifact is 117.7 MB of which 99.68% is repeated type declarations —
+while the canonical program is 41 KB and the learned content 21.3 bits; all
+three numbers are real and none may stand in for another. **Tiny inference
+cost** is likewise refuted as currently implemented, at 146× to 90,400× slower
+than the same function in plain Python, with 97.7% attributed to
+decode/encode/validate marshalling against 0.56% for operator semantics plus the
+graph walk. Whether that third one is a property of the *method* or only of the
+*interpreter* is not yet known and is the project's first open question; it is
+being decided by a compiled-runtime experiment with a four-arm A/B harness, not
+by argument. A discrete backend belongs in section 2's candidate inventory. Two capabilities the measurement pass wrote off, recursive
 abstraction and structural generalization, turned out to be instrumentation
 faults and now work, which is the strongest argument in the file for fixing the
 instrument before believing any negative result. The gap between here and a

@@ -5,10 +5,19 @@
 See [implementation choices](docs/IMPLEMENTATION.md) and
 [measured validation](docs/VALIDATION.md) for concrete behavior and limits.
 
-TCN is a typed differentiable program synthesizer with hierarchical supervision
-and progressive crystallization. It learns transformations from fully synthetic
-transition systems, then composes frozen transformations into larger programs.
-Low cost and latency must be demonstrated at useful end-to-end capability.
+TCN is: a **minimal typed data algebra**, **explicit semantic interpretation**,
+**heterogeneous program synthesis** over gradient and discrete search,
+**hierarchical synthetic supervision**, **exact symbolic execution**, and
+**persistent recursive abstraction**. It learns transformations from fully
+synthetic transition systems, then composes frozen transformations into larger
+programs. Low cost and latency must be *demonstrated* at useful end-to-end
+capability, and are not yet (section 8.1).
+
+**Crystallization** here means exactly one thing: converting a learned or
+searched soft/candidate structure into an immutable exact program. It does not
+name a schedule. The particular strategy of *progressive, irreversible* freezing
+is an experimental hypothesis that has now been refuted four independent times
+(section 5), and is therefore not a constitutional requirement of this system.
 
 **No domain receives a computational primitive unavailable in principle to every
 other domain. Anything plausibly learnable as a reusable transformation must not
@@ -169,12 +178,37 @@ exact semantics and changes the content address.
 Relearning creates a new version and revalidates dependents.
 Matching interfaces includes semantic meaning, not merely matching array sizes.
 
-## 5. Crystallization algorithm
+## 5. Committing a soft graph to an exact program
 
-Crystallization is a scheduler with separate controls for choice concentration,
-hard execution, and numeric precision. Start from an input/output boundary
-preference and progress inward, allowing confidence and stability to override
-strict depth order.
+**What is constitutional** is the *product*, not the schedule. A committed
+program must be discrete at every choice, exact under the type algebra, pruned
+of nodes that reach neither an output nor a state update, content-addressed,
+gradient-free at its boundary, and it must reproduce its recorded fixture
+bit-for-bit. Any procedure that yields such a program is admissible.
+
+**What is not constitutional is the progressive scheduler below.** Four
+independent tracks now agree it does not earn its complexity: the ablation
+(inert at shipped budgets, harmful at tight ones), DARTS-PT-style perturbation
+selection, loss-gated eligibility, and reversible winter/summer seasons over a
+selected population. At equalized compute **plain argmax over the trained soft
+graph wins** — on the joint fixture 3.781 for argmax at the population's summed
+budget and 3.625 step-matched, against 2.938 for seasons and 2.531 for the
+shipped scheduler. The diagnosis is stable across all four: the interval in
+which the better measurement wins is exactly the interval in which committing
+is a mistake. See `research/FINDINGS.md` sections 7, 12, 37 and
+`research/seasons/RESULTS.md` on branch `seasons`.
+
+The scheduler is retained, off the default path, because it is implemented and
+because a future variant may need it as a control. It is described here so that
+re-testing it does not require rediscovering it — not as something a conforming
+implementation must provide.
+
+### 5.1 The scheduler, as implemented and as measured against
+
+It carries separate controls for choice concentration, hard execution, and
+numeric precision. It starts from an input/output boundary preference and
+progresses inward, allowing confidence and stability to override strict depth
+order.
 
 1. Train the soft graph and measure candidate entropy, selection stability,
    probe/task loss, and gradient availability.
@@ -185,7 +219,13 @@ strict depth order.
 5. Freeze only if degradation remains within declared thresholds across relevant
    objectives and interfaces, and exact/exported executions conform.
 6. Otherwise restore the snapshot and defer/retrain; repeat until the program
-   is crystallized or the stated budget is exhausted.
+   is committed or the stated budget is exhausted.
+
+A per-node viability guard rejecting freezes that sever the remaining trainable
+region can strand a *set* of nodes that no single-node trial can ever close, so
+a scheduler carrying that guard also needs a transactional whole-block trial.
+That is a property of the guard, not of any schedule, and it is measured
+separately.
 
 A hard-forward trial can use a named surrogate, with forward and backward
 behavior checked separately. Freezing removes that internal gradient machinery.
@@ -292,6 +332,48 @@ call and its inlined body pay equally, and it is exact at any discrete selection
 Type errors are impossible by construction; a penalty may address numerical
 relaxation consistency but never buy permission for illegal wiring.
 
+### 8.1 Four costs and three sizes, none of which substitutes for another
+
+Every efficiency claim in this project must name which of these it is. Conflating
+them is the single most common error in the record.
+
+**Four costs.**
+
+1. **Primitive-operator execution cost** — the modelled `execution_cost` sum over
+   the operators a program invokes. It is a *search objective*, exact at any
+   discrete selection, and it is what `L_program_description`'s sibling term
+   charges. It is not time.
+2. **Value movement cost** — the marshalling around each operator: decode,
+   encode, validate, construct, hash. Measured at roughly `3.5 us + 0.07 us` per
+   element of the widest value on an edge, and measured to be **97.7%** of
+   execution against **0.56%** for operator semantics plus the graph walk.
+3. **Complete-path latency** — wall clock for one batch-one inference, cold start
+   and warm, including load, marshalling and export overhead.
+4. **External environment latency** — everything outside the program. On the
+   computer artifact this is 968 ms of a 981 ms step; the program is 13.2 ms.
+
+**Never quote `execution_cost` as a latency claim.** It is currently blind to
+term 2, which dominates term 1 by roughly 175x, so it does not predict measured
+latency and may not be used as a proxy for it until it demonstrably does. A cost
+figure and a timing figure are different claims and need different evidence.
+
+**Three sizes.**
+
+1. **Learned content** — the bits the search actually selected. On the visual
+   parse: **21.3 bits**.
+2. **Canonical program representation** — the pruned typed program and its
+   constants, with types named once. On the visual parse: **41 KB** plus 4.6 KB
+   of constants.
+3. **Current serialized artifact** — what ships today. On the visual parse:
+   **117.7 MB**, of which **99.68% is repeated type declarations**; it gzips to
+   149 KB, a 206x ratio that rises with declared observation width because
+   repeated type declarations behave that way and distinct learned content does
+   not.
+
+Quoting size 3 understates the method; quoting size 1 overstates what ships.
+State which one, or state all three. `description_bits` measures size 3, not
+size 1, wherever it appears in this repository.
+
 ## 9. Curriculum DAG and validation
 
 ```mermaid
@@ -319,11 +401,11 @@ flowchart TD
 Stages specify generator/objective distributions, admissible interfaces,
 trainable modules, prerequisites, and evidence gates. Ready branches train
 independently; joins test interface meaning, retained capability, and joint
-fine-tuning. Crystallization occurs throughout, not only after the last stage.
+fine-tuning. Commitment occurs throughout, not only after the last stage.
 
 Hold out generating structures, grammar/representation combinations, goals, and
 horizons as well as seeds; keep all views of an episode together. Separate
-tuning/crystallization validation from final tests. Compare exact references and
+tuning/commitment validation from final tests. Compare exact references and
 matched-information baselines; measure learning curves, closed-loop success,
 probe ablations, composition retention, hardening loss, and complete-path
 cost/memory/batch-one latency. Preregister thresholds and budgets per experiment.
