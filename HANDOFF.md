@@ -28,6 +28,7 @@ git clone <repo> && cd typed-crystallization-networks
 | what may be merged and when | [`research/MERGE-QUEUE.md`](research/MERGE-QUEUE.md) — **read before merging anything** |
 | naming crystallized programs | [`NOMENCLATURE.md`](NOMENCLATURE.md) |
 | open questions, with closed ones marked | [`research/AGENDA.md`](research/AGENDA.md) |
+| **the next architectural direction** | [`research/algorithm-resynthesis/DESIGN.md`](research/algorithm-resynthesis/DESIGN.md) — post-crystallization algorithm resynthesis; design only, experiment pre-registered but not run |
 
 Per-track raw data and reproduction scripts are under `research/<track>/`.
 
