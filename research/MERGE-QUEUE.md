@@ -128,7 +128,8 @@ Forwards `rank` from `fit` to the discrete backends (`tcn/synthesis.py`), plus
   worktree-only `test_panel_interface` failure documented below.
 
 Note this branch **depends on `compiled-runtime`** and must not be merged before
-it. Both are blocked while the neural-baselines agent measures against core.
+it. Both are blocked while the **earned-abstraction** agent measures against
+core. (`neural-baselines` finished and is merged; it touched no core.)
 
 **Whether to merge at all is a judgement call.** The `rank` forwarding is a
 genuine bug fix with the default unchanged; the rest of the value is in the
@@ -161,8 +162,9 @@ word:
   process note below; the agent's "314 passed" was optimistic by one.
 
 Blocked because `source_fingerprint()` hashes all of `tcn/`, so even a new file
-invalidates every recorded episode while the neural-baselines agent is measuring.
-Merge when that agent is done.
+invalidates every recorded episode while an agent is measuring. The current
+blocker is the **earned-abstraction** agent, which branched from `main` and is
+measuring search and sample complexity against its core. Merge when it is done.
 
 
 ### `stranded-block-guard` (77b9804) — verified, blocked on quiet tree, and NEGATIVE
@@ -184,7 +186,7 @@ Verified in-branch: 295 tests pass; `python -m tcn train --episodes 160` gives
 with zero block events — the fix never fires on the shipped path.
 
 Blocked because it changes `tcn/crystallize.py` while the compiled-runtime and
-neural-baselines agents are measuring against main's core. Merge when the tree
+earned-abstraction agent is measuring against main's core. Merge when the tree
 is quiet, or decide not to: a change measured to alter no outcome is a legitimate
 thing to leave on a branch, and the RESULTS stands on its own either way.
 
