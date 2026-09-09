@@ -1,0 +1,25 @@
+{
+ "join_output": {
+  "capacity": 4096,
+  "width": 53248,
+  "gradient": "none"
+ },
+ "union": "TypeError: union: operator signature mismatch",
+ "intersection": "TypeError: intersection: operator signature mismatch",
+ "encode": "TypeError: encode: operator signature mismatch",
+ "decode": "TypeError: decode: operator signature mismatch",
+ "quantize": "TypeError: quantize: operator signature mismatch",
+ "dequantize": "TypeError: dequantize: operator signature mismatch",
+ "pack": "TypeError: pack: operator signature mismatch",
+ "unpack": "TypeError: unpack: operator signature mismatch",
+ "probe_closure_on_bool_node": "TypeError: probe signature mismatch",
+ "set_operator_gradients": {
+  "member": "none",
+  "insert": "none",
+  "remove": "none",
+  "union": "none",
+  "intersection": "none",
+  "pair": "none",
+  "join": "none"
+ }
+}

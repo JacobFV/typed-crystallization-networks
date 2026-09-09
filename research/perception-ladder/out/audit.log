@@ -1,0 +1,223 @@
+/home/brandonin/Documents/typed-crystallization-networks/research/perception-ladder/audit.py:90: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  out["softprogram_logits_zero_initialised"] = all(float(x.abs().sum()) == 0 for x in m1.choices)
+wrote /home/brandonin/Documents/typed-crystallization-networks/research/perception-ladder/out/audit.json
+{
+ "image_operator_audit": {
+  "sum(image bytes)": {
+   "legal": false,
+   "error": "TypeError: sum: operator signature mismatch"
+  },
+  "mean(image bytes)": {
+   "legal": false,
+   "error": "TypeError: mean: operator signature mismatch"
+  },
+  "reduce_max(image bytes)": {
+   "legal": false,
+   "error": "TypeError: reduce_max: operator signature mismatch"
+  },
+  "count(image bytes)": {
+   "legal": true,
+   "gradient": "exact",
+   "output": "int",
+   "output_role": "",
+   "output_bits": 32
+  },
+  "fft(image bytes)": {
+   "legal": false,
+   "error": "TypeError: fft: operator signature mismatch"
+  },
+  "add(byte,byte)": {
+   "legal": false,
+   "error": "TypeError: add: operator signature mismatch"
+  },
+  "sub(byte,byte)": {
+   "legal": false,
+   "error": "TypeError: sub: operator signature mismatch"
+  },
+  "lt(byte,byte)": {
+   "legal": false,
+   "error": "TypeError: lt: operator signature mismatch"
+  },
+  "eq(byte,byte)": {
+   "legal": true,
+   "gradient": "surrogate",
+   "output": "bool",
+   "output_role": "",
+   "output_bits": 0
+  },
+  "project(image,i)->byte": {
+   "legal": true,
+   "gradient": "exact",
+   "output": "int",
+   "output_role": "byte",
+   "output_bits": 8
+  },
+  "index(image,int)->byte": {
+   "legal": true,
+   "gradient": "surrogate",
+   "output": "int",
+   "output_role": "byte",
+   "output_bits": 8
+  },
+  "decode(byte)->scalar": {
+   "legal": false,
+   "error": "TypeError: decode: operator signature mismatch"
+  },
+  "decode(byte)->float(role=byte)": {
+   "legal": true,
+   "gradient": "surrogate",
+   "output": "int",
+   "output_role": "byte",
+   "output_bits": 32
+  },
+  "pack((byte,))->uint8": {
+   "legal": true,
+   "gradient": "none",
+   "output": "int",
+   "output_role": "",
+   "output_bits": 8
+  },
+  "pack((b,b,b))->uint24": {
+   "legal": true,
+   "gradient": "none",
+   "output": "int",
+   "output_role": "",
+   "output_bits": 24
+  },
+  "decode(uint8)->scalar": {
+   "legal": true,
+   "gradient": "surrogate",
+   "output": "int",
+   "output_role": "",
+   "output_bits": 32
+  },
+  "sum(bool tuple)": {
+   "legal": false,
+   "error": "TypeError: sum: operator signature mismatch"
+  },
+  "count(bool tuple)": {
+   "legal": true,
+   "gradient": "exact",
+   "output": "int",
+   "output_role": "",
+   "output_bits": 32
+  },
+  "BYTE.numeric": false,
+  "float32_with_role_byte.numeric": false
+ },
+ "relaxation_bugs": {
+  "tuple_broadcast": "RuntimeError: Tensors must have same number of dimensions: got 2 and 1",
+  "mul_broadcast": [
+   5,
+   1
+  ],
+  "trainable_byte_constant": "TypeError: trainable constant requires numeric encoding",
+  "softprogram_logits_zero_initialised": true,
+  "softprogram_two_instances_identical": true
+ },
+ "geometry_information": {
+  "R2_shipped_camera": {
+   "background_fraction": 1.0,
+   "distinct_rgb": 1,
+   "rgb_with_more_than_one_depth": 0,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 1.0
+  },
+  "R2_approach": {
+   "background_fraction": 0.7416666666666667,
+   "distinct_rgb": 50,
+   "rgb_with_more_than_one_depth": 6,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.75
+  },
+  "R3_shipped_camera": {
+   "background_fraction": 0.9555555555555555,
+   "distinct_rgb": 25,
+   "rgb_with_more_than_one_depth": 0,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.9555555555555556
+  },
+  "R3_approach": {
+   "background_fraction": 0.7129629629629629,
+   "distinct_rgb": 105,
+   "rgb_with_more_than_one_depth": 23,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.7222222222222222
+  },
+  "R4_shipped_camera": {
+   "background_fraction": 0.9854166666666667,
+   "distinct_rgb": 15,
+   "rgb_with_more_than_one_depth": 0,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.9854166666666667
+  },
+  "R4_approach": {
+   "background_fraction": 0.7239583333333334,
+   "distinct_rgb": 159,
+   "rgb_with_more_than_one_depth": 43,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.7416666666666667
+  },
+  "R6_shipped_camera": {
+   "background_fraction": 0.9814814814814815,
+   "distinct_rgb": 41,
+   "rgb_with_more_than_one_depth": 0,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.9851851851851852
+  },
+  "R6_approach": {
+   "background_fraction": 0.7101851851851851,
+   "distinct_rgb": 271,
+   "rgb_with_more_than_one_depth": 112,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.7240740740740741
+  },
+  "R8_shipped_camera": {
+   "background_fraction": 0.98046875,
+   "distinct_rgb": 76,
+   "rgb_with_more_than_one_depth": 0,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.98125
+  },
+  "R8_approach": {
+   "background_fraction": 0.7174479166666666,
+   "distinct_rgb": 357,
+   "rgb_with_more_than_one_depth": 164,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.7255208333333333
+  },
+  "R16_shipped_camera": {
+   "background_fraction": 0.9799479166666667,
+   "distinct_rgb": 262,
+   "rgb_with_more_than_one_depth": 45,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.9807291666666667
+  },
+  "R16_approach": {
+   "background_fraction": 0.7184244791666666,
+   "distinct_rgb": 610,
+   "rgb_with_more_than_one_depth": 389,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.7276041666666667
+  },
+  "R32_shipped_camera": {
+   "background_fraction": 0.9809244791666667,
+   "distinct_rgb": 614,
+   "rgb_with_more_than_one_depth": 263,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.9819661458333333
+  },
+  "R32_approach": {
+   "background_fraction": 0.7193196614583334,
+   "distinct_rgb": 859,
+   "rgb_with_more_than_one_depth": 688,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.7280924479166667
+  }
+ },
+ "relations_coverage": {
+  "entities3": {
+   "P(target)": 0.25,
+   "one_step_accuracy": 0.9475,
+   "two_step_accu

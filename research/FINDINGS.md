@@ -372,3 +372,62 @@ validation memoization above accounts for the rest.
 Five tests in `tests/test_search.py` cover the uniqueness certificate, the
 budget cap, the stop-at-first tradeoff, continuous-parameter reporting, and
 illegal numeric domains being unusable candidates rather than errors.
+
+## 11. Perception ladder and the address-relaxation wall (2026-09-08, overnight)
+
+Full detail in `research/perception-ladder/RESULTS.md`. Verified independently
+from the supervising session where noted.
+
+**Highest rung that works: foreground/background segmentation of raw `geometry`
+pixels.** 12/12 seeds, exact on training and zero error on 48 held-out episodes
+at 2x2 and 3x3. The program recovers the background colour from raw bytes
+searched over the full 256-value alphabet, with `tcn.search.enumerate_fit`
+certifying the solution unique among 65,536 programs. Nothing pre-digested: the
+input is the raw byte tuple and the supervision is an equivalence class of the
+generator's own `depth` probe. Rung 1a (sinusoid frequency from raw samples)
+also works, to about 150 candidate programs.
+
+**The wall is relaxing an input BINDING, not an operator.** A mixture of
+candidate operators is a blend of functions at a valid input; a mixture of
+candidate addresses is a blend of unrelated pixel values and denotes nothing.
+Measured at initialization, the steepest-descent direction picks the reference
+candidate 0.81 of the time against a 0.004 chance rate for a constant choice
+(208x), but 0.25 against a 0.29 chance rate for an address choice -- worse than
+chance. The same task is 12/12 with addresses pinned and 1/12 at 576 programs,
+0/12 at 46,656 with them free, while enumeration solves all of them.
+
+This is the sharpest statement yet of where relaxation earns its place, and it
+agrees with track 8: search the structure discretely, relax the parameters
+inside it.
+
+**Three faults found, all verified here independently:**
+
+- **P2 (most consequential).** `SoftProgram` zero-initializes every choice
+  logit, so `torch.manual_seed` does not perturb synthesis at all. Confirmed:
+  four seeds produce one identical all-zero initialization. **Every per-seed
+  synthesis number in this repository is therefore one outcome repeated N
+  times, unless that harness added explicit initialization noise** -- track 1
+  and the perturbation-selection track did and said so; the shipped fixtures do
+  not. This is the mechanism behind the determinism already noted in section 10.
+- **The `eq` surrogate underflows on byte data.** `exp(-(a-b)^2/tau)` at tau=1
+  reaches exactly 0.0 in float32 at **|a-b| >= 11** (the report says 12; the
+  measured threshold is 11, with 1.6e-28 still representable at 8). On 0-255
+  data that kills the gradient for all but near-equal bytes.
+- **The image boundary is representational, not a budget.** `role="byte"`
+  excludes pixels from `Type.numeric` (confirmed), so `sum`, `mean`,
+  `reduce_max`, all arithmetic and all ordering comparisons are type-illegal on
+  images; `pack` is the only route to arithmetic and declares
+  `gradient="none"`. On rung 4 enumeration exhausted the 49,152-program `eq`
+  sub-algebra and certified no solution exists, while the solution that does
+  exist is found by enumeration in 203 s and by gradient descent in 0/8 runs.
+
+**Track 3's dense-probe result replicates, with a condition.** On entangled
+outputs it is decisive (geometry 12/12 vs 0/12; relations 8/8 vs 1/8). On a
+decomposable per-element output dense and output-only are identical, because
+`probe_loss`'s elementwise BCE already is the mean of the per-element losses.
+Dense probes re-separate a loss the output entangles; they do not cross either
+wall (0/12 in all eight free-address arms).
+
+**`relations.closure` is unattachable**: `join` inflates set capacity 64 to
+4096, no conversion narrows it, and `union` requires identical types, so no
+program can have the closure's type as output.

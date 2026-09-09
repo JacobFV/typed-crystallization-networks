@@ -1,0 +1,897 @@
+{
+ "rung1:L0_om": {
+  "om": {
+   "candidates": 4,
+   "achievable": [
+    0.16020770370960236,
+    6.188403129577637
+   ],
+   "mixture": [
+    0.8927191495895386,
+    1.9801980257034302
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.31998529899240424
+  }
+ },
+ "rung1:L1_om_s": {
+  "s": {
+   "candidates": 3,
+   "achievable": [
+    0.02544766664505005,
+    0.9740761518478394
+   ],
+   "mixture": [
+    0.07013952732086182,
+    0.9572416543960571
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.9827174729410562
+  },
+  "om": {
+   "candidates": 4,
+   "achievable": [
+    0.07093018293380737,
+    14.074719429016113
+   ],
+   "mixture": [
+    0.903311014175415,
+    3.9291412830352783
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.2791630272170863
+  }
+ },
+ "rung1:L1b_+t2": {
+  "t2": {
+   "candidates": 3,
+   "achievable": [
+    -0.9488243460655212,
+    0.9488243460655212
+   ],
+   "mixture": [
+    0.008482555858790874,
+    0.3162747919559479
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.3333333438032454
+  },
+  "s": {
+   "candidates": 3,
+   "achievable": [
+    0.008482555858790874,
+    0.5623831152915955
+   ],
+   "mixture": [
+    0.03635530173778534,
+    0.39831092953681946
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.7082554911526734
+  },
+  "om": {
+   "candidates": 4,
+   "achievable": [
+    0.036810263991355896,
+    27.154064178466797
+   ],
+   "mixture": [
+    0.8956499099731445,
+    7.190422058105469
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.2648009524779529
+  }
+ },
+ "rung1:L1c_+t1": {
+  "t1": {
+   "candidates": 2,
+   "achievable": [
+    0.02544766664505005,
+    1.9745523929595947
+   ],
+   "mixture": [
+    1.0,
+    1.0
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.5064438925832357
+  },
+  "t2": {
+   "candidates": 3,
+   "achievable": [
+    -1.0,
+    1.0
+   ],
+   "mixture": [
+    0.3333333432674408,
+    0.3333333432674408
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.3333333432674408
+  },
+  "s": {
+   "candidates": 3,
+   "achievable": [
+    0.3333333432674408,
+    0.5773502588272095
+   ],
+   "mixture": [
+    0.414672315120697,
+    0.414672315120697
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.718233531172281
+  },
+  "om": {
+   "candidates": 4,
+   "achievable": [
+    0.3976716995239258,
+    2.3806610107421875
+   ],
+   "mixture": [
+    0.8928812742233276,
+    1.0928771495819092
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.45906458107666376
+  }
+ },
+ "rung1:L1d_+csq": {
+  "csq": {
+   "candidates": 2,
+   "achievable": [
+    0.05117562785744667,
+    1.9743883609771729
+   ],
+   "mixture": [
+    0.25180813670158386,
+    1.4744703769683838
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.7467985560037603
+  },
+  "t1": {
+   "candidates": 2,
+   "achievable": [
+    -0.4744703769683838,
+    2.474470376968384
+   ],
+   "mixture": [
+    0.9999999403953552,
+    1.0
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.40412688278982656
+  },
+  "t2": {
+   "candidates": 3,
+   "achievable": [
+    -1.0,
+    1.0
+   ],
+   "mixture": [
+    0.3333333134651184,
+    0.3333333432674408
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.3333333432674408
+  },
+  "s": {
+   "candidates": 3,
+   "achievable": [
+    0.3333333134651184,
+    0.5773502588272095
+   ],
+   "mixture": [
+    0.414672315120697,
+    0.414672315120697
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.718233531172281
+  },
+  "om": {
+   "candidates": 4,
+   "achievable": [
+    0.3976716995239258,
+    2.3806610107421875
+   ],
+   "mixture": [
+    0.8928812742233276,
+    1.0928771495819092
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.45906458107666376
+  }
+ },
+ "rung1:L2_trig": {
+  "csq": {
+   "candidates": 2,
+   "achievable": [
+    0.05117562785744667,
+    1.9743883609771729
+   ],
+   "mixture": [
+    0.25180813670158386,
+    1.4744703769683838
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.7467985560037603
+  },
+  "t1": {
+   "candidates": 2,
+   "achievable": [
+    -0.4744703769683838,
+    2.474470376968384
+   ],
+   "mixture": [
+    0.9999999403953552,
+    1.0
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.40412688278982656
+  },
+  "t2": {
+   "candidates": 3,
+   "achievable": [
+    -1.0,
+    1.0
+   ],
+   "mixture": [
+    0.3333333134651184,
+    0.3333333432674408
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.3333333432674408
+  },
+  "s": {
+   "candidates": 3,
+   "achievable": [
+    0.3333333134651184,
+    0.5773502588272095
+   ],
+   "mixture": [
+    0.414672315120697,
+    0.414672315120697
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.718233531172281
+  },
+  "om": {
+   "candidates": 4,
+   "achievable": [
+    0.3976716995239258,
+    2.3806610107421875
+   ],
+   "mixture": [
+    0.8928812742233276,
+    1.0928771495819092
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.45906458107666376
+  },
+  "fr": {
+   "candidates": 2,
+   "achievable": [
+    0.14210645854473114,
+    6.8667497634887695
+   ],
+   "mixture": [
+    2.8761227130889893,
+    3.52034330368042
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.512665150898385
+  }
+ },
+ "rung1:L2b_+c": {
+  "c": {
+   "candidates": 3,
+   "achievable": [
+    -0.34515273571014404,
+    0.9871941804885864
+   ],
+   "mixture": [
+    0.08033695816993713,
+    0.5501604676246643
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.5572971138792334
+  },
+  "csq": {
+   "candidates": 2,
+   "achievable": [
+    0.00645402679219842,
+    1.1003209352493286
+   ],
+   "mixture": [
+    0.08356396853923798,
+    0.7014987468719482
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.6375401252480861
+  },
+  "t1": {
+   "candidates": 2,
+   "achievable": [
+    0.29850125312805176,
+    1.7014987468719482
+   ],
+   "mixture": [
+    1.0,
+    1.0
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.587717153385161
+  },
+  "t2": {
+   "candidates": 3,
+   "achievable": [
+    -1.0,
+    1.0
+   ],
+   "mixture": [
+    0.3333333432674408,
+    0.3333333432674408
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.3333333432674408
+  },
+  "s": {
+   "candidates": 3,
+   "achievable": [
+    0.3333333432674408,
+    0.5773502588272095
+   ],
+   "mixture": [
+    0.414672315120697,
+    0.414672315120697
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.718233531172281
+  },
+  "om": {
+   "candidates": 4,
+   "achievable": [
+    0.1913653016090393,
+    5.161663055419922
+   ],
+   "mixture": [
+    0.8934789896011353,
+    1.73154878616333
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.33546335116647047
+  },
+  "fr": {
+   "candidates": 2,
+   "achievable": [
+    0.14220158755779266,
+    10.879642486572266
+   ],
+   "mixture": [
+    2.8780477046966553,
+    5.577613353729248
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.5126651322056933
+  }
+ },
+ "rung1:L3_trig_alg": {
+  "num": {
+   "candidates": 5,
+   "achievable": [
+    -1.4700684547424316,
+    0.8206380605697632
+   ],
+   "mixture": [
+    -0.5777561664581299,
+    0.28885161876678467
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.393013103977772
+  },
+  "den": {
+   "candidates": 3,
+   "achievable": [
+    -2.5104503631591797,
+    2.582895278930664
+   ],
+   "mixture": [
+    -0.6806005835533142,
+    0.7771937847137451
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.3009002304714067
+  },
+  "c": {
+   "candidates": 3,
+   "achievable": [
+    -0.5357525944709778,
+    1.5418038368225098
+   ],
+   "mixture": [
+    -0.012482777237892151,
+    0.500113308429718
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.3243689608792239
+  },
+  "csq": {
+   "candidates": 2,
+   "achievable": [
+    -0.024965554475784302,
+    1.000226616859436
+   ],
+   "mixture": [
+    -0.012404867447912693,
+    0.6251699924468994
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.625028350485054
+  },
+  "t1": {
+   "candidates": 2,
+   "achievable": [
+    0.3748300075531006,
+    1.6251699924468994
+   ],
+   "mixture": [
+    1.0,
+    1.0
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.6153202462804357
+  },
+  "t2": {
+   "candidates": 3,
+   "achievable": [
+    -1.0,
+    1.0
+   ],
+   "mixture": [
+    0.3333333432674408,
+    0.3333333432674408
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.3333333432674408
+  },
+  "s": {
+   "candidates": 3,
+   "achievable": [
+    0.3333333432674408,
+    0.5773502588272095
+   ],
+   "mixture": [
+    0.414672315120697,
+    0.414672315120697
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.718233531172281
+  },
+  "om": {
+   "candidates": 4,
+   "achievable": [
+    -33.21955490112305,
+    3.527897596359253
+   ],
+   "mixture": [
+    -7.919715881347656,
+    1.3455371856689453
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.23840523766559907
+  },
+  "fr": {
+   "candidates": 2,
+   "achievable": [
+    -49.761043548583984,
+    8.454259872436523
+   ],
+   "mixture": [
+    -25.510753631591797,
+    4.334204196929932
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.512665165606595
+  }
+ },
+ "rung1:L4_all": {
+  "a": {
+   "candidates": 4,
+   "achievable": [
+    -0.9682396054267883,
+    0.9689834117889404
+   ],
+   "mixture": [
+    -0.3644442558288574,
+    0.4431558847427368
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.4573410435629449
+  },
+  "b": {
+   "candidates": 4,
+   "achievable": [
+    -0.9682396054267883,
+    0.9689834117889404
+   ],
+   "mixture": [
+    -0.3644442558288574,
+    0.4431558847427368
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.4573410435629449
+  },
+  "d": {
+   "candidates": 4,
+   "achievable": [
+    -0.9682396054267883,
+    0.9689834117889404
+   ],
+   "mixture": [
+    -0.3644442558288574,
+    0.4431558847427368
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.4573410435629449
+  },
+  "num": {
+   "candidates": 5,
+   "achievable": [
+    -0.7288885116577148,
+    0.8863117694854736
+   ],
+   "mixture": [
+    -0.2649914622306824,
+    0.39380213618278503
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.44431558932292764
+  },
+  "den": {
+   "candidates": 3,
+   "achievable": [
+    -2.3644442558288574,
+    2.4431557655334473
+   ],
+   "mixture": [
+    -0.48592567443847656,
+    0.590874433517456
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.24184885869871767
+  },
+  "c": {
+   "candidates": 3,
+   "achievable": [
+    -0.19707229733467102,
+    0.6664734482765198
+   ],
+   "mixture": [
+    0.19064289331436157,
+    0.29834455251693726
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.4476465690995602
+  },
+  "csq": {
+   "candidates": 2,
+   "achievable": [
+    0.03634471446275711,
+    0.5966891050338745
+   ],
+   "mixture": [
+    0.20881524682044983,
+    0.3428492844104767
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.5745861312333043
+  },
+  "t1": {
+   "candidates": 2,
+   "achievable": [
+    0.6571507453918457,
+    1.3428492546081543
+   ],
+   "mixture": [
+    1.0,
+    1.0
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.7446852255146105
+  },
+  "t2": {
+   "candidates": 3,
+   "achievable": [
+    -1.0,
+    1.0
+   ],
+   "mixture": [
+    0.3333333432674408,
+    0.3333333432674408
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.3333333432674408
+  },
+  "s": {
+   "candidates": 3,
+   "achievable": [
+    0.3333333432674408,
+    0.5773502588272095
+   ],
+   "mixture": [
+    0.414672315120697,
+    0.414672315120697
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.718233531172281
+  },
+  "om": {
+   "candidates": 4,
+   "achievable": [
+    0.43092700839042664,
+    2.175126075744629
+   ],
+   "mixture": [
+    0.9200444221496582,
+    1.0514163970947266
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.4833818181021008
+  },
+  "fr": {
+   "candidates": 2,
+   "achievable": [
+    0.1464296132326126,
+    6.606244087219238
+   ],
+   "mixture": [
+    2.9636197090148926,
+    3.3867909908294678
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.512665131066186
+  }
+ },
+ "rung3:centre_free_address_R2": {
+  "hit_px0": {
+   "candidates": 12,
+   "achievable": [
+    24.0,
+    196.0
+   ],
+   "mixture": [
+    32.333335876464844,
+    171.33334350585938
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.8741497117645887
+  },
+  "hit_eq0": {
+   "candidates": 2,
+   "achievable": [
+    0.0,
+    0.004320189356803894
+   ],
+   "mixture": [
+    0.0,
+    0.002160094678401947
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.5
+  },
+  "hit_px1": {
+   "candidates": 12,
+   "achievable": [
+    24.0,
+    196.0
+   ],
+   "mixture": [
+    32.333335876464844,
+    171.33334350585938
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.8741497117645887
+  },
+  "hit_eq1": {
+   "candidates": 2,
+   "achievable": [
+    0.0,
+    0.004320189356803894
+   ],
+   "mixture": [
+    0.0,
+    0.002160094678401947
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.5
+  }
+ },
+ "rung3:centre_colour_search_R2": {
+  "hit_eq0": {
+   "candidates": 256,
+   "achievable": [
+    0.0,
+    1.0
+   ],
+   "mixture": [
+    0.006924364250153303,
+    0.006924364250153303
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.006924364250153303
+  },
+  "hit_eq1": {
+   "candidates": 256,
+   "achievable": [
+    0.0,
+    1.0
+   ],
+   "mixture": [
+    0.006924364250153303,
+    0.006924364250153303
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.006924364250153303
+  }
+ },
+ "rung3:mask_pinned_address_R2": {
+  "hit0_eq0": {
+   "candidates": 4,
+   "achievable": [
+    0.0,
+    1.0
+   ],
+   "mixture": [
+    0.0,
+    0.25
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.25
+  },
+  "hit0_eq1": {
+   "candidates": 4,
+   "achievable": [
+    0.0,
+    1.0
+   ],
+   "mixture": [
+    0.0,
+    0.25
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.25
+  },
+  "hit0": {
+   "candidates": 2,
+   "achievable": [
+    0.0,
+    0.4375
+   ],
+   "mixture": [
+    0.0,
+    0.25
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.5714285714285714
+  },
+  "hit1_eq0": {
+   "candidates": 4,
+   "achievable": [
+    0.0,
+    1.0
+   ],
+   "mixture": [
+    0.0,
+    0.25
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.25
+  },
+  "hit1_eq1": {
+   "candidates": 4,
+   "achievable": [
+    0.0,
+    1.0
+   ],
+   "mixture": [
+    0.0,
+    0.25
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.25
+  },
+  "hit1": {
+   "candidates": 2,
+   "achievable": [
+    0.0,
+    0.4375
+   ],
+   "mixture": [
+    0.0,
+    0.25
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.5714285714285714
+  },
+  "hit2_eq0": {
+   "candidates": 4,
+   "achievable": [
+    0.0,
+    1.0
+   ],
+   "mixture": [
+    0.0,
+    0.25
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.25
+  },
+  "hit2_eq1": {
+   "candidates": 4,
+   "achievable": [
+    0.0,
+    1.0
+   ],
+   "mixture": [
+    0.0,
+    0.25
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.25
+  },
+  "hit2": {
+   "candidates": 2,
+   "achievable": [
+    0.0,
+    0.4375
+   ],
+   "mixture": [
+    0.0,
+    0.25
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.5714285714285714
+  },
+  "hit3_eq0": {
+   "candidates": 4,
+   "achievable": [
+    0.0,
+    1.0
+   ],
+   "mixture": [
+    0.0,
+    0.25
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.25
+  },
+  "hit3_eq1": {
+   "candidates": 4,
+   "achievable": [
+    0.0,
+    1.0
+   ],
+   "mixture": [
+    0.0,
+    0.25
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.25
+  },
+  "hit3": {
+   "candidates": 2,
+   "achievable": [
+    0.0,
+    0.4375
+   ],
+   "mixture": [
+    0.0,
+    0.25
+   ],
+   "outside": false,
+   "magnitude_ratio": 0.5714285714285714
+  }
+ }
+}

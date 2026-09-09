@@ -1,0 +1,137 @@
+{
+ "space": 49152,
+ "enumeration": {
+  "solved": false,
+  "selections": null,
+  "exact_max_error": 0.0,
+  "evaluated": 49152,
+  "space_size": 49152,
+  "exhausted": true,
+  "unique": false,
+  "seconds": 51.667099233018234,
+  "continuous": [],
+  "wall": 52.2063315770356
+ },
+ "rows": [
+  {
+   "seed": 0,
+   "ok": false,
+   "train_err": 1.0,
+   "test_err": 1.0,
+   "relaxed_loss": 0.5023149847984314,
+   "seconds": 22.611696443986148,
+   "selections": {
+    "bytes": 0,
+    "px": 154,
+    "hit": 240
+   },
+   "test_accuracy": 0.5
+  },
+  {
+   "seed": 1,
+   "ok": false,
+   "train_err": 1.0,
+   "test_err": 1.0,
+   "relaxed_loss": 0.49874868988990784,
+   "seconds": 18.838268607039936,
+   "selections": {
+    "bytes": 0,
+    "px": 154,
+    "hit": 239
+   },
+   "test_accuracy": 0.5
+  },
+  {
+   "seed": 2,
+   "ok": false,
+   "train_err": 1.0,
+   "test_err": 1.0,
+   "relaxed_loss": 0.24247081577777863,
+   "seconds": 15.085707936959807,
+   "selections": {
+    "bytes": 0,
+    "px": 186,
+    "hit": 237
+   },
+   "test_accuracy": 0.5
+  },
+  {
+   "seed": 3,
+   "ok": false,
+   "train_err": 1.0,
+   "test_err": 1.0,
+   "relaxed_loss": 0.2399807721376419,
+   "seconds": 9.678791508020367,
+   "selections": {
+    "bytes": 0,
+    "px": 61,
+    "hit": 238
+   },
+   "test_accuracy": 0.5
+  },
+  {
+   "seed": 4,
+   "ok": false,
+   "train_err": 1.0,
+   "test_err": 1.0,
+   "relaxed_loss": 0.24399085342884064,
+   "seconds": 18.70177586900536,
+   "selections": {
+    "bytes": 0,
+    "px": 188,
+    "hit": 236
+   },
+   "test_accuracy": 0.5
+  },
+  {
+   "seed": 5,
+   "ok": false,
+   "train_err": 1.0,
+   "test_err": 1.0,
+   "relaxed_loss": 0.4524923264980316,
+   "seconds": 19.754292330006137,
+   "selections": {
+    "bytes": 0,
+    "px": 99,
+    "hit": 242
+   },
+   "test_accuracy": 0.5
+  },
+  {
+   "seed": 6,
+   "ok": false,
+   "train_err": 1.0,
+   "test_err": 1.0,
+   "relaxed_loss": 0.49918708205223083,
+   "seconds": 18.035035155015066,
+   "selections": {
+    "bytes": 0,
+    "px": 186,
+    "hit": 238
+   },
+   "test_accuracy": 0.5
+  },
+  {
+   "seed": 7,
+   "ok": false,
+   "train_err": 1.0,
+   "test_err": 1.0,
+   "relaxed_loss": 0.4561344087123871,
+   "seconds": 16.15156437503174,
+   "selections": {
+    "bytes": 0,
+    "px": 19,
+    "hit": 239
+   },
+   "test_accuracy": 0.5
+  }
+ ],
+ "summary": {
+  "n": 8,
+  "train_success": 0,
+  "rate": 0.0,
+  "generalises": 0,
+  "median_test_err": 1.0,
+  "median_seconds": 18.368405512010213
+ }
+}

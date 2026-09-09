@@ -1,0 +1,359 @@
+{
+ "image_operator_audit": {
+  "sum(image bytes)": {
+   "legal": false,
+   "error": "TypeError: sum: operator signature mismatch"
+  },
+  "mean(image bytes)": {
+   "legal": false,
+   "error": "TypeError: mean: operator signature mismatch"
+  },
+  "reduce_max(image bytes)": {
+   "legal": false,
+   "error": "TypeError: reduce_max: operator signature mismatch"
+  },
+  "count(image bytes)": {
+   "legal": true,
+   "gradient": "exact",
+   "output": "int",
+   "output_role": "",
+   "output_bits": 32
+  },
+  "fft(image bytes)": {
+   "legal": false,
+   "error": "TypeError: fft: operator signature mismatch"
+  },
+  "add(byte,byte)": {
+   "legal": false,
+   "error": "TypeError: add: operator signature mismatch"
+  },
+  "sub(byte,byte)": {
+   "legal": false,
+   "error": "TypeError: sub: operator signature mismatch"
+  },
+  "lt(byte,byte)": {
+   "legal": false,
+   "error": "TypeError: lt: operator signature mismatch"
+  },
+  "eq(byte,byte)": {
+   "legal": true,
+   "gradient": "surrogate",
+   "output": "bool",
+   "output_role": "",
+   "output_bits": 0
+  },
+  "project(image,i)->byte": {
+   "legal": true,
+   "gradient": "exact",
+   "output": "int",
+   "output_role": "byte",
+   "output_bits": 8
+  },
+  "index(image,int)->byte": {
+   "legal": true,
+   "gradient": "surrogate",
+   "output": "int",
+   "output_role": "byte",
+   "output_bits": 8
+  },
+  "decode(byte)->scalar": {
+   "legal": false,
+   "error": "TypeError: decode: operator signature mismatch"
+  },
+  "decode(byte)->float(role=byte)": {
+   "legal": true,
+   "gradient": "surrogate",
+   "output": "int",
+   "output_role": "byte",
+   "output_bits": 32
+  },
+  "pack((byte,))->uint8": {
+   "legal": true,
+   "gradient": "none",
+   "output": "int",
+   "output_role": "",
+   "output_bits": 8
+  },
+  "pack((b,b,b))->uint24": {
+   "legal": true,
+   "gradient": "none",
+   "output": "int",
+   "output_role": "",
+   "output_bits": 24
+  },
+  "decode(uint8)->scalar": {
+   "legal": true,
+   "gradient": "surrogate",
+   "output": "int",
+   "output_role": "",
+   "output_bits": 32
+  },
+  "sum(bool tuple)": {
+   "legal": false,
+   "error": "TypeError: sum: operator signature mismatch"
+  },
+  "count(bool tuple)": {
+   "legal": true,
+   "gradient": "exact",
+   "output": "int",
+   "output_role": "",
+   "output_bits": 32
+  },
+  "BYTE.numeric": false,
+  "float32_with_role_byte.numeric": false
+ },
+ "eq_and_lt_surrogate_range": [
+  {
+   "delta": 0,
+   "eq_relaxed": 1.0,
+   "grad": -0.0
+  },
+  {
+   "delta": 1,
+   "eq_relaxed": 0.3678794503211975,
+   "grad": 0.735758900642395
+  },
+  {
+   "delta": 2,
+   "eq_relaxed": 0.018315639346837997,
+   "grad": 0.07326255738735199
+  },
+  {
+   "delta": 3,
+   "eq_relaxed": 0.00012340980174485594,
+   "grad": 0.0007404588395729661
+  },
+  {
+   "delta": 5,
+   "eq_relaxed": 1.3887943746404563e-11,
+   "grad": 1.3887943572932215e-10
+  },
+  {
+   "delta": 8,
+   "eq_relaxed": 1.6038109389511792e-28,
+   "grad": 2.5660975023218867e-27
+  },
+  {
+   "delta": 10,
+   "eq_relaxed": 3.783505853677006e-44,
+   "grad": 7.567011707354012e-43
+  },
+  {
+   "delta": 11,
+   "eq_relaxed": 0.0,
+   "grad": 0.0
+  },
+  {
+   "delta": 12,
+   "eq_relaxed": 0.0,
+   "grad": 0.0
+  },
+  {
+   "delta": 16,
+   "eq_relaxed": 0.0,
+   "grad": 0.0
+  },
+  {
+   "delta": 32,
+   "eq_relaxed": 0.0,
+   "grad": 0.0
+  },
+  {
+   "delta": 64,
+   "eq_relaxed": 0.0,
+   "grad": 0.0
+  },
+  {
+   "delta": 128,
+   "eq_relaxed": 0.0,
+   "grad": 0.0
+  },
+  {
+   "delta": 255,
+   "eq_relaxed": 0.0,
+   "grad": 0.0
+  },
+  {
+   "lt_delta": 0,
+   "lt_relaxed": 0.5,
+   "grad": -0.25
+  },
+  {
+   "lt_delta": 1,
+   "lt_relaxed": 0.7310585975646973,
+   "grad": -0.1966119259595871
+  },
+  {
+   "lt_delta": 5,
+   "lt_relaxed": 0.9933071732521057,
+   "grad": -0.0066480329260230064
+  },
+  {
+   "lt_delta": 10,
+   "lt_relaxed": 0.9999545812606812,
+   "grad": -4.5416676584864035e-05
+  },
+  {
+   "lt_delta": 20,
+   "lt_relaxed": 1.0,
+   "grad": -0.0
+  },
+  {
+   "lt_delta": 40,
+   "lt_relaxed": 1.0,
+   "grad": -0.0
+  },
+  {
+   "lt_delta": 60,
+   "lt_relaxed": 1.0,
+   "grad": -0.0
+  },
+  {
+   "lt_delta": 100,
+   "lt_relaxed": 1.0,
+   "grad": -0.0
+  },
+  {
+   "lt_delta": 200,
+   "lt_relaxed": 1.0,
+   "grad": -0.0
+  }
+ ],
+ "relaxation_bugs": {
+  "tuple_broadcast": "RuntimeError: Tensors must have same number of dimensions: got 2 and 1",
+  "mul_broadcast": [
+   5,
+   1
+  ],
+  "trainable_byte_constant": "TypeError: trainable constant requires numeric encoding",
+  "softprogram_logits_zero_initialised": true,
+  "softprogram_two_instances_identical": true
+ },
+ "geometry_information": {
+  "R2_shipped_camera": {
+   "background_fraction": 1.0,
+   "distinct_rgb": 1,
+   "rgb_with_more_than_one_depth": 0,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 1.0
+  },
+  "R2_approach": {
+   "background_fraction": 0.7416666666666667,
+   "distinct_rgb": 50,
+   "rgb_with_more_than_one_depth": 6,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.75
+  },
+  "R3_shipped_camera": {
+   "background_fraction": 0.9555555555555555,
+   "distinct_rgb": 25,
+   "rgb_with_more_than_one_depth": 0,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.9555555555555556
+  },
+  "R3_approach": {
+   "background_fraction": 0.7129629629629629,
+   "distinct_rgb": 105,
+   "rgb_with_more_than_one_depth": 23,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.7222222222222222
+  },
+  "R4_shipped_camera": {
+   "background_fraction": 0.9854166666666667,
+   "distinct_rgb": 15,
+   "rgb_with_more_than_one_depth": 0,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.9854166666666667
+  },
+  "R4_approach": {
+   "background_fraction": 0.7239583333333334,
+   "distinct_rgb": 159,
+   "rgb_with_more_than_one_depth": 43,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.7416666666666667
+  },
+  "R6_shipped_camera": {
+   "background_fraction": 0.9814814814814815,
+   "distinct_rgb": 41,
+   "rgb_with_more_than_one_depth": 0,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.9851851851851852
+  },
+  "R6_approach": {
+   "background_fraction": 0.7101851851851851,
+   "distinct_rgb": 271,
+   "rgb_with_more_than_one_depth": 112,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.7240740740740741
+  },
+  "R8_shipped_camera": {
+   "background_fraction": 0.98046875,
+   "distinct_rgb": 76,
+   "rgb_with_more_than_one_depth": 0,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.98125
+  },
+  "R8_approach": {
+   "background_fraction": 0.7174479166666666,
+   "distinct_rgb": 357,
+   "rgb_with_more_than_one_depth": 164,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.7255208333333333
+  },
+  "R16_shipped_camera": {
+   "background_fraction": 0.9799479166666667,
+   "distinct_rgb": 262,
+   "rgb_with_more_than_one_depth": 45,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.9807291666666667
+  },
+  "R16_approach": {
+   "background_fraction": 0.7184244791666666,
+   "distinct_rgb": 610,
+   "rgb_with_more_than_one_depth": 389,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.7276041666666667
+  },
+  "R32_shipped_camera": {
+   "background_fraction": 0.9809244791666667,
+   "distinct_rgb": 614,
+   "rgb_with_more_than_one_depth": 263,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.9819661458333333
+  },
+  "R32_approach": {
+   "background_fraction": 0.7193196614583334,
+   "distinct_rgb": 859,
+   "rgb_with_more_than_one_depth": 688,
+   "rgb_with_more_than_one_id": 0,
+   "held_out_pixel_rgb_seen_in_training": 0.7280924479166667
+  }
+ },
+ "relations_coverage": {
+  "entities3": {
+   "P(target)": 0.25,
+   "one_step_accuracy": 0.9475,
+   "two_step_accuracy": 0.9975
+  },
+  "entities4": {
+   "P(target)": 0.225,
+   "one_step_accuracy": 0.94,
+   "two_step_accuracy": 0.995
+  },
+  "entities5": {
+   "P(target)": 0.3325,
+   "one_step_accuracy": 0.8725,
+   "two_step_accuracy": 0.9725
+  }
+ },
+ "text_probe_cost": {
+  "text_probe_type": "tuple",
+  "width": 65,
+  "byte_fields": 64,
+  "byte_valued_sources": 448,
+  "discrete_programs_for_a_free_byte_head": 48061010291944349804829767689883127831959330940526654831230290187748592676819446828644930049694030358609507207528706162509535499378072805782015935688786129693614031241216,
+  "aggregation_operators_available_over_a_byte_tuple": [
+   "count (returns the static length)"
+  ]
+ }
+}

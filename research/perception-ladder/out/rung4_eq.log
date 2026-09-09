@@ -1,0 +1,11 @@
+24 train / 48 test examples, canvas 8x8
+  [eq (49152)] seed 0: ok=False train=1 test=1 (22.6s) 
+  [eq (49152)] seed 1: ok=False train=1 test=1 (18.8s) 
+  [eq (49152)] seed 2: ok=False train=1 test=1 (15.1s) 
+  [eq (49152)] seed 3: ok=False train=1 test=1 (9.7s) 
+  [eq (49152)] seed 4: ok=False train=1 test=1 (18.7s) 
+  [eq (49152)] seed 5: ok=False train=1 test=1 (19.8s) 
+  [eq (49152)] seed 6: ok=False train=1 test=1 (18.0s) 
+  [eq (49152)] seed 7: ok=False train=1 test=1 (16.2s) 
+wrote /home/brandonin/Documents/typed-crystallization-networks/research/perception-ladder/out/rung4_eq.json
+eq route: space 49152 | enumeration solved: False exhausted: True 51.67s | gradient {'n': 8, 'train_success': 0, 'rate': 0.0, 'generalises': 0, 'median_test_err': 1.0, 'median_seconds': 18.368405512010213}

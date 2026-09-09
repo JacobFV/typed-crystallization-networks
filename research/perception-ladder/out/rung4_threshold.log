@@ -1,0 +1,50 @@
+24 train / 48 test examples, canvas 8x8
+choice-logit gradients: {'bytes': None, 'px': None, 'wrap': None, 'packed': 0.0, 'value': 0.0, 'hit': 0.0}
+threshold gradient: {'thr': 0.0}
+  [threshold init=128.0 lr=0.05] seed 0: ok=False train=1 test=1 (12.9s) 
+  [threshold init=128.0 lr=0.05] seed 1: ok=False train=1 test=1 (15.1s) 
+  [threshold init=128.0 lr=0.05] seed 2: ok=False train=1 test=1 (19.1s) 
+  [threshold init=128.0 lr=0.05] seed 3: ok=False train=1 test=1 (21.0s) 
+  [threshold init=128.0 lr=0.05] seed 4: ok=False train=1 test=1 (11.0s) 
+  [threshold init=128.0 lr=0.05] seed 5: ok=False train=1 test=1 (14.0s) 
+  [threshold init=128.0 lr=0.05] seed 6: ok=False train=1 test=1 (9.9s) 
+  [threshold init=128.0 lr=0.05] seed 7: ok=False train=1 test=1 (9.9s) 
+gradient init=128.0 lr=0.05: {'n': 8, 'train_success': 0, 'rate': 0.0, 'generalises': 0, 'median_test_err': 1.0, 'median_seconds': 13.426087879983243}
+  [threshold init=128.0 lr=2.0] seed 0: ok=False train=1 test=1 (11.1s) 
+  [threshold init=128.0 lr=2.0] seed 1: ok=False train=1 test=1 (9.8s) 
+  [threshold init=128.0 lr=2.0] seed 2: ok=False train=1 test=1 (15.7s) 
+  [threshold init=128.0 lr=2.0] seed 3: ok=False train=1 test=1 (11.3s) 
+  [threshold init=128.0 lr=2.0] seed 4: ok=False train=1 test=1 (11.8s) 
+  [threshold init=128.0 lr=2.0] seed 5: ok=False train=1 test=1 (15.4s) 
+  [threshold init=128.0 lr=2.0] seed 6: ok=False train=1 test=1 (16.6s) 
+  [threshold init=128.0 lr=2.0] seed 7: ok=False train=1 test=1 (10.8s) 
+gradient init=128.0 lr=2.0: {'n': 8, 'train_success': 0, 'rate': 0.0, 'generalises': 0, 'median_test_err': 1.0, 'median_seconds': 11.518186711502494}
+  [threshold init=70.0 lr=0.05] seed 0: ok=False train=1 test=1 (10.5s) 
+  [threshold init=70.0 lr=0.05] seed 1: ok=False train=1 test=1 (7.0s) 
+  [threshold init=70.0 lr=0.05] seed 2: ok=False train=1 test=1 (9.0s) 
+  [threshold init=70.0 lr=0.05] seed 3: ok=False train=1 test=1 (8.0s) 
+  [threshold init=70.0 lr=0.05] seed 4: ok=False train=1 test=1 (12.4s) 
+  [threshold init=70.0 lr=0.05] seed 5: ok=False train=1 test=1 (13.5s) 
+  [threshold init=70.0 lr=0.05] seed 6: ok=False train=1 test=1 (10.1s) 
+  [threshold init=70.0 lr=0.05] seed 7: ok=False train=1 test=1 (9.9s) 
+gradient init=70.0 lr=0.05: {'n': 8, 'train_success': 0, 'rate': 0.0, 'generalises': 0, 'median_test_err': 1.0, 'median_seconds': 9.981538494495908}
+  [thr-only init=128.0 lr=0.05] seed 0: ok=False train=1 test=1 (8.5s) 
+  [thr-only init=128.0 lr=0.05] seed 1: ok=False train=1 test=1 (10.4s) 
+  [thr-only init=128.0 lr=0.05] seed 2: ok=False train=1 test=1 (8.0s) 
+  [thr-only init=128.0 lr=0.05] seed 3: ok=False train=1 test=1 (10.2s) 
+  [thr-only init=128.0 lr=0.05] seed 4: ok=False train=1 test=1 (10.2s) 
+  [thr-only init=128.0 lr=0.05] seed 5: ok=False train=1 test=1 (12.5s) 
+  [thr-only init=128.0 lr=0.05] seed 6: ok=False train=1 test=1 (9.4s) 
+  [thr-only init=128.0 lr=0.05] seed 7: ok=False train=1 test=1 (11.1s) 
+threshold-only (address pinned) init=128.0 lr=0.05: {'n': 8, 'train_success': 0, 'rate': 0.0, 'generalises': 0, 'median_test_err': 1.0, 'median_seconds': 10.16023742800462}
+  [thr-only init=128.0 lr=2.0] seed 0: ok=False train=1 test=1 (8.9s) 
+  [thr-only init=128.0 lr=2.0] seed 1: ok=False train=1 test=1 (12.9s) 
+  [thr-only init=128.0 lr=2.0] seed 2: ok=False train=1 test=1 (4.9s) 
+  [thr-only init=128.0 lr=2.0] seed 3: ok=False train=1 test=1 (12.7s) 
+  [thr-only init=128.0 lr=2.0] seed 4: ok=False train=1 test=1 (32.0s) 
+  [thr-only init=128.0 lr=2.0] seed 5: ok=False train=1 test=1 (36.6s) 
+  [thr-only init=128.0 lr=2.0] seed 6: ok=False train=1 test=1 (31.1s) 
+  [thr-only init=128.0 lr=2.0] seed 7: ok=False train=1 test=1 (7.1s) 
+threshold-only (address pinned) init=128.0 lr=2.0: {'n': 8, 'train_success': 0, 'rate': 0.0, 'generalises': 0, 'median_test_err': 1.0, 'median_seconds': 12.804747907503042}
+enumeration over address x comparison x 256 thresholds: 98304 True 202.7s unique=False held-out acc=1.0 | random {'draws': 20000, 'hits': 25, 'density': 0.00125, 'seconds': 28.63407555402955}
+wrote /home/brandonin/Documents/typed-crystallization-networks/research/perception-ladder/out/rung4_threshold.json
