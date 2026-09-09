@@ -1,0 +1,474 @@
+{
+  "episodes": 160,
+  "seed": 0,
+  "nodes": [
+    {
+      "node": "bit_0",
+      "candidates": 1,
+      "active": 17,
+      "total_absent": [],
+      "total_zero": [
+        "choices.1",
+        "choices.4",
+        "choices.5",
+        "choices.6",
+        "choices.7",
+        "choices.8",
+        "choices.9",
+        "choices.10",
+        "choices.11",
+        "choices.12"
+      ],
+      "task_absent": [],
+      "task_zero": [
+        "choices.1",
+        "choices.4",
+        "choices.5",
+        "choices.6",
+        "choices.7",
+        "choices.8",
+        "choices.9",
+        "choices.10",
+        "choices.11",
+        "choices.12"
+      ],
+      "reachability_total_fires": false,
+      "reachability_task_fires": false,
+      "nonzero_task_fires": true
+    },
+    {
+      "node": "bit_1",
+      "candidates": 1,
+      "active": 17,
+      "total_absent": [],
+      "total_zero": [
+        "choices.0",
+        "choices.4",
+        "choices.5",
+        "choices.6",
+        "choices.7",
+        "choices.8",
+        "choices.9",
+        "choices.10",
+        "choices.11",
+        "choices.12"
+      ],
+      "task_absent": [],
+      "task_zero": [
+        "choices.0",
+        "choices.4",
+        "choices.5",
+        "choices.6",
+        "choices.7",
+        "choices.8",
+        "choices.9",
+        "choices.10",
+        "choices.11",
+        "choices.12"
+      ],
+      "reachability_total_fires": false,
+      "reachability_task_fires": false,
+      "nonzero_task_fires": true
+    },
+    {
+      "node": "relation",
+      "candidates": 16,
+      "active": 17,
+      "total_absent": [],
+      "total_zero": [
+        "choices.0",
+        "choices.1",
+        "choices.4",
+        "choices.5",
+        "choices.6",
+        "choices.7",
+        "choices.8",
+        "choices.9",
+        "choices.10",
+        "choices.11",
+        "choices.12"
+      ],
+      "task_absent": [
+        "choices.0",
+        "choices.1"
+      ],
+      "task_zero": [
+        "choices.4",
+        "choices.5",
+        "choices.6",
+        "choices.7",
+        "choices.8",
+        "choices.9",
+        "choices.10",
+        "choices.11",
+        "choices.12"
+      ],
+      "reachability_total_fires": false,
+      "reachability_task_fires": true,
+      "nonzero_task_fires": true
+    },
+    {
+      "node": "goal_relation",
+      "candidates": 16,
+      "active": 17,
+      "total_absent": [],
+      "total_zero": [
+        "choices.0",
+        "choices.1",
+        "choices.4",
+        "choices.5",
+        "choices.6",
+        "choices.7",
+        "choices.8",
+        "choices.9",
+        "choices.10",
+        "choices.11",
+        "choices.12"
+      ],
+      "task_absent": [],
+      "task_zero": [
+        "choices.0",
+        "choices.1",
+        "choices.4",
+        "choices.5",
+        "choices.6",
+        "choices.7",
+        "choices.8",
+        "choices.9",
+        "choices.10",
+        "choices.11",
+        "choices.12"
+      ],
+      "reachability_total_fires": false,
+      "reachability_task_fires": false,
+      "nonzero_task_fires": true
+    },
+    {
+      "node": "z",
+      "candidates": 1,
+      "active": 17,
+      "total_absent": [],
+      "total_zero": [
+        "choices.0",
+        "choices.1",
+        "choices.5",
+        "choices.6",
+        "choices.7",
+        "choices.8",
+        "choices.9",
+        "choices.10",
+        "choices.11",
+        "choices.12"
+      ],
+      "task_absent": [
+        "choices.3"
+      ],
+      "task_zero": [
+        "choices.0",
+        "choices.1",
+        "choices.5",
+        "choices.6",
+        "choices.7",
+        "choices.8",
+        "choices.9",
+        "choices.10",
+        "choices.11",
+        "choices.12"
+      ],
+      "reachability_total_fires": false,
+      "reachability_task_fires": true,
+      "nonzero_task_fires": true
+    },
+    {
+      "node": "world",
+      "candidates": 1,
+      "active": 17,
+      "total_absent": [],
+      "total_zero": [
+        "choices.0",
+        "choices.1",
+        "choices.4",
+        "choices.6",
+        "choices.7",
+        "choices.8",
+        "choices.9",
+        "choices.10",
+        "choices.11",
+        "choices.12"
+      ],
+      "task_absent": [],
+      "task_zero": [
+        "choices.0",
+        "choices.1",
+        "choices.4",
+        "choices.6",
+        "choices.7",
+        "choices.8",
+        "choices.9",
+        "choices.10",
+        "choices.11",
+        "choices.12"
+      ],
+      "reachability_total_fires": false,
+      "reachability_task_fires": false,
+      "nonzero_task_fires": true
+    },
+    {
+      "node": "mul0",
+      "candidates": 1,
+      "active": 16,
+      "total_absent": [],
+      "total_zero": [
+        "choices.0",
+        "choices.1",
+        "choices.4",
+        "choices.5",
+        "choices.7",
+        "choices.8",
+        "choices.9",
+        "choices.10",
+        "choices.11",
+        "choices.12"
+      ],
+      "task_absent": [],
+      "task_zero": [
+        "choices.0",
+        "choices.1",
+        "choices.4",
+        "choices.5",
+        "choices.7",
+        "choices.8",
+        "choices.9",
+        "choices.10",
+        "choices.11",
+        "choices.12"
+      ],
+      "reachability_total_fires": false,
+      "reachability_task_fires": false,
+      "nonzero_task_fires": true
+    },
+    {
+      "node": "logit0",
+      "candidates": 1,
+      "active": 16,
+      "total_absent": [
+        "constants.w0"
+      ],
+      "total_zero": [
+        "choices.0",
+        "choices.1",
+        "choices.4",
+        "choices.5",
+        "choices.6",
+        "choices.8",
+        "choices.9",
+        "choices.10",
+        "choices.11",
+        "choices.12"
+      ],
+      "task_absent": [
+        "choices.6",
+        "constants.w0"
+      ],
+      "task_zero": [
+        "choices.0",
+        "choices.1",
+        "choices.4",
+        "choices.5",
+        "choices.8",
+        "choices.9",
+        "choices.10",
+        "choices.11",
+        "choices.12"
+      ],
+      "reachability_total_fires": true,
+      "reachability_task_fires": true,
+      "nonzero_task_fires": true
+    },
+    {
+      "node": "mul1",
+      "candidates": 1,
+      "active": 16,
+      "total_absent": [],
+      "total_zero": [
+        "choices.0",
+        "choices.1",
+        "choices.4",
+        "choices.5",
+        "choices.6",
+        "choices.7",
+        "choices.9",
+        "choices.10",
+        "choices.11",
+        "choices.12"
+      ],
+      "task_absent": [],
+      "task_zero": [
+        "choices.0",
+        "choices.1",
+        "choices.4",
+        "choices.5",
+        "choices.6",
+        "choices.7",
+        "choices.9",
+        "choices.10",
+        "choices.11",
+        "choices.12"
+      ],
+      "reachability_total_fires": false,
+      "reachability_task_fires": false,
+      "nonzero_task_fires": true
+    },
+    {
+      "node": "logit1",
+      "candidates": 1,
+      "active": 16,
+      "total_absent": [
+        "constants.w1"
+      ],
+      "total_zero": [
+        "choices.0",
+        "choices.1",
+        "choices.4",
+        "choices.5",
+        "choices.6",
+        "choices.7",
+        "choices.8",
+        "choices.10",
+        "choices.11",
+        "choices.12"
+      ],
+      "task_absent": [
+        "choices.8",
+        "constants.w1"
+      ],
+      "task_zero": [
+        "choices.0",
+        "choices.1",
+        "choices.4",
+        "choices.5",
+        "choices.6",
+        "choices.7",
+        "choices.10",
+        "choices.11",
+        "choices.12"
+      ],
+      "reachability_total_fires": true,
+      "reachability_task_fires": true,
+      "nonzero_task_fires": true
+    },
+    {
+      "node": "policy",
+      "candidates": 1,
+      "active": 17,
+      "total_absent": [
+        "constants.bias0",
+        "constants.bias1",
+        "constants.w0",
+        "constants.w1"
+      ],
+      "total_zero": [
+        "choices.0",
+        "choices.1",
+        "choices.4",
+        "choices.5",
+        "choices.6",
+        "choices.7",
+        "choices.8",
+        "choices.9",
+        "choices.11",
+        "choices.12"
+      ],
+      "task_absent": [
+        "choices.6",
+        "choices.7",
+        "choices.8",
+        "choices.9",
+        "constants.bias0",
+        "constants.bias1",
+        "constants.w0",
+        "constants.w1"
+      ],
+      "task_zero": [
+        "choices.0",
+        "choices.1",
+        "choices.4",
+        "choices.5",
+        "choices.11",
+        "choices.12"
+      ],
+      "reachability_total_fires": true,
+      "reachability_task_fires": true,
+      "nonzero_task_fires": true
+    },
+    {
+      "node": "prediction",
+      "candidates": 1,
+      "active": 17,
+      "total_absent": [],
+      "total_zero": [
+        "choices.0",
+        "choices.1",
+        "choices.4",
+        "choices.5",
+        "choices.6",
+        "choices.7",
+        "choices.8",
+        "choices.9",
+        "choices.10",
+        "choices.12"
+      ],
+      "task_absent": [
+        "choices.5"
+      ],
+      "task_zero": [
+        "choices.0",
+        "choices.1",
+        "choices.4",
+        "choices.6",
+        "choices.7",
+        "choices.8",
+        "choices.9",
+        "choices.10",
+        "choices.12"
+      ],
+      "reachability_total_fires": false,
+      "reachability_task_fires": true,
+      "nonzero_task_fires": true
+    },
+    {
+      "node": "value",
+      "candidates": 1,
+      "active": 16,
+      "total_absent": [],
+      "total_zero": [
+        "choices.0",
+        "choices.1",
+        "choices.4",
+        "choices.5",
+        "choices.6",
+        "choices.7",
+        "choices.8",
+        "choices.9",
+        "choices.10",
+        "choices.11"
+      ],
+      "task_absent": [],
+      "task_zero": [
+        "choices.0",
+        "choices.1",
+        "choices.4",
+        "choices.5",
+        "choices.6",
+        "choices.7",
+        "choices.8",
+        "choices.9",
+        "choices.10",
+        "choices.11"
+      ],
+      "reachability_total_fires": false,
+      "reachability_task_fires": false,
+      "nonzero_task_fires": true
+    }
+  ]
+}

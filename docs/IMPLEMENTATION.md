@@ -42,9 +42,17 @@ coerce incompatible types. Choose scaffolds whose candidates have valid domains.
 A precision change requires explicit conversion nodes; pressure alone cannot
 change the declared interface.
 
-`Crystallizer` measures entropy/stability, prefers input/output boundaries, trials
-hard nodes, retrains the residual graph, checks degradation and gradient paths,
-and rolls back failed transactions. A caller can add exact conformance checks.
+`Crystallizer` selects by measured perturbation: each unfrozen node is scored by
+how much the objective degrades when a candidate is removed from its mixture, the
+frozen candidate is the one whose removal hurts most, and nodes are ordered by how
+decisive that measurement is. It then trials hard nodes, retrains the residual
+graph, checks degradation and gradient paths, and rolls back failed transactions.
+A caller can add exact conformance checks. `Crystallizer.run` takes either a loss
+closure or an `Objective(total, task)`: the connectivity guard probes `task`, the
+objective without its discreteness and description-size terms, because those
+attach every unfrozen logit to the loss graph and would otherwise decide the
+guard. `selection="entropy"` restores the superseded entropy/stability readiness
+rule for ablation only; see `research/perturbation-selection/RESULTS.md`.
 An immutable registered module is one candidate with stopped internal gradients;
 recurrent modules lift state into explicit input/output ports. Definitions are
 content addressed and counted transitively once in description size.

@@ -32,12 +32,17 @@ def joint(out,episodes=160):
     t=trainer(episodes);history=t.run(out)
     evaluations=[t.episode(10000+i,train=False,split='test')[0] for i in range(16)]
     report={'episodes':len(history),'initial_prediction_loss':sum(x['prediction_loss'] for x in history[:8])/len(history[:8]),'final_prediction_loss':sum(x['prediction_loss'] for x in history[-8:])/len(history[-8:]),'evaluation_mean_return':sum(x['return'] for x in evaluations)/len(evaluations),'maximum_return':t.config.horizon,'evaluations':evaluations}
-    from .crystallize import Crystallizer
+    from .crystallize import Crystallizer,Objective
     from .runtime import save_program,export_executable
     from .agent import Agent
     from .generation import Host
-    scheduler=Crystallizer(t.model,t.optimizer,tolerance=.05,entropy_limit=.9)
-    scheduler.run(lambda:sum(t.episode(20000+i,False,'validation',loss_only=True) for i in range(2))/2,rounds=24,retrain_steps=2)
+    scheduler=Crystallizer(t.model,t.optimizer,tolerance=.05)
+    # Two objectives, not one: the regularized total is what residual retraining
+    # descends, and the unregularized task loss is what the connectivity guard
+    # probes. Without the split the discreteness term keeps every unfrozen choice
+    # logit attached to the loss graph and the guard cannot see a severed interior.
+    def validation(regularized=True):return sum(t.episode(20000+i,False,'validation',loss_only=True,regularized=regularized) for i in range(2))/2
+    scheduler.run(Objective(validation,lambda:validation(False)),rounds=24,retrain_steps=2)
     report['fully_frozen']=len(t.model.frozen)==len(t.model.program.nodes) and all(not p.requires_grad for p in t.model.constants.values())
     report['freeze_events']=[vars(e) for e in scheduler.events]
     if report['fully_frozen']:
