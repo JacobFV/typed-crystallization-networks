@@ -26,20 +26,22 @@
 
 | arm | seeds | episodes | eval (deterministic) | sd | eval (stochastic) | seeds at 1.00 | env episodes |
 |---|---|---|---|---|---|---|---|
-| `flat` | 2 | 600 | **0.0391** | 0.039 | 0.1094 | 0/2 | 856 |
+| `flat` | 3 | 600 | **0.0260** | 0.037 | 0.1146 | 0/3 | 856 |
 | `myopic` | 4 | 600 | **0.0664** | 0.023 | 0.0820 | 0/4 | 856 |
 | `probe_only` | 2 | 300 | **0.0000** | 0.000 | 0.0781 | 0/2 | 524 |
 | `reward` | 6 | 600 | **0.2396** | 0.058 | 0.5938 | 0/6 | 856 |
+| `reward_g50` | 3 | 600 | **0.1979** | 0.064 | 0.3281 | 0/3 | 856 |
 | `reward_sweep_given` | 3 | 600 | **1.0000** | 0.000 | 0.6927 | 3/3 | 856 |
 
 ### training reward rate, mean over seeds (fraction of training episodes rewarded)
 
 | arm | 50 | 100 | 150 | 200 | 250 | 300 | 350 | 400 | 450 | 500 | 550 | 600 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| `flat` | 0.12 | 0.10 | 0.06 | 0.02 | 0.12 | 0.07 | 0.07 | 0.12 | 0.10 | 0.11 | 0.04 | 0.06 |
+| `flat` | 0.10 | 0.09 | 0.09 | 0.07 | 0.09 | 0.08 | 0.09 | 0.11 | 0.10 | 0.10 | 0.07 | 0.07 |
 | `myopic` | 0.14 | 0.10 | 0.07 | 0.09 | 0.09 | 0.08 | 0.09 | 0.04 | 0.10 | 0.06 | 0.07 | 0.07 |
 | `probe_only` | 0.08 | 0.05 | 0.06 | 0.12 | 0.11 | 0.05 | -- | -- | -- | -- | -- | -- |
 | `reward` | 0.11 | 0.11 | 0.20 | 0.29 | 0.33 | 0.50 | 0.46 | 0.47 | 0.56 | 0.55 | 0.63 | 0.58 |
+| `reward_g50` | 0.12 | 0.11 | 0.13 | 0.20 | 0.27 | 0.21 | 0.31 | 0.37 | 0.28 | 0.33 | 0.35 | 0.35 |
 | `reward_sweep_given` | 0.08 | 0.12 | 0.19 | 0.29 | 0.47 | 0.64 | 0.62 | 0.61 | 0.61 | 0.63 | 0.59 | 0.74 |
 
 ### held-out evaluation curve, deterministic (mean over seeds)
@@ -50,12 +52,14 @@
 | `myopic` | 0.031 | 0.070 | 0.070 | 0.070 |
 | `probe_only` | 0.000 | 0.000 | 0.000 | -- |
 | `reward` | 0.047 | 0.104 | 0.224 | 0.229 |
+| `reward_g50` | 0.052 | 0.146 | 0.156 | 0.219 |
 | `reward_sweep_given` | 0.073 | 0.094 | 1.000 | 1.000 |
 
 ### what each arm selected
 
-* `flat`: next_slot ['identity(action.1.slot)', 'add(one_slot,one_slot)'], log sigma(slot) [1.256, 2.234], argmax verb per situation [{'idle': 'dial', 'found': 'wait', 'dialled': 'wait'}, {'idle': 'commit', 'found': 'wait', 'dialled': 'wait'}]
+* `flat`: next_slot ['identity(action.1.slot)', 'add(one_slot,one_slot)', 'add(action.1.slot,action.1.slot)'], log sigma(slot) [1.256, 2.234, 1.87], argmax verb per situation [{'idle': 'dial', 'found': 'wait', 'dialled': 'wait'}, {'idle': 'commit', 'found': 'wait', 'dialled': 'wait'}, {'idle': 'dial', 'found': 'wait', 'dialled': 'wait'}]
 * `myopic`: next_slot ['add(action.1.slot,one_slot)', 'add(action.1.slot,one_slot)', 'identity(action.1.slot)', 'identity(one_slot)'], log sigma(slot) [2.402, 2.238, 1.267, 2.146], argmax verb per situation [{'idle': 'commit', 'found': 'dial', 'dialled': 'commit'}, {'idle': 'commit', 'found': 'commit', 'dialled': 'commit'}, {'idle': 'commit', 'found': 'wait', 'dialled': 'commit'}, {'idle': 'commit', 'found': 'commit', 'dialled': 'commit'}]
 * `probe_only`: next_slot ['identity(action.1.slot)', 'identity(action.1.slot)'], log sigma(slot) [0.0, 0.0], argmax verb per situation [{'idle': 'wait', 'found': 'wait', 'dialled': 'wait'}, {'idle': 'wait', 'found': 'wait', 'dialled': 'wait'}]
 * `reward`: next_slot ['add(one_slot,one_slot)', 'add(one_slot,one_slot)', 'add(one_slot,one_slot)', 'add(one_slot,one_slot)', 'add(one_slot,one_slot)', 'identity(one_slot)'], log sigma(slot) [0.489, 0.259, 1.311, 2.245, 2.318, 0.567], argmax verb per situation [{'idle': 'look', 'found': 'dial', 'dialled': 'commit'}, {'idle': 'look', 'found': 'dial', 'dialled': 'commit'}, {'idle': 'look', 'found': 'dial', 'dialled': 'commit'}, {'idle': 'look', 'found': 'dial', 'dialled': 'commit'}, {'idle': 'look', 'found': 'dial', 'dialled': 'commit'}, {'idle': 'look', 'found': 'dial', 'dialled': 'commit'}]
+* `reward_g50`: next_slot ['add(one_slot,one_slot)', 'add(one_slot,one_slot)', 'identity(one_slot)'], log sigma(slot) [2.125, 2.138, -0.307], argmax verb per situation [{'idle': 'look', 'found': 'dial', 'dialled': 'commit'}, {'idle': 'dial', 'found': 'dial', 'dialled': 'commit'}, {'idle': 'look', 'found': 'dial', 'dialled': 'commit'}]
 * `reward_sweep_given`: next_slot [None, None, None], log sigma(slot) [-0.581, -0.39, 0.837], argmax verb per situation [{'idle': 'look', 'found': 'dial', 'dialled': 'commit'}, {'idle': 'look', 'found': 'dial', 'dialled': 'commit'}, {'idle': 'look', 'found': 'dial', 'dialled': 'commit'}]

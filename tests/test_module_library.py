@@ -208,10 +208,45 @@ def test_artifacts_flow_along_declared_edges_and_publication_is_gated(tmp_path):
     assert 'module logic.and not published' in failed['root']['failures']
 
 
-def test_publishing_curricula_refuse_parallel_writers(tmp_path):
-    c = Curriculum([Stage('a', (), 'x', {}, {}, publishes=('m',))])
-    with pytest.raises(ValueError):
-        c.run(lambda s, p, ar: {}, tmp_path, workers=2)
+def _timing_runner(stage, out, artifacts):
+    """Module-level so it survives the spawn pool; records through the filesystem."""
+    import json, time
+    start = time.perf_counter()
+    time.sleep(0.05)
+    out.mkdir(parents=True, exist_ok=True)
+    (out / (stage.name + '.timing.json')).write_text(json.dumps([start, time.perf_counter()]))
+    return {}
+
+
+def test_a_publishing_stage_never_runs_concurrently(tmp_path):
+    """The manifest has one writer, but only the publishing stage pays for it.
+
+    The guard used to refuse `workers>1` outright, which broke the curriculum
+    command documented in README.md. The invariant is narrower: a publishing
+    stage runs alone, everything else keeps the caller's width.
+    """
+    import json
+    stages = [Stage('a', (), 'x', {}, {}), Stage('b', (), 'x', {}, {}),
+              Stage('pub', (), 'x', {}, {}, publishes=('m',))]
+    # `pub` declares a module its runner never writes, so it fails its own
+    # evidence gate. That is irrelevant here and deliberately tolerated: the
+    # invariant under test is the SCHEDULE, and a stage is scheduled before it
+    # is judged.
+    Curriculum(stages).run(_timing_runner, tmp_path, workers=3)
+    intervals = {q.name.split('.')[0]: json.loads(q.read_text())
+                 for q in tmp_path.rglob('*.timing.json')}
+    assert set(intervals) == {'a', 'b', 'pub'}, intervals
+
+    def overlaps(x, y):
+        return x[0] < y[1] and y[0] < x[1]
+
+    for name in ('a', 'b'):
+        assert not overlaps(intervals['pub'], intervals[name]), f'publishing stage overlapped {name}'
+    # Deliberately NOT asserted: that `a` and `b` overlap each other. The
+    # scheduler permits it, but a spawn pool under contention may serialize them
+    # anyway, which made that assertion flaky (1 failure in 3 runs) without ever
+    # indicating a regression. Non-overlap of the publishing stage is enforced by
+    # the scheduler and is therefore the deterministic half of the invariant.
 
 
 @pytest.mark.skipif(not CHAIN_LIBRARY.exists(), reason='chain library not built')

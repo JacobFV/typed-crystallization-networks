@@ -1,0 +1,656 @@
+{
+ "arguments": {
+  "held": 12,
+  "tag": "bounds",
+  "train": 12
+ },
+ "bit_family": [
+  {
+   "addresses": 30,
+   "best_one_address": 0.7392996108949417,
+   "best_two_address": 0.8015564202334631,
+   "bit": 0,
+   "majority": 0.5175097276264592
+  },
+  {
+   "addresses": 30,
+   "best_one_address": 0.6614785992217899,
+   "best_two_address": 0.7315175097276264,
+   "bit": 1,
+   "majority": 0.5642023346303502
+  },
+  {
+   "addresses": 30,
+   "best_one_address": 0.7509727626459144,
+   "best_two_address": 0.7859922178988327,
+   "bit": 2,
+   "majority": 0.6108949416342413
+  },
+  {
+   "addresses": 30,
+   "best_one_address": 0.6770428015564203,
+   "best_two_address": 0.7859922178988327,
+   "bit": 3,
+   "majority": 0.5642023346303502
+  },
+  {
+   "addresses": 30,
+   "best_one_address": 0.77431906614786,
+   "best_two_address": 0.8132295719844358,
+   "bit": 4,
+   "majority": 0.5992217898832685
+  },
+  {
+   "addresses": 30,
+   "best_one_address": 0.8365758754863813,
+   "best_two_address": 0.9416342412451362,
+   "bit": 5,
+   "majority": 0.8871595330739299
+  }
+ ],
+ "flat_screen": {
+  "horizon": 2,
+  "min_size": 4,
+  "nesting": 5,
+  "palette": 32,
+  "resolution": 32,
+  "widgets": 20
+ },
+ "glyph_anchor": [
+  {
+   "distinct_eval_keys": 97,
+   "distinct_train_keys": 93,
+   "eval_records": 2171,
+   "majority_baseline": 0.9239981575310917,
+   "oracle_accuracy": 0.9599263012436665,
+   "oracle_advantage": 0.0359281437125748,
+   "train_records": 2030,
+   "transfer_accuracy": 0.9590050667894979,
+   "transfer_advantage": 0.035006909258406216,
+   "unseen_key_fraction": 0.010594196222938737,
+   "window": [
+    3,
+    3
+   ]
+  },
+  {
+   "distinct_eval_keys": 551,
+   "distinct_train_keys": 504,
+   "eval_records": 2171,
+   "majority_baseline": 0.9239981575310917,
+   "oracle_accuracy": 0.9820359281437125,
+   "oracle_advantage": 0.05803777061262083,
+   "train_records": 2030,
+   "transfer_accuracy": 0.9608475356978351,
+   "transfer_advantage": 0.036849378166743385,
+   "unseen_key_fraction": 0.1764163979732842,
+   "window": [
+    5,
+    5
+   ]
+  }
+ ],
+ "glyph_counts": {
+  "distinct_codes_held": 36,
+  "distinct_codes_train": 36,
+  "held_glyphs": 267,
+  "train_glyphs": 257,
+  "window": [
+   6,
+   5
+  ]
+ },
+ "glyph_windows": [
+  {
+   "distinct_eval_keys": 144,
+   "distinct_train_keys": 138,
+   "eval_records": 267,
+   "majority_baseline": 0.0449438202247191,
+   "oracle_accuracy": 0.9625468164794008,
+   "oracle_advantage": 0.9176029962546817,
+   "reduction": "ink",
+   "train_records": 257,
+   "transfer_accuracy": 0.5617977528089888,
+   "transfer_advantage": 0.5168539325842697,
+   "unseen_key_fraction": 0.3782771535580524,
+   "window": [
+    6,
+    5
+   ]
+  },
+  {
+   "distinct_eval_keys": 264,
+   "distinct_train_keys": 253,
+   "eval_records": 267,
+   "majority_baseline": 0.0449438202247191,
+   "oracle_accuracy": 1.0,
+   "oracle_advantage": 0.9550561797752809,
+   "reduction": "raw",
+   "train_records": 257,
+   "transfer_accuracy": 0.056179775280898875,
+   "transfer_advantage": 0.011235955056179775,
+   "unseen_key_fraction": 0.9662921348314607,
+   "window": [
+    6,
+    5
+   ]
+  },
+  {
+   "distinct_eval_keys": 98,
+   "distinct_train_keys": 97,
+   "eval_records": 267,
+   "majority_baseline": 0.0449438202247191,
+   "oracle_accuracy": 0.9588014981273408,
+   "oracle_advantage": 0.9138576779026217,
+   "reduction": "ink",
+   "train_records": 257,
+   "transfer_accuracy": 0.7153558052434457,
+   "transfer_advantage": 0.6704119850187266,
+   "unseen_key_fraction": 0.21722846441947566,
+   "window": [
+    5,
+    5
+   ]
+  },
+  {
+   "distinct_eval_keys": 257,
+   "distinct_train_keys": 242,
+   "eval_records": 267,
+   "majority_baseline": 0.0449438202247191,
+   "oracle_accuracy": 0.9925093632958801,
+   "oracle_advantage": 0.947565543071161,
+   "reduction": "raw",
+   "train_records": 257,
+   "transfer_accuracy": 0.08239700374531835,
+   "transfer_advantage": 0.037453183520599245,
+   "unseen_key_fraction": 0.9363295880149812,
+   "window": [
+    5,
+    5
+   ]
+  },
+  {
+   "distinct_eval_keys": 54,
+   "distinct_train_keys": 57,
+   "eval_records": 267,
+   "majority_baseline": 0.0449438202247191,
+   "oracle_accuracy": 0.9588014981273408,
+   "oracle_advantage": 0.9138576779026217,
+   "reduction": "ink",
+   "train_records": 257,
+   "transfer_accuracy": 0.8801498127340824,
+   "transfer_advantage": 0.8352059925093633,
+   "unseen_key_fraction": 0.052434456928838954,
+   "window": [
+    4,
+    5
+   ]
+  },
+  {
+   "distinct_eval_keys": 252,
+   "distinct_train_keys": 235,
+   "eval_records": 267,
+   "majority_baseline": 0.0449438202247191,
+   "oracle_accuracy": 0.9925093632958801,
+   "oracle_advantage": 0.947565543071161,
+   "reduction": "raw",
+   "train_records": 257,
+   "transfer_accuracy": 0.10112359550561797,
+   "transfer_advantage": 0.056179775280898875,
+   "unseen_key_fraction": 0.9138576779026217,
+   "window": [
+    4,
+    5
+   ]
+  },
+  {
+   "distinct_eval_keys": 170,
+   "distinct_train_keys": 163,
+   "eval_records": 267,
+   "majority_baseline": 0.0449438202247191,
+   "oracle_accuracy": 0.9700374531835206,
+   "oracle_advantage": 0.9250936329588015,
+   "reduction": "ink",
+   "train_records": 257,
+   "transfer_accuracy": 0.4606741573033708,
+   "transfer_advantage": 0.4157303370786517,
+   "unseen_key_fraction": 0.49812734082397003,
+   "window": [
+    8,
+    6
+   ]
+  },
+  {
+   "distinct_eval_keys": 267,
+   "distinct_train_keys": 256,
+   "eval_records": 267,
+   "majority_baseline": 0.0449438202247191,
+   "oracle_accuracy": 1.0,
+   "oracle_advantage": 0.9550561797752809,
+   "reduction": "raw",
+   "train_records": 257,
+   "transfer_accuracy": 0.033707865168539325,
+   "transfer_advantage": -0.011235955056179775,
+   "unseen_key_fraction": 0.9925093632958801,
+   "window": [
+    8,
+    6
+   ]
+  },
+  {
+   "distinct_eval_keys": 43,
+   "distinct_train_keys": 43,
+   "eval_records": 267,
+   "majority_baseline": 0.0449438202247191,
+   "oracle_accuracy": 0.8801498127340824,
+   "oracle_advantage": 0.8352059925093633,
+   "reduction": "ink",
+   "train_records": 257,
+   "transfer_accuracy": 0.797752808988764,
+   "transfer_advantage": 0.7528089887640449,
+   "unseen_key_fraction": 0.02247191011235955,
+   "window": [
+    3,
+    5
+   ]
+  },
+  {
+   "distinct_eval_keys": 244,
+   "distinct_train_keys": 226,
+   "eval_records": 267,
+   "majority_baseline": 0.0449438202247191,
+   "oracle_accuracy": 0.9625468164794008,
+   "oracle_advantage": 0.9176029962546817,
+   "reduction": "raw",
+   "train_records": 257,
+   "transfer_accuracy": 0.10112359550561797,
+   "transfer_advantage": 0.056179775280898875,
+   "unseen_key_fraction": 0.8689138576779026,
+   "window": [
+    3,
+    5
+   ]
+  }
+ ],
+ "linear_family": {
+  "colliding_patterns": 2,
+  "collision_examples": [
+   [
+    9,
+    11,
+    19
+   ],
+   [
+    5,
+    11
+   ]
+  ],
+  "distinct_patterns": 138,
+  "exactly_linear": false,
+  "features": 31,
+  "matrix_rank": 31,
+  "max_abs_residual": 20.67112111585443,
+  "note": "a residual below 0.5 rounds to the exact integer code"
+ },
+ "rules": {
+  "borders": {
+   "achieved_widgets": 18.833333333333332,
+   "colour_injective": {
+    "distinct_colours": 12,
+    "injective": 0,
+    "widgets": 226
+   },
+   "configuration": {
+    "borders": true,
+    "horizon": 2,
+    "min_size": 4,
+    "nesting": 5,
+    "palette": 32,
+    "resolution": 32,
+    "widgets": 20
+   },
+   "corner_colour": {
+    "corners": 226,
+    "false_negative": 214,
+    "false_positive": 250,
+    "positions": 12288,
+    "true_positive": 12
+   },
+   "corner_owner": {
+    "corners": 226,
+    "false_negative": 0,
+    "false_positive": 0,
+    "positions": 12288,
+    "true_negative": 12062,
+    "true_positive": 226
+   },
+   "extent": {
+    "exact": 12,
+    "widgets": 226,
+    "wrong": 214
+   },
+   "parent_pixel": {
+    "exact": 214,
+    "non_root": 214,
+    "wrong": 0
+   },
+   "smallest_container": {
+    "exact": 214,
+    "non_root": 214,
+    "ties": 0,
+    "wrong": 0
+   }
+  },
+  "flat": {
+   "achieved_widgets": 18.833333333333332,
+   "colour_injective": {
+    "distinct_colours": 192,
+    "injective": 1,
+    "widgets": 226
+   },
+   "configuration": {
+    "horizon": 2,
+    "min_size": 4,
+    "nesting": 5,
+    "palette": 32,
+    "resolution": 32,
+    "widgets": 20
+   },
+   "corner_colour": {
+    "corners": 226,
+    "false_negative": 0,
+    "false_positive": 0,
+    "positions": 12288,
+    "true_positive": 226
+   },
+   "corner_owner": {
+    "corners": 226,
+    "false_negative": 0,
+    "false_positive": 0,
+    "positions": 12288,
+    "true_negative": 12062,
+    "true_positive": 226
+   },
+   "extent": {
+    "exact": 226,
+    "widgets": 226,
+    "wrong": 0
+   },
+   "parent_pixel": {
+    "exact": 214,
+    "non_root": 214,
+    "wrong": 0
+   },
+   "smallest_container": {
+    "exact": 214,
+    "non_root": 214,
+    "ties": 0,
+    "wrong": 0
+   }
+  },
+  "labels": {
+   "achieved_widgets": 18.833333333333332,
+   "colour_injective": {
+    "distinct_colours": 192,
+    "injective": 1,
+    "widgets": 226
+   },
+   "configuration": {
+    "horizon": 2,
+    "label_size": 8,
+    "labels": true,
+    "min_size": 4,
+    "nesting": 5,
+    "palette": 32,
+    "resolution": 32,
+    "widgets": 20
+   },
+   "corner_colour": {
+    "corners": 226,
+    "false_negative": 0,
+    "false_positive": 16,
+    "positions": 12288,
+    "true_positive": 226
+   },
+   "corner_owner": {
+    "corners": 226,
+    "false_negative": 0,
+    "false_positive": 0,
+    "positions": 12288,
+    "true_negative": 12062,
+    "true_positive": 226
+   },
+   "extent": {
+    "exact": 226,
+    "widgets": 226,
+    "wrong": 0
+   },
+   "parent_pixel": {
+    "exact": 214,
+    "non_root": 214,
+    "wrong": 0
+   },
+   "smallest_container": {
+    "exact": 214,
+    "non_root": 214,
+    "ties": 0,
+    "wrong": 0
+   }
+  },
+  "palette 8": {
+   "achieved_widgets": 18.833333333333332,
+   "colour_injective": {
+    "distinct_colours": 48,
+    "injective": 0,
+    "widgets": 226
+   },
+   "configuration": {
+    "horizon": 2,
+    "min_size": 4,
+    "nesting": 5,
+    "palette": 8,
+    "resolution": 32,
+    "widgets": 20
+   },
+   "corner_colour": {
+    "corners": 226,
+    "false_negative": 52,
+    "false_positive": 0,
+    "positions": 12288,
+    "true_positive": 174
+   },
+   "corner_owner": {
+    "corners": 226,
+    "false_negative": 0,
+    "false_positive": 0,
+    "positions": 12288,
+    "true_negative": 12062,
+    "true_positive": 226
+   },
+   "extent": {
+    "exact": 174,
+    "widgets": 226,
+    "wrong": 52
+   },
+   "parent_pixel": {
+    "exact": 214,
+    "non_root": 214,
+    "wrong": 0
+   },
+   "smallest_container": {
+    "exact": 214,
+    "non_root": 214,
+    "ties": 0,
+    "wrong": 0
+   }
+  },
+  "text screen": {
+   "achieved_widgets": 24.0,
+   "colour_injective": {
+    "distinct_colours": 288,
+    "injective": 12,
+    "widgets": 288
+   },
+   "configuration": {
+    "glyph_capacity": 64,
+    "hierarchy_capacity": 32,
+    "horizon": 2,
+    "label_size": 8,
+    "labels": true,
+    "min_size": 6,
+    "nesting": 6,
+    "palette": 48,
+    "resolution": 64,
+    "widgets": 24
+   },
+   "corner_colour": {
+    "corners": 288,
+    "false_negative": 0,
+    "false_positive": 984,
+    "positions": 49152,
+    "true_positive": 288
+   },
+   "corner_owner": {
+    "corners": 288,
+    "false_negative": 0,
+    "false_positive": 0,
+    "positions": 49152,
+    "true_negative": 48864,
+    "true_positive": 288
+   },
+   "extent": {
+    "exact": 288,
+    "widgets": 288,
+    "wrong": 0
+   },
+   "parent_pixel": {
+    "exact": 276,
+    "non_root": 276,
+    "wrong": 0
+   },
+   "smallest_container": {
+    "exact": 276,
+    "non_root": 276,
+    "ties": 0,
+    "wrong": 0
+   }
+  },
+  "text screen, labels off": {
+   "achieved_widgets": 24.0,
+   "colour_injective": {
+    "distinct_colours": 288,
+    "injective": 12,
+    "widgets": 288
+   },
+   "configuration": {
+    "glyph_capacity": 64,
+    "hierarchy_capacity": 32,
+    "horizon": 2,
+    "label_size": 8,
+    "labels": false,
+    "min_size": 6,
+    "nesting": 6,
+    "palette": 48,
+    "resolution": 64,
+    "widgets": 24
+   },
+   "corner_colour": {
+    "corners": 288,
+    "false_negative": 0,
+    "false_positive": 0,
+    "positions": 49152,
+    "true_positive": 288
+   },
+   "corner_owner": {
+    "corners": 288,
+    "false_negative": 0,
+    "false_positive": 0,
+    "positions": 49152,
+    "true_negative": 48864,
+    "true_positive": 288
+   },
+   "extent": {
+    "exact": 288,
+    "widgets": 288,
+    "wrong": 0
+   },
+   "parent_pixel": {
+    "exact": 276,
+    "non_root": 276,
+    "wrong": 0
+   },
+   "smallest_container": {
+    "exact": 276,
+    "non_root": 276,
+    "ties": 0,
+    "wrong": 0
+   }
+  }
+ },
+ "text_screen": {
+  "glyph_capacity": 64,
+  "hierarchy_capacity": 32,
+  "horizon": 2,
+  "label_size": 8,
+  "labels": true,
+  "min_size": 6,
+  "nesting": 6,
+  "palette": 48,
+  "resolution": 64,
+  "widgets": 24
+ },
+ "widget_kind": [
+  {
+   "context": "fill colour",
+   "distinct_eval_keys": 32,
+   "distinct_train_keys": 32,
+   "eval_records": 232,
+   "majority_baseline": 0.38362068965517243,
+   "oracle_accuracy": 0.4482758620689655,
+   "oracle_advantage": 0.0646551724137931,
+   "train_records": 226,
+   "transfer_accuracy": 0.2629310344827586,
+   "transfer_advantage": -0.12068965517241381,
+   "unseen_key_fraction": 0.0
+  },
+  {
+   "context": "size (w,h)",
+   "distinct_eval_keys": 110,
+   "distinct_train_keys": 105,
+   "eval_records": 232,
+   "majority_baseline": 0.38362068965517243,
+   "oracle_accuracy": 0.771551724137931,
+   "oracle_advantage": 0.3879310344827586,
+   "train_records": 226,
+   "transfer_accuracy": 0.5732758620689655,
+   "transfer_advantage": 0.1896551724137931,
+   "unseen_key_fraction": 0.27586206896551724
+  },
+  {
+   "context": "fill + size",
+   "distinct_eval_keys": 225,
+   "distinct_train_keys": 220,
+   "eval_records": 232,
+   "majority_baseline": 0.38362068965517243,
+   "oracle_accuracy": 0.9827586206896551,
+   "oracle_advantage": 0.5991379310344827,
+   "train_records": 226,
+   "transfer_accuracy": 0.4267241379310345,
+   "transfer_advantage": 0.043103448275862044,
+   "unseen_key_fraction": 0.9137931034482759
+  },
+  {
+   "context": "position + size",
+   "distinct_eval_keys": 212,
+   "distinct_train_keys": 200,
+   "eval_records": 232,
+   "majority_baseline": 0.38362068965517243,
+   "oracle_accuracy": 0.9913793103448276,
+   "oracle_advantage": 0.6077586206896552,
+   "train_records": 226,
+   "transfer_accuracy": 0.4353448275862069,
+   "transfer_advantage": 0.051724137931034475,
+   "unseen_key_fraction": 0.8448275862068966
+  }
+ ]
+}

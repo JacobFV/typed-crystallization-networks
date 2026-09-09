@@ -91,8 +91,6 @@ class Curriculum:
         # One library per run directory unless the caller names a shared one, so
         # a curriculum leaves behind a growing artifact rather than nothing.
         library=Path(library) if library else out/'library'
-        if any(s.publishes for s in self.stages.values()) and workers>1:
-            raise ValueError('publishing stages need workers=1: one manifest, one writer')
         fingerprint=hashlib.sha256(json.dumps({'source':source_fingerprint(),'stages':[asdict(self.stages[k]) for k in self.order]},sort_keys=True).encode()).hexdigest()
         records={}
         if resume and journal.exists():
@@ -111,8 +109,14 @@ class Curriculum:
                 ready=sorted(k for k in pending if set(self.stages[k].requires)<=passed)
                 for name in ready[:max(0,workers-len(running))]:
                     stage=self.stages[name]
+                    # The manifest has one writer, so a publishing stage runs
+                    # alone -- it waits for the pool to drain and nothing joins
+                    # it. Every other stage still runs at the caller's width, so
+                    # declaring `publishes` costs parallelism only where it must.
+                    if stage.publishes and running: break
                     artifacts=Artifacts(str(library),self.inherited(name),stage.publishes,stage.inherits)
                     running[pool.submit(execute_stage,runner,stage,out,artifacts)]=name;pending.remove(name)
+                    if stage.publishes: break
                 if not running:
                     for name in pending:records[name]={'status':'blocked','failures':['prerequisite failed']}
                     break

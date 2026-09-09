@@ -2,16 +2,17 @@
   "arms": [
     {
       "arm": "flat",
-      "seeds": 2,
+      "seeds": 3,
       "episodes": 600,
-      "eval_deterministic": 0.0391,
-      "sd": 0.0391,
-      "eval_stochastic": 0.1094,
+      "eval_deterministic": 0.026,
+      "sd": 0.0368,
+      "eval_stochastic": 0.1146,
       "seeds_at_1.00": 0,
       "seeds_above_0.25": 0,
       "slot_selected": [
         "identity(action.1.slot)",
-        "add(one_slot,one_slot)"
+        "add(one_slot,one_slot)",
+        "add(action.1.slot,action.1.slot)"
       ],
       "logits": [
         {
@@ -23,28 +24,34 @@
           "idle": "commit",
           "found": "wait",
           "dialled": "wait"
+        },
+        {
+          "idle": "dial",
+          "found": "wait",
+          "dialled": "wait"
         }
       ],
       "logstd_slot": [
         1.256,
-        2.234
+        2.234,
+        1.87
       ],
       "reward_rate": {
-        "50": 0.12,
-        "100": 0.1,
-        "150": 0.06,
-        "200": 0.02,
-        "250": 0.12,
-        "300": 0.07,
-        "350": 0.07,
-        "400": 0.12,
+        "50": 0.1,
+        "100": 0.087,
+        "150": 0.087,
+        "200": 0.073,
+        "250": 0.087,
+        "300": 0.08,
+        "350": 0.087,
+        "400": 0.107,
         "450": 0.1,
-        "500": 0.11,
-        "550": 0.04,
-        "600": 0.06
+        "500": 0.1,
+        "550": 0.067,
+        "600": 0.073
       },
       "env_episodes": 856,
-      "minutes": 16.9
+      "minutes": 15.4
     },
     {
       "arm": "myopic",
@@ -221,6 +228,59 @@
       "minutes": 23.2
     },
     {
+      "arm": "reward_g50",
+      "seeds": 3,
+      "episodes": 600,
+      "eval_deterministic": 0.1979,
+      "sd": 0.0642,
+      "eval_stochastic": 0.3281,
+      "seeds_at_1.00": 0,
+      "seeds_above_0.25": 1,
+      "slot_selected": [
+        "add(one_slot,one_slot)",
+        "add(one_slot,one_slot)",
+        "identity(one_slot)"
+      ],
+      "logits": [
+        {
+          "idle": "look",
+          "found": "dial",
+          "dialled": "commit"
+        },
+        {
+          "idle": "dial",
+          "found": "dial",
+          "dialled": "commit"
+        },
+        {
+          "idle": "look",
+          "found": "dial",
+          "dialled": "commit"
+        }
+      ],
+      "logstd_slot": [
+        2.125,
+        2.138,
+        -0.307
+      ],
+      "reward_rate": {
+        "50": 0.12,
+        "100": 0.113,
+        "150": 0.133,
+        "200": 0.2,
+        "250": 0.273,
+        "300": 0.213,
+        "350": 0.307,
+        "400": 0.367,
+        "450": 0.28,
+        "500": 0.327,
+        "550": 0.347,
+        "600": 0.353
+      },
+      "env_episodes": 856,
+      "minutes": 12.2
+    },
+    {
       "arm": "reward_sweep_given",
       "seeds": 3,
       "episodes": 600,
@@ -297,6 +357,12 @@
       "100": 0.104,
       "200": 0.224,
       "400": 0.229
+    },
+    "reward_g50": {
+      "50": 0.052,
+      "100": 0.146,
+      "200": 0.156,
+      "400": 0.219
     },
     "reward_sweep_given": {
       "50": 0.073,
