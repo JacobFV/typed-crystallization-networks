@@ -1554,3 +1554,44 @@ short-budget runs that the report documents. The exclusion is legitimate and the
 four-seed figure stands; recording the check because a headline that improves
 when a zero is dropped is exactly the shape that has been wrong before in this
 pass, and this time it was not.
+
+## 32. A screenshot parses to a hierarchy
+
+`research/visual-ladder/RESULTS.md`. The three searches drafted at the end of the
+previous session were executed. Verified by recomputing every figure from
+`out/rung3_parse.json` in the supervising session.
+
+**On 12 held-out flat screens (seeds 200-211): 215 of 215 rectangles exactly
+right on 12 of 12 screens, zero spurious, and 173 of 215 parent links correct
+(0.805) against a `parent = root` baseline of 0.140.** Three of twelve trees are
+exactly correct.
+
+Two concessions are in the headline rather than buried: the comparison is
+rectangle-not-id, and the root is supplied as the screen, so 12 of 227 widgets
+are never predicted.
+
+Every search exhausted. S0: 256/256, 2 conforming, 1 distinct function, held-out
+error 0.0 — and a 16,384-program `--free` ablation returns the *same single
+function*. S1: 400/400, 2 conforming (a literal swapped pair, one predicate),
+with offsets `[3, 96]` discovered rather than supplied. **S2: 25/25, 1
+conforming, certificate `unique`.** Random controls scored 2/400, 0/400, 1/400
+and 4/50. No gradient arm was needed.
+
+**Running it found three faults in the draft, and two were the same fault.** Fill
+colour is *not* injective at `palette 32` — `bounds.json`'s own
+`colour_injective` field says so, 1 of 12 episodes — and the draft leant on
+injectivity twice without reading its own bound. S2's extent was a masked count
+rather than a run, overshooting on 8 of 57 widgets; fixed with a prefix
+conjunction at fixed depth. S0 supervised colour-equality at arbitrary pairs and
+returned **0 conforming of 256, exhausted** — 1.41% of arbitrary pairs
+contradict, against 0.00% of 46,528 four-neighbour pairs — and the unsatisfiable
+variant is kept as a negative control. The three faults the handoff predicted
+(the `min`/`last` clamp, the `lt` mask, `sum` overflow) were all fine.
+
+**The residual is one cause, and it is measurable.** All 42 wrong links are
+colour-key collisions: on the 3 collision-free screens the parse is **46/46**,
+and on the rest 127/169. So the parent rule is not approximate — it is exact
+wherever the key is unique, and the ceiling is a property of the key rather than
+of the program.
+
+Still missing: the root, an induced variant for S1 and S2, and all of rung two.

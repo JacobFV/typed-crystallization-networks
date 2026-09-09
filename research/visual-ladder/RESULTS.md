@@ -1,38 +1,59 @@
-# Visual ladder, rungs two and three — INCOMPLETE HANDOFF
+# Visual ladder, rungs two and three — the first screenshot-to-hierarchy parse
 
 Research track `visual-ladder`, continuing `research/gui-hierarchy` directly.
 
-**STATUS: incomplete. The session ended during setup.** Everything in section 1
-is measured and reproducible from `out/bounds.json`. Everything in section 2 is
-*written but never executed* — no search was run, so **no rung above rung one is
-claimed here and no conforming count, uniqueness statement or held-out number
-exists for rung two or rung three.** Section 3 says what the bounds imply and
-section 5 says what to do first.
+**STATUS: rung three is now run.**  Section 1 is the earlier session's bounds and
+is unchanged; every number in it is **inherited** from `out/bounds.json`.
+Sections 2, 3 and 3.1 are **newly measured** in this session from
+`out/rung3.json` and `out/rung3_parse.json`, and every table there is marked
+NEW.  Rung two was not attempted and no number for it is claimed.
 
 Produced with
 `/home/brandonin/Documents/typed-crystallization-networks/.venv/bin/python`.
 **Nothing under `tcn/` is modified. Nothing under `generators/` is modified.**
-No generator extension was needed or made, so the question of the default
-observation stream changing does not arise (see section 4).
+No generator extension was needed or made.
 
 ---
 
 ## 0. Verdict, stated plainly
 
-* **Rung two (glyphs) was not reached.** The bounds for it were computed and
-  they are the useful output: they **exclude two of the three program families
-  that could have produced a character code**, before any search was run. That
-  is the "say so instead of searching" the brief asks for, and it redirects the
-  rung rather than merely failing it.
-* **Rung three (widgets) was not reached as a search**, but its *rules* were
-  checked exactly and they hold at every instance on the flat screen. The
-  scaffold that would learn them is written and unrun.
-* **A screenshot-to-hierarchy parse is in reach and the blocking work is now
-  small** — three exhaustible searches and one four-node caller, all drafted in
-  `rung3_widgets.py`. The reason for the confidence is section 1.4: the three
-  rules the parse needs are exact at 226/226, 226/226 and 214/214 on the
-  measured screen, with the failures isolated to configurations that are already
-  known to destroy the information (`borders`, small `palette`).
+**A screenshot is parsed into a widget hierarchy.**  On 12 held-out flat screens
+the four-node caller returns **215 rectangles for 215 non-root widgets, every one
+exactly right, on every screen, with no spurious rectangle**, and **173 of 215
+parent links correct (0.805)** against a `parent = root` baseline of **0.140**.
+Three of the 12 screens are recovered as an *exactly* correct tree.
+
+**Two concessions, in the headline sentence and not in a footnote.**  (i) The
+comparison is on **rectangles, not ids** — a permutation of the generator's
+widget list leaves the raster bit-identical, so no program over the screen can
+produce the generator's numbering, and `score_tree` matches a predicted widget to
+the probe by its `(x, y, w, h)`.  (ii) The **root is supplied**, as "the widget
+whose rectangle is the whole screen": the corner predicate reads a left and an
+upper neighbour, so position (0,0) is outside the position set by construction
+(H6), and 12 of the 227 widgets in the probe are therefore never predicted.
+
+**All three searches exhausted and all three carry a certificate.**  S0 256/256,
+S1 400/400, S2 25/25 — the last returning **exactly one** conforming program,
+certificate `unique`.  Every stage's validation-filtered survivors are at
+**held-out max error 0.0**.
+
+**The handoff's two named risks were both real, and both were the same fault.**
+Fill colour is *not* injective per widget at `palette 32` — `bounds.json`'s own
+`colour_injective` field says 1 of 12 episodes, 192 distinct colours over 226
+widgets — and the draft leant on injectivity twice without consulting it.  S2's
+extent summed same-colour bits over the whole row and overcounted; S0 supervised
+a colour predicate with `owner`-equality at *arbitrary* address pairs and was
+unsatisfiable.  Both are fixed, both fixes are measured, and the unsatisfiable
+variant is kept as a reported negative control (0 conforming of 256, exhausted).
+The third named risk — `sum` over 31 `int[16]` terms against `overflow='error'`
+— did **not** materialise.
+
+**What is still missing.**  The parent link is resolved through the widget's
+*colour* key, and colour collisions are exactly where it fails: on the 3 of 12
+screens where the predicted keys are distinct the links are **46/46**; on the 9
+where two widgets share a fill colour they are **127/169**.  That is an
+information limit of the two-pixel parent route at this palette, not a search
+failure, and section 5 says what to do about it.
 
 ---
 
@@ -210,6 +231,19 @@ repair is stated but unmeasured: a corner predicate conjoined with "this pixel i
 not ink" should recover the labelled case, since ink is `(0,0,0)` and no palette
 entry is.
 
+**CORRECTION, newly measured this session.**  Section 1.4's justification for the
+extent rule says "no other pixel of that row or column carries its colour".  That
+is false, and `bounds.json` already contained the refutation: `colour_injective`
+on the flat screen is **1 of 12 episodes**, 192 distinct colours over 226
+widgets.  `extent_rule` checks the *contiguous run* and is exact at 226/226; the
+scaffold as drafted summed a masked same-colour *count* over the whole row, which
+is a different rule and overcounts whenever a same-coloured sibling sits further
+along the row.  Measured on 12 flat episodes: `owner`-equality and colour-equality
+disagree on **1.41%** of 48,000 arbitrary address pairs and **0.87%** of 48,000
+same-row pairs, but on **0.00%** of 46,528 four-neighbour pairs — which is the
+same fact `corner_colour` states as 226/0/0.  Both faults below follow from this
+one line.
+
 ### 1.5 Rung three — widget `kind`, re-confirmed as blocked
 
 | context | majority | oracle | transfer |
@@ -228,61 +262,127 @@ and section 1.4 is why.
 
 ---
 
-## 2. What is written and unrun
+## 2. What was run — NEW, all of this section
 
-`rung3_widgets.py` implements the four stages below. **It has never been
-executed.** Its scaffolds type-check in isolation (the module composition in
-particular was prototyped: a frozen module registered with
-`Registry.register_module` is callable as an ordinary three-source operator node,
-verified end to end) but no search has been run, so **every conforming count,
-uniqueness statement and held-out number for rung three is absent.**
+`rung3_widgets.py --train 6 --validation 3 --held 6 --pairs 48
+--corner-per-image 120 --parse 6 --free` -> `out/rung3.json`;
+`parse_report.py --screens 12` -> `out/rung3_parse.json`.  Screen `FLAT`
+(`resolution 32, widgets 20, nesting 5, min_size 4, palette 32`), achieved mean
+19.5 widgets, 3,072 observation bytes, 961 interior positions.  The flat
+configuration was used deliberately: section 1.4 already measures that borders
+take `extent` to 12 of 226 and that a small palette collapses `corner_colour`, so
+a first result does not fight them.
 
-| stage | what it searches | declared space | certificate expected |
+### 2.1 Three faults found by running it
+
+| # | fault | evidence | fix |
 |---|---|---|---|
-| S0 `same(a, b, obs) -> bool` | two Boolean combinators over three channel comparisons | 256 | exhaustible |
-| S0 ablation (`--free`) | plus each comparison's operand binding, against three constant-byte distractors | 16,384 | exhaustible |
-| S1 `corner(rec) -> bool` | two offsets from a five-step pool, one truth table | 400 | exhaustible |
-| S2 `rect(rec) -> (x,y,w,h,key,parent_key)` | the row step and the column step, from the same pool | 25 | exhaustible |
-| S3 the parse | nothing; four caller nodes | 1 | n/a |
+| F1 | S2's extent was a masked **count**, not a run | 8 of 57 widgets over 3 training episodes overshot by 1-2 (e.g. got `w,h = 7,5` where the probe says `5,4`) | each term conjoined with every earlier one — a prefix conjunction, still a fixed-depth feedforward graph, no accumulator and no recurrence |
+| F2 | S0 supervised a colour predicate by `owner` at **arbitrary** pairs | **0 conforming of 256, exhausted** — the target is not a function of the context; 1.41% of arbitrary pairs disagree | pairs drawn at the four spatial neighbours, where the disagreement is 0.00% over 46,528 draws |
+| F3 | a stage with 0 conforming crashed with `KeyError: 'chosen'` | S0's first run | explicit `SystemExit` naming the stage |
 
-S0 externalises rung one's offset, which is the change that makes the module
-reusable: `research/gui-hierarchy` baked offset 3 into the module, so it could
-only ever answer about the right-hand neighbour. With two free address arguments
-the same 256-program space serves the corner test, both extent counts and the
-parent lookup. It is supervised at *arbitrary* raster pairs by
-`owner(a) == owner(b)`, which is denser than the neighbour-only rung and was
-expected to collapse the two-spelling tie the earlier track reported.
+The handoff named three likely faults in S2.  The `min`/`last` address clamp and
+the `lt` in-bounds mask were both **correct as written**, and `sum` over 31
+`int[16]` terms against `overflow='error'` never tripped.  The fault was the one
+place the draft asserted a rendering property instead of reading the bound it had
+already computed.
 
-S3 is `insert` / `pair` / `filter` / `map` — `tcn.scaffold.positional_scaffold`
-plus one `filter` node, so the expensive rectangle module runs at the ~20 corners
-rather than at all 961 interior positions. Its output type is
-`set[(x, y, w, h, key, parent_key)]`, which is the `hierarchy` probe's relation
-up to the episode's colour relabelling. `score_tree` compares on **rectangles**,
-not ids, because a permutation of the widget list leaves the raster identical —
-the object-identity result applies here unchanged.
+### 2.2 The searches — NEW
+
+Every sweep is `enumerate_prefix` through `common.sweep`, and the conforming set
+is walked a second time by `all_conforming` as a cross-check; the two agree on
+the count in all four arms.
+
+| stage | space | evaluated | exhausted | conforming | distinct functions | certificate | validation survivors | held-out max error | held-out accuracy | random control | sweep s | node evals |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| S0 `same(a,b,obs)` | 256 | 256 | yes | **2** | **1** | complete | 2 | **0.0** | 1.000 | 2/400 | 0.7 | 10,064 |
+| S0 ablation `--free` (H2) | 16,384 | 16,384 | yes | **2** | **1** | complete | 2 | **0.0** | 1.000 | 0/400 | 1.2 | 361,862 |
+| S0 negative control (draft supervision) | 256 | 256 | yes | **0** | — | complete | — | — | — | 0/400 | 0.7 | 9,120 |
+| S1 `corner(rec)` | 400 | 400 | yes | **2** | not induced | complete | 2 | **0.0** | 1.000 | 1/400 | 97.6 | 64,866 |
+| S2 `rect(rec)` | 25 | 25 | yes | **1** | not induced | **unique** | 1 | **0.0** | 1.000 | 4/50 | 472.2 | 1,605,195 |
+
+**Non-uniqueness is the norm and it is reported as such.**  S0's two conforming
+programs are two spellings of one Boolean function — `induced_same` collapses
+them and returns **1 distinct function**, `r AND g AND b`, reached as
+`NOT NAND(r,g) AND b` by the lexicographic pick.  S1's two survivors are literally the
+swapped pair — `{back_a: 2, back_b: 3, corner: 1}` and
+`{back_a: 3, back_b: 2, corner: 1}` — the same predicate `NOT same_a AND
+NOT same_b` with its two arguments exchanged; `induced` was not written for S1,
+so "one predicate" is read off those selections rather than computed, and it is
+the one uniqueness claim here that is an argument and not a number.  **S2 is
+unique outright**: 1 of 25, certificate `unique`.
+
+**The requested offsets were discovered, not supplied.**  The pool is
+`(6, 99, 3, 96, 9)` and the answers are at indices 2 and 3, not 0.  S1 chose
+`[3, 96]` — the left and the upper neighbour — and S2 chose `[3, 96]` for the row
+step and the column step.  The `--free` ablation additionally searches S0's
+operand binding against three constant-byte distractors, with the correct binding
+at index 2 of 4.  Both survivors select `cmp_r = cmp_g = cmp_b = 2` — the
+neighbour comparison, not a distractor constant — and denote the identical single
+function: **H2 ablates away.**
+
+**Supervision densities**, so the conforming counts can be read against them:
+S0's neighbour pairs are 64.2% positive (the draft's arbitrary pairs were 35.4%),
+S1's positions are **1.94%** positive — 720 sampled positions per split, about 14
+true corners — and S2 has one example per non-root widget, 111 training and 103
+held out.
 
 ---
 
-## 3. How far up the ladder, and is a parse in reach
+## 3. The parse — NEW
 
-**How far up: rung one remains the highest rung with a measured result.** This
-track added no searched rung. What it added is bounds, and two of them change
-what the next rungs should be:
+`assembly` is four caller nodes: `insert`, `pair`, `filter`, `map`.  The `filter`
+runs the 35-cost corner module at all 961 interior positions; the `map` runs the
+1,453-cost rectangle module only at the positions it kept.  Wall clock 13.8-15.8 s
+per screen.
 
-1. rung two's target should be the **character key and the same-character
-   relation**, not the generator's code index, because the code needs a lookup
-   the algebra cannot write and both expressible families are excluded above;
-2. rung two is **downstream of rung three**, not upstream, because the glyph
-   anchor is not findable from a local window (0.982 ceiling) while the widget
-   corner that supplies it is exact.
+12 held-out screens, seeds 200-211, split `test`, `out/rung3_parse.json`:
 
-**Is a screenshot-to-hierarchy parse in reach: yes, and the remaining work is
-three exhaustible searches.** The three rules the parse is made of are exact at
-226/226, 226/226 and 214/214 on the flat screen — not "high accuracy", exact at
-every instance — and each is expressible as a fixed-depth graph over operators
-already on main. The parse it yields would be up to colour relabelling and would
-exclude the root, which the corner predicate cannot see. **That claim is not
-made here; it is a prediction from the bounds, and nothing was searched.**
+| quantity | program | baseline |
+|---|---|---|
+| non-root widgets in the probe | 215 | — |
+| rectangles predicted | **215** | 0 (empty parse) |
+| rectangles exactly right | **215 / 215** | 0 |
+| screens with the rectangle set exactly right (no miss, no spurious) | **12 / 12** | 0 |
+| parent links correct | **173 / 215 = 0.805** | `parent = root`: 30 / 215 = **0.140** |
+| screens with an exactly correct tree | **3 / 12** | 0 |
+
+For the corner predicate the majority baseline is "no position is a corner", at
+0.980 accuracy and **zero** widgets recovered; the program is at 1.000 on the
+held-out corner split, which is the number that matters because the parse needs
+every corner and no other.
+
+**Where the 42 wrong links are.**  All of them are colour-key collisions.  The
+program emits `parent_key` as the packed RGB of the pixel to the left of the
+corner — exact at 214/214 as a *relation* (section 1.4, inherited) — and
+`score_tree` resolves that key against the widgets it parsed.  When two widgets
+on a screen share a fill colour the key is ambiguous:
+
+| screens | key collisions | parent links |
+|---|---|---|
+| 3 of 12 (seeds 202, 205, 209) | 0 | **46 / 46 = 1.000** |
+| 9 of 12 | 25 in total | 127 / 169 = 0.751 |
+
+So the parse is exact wherever colour is injective, and the residue is the
+`palette 32` collision rate, not a search failure.  Section 5.1 says what fixes
+it.
+
+---
+
+## 3.1 How far up the ladder — NEW
+
+**Rung three is now the highest rung with a measured result, and the ladder
+reaches a parse.**  Rung one (`research/gui-hierarchy`) is a per-position
+boundary predicate; rung three is a whole-screen relation of the probe's own
+type, produced by four caller nodes over three frozen modules, at held-out
+rectangle recall 1.000.  Rung two was not attempted this session and section 1's
+bounds for it stand unchanged and unsearched.
+
+The two staging conclusions the earlier session drew survive: rung two's target
+should be the character key rather than the code index, and rung two is
+downstream of rung three because the glyph anchor is not findable from a local
+window (0.982 ceiling, inherited) while the widget corner that supplies it is now
+not merely exact as a rule but **learned, exhausted and applied**.
 
 ---
 
@@ -292,54 +392,56 @@ Everything new is under `research/visual-ladder/`:
 
 | file | state |
 |---|---|
-| `common.py` | written, exercised by `bounds.py` |
-| `bounds.py` -> `out/bounds.json` | **run**; every number in section 1 comes from it, except the `label_length=1` and widget-anchored rows of 1.1/1.3, which were measured ad hoc from `bounds.py`'s helpers and are **not** yet in a committed JSON |
-| `rung3_widgets.py` | written, **never run** |
-| rung two script | **does not exist** |
-| `report.py` | **does not exist** — this document is written by hand, which is a departure from `research/gui-hierarchy`'s practice and should be repaired |
+| `common.py` | unchanged this session |
+| `bounds.py` -> `out/bounds.json` | unchanged this session; section 1 is inherited from it |
+| `rung3_widgets.py` -> `out/rung3.json` | **run**; three fixes (2.1) and one added negative control |
+| `parse_report.py` -> `out/rung3_parse.json` | **new**, **run**; re-runs S3 from the frozen selections in `out/rung3.json` on 12 held-out screens with the baselines beside it, so section 3 is regenerated rather than transcribed |
+| rung two script | still **does not exist** |
+| `report.py` | still **does not exist**; sections 2 and 3 are transcribed from the two JSONs by hand and section 1 from `bounds.json` |
 
-**Nothing outside `research/visual-ladder/` was changed.** `tcn/` is untouched
-and `generators/gui/` is untouched — no generator extension was made, because
-`label_length` and `min_size` are existing dials and they were sufficient. There
-is therefore no default-stream verification to report, and none was run.
-
-No core changes are proposed. `enumerate_prefix`, `interpret`, the severing fix
-and `positional_scaffold` were all used as shipped.
+**Nothing outside `research/visual-ladder/` was changed.**  `tcn/` is untouched
+and `generators/gui/` is untouched.  There is therefore no default-stream
+verification to report.  `enumerate_prefix`, `positional_scaffold`,
+`register_module` and `filter`/`map`/`pair`/`insert` were all used as shipped; no
+core change is proposed.
 
 ---
 
-## 5. What to do first, in priority order
+## 5. What to do next, in priority order
 
-1. **Run `rung3_widgets.py`.** `--train 6 --held 6 --parse 3`, then `--free` for
-   the S0 ablation. It is the only thing between this track and a first
-   screenshot-to-hierarchy parse. Expect to debug S2 first: it is by far the
-   largest scaffold (roughly 450 nodes at `resolution 32`) and it is the one
-   piece never executed even once. Check the `min`/`last` address clamp and the
-   `lt` in-bounds mask before anything else, and confirm `sum` over 31 `int[16]`
-   terms does not trip the `overflow='error'` encoding.
-2. **Report S3 against the probe honestly.** `score_tree` compares rectangles and
-   resolves parents through the program's own colour keys; the root is supplied
-   as "the widget whose rectangle is the whole screen". Both of those are
-   concessions and both need to be stated in the headline sentence, not in a
-   footnote.
-3. **Write rung two against the character key**, not the code. Stage it on S1's
-   corner so the window is anchored at the widget text origin, use
-   `label_length=1`, and report the 0.973 ceiling and the `i`/`j`, `f`/`l`
-   collisions as the certificate. Re-check the collisions at a larger
-   `label_size` before calling them structural.
-4. **Measure the corner-plus-not-ink predicate** on a labelled screen. Rung two
-   and rung three currently cannot share a screen (984 false corners on the text
-   screen); if that predicate is exact, they can, and the ladder becomes one
-   pipeline rather than two.
-5. **Add `report.py`** and regenerate this document from `out/*.json`, so no
-   number in it is transcribed by hand. Several currently are, and they are
-   flagged in section 4.
-6. Do **not** run a gradient arm on the glyph code. Section 1.3 excludes the
-   family before the optimiser is involved; a seed count there would measure
-   nothing.
+1. **Break the parent-key collision.**  The parent is currently identified by the
+   parent pixel's *colour*, which is ambiguous at `palette 32` and costs all 42
+   wrong links.  Two routes are already measured as exact in section 1.4 and both
+   are cheap: emit the parent's **corner position** rather than its colour (the
+   left pixel's colour identifies the parent *rectangle* once the rectangle set
+   is known, which the parse already has), or fall back to
+   `research/gui-hierarchy`'s R4 smallest-containing-rectangle rule, 214/214 with
+   zero ties.  Either should take the tree from 3 of 12 to 12 of 12; neither has
+   been run.
+2. **Recover the root.**  H6 excludes position (0,0) by construction, so 12 of 227
+   widgets are never predicted and the root is supplied to the scorer.  A corner
+   predicate that treats an off-screen neighbour as "different" would include it;
+   the cost is one clamp and it was not attempted.
+3. **Write an `induced` for S1 and S2** so the distinct-function count is measured
+   rather than argued.  S1's "2 conforming, 1 predicate" is the only claim in
+   section 2.2 that rests on reading the selections.
+4. **Write rung two against the character key**, staged on S1's corner so the
+   glyph window is anchored at the widget text origin, with `label_length=1`, and
+   report the 0.973 ceiling and the `i`/`j`, `f`/`l` collisions as the
+   certificate.  Unchanged from the earlier handoff and still unrun.
+5. **Measure the corner-plus-not-ink predicate** on a labelled screen, so rung two
+   and rung three can share one.  Unchanged and still unrun.
+6. **Add `report.py`.**  Two JSONs now exist and section 3 is one function away
+   from being generated.
+7. Do **not** run a gradient arm on the glyph code (section 1.3), and note that no
+   gradient arm was needed anywhere in rung three: all four discrete searches
+   exhausted, so there was nothing for an optimiser to be measured against.
 
-**Limitations of what is here.** All bounds are on 12 training and 12 held-out
-episodes, enough to separate 1.0000 from 0.85 but not to resolve a third decimal.
-The exactness checks in 1.4 are on 226 corners and 214 non-root widgets across 12
-episodes of one screen configuration; they are exact on that sample and are not a
-proof about the generator. No timing is reported because no search was run.
+**Limitations.**  Section 1's bounds are on 12 training and 12 held-out episodes
+of one screen configuration.  Section 2's searches are on 6 training, 3
+validation and 6 held-out episodes; the held-out max errors are 0.0 but a
+third-decimal claim is not supported by that sample.  Section 3 is 12 held-out
+screens and 215 widgets.  The exactness statements are exact **on these samples**
+and are not proofs about the generator.  Timings are single-run wall clock on a
+shared host and are upper bounds; `node_evaluations` is the load-independent
+cost.
