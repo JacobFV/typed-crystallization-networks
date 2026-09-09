@@ -63,8 +63,9 @@ exited, numbers read from the log:**
 
 - `pytest tests/` → **1 failed, 336 passed in 514.06s**, the failure being the
   known worktree-only `test_panel_interface` one and nothing else.
-- Shipped fixture: still to be reported; the run is in progress at the time of
-  writing and its numbers will be added only after the process exits.
+- Shipped fixture, read from the log after the process exited:
+  **0.248836 → 0.002231**, `fully_frozen: true`, evaluation return **4.0**,
+  exact frozen-agent return **4.0**, and zero block events.
 
 The retracted figure happened to coincide with the real one. That makes it worse
 rather than better: it could not have been known when it was written, and a
