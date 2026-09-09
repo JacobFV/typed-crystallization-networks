@@ -1,0 +1,63 @@
+{
+ "module": {
+  "digest": "module:8ceedf7b792a7116514f90ab",
+  "nodes": 4,
+  "definition_bits": 10056,
+  "execution_cost": 4.0
+ },
+ "wide_routes": {
+  "9-gate flat": {
+   "conformant": true,
+   "complexity": 9.0,
+   "description_cost": 20784.0,
+   "pruned_description_bits": 20784,
+   "unpruned_description_bits": 20784,
+   "pruned_execution_cost": 9.0,
+   "live_nodes": 9
+  },
+  "2 calls + xor": {
+   "conformant": true,
+   "complexity": 15.0,
+   "description_cost": 19496.0,
+   "pruned_description_bits": 19496,
+   "unpruned_description_bits": 31640,
+   "pruned_execution_cost": 9.0,
+   "live_nodes": 3
+  },
+  "3 calls + or + xor": {
+   "conformant": true,
+   "complexity": 18.0,
+   "description_cost": 23960.0,
+   "pruned_description_bits": 23960,
+   "unpruned_description_bits": 32056,
+   "pruned_execution_cost": 14.0,
+   "live_nodes": 5
+  }
+ },
+ "per_step": {
+  "wide arm A": {
+   "table_build_seconds": 0.011,
+   "term_seconds": 0.00063,
+   "task_step_seconds": 0.082,
+   "overhead_fraction": 0.0077
+  },
+  "wide arm B": {
+   "table_build_seconds": 0.019,
+   "term_seconds": 0.00087,
+   "task_step_seconds": 0.63,
+   "overhead_fraction": 0.0014
+  },
+  "tight arm A": {
+   "table_build_seconds": 0.001,
+   "term_seconds": 7e-05,
+   "task_step_seconds": 0.004,
+   "overhead_fraction": 0.0161
+  },
+  "tight arm B": {
+   "table_build_seconds": 0.004,
+   "term_seconds": 0.00015,
+   "task_step_seconds": 0.07,
+   "overhead_fraction": 0.0022
+  }
+ }
+}

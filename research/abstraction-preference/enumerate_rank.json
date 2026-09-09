@@ -1,0 +1,87 @@
+{
+ "equivalent_candidates": {
+  "primitive declared first": {
+   "order": {
+    "chosen": "and",
+    "description_bits": 3760,
+    "execution_cost": 1.0,
+    "conforming": 2
+   },
+   "description": {
+    "chosen": "and",
+    "description_bits": 3760,
+    "execution_cost": 1.0,
+    "conforming": 2
+   },
+   "cost": {
+    "chosen": "and",
+    "description_bits": 3760,
+    "execution_cost": 1.0,
+    "conforming": 2
+   }
+  },
+  "module declared first": {
+   "order": {
+    "chosen": "module:c6f94b361fab5",
+    "description_bits": 7744,
+    "execution_cost": 1.0,
+    "conforming": 2
+   },
+   "description": {
+    "chosen": "and",
+    "description_bits": 3760,
+    "execution_cost": 1.0,
+    "conforming": 2
+   },
+   "cost": {
+    "chosen": "and",
+    "description_bits": 3760,
+    "execution_cost": 1.0,
+    "conforming": 2
+   }
+  }
+ },
+ "tight_arm_B": {
+  "space_size": 2709504,
+  "order": {
+   "seconds": 48.0,
+   "solved": true,
+   "evaluated": 1038370,
+   "program": [
+    "n1 = module:8ceedf7(a, b, c)",
+    "n2 = module:8ceedf7(d, e, f)",
+    "y = xor(n1, n2)"
+   ],
+   "description_bits": 19496,
+   "execution_cost": 9.0
+  },
+  "description": {
+   "seconds": 178.2,
+   "solved": true,
+   "exhausted": true,
+   "conforming": 144,
+   "evaluated": 2709504,
+   "program": [
+    "n1 = module:8ceedf7(a, b, c)",
+    "n2 = module:8ceedf7(d, e, f)",
+    "y = xor(n1, n2)"
+   ],
+   "description_bits": 19496,
+   "execution_cost": 9.0
+  },
+  "cost": {
+   "seconds": 175.8,
+   "solved": true,
+   "exhausted": true,
+   "conforming": 144,
+   "evaluated": 2709504,
+   "program": [
+    "n1 = module:8ceedf7(a, b, c)",
+    "n2 = module:8ceedf7(d, e, f)",
+    "y = xor(n1, n2)"
+   ],
+   "description_bits": 19496,
+   "execution_cost": 9.0
+  }
+ }
+}

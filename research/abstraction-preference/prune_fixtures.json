@@ -1,0 +1,38 @@
+[
+ {
+  "label": "examples/mixed",
+  "ok": true,
+  "rows_compared": 400,
+  "dropped_nodes": 0
+ },
+ {
+  "label": "retest wide scaffold, arm A",
+  "ok": true,
+  "rows_compared": 1600,
+  "dropped_nodes": 8
+ },
+ {
+  "label": "retest wide scaffold, arm B",
+  "ok": true,
+  "rows_compared": 1600,
+  "dropped_nodes": 8
+ },
+ {
+  "label": "retest tight scaffold, arm B",
+  "ok": true,
+  "rows_compared": 1600,
+  "dropped_nodes": 1
+ },
+ {
+  "label": "retest sub scaffold",
+  "ok": true,
+  "rows_compared": 200,
+  "dropped_nodes": 4
+ },
+ {
+  "label": "examples/joint",
+  "ok": true,
+  "rows_compared": 75,
+  "dropped_nodes": 0
+ }
+]

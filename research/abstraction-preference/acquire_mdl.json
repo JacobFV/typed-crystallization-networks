@@ -1,0 +1,1204 @@
+{
+ "rows": [
+  {
+   "weight": 0.0,
+   "seed": 0,
+   "first_conformant_step": 170,
+   "ever_conformant": true,
+   "final_conformant": true,
+   "found": {
+    "live_nodes": 5,
+    "module_calls": 0,
+    "description_bits": 12088,
+    "description_bits_unpruned": 12088,
+    "execution_cost": 5.0,
+    "program": [
+     "g0 = and(a, c)",
+     "g1 = and(c, b)",
+     "g2 = or(g1, a)",
+     "g3 = and(g2, b)",
+     "g4 = or(g0, g3)"
+    ]
+   },
+   "final": {
+    "live_nodes": 5,
+    "module_calls": 0,
+    "description_bits": 12088,
+    "description_bits_unpruned": 12088,
+    "execution_cost": 5.0,
+    "program": [
+     "g0 = and(a, c)",
+     "g1 = and(c, b)",
+     "g2 = or(g1, a)",
+     "g3 = and(g2, b)",
+     "g4 = or(g0, g3)"
+    ]
+   },
+   "final_task_loss": 0.00010930758435279131
+  },
+  {
+   "weight": 0.0,
+   "seed": 1,
+   "first_conformant_step": 160,
+   "ever_conformant": true,
+   "final_conformant": true,
+   "found": {
+    "live_nodes": 5,
+    "module_calls": 0,
+    "description_bits": 12088,
+    "description_bits_unpruned": 12088,
+    "execution_cost": 5.0,
+    "program": [
+     "g0 = and(b, a)",
+     "g1 = and(b, c)",
+     "g2 = and(c, a)",
+     "g3 = or(g2, g1)",
+     "g4 = or(g3, g0)"
+    ]
+   },
+   "final": {
+    "live_nodes": 5,
+    "module_calls": 0,
+    "description_bits": 12088,
+    "description_bits_unpruned": 12088,
+    "execution_cost": 5.0,
+    "program": [
+     "g0 = and(b, a)",
+     "g1 = and(b, c)",
+     "g2 = and(c, a)",
+     "g3 = or(g2, g1)",
+     "g4 = or(g3, g0)"
+    ]
+   },
+   "final_task_loss": 0.00015856081154197454
+  },
+  {
+   "weight": 0.0,
+   "seed": 2,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 5,
+    "module_calls": 0,
+    "description_bits": 12104,
+    "description_bits_unpruned": 12104,
+    "execution_cost": 5.0,
+    "program": [
+     "g0 = and(b, a)",
+     "g1 = and(b, c)",
+     "g2 = or(g0, g1)",
+     "g3 = and(g2, g2)",
+     "g4 = or(g3, g3)"
+    ]
+   },
+   "final_task_loss": 0.08351854234933853
+  },
+  {
+   "weight": 0.0,
+   "seed": 3,
+   "first_conformant_step": 120,
+   "ever_conformant": true,
+   "final_conformant": true,
+   "found": {
+    "live_nodes": 5,
+    "module_calls": 0,
+    "description_bits": 12088,
+    "description_bits_unpruned": 12088,
+    "execution_cost": 5.0,
+    "program": [
+     "g0 = and(a, c)",
+     "g1 = and(c, b)",
+     "g2 = or(b, g0)",
+     "g3 = and(g2, a)",
+     "g4 = or(g1, g3)"
+    ]
+   },
+   "final": {
+    "live_nodes": 5,
+    "module_calls": 0,
+    "description_bits": 12088,
+    "description_bits_unpruned": 12088,
+    "execution_cost": 5.0,
+    "program": [
+     "g0 = and(a, c)",
+     "g1 = and(c, b)",
+     "g2 = or(b, g0)",
+     "g3 = and(g2, a)",
+     "g4 = or(g1, g3)"
+    ]
+   },
+   "final_task_loss": 0.00016707999748177826
+  },
+  {
+   "weight": 0.0,
+   "seed": 4,
+   "first_conformant_step": 70,
+   "ever_conformant": true,
+   "final_conformant": true,
+   "found": {
+    "live_nodes": 4,
+    "module_calls": 0,
+    "description_bits": 10056,
+    "description_bits_unpruned": 12088,
+    "execution_cost": 4.0,
+    "program": [
+     "g0 = or(b, c)",
+     "g1 = and(a, g0)",
+     "g3 = and(b, c)",
+     "g4 = or(g1, g3)"
+    ]
+   },
+   "final": {
+    "live_nodes": 4,
+    "module_calls": 0,
+    "description_bits": 10056,
+    "description_bits_unpruned": 12080,
+    "execution_cost": 4.0,
+    "program": [
+     "g0 = or(b, c)",
+     "g1 = and(a, g0)",
+     "g3 = and(b, c)",
+     "g4 = or(g1, g3)"
+    ]
+   },
+   "final_task_loss": 0.0001845121441874653
+  },
+  {
+   "weight": 0.0,
+   "seed": 5,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 5,
+    "module_calls": 0,
+    "description_bits": 12104,
+    "description_bits_unpruned": 12104,
+    "execution_cost": 5.0,
+    "program": [
+     "g0 = and(c, b)",
+     "g1 = or(g0, g0)",
+     "g2 = or(g0, g1)",
+     "g3 = or(g1, g2)",
+     "g4 = or(g3, g3)"
+    ]
+   },
+   "final_task_loss": 0.006692374125123024
+  },
+  {
+   "weight": 0.0,
+   "seed": 6,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 4,
+    "module_calls": 0,
+    "description_bits": 10072,
+    "description_bits_unpruned": 12096,
+    "execution_cost": 4.0,
+    "program": [
+     "g1 = and(c, a)",
+     "g2 = or(g1, g1)",
+     "g3 = or(g2, g2)",
+     "g4 = or(g3, g3)"
+    ]
+   },
+   "final_task_loss": 0.015105726197361946
+  },
+  {
+   "weight": 0.0,
+   "seed": 7,
+   "first_conformant_step": 100,
+   "ever_conformant": true,
+   "final_conformant": false,
+   "found": {
+    "live_nodes": 5,
+    "module_calls": 0,
+    "description_bits": 12088,
+    "description_bits_unpruned": 12088,
+    "execution_cost": 5.0,
+    "program": [
+     "g0 = and(c, a)",
+     "g1 = and(a, b)",
+     "g2 = and(b, c)",
+     "g3 = or(g2, g0)",
+     "g4 = or(g3, g1)"
+    ]
+   },
+   "final": {
+    "live_nodes": 5,
+    "module_calls": 0,
+    "description_bits": 12096,
+    "description_bits_unpruned": 12096,
+    "execution_cost": 5.0,
+    "program": [
+     "g0 = and(a, b)",
+     "g1 = or(g0, g0)",
+     "g2 = and(b, c)",
+     "g3 = or(g2, g1)",
+     "g4 = or(g3, g3)"
+    ]
+   },
+   "final_task_loss": 0.014805684797465801
+  },
+  {
+   "weight": 0.0,
+   "seed": 8,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 5,
+    "module_calls": 0,
+    "description_bits": 12096,
+    "description_bits_unpruned": 12096,
+    "execution_cost": 5.0,
+    "program": [
+     "g0 = and(a, b)",
+     "g1 = and(c, b)",
+     "g2 = or(g1, g0)",
+     "g3 = or(g1, g1)",
+     "g4 = or(g2, g3)"
+    ]
+   },
+   "final_task_loss": 0.03351176157593727
+  },
+  {
+   "weight": 0.0,
+   "seed": 9,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 5,
+    "module_calls": 0,
+    "description_bits": 12096,
+    "description_bits_unpruned": 12096,
+    "execution_cost": 5.0,
+    "program": [
+     "g0 = and(a, b)",
+     "g1 = or(c, g0)",
+     "g2 = and(g1, b)",
+     "g3 = or(g2, g2)",
+     "g4 = or(g3, g3)"
+    ]
+   },
+   "final_task_loss": 0.01631944626569748
+  },
+  {
+   "weight": 0.0,
+   "seed": 10,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 3,
+    "module_calls": 0,
+    "description_bits": 8032,
+    "description_bits_unpruned": 12080,
+    "execution_cost": 3.0,
+    "program": [
+     "g1 = and(a, c)",
+     "g2 = and(c, b)",
+     "g4 = or(g1, g2)"
+    ]
+   },
+   "final_task_loss": 0.14390532672405243
+  },
+  {
+   "weight": 0.0,
+   "seed": 11,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 5,
+    "module_calls": 0,
+    "description_bits": 12096,
+    "description_bits_unpruned": 12096,
+    "execution_cost": 5.0,
+    "program": [
+     "g0 = and(c, a)",
+     "g1 = or(b, g0)",
+     "g2 = and(g1, c)",
+     "g3 = or(g2, g2)",
+     "g4 = or(g3, g3)"
+    ]
+   },
+   "final_task_loss": 0.016305580735206604
+  },
+  {
+   "weight": 1e-06,
+   "seed": 0,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 4,
+    "module_calls": 0,
+    "description_bits": 10064,
+    "description_bits_unpruned": 12088,
+    "execution_cost": 4.0,
+    "program": [
+     "g1 = and(c, b)",
+     "g2 = or(g1, a)",
+     "g3 = and(c, g2)",
+     "g4 = or(g3, g3)"
+    ]
+   },
+   "final_task_loss": 0.07208136469125748
+  },
+  {
+   "weight": 1e-06,
+   "seed": 1,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 3,
+    "module_calls": 0,
+    "description_bits": 8032,
+    "description_bits_unpruned": 11944,
+    "execution_cost": 3.0,
+    "program": [
+     "g1 = and(b, c)",
+     "g2 = and(c, a)",
+     "g4 = or(g2, g1)"
+    ]
+   },
+   "final_task_loss": 0.13956721127033234
+  },
+  {
+   "weight": 1e-06,
+   "seed": 2,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 4,
+    "module_calls": 0,
+    "description_bits": 10064,
+    "description_bits_unpruned": 12088,
+    "execution_cost": 4.0,
+    "program": [
+     "g1 = and(b, c)",
+     "g2 = or(a, g1)",
+     "g3 = and(g2, b)",
+     "g4 = or(g3, g3)"
+    ]
+   },
+   "final_task_loss": 0.08353560417890549
+  },
+  {
+   "weight": 1e-06,
+   "seed": 3,
+   "first_conformant_step": 110,
+   "ever_conformant": true,
+   "final_conformant": true,
+   "found": {
+    "live_nodes": 5,
+    "module_calls": 0,
+    "description_bits": 12088,
+    "description_bits_unpruned": 12088,
+    "execution_cost": 5.0,
+    "program": [
+     "g0 = and(a, c)",
+     "g1 = and(c, b)",
+     "g2 = or(b, g0)",
+     "g3 = and(g2, a)",
+     "g4 = or(g1, g3)"
+    ]
+   },
+   "final": {
+    "live_nodes": 5,
+    "module_calls": 0,
+    "description_bits": 12088,
+    "description_bits_unpruned": 12088,
+    "execution_cost": 5.0,
+    "program": [
+     "g0 = and(a, c)",
+     "g1 = and(c, b)",
+     "g2 = or(b, g0)",
+     "g3 = and(g2, a)",
+     "g4 = or(g1, g3)"
+    ]
+   },
+   "final_task_loss": 0.00017718963499646634
+  },
+  {
+   "weight": 1e-06,
+   "seed": 4,
+   "first_conformant_step": 70,
+   "ever_conformant": true,
+   "final_conformant": true,
+   "found": {
+    "live_nodes": 4,
+    "module_calls": 0,
+    "description_bits": 10056,
+    "description_bits_unpruned": 12088,
+    "execution_cost": 4.0,
+    "program": [
+     "g0 = or(b, c)",
+     "g1 = and(a, g0)",
+     "g3 = and(b, c)",
+     "g4 = or(g1, g3)"
+    ]
+   },
+   "final": {
+    "live_nodes": 4,
+    "module_calls": 0,
+    "description_bits": 10056,
+    "description_bits_unpruned": 12080,
+    "execution_cost": 4.0,
+    "program": [
+     "g0 = or(b, c)",
+     "g1 = and(a, g0)",
+     "g3 = and(b, c)",
+     "g4 = or(g1, g3)"
+    ]
+   },
+   "final_task_loss": 0.000185716591659002
+  },
+  {
+   "weight": 1e-06,
+   "seed": 5,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 5,
+    "module_calls": 0,
+    "description_bits": 12096,
+    "description_bits_unpruned": 12096,
+    "execution_cost": 5.0,
+    "program": [
+     "g0 = and(b, a)",
+     "g1 = or(g0, g0)",
+     "g2 = and(b, c)",
+     "g3 = or(g1, g1)",
+     "g4 = or(g3, g2)"
+    ]
+   },
+   "final_task_loss": 0.016316795721650124
+  },
+  {
+   "weight": 1e-06,
+   "seed": 6,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 4,
+    "module_calls": 0,
+    "description_bits": 10072,
+    "description_bits_unpruned": 12096,
+    "execution_cost": 4.0,
+    "program": [
+     "g1 = and(c, a)",
+     "g2 = or(g1, g1)",
+     "g3 = or(g2, g2)",
+     "g4 = or(g3, g3)"
+    ]
+   },
+   "final_task_loss": 0.015100868418812752
+  },
+  {
+   "weight": 1e-06,
+   "seed": 7,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 5,
+    "module_calls": 0,
+    "description_bits": 12096,
+    "description_bits_unpruned": 12096,
+    "execution_cost": 5.0,
+    "program": [
+     "g0 = and(a, b)",
+     "g1 = or(g0, g0)",
+     "g2 = and(b, c)",
+     "g3 = or(g2, g1)",
+     "g4 = or(g3, g3)"
+    ]
+   },
+   "final_task_loss": 0.01459773350507021
+  },
+  {
+   "weight": 1e-06,
+   "seed": 8,
+   "first_conformant_step": 130,
+   "ever_conformant": true,
+   "final_conformant": true,
+   "found": {
+    "live_nodes": 5,
+    "module_calls": 0,
+    "description_bits": 12088,
+    "description_bits_unpruned": 12088,
+    "execution_cost": 5.0,
+    "program": [
+     "g0 = and(a, b)",
+     "g1 = and(c, b)",
+     "g2 = or(g1, g0)",
+     "g3 = and(a, c)",
+     "g4 = or(g2, g3)"
+    ]
+   },
+   "final": {
+    "live_nodes": 5,
+    "module_calls": 0,
+    "description_bits": 12088,
+    "description_bits_unpruned": 12088,
+    "execution_cost": 5.0,
+    "program": [
+     "g0 = and(a, b)",
+     "g1 = and(c, b)",
+     "g2 = or(g1, g0)",
+     "g3 = and(a, c)",
+     "g4 = or(g2, g3)"
+    ]
+   },
+   "final_task_loss": 0.00013319884601514786
+  },
+  {
+   "weight": 1e-06,
+   "seed": 9,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 5,
+    "module_calls": 0,
+    "description_bits": 12096,
+    "description_bits_unpruned": 12096,
+    "execution_cost": 5.0,
+    "program": [
+     "g0 = and(a, b)",
+     "g1 = or(c, g0)",
+     "g2 = and(g1, b)",
+     "g3 = or(g2, g2)",
+     "g4 = or(g3, g3)"
+    ]
+   },
+   "final_task_loss": 0.01651570200920105
+  },
+  {
+   "weight": 1e-06,
+   "seed": 10,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 3,
+    "module_calls": 0,
+    "description_bits": 8032,
+    "description_bits_unpruned": 12080,
+    "execution_cost": 3.0,
+    "program": [
+     "g1 = and(a, c)",
+     "g2 = and(c, b)",
+     "g4 = or(g1, g2)"
+    ]
+   },
+   "final_task_loss": 0.1439192295074463
+  },
+  {
+   "weight": 1e-06,
+   "seed": 11,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 5,
+    "module_calls": 0,
+    "description_bits": 12096,
+    "description_bits_unpruned": 12096,
+    "execution_cost": 5.0,
+    "program": [
+     "g0 = and(c, a)",
+     "g1 = or(b, g0)",
+     "g2 = and(g1, c)",
+     "g3 = or(g2, g2)",
+     "g4 = or(g3, g3)"
+    ]
+   },
+   "final_task_loss": 0.01631750911474228
+  },
+  {
+   "weight": 1e-05,
+   "seed": 0,
+   "first_conformant_step": 290,
+   "ever_conformant": true,
+   "final_conformant": true,
+   "found": {
+    "live_nodes": 5,
+    "module_calls": 0,
+    "description_bits": 12088,
+    "description_bits_unpruned": 12088,
+    "execution_cost": 5.0,
+    "program": [
+     "g0 = or(b, c)",
+     "g1 = and(c, b)",
+     "g2 = and(a, g0)",
+     "g3 = or(g1, g2)",
+     "g4 = or(g3, g3)"
+    ]
+   },
+   "final": {
+    "live_nodes": 4,
+    "module_calls": 0,
+    "description_bits": 10056,
+    "description_bits_unpruned": 12088,
+    "execution_cost": 4.0,
+    "program": [
+     "g0 = or(b, c)",
+     "g1 = and(c, b)",
+     "g2 = and(a, g0)",
+     "g4 = or(g2, g1)"
+    ]
+   },
+   "final_task_loss": 0.0003532480332069099
+  },
+  {
+   "weight": 1e-05,
+   "seed": 1,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 2,
+    "module_calls": 0,
+    "description_bits": 6000,
+    "description_bits_unpruned": 12072,
+    "execution_cost": 2.0,
+    "program": [
+     "g0 = and(b, a)",
+     "g4 = or(c, g0)"
+    ]
+   },
+   "final_task_loss": 0.14100395143032074
+  },
+  {
+   "weight": 1e-05,
+   "seed": 2,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 4,
+    "module_calls": 0,
+    "description_bits": 10064,
+    "description_bits_unpruned": 12088,
+    "execution_cost": 4.0,
+    "program": [
+     "g0 = and(b, a)",
+     "g1 = and(b, c)",
+     "g3 = or(g1, g0)",
+     "g4 = or(g3, g3)"
+    ]
+   },
+   "final_task_loss": 0.07426661252975464
+  },
+  {
+   "weight": 1e-05,
+   "seed": 3,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 4,
+    "module_calls": 0,
+    "description_bits": 10072,
+    "description_bits_unpruned": 12104,
+    "execution_cost": 4.0,
+    "program": [
+     "g0 = and(c, b)",
+     "g1 = or(g0, g0)",
+     "g3 = or(g1, g1)",
+     "g4 = or(g3, g3)"
+    ]
+   },
+   "final_task_loss": 0.015496294014155865
+  },
+  {
+   "weight": 1e-05,
+   "seed": 4,
+   "first_conformant_step": 110,
+   "ever_conformant": true,
+   "final_conformant": true,
+   "found": {
+    "live_nodes": 4,
+    "module_calls": 0,
+    "description_bits": 10056,
+    "description_bits_unpruned": 12080,
+    "execution_cost": 4.0,
+    "program": [
+     "g0 = or(b, c)",
+     "g1 = and(a, g0)",
+     "g3 = and(b, c)",
+     "g4 = or(g1, g3)"
+    ]
+   },
+   "final": {
+    "live_nodes": 4,
+    "module_calls": 0,
+    "description_bits": 10056,
+    "description_bits_unpruned": 12080,
+    "execution_cost": 4.0,
+    "program": [
+     "g0 = or(b, c)",
+     "g1 = and(a, g0)",
+     "g2 = and(b, c)",
+     "g4 = or(g2, g1)"
+    ]
+   },
+   "final_task_loss": 0.00011007620196323842
+  },
+  {
+   "weight": 1e-05,
+   "seed": 5,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 3,
+    "module_calls": 0,
+    "description_bits": 8040,
+    "description_bits_unpruned": 12088,
+    "execution_cost": 3.0,
+    "program": [
+     "g0 = and(b, a)",
+     "g3 = or(g0, g0)",
+     "g4 = or(g3, g3)"
+    ]
+   },
+   "final_task_loss": 0.08275806158781052
+  },
+  {
+   "weight": 1e-05,
+   "seed": 6,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 4,
+    "module_calls": 0,
+    "description_bits": 10072,
+    "description_bits_unpruned": 12096,
+    "execution_cost": 4.0,
+    "program": [
+     "g1 = and(c, a)",
+     "g2 = or(g1, g1)",
+     "g3 = or(g2, g2)",
+     "g4 = or(g3, g3)"
+    ]
+   },
+   "final_task_loss": 0.015487419441342354
+  },
+  {
+   "weight": 1e-05,
+   "seed": 7,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 4,
+    "module_calls": 0,
+    "description_bits": 10072,
+    "description_bits_unpruned": 12096,
+    "execution_cost": 4.0,
+    "program": [
+     "g0 = and(b, c)",
+     "g2 = or(g0, g0)",
+     "g3 = or(g2, g2)",
+     "g4 = or(g3, g3)"
+    ]
+   },
+   "final_task_loss": 0.015435243025422096
+  },
+  {
+   "weight": 1e-05,
+   "seed": 8,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 3,
+    "module_calls": 0,
+    "description_bits": 8032,
+    "description_bits_unpruned": 12080,
+    "execution_cost": 3.0,
+    "program": [
+     "g0 = and(a, b)",
+     "g1 = and(c, b)",
+     "g4 = or(g0, g1)"
+    ]
+   },
+   "final_task_loss": 0.15259958803653717
+  },
+  {
+   "weight": 1e-05,
+   "seed": 9,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 3,
+    "module_calls": 0,
+    "description_bits": 8040,
+    "description_bits_unpruned": 12088,
+    "execution_cost": 3.0,
+    "program": [
+     "g2 = and(b, c)",
+     "g3 = or(g2, g2)",
+     "g4 = or(g3, g3)"
+    ]
+   },
+   "final_task_loss": 0.13874194025993347
+  },
+  {
+   "weight": 1e-05,
+   "seed": 10,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 4,
+    "module_calls": 0,
+    "description_bits": 10072,
+    "description_bits_unpruned": 12096,
+    "execution_cost": 4.0,
+    "program": [
+     "g0 = and(a, b)",
+     "g1 = or(g0, g0)",
+     "g3 = or(g1, g1)",
+     "g4 = or(g3, g3)"
+    ]
+   },
+   "final_task_loss": 0.015470007434487343
+  },
+  {
+   "weight": 1e-05,
+   "seed": 11,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 4,
+    "module_calls": 0,
+    "description_bits": 10064,
+    "description_bits_unpruned": 12088,
+    "execution_cost": 4.0,
+    "program": [
+     "g1 = or(b, a)",
+     "g2 = and(g1, c)",
+     "g3 = or(g2, g2)",
+     "g4 = or(g3, g3)"
+    ]
+   },
+   "final_task_loss": 0.022839300334453583
+  },
+  {
+   "weight": 0.0001,
+   "seed": 0,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 1,
+    "module_calls": 0,
+    "description_bits": 3832,
+    "description_bits_unpruned": 11784,
+    "execution_cost": 1.0,
+    "program": [
+     "g4 = identity(c)"
+    ]
+   },
+   "final_task_loss": 0.3041094243526459
+  },
+  {
+   "weight": 0.0001,
+   "seed": 1,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 1,
+    "module_calls": 0,
+    "description_bits": 3832,
+    "description_bits_unpruned": 11928,
+    "execution_cost": 1.0,
+    "program": [
+     "g4 = identity(c)"
+    ]
+   },
+   "final_task_loss": 0.30410492420196533
+  },
+  {
+   "weight": 0.0001,
+   "seed": 2,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 1,
+    "module_calls": 0,
+    "description_bits": 3832,
+    "description_bits_unpruned": 11928,
+    "execution_cost": 1.0,
+    "program": [
+     "g4 = identity(c)"
+    ]
+   },
+   "final_task_loss": 0.30410778522491455
+  },
+  {
+   "weight": 0.0001,
+   "seed": 3,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 1,
+    "module_calls": 0,
+    "description_bits": 3832,
+    "description_bits_unpruned": 11784,
+    "execution_cost": 1.0,
+    "program": [
+     "g4 = identity(c)"
+    ]
+   },
+   "final_task_loss": 0.30410754680633545
+  },
+  {
+   "weight": 0.0001,
+   "seed": 4,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 1,
+    "module_calls": 0,
+    "description_bits": 3832,
+    "description_bits_unpruned": 11784,
+    "execution_cost": 1.0,
+    "program": [
+     "g4 = identity(c)"
+    ]
+   },
+   "final_task_loss": 0.3041077256202698
+  },
+  {
+   "weight": 0.0001,
+   "seed": 5,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 1,
+    "module_calls": 0,
+    "description_bits": 3832,
+    "description_bits_unpruned": 11928,
+    "execution_cost": 1.0,
+    "program": [
+     "g4 = identity(c)"
+    ]
+   },
+   "final_task_loss": 0.30410605669021606
+  },
+  {
+   "weight": 0.0001,
+   "seed": 6,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 1,
+    "module_calls": 0,
+    "description_bits": 3832,
+    "description_bits_unpruned": 11784,
+    "execution_cost": 1.0,
+    "program": [
+     "g4 = identity(a)"
+    ]
+   },
+   "final_task_loss": 0.30410823225975037
+  },
+  {
+   "weight": 0.0001,
+   "seed": 7,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 1,
+    "module_calls": 0,
+    "description_bits": 3832,
+    "description_bits_unpruned": 11928,
+    "execution_cost": 1.0,
+    "program": [
+     "g4 = identity(b)"
+    ]
+   },
+   "final_task_loss": 0.3041037917137146
+  },
+  {
+   "weight": 0.0001,
+   "seed": 8,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 1,
+    "module_calls": 0,
+    "description_bits": 3832,
+    "description_bits_unpruned": 11928,
+    "execution_cost": 1.0,
+    "program": [
+     "g4 = identity(c)"
+    ]
+   },
+   "final_task_loss": 0.30410242080688477
+  },
+  {
+   "weight": 0.0001,
+   "seed": 9,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 1,
+    "module_calls": 0,
+    "description_bits": 3832,
+    "description_bits_unpruned": 11776,
+    "execution_cost": 1.0,
+    "program": [
+     "g4 = identity(c)"
+    ]
+   },
+   "final_task_loss": 0.30411410331726074
+  },
+  {
+   "weight": 0.0001,
+   "seed": 10,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 1,
+    "module_calls": 0,
+    "description_bits": 3832,
+    "description_bits_unpruned": 11928,
+    "execution_cost": 1.0,
+    "program": [
+     "g4 = identity(b)"
+    ]
+   },
+   "final_task_loss": 0.30410999059677124
+  },
+  {
+   "weight": 0.0001,
+   "seed": 11,
+   "first_conformant_step": null,
+   "ever_conformant": false,
+   "final_conformant": false,
+   "found": null,
+   "final": {
+    "live_nodes": 1,
+    "module_calls": 0,
+    "description_bits": 3832,
+    "description_bits_unpruned": 11928,
+    "execution_cost": 1.0,
+    "program": [
+     "g4 = identity(b)"
+    ]
+   },
+   "final_task_loss": 0.30410856008529663
+  }
+ ],
+ "summary": {
+  "0": {
+   "acquired_ever": 5,
+   "exact_at_end": 4,
+   "of": 12,
+   "median_first_step": 140.0,
+   "median_live_at_first": 5.0,
+   "median_live_at_end": 5.0,
+   "minimal_at_end": 1,
+   "median_cost_at_end": 5.0,
+   "median_bits_at_end": 12088.0
+  },
+  "1e-06": {
+   "acquired_ever": 3,
+   "exact_at_end": 3,
+   "of": 12,
+   "median_first_step": 110,
+   "median_live_at_first": 5,
+   "median_live_at_end": 5,
+   "minimal_at_end": 1,
+   "median_cost_at_end": 5.0,
+   "median_bits_at_end": 12088
+  },
+  "1e-05": {
+   "acquired_ever": 2,
+   "exact_at_end": 2,
+   "of": 12,
+   "median_first_step": 200.0,
+   "median_live_at_first": 4.5,
+   "median_live_at_end": 4.0,
+   "minimal_at_end": 2,
+   "median_cost_at_end": 4.0,
+   "median_bits_at_end": 10056.0
+  },
+  "0.0001": {
+   "acquired_ever": 0,
+   "exact_at_end": 0,
+   "of": 12,
+   "median_first_step": null,
+   "median_live_at_first": null,
+   "median_live_at_end": null,
+   "minimal_at_end": 0,
+   "median_cost_at_end": null,
+   "median_bits_at_end": null
+  }
+ }
+}
