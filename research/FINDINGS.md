@@ -1278,3 +1278,79 @@ on zero of twelve examples before the fix and none after**, while the pooled
 reading reports "differentiable" in both columns. And unchanged by any of this:
 `truth_0` and `truth_15` are constants with zero input gradient, so relaxation
 reaches 0.875 of the mixed fixture's space and 0.766 of joint's.
+
+## 26. The byte boundary: convolution is expressible, learnable and crystallizable
+
+Full detail in `research/byte-numeric/RESULTS.md`. This closes the last of the
+four substrate demands.
+
+**The rule.** A byte is not a category and not a magnitude — it is a carrier
+whose interpretation has not been declared, and declaring it is a graph
+operation. The exclusion was right for the wrong reason: section 1 forbids
+reinterpreting a *category ID* as a scalar, but a pixel channel was never a
+category and never an intensity either. `role="byte"` is the **absence of a
+declaration**, correctly restricted to what holds under either reading —
+equality, indexing, structure — and correctly admitting a declaration.
+
+Three role classes decide the algebra: uncommitted (`byte`), nominal
+(`category`, `symbol`) and magnitude (`intensity`, and the bare role). One
+operator, `interpret`, moves between them **in one direction only**, preserving
+the carrier bit-for-bit so the error contract is exactly zero error.
+
+**Verified independently from the supervising session** — the forbidden
+reinterpretation stays forbidden:
+
+| declaration | verdict |
+|---|---|
+| uncommitted -> intensity | legal, `gradient="exact"` |
+| uncommitted -> category | legal, `gradient="none"` |
+| **category -> intensity** | **illegal** |
+| **symbol -> intensity** | **illegal** |
+| intensity -> category | illegal |
+
+and arithmetic opens only where it should: illegal on `byte`, illegal on
+`category`, legal on `intensity`.
+
+**The gradient is derived, not chosen.** It falls out of the lift each class
+already declares in `Type.flat`: to a magnitude the lift is the identity, so the
+relaxation is the identity and the derivative is 1; to a nominal ID it is a bit
+decomposition, and no derivative from a magnitude into unordered bits is valid,
+so the boundary is explicit. The existing relaxation contract forced that
+asymmetry.
+
+**The result.** A 3x3 Sobel-x over raw geometry pixels, nine trainable weights,
+learned straight from bytes: 4/4 seeds recover the exact reference kernel at
+held-out max error 0.0 after integer rounding, against 2.18e4 for the best
+constant, and applied at every position by the shipped three-node caller at max
+error 0.0 for R=8 and R=16.
+
+**The isolated control is what makes it credible.** The identical 729-program
+space, with the byte exiting through `pack` — the object-identity loophole —
+gives the address-choice logits **exactly 0.0** gradient at every temperature
+and 0/4 conforming; through `interpret` it reaches 1.3e+03 and 3/4. That is
+section 23's "hard boundary no temperature fix reaches", crossed. The path
+contains no `eq` and no ordering comparison, so the dead-surrogate family is
+bypassed entirely rather than worked around.
+
+**And relaxation wins outright for the first time**: it solves the strictly
+larger continuous class 150-240x faster than enumeration solves the coarser
+discrete analogue, whose 1,953,125 programs project to 1,211 s exhaustive.
+
+**The cost, quantified and opt-in.** On the rung-3 foreground fixture the space
+widens 216x (32,000 to 6,912,000) and the projected conforming set 63x, so
+enumeration pays while relaxation does not — and with 63x more conforming
+programs `enumerate_fit`'s tie-break has far more ways to be wrong, which
+section 14 already measured going wrong on this exact fixture. Nothing
+previously solvable became unsolvable, and the conforming set improved
+qualitatively: held-out-exact fraction 0.84 to 0.91, because an ordering
+predicate on an intensity generalizes across shades where equality against a
+specific byte does not. Bytes remain non-numeric; arithmetic opens only at a
+node whose declared output is a magnitude, downstream of a commitment the
+program paid for.
+
+**One new defect, reported not fixed.** The `index` temperature that makes the
+relaxed gather exact (blur 28.07 to 0) is the same one that kills the
+address-choice gradient (3/4 to 0/4) — one number at one node doing two jobs, a
+fourth instance of the D2 coupling, now at `index` rather than `eq`.
+
+243 tests pass on merged main and the fixtures are byte-for-byte identical.
