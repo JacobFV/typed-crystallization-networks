@@ -76,9 +76,11 @@ episode budget.
 | **5120 episodes, seed 0** | 5.9e-5 | **4.00 / 4** |
 | **5120 episodes, seed 1** | 8.1e-4 | **4.00 / 4** |
 
-The 2048-episode rows (`stock_2048.log`, via `repro.py`) were produced against
-unmodified `tcn/` after the rejected patch was reverted; the 1024/5120 rows come
-from `fixed.py` at `batch=1`, which is the identical code path.
+The 2048-episode rows are the mean prediction loss over the final 8 training
+episodes, from `repro.py` against
+unmodified `tcn/` (`stock_2048.log`); the 1024/5120 rows are held-out prediction
+loss from `fixed.py` at `batch=1`. Both are the same prediction MSE on the same
+targets; see *Provenance* below.
 
 Note the split at seed 1: by 2048 episodes its **prediction loss is already
 1.8e-4** — the relation is learned — while its return is still 2.5/4, because the
@@ -275,7 +277,7 @@ prediction loss `0.24884 → 0.00223`, deterministic return `4.0000`.
 averaging buys update quality by spending optimizer steps, and the policy readout
 is the part that needs steps:
 
-| configuration | optimizer steps | held-out prediction loss | eval return |
+| configuration | optimizer steps | prediction loss | eval return |
 |---|---|---|---|
 | batch=1, 640 episodes | 640 | 0.183 | 2.75 / 4 |
 | batch=8, 640 episodes (2 seeds) | 80 | 0.274 | 1.94 / 4 |
@@ -329,11 +331,12 @@ accumulation against the unmodified trainer if anyone wants to re-measure it.
 ```
 </details>
 
-The one thing worth keeping from it: the `batch=8` rows above were produced with
-that patch applied. Every `batch=1` row, including all of the *Before / after*
-table, is the stock trainer (`stock_2048.log` re-runs the confirmation against
-unmodified `tcn/` for provenance; the patched code is bit-identical at `batch=1`,
-which the exact `examples/joint.py` reproduction confirms).
+Provenance: the `batch=8` rows required the patch. The `batch=1` rows at 640,
+1024 and 5120 episodes were taken while the patch was applied, at its default
+`batch=1`, where it is the same code path as the stock trainer — confirmed by
+`examples/joint.py` reproducing the recorded validation numbers digit for digit
+under it. The 2048-episode rows in *Before / after* were then re-run against
+`tcn/` with the patch reverted (`stock_2048.log`), and agree.
 
 ---
 
