@@ -8,10 +8,10 @@ def test_curriculum_gates_resume_and_cycle(tmp_path):
     with pytest.raises(ValueError):Curriculum([Stage('a',('b',),'x',{},{}),Stage('b',('a',),'x',{}, {})])
     c=Curriculum([Stage('a',(),'x',{}, {'success':{'min':1}}),Stage('b',('a',),'x',{}, {})])
     calls=[]
-    def run(s,p):calls.append(s.name);return {'success':1}
+    def run(s,p,artifacts):calls.append(s.name);return {'success':1}
     first=c.run(run,tmp_path,workers=1);assert all(v['status']=='passed' for v in first.values())
     c.run(run,tmp_path,workers=1);assert calls==['a','b']
-    failed=c.run(lambda s,p:{'success':0},tmp_path/'failed');assert failed['a']['status']=='failed';assert failed['b']['status']=='blocked'
+    failed=c.run(lambda s,p,a:{'success':0},tmp_path/'failed');assert failed['a']['status']=='failed';assert failed['b']['status']=='blocked'
 
 def test_joint_objectives_and_checkpoint_resume(tmp_path):
     from examples.joint import trainer

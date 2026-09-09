@@ -1,0 +1,93 @@
+{
+  "format": "tcn.curriculum/1",
+  "stages": [
+    {
+      "name": "stage1_foreground",
+      "operation": "foreground",
+      "configuration": {
+        "resolution": 8,
+        "train_seeds": 6,
+        "held_seeds": 6,
+        "per_image": null,
+        "validation_seeds": 8
+      },
+      "publishes": [
+        "perception.foreground"
+      ],
+      "gates": {
+        "solved": {
+          "min": 1
+        },
+        "held_out_max_error": {
+          "max": 0.0
+        }
+      }
+    },
+    {
+      "name": "stage2_edge",
+      "operation": "edge",
+      "requires": [
+        "stage1_foreground"
+      ],
+      "inherits": [
+        "stage1_foreground"
+      ],
+      "configuration": {
+        "resolution": 8,
+        "train_seeds": 6,
+        "held_seeds": 6,
+        "per_image": 48,
+        "flat_budget": 20000,
+        "source_policy": "strict",
+        "validation_seeds": 4
+      },
+      "publishes": [
+        "perception.edge"
+      ],
+      "gates": {
+        "solved": {
+          "min": 1
+        },
+        "held_out_max_error": {
+          "max": 0.0
+        }
+      }
+    },
+    {
+      "name": "stage3_region",
+      "operation": "region",
+      "requires": [
+        "stage1_foreground",
+        "stage2_edge"
+      ],
+      "inherits": [
+        "stage1_foreground",
+        "stage2_edge"
+      ],
+      "configuration": {
+        "resolution": 8,
+        "tile": 2,
+        "train_seeds": 6,
+        "held_seeds": 6,
+        "source_policy": "strict",
+        "validation_seeds": 4
+      },
+      "publishes": [
+        "perception.tile_call",
+        "perception.keep_flag",
+        "perception.region"
+      ],
+      "gates": {
+        "solved": {
+          "min": 1
+        },
+        "module_selected": {
+          "min": 1
+        },
+        "held_out_max_error": {
+          "max": 0.0
+        }
+      }
+    }
+  ]
+}

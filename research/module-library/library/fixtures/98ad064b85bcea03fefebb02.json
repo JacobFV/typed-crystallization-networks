@@ -1,0 +1,40 @@
+{
+  "cases": [
+    {
+      "inputs": {
+        "rec": {
+          "raw": [
+            0,
+            true
+          ],
+          "type": {
+            "items": [
+              {
+                "bits": 16,
+                "encoding": {
+                  "kind": "integer",
+                  "overflow": "error",
+                  "scale": 1.0,
+                  "signed": false
+                },
+                "kind": "int"
+              },
+              {
+                "kind": "bool"
+              }
+            ],
+            "kind": "tuple"
+          }
+        }
+      },
+      "outputs": {
+        "y": {
+          "raw": true,
+          "type": {
+            "kind": "bool"
+          }
+        }
+      }
+    }
+  ]
+}

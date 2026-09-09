@@ -56,7 +56,7 @@ def test_checkpoint_keeps_frozen_flags_and_precision(tmp_path):
     assert restored.model.quantization==t.model.quantization
     assert [p.requires_grad for p in restored.model.parameters()]==[p.requires_grad for p in t.model.parameters()]
 
-def parallel_runner(stage,out):
+def parallel_runner(stage,out,artifacts):
     import os
     out.mkdir(parents=True,exist_ok=True)
     return {'pid':os.getpid(),'success':1}

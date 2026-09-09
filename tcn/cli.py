@@ -666,8 +666,63 @@ def demo(out='artifacts/demo',only=(),quick=True):
           f"in {summary['seconds']:.0f} s; artifacts under {out}")
     return summary
 
-def stage_runner(stage,out):
+def _mixed_fixture(limit=4):
+    from examples.mixed import problem
+    _,_,examples=problem()
+    return [x['inputs'] for x in examples[:limit]]
+
+def _reuse(stage,out,artifacts):
+    """Bind inherited library modules as candidate operators and search.
+
+    The point of the stage is the *flow*, not the difficulty: a program
+    crystallized by a previous stage, written to a library, reloaded here in a
+    later run, offered as one typed candidate beside ordinary primitives, and
+    then chosen by the search on the evidence. Nothing branches on a domain
+    name; the module is admitted or refused by `Registry.resolve` on its
+    signature alone.
+    """
+    from examples.mixed import problem
+    from .graph import Candidate,Node,Program,Signal
+    from .library import Library
+    from .search import enumerate_fit,space_size
+    from .types import floating
+    F=floating()
+    reference,_,examples=problem()
+    library=Library(artifacts.library)
+    registry,aliases=Library(artifacts.library).load(list(artifacts.modules),
+                                                    policy=stage.configuration.get('source_policy','strict'))
+    ports=(('a',reference.inputs[0][1]),('b',reference.inputs[1][1]),('x',F))
+    types=tuple(t for _,t in ports)
+    calls=[registry.resolve(op,types) for op in aliases.values()]
+    # Same-typed distractors so selecting the module is a decision, not the only
+    # legal wiring: `identity` and a sine of the unrelated scalar input.
+    others=[registry.resolve('identity',(F,)),registry.resolve('sin',(F,))]
+    candidates=tuple(Candidate(o,('a','b','x')) for o in calls)+tuple(Candidate(o,('x',)) for o in others)
+    program=Program(ports,(Node('answer',F,candidates,'readout',1),),(('answer','answer'),),
+                    input_depths=(('a',0),('b',0),('x',0))).validate(registry)
+    signals=(Signal('answer','answer',('readout',),F),)
+    found=enumerate_fit(program,examples,signals,registry=registry,tolerance=.005)
+    chosen=program.nodes[0].candidates[found.selections['answer']].operator.name if found.solved else None
+    result={'space_size':space_size(program),'inherited':list(artifacts.modules),
+            'candidate_operators':[c.operator.name for c in candidates],
+            'module_candidates':len(calls),'selected':chosen,
+            'module_selected':int(bool(chosen and chosen.startswith('module:'))),
+            'exact_max_error':found.exact_max_error,'solved':int(found.solved),
+            'conforming':found.conforming,'unique':found.unique,
+            'description_bits':found.description_bits,'execution_cost':found.execution_cost,
+            'source_policy':stage.configuration.get('source_policy','strict')}
+    if chosen and chosen.startswith('module:'):
+        entry=library.by_digest(chosen.split(':',1)[1])
+        result['selected_reference']=entry.reference
+        result['inlined_description_bits']=entry.description_bits
+    write_json(out/'reuse.json',result);return result
+
+def stage_runner(stage,out,artifacts=None):
     from .generation import Host
+    from .curriculum import Artifacts
+    artifacts=artifacts if artifacts is not None else Artifacts(str(out/'library'))
+    if stage.operation=='reuse':
+        out.mkdir(parents=True,exist_ok=True);return _reuse(stage,out,artifacts)
     if stage.operation=='sample':
         cfg=dict(stage.configuration);name=cfg.pop('generator');steps=cfg.pop('steps',2);seed=cfg.pop('seed',0)
         h=Host.create(name,seed=seed,configuration=cfg)
@@ -676,7 +731,23 @@ def stage_runner(stage,out):
             h.step(dt=.05)
         h.replay();h.save(out/'episode.json.gz');return {'replay':1,'steps':len(h.inputs),'observations':len(h.view().observations)}
     if stage.operation=='synthesize':
-        result=mixed(out,stage.configuration.get('steps',300));return {'exact_conformance':int(result['exact_conformance']),'fully_frozen':int(result['fully_frozen']),'loss':result['loss']}
+        result=mixed(out,stage.configuration.get('steps',300))
+        metrics={'exact_conformance':int(result['exact_conformance']),'fully_frozen':int(result['fully_frozen']),'loss':result['loss']}
+        if stage.publishes:
+            # The crystallized program is written to the library, not only to a
+            # run directory, so it survives this process and can be a candidate
+            # operator for a later, unrelated run.
+            from .library import Library
+            from .runtime import load_program
+            program,registry=load_program(out/'program.json')
+            library=Library(artifacts.library)
+            for name in stage.publishes:
+                entry=library.publish(name,program,registry,fixture=_mixed_fixture(),
+                                      provenance={'stage':stage.name,'operation':'synthesize',
+                                                  'steps':stage.configuration.get('steps',300),
+                                                  'exact_conformance':metrics['exact_conformance']})
+                metrics['published_'+name.replace('.','_')]=entry.version
+        return metrics
     if stage.operation=='train':
         from .training import JointTrainer,TrainConfig
         from .learning import SoftProgram
@@ -700,7 +771,9 @@ def main(argv=None):
     synth=sub.add_parser('synthesize');synth.add_argument('--out',default='artifacts/mixed');synth.add_argument('--steps',type=int,default=300)
     train=sub.add_parser('train');train.add_argument('--out',default='artifacts/joint');train.add_argument('--episodes',type=int,default=160);train.add_argument('--config');train.add_argument('--program');train.add_argument('--resume')
     agent=sub.add_parser('agent');agent.add_argument('program');agent.add_argument('--config',required=True);agent.add_argument('--seed',type=int,default=0);agent.add_argument('--steps',type=int);agent.add_argument('--deterministic',action='store_true');agent.add_argument('--out',default='artifacts/agent-episode.json.gz')
-    curr=sub.add_parser('curriculum');curr.add_argument('spec');curr.add_argument('--out',default='artifacts/curriculum');curr.add_argument('--workers',type=int,default=1)
+    curr=sub.add_parser('curriculum');curr.add_argument('spec');curr.add_argument('--out',default='artifacts/curriculum');curr.add_argument('--workers',type=int,default=1);curr.add_argument('--library')
+    lib=sub.add_parser('library');lib.add_argument('action',choices=['list','show','verify'])
+    lib.add_argument('module',nargs='?');lib.add_argument('--root',default='artifacts/library')
     run=sub.add_parser('run');run.add_argument('program');run.add_argument('--inputs')
     export=sub.add_parser('export');export.add_argument('program');export.add_argument('out')
     render=sub.add_parser('render');render.add_argument('episode');render.add_argument('--out',default='artifacts/frames')
@@ -749,8 +822,29 @@ def main(argv=None):
         print(json.dumps({'steps':len(h.inputs),'return':sum(sum(v.decoded for v in row.reward_components.values()) for row in h.records),'episode':args.out}))
     elif args.command=='curriculum':
         from .curriculum import Curriculum
-        results=Curriculum.load(args.spec).run(stage_runner,args.out,args.workers);print(json.dumps(results,indent=2))
+        results=Curriculum.load(args.spec).run(stage_runner,args.out,args.workers,library=args.library);print(json.dumps(results,indent=2))
         if any(v['status']!='passed' for v in results.values()):return 1
+    elif args.command=='library':
+        from .library import Library
+        from .generation import source_fingerprint
+        library=Library(args.root);current=source_fingerprint()
+        if args.action=='list':
+            rows=[{'reference':e.reference,'digest':e.digest,'nodes':e.nodes,
+                   'execution_cost':e.execution_cost,'description_bits':e.description_bits,
+                   'requires':list(e.requires),'stale':list(e.stale),
+                   'source_current':e.source==current}
+                  for e in library.entries]
+            print(json.dumps({'root':str(library.root),'modules':len(library.names()),'versions':len(rows),'entries':rows},indent=2))
+        elif args.action=='show':
+            if not args.module:parser.error('library show needs a module reference')
+            entry=library.entry(args.module)
+            spec=json.loads((library.root/'modules'/(entry.digest+'.json')).read_text())
+            print(json.dumps({'entry':entry.to_dict(),'program':spec},indent=2))
+        else:
+            rows=library.verify(args.module)
+            print(json.dumps({'root':str(library.root),'checked':len(rows),
+                              'ok':sum(1 for r in rows if r['ok']),'entries':rows},indent=2))
+            if any(not r['ok'] for r in rows):return 1
     elif args.command in {'run','export'}:
         from .runtime import load_program,export_executable
         from .types import Value

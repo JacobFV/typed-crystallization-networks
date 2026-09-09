@@ -237,3 +237,49 @@ identically zero, giving a reachable fraction of exactly **0.875** of the
 16-table family. So one eighth of every truth-table node in every shipped
 scaffold has always been invisible to gradient descent, while enumeration
 searches it normally.
+
+### `module-library` — verified, blocked on quiet tree
+
+The persistent module library and the curriculum artifact flow. Adds
+`tcn/library.py` (new file: `Library`, `Entry`, content-addressed storage, a
+manifest, versions, staleness on relearning, and a strict/revalidate
+source-fingerprint policy backed by recorded conformance fixtures), extends
+`tcn/curriculum.py` with `Artifacts`, `Stage.inherits`, `Stage.publishes` and
+publication as an evidence gate, and adds `tcn library list/show/verify`, a
+`--library` flag on `tcn curriculum`, a publish hook inside the existing
+`synthesize` stage and a `reuse` stage operation to `tcn/cli.py`.
+`curricula/system.json` gains a `module_reuse` stage that inherits
+`typed_synthesis`'s crystallized program as a candidate operator.
+
+**193 tests pass** (179 shipped plus 14 new in `tests/test_module_library.py`),
+with the four `generators/computer` tests enabled via a temporary `node_modules`
+symlink, removed before committing. All fifteen stages of `curricula/system.json`
+pass end to end, and `typed_synthesis` still reports relaxed loss 1.0066e-06 and
+exact conformance.
+
+**One shipped-interface change**: `Curriculum.run`'s runner is now called as
+`runner(stage, path, artifacts)` rather than `runner(stage, path)`, because the
+inherited module references have to reach the stage somehow and passing them is
+what makes the restriction enforceable rather than conventional. Two existing
+tests define runners and were updated (3 lines).
+
+Deliberately avoids `tcn/learning.py`, `tcn/select.py`, `tcn/graph.py`,
+`tcn/operators.py`, `tcn/runtime.py`, `tcn/search.py`, `tcn/synthesis.py` and
+`tcn/training.py`, all of which queued branches change. The only overlap with a
+queued branch is `tcn/cli.py` (`perturbation-selection`), and the changes here
+are additive: one new subcommand block, one new stage operation, and a publish
+hook inside the existing `synthesize` branch. **`git merge-tree` has not been
+dry-run against the queue**; do that before landing.
+
+Two things to know when landing:
+
+- **The library's stored `source` is the fingerprint of the tree it was
+  published against.** Merging anything into `tcn/` or `generators/` will make
+  `tcn library verify --root research/module-library/library` report
+  `source_current: false`. It should still pass, because verify goes through the
+  recorded fixtures; if it does not, the merge changed operator semantics and
+  that is the point of the check.
+- `research/module-library/RESULTS.md` records a finding that constrains any
+  future chain: **a chain needs exactness at the interface, not accuracy.** A
+  stage-1 module wrong at 1 of 384 positions took stage 2 from a unique solution
+  to zero conforming programs out of 48.

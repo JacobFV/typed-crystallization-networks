@@ -1,0 +1,46 @@
+{
+  "conforming": 2608,
+  "sweep_seconds": 251.8151775340084,
+  "rows": [
+    {
+      "validation_episodes": 1,
+      "validation_records": 64,
+      "survivors": 2608,
+      "seconds": 46.15425699396292,
+      "pick_test_max_error": 1.0,
+      "pick_test_accuracy_every_position": 0.9973958333333334
+    },
+    {
+      "validation_episodes": 2,
+      "validation_records": 128,
+      "survivors": 2464,
+      "seconds": 85.12302214396186,
+      "pick_test_max_error": 1.0,
+      "pick_test_accuracy_every_position": 0.9973958333333334
+    },
+    {
+      "validation_episodes": 4,
+      "validation_records": 256,
+      "survivors": 2464,
+      "seconds": 193.64950663299533,
+      "pick_test_max_error": 1.0,
+      "pick_test_accuracy_every_position": 0.9973958333333334
+    },
+    {
+      "validation_episodes": 8,
+      "validation_records": 512,
+      "survivors": 1976,
+      "seconds": 403.4621711449581,
+      "pick_test_max_error": 0.0,
+      "pick_test_accuracy_every_position": 1.0
+    },
+    {
+      "validation_episodes": 16,
+      "validation_records": 1024,
+      "survivors": 1672,
+      "seconds": 728.4533263710327,
+      "pick_test_max_error": 0.0,
+      "pick_test_accuracy_every_position": 1.0
+    }
+  ]
+}

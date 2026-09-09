@@ -1,0 +1,89 @@
+{
+  "constants": [],
+  "format": "tcn.program/1",
+  "input_depths": [
+    [
+      "rec",
+      0
+    ]
+  ],
+  "inputs": [
+    [
+      "rec",
+      {
+        "items": [
+          {
+            "bits": 16,
+            "encoding": {
+              "kind": "integer",
+              "overflow": "error",
+              "scale": 1.0,
+              "signed": false
+            },
+            "kind": "int"
+          },
+          {
+            "kind": "bool"
+          }
+        ],
+        "kind": "tuple"
+      }
+    ]
+  ],
+  "nodes": [
+    {
+      "candidates": [
+        {
+          "operator": {
+            "inputs": [
+              {
+                "items": [
+                  {
+                    "bits": 16,
+                    "encoding": {
+                      "kind": "integer",
+                      "overflow": "error",
+                      "scale": 1.0,
+                      "signed": false
+                    },
+                    "kind": "int"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "kind": "tuple"
+              }
+            ],
+            "name": "project",
+            "output": {
+              "kind": "bool"
+            },
+            "parameters": {
+              "index": 1
+            }
+          },
+          "sources": [
+            "rec"
+          ]
+        }
+      ],
+      "depth": 1,
+      "name": "flag",
+      "output": {
+        "kind": "bool"
+      },
+      "region": "core",
+      "selected": 0
+    }
+  ],
+  "outputs": [
+    [
+      "y",
+      "flag"
+    ]
+  ],
+  "state": [],
+  "trainable_constants": [],
+  "version": 1
+}

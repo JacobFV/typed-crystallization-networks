@@ -1,0 +1,327 @@
+{
+  "fingerprint": "c5191723e2195a08a1169c48866c57c847c60a40b6c840fbf26d5fbc89f8ffaf",
+  "stages": {
+    "stage1_foreground": {
+      "failures": [],
+      "inherited": [],
+      "metrics": {
+        "accuracy_every_position_held_out": 1.0,
+        "arms": [
+          {
+            "accuracy_every_position_held_out": 1.0,
+            "arm": "stage1",
+            "budget": 16777216,
+            "conforming": 1952,
+            "description_bits": 1650712,
+            "evaluated": 32000,
+            "execution_cost": 13.0,
+            "exhausted": true,
+            "held_out_accuracy": 1.0,
+            "held_out_max_error": 0.0,
+            "majority_class_accuracy": 0.5651041666666666,
+            "nodes": 13,
+            "projected_exhaustive_seconds": 522.5143471799674,
+            "random_control": {
+              "density": 0.07,
+              "draws": 400,
+              "hits": 28
+            },
+            "seconds_per_program": 0.016328573349373984,
+            "selections": {
+              "b_at": 0,
+              "blue": 0,
+              "cmp_b": 2,
+              "cmp_g": 0,
+              "cmp_r": 0,
+              "foreground": 1,
+              "g_at": 0,
+              "green": 0,
+              "obs": 0,
+              "pos": 0,
+              "record": 0,
+              "red": 0,
+              "rg": 0
+            },
+            "solved": true,
+            "space_size": 32000,
+            "unique": false,
+            "validated": 1520,
+            "validation_records": 512,
+            "wall_seconds": 522.5143471799674
+          }
+        ],
+        "conforming": 1952,
+        "held_examples": 384,
+        "held_out_accuracy": 1.0,
+        "held_out_max_error": 0.0,
+        "module_description_bits": 1650712,
+        "module_digest": "91b7e8e8862c0ebf333d8bf6",
+        "module_execution_cost": 13.0,
+        "module_nodes": 13,
+        "published": "perception.foreground@1",
+        "resolution": 8,
+        "search_seconds": 522.5143471799674,
+        "solved": 1,
+        "space_size": 32000,
+        "train_examples": 384,
+        "validated": 1520
+      },
+      "published": [
+        "perception.foreground@1"
+      ],
+      "status": "passed"
+    },
+    "stage2_edge": {
+      "failures": [],
+      "inherited": [
+        "perception.foreground"
+      ],
+      "metrics": {
+        "arms": [
+          {
+            "arm": "stage2:inherits_stage1",
+            "budget": 16777216,
+            "conforming": 1,
+            "description_bits": 4282472,
+            "evaluated": 48,
+            "execution_cost": 35.0,
+            "exhausted": true,
+            "held_out_accuracy": 1.0,
+            "held_out_max_error": 0.0,
+            "majority_class_accuracy": 0.8020833333333334,
+            "nodes": 11,
+            "projected_exhaustive_seconds": 1.5237841199850664,
+            "random_control": {
+              "density": 0.01,
+              "draws": 400,
+              "hits": 4
+            },
+            "seconds_per_program": 0.03174550249968888,
+            "selections": {
+              "edge": 6,
+              "here": 0,
+              "here_flag": 0,
+              "here_rec": 0,
+              "obs": 0,
+              "pos": 0,
+              "record": 0,
+              "shifted": 0,
+              "there": 0,
+              "there_flag": 0,
+              "there_rec": 0
+            },
+            "solved": true,
+            "space_size": 48,
+            "unique": true,
+            "validated": 1,
+            "wall_seconds": 1.5237841199850664
+          },
+          {
+            "arm": "stage2:flat",
+            "budget": 20000,
+            "conforming": 0,
+            "description_bits": null,
+            "evaluated": 20000,
+            "execution_cost": null,
+            "exhausted": false,
+            "held_out_accuracy": 0.0,
+            "held_out_max_error": null,
+            "majority_class_accuracy": 0.8020833333333334,
+            "nodes": 25,
+            "projected_exhaustive_seconds": 37300780.55548668,
+            "seconds_per_program": 0.0007588863231503637,
+            "selections": null,
+            "solved": false,
+            "space_size": 49152000000,
+            "unique": null,
+            "validated": 0,
+            "wall_seconds": 15.177726463007275
+          }
+        ],
+        "flat_projected_seconds": 37300780.55548668,
+        "flat_space": 49152000000,
+        "held_examples": 288,
+        "held_out_accuracy": 1.0,
+        "held_out_max_error": 0.0,
+        "inherited_interface": {
+          "test": {
+            "accuracy": 1.0,
+            "exact": true,
+            "records": 384,
+            "wrong": 0
+          },
+          "train": {
+            "accuracy": 1.0,
+            "exact": true,
+            "records": 384,
+            "wrong": 0
+          },
+          "validation": {
+            "accuracy": 1.0,
+            "exact": true,
+            "records": 256,
+            "wrong": 0
+          }
+        },
+        "inherited_seconds": 1.5237841199850664,
+        "inherited_space": 48,
+        "module_description_bits": 4282472,
+        "module_digest": "2e0dd9d3148338788de07bae",
+        "module_execution_cost": 35.0,
+        "module_nodes": 11,
+        "module_requires": [
+          "module:91b7e8e8862c0ebf333d8bf6"
+        ],
+        "published": "perception.edge@1",
+        "resolution": 8,
+        "search_seconds": 1.5237841199850664,
+        "solved": 1,
+        "space_ratio": 1024000000.0,
+        "space_size": 48,
+        "train_examples": 288
+      },
+      "published": [
+        "perception.edge@1"
+      ],
+      "status": "passed"
+    },
+    "stage3_region": {
+      "failures": [],
+      "inherited": [
+        "perception.foreground",
+        "perception.edge"
+      ],
+      "metrics": {
+        "arms": [
+          {
+            "arm": "stage3:inherits_stage2",
+            "budget": 16777216,
+            "conforming": 3,
+            "description_bits": 8948184,
+            "evaluated": 60,
+            "execution_cost": 180.0,
+            "exhausted": true,
+            "held_out_accuracy": 1.0,
+            "held_out_max_error": 0.0,
+            "majority_class_accuracy": 0.5555555555555556,
+            "nodes": 6,
+            "projected_exhaustive_seconds": 7.225499032996595,
+            "random_control": {
+              "density": 0.04,
+              "draws": 400,
+              "hits": 16
+            },
+            "seconds_per_program": 0.12042498388327658,
+            "selections": {
+              "held": 0,
+              "kept": 0,
+              "mapped": 0,
+              "records": 0,
+              "region": 0,
+              "total": 0
+            },
+            "solved": true,
+            "space_size": 60,
+            "unique": false,
+            "validated": 3,
+            "wall_seconds": 7.225499032996595
+          },
+          {
+            "arm": "stage3:inherits_stage1_only",
+            "budget": 16777216,
+            "conforming": 3,
+            "description_bits": 7132048,
+            "evaluated": 960,
+            "execution_cost": 160.0,
+            "exhausted": true,
+            "held_out_accuracy": 1.0,
+            "held_out_max_error": 0.0,
+            "majority_class_accuracy": 0.5555555555555556,
+            "nodes": 6,
+            "projected_exhaustive_seconds": 32.661022584012244,
+            "random_control": {
+              "density": 0.005,
+              "draws": 400,
+              "hits": 2
+            },
+            "seconds_per_program": 0.03402189852501276,
+            "selections": {
+              "held": 0,
+              "kept": 0,
+              "mapped": 6,
+              "records": 0,
+              "region": 0,
+              "total": 0
+            },
+            "solved": true,
+            "space_size": 960,
+            "unique": false,
+            "validated": 3,
+            "wall_seconds": 32.661022584012244
+          },
+          {
+            "arm": "stage3:no_library",
+            "expressible": false,
+            "projected_seconds": 33444887126.02854,
+            "reason": "map requires a registered module; an empty library admits no aggregate over positions, so the region predicate is not a program in this algebra",
+            "smallest_admitting_library": "one module drawn from stage 2's flat space",
+            "space_size": 983040000000,
+            "wrapper_space": 49152000000
+          }
+        ],
+        "held_examples": 72,
+        "held_out_accuracy": 1.0,
+        "held_out_max_error": 0.0,
+        "inherited_interface": {
+          "test": {
+            "accuracy": 1.0,
+            "exact": true,
+            "records": 384,
+            "wrong": 0
+          },
+          "train": {
+            "accuracy": 1.0,
+            "exact": true,
+            "records": 384,
+            "wrong": 0
+          },
+          "validation": {
+            "accuracy": 1.0,
+            "exact": true,
+            "records": 256,
+            "wrong": 0
+          }
+        },
+        "majority_class_accuracy": 0.5555555555555556,
+        "module_description_bits": 8948184,
+        "module_digest": "a90ca8dc2c03ee2189906056",
+        "module_execution_cost": 180.0,
+        "module_nodes": 6,
+        "module_requires": [
+          "module:aee77284361d6ca331fcc6f1",
+          "module:98ad064b85bcea03fefebb02"
+        ],
+        "module_selected": 1,
+        "published": [
+          "perception.tile_call@1",
+          "perception.keep_flag@1",
+          "perception.region@1"
+        ],
+        "resolution": 8,
+        "search_seconds": 7.225499032996595,
+        "seconds_ratio_stage1_only": 4.520244544336601,
+        "solved": 1,
+        "space_ratio_stage1_only": 16.0,
+        "space_size": 60,
+        "tile": 2,
+        "train_examples": 72
+      },
+      "published": [
+        "perception.tile_call@1",
+        "perception.keep_flag@1",
+        "perception.region@1"
+      ],
+      "status": "passed"
+    }
+  }
+}
