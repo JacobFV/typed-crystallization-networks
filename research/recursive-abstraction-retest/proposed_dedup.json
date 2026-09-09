@@ -1,0 +1,50 @@
+{
+  "per_binding": [
+    {
+      "binding": [
+        "a",
+        "b",
+        "c"
+      ],
+      "batch": 64,
+      "distinct_rows": 8,
+      "shipped_us": 722.9,
+      "deduped_us": 126.1,
+      "speedup": 5.73
+    },
+    {
+      "binding": [
+        "a",
+        "a",
+        "b"
+      ],
+      "batch": 64,
+      "distinct_rows": 4,
+      "shipped_us": 740.1,
+      "deduped_us": 87.1,
+      "speedup": 8.5
+    },
+    {
+      "binding": [
+        "a",
+        "b",
+        "a"
+      ],
+      "batch": 64,
+      "distinct_rows": 4,
+      "shipped_us": 742.9,
+      "deduped_us": 87.2,
+      "speedup": 8.52
+    }
+  ],
+  "equivalence_verified": true,
+  "arm_B_forward_pass": {
+    "module_candidates_per_node": 216,
+    "nodes": 9,
+    "shipped_seconds_per_step": 2.106,
+    "deduped_seconds_per_step": 0.283,
+    "speedup": 7.45,
+    "measured_arm_B_seconds_per_step": 3.29,
+    "measured_arm_A_seconds_per_step": 0.17
+  }
+}

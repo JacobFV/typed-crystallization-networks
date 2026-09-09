@@ -1,0 +1,576 @@
+{
+  "maj3_module": {
+    "arity": 3,
+    "scaffold_min_gates": 4,
+    "scaffold_program": [
+      [
+        "and",
+        0,
+        1
+      ],
+      [
+        "or",
+        0,
+        1
+      ],
+      [
+        "or",
+        2,
+        3
+      ],
+      [
+        "and",
+        4,
+        5
+      ]
+    ],
+    "b2_lower_bound": 4,
+    "note": "sub-function to crystallize; not available as a primitive (truth_k covers every 2-input function, no 3-input one)"
+  },
+  "G_disjoint_maj3_xor": {
+    "arity": 6,
+    "rows": 64,
+    "b2_lower_bound": 7,
+    "explicit_upper_bound_gates": 9,
+    "explicit_circuit_verified": true,
+    "all_inputs_live": true,
+    "abstracted_route_nodes": 3
+  },
+  "H_disjoint_maj3_and": {
+    "arity": 6,
+    "rows": 64,
+    "b2_lower_bound": 7,
+    "explicit_upper_bound_gates": 9,
+    "explicit_circuit_verified": true,
+    "all_inputs_live": true,
+    "abstracted_route_nodes": 3
+  },
+  "e2_collapse_control": {
+    "arity": 4,
+    "scaffold_min_gates": 3,
+    "scaffold_program": [
+      [
+        "xor",
+        0,
+        3
+      ],
+      [
+        "xor",
+        1,
+        2
+      ],
+      [
+        "and",
+        4,
+        5
+      ]
+    ],
+    "b2_lower_bound": 3,
+    "note": "track 5's composite; overlapping windows collapse to (a xor d) and (b xor c)"
+  },
+  "arm_c_distractor": {
+    "count_of_3var_functions_needing_4_or_more": 24,
+    "count_with_scaffold_min_exactly_4_and_3_live": 12,
+    "all_candidates": [
+      {
+        "table": 22,
+        "scaffold_min_gates": 4,
+        "program": [
+          [
+            "and",
+            0,
+            1
+          ],
+          [
+            "or",
+            0,
+            1
+          ],
+          [
+            "or",
+            2,
+            3
+          ],
+          [
+            "xor",
+            4,
+            5
+          ]
+        ],
+        "rows": [
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "maj3_gates_given_this": 3,
+        "in_majority_family": false
+      },
+      {
+        "table": 104,
+        "scaffold_min_gates": 4,
+        "program": [
+          [
+            "and",
+            0,
+            1
+          ],
+          [
+            "or",
+            0,
+            1
+          ],
+          [
+            "xor",
+            2,
+            3
+          ],
+          [
+            "and",
+            4,
+            5
+          ]
+        ],
+        "rows": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1,
+          0
+        ],
+        "maj3_gates_given_this": 2,
+        "in_majority_family": false
+      },
+      {
+        "table": 134,
+        "scaffold_min_gates": 4,
+        "program": [
+          [
+            "or",
+            0,
+            1
+          ],
+          [
+            "xor",
+            0,
+            1
+          ],
+          [
+            "and",
+            2,
+            3
+          ],
+          [
+            "xor",
+            4,
+            5
+          ]
+        ],
+        "rows": [
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "maj3_gates_given_this": 4,
+        "in_majority_family": false
+      },
+      {
+        "table": 142,
+        "scaffold_min_gates": 4,
+        "program": [
+          [
+            "or",
+            0,
+            1
+          ],
+          [
+            "xor",
+            0,
+            1
+          ],
+          [
+            "and",
+            2,
+            4
+          ],
+          [
+            "xor",
+            3,
+            5
+          ]
+        ],
+        "rows": [
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "maj3_gates_given_this": 2,
+        "in_majority_family": true
+      },
+      {
+        "table": 146,
+        "scaffold_min_gates": 4,
+        "program": [
+          [
+            "xor",
+            0,
+            1
+          ],
+          [
+            "or",
+            0,
+            2
+          ],
+          [
+            "xor",
+            2,
+            3
+          ],
+          [
+            "and",
+            4,
+            5
+          ]
+        ],
+        "rows": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        "maj3_gates_given_this": 4,
+        "in_majority_family": false
+      },
+      {
+        "table": 148,
+        "scaffold_min_gates": 4,
+        "program": [
+          [
+            "xor",
+            0,
+            1
+          ],
+          [
+            "and",
+            0,
+            3
+          ],
+          [
+            "or",
+            2,
+            4
+          ],
+          [
+            "xor",
+            3,
+            5
+          ]
+        ],
+        "rows": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        "maj3_gates_given_this": 4,
+        "in_majority_family": false
+      },
+      {
+        "table": 158,
+        "scaffold_min_gates": 4,
+        "program": [
+          [
+            "and",
+            0,
+            1
+          ],
+          [
+            "or",
+            0,
+            1
+          ],
+          [
+            "xor",
+            2,
+            4
+          ],
+          [
+            "or",
+            3,
+            5
+          ]
+        ],
+        "rows": [
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1
+        ],
+        "maj3_gates_given_this": 4,
+        "in_majority_family": false
+      },
+      {
+        "table": 178,
+        "scaffold_min_gates": 4,
+        "program": [
+          [
+            "xor",
+            0,
+            1
+          ],
+          [
+            "xor",
+            0,
+            2
+          ],
+          [
+            "and",
+            3,
+            4
+          ],
+          [
+            "xor",
+            2,
+            5
+          ]
+        ],
+        "rows": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1
+        ],
+        "maj3_gates_given_this": 2,
+        "in_majority_family": true
+      },
+      {
+        "table": 182,
+        "scaffold_min_gates": 4,
+        "program": [
+          [
+            "xor",
+            0,
+            1
+          ],
+          [
+            "and",
+            0,
+            2
+          ],
+          [
+            "xor",
+            2,
+            3
+          ],
+          [
+            "or",
+            4,
+            5
+          ]
+        ],
+        "rows": [
+          0,
+          1,
+          1,
+          0,
+          1,
+          1,
+          0,
+          1
+        ],
+        "maj3_gates_given_this": 4,
+        "in_majority_family": false
+      },
+      {
+        "table": 212,
+        "scaffold_min_gates": 4,
+        "program": [
+          [
+            "xor",
+            0,
+            1
+          ],
+          [
+            "xor",
+            0,
+            2
+          ],
+          [
+            "or",
+            3,
+            4
+          ],
+          [
+            "xor",
+            0,
+            5
+          ]
+        ],
+        "rows": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          1
+        ],
+        "maj3_gates_given_this": 2,
+        "in_majority_family": true
+      },
+      {
+        "table": 214,
+        "scaffold_min_gates": 4,
+        "program": [
+          [
+            "xor",
+            0,
+            1
+          ],
+          [
+            "and",
+            1,
+            2
+          ],
+          [
+            "xor",
+            2,
+            3
+          ],
+          [
+            "or",
+            4,
+            5
+          ]
+        ],
+        "rows": [
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          1,
+          1
+        ],
+        "maj3_gates_given_this": 4,
+        "in_majority_family": false
+      },
+      {
+        "table": 232,
+        "scaffold_min_gates": 4,
+        "program": [
+          [
+            "and",
+            0,
+            1
+          ],
+          [
+            "or",
+            0,
+            1
+          ],
+          [
+            "or",
+            2,
+            3
+          ],
+          [
+            "and",
+            4,
+            5
+          ]
+        ],
+        "rows": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        "maj3_gates_given_this": 0,
+        "in_majority_family": true
+      }
+    ],
+    "chosen": {
+      "table": 134,
+      "scaffold_min_gates": 4,
+      "program": [
+        [
+          "or",
+          0,
+          1
+        ],
+        [
+          "xor",
+          0,
+          1
+        ],
+        [
+          "and",
+          2,
+          3
+        ],
+        [
+          "xor",
+          4,
+          5
+        ]
+      ],
+      "rows": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "maj3_gates_given_this": 4,
+      "in_majority_family": false
+    },
+    "chosen_not_in_majority_family": true,
+    "b2_lower_bound": 4,
+    "maj3_gates_from_scratch": 4,
+    "maj3_gates_given_distractor": 4,
+    "maj3_gates_given_maj3": 0
+  }
+}

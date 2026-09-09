@@ -1,0 +1,27 @@
+{
+  "primitive first": {
+    "solved": true,
+    "unique": false,
+    "space_size": 2,
+    "chosen": "and",
+    "chosen_is_module": false,
+    "description_bits_of_choice": 3760,
+    "candidate_costs": [
+      1.0,
+      1.0
+    ]
+  },
+  "module first": {
+    "solved": true,
+    "unique": false,
+    "space_size": 2,
+    "chosen": "module:c6f94b361fab5",
+    "chosen_is_module": true,
+    "description_bits_of_choice": 7744,
+    "candidate_costs": [
+      1.0,
+      1.0
+    ]
+  },
+  "conclusion": "enumerate_fit returns found[0]: it ranks conforming programs by enumeration order, not by description bits or execution cost, so it selects whichever of two equivalent candidates is declared first"
+}

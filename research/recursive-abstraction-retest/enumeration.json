@@ -1,0 +1,79 @@
+{
+  "config": {
+    "max_programs": 4000000,
+    "arms": "A,B",
+    "stop_at_first": false,
+    "out": "enumeration.json"
+  },
+  "results": [
+    {
+      "solved": false,
+      "exact_max_error": 0.0,
+      "evaluated": 230400,
+      "space_size": 230400,
+      "exhausted": true,
+      "unique": false,
+      "seconds": 9.849972522002645,
+      "continuous": [],
+      "arm": "A",
+      "declared_space_size": 230400,
+      "wall_seconds": 9.9,
+      "program": null,
+      "candidates_per_node": [
+        120,
+        120,
+        16
+      ]
+    },
+    {
+      "solved": true,
+      "exact_max_error": 0.0,
+      "evaluated": 2709504,
+      "space_size": 2709504,
+      "exhausted": true,
+      "unique": false,
+      "seconds": 630.0519088489818,
+      "continuous": [],
+      "arm": "B",
+      "declared_space_size": 2709504,
+      "wall_seconds": 630.1,
+      "program": {
+        "selections": {
+          "n1": {
+            "operator": "module:8ceedf7b792a7",
+            "sources": [
+              "a",
+              "b",
+              "c"
+            ]
+          },
+          "n2": {
+            "operator": "module:8ceedf7b792a7",
+            "sources": [
+              "d",
+              "e",
+              "f"
+            ]
+          },
+          "y": {
+            "operator": "xor",
+            "sources": [
+              "n1",
+              "n2"
+            ]
+          }
+        },
+        "live_nodes": 3,
+        "module_on_output_path": true,
+        "description_bits_pruned": 19496,
+        "description_bits_pruned_no_library": 9440,
+        "execution_cost_pruned": 9.0
+      },
+      "candidates_per_node": [
+        336,
+        336,
+        24
+      ]
+    }
+  ]
+}

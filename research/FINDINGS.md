@@ -431,3 +431,59 @@ wall (0/12 in all eight free-address arms).
 **`relations.closure` is unattachable**: `join` inflates set capacity 64 to
 4096, no conversion narrows it, and `union` requires identical types, so no
 program can have the closure's type as output.
+
+## 12. Recursive abstraction re-tested: track 5's verdict does not survive
+
+Full detail in `research/recursive-abstraction-retest/RESULTS.md`. Track 5
+concluded abstraction delivers no benefit and is a net cost; with F1 and F2
+fixed, that conclusion is overturned, and the cause was the accounting rather
+than the search.
+
+**The decisive measurement flips.** Track 5: module on the output path in 0 of
+20 arm-B runs, 0 of 10 successes. Re-test: **27 of 27 successes are the
+abstracted program**, on both scaffolds.
+
+| arm | wide scaffold, 8 seeds | tight scaffold, 24 seeds |
+|---|---|---|
+| A, flat | 0/8 | 0/24 |
+| B, module available | **8/8** | **19/24** |
+| C, same-size distractor module | 0/8 | 0/24 |
+
+p = 1.6e-4 and 7.4e-9. Enumeration certifies this is not a search artifact:
+arm A's 230,400-program space is exhausted with no solution, arm C's 2,709,504
+likewise, and arm B's contains 144 solutions, **all** of which use the module.
+The target's flat minimum is proved >= 7 gates against a 9-gate circuit, while
+the abstracted route is 3 nodes.
+
+**A correction to section 10's cost claim, resolved by measurement.** The
+re-test reports a module candidate still costing 105x a primitive at batch 64,
+against the 4.0x recorded here. Both are right and they measure different
+comparisons, confirmed by running the re-test's own `costs_detail.py`:
+
+- against an **exact** primitive (what section 10 measured, both sides through
+  `exact_tensor`): its D1 reports 1.7x, and an independent sweep from the
+  supervising session gives 1.4x-5.3x across 3, 5 and 9-node bodies at batches
+  1 to 256. Section 10's figure stands for that comparison.
+- against a **relaxed** primitive, which is pure tensor arithmetic with no
+  Python loop: roughly two orders of magnitude at batch 64.
+
+The second is the number that matters for search cost, because most candidates
+in a scaffold are relaxed operators. Section 10 should be read as "a module call
+is now comparable to an exact primitive", not as a claim about search cost. The
+O(batch) Python loop in `exact_tensor` is untouched by the memoization; the
+re-test's R1 proposes evaluating each distinct row once, measured at 7.45x on
+its arm B with bit-identical output.
+
+**What still does not pay is preference, not capability.** F3 remains unfixed
+and F1 made it decisive: `SoftProgram.complexity()` is cost-weighted, and cost
+is now at exact parity, so it measures 20.43 for both routes and could not
+prefer abstraction even if enabled. Description bits differ (19,496 vs 20,800)
+but have no differentiable surrogate, and `enumerate_fit` ranks by declaration
+order rather than cost. One arm-B success calls the module three times where two
+would do, and is accepted because it conforms.
+
+Two further findings worth keeping: arm C reached relaxed loss 0.002 in a space
+**certified to contain no solution**, which is the sharpest demonstration yet of
+the relaxed-loss gap in section 4; and the remaining difficulty is binding
+dilution rather than the gradient boundary, since a module over program inputs
+receives exact 0/1 arguments and is therefore exact during soft search.

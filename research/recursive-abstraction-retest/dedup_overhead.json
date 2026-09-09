@@ -1,0 +1,23 @@
+{
+  "64 rows": {
+    "batch": 64,
+    "distinct_rows": 64,
+    "shipped_us": 1106.3,
+    "deduped_us": 1247.5,
+    "ratio": 1.128
+  },
+  "512 rows": {
+    "batch": 512,
+    "distinct_rows": 502,
+    "shipped_us": 9049.5,
+    "deduped_us": 9432.2,
+    "ratio": 1.042
+  },
+  "boolean module, 64 rows": {
+    "batch": 64,
+    "distinct_rows": 8,
+    "shipped_us": 1545.9,
+    "deduped_us": 331.9,
+    "ratio": 0.215
+  }
+}

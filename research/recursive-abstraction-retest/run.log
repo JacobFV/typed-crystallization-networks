@@ -1,0 +1,82 @@
+[acquire B] seed=0 ok=True attempts=1 steps=171 nodes=5 bits=12088 cost=5.0 t=13s
+[acquire B] seed=1 ok=True attempts=1 steps=161 nodes=5 bits=12088 cost=5.0 t=9s
+[acquire B] seed=2 ok=True attempts=3 steps=1706 nodes=4 bits=10056 cost=4.0 t=124s
+[acquire B] seed=3 ok=True attempts=1 steps=116 nodes=5 bits=12088 cost=5.0 t=7s
+[acquire B] seed=4 ok=True attempts=1 steps=66 nodes=4 bits=10056 cost=4.0 t=9s
+[acquire B] seed=5 ok=True attempts=2 steps=901 nodes=4 bits=10056 cost=4.0 t=37s
+[acquire B] seed=6 ok=True attempts=4 steps=2541 nodes=5 bits=12088 cost=5.0 t=165s
+[acquire B] seed=7 ok=True attempts=1 steps=96 nodes=5 bits=12088 cost=5.0 t=1s
+[acquire C] seed=0 ok=False attempts=8 steps=6400 nodes=None bits=None cost=None t=331s
+[acquire C] seed=1 ok=False attempts=8 steps=6400 nodes=None bits=None cost=None t=314s
+[acquire C] seed=2 ok=False attempts=8 steps=6400 nodes=None bits=None cost=None t=304s
+[acquire C] seed=3 ok=False attempts=8 steps=6400 nodes=None bits=None cost=None t=323s
+[acquire C] seed=4 ok=False attempts=8 steps=6400 nodes=None bits=None cost=None t=285s
+[acquire C] seed=5 ok=False attempts=8 steps=6400 nodes=None bits=None cost=None t=272s
+[acquire C] seed=6 ok=True attempts=8 steps=5906 nodes=5 bits=11912 cost=5.0 t=165s
+[acquire C] seed=7 ok=False attempts=8 steps=6400 nodes=None bits=None cost=None t=172s
+[wide A] seed=0 conf=False first=None loss=0.3935 live=4 mod_sel=False mod_path=False t=59s
+[wide B] seed=0 conf=True first=70 loss=0.3652 live=3 mod_sel=True mod_path=True t=227s
+[wide C] seed=0 conf=False first=None loss=0.4320 live=3 mod_sel=True mod_path=True t=1658s
+[wide A] seed=1 conf=False first=None loss=0.3938 live=4 mod_sel=False mod_path=False t=58s
+[wide B] seed=1 conf=True first=50 loss=0.4828 live=5 mod_sel=True mod_path=True t=150s
+[wide C] seed=1 conf=False first=None loss=0.4829 live=2 mod_sel=True mod_path=True t=1698s
+[wide A] seed=2 conf=False first=None loss=0.4314 live=3 mod_sel=False mod_path=False t=61s
+[wide B] seed=2 conf=True first=90 loss=0.1965 live=3 mod_sel=True mod_path=True t=352s
+[wide C] seed=2 conf=False first=None loss=0.4230 live=3 mod_sel=True mod_path=True t=1818s
+[wide A] seed=3 conf=False first=None loss=0.3904 live=4 mod_sel=False mod_path=False t=64s
+[wide B] seed=3 conf=True first=80 loss=0.2795 live=3 mod_sel=True mod_path=True t=317s
+[wide C] seed=3 conf=False first=None loss=0.3937 live=4 mod_sel=True mod_path=True t=1961s
+[wide A] seed=4 conf=False first=None loss=0.4315 live=3 mod_sel=False mod_path=False t=75s
+[wide B] seed=4 conf=True first=90 loss=0.1155 live=3 mod_sel=True mod_path=True t=593s
+[wide C] seed=4 conf=False first=None loss=0.4828 live=2 mod_sel=True mod_path=False t=2313s
+[wide A] seed=5 conf=False first=None loss=0.4313 live=3 mod_sel=False mod_path=False t=168s
+[wide B] seed=5 conf=True first=90 loss=0.2497 live=3 mod_sel=True mod_path=True t=818s
+[wide C] seed=5 conf=False first=None loss=0.4302 live=3 mod_sel=True mod_path=False t=2134s
+[wide A] seed=6 conf=False first=None loss=0.4314 live=3 mod_sel=False mod_path=False t=257s
+[wide B] seed=6 conf=True first=90 loss=0.2418 live=3 mod_sel=True mod_path=True t=777s
+[wide C] seed=6 conf=False first=None loss=0.4323 live=3 mod_sel=True mod_path=True t=1936s
+[wide A] seed=7 conf=False first=None loss=0.4322 live=3 mod_sel=False mod_path=False t=143s
+[wide B] seed=7 conf=True first=40 loss=0.5402 live=3 mod_sel=True mod_path=True t=394s
+[wide C] seed=7 conf=False first=None loss=0.4316 live=3 mod_sel=True mod_path=False t=1814s
+[tight A] seed=0 conf=False first=None loss=0.4831 live=2 mod_sel=False mod_path=False t=8s
+[tight B] seed=0 conf=False first=None loss=0.3481 live=2 mod_sel=True mod_path=True t=418s
+[tight C] seed=0 conf=False first=None loss=0.0063 live=2 mod_sel=True mod_path=True t=392s
+[tight A] seed=1 conf=False first=None loss=0.4830 live=2 mod_sel=False mod_path=False t=7s
+[tight B] seed=1 conf=True first=110 loss=0.2232 live=3 mod_sel=True mod_path=True t=124s
+[tight C] seed=1 conf=False first=None loss=0.5710 live=2 mod_sel=True mod_path=True t=321s
+[tight A] seed=2 conf=False first=None loss=0.4830 live=2 mod_sel=False mod_path=False t=8s
+[tight B] seed=2 conf=False first=None loss=0.3476 live=2 mod_sel=True mod_path=True t=413s
+[tight C] seed=2 conf=False first=None loss=0.3594 live=3 mod_sel=True mod_path=True t=381s
+[tight A] seed=3 conf=False first=None loss=0.4832 live=2 mod_sel=False mod_path=False t=7s
+[tight B] seed=3 conf=True first=30 loss=0.5485 live=3 mod_sel=True mod_path=True t=32s
+[tight C] seed=3 conf=False first=None loss=0.2749 live=2 mod_sel=True mod_path=True t=352s
+[tight A] seed=4 conf=False first=None loss=0.4831 live=2 mod_sel=False mod_path=False t=10s
+[tight B] seed=4 conf=True first=20 loss=0.5727 live=3 mod_sel=True mod_path=True t=30s
+[tight C] seed=4 conf=False first=None loss=0.4836 live=3 mod_sel=True mod_path=True t=295s
+[tight A] seed=5 conf=False first=None loss=0.4831 live=2 mod_sel=False mod_path=False t=13s
+[tight B] seed=5 conf=True first=90 loss=0.2612 live=3 mod_sel=True mod_path=True t=135s
+[tight C] seed=5 conf=False first=None loss=0.0589 live=2 mod_sel=True mod_path=True t=265s
+[tight A] seed=6 conf=False first=None loss=0.4830 live=2 mod_sel=False mod_path=False t=6s
+[tight B] seed=6 conf=True first=130 loss=0.2230 live=3 mod_sel=True mod_path=True t=143s
+[tight C] seed=6 conf=False first=None loss=0.4839 live=3 mod_sel=True mod_path=True t=255s
+[tight A] seed=7 conf=False first=None loss=0.4831 live=2 mod_sel=False mod_path=False t=7s
+[tight B] seed=7 conf=True first=80 loss=0.3536 live=3 mod_sel=True mod_path=True t=88s
+[tight C] seed=7 conf=False first=None loss=0.4836 live=3 mod_sel=True mod_path=True t=204s
+
+=== wide scaffold ===
+arm A: success 0/8  module_on_output_path 0/8  (of successes 0/0)
+   loss median=0.4313  sec/step=0.231  cands=3060
+arm B: success 8/8  module_on_output_path 8/8  (of successes 8/8)
+   loss median=0.2646  sec/step=5.109  cands=5004
+   steps to conformance: median=85.0 range=40-90
+arm C: success 0/8  module_on_output_path 5/8  (of successes 0/0)
+   loss median=0.4318  sec/step=6.237  cands=5004
+
+=== tight scaffold ===
+arm A: success 0/8  module_on_output_path 0/8  (of successes 0/0)
+   loss median=0.4831  sec/step=0.025  cands=256
+arm B: success 6/8  module_on_output_path 8/8  (of successes 6/6)
+   loss median=0.3478  sec/step=1.241  cands=696
+   steps to conformance: median=85.0 range=20-130
+arm C: success 0/8  module_on_output_path 8/8  (of successes 0/0)
+   loss median=0.4215  sec/step=1.022  cands=696

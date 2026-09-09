@@ -1,0 +1,259 @@
+{
+  "M_f1_fix": {
+    "M1_single_output_type": "{'kind': 'bool'}",
+    "M1_is_bool": true,
+    "M1_projection_needed": false,
+    "M1_exact_correct": true,
+    "M2_two_output_type": "{'kind': 'tuple', 'items': [{'kind': 'bool'}, {'kind': 'bool'}]}",
+    "M2_is_product": true,
+    "M3_module_cost_equals_body_cost": [
+      4.0,
+      4.0
+    ],
+    "M4_module_gradient": "none"
+  },
+  "C_candidate_cost": [
+    {
+      "batch": 8,
+      "primitive_us": 6.58,
+      "module_us": 88.26,
+      "ratio": 13.4,
+      "module_us_per_row": 11.03
+    },
+    {
+      "batch": 16,
+      "primitive_us": 6.42,
+      "module_us": 158.72,
+      "ratio": 24.7,
+      "module_us_per_row": 9.92
+    },
+    {
+      "batch": 32,
+      "primitive_us": 6.4,
+      "module_us": 299.65,
+      "ratio": 46.8,
+      "module_us_per_row": 9.36
+    },
+    {
+      "batch": 64,
+      "primitive_us": 6.46,
+      "module_us": 682.17,
+      "ratio": 105.5,
+      "module_us_per_row": 10.66
+    },
+    {
+      "batch": 128,
+      "primitive_us": 6.85,
+      "module_us": 1262.81,
+      "ratio": 184.4,
+      "module_us_per_row": 9.87
+    }
+  ],
+  "V_per_row_cost": [
+    {
+      "batch": 1,
+      "us_per_row": 22.18
+    },
+    {
+      "batch": 8,
+      "us_per_row": 10.83
+    },
+    {
+      "batch": 64,
+      "us_per_row": 10.66
+    },
+    {
+      "batch": 512,
+      "us_per_row": 9.96
+    }
+  ],
+  "X_crossover": {
+    "body_3_gates": [
+      {
+        "sites": 1,
+        "module_bits": 12512,
+        "flat_bits": 8232,
+        "bits_ratio": 1.52,
+        "module_cost": 3.0,
+        "flat_cost": 3.0,
+        "cost_ratio": 1.0
+      },
+      {
+        "sites": 2,
+        "module_bits": 17728,
+        "flat_bits": 17200,
+        "bits_ratio": 1.031,
+        "module_cost": 7.0,
+        "flat_cost": 7.0,
+        "cost_ratio": 1.0
+      },
+      {
+        "sites": 3,
+        "module_bits": 22944,
+        "flat_bits": 26168,
+        "bits_ratio": 0.877,
+        "module_cost": 11.0,
+        "flat_cost": 11.0,
+        "cost_ratio": 1.0
+      },
+      {
+        "sites": 4,
+        "module_bits": 28192,
+        "flat_bits": 35168,
+        "bits_ratio": 0.802,
+        "module_cost": 15.0,
+        "flat_cost": 15.0,
+        "cost_ratio": 1.0
+      },
+      {
+        "sites": 6,
+        "module_bits": 38720,
+        "flat_bits": 53216,
+        "bits_ratio": 0.728,
+        "module_cost": 23.0,
+        "flat_cost": 23.0,
+        "cost_ratio": 1.0
+      },
+      {
+        "sites": 8,
+        "module_bits": 49248,
+        "flat_bits": 71272,
+        "bits_ratio": 0.691,
+        "module_cost": 31.0,
+        "flat_cost": 31.0,
+        "cost_ratio": 1.0
+      }
+    ],
+    "body_4_gates": [
+      {
+        "sites": 1,
+        "module_bits": 14544,
+        "flat_bits": 10320,
+        "bits_ratio": 1.409,
+        "module_cost": 4.0,
+        "flat_cost": 4.0,
+        "cost_ratio": 1.0
+      },
+      {
+        "sites": 2,
+        "module_bits": 19760,
+        "flat_bits": 21376,
+        "bits_ratio": 0.924,
+        "module_cost": 9.0,
+        "flat_cost": 9.0,
+        "cost_ratio": 1.0
+      },
+      {
+        "sites": 3,
+        "module_bits": 24976,
+        "flat_bits": 32432,
+        "bits_ratio": 0.77,
+        "module_cost": 14.0,
+        "flat_cost": 14.0,
+        "cost_ratio": 1.0
+      },
+      {
+        "sites": 4,
+        "module_bits": 30224,
+        "flat_bits": 43528,
+        "bits_ratio": 0.694,
+        "module_cost": 19.0,
+        "flat_cost": 19.0,
+        "cost_ratio": 1.0
+      },
+      {
+        "sites": 6,
+        "module_bits": 40752,
+        "flat_bits": 65768,
+        "bits_ratio": 0.62,
+        "module_cost": 29.0,
+        "flat_cost": 29.0,
+        "cost_ratio": 1.0
+      },
+      {
+        "sites": 8,
+        "module_bits": 51280,
+        "flat_bits": 88024,
+        "bits_ratio": 0.583,
+        "module_cost": 39.0,
+        "flat_cost": 39.0,
+        "cost_ratio": 1.0
+      }
+    ],
+    "body_8_gates": [
+      {
+        "sites": 1,
+        "module_bits": 22656,
+        "flat_bits": 18656,
+        "bits_ratio": 1.214,
+        "module_cost": 8.0,
+        "flat_cost": 8.0,
+        "cost_ratio": 1.0
+      },
+      {
+        "sites": 2,
+        "module_bits": 27872,
+        "flat_bits": 38048,
+        "bits_ratio": 0.733,
+        "module_cost": 17.0,
+        "flat_cost": 17.0,
+        "cost_ratio": 1.0
+      },
+      {
+        "sites": 3,
+        "module_bits": 33088,
+        "flat_bits": 57448,
+        "bits_ratio": 0.576,
+        "module_cost": 26.0,
+        "flat_cost": 26.0,
+        "cost_ratio": 1.0
+      },
+      {
+        "sites": 4,
+        "module_bits": 38336,
+        "flat_bits": 76904,
+        "bits_ratio": 0.498,
+        "module_cost": 35.0,
+        "flat_cost": 35.0,
+        "cost_ratio": 1.0
+      },
+      {
+        "sites": 6,
+        "module_bits": 48864,
+        "flat_bits": 115896,
+        "bits_ratio": 0.422,
+        "module_cost": 53.0,
+        "flat_cost": 53.0,
+        "cost_ratio": 1.0
+      },
+      {
+        "sites": 8,
+        "module_bits": 59392,
+        "flat_bits": 154888,
+        "bits_ratio": 0.383,
+        "module_cost": 71.0,
+        "flat_cost": 71.0,
+        "cost_ratio": 1.0
+      }
+    ]
+  },
+  "X_equivalence_verified": true,
+  "L_latency": {
+    "abstracted": {
+      "scope": "exact model, typed input through typed output, batch one",
+      "repetitions": 100,
+      "p50_ms": 0.016568,
+      "p95_ms": 0.0172,
+      "description_bits": 19760,
+      "estimated_operator_cost": 9.0
+    },
+    "flat": {
+      "scope": "exact model, typed input through typed output, batch one",
+      "repetitions": 100,
+      "p50_ms": 0.011592,
+      "p95_ms": 0.01184,
+      "description_bits": 21376,
+      "estimated_operator_cost": 9.0
+    }
+  }
+}

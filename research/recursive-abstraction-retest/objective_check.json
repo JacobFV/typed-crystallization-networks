@@ -1,0 +1,14 @@
+{
+  "complexity_term": {
+    "flat_route": 20.43,
+    "module_route": 20.43,
+    "note": "SoftProgram.complexity() over the whole hardened scaffold; equal or higher for the module route means the existing MDL term cannot prefer it"
+  },
+  "pruned_truth": {
+    "flat_execution_cost": 9.0,
+    "module_execution_cost": 9.0,
+    "flat_description_bits": 20800,
+    "module_description_bits": 19496
+  },
+  "mdl_default": "tcn/training.py mdl_weight defaults to 0.0; tcn/synthesis.py::fit has no MDL term at all"
+}

@@ -1,0 +1,188 @@
+{
+  "fixed_tree_no_projection": {
+    "module_definition_bits": 10056,
+    "module_execution_cost": 4.0,
+    "rows": [
+      {
+        "call_sites": 1,
+        "module_bits": 14480,
+        "flat_bits": 10160,
+        "module_cost": 4.0,
+        "flat_cost": 4.0
+      },
+      {
+        "call_sites": 2,
+        "module_bits": 17072,
+        "flat_bits": 18488,
+        "module_cost": 8.0,
+        "flat_cost": 8.0
+      },
+      {
+        "call_sites": 3,
+        "module_bits": 19664,
+        "flat_bits": 26816,
+        "module_cost": 12.0,
+        "flat_cost": 12.0
+      },
+      {
+        "call_sites": 4,
+        "module_bits": 22256,
+        "flat_bits": 35144,
+        "module_cost": 16.0,
+        "flat_cost": 16.0
+      },
+      {
+        "call_sites": 5,
+        "module_bits": 24848,
+        "flat_bits": 43472,
+        "module_cost": 20.0,
+        "flat_cost": 20.0
+      },
+      {
+        "call_sites": 6,
+        "module_bits": 27440,
+        "flat_bits": 51800,
+        "module_cost": 24.0,
+        "flat_cost": 24.0
+      },
+      {
+        "call_sites": 7,
+        "module_bits": 30032,
+        "flat_bits": 60128,
+        "module_cost": 28.0,
+        "flat_cost": 28.0
+      },
+      {
+        "call_sites": 8,
+        "module_bits": 32624,
+        "flat_bits": 68456,
+        "module_cost": 32.0,
+        "flat_cost": 32.0
+      },
+      {
+        "call_sites": 9,
+        "module_bits": 35216,
+        "flat_bits": 76784,
+        "module_cost": 36.0,
+        "flat_cost": 36.0
+      },
+      {
+        "call_sites": 10,
+        "module_bits": 37808,
+        "flat_bits": 85112,
+        "module_cost": 40.0,
+        "flat_cost": 40.0
+      },
+      {
+        "call_sites": 11,
+        "module_bits": 40424,
+        "flat_bits": 93512,
+        "module_cost": 44.0,
+        "flat_cost": 44.0
+      },
+      {
+        "call_sites": 12,
+        "module_bits": 43040,
+        "flat_bits": 101912,
+        "module_cost": 48.0,
+        "flat_cost": 48.0
+      }
+    ],
+    "description_bits_crossover": 2,
+    "execution_cost_crossover": null,
+    "execution_cost_parity": 1
+  },
+  "reconstructed_pre_F1_with_projection": {
+    "module_definition_bits": 10056,
+    "module_execution_cost": 4.0,
+    "rows": [
+      {
+        "call_sites": 1,
+        "module_bits": 19024,
+        "flat_bits": 10160,
+        "module_cost": 6.0,
+        "flat_cost": 4.0
+      },
+      {
+        "call_sites": 2,
+        "module_bits": 26160,
+        "flat_bits": 18488,
+        "module_cost": 12.0,
+        "flat_cost": 8.0
+      },
+      {
+        "call_sites": 3,
+        "module_bits": 33296,
+        "flat_bits": 26816,
+        "module_cost": 18.0,
+        "flat_cost": 12.0
+      },
+      {
+        "call_sites": 4,
+        "module_bits": 40432,
+        "flat_bits": 35144,
+        "module_cost": 24.0,
+        "flat_cost": 16.0
+      },
+      {
+        "call_sites": 5,
+        "module_bits": 47568,
+        "flat_bits": 43472,
+        "module_cost": 30.0,
+        "flat_cost": 20.0
+      },
+      {
+        "call_sites": 6,
+        "module_bits": 54704,
+        "flat_bits": 51800,
+        "module_cost": 36.0,
+        "flat_cost": 24.0
+      },
+      {
+        "call_sites": 7,
+        "module_bits": 61840,
+        "flat_bits": 60128,
+        "module_cost": 42.0,
+        "flat_cost": 28.0
+      },
+      {
+        "call_sites": 8,
+        "module_bits": 68976,
+        "flat_bits": 68456,
+        "module_cost": 48.0,
+        "flat_cost": 32.0
+      },
+      {
+        "call_sites": 9,
+        "module_bits": 76112,
+        "flat_bits": 76784,
+        "module_cost": 54.0,
+        "flat_cost": 36.0
+      },
+      {
+        "call_sites": 10,
+        "module_bits": 83248,
+        "flat_bits": 85112,
+        "module_cost": 60.0,
+        "flat_cost": 40.0
+      },
+      {
+        "call_sites": 11,
+        "module_bits": 90440,
+        "flat_bits": 93512,
+        "module_cost": 66.0,
+        "flat_cost": 44.0
+      },
+      {
+        "call_sites": 12,
+        "module_bits": 97632,
+        "flat_bits": 101912,
+        "module_cost": 72.0,
+        "flat_cost": 48.0
+      }
+    ],
+    "description_bits_crossover": 9,
+    "execution_cost_crossover": null,
+    "execution_cost_parity": null
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "P4b_partial_credit_soft": {
+    "none": 0.88732,
+    "n1": 0.85564,
+    "y": 0.59539,
+    "n1_and_y": 0.50854,
+    "n1_and_n2": 0.71886,
+    "n1_n2_y": 0.07806,
+    "note": "softmax mass ~0.997 on each named choice; the rest stay uniform"
+  },
+  "P7_basin_width": {
+    "per_run": [
+      {
+        "boost": 0.0,
+        "seed": 0,
+        "solved": false,
+        "first_step": null,
+        "final_loss": 0.34909,
+        "picked_module_at": [
+          "n1",
+          "n2"
+        ]
+      },
+      {
+        "boost": 0.0,
+        "seed": 1,
+        "solved": true,
+        "first_step": 110,
+        "final_loss": 0.2297,
+        "picked_module_at": [
+          "n1",
+          "n2"
+        ]
+      },
+      {
+        "boost": 0.0,
+        "seed": 2,
+        "solved": false,
+        "first_step": null,
+        "final_loss": 0.35147,
+        "picked_module_at": [
+          "n1",
+          "n2"
+        ]
+      },
+      {
+        "boost": 0.5,
+        "seed": 0,
+        "solved": false,
+        "first_step": null,
+        "final_loss": 0.3493,
+        "picked_module_at": [
+          "n1",
+          "n2"
+        ]
+      },
+      {
+        "boost": 0.5,
+        "seed": 1,
+        "solved": true,
+        "first_step": 90,
+        "final_loss": 0.09999,
+        "picked_module_at": [
+          "n1",
+          "n2"
+        ]
+      },
+      {
+        "boost": 0.5,
+        "seed": 2,
+        "solved": false,
+        "first_step": null,
+        "final_loss": 0.35184,
+        "picked_module_at": [
+          "n1",
+          "n2"
+        ]
+      },
+      {
+        "boost": 1.0,
+        "seed": 0,
+        "solved": true,
+        "first_step": 40,
+        "final_loss": 0.50006,
+        "picked_module_at": [
+          "n1",
+          "n2"
+        ]
+      },
+      {
+        "boost": 1.0,
+        "seed": 1,
+        "solved": true,
+        "first_step": 70,
+        "final_loss": 0.21054,
+        "picked_module_at": [
+          "n1",
+          "n2"
+        ]
+      },
+      {
+        "boost": 1.0,
+        "seed": 2,
+        "solved": false,
+        "first_step": null,
+        "final_loss": 0.35125,
+        "picked_module_at": [
+          "n1",
+          "n2"
+        ]
+      },
+      {
+        "boost": 1.5,
+        "seed": 0,
+        "solved": true,
+        "first_step": 40,
+        "final_loss": 0.52925,
+        "picked_module_at": [
+          "n1",
+          "n2"
+        ]
+      },
+      {
+        "boost": 1.5,
+        "seed": 1,
+        "solved": true,
+        "first_step": 10,
+        "final_loss": 0.60616,
+        "picked_module_at": [
+          "n1",
+          "n2"
+        ]
+      },
+      {
+        "boost": 1.5,
+        "seed": 2,
+        "solved": true,
+        "first_step": 70,
+        "final_loss": 0.3048,
+        "picked_module_at": [
+          "n1",
+          "n2"
+        ]
+      },
+      {
+        "boost": 2.0,
+        "seed": 0,
+        "solved": true,
+        "first_step": 30,
+        "final_loss": 0.55052,
+        "picked_module_at": [
+          "n1",
+          "n2"
+        ]
+      },
+      {
+        "boost": 2.0,
+        "seed": 1,
+        "solved": true,
+        "first_step": 10,
+        "final_loss": 0.60923,
+        "picked_module_at": [
+          "n1",
+          "n2"
+        ]
+      },
+      {
+        "boost": 2.0,
+        "seed": 2,
+        "solved": true,
+        "first_step": 50,
+        "final_loss": 0.39646,
+        "picked_module_at": [
+          "n1",
+          "n2"
+        ]
+      },
+      {
+        "boost": 3.0,
+        "seed": 0,
+        "solved": true,
+        "first_step": 0,
+        "final_loss": 0.65924,
+        "picked_module_at": [
+          "n1",
+          "n2"
+        ]
+      },
+      {
+        "boost": 3.0,
+        "seed": 1,
+        "solved": true,
+        "first_step": 0,
+        "final_loss": 0.65014,
+        "picked_module_at": [
+          "n1",
+          "n2"
+        ]
+      },
+      {
+        "boost": 3.0,
+        "seed": 2,
+        "solved": true,
+        "first_step": 0,
+        "final_loss": 0.71641,
+        "picked_module_at": [
+          "n1",
+          "n2"
+        ]
+      }
+    ],
+    "by_boost": {
+      "0.0": {
+        "solved": 1,
+        "of": 3,
+        "median_final_loss": 0.34909
+      },
+      "0.5": {
+        "solved": 1,
+        "of": 3,
+        "median_final_loss": 0.3493
+      },
+      "1.0": {
+        "solved": 2,
+        "of": 3,
+        "median_final_loss": 0.35125
+      },
+      "1.5": {
+        "solved": 3,
+        "of": 3,
+        "median_final_loss": 0.52925
+      },
+      "2.0": {
+        "solved": 3,
+        "of": 3,
+        "median_final_loss": 0.55052
+      },
+      "3.0": {
+        "solved": 3,
+        "of": 3,
+        "median_final_loss": 0.65924
+      }
+    },
+    "note": "boost is added to the logit of each of the three correct choices before training; boost 0.0 is the experiment's own initialization"
+  }
+}

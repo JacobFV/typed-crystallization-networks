@@ -1,0 +1,28 @@
+{
+  "D1_batch_one": {
+    "module_call_batch1_us": 107.93,
+    "primitive_relaxed_batch1_us": 19.06,
+    "primitive_exact_tensor_batch1_us": 64.55,
+    "ratio_vs_relaxed_primitive": 5.7,
+    "ratio_vs_exact_primitive": 1.7
+  },
+  "D2_memoization": {
+    "validate_us": 63.57,
+    "memoized_run_us": 10.73,
+    "reconstructed_prefix_run_us": 74.3,
+    "speedup_from_memoization": 6.93,
+    "validation_is_memoized": true
+  },
+  "D3_residual": {
+    "module_batch64_us": 1439.76,
+    "per_row_us": 22.5,
+    "pure_body_run_us_x64": 686.56,
+    "fraction_in_body_execution": 0.477
+  },
+  "D4_dedup": {
+    "batch_rows": 64,
+    "distinct_argument_rows": 8,
+    "measured_us": 1429.67,
+    "potential_speedup_from_dedup": 8.0
+  }
+}
