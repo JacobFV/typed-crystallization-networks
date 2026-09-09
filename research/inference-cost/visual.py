@@ -128,7 +128,7 @@ def main():
               'module_build_seconds': build_s,
               'size': size_report(parser, registry),
               'episodes': rows, 'fixable': fixed, 'peak_rss_mb': rss_mb()}
-    dump('visual', report)
+    dump('parse', report)
 
 
 if __name__ == '__main__':

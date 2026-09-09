@@ -1703,3 +1703,45 @@ confirmed to affect the exported artifact as well as the reported size.
 
 Both numbers belong in any efficiency claim, side by side. Quoting 117 MB
 understates the method and quoting 0.57 MB overstates what currently ships.
+
+## 36. The complete inference path, measured honestly
+
+`research/inference-cost/RESULTS.md`. This is the measurement the project's
+central claim rests on, and both prior attempts at it were wrong (section 6, and
+the 0.0487 ms figure that excluded everything around the program).
+
+**Batch-one, complete path:** mixed **0.016 ms** (4 operations); language
+**4.06 ms** (164); computer **981 ms per step**, of which the frozen program is
+**13.2 ms** and the live OS is **968 ms**; the visual parse **15.4 s** (64,346
+operations). Deployed as `.pyz` under `python3 -I` with no torch and no
+repository installed: **19-60 MB RSS, 51-410 ms cold start**, every artifact
+correct.
+
+**Where the time goes, and it is not the method.** Verified independently here
+from `out/profile.json`: `Type.decode`, `Type.encode`, `validate_raw` and their
+guards account for **97.7%** of execution, while **operator semantics plus the
+graph walk are 0.32 s of 56.87 s — 0.56%**. Cost is roughly 3.5 us plus 0.07 us
+per element of the widest value on an edge, so `execution_cost` is **blind to the
+dominant term** and every cost figure in this repository has been measuring the
+wrong thing. Two caches give 3.4x with bit-identical outputs; interning `Type` at
+load gives 4.1x on the exported path.
+
+**Size resolves the same way.** `visual.pyz` is 117.7 MB of which **99.68% is
+repeated type declarations**; the program itself is 41 KB, its constants 4.6 KB,
+and the **learned content is 21.3 bits**. It gzips to 149 KB, consistent with the
+206x compression measured in section 35.
+
+**The honest claim, in the track's own words:** after crystallization the
+artifact is ordinary software — hundreds of typed nodes, tens of KB, no
+framework, no accelerator, tens of MB of RAM — **and today it runs 146x to
+90,400x slower than the same function written in plain Python**, for causes
+measured to be caching and serialization rather than the method.
+
+**And the claim that is not yet supported:** no matched neural baseline exists
+for the visual, computer or language artifacts, so **"cheaper than a model"
+remains unmeasured for all three**. Only the mixed fixture has one, and section 6
+already recorded that it ties a 625-parameter MLP.
+
+This is the most useful negative in the record. The efficiency argument is
+currently unproven, the cause is identified precisely, and the fix is bounded
+engineering with measured speedups already in hand.

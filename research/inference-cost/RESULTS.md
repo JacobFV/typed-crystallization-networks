@@ -41,15 +41,20 @@ mechanical changes.  The remaining 4.5 s is still 26,000× a plain-Python parse
 that returns the identical 19 rectangles in **0.17 ms**.
 
 **3. The exported artifact's size is a serialization artifact, decisively.**
-`visual.pyz` is **117.7 MB** — large enough that a push of it was rejected.  Of
-its minified JSON, **99.68% is repeated type declarations**: a 3,072-position
+`visual.pyz` is **117.7 MB** — large enough that a push of it was rejected — and
+the program inside it is **611 typed nodes, 24 operators, 41 KB of node and
+operator declarations, 4.6 KB of constants and 21.3 bits of learned selection**.
+**99.68% of its minified JSON is repeated type declarations**: a 3,072-position
 raster is a `tuple` whose 3,072 item types are each written out as a separate
-JSON object, at every node and every operator signature that touches it.  The
-node and operator declarations — the program — are **41 KB**, the constants
-**4.6 KB**, and the whole file **gzips to 145 KB, 830× smaller**.  A further
-71% of the file is `json.dumps(indent=2)` whitespace that `zipapp`'s default
-`compressed=False` then stores verbatim.  This is FINDINGS §6's
-`description_bits`-measures-JSON-verbosity fault, in the shipped artifact.
+JSON object, at every node and every operator signature that touches it.  A
+further 71% of the file on top of that is `json.dumps(indent=2)` whitespace,
+which `zipapp`'s default `compressed=False` then stores verbatim.  The file
+`gzip -9`s to **0.573 MiB** as shipped and to **149 KB** if minified first —
+206× and 830×.  Compression ratio rises monotonically with declared observation
+width across the four artifacts (3.6× → 48× → 170× → 206×), which is what
+repeated type declarations look like and is not something distinct learned
+content could do.  This is FINDINGS §3's (track 6's)
+`description_bits`-measures-JSON-verbosity fault, now in the shipped artifact.
 
 The honest one-line claim is at the bottom of §9.
 
@@ -81,13 +86,13 @@ render.  `encode` is `Value.of` building the typed carrier.  `execute` is
 | mixed | — (inputs given) | 0.0022 ms | **0.0138 ms** | 0.0004 ms | **0.0163 ms** | 4 | 3.4 |
 | language | 1.312 ms | 0.087 ms | **2.666 ms** | 0.0001 ms | **4.061 ms** | 164 | 16.3 |
 | visual | 4.92 ms | 1.78 ms | **15,364 ms** | 0.023 ms | **15,371 ms** | 64,346 | 238.8 |
-| computer *(per agent step)* | **967.85 ms** *(live kernel)* | \|— 13.23 ms —\| | | | **981.1 ms** | 46 | 287.6 |
+| computer *(per agent step)* | **967.85 ms** *(live kernel)* | — | **13.23 ms** *(encode + two full passes + decode + action binding, not separable without editing `tcn/`)* | — | **981.1 ms** | 46 | 287.6 |
 
 `tcn/agent.py:Agent.act` runs the program **twice** per environment step — once
 to choose the action, once to commit the executed action to state — so the
 computer row's 13.23 ms and 46 operator applications are both for two full
 passes.  Its encode/execute/decode cannot be split further without editing
-`tcn/`, so they are bracketed.
+`tcn/`, so they are reported as one cell.
 
 **What §9's recorded 0.0487 ms was.**  It is the `execute` cell of the mixed row
 and nothing else.  The complete path on the same machine is **0.0163 ms** in
@@ -197,9 +202,13 @@ re-measured here:
 **No matched neural baseline exists for visual, computer or language, and none
 was built here.**  That is a real gap and it is the most important missing
 reference in this report: the efficiency claim for the three capabilities that
-actually work is currently TCN-versus-plain-Python only.  What a matched network
-would have to be given (the same raster, the same prompt bytes, the same live
-terminal, the same probe channels) is specified in §7.
+actually work is currently TCN-versus-plain-Python only.  A fair one would have
+to see exactly what the program sees and nothing more — for visual, the same
+3,072-byte raster with `hierarchy` as the only supervision; for language, the
+same 128-byte prompt with the `answer` probe; for computer, the same terminal
+observation with `reference_byte` and `reference_action` — and be given the same
+budget.  Until those exist, no claim in this repository about TCN being cheaper
+*than a model* is supported for these three capabilities.
 
 ### 4.3 The exported `.pyz` under `python3 -I` — what a deployment ships
 
@@ -217,12 +226,36 @@ serializing the JSON reply, i.e. the transport §9 omitted.
 | computer | 11.6 MB | 409.7 ms | 48.6 ms (n=20) | 609 KB / 118 KB | 60.4 MB |
 | visual | 117.7 MB | **5,179 ms** | **66,557 ms** (n=1) | 410 KB / 1.4 KB | **377.5 MB** |
 
-The `.pyz` beats the in-process figure for **mixed** (0.035 ms against 0.0163 ms
-in process is *worse* — the difference is JSON transport) and loses badly for
-**computer** (48.6 ms against 13.2 ms), where 609 KB of JSON per input has to be
-parsed and re-validated before the 46 operators run.  Transport is a first-class
+The `.pyz` is **slower than the in-process path everywhere**, and the gap grows
+with declared type width: mixed 0.035 ms against 0.0163 ms (2.1×), language
+7.64 ms against 4.06 ms (1.9×), computer 48.6 ms against 13.2 ms (3.7×), visual
+66.6 s against 15.4 s (4.3×).  Two causes, both measured: 609 KB of JSON per
+input has to be parsed and re-validated before computer's 46 operators run, and
+§4.3.1's type-identity effect.  Transport is a first-class
 cost of this deployment shape, and it scales with declared type width for
-exactly the reason §6 gives.
+exactly the reason §5.1 gives.
+
+### 4.3.1 The exported artifact is 4× slower than the same program in process
+
+Visual's `.pyz` inference is **66.6 s** against **15.4 s** in process.  That gap
+is not the interpreter version.  Rebuilding the artifact through `load_program`
+and running it **under the repository's own Python 3.13**, on the identical
+input, with the parsed rectangle set checked identical, reproduces it:
+
+| arm | parse latency | rectangles |
+|---|---|---|
+| live objects | 16,219 ms | 19 |
+| reloaded via `load_program` (same interpreter) | **66,127 ms** | 19, identical |
+| slowdown | **4.08×** | |
+
+`Type.from_dict` allocates a fresh object per occurrence, so two structurally
+equal types are no longer the same object.  `Registry.exact` opens with
+`tuple(v.type for v in args) != op.inputs`, which is an identity hit on the live
+graph and a **deep structural compare of a 3,072-element tuple type** on the
+reloaded one.  Interning types at load — one dictionary keyed by the type's own
+canonical JSON — recovers the 4× and is the same fix as §5.1's shared type
+table, seen from the runtime side.  `load_program` itself costs a further
+3,285 ms on this artifact.
 
 ---
 
@@ -264,6 +297,33 @@ and the evidence is not close.**
 | —— constant payloads | 4,595 | 0.01% of minified |
 | the same artifact, gzipped | **148,602** | **0.12%** |
 
+### 5.1.1 The control that settles it: compression ratio rises with declared width
+
+`gzip -9` over each whole `.pyz` (measured independently by the supervising
+session; not re-measured here), beside this track's byte decomposition:
+
+| artifact | declared observation width | `.pyz` | `gzip -9` of the `.pyz` | ratio | interpreter source inside the `.pyz` | minified-then-gzipped artifact JSON |
+|---|---|---|---|---|---|---|
+| mixed | 1 float | 0.043 MiB | 0.012 MiB | **3.6×** | 39,417 B | **451 B** |
+| language | 129 elements | 1.49 MiB | 0.031 MiB | **48×** | 39,417 B | **6,289 B** |
+| computer | 4,097 elements | 11.63 MiB | 0.069 MiB | **170×** | 39,417 B | **15,207 B** |
+| visual | 3,072 elements | 117.71 MiB | 0.573 MiB | **206×** | 39,417 B | **148,602 B** |
+
+**Mixed is the control and it behaves like ordinary JSON**: 3.6×, because its
+45 KB file is 87% the tcn interpreter's own Python source (39,417 B, identical
+in all four artifacts) and only 2 KB of program.  The ratio then rises with how
+much *type declaration* the file contains — 48×, 170×, 206× — which is what
+repeated type declarations look like and is not something distinct learned
+content could do.  (The driver is width × number of mentions, not width alone:
+computer declares the wider type, 4,097 against 3,072, but visual has 611 nodes
+to computer's 23 and so names its wide type far more often.)  Combined with
+§5.1's direct decomposition
+(99.68% of visual's minified JSON is type declarations, 0.12% is the program),
+hypothesis (2), *genuine program size*, is excluded.
+
+The last column shows the two fixes compose: dropping `indent=2` **before**
+compressing takes visual from 0.573 MiB to **149 KB**, another 4×.
+
 The mechanism: `bytes_type(32,32)` is a `tuple` with 3,072 item types, and
 `Type.to_dict` writes every one of them as its own JSON object — at each node's
 `output`, at each candidate operator's `inputs` and `output`, and at each
@@ -288,9 +348,9 @@ that is 99.7% repeated type declarations and gzips to 149 KB.*
 
 ### 5.2 What `description_bits` is worth as a measure
 
-It disagrees with every other measure of the same artifact by two to three
-orders of magnitude, in a direction set by the declared *input width* rather
-than by anything the search found:
+It disagrees with every other measure of the same artifact by two to seven
+orders of magnitude, in a direction set by how often the program's declared
+types are spelled out rather than by anything the search found:
 
 | artifact | `description_bits` ÷ gzip bits | `description_bits` ÷ learned bits |
 |---|---|---|
@@ -346,8 +406,8 @@ efficiency claim depends entirely on its scope.
 2. **The parse is not even complete on its own benchmark.**  Rectangles are
    215/215, but parent links are **173/215**, the root is *supplied*, and the
    comparison is rectangle-not-id.  All 42 wrong links are colour-key collisions
-   (`research/visual-ladder/RESULTS.md` §0).  A good latency figure for an 80%
-   parse is not a good latency figure for a parse.
+   (`research/visual-ladder/RESULTS.md` §0).  A good latency figure for a parse
+   whose links are 80% right is not a good latency figure for a parse.
 3. **A 46-operator agent step is not computer use.**  The computer artifact
    decides between three action templates on a one-line file.  It reaches 10/10
    on held-out documents of that exact shape.  It is not a general
@@ -378,10 +438,13 @@ efficiency claim depends entirely on its scope.
 .venv/bin/python research/inference-cost/pyz.py           # export + python3 -I deployment rows
 .venv/bin/python research/inference-cost/sizes.py         # .pyz size decomposition
 .venv/bin/python research/inference-cost/profile_path.py  # where execution time goes (~2 min)
+.venv/bin/python research/inference-cost/reload_cost.py   # live objects vs load_program (~3 min)
 ```
 
-`out/*.json` holds every figure above.  `out/*.pyz` are gitignored: regenerate
-them with `pyz.py` before running `sizes.py`.
+`out/*.json` holds every figure above (the parse's are in `out/parse.json`).
+`out/*.pyz` (131 MB together) and `out/visual_reload.json` (118 MB) are
+gitignored; regenerate them with `pyz.py` and `reload_cost.py` before running
+`sizes.py`.
 
 | file | what it measures |
 |---|---|
@@ -393,9 +456,68 @@ them with `pyz.py` before running `sizes.py`.
 | `pyz.py` | export, cold start, transport, amortized inference, peak RSS under `python3 -I` |
 | `sizes.py` | exact byte decomposition of each `.pyz` by role |
 | `profile_path.py` | `cProfile` of one parse, grouped by role |
+| `reload_cost.py` | the same program as live objects vs reloaded through `load_program` |
 
 ---
 
 ## 9. The claim, scoped so it can be defended
 
-FINAL_CLAIM_PLACEHOLDER
+### What is measured
+
+A crystallized TCN program is **ordinary software**.  All four artifacts run to
+correct output on a stock `/usr/bin/python3 -I` — no torch, no numpy, no
+repository, no virtualenv, no accelerator, no network:
+
+* **mixed** — 4 typed nodes, 4 operators, **6.6 bits** of learned selection, a
+  **45 KB** file, **0.035 ms** per answer including JSON transport, **50.7 ms**
+  cold start, **18.9 MB** peak RSS (9.4 MB of which is CPython itself).
+* **language** — 89 typed nodes, 9 operators, **28.8 bits** learned, **6.3 KB**
+  of compressed content, **7.6 ms** per answer, **90.6 ms** cold start,
+  **23.8 MB** peak RSS, 1.000 accuracy at string lengths never trained on.
+* **computer** — 23 typed nodes, 14 operators, **21.7 bits** learned, **15 KB**
+  compressed, **13.2 ms** of program per agent step against **968 ms** of
+  operating system, **60.4 MB** peak RSS, 10/10 held out.
+* **visual** — 611 typed nodes, 24 operators, **21.3 bits** learned, **149 KB**
+  compressed, **15.4 s** per 32×32 screen, **377 MB** peak RSS from a 117.7 MB
+  JSON envelope that is 99.7% repeated type declarations.
+
+### What is not measured
+
+That any of this is cheaper than a neural network at the same task.  Track 6
+built matched baselines for the two toy fixtures only; for the parse, the agent
+and the language program **no matched neural baseline exists in this repository
+and none was built here**.  Against the reference that *was* measured — the same
+function hand-written in plain Python, checked to produce identical output —
+every artifact is **146× to 90,400× slower**, and 97.7% of that is the value
+layer re-encoding whole observations at every graph edge.
+
+### The sentence that can be defended in front of a funder
+
+> *After crystallization the artifact is ordinary software: a few hundred typed
+> nodes and tens of kilobytes of program, running on a stock Python interpreter
+> with no framework, no accelerator and tens of megabytes of RAM.  It is not yet
+> fast — today it costs two to five orders of magnitude more than the same
+> function written directly in Python — and the measured causes are an uncached
+> value decode, a re-validated carrier and a JSON type spelling, not anything
+> about the method.*
+
+Anything shorter than that overclaims.  In particular, **"tasks people assume
+require a billion-parameter model run on a light desktop" is not established by
+this report**: the deployment footprint claim is measured and survives, the
+*efficiency* claim is measured and currently fails against plain Python, and the
+*capability* claim is scoped by §7 to four small, synthetic, specialised tasks.
+
+### What would have to change, in cost order
+
+| fix | measured effect | where |
+|---|---|---|
+| memoize `Value.decoded` | 2.3× faster execution, outputs bit-identical | §3.1 |
+| skip revalidating interpreter-produced carriers | 3.4× cumulative | §3.1 |
+| intern `Type` objects at `load_program` | 4.1× on the exported path | §4.3.1 |
+| `save_program` without `indent=2` | −71% of artifact bytes | §5.1 |
+| `zipapp.create_archive(compressed=True)` | −99.6% of `.pyz` bytes | §5.1 |
+| a shared type table keyed by canonical type | collapses the remaining 99.7% | §5.1 |
+| build a matched neural baseline for visual / computer / language | closes the one reference this report is missing | §4.2 |
+
+None of these is research.  All of them are engineering, and the first three are
+measured here to work.
