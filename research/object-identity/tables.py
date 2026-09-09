@@ -19,11 +19,16 @@ def f(x, n=4):
     return "--" if x is None else (f"{x:.{n}f}" if isinstance(x, float) else str(x))
 
 
+def cell(x):
+    """Escape pipes: an unescaped one inside a cell silently splits the column."""
+    return str(x).replace("|", "\\|")
+
+
 def table(header, rows):
-    out = ["| " + " | ".join(header) + " |",
+    out = ["| " + " | ".join(cell(h) for h in header) + " |",
            "|" + "|".join("---" for _ in header) + "|"]
     for r in rows:
-        out.append("| " + " | ".join(str(x) for x in r) + " |")
+        out.append("| " + " | ".join(cell(x) for x in r) + " |")
     return "\n".join(out)
 
 

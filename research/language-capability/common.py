@@ -24,10 +24,11 @@ def episode(seed: int, split: str = 'train', capacity: int = CAPACITY):
     con = r.latent_states['construction']
     ans = read_text(r.probes['answer'])
     string = read_text(Value(con.type.items[1].items[1], con.raw[1][1]))
+    depth = Value(con.type.items[0].items[1], con.raw[0][1]).decoded
     prompt = read_text(text)
     return {'seed': seed, 'split': split, 'text': text, 'prompt': prompt,
             'string': string, 'answer': ans, 'label': ans == 'yes',
-            'length': len(string), 'offset': prompt.index(string),
+            'length': len(string), 'depth': depth, 'offset': prompt.index(string),
             'prompt_bytes': len(prompt.encode('utf8'))}
 
 def dataset(n, seed0=0, split='train', capacity=CAPACITY):
@@ -42,3 +43,16 @@ def balanced(s: str) -> bool:
 
 def counts_match(s: str) -> bool:
     return s.count('(') == s.count(')')
+
+
+def synthetic_text(symbols: str, capacity: int = CAPACITY):
+    """A prompt in the lesson's own single template, with an arbitrary symbol string.
+
+    Off-distribution by construction: it is used only to interrogate an exported
+    program on strings the generator cannot emit, never as training or as a
+    reported accuracy on the lesson.
+    """
+    from tcn.generation import text_value
+    prompt = (PREFIX + symbols +
+              '.\nIs string balanced?\n\nAnswer with exactly one of: yes | no\nReply with the answer only.')
+    return text_value(prompt, capacity), prompt

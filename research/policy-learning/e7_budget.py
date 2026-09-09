@@ -1,7 +1,7 @@
 """E7: return against environment-episode budget, for the arms that matter."""
 from run_arms import main
 BUDGETS = (100, 200, 400, 800, 1200, 1600, 2000, 4000)
-def cfg(**kw): return dict(episodes=1, horizon=4, lr=.04, w_actor=1., w_value=.5, w_entropy=.01, **kw)
+def cfg(**kw): return dict(dict(horizon=4, lr=.04, w_actor=1., w_value=.5, w_entropy=.01), **kw)
 ARMS = {}
 for e in BUDGETS:
     ARMS[f'P1_rewardonly_{e}']      = {'policy_init':'zero','cfg':cfg(episodes=e)}

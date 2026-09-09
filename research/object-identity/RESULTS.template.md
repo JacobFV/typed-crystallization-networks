@@ -637,6 +637,24 @@ appearance carry it -- fixed per-object colours, or a persistent texture -- and
 
 ## 8. Threats to validity
 
+### 8.0 Hand-initialization, stated, ablated and certified
+
+`AGENTS.md` requires every hand-initialization to be named, ablated and, where
+possible, certified.  Everything supplied by hand in this track, and what
+happens without it:
+
+| supplied | where | ablation / certificate |
+|---|---|---|
+| the module *shape*: read your own pixel and one at a searched offset, form three cross products, combine with two searched truth tables | `collinear_scaffold` docstring | not ablated; this is the scaffold, and section 8's first bullet is the caveat.  Its free choices are searched from nothing: enumeration has no initialization at all. |
+| the *threshold pool* | `THRESHOLDS` in `rung4_segment.py` | **ablated directly** -- section 3.3 replaces the 8-value pool with all 512 values and the answer changes, from held-out max error {{direct_lex_err}} to {{wide_val_err}} |
+| the *offset pool* {+1 pixel, +2 pixels, +1 row} | `offsets()` | the search picks `+1 pixel` from three, exhaustively; not pinned in any reported arm except the one row of section 4.5 that says it is |
+| the *frozen stage-1 module* | section 3.4 | the direct arm freezes nothing and reaches the same target, so staging is not load-bearing here |
+| **no** initialization of any choice logit | -- | every discrete result is from exhaustive enumeration, which starts from nothing and reports whether the space was exhausted.  That is the certificate `AGENTS.md` asks for: the answer provably lies in the declared space |
+
+The gradient arms are the only ones with an initialization at all
+(`init_noise = 0.5`, because the shipped `fit` cannot vary a seed), and none of
+them is the source of a positive claim.
+
 * **Scaffold authorship.**  The collinearity module was written knowing the
   renderer multiplies a base colour by a scalar shade.  The *bound* in section
   2.4 was computed before the search and does not depend on the scaffold, but

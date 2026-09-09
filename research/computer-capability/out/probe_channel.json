@@ -1,0 +1,248 @@
+{
+  "actor_view_keys": [
+    "pixels",
+    "terminal"
+  ],
+  "information_content": {
+    "distinct_content_0_series": 5,
+    "distinct_state_counts_series": 1,
+    "documents": [
+      "count = 0",
+      "count = 3",
+      "count = 7",
+      "total = 4",
+      "x = 9"
+    ],
+    "series": {
+      "count = 0": {
+        "content_0": [
+          "count = 0",
+          "count = 0"
+        ],
+        "filesystem_size": [
+          24,
+          24
+        ],
+        "state_counts": [
+          [
+            4.0,
+            0.0,
+            2.0
+          ],
+          [
+            4.0,
+            0.0,
+            2.0
+          ]
+        ]
+      },
+      "count = 3": {
+        "content_0": [
+          "count = 3",
+          "count = 3"
+        ],
+        "filesystem_size": [
+          24,
+          24
+        ],
+        "state_counts": [
+          [
+            4.0,
+            0.0,
+            2.0
+          ],
+          [
+            4.0,
+            0.0,
+            2.0
+          ]
+        ]
+      },
+      "count = 7": {
+        "content_0": [
+          "count = 7",
+          "count = 7"
+        ],
+        "filesystem_size": [
+          24,
+          24
+        ],
+        "state_counts": [
+          [
+            4.0,
+            0.0,
+            2.0
+          ],
+          [
+            4.0,
+            0.0,
+            2.0
+          ]
+        ]
+      },
+      "total = 4": {
+        "content_0": [
+          "total = 4",
+          "total = 4"
+        ],
+        "filesystem_size": [
+          24,
+          24
+        ],
+        "state_counts": [
+          [
+            4.0,
+            0.0,
+            2.0
+          ],
+          [
+            4.0,
+            0.0,
+            2.0
+          ]
+        ]
+      },
+      "x = 9": {
+        "content_0": [
+          "x = 9",
+          "x = 9"
+        ],
+        "filesystem_size": [
+          24,
+          24
+        ],
+        "state_counts": [
+          [
+            4.0,
+            0.0,
+            2.0
+          ],
+          [
+            4.0,
+            0.0,
+            2.0
+          ]
+        ]
+      }
+    }
+  },
+  "leak_check": [],
+  "privileged_keys_absent_from_actor_view": [
+    "content_0",
+    "content_0_present",
+    "event_count",
+    "file_count",
+    "filesystem",
+    "goal_reached",
+    "process_count",
+    "processes",
+    "state_counts"
+  ],
+  "probe_types": {
+    "content_0": {
+      "capacity": 0,
+      "kind": "tuple",
+      "width": 65
+    },
+    "content_0_present": {
+      "capacity": 0,
+      "kind": "bool",
+      "width": 1
+    },
+    "filesystem": {
+      "capacity": 24,
+      "kind": "set",
+      "width": 168
+    },
+    "goal_reached": {
+      "capacity": 0,
+      "kind": "bool",
+      "width": 1
+    },
+    "processes": {
+      "capacity": 8,
+      "kind": "set",
+      "width": 40
+    },
+    "state_counts": {
+      "capacity": 0,
+      "kind": "tuple",
+      "width": 3
+    }
+  },
+  "seconds": 22.780101751966868,
+  "trace": [
+    {
+      "content_0": "count = 7",
+      "content_0_present": true,
+      "filesystem": 24,
+      "goal_reached": false,
+      "latents": {
+        "event_count": 1,
+        "file_count": 46,
+        "process_count": 8
+      },
+      "processes": 8,
+      "reward": 0,
+      "state_counts": [
+        4.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "content_0": "count = 7",
+      "content_0_present": true,
+      "filesystem": 24,
+      "goal_reached": false,
+      "latents": {
+        "event_count": 2,
+        "file_count": 46,
+        "process_count": 8
+      },
+      "processes": 8,
+      "reward": 0.0,
+      "state_counts": [
+        4.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "content_0": "8",
+      "content_0_present": true,
+      "filesystem": 24,
+      "goal_reached": true,
+      "latents": {
+        "event_count": 3,
+        "file_count": 46,
+        "process_count": 8
+      },
+      "processes": 8,
+      "reward": 1.0,
+      "state_counts": [
+        4.0,
+        0.0,
+        3.0
+      ]
+    },
+    {
+      "content_0": "8",
+      "content_0_present": true,
+      "filesystem": 24,
+      "goal_reached": true,
+      "latents": {
+        "event_count": 4,
+        "file_count": 47,
+        "process_count": 9
+      },
+      "processes": 8,
+      "reward": 1.0,
+      "state_counts": [
+        4.0,
+        0.0,
+        5.0
+      ]
+    }
+  ]
+}

@@ -833,3 +833,56 @@ modules, because most of the "5 gates where 4 suffice" surcharge is redundant
 and reports how many conforming programs it found, so declaration order no longer
 decides between equivalent candidates; on a space holding both routes it returns
 the 3-node 19,496-bit program where `order` returns the 5-node 23,944-bit one.
+
+## 18. A GUI generator, rung one with a certificate, and a severing bug
+
+Full detail in `research/gui-hierarchy/RESULTS.md`.
+
+`generators/gui/` renders a widget tree to raw pixels and emits the tree as a
+probe: `hierarchy : set[(id, parent, kind, x, y, w, h)]` at declared capacity —
+the same depth-independent relation that solved depth generalization, one type
+at 2 widgets and at 24. Replay, snapshot/restore and save/load all reproduce the
+digest, including after `focus` and `press` actions.
+
+**Recoverability was bounded before searching, and two exceptions are
+certified.** Widget edges are exactly determined by a two-pixel neighbourhood in
+the flat configuration (oracle 1.0000 against a 0.8261 majority), and **not**
+determined with borders on, where the bound over the three `eq` bits the algebra
+can write equals the majority baseline **exactly** — advantage 0.0000, so no
+two-pixel program can beat a constant there. The search agrees: zero conforming
+programs at exactly those settings. Widget `kind` is not determined by colour
+(0.4620 against 0.2982) — the `geometry` trap, deliberately available and
+measured. The parent relation is exactly determined by geometry alone, 1.0000 at
+32, 155 and 368 widgets with zero ties.
+
+**Rung one learned with a certificate.** Three arms over the true ownership
+boundary, all exhausted (1,280 / 13,056 / 81,920 programs), each returning one
+distinct Boolean function with the correct offset and held-out max error 0.0,
+against a random control of 0/400. Both hand-supplied priors ablate away — the
+wider spaces reach the identical function — which is exactly the enumeration
+certificate the hand-initialization rule now asks for. The module is hardened,
+registered, applied at every position by three caller nodes at max error 0.0,
+and then **chosen** by a second program over a same-shaped distractor.
+
+**The agent caught two of its own dial faults**, reproducing the F-bench trap:
+requesting 12 widgets at `min_size 6` achieves 3, the same as requesting 6; and
+a palette prefix that varied only the last channel changed the rung-1 result
+when fixed, so the first run was discarded. `palette_levels` is reported
+honestly as a gradient dial rather than a difficulty dial.
+
+**A severing bug in `SoftProgram`, verified independently here.** Line 103 marks
+every node with `selected` set as frozen, and the forward pass then evaluates it
+through `exact_tensor(...).detach()`. So a node hand-wired with `selected=0` —
+the natural way to express fixed plumbing whose operator is already decided —
+**severs the gradient to everything upstream of it**. Confirmed directly: a
+trainable constant feeding a `mul` through an identity node receives
+`tensor([1.])` when the node is left unselected and `None` when it carries
+`selected=0`.
+
+This is a correctness bug, not a design choice. A frozen *module* boundary
+should stop gradients, per section 4. A single-candidate node inside a scaffold
+under training should not: its choice is fixed, but its value path should remain
+differentiable whenever the operator declares a relaxation. It plausibly
+explains gradient-arm failures in several tracks, and it is the highest-priority
+core fix outstanding. The shipped `examples/` do not set `selected`, so their
+recorded numbers are unaffected.

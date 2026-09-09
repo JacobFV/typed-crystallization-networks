@@ -33,6 +33,36 @@ try {
   const files=runtime.listFiles(computer);
   const snapshot=runtime.snapshot();
   // Host storage paths are transport details, never semantic state or observations.
-  const result={output,files,prompt:runtime.getPrompt(computer),snapshot,trajectory:runtime.trajectory.snapshot()};
+  const result:any={output,files,prompt:runtime.getPrompt(computer),snapshot,trajectory:runtime.trajectory.snapshot()};
+  // Gated privileged view of kernel state, for probe and latent supervision only.
+  // Absent unless `request.probe` is supplied, so the default transport payload is
+  // byte-identical to the payload produced before this channel existed. Reads here
+  // are side-effect free: `vfs.list` and `vfs.readFile` record no trajectory event,
+  // unlike `execute` and `writeTextFile`, so enabling the channel cannot move the
+  // simulation state or the existing `state_counts` probe.
+  const wanted=request.probe;
+  if(wanted) {
+    const vfs=runtime.getVfs(computer);
+    const entries:any[]=[];
+    const walk=(dir:string,depth:number)=>{
+      let listing:any[];
+      try { listing=vfs.list(dir); } catch { return; }
+      for(const entry of listing) {
+        entries.push({path:entry.path,name:entry.name,kind:entry.inode.kind,size:entry.inode.size,mode:entry.inode.mode});
+        if(entry.inode.kind==='directory'&&depth>0) walk(entry.path,depth-1);
+      }
+    };
+    walk(wanted.root??'/home/agent',wanted.depth??1);
+    entries.sort((a,b)=>a.path<b.path?-1:a.path>b.path?1:0);
+    const processes=((snapshot.computers.find((c:any)=>c.spec.id===computer)?.processes)??[])
+      .map((p:any)=>({pid:p.pid,ppid:p.ppid,state:p.state,executable:p.executable}))
+      .sort((a:any,b:any)=>a.pid-b.pid);
+    const contents:any[]=[];
+    for(const target of wanted.contents??[]) {
+      try { contents.push({path:target,content:await vfs.readFile(target)}); }
+      catch { contents.push({path:target,content:null}); }
+    }
+    result.probe={files:entries,processes,contents};
+  }
   process.stdout.write(JSON.stringify(result).split(root).join('<episode-storage>'));
 } finally { await rm(root,{recursive:true,force:true}); }

@@ -202,6 +202,21 @@ def surrogate():
            "max abs gradient"], rows)
 
 
+def tiebreak():
+    data = load("tiebreak")
+    if not data:
+        return
+    print("### Does the lexicographic tie-break bite, and does the validation filter fix it?\n")
+    table(["setting", "conforming", "distinct functions", "wrong on held-out",
+           "lexicographic pick wrong", "validation survivors", "survivor functions",
+           "survivor max held-out error"],
+          [[k, v["conforming"], v["distinct_functions"], v["wrong_on_held_out"],
+            "yes" if v["lexicographic_pick_wrong"] else "no", v["validation_survivors"],
+            v["survivor_functions"],
+            "-" if v["survivor_max_held_error"] is None else f(v["survivor_max_held_error"])]
+           for k, v in data.items()])
+
+
 def render():
     template = (OUT.parent / "RESULTS.template.md").read_text()
     import io, contextlib
@@ -213,7 +228,7 @@ def render():
             buffer = io.StringIO()
             with contextlib.redirect_stdout(buffer):
                 {"bounds": bounds, "dial": dial, "rung1": rung1, "selections": selections,
-                 "surrogate": surrogate}[name]()
+                 "surrogate": surrogate, "tiebreak": tiebreak}[name]()
             out.append(buffer.getvalue().rstrip())
         else:
             out.append(line)
@@ -227,6 +242,7 @@ if __name__ == "__main__":
         render()
         raise SystemExit
     for name, fn in (("bounds", bounds), ("dial", dial), ("rung1", rung1),
-                     ("selections", selections), ("surrogate", surrogate)):
+                     ("selections", selections), ("surrogate", surrogate),
+                     ("tiebreak", tiebreak)):
         if which in ("all", name):
             fn()

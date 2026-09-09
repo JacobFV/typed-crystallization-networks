@@ -41,7 +41,8 @@ def measure(policy_init, n_episodes, seeds=8, w_probe=0.):
     agg = {'policy_init': policy_init, 'episodes_averaged': n_episodes, 'seeds': seeds}
     for k in rows[0]:
         if k == 'seed': continue
-        agg[k] = round(statistics.fmean(r[k] for r in rows), 7)
+        m = statistics.fmean(r[k] for r in rows)
+        agg[k] = float(f'{m:.4g}')
     return agg
 
 if __name__ == '__main__':

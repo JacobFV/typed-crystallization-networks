@@ -1,0 +1,79 @@
+{
+ "train": {
+  "n": 24,
+  "positive_rate": 0.625,
+  "majority_constant": 0.625,
+  "random": 0.5,
+  "lengths": [
+   2,
+   4,
+   6
+  ],
+  "depths": [
+   1,
+   2,
+   3
+  ],
+  "fitted_from": {
+   "constant": 0.625,
+   "length": 0.625,
+   "first_symbol": 0.7083333333333334,
+   "last_symbol": 0.7916666666666666,
+   "first_and_last": 0.875,
+   "bigram_multiset": 1.0,
+   "open_count_and_length": 1.0
+  }
+ },
+ "heldout_seen_lengths": {
+  "n": 120,
+  "positive_rate": 0.5666666666666667,
+  "majority_constant": 0.5666666666666667,
+  "random": 0.5,
+  "lengths": [
+   2,
+   4,
+   6
+  ],
+  "depths": [
+   1,
+   2,
+   3
+  ],
+  "fitted_from": {
+   "constant": 0.5666666666666667,
+   "length": 0.5916666666666667,
+   "first_symbol": 0.675,
+   "last_symbol": 0.675,
+   "first_and_last": 0.7833333333333333,
+   "bigram_multiset": 0.7333333333333333,
+   "open_count_and_length": 0.8583333333333333
+  }
+ },
+ "heldout_unseen_lengths": {
+  "n": 724,
+  "positive_rate": 0.5483425414364641,
+  "majority_constant": 0.5483425414364641,
+  "random": 0.5,
+  "lengths": [
+   8,
+   10,
+   12,
+   14,
+   16
+  ],
+  "depths": [
+   2,
+   3,
+   4
+  ],
+  "fitted_from": {
+   "constant": 0.5483425414364641,
+   "length": 0.5483425414364641,
+   "first_symbol": 0.5980662983425414,
+   "last_symbol": 0.5980662983425414,
+   "first_and_last": 0.6477900552486188,
+   "bigram_multiset": 0.5483425414364641,
+   "open_count_and_length": 0.5483425414364641
+  }
+ }
+}

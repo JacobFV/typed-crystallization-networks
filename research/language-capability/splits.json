@@ -1,0 +1,35 @@
+{
+ "train_episodes": 24,
+ "train_distinct_strings": 12,
+ "heldout_seen_lengths": {
+  "n": 120,
+  "distinct": 25,
+  "fraction_string_seen_in_training": 0.6833333333333333
+ },
+ "heldout_unseen_lengths": {
+  "n": 242,
+  "distinct": 100,
+  "fraction_string_seen_in_training": 0.0,
+  "lengths": [
+   8,
+   10,
+   12,
+   14
+  ],
+  "depths": [
+   2,
+   3,
+   4
+  ]
+ },
+ "train_lengths": [
+  2,
+  4,
+  6
+ ],
+ "train_depths": [
+  1,
+  2,
+  3
+ ]
+}

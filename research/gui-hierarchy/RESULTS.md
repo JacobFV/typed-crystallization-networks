@@ -157,7 +157,28 @@ invalidated a 97%-at-every-depth result.  So every dial here is measured on four
 axes: the structure it achieves, the appearance it produces, the recoverability
 ceiling, and the number of programs that conform.
 
-<!-- TABLE: dial -->
+### The difficulty dial, measured on four axes
+
+| dial setting | widgets (mean) | tree depth | colours on screen | obs bytes | positions | rung-1 majority | rung-1 ceiling | rung-1 space | conforming |
+|---|---|---|---|---|---|---|---|---|---|
+| baseline: 6 widgets, nesting 2, palette 32, R=16 | 3.0 | 1 | 3.0 | 768 | 225 | 0.8511 | 1.0000 | 1280 | 4 |
+| widgets 2 | 2.0 | 1 | 2.0 | 768 | 225 | 0.9244 | 1.0000 | 1280 | 12 |
+| widgets 12 | 3.0 | 1 | 3.0 | 768 | 225 | 0.8511 | 1.0000 | 1280 | 4 |
+| widgets 20, nesting 5, R=32 | 12.0 | 3 | 12.0 | 3072 | 961 | 0.7482 | 1.0000 | 1280 | 2 |
+| nesting 1 | 3.0 | 1 | 3.0 | 768 | 225 | 0.8511 | 1.0000 | 1280 | 6 |
+| nesting 4 | 3.0 | 1 | 3.0 | 768 | 225 | 0.8511 | 1.0000 | 1280 | 4 |
+| palette 4 | 3.0 | 1 | 2.0 | 768 | 225 | 0.8511 | 0.9267 | 1280 | 0 |
+| palette 4, widgets 12 | 3.0 | 1 | 2.0 | 768 | 225 | 0.8511 | 0.9267 | 1280 | 0 |
+| palette 64 | 3.0 | 1 | 3.0 | 768 | 225 | 0.8511 | 1.0000 | 1280 | 36 |
+| resolution 32 | 6.0 | 2 | 6.0 | 3072 | 961 | 0.8473 | 1.0000 | 1280 | 2 |
+| resolution 48 | 6.0 | 2 | 6.0 | 6912 | 2209 | 0.8958 | 1.0000 | 1280 | 4 |
+| borders | 3.0 | 1 | 4.0 | 768 | 225 | 0.8511 | 0.8778 | 1280 | 0 |
+| labels, R=32 | 6.0 | 2 | 6.8 | 3072 | 961 | 0.8473 | 1.0000 | 1280 | 0 |
+| colour_mode=kind | 3.0 | 1 | 2.6 | 768 | 225 | 0.8511 | 1.0000 | 1280 | 8 |
+| rung-1 screen: 12 widgets, nesting 4, min_size 4 | 8.5 | 2 | 8.5 | 768 | 225 | 0.6700 | 1.0000 | 1280 | 2 |
+| min_size 3, widgets 12, nesting 4 | 9.2 | 2 | 9.2 | 768 | 225 | 0.6489 | 1.0000 | 1280 | 4 |
+| rung-1 screen, palette_levels 16 | 8.5 | 2 | 8.5 | 768 | 225 | 0.6700 | 1.0000 | 1280 | 2 |
+| rung-1 screen, palette_levels 32 | 8.5 | 2 | 8.5 | 768 | 225 | 0.6700 | 1.0000 | 1280 | 2 |
 
 **Read the widget rows before anything else.**  Requesting 12 widgets at
 `min_size 6` and `resolution 16` achieves **3.0**, exactly what requesting 6
@@ -208,7 +229,77 @@ exist.  Two numbers per rung: the **oracle** ceiling, fitted on the evaluation
 set itself and therefore a hard ceiling, and the **transfer** number, fitted on
 training episodes, which is what a learned table would achieve.
 
-<!-- TABLE: bounds -->
+### R1 — widget edge from a two-pixel neighbourhood
+
+| setting | axis | records | majority | oracle ceiling | oracle advantage | transfer | unseen keys |
+|---|---|---|---|---|---|---|---|
+| flat (default) | x | 3600 | 0.8261 | 1.0000 | 0.1739 | 0.8333 | 0.395 |
+| flat (default) | y | 3600 | 0.8094 | 1.0000 | 0.1906 | 0.8250 | 0.403 |
+| borders | x | 3600 | 0.8261 | 0.8483 | 0.0222 | 0.7967 | 0.211 |
+| borders | y | 3600 | 0.8094 | 0.8422 | 0.0328 | 0.8039 | 0.176 |
+| labels | x | 15376 | 0.8352 | 1.0000 | 0.1648 | 0.8594 | 0.158 |
+| labels | y | 15376 | 0.8306 | 1.0000 | 0.1694 | 0.8538 | 0.160 |
+| borders+labels | x | 15376 | 0.8352 | 0.8637 | 0.0285 | 0.8053 | 0.005 |
+| borders+labels | y | 15376 | 0.8306 | 0.8567 | 0.0260 | 0.8093 | 0.000 |
+| palette 8, 6 widgets | x | 3600 | 0.8261 | 1.0000 | 0.1739 | 0.9322 | 0.068 |
+| palette 8, 6 widgets | y | 3600 | 0.8094 | 1.0000 | 0.1906 | 0.9078 | 0.092 |
+| palette 4, 12 widgets | x | 15376 | 0.7709 | 0.8963 | 0.1254 | 0.8963 | 0.000 |
+| palette 4, 12 widgets | y | 15376 | 0.7625 | 0.8907 | 0.1283 | 0.8907 | 0.000 |
+| colour_mode=kind | x | 3600 | 0.8261 | 1.0000 | 0.1739 | 1.0000 | 0.000 |
+| colour_mode=kind | y | 3600 | 0.8094 | 1.0000 | 0.1906 | 1.0000 | 0.000 |
+| 12 widgets, nesting 4 | x | 15376 | 0.7510 | 1.0000 | 0.2490 | 0.8117 | 0.188 |
+| 12 widgets, nesting 4 | y | 15376 | 0.7417 | 1.0000 | 0.2583 | 0.8123 | 0.188 |
+| resolution 32 | x | 15376 | 0.8352 | 1.0000 | 0.1648 | 0.8594 | 0.141 |
+| resolution 32 | y | 15376 | 0.8306 | 1.0000 | 0.1694 | 0.8538 | 0.146 |
+
+### R1b — the same target from the three `eq` bits the algebra can write
+
+| setting | axis | majority | pattern ceiling | advantage | transfer |
+|---|---|---|---|---|---|
+| flat (default) | x | 0.8261 | 1.0000 | 0.1739 | 1.0000 |
+| flat (default) | y | 0.8094 | 1.0000 | 0.1906 | 1.0000 |
+| borders | x | 0.8261 | 0.8261 | 0.0000 | 0.8261 |
+| borders | y | 0.8094 | 0.8094 | 0.0000 | 0.8094 |
+| labels | x | 0.8352 | 0.9631 | 0.1279 | 0.9406 |
+| labels | y | 0.8306 | 0.9671 | 0.1364 | 0.9497 |
+| borders+labels | x | 0.8352 | 0.8352 | 0.0000 | 0.8352 |
+| borders+labels | y | 0.8306 | 0.8306 | 0.0000 | 0.8306 |
+| palette 8, 6 widgets | x | 0.8261 | 1.0000 | 0.1739 | 1.0000 |
+| palette 8, 6 widgets | y | 0.8094 | 1.0000 | 0.1906 | 1.0000 |
+| palette 4, 12 widgets | x | 0.7709 | 0.8963 | 0.1254 | 0.8963 |
+| palette 4, 12 widgets | y | 0.7625 | 0.8907 | 0.1283 | 0.8907 |
+| colour_mode=kind | x | 0.8261 | 1.0000 | 0.1739 | 1.0000 |
+| colour_mode=kind | y | 0.8094 | 1.0000 | 0.1906 | 1.0000 |
+| 12 widgets, nesting 4 | x | 0.7510 | 1.0000 | 0.2490 | 1.0000 |
+| 12 widgets, nesting 4 | y | 0.7417 | 1.0000 | 0.2583 | 1.0000 |
+| resolution 32 | x | 0.8352 | 1.0000 | 0.1648 | 1.0000 |
+| resolution 32 | y | 0.8306 | 1.0000 | 0.1694 | 1.0000 |
+
+### R2 — glyph from its bounding box
+
+| context | glyphs | distinct codes seen | majority | oracle ceiling | transfer | unseen keys |
+|---|---|---|---|---|---|---|
+| glyph box, raw bytes | 80 | 67 | 0.0625 | 0.9625 | 0.0875 | 0.850 |
+| glyph box, ink-binarised | 80 | 30 | 0.0625 | 0.9625 | 0.9250 | 0.013 |
+
+### R3 — widget kind from rendered appearance
+
+| colour mode | context | widgets | majority | oracle ceiling | oracle advantage | transfer |
+|---|---|---|---|---|---|---|
+| random | fill colour | 171 | 0.2982 | 0.4620 | 0.1637 | 0.2047 |
+| random | size (w,h) | 171 | 0.2982 | 0.8480 | 0.5497 | 0.5322 |
+| random | fill + size | 171 | 0.2982 | 0.9942 | 0.6959 | 0.3509 |
+| kind | fill colour | 171 | 0.2982 | 1.0000 | 0.7018 | 1.0000 |
+| kind | size (w,h) | 171 | 0.2982 | 0.8480 | 0.5497 | 0.5322 |
+| kind | fill + size | 171 | 0.2982 | 1.0000 | 0.7018 | 0.6082 |
+
+### R4 — parent from geometry alone
+
+| screen | non-root widgets | smallest containing rectangle is the parent | ties |
+|---|---|---|---|
+| 6 widgets, nesting 2 | 32 | 1.0000 | 0 |
+| 12 widgets, nesting 4 | 155 | 1.0000 | 0 |
+| 24 widgets, nesting 6 | 368 | 1.0000 | 0 |
 
 ### What each block says
 
@@ -293,9 +384,42 @@ edge)` searched discretely, then applied at every position by the three-node
 own position argument with `add`; the *neighbour offset* is a searched choice
 among a declared pool.
 
-<!-- TABLE: rung1 -->
+### Rung one, three arms over the same target
 
-<!-- TABLE: selections -->
+| arm | space | evaluated | exhausted | conforming | distinct functions | unique | random density | sweep s | node evals | lex pick held-out err | validation survivors | survivor functions | survivor held-out err | gradient ok (noise .5) | gradient held-exact | gradient ok (noise 0) | gradient median s |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| A. narrow offsets, channels paired (H2+H3 supplied) | 1280 | 1280 | True | 2 | 1 | no | 0.0000 | 10.5 | 4669440 | 0.0 | 2 | 1 | 0.0 | 1/4 | 1/4 | 0/1 | 466.7 |
+| B. H2 ablated: every offset 1..3W+3 | 13056 | 13056 | True | 2 | 1 | no | 0.0000 | 69.1 | 47628288 | 0.0 | 2 | 1 | 0.0 | 0/4 | 0/4 | 0/1 | 455.1 |
+| C. H3 ablated: operand binding searched | 81920 | 81920 | True | 2 | 1 | no | 0.0000 | 472.4 | 298844160 | 0.0 | 2 | 1 | 0.0 | 0/4 | 0/4 | 0/1 | 528.4 |
+
+### Stage C — rung one frozen, registered, and CHOSEN by a second program
+
+| candidates offered | space | conforming | unique | edge module selected | caller nodes | positions | module execution cost | module description bits | caller description bits |
+|---|---|---|---|---|---|---|---|---|---|
+| 2 | 2 | 1 | yes | yes | 3 | 225 | 19.0 | 8813344 | 26380008 |
+
+### Stage B — the found module applied at every position of fresh screens
+
+| episodes | positions per screen | caller nodes | max error | median s |
+|---|---|---|---|---|
+| 3 | 225 | 3 | 0.0 | 1.011 |
+
+### Supervision
+
+| train records | validation records | held-out records | positive fraction | observation bytes | positions per screen |
+|---|---|---|---|---|---|
+| 192 | 96 | 192 | 0.3698 | 768 | 225 |
+
+### What each arm selected
+
+| arm | offset chosen (bytes) | combinator 1 | combinator 2 | cmp_r,g,b candidate |
+|---|---|---|---|---|
+| A | 3 | truth_7 | truth_13 | 0,0,0 |
+| A | 3 | truth_8 | truth_7 | 0,0,0 |
+| B | 3 | truth_7 | truth_13 | 0,0,0 |
+| B | 3 | truth_8 | truth_7 | 0,0,0 |
+| C | 3 | truth_7 | truth_13 | 2,2,2 |
+| C | 3 | truth_8 | truth_7 | 2,2,2 |
 
 ### Reading it
 
@@ -322,7 +446,16 @@ matters: a uniform random program from the wider two spaces conforms **0 times i
 
 **Where the tie-break does bite, and where the known fix does not work.**
 
-<!-- TABLE: tiebreak -->
+### Does the lexicographic tie-break bite, and does the validation filter fix it?
+
+| setting | conforming | distinct functions | wrong on held-out | lexicographic pick wrong | validation survivors | survivor functions | survivor max held-out error |
+|---|---|---|---|---|---|---|---|
+| rung-1 screen (12 widgets, nesting 4, min_size 4) | 2 | 1 | 0 | no | 2 | 1 | 0.0000 |
+| 2 widgets | 6 | 3 | 2 | yes | 4 | 2 | 1.0000 |
+| 3 widgets, nesting 1 | 4 | 2 | 2 | yes | 4 | 2 | 1.0000 |
+| colour_mode=kind | 4 | 2 | 0 | no | 4 | 2 | 0.0000 |
+| palette 4 | 0 | 0 | 0 | no | 0 | 0 | - |
+| palette_levels 32 | 2 | 1 | 0 | no | 2 | 1 | 0.0000 |
 
 On the rung-1 screen the solution is unique as a function and the lexicographic
 pick is therefore safe.  Turn the widget dial down and it is not: at 2 widgets, 6
@@ -419,7 +552,52 @@ The brief said not to assume either backend wins, and not to report a failed
 address search as confirming a known wall without checking whether the surrogate
 is alive at the mixture.  Both checks were run.
 
-<!-- TABLE: surrogate -->
+### `eq`'s training surrogate against the palette it has to compare
+
+| palette_levels | colours | channel separation | value at tau=1 | slope at tau=1 | value at tau=256 | slope at tau=256 |
+|---|---|---|---|---|---|---|
+| 2 | 8 | 210 | 0.00e+00 | 0.00e+00 | 0.00e+00 | 0.00e+00 |
+| 4 | 64 | 70 | 0.00e+00 | 0.00e+00 | 4.87e-09 | 2.66e-09 |
+| 8 | 512 | 30 | 0.00e+00 | 0.00e+00 | 2.97e-02 | 6.97e-03 |
+| 16 | 4096 | 14 | 0.00e+00 | 0.00e+00 | 4.65e-01 | 5.09e-02 |
+| 32 | 32768 | 7 | 5.24e-22 | 7.34e-21 | 8.26e-01 | 4.52e-02 |
+
+### Distances actually compared at the rung-1 operating point
+
+| palette_levels | fraction equal | fraction with live slope, tau=1 | fraction with live slope, tau=256 | distinct distances |
+|---|---|---|---|---|
+| 4 | 0.7711 | 0.0000 | 0.0000 | [0, 70, 140, 210] |
+| 16 | 0.7711 | 0.0000 | 0.2289 | [0, 14, 28, 42] |
+| 32 | 0.7711 | 0.0000 | 0.2289 | [0, 7, 13, 14, 20] |
+
+### Gradient reaching each choice node, one backward pass at initialisation
+
+| palette | offset pool | single-candidate nodes | choice node | candidates | max abs gradient |
+|---|---|---|---|---|---|
+| levels 4 | narrow | preselected | shifted | 5 | None |
+| levels 4 | narrow | preselected | rg | 16 | 8.73e-11 |
+| levels 4 | narrow | preselected | edge | 16 | 2.73e-02 |
+| levels 4 | narrow | relaxed | shifted | 5 | 7.97e-09 |
+| levels 4 | narrow | relaxed | rg | 16 | 2.73e-11 |
+| levels 4 | narrow | relaxed | edge | 16 | 2.73e-02 |
+| levels 4 | wide | preselected | shifted | 51 | None |
+| levels 4 | wide | preselected | rg | 16 | 1.16e-10 |
+| levels 4 | wide | preselected | edge | 16 | 2.73e-02 |
+| levels 4 | wide | relaxed | shifted | 51 | 4.08e-09 |
+| levels 4 | wide | relaxed | rg | 16 | 2.91e-11 |
+| levels 4 | wide | relaxed | edge | 16 | 2.73e-02 |
+| levels 16 | narrow | preselected | shifted | 5 | None |
+| levels 16 | narrow | preselected | rg | 16 | 8.73e-11 |
+| levels 16 | narrow | preselected | edge | 16 | 2.73e-02 |
+| levels 16 | narrow | relaxed | shifted | 5 | 5.37e-09 |
+| levels 16 | narrow | relaxed | rg | 16 | 3.47e-11 |
+| levels 16 | narrow | relaxed | edge | 16 | 2.73e-02 |
+| levels 16 | wide | preselected | shifted | 51 | None |
+| levels 16 | wide | preselected | rg | 16 | 1.16e-10 |
+| levels 16 | wide | preselected | edge | 16 | 2.73e-02 |
+| levels 16 | wide | relaxed | shifted | 51 | 5.44e-10 |
+| levels 16 | wide | relaxed | rg | 16 | 5.17e-11 |
+| levels 16 | wide | relaxed | edge | 16 | 2.73e-02 |
 
 **Finding zero, so the other two are not over-read: relaxing the single-candidate
 nodes is not a free fix either.**  `index`'s relaxation is a soft attention over

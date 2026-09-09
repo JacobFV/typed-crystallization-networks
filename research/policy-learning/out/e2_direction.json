@@ -18,7 +18,7 @@
   "probe.goal_relation.top1": 2.5,
   "probe.goal_relation.optimal_is_top1": 0.0,
   "probe.goal_relation.best_optimal_rank": 7.0,
-  "probe.goal_relation.norm": 0.0441942
+  "probe.goal_relation.norm": 0.04419
  },
  {
   "policy_init": "zero",
@@ -35,11 +35,11 @@
   "probe.relation.top1": 6.0,
   "probe.relation.optimal_is_top1": 1.0,
   "probe.relation.best_optimal_rank": 0.0,
-  "probe.relation.norm": 0.033807,
+  "probe.relation.norm": 0.03381,
   "probe.goal_relation.top1": 3.75,
   "probe.goal_relation.optimal_is_top1": 0.0,
   "probe.goal_relation.best_optimal_rank": 6.75,
-  "probe.goal_relation.norm": 0.0150348
+  "probe.goal_relation.norm": 0.01503
  },
  {
   "policy_init": "zero",
@@ -56,7 +56,7 @@
   "probe.relation.top1": 6.0,
   "probe.relation.optimal_is_top1": 1.0,
   "probe.relation.best_optimal_rank": 0.0,
-  "probe.relation.norm": 0.0317295,
+  "probe.relation.norm": 0.03173,
   "probe.goal_relation.top1": 3.75,
   "probe.goal_relation.optimal_is_top1": 0.0,
   "probe.goal_relation.best_optimal_rank": 6.875,
@@ -77,11 +77,11 @@
   "probe.relation.top1": 6.0,
   "probe.relation.optimal_is_top1": 1.0,
   "probe.relation.best_optimal_rank": 0.0,
-  "probe.relation.norm": 0.0314662,
+  "probe.relation.norm": 0.03147,
   "probe.goal_relation.top1": 2.5,
   "probe.goal_relation.optimal_is_top1": 0.0,
   "probe.goal_relation.best_optimal_rank": 6.875,
-  "probe.goal_relation.norm": 0.0035219
+  "probe.goal_relation.norm": 0.003522
  },
  {
   "policy_init": "oracle",
@@ -94,7 +94,7 @@
   "actor.goal_relation.top1": 2.5,
   "actor.goal_relation.optimal_is_top1": 0.0,
   "actor.goal_relation.best_optimal_rank": 7.0,
-  "actor.goal_relation.norm": 0.0831265,
+  "actor.goal_relation.norm": 0.08313,
   "probe.relation.top1": 1.5,
   "probe.relation.optimal_is_top1": 0.0,
   "probe.relation.best_optimal_rank": 2.875,
@@ -102,7 +102,7 @@
   "probe.goal_relation.top1": 2.5,
   "probe.goal_relation.optimal_is_top1": 0.0,
   "probe.goal_relation.best_optimal_rank": 7.0,
-  "probe.goal_relation.norm": 0.0441942
+  "probe.goal_relation.norm": 0.04419
  },
  {
   "policy_init": "oracle",
@@ -111,19 +111,19 @@
   "actor.relation.top1": 1.0,
   "actor.relation.optimal_is_top1": 0.0,
   "actor.relation.best_optimal_rank": 3.375,
-  "actor.relation.norm": 0.0,
+  "actor.relation.norm": 6.85e-11,
   "actor.goal_relation.top1": 8.125,
   "actor.goal_relation.optimal_is_top1": 0.0,
   "actor.goal_relation.best_optimal_rank": 7.0,
-  "actor.goal_relation.norm": 0.0344805,
+  "actor.goal_relation.norm": 0.03448,
   "probe.relation.top1": 6.0,
   "probe.relation.optimal_is_top1": 1.0,
   "probe.relation.best_optimal_rank": 0.0,
-  "probe.relation.norm": 0.033807,
+  "probe.relation.norm": 0.03381,
   "probe.goal_relation.top1": 3.75,
   "probe.goal_relation.optimal_is_top1": 0.0,
   "probe.goal_relation.best_optimal_rank": 6.75,
-  "probe.goal_relation.norm": 0.0150348
+  "probe.goal_relation.norm": 0.01503
  },
  {
   "policy_init": "oracle",
@@ -132,15 +132,15 @@
   "actor.relation.top1": 5.0,
   "actor.relation.optimal_is_top1": 0.625,
   "actor.relation.best_optimal_rank": 0.375,
-  "actor.relation.norm": 0.0,
+  "actor.relation.norm": 4.606e-11,
   "actor.goal_relation.top1": 8.75,
   "actor.goal_relation.optimal_is_top1": 0.0,
   "actor.goal_relation.best_optimal_rank": 7.0,
-  "actor.goal_relation.norm": 0.0143666,
+  "actor.goal_relation.norm": 0.01437,
   "probe.relation.top1": 6.0,
   "probe.relation.optimal_is_top1": 1.0,
   "probe.relation.best_optimal_rank": 0.0,
-  "probe.relation.norm": 0.0317295,
+  "probe.relation.norm": 0.03173,
   "probe.goal_relation.top1": 3.75,
   "probe.goal_relation.optimal_is_top1": 0.0,
   "probe.goal_relation.best_optimal_rank": 6.875,
@@ -153,7 +153,7 @@
   "actor.relation.top1": 6.0,
   "actor.relation.optimal_is_top1": 1.0,
   "actor.relation.best_optimal_rank": 0.0,
-  "actor.relation.norm": 0.0,
+  "actor.relation.norm": 4.325e-11,
   "actor.goal_relation.top1": 3.125,
   "actor.goal_relation.optimal_is_top1": 0.0,
   "actor.goal_relation.best_optimal_rank": 7.0,
@@ -161,10 +161,10 @@
   "probe.relation.top1": 6.0,
   "probe.relation.optimal_is_top1": 1.0,
   "probe.relation.best_optimal_rank": 0.0,
-  "probe.relation.norm": 0.0314662,
+  "probe.relation.norm": 0.03147,
   "probe.goal_relation.top1": 2.5,
   "probe.goal_relation.optimal_is_top1": 0.0,
   "probe.goal_relation.best_optimal_rank": 6.875,
-  "probe.goal_relation.norm": 0.0035219
+  "probe.goal_relation.norm": 0.003522
  }
 ]

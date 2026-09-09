@@ -1,0 +1,113 @@
+{
+ "rung-1 screen (12 widgets, nesting 4, min_size 4)": {
+  "configuration": {
+   "resolution": 16,
+   "widgets": 12,
+   "nesting": 4,
+   "min_size": 4
+  },
+  "space_size": 1280,
+  "conforming": 2,
+  "distinct_functions": 1,
+  "wrong_on_held_out": 0,
+  "lexicographic_pick_held_error": 0.0,
+  "lexicographic_pick_wrong": false,
+  "validation_survivors": 2,
+  "survivor_functions": 1,
+  "survivor_max_held_error": 0.0,
+  "seconds": 10.275997838994954
+ },
+ "2 widgets": {
+  "configuration": {
+   "resolution": 16,
+   "widgets": 2,
+   "nesting": 1,
+   "min_size": 4
+  },
+  "space_size": 1280,
+  "conforming": 6,
+  "distinct_functions": 3,
+  "wrong_on_held_out": 2,
+  "lexicographic_pick_held_error": 1.0,
+  "lexicographic_pick_wrong": true,
+  "validation_survivors": 4,
+  "survivor_functions": 2,
+  "survivor_max_held_error": 1.0,
+  "seconds": 38.66230296198046
+ },
+ "3 widgets, nesting 1": {
+  "configuration": {
+   "resolution": 16,
+   "widgets": 3,
+   "nesting": 1,
+   "min_size": 4
+  },
+  "space_size": 1280,
+  "conforming": 4,
+  "distinct_functions": 2,
+  "wrong_on_held_out": 2,
+  "lexicographic_pick_held_error": 1.0,
+  "lexicographic_pick_wrong": true,
+  "validation_survivors": 4,
+  "survivor_functions": 2,
+  "survivor_max_held_error": 1.0,
+  "seconds": 23.02607112599071
+ },
+ "colour_mode=kind": {
+  "configuration": {
+   "resolution": 16,
+   "widgets": 12,
+   "nesting": 4,
+   "min_size": 4,
+   "colour_mode": "kind"
+  },
+  "space_size": 1280,
+  "conforming": 4,
+  "distinct_functions": 2,
+  "wrong_on_held_out": 0,
+  "lexicographic_pick_held_error": 0.0,
+  "lexicographic_pick_wrong": false,
+  "validation_survivors": 4,
+  "survivor_functions": 2,
+  "survivor_max_held_error": 0.0,
+  "seconds": 11.12147042300785
+ },
+ "palette 4": {
+  "configuration": {
+   "resolution": 16,
+   "widgets": 12,
+   "nesting": 4,
+   "min_size": 4,
+   "palette": 4
+  },
+  "space_size": 1280,
+  "conforming": 0,
+  "distinct_functions": 0,
+  "wrong_on_held_out": 0,
+  "lexicographic_pick_held_error": null,
+  "lexicographic_pick_wrong": false,
+  "validation_survivors": 0,
+  "survivor_functions": 0,
+  "survivor_max_held_error": null,
+  "seconds": 8.029745903040748
+ },
+ "palette_levels 32": {
+  "configuration": {
+   "resolution": 16,
+   "widgets": 12,
+   "nesting": 4,
+   "min_size": 4,
+   "palette_levels": 32
+  },
+  "space_size": 1280,
+  "conforming": 2,
+  "distinct_functions": 1,
+  "wrong_on_held_out": 0,
+  "lexicographic_pick_held_error": 0.0,
+  "lexicographic_pick_wrong": false,
+  "validation_survivors": 2,
+  "survivor_functions": 1,
+  "survivor_max_held_error": 0.0,
+  "seconds": 18.289465616981033
+ }
+}
