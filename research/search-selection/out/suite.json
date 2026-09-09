@@ -1,0 +1,1663 @@
+{
+  "cases": [
+    {
+      "arms": [
+        {
+          "backend": "enumerate",
+          "certificate": true,
+          "conforming": 1,
+          "exhausted": true,
+          "held_out_max_error": 0.0,
+          "ran": true,
+          "seconds": 0.006,
+          "seeds": 1,
+          "selections": {
+            "algebra": 0,
+            "analytic": 0,
+            "conversion": 0,
+            "logic": 6
+          },
+          "solved": true,
+          "successes": 1,
+          "train_only": {
+            "conforming": 1,
+            "exact": true,
+            "held_out_max_error": 0.0,
+            "seconds": 0.0063,
+            "solved": true,
+            "unique": true
+          },
+          "unique": true
+        },
+        {
+          "backend": "relax",
+          "carrier_scaled": false,
+          "certificate": false,
+          "rows": [
+            {
+              "exact": true,
+              "failure": null,
+              "held_out_max_error": 0.0,
+              "seconds": 1.362,
+              "seed": 0,
+              "selections": {
+                "algebra": 0,
+                "analytic": 0,
+                "conversion": 0,
+                "logic": 6
+              }
+            },
+            {
+              "exact": true,
+              "failure": null,
+              "held_out_max_error": 0.0,
+              "seconds": 0.353,
+              "seed": 1,
+              "selections": {
+                "algebra": 0,
+                "analytic": 0,
+                "conversion": 0,
+                "logic": 6
+              }
+            },
+            {
+              "exact": true,
+              "failure": null,
+              "held_out_max_error": 0.0,
+              "seconds": 0.36,
+              "seed": 2,
+              "selections": {
+                "algebra": 0,
+                "analytic": 0,
+                "conversion": 0,
+                "logic": 6
+              }
+            }
+          ],
+          "seconds": 3.171,
+          "seconds_per_run": 1.057,
+          "seeds": 3,
+          "steps": 400,
+          "successes": 3
+        }
+      ],
+      "case": "mixed",
+      "chosen": "enumerate",
+      "decision": {
+        "blind_nodes": [
+          "logic"
+        ],
+        "boundary_nodes": [],
+        "certified": true,
+        "dead_nodes": [],
+        "environment_sweep": 0,
+        "feasible": true,
+        "live_constants": [],
+        "mode": "enumerate",
+        "notes": [],
+        "projected_enumeration_seconds": 0.0035758092999458313,
+        "projected_hybrid_seconds": 0.0,
+        "reachable_fraction": 0.875,
+        "reason": "the whole space of 96 programs is exhaustible in 0.00358s, which also certifies uniqueness",
+        "scale_surrogates": false,
+        "seconds_per_program": 3.724801354110241e-05,
+        "space_size": 96,
+        "trainable_constants": []
+      },
+      "decision_seconds": 0.572,
+      "evidence": "FINDINGS 7/10: 96 programs swept exhaustively in 41 ms (3.0 ms after the validation memoization) against a gradient median of 1.5-2.8 s, solution unique, identical program selected.",
+      "family": "small-exact",
+      "held_out_is_independent": true,
+      "reason": "the whole space of 96 programs is exhaustible in 0.00358s, which also certifies uniqueness",
+      "relax_steps": 400,
+      "right": "enumerate",
+      "rollout_cost": 0,
+      "space": 96,
+      "test": 0,
+      "train": 16,
+      "validation": 0
+    },
+    {
+      "arms": [
+        {
+          "backend": "enumerate",
+          "certificate": false,
+          "conforming": 0,
+          "exhausted": true,
+          "held_out_max_error": Infinity,
+          "ran": true,
+          "seconds": 0.004,
+          "seeds": 1,
+          "selections": null,
+          "solved": false,
+          "successes": 0,
+          "train_only": {
+            "conforming": 0,
+            "exact": false,
+            "held_out_max_error": Infinity,
+            "seconds": 0.004,
+            "solved": false,
+            "unique": false
+          },
+          "unique": false
+        },
+        {
+          "backend": "hybrid",
+          "certificate": false,
+          "constant_steps": 200,
+          "constants": {
+            "k": [
+              1.70001125
+            ]
+          },
+          "evaluated": 192,
+          "held_out_max_error": 7.033348083496094e-06,
+          "ran": true,
+          "seconds": 2.909,
+          "seeds": 1,
+          "selections": {
+            "algebra": 0,
+            "analytic": 0,
+            "conversion": 0,
+            "logic": 6,
+            "scaled": 0
+          },
+          "solved": true,
+          "successes": 1
+        },
+        {
+          "backend": "relax",
+          "carrier_scaled": false,
+          "certificate": false,
+          "rows": [
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 0.007549762725830078,
+              "seconds": 1.887,
+              "seed": 0,
+              "selections": {
+                "algebra": 0,
+                "analytic": 0,
+                "conversion": 0,
+                "logic": 6,
+                "scaled": 0
+              }
+            },
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 0.0087507963180542,
+              "seconds": 2.445,
+              "seed": 1,
+              "selections": {
+                "algebra": 0,
+                "analytic": 0,
+                "conversion": 0,
+                "logic": 6,
+                "scaled": 0
+              }
+            },
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 0.01222759485244751,
+              "seconds": 1.107,
+              "seed": 2,
+              "selections": {
+                "algebra": 0,
+                "analytic": 0,
+                "conversion": 0,
+                "logic": 6,
+                "scaled": 0
+              }
+            }
+          ],
+          "seconds": 5.441,
+          "seconds_per_run": 1.814,
+          "seeds": 3,
+          "steps": 400,
+          "successes": 0
+        }
+      ],
+      "case": "mixed_constant",
+      "chosen": "hybrid",
+      "decision": {
+        "blind_nodes": [
+          "logic"
+        ],
+        "boundary_nodes": [],
+        "certified": false,
+        "dead_nodes": [],
+        "environment_sweep": 0,
+        "feasible": true,
+        "live_constants": [
+          "k"
+        ],
+        "mode": "hybrid",
+        "notes": [
+          "hybrid priced at 2.05s (0.0082s per structure to screen, 0.0591s to fit)"
+        ],
+        "projected_enumeration_seconds": 0.002927614375948906,
+        "projected_hybrid_seconds": 2.0481256577186286,
+        "reachable_fraction": 0.875,
+        "reason": "the discrete space is exhaustible in 0.00293s and 1 constant(s) (k) must still be fitted inside it, which prices the hybrid at 2.05s",
+        "scale_surrogates": false,
+        "seconds_per_program": 1.5247991541400552e-05,
+        "space_size": 192,
+        "trainable_constants": [
+          "k"
+        ]
+      },
+      "decision_seconds": 1.482,
+      "evidence": "FINDINGS 10: a single trainable constant misses the conformance tolerance by 3.9e-2 under `fit` because its gradient is blurred by the candidate mixture; holding the structure and fitting the constant alone is what fixes it.",
+      "family": "continuous",
+      "held_out_is_independent": true,
+      "reason": "the discrete space is exhaustible in 0.00293s and 1 constant(s) (k) must still be fitted inside it, which prices the hybrid at 2.05s",
+      "relax_steps": 400,
+      "right": "hybrid",
+      "rollout_cost": 0,
+      "space": 192,
+      "test": 8,
+      "train": 12,
+      "validation": 4
+    },
+    {
+      "arms": [
+        {
+          "backend": "enumerate",
+          "certificate": true,
+          "conforming": 1,
+          "exhausted": true,
+          "held_out_max_error": 0.0,
+          "ran": true,
+          "seconds": 0.0456,
+          "seeds": 1,
+          "selections": {
+            "bit_0": 0,
+            "bit_1": 0,
+            "goal_relation": 6,
+            "logit0": 0,
+            "logit1": 0,
+            "mul0": 0,
+            "mul1": 0,
+            "policy": 0,
+            "prediction": 0,
+            "relation": 6,
+            "value": 0,
+            "world": 0,
+            "z": 0
+          },
+          "solved": true,
+          "successes": 1,
+          "train_only": {
+            "conforming": 1,
+            "exact": true,
+            "held_out_max_error": 0.0,
+            "seconds": 0.0238,
+            "solved": true,
+            "unique": true
+          },
+          "unique": true
+        },
+        {
+          "backend": "hybrid",
+          "certificate": false,
+          "constant_steps": 200,
+          "constants": {
+            "baseline": [
+              1.0
+            ],
+            "bias0": [
+              1.0
+            ],
+            "bias1": [
+              -1.0
+            ],
+            "w0": [
+              -2.0
+            ],
+            "w1": [
+              2.0
+            ]
+          },
+          "evaluated": 256,
+          "held_out_max_error": 0.0,
+          "ran": true,
+          "seconds": 6.187,
+          "seeds": 1,
+          "selections": {
+            "bit_0": 0,
+            "bit_1": 0,
+            "goal_relation": 6,
+            "logit0": 0,
+            "logit1": 0,
+            "mul0": 0,
+            "mul1": 0,
+            "policy": 0,
+            "prediction": 0,
+            "relation": 6,
+            "value": 0,
+            "world": 0,
+            "z": 0
+          },
+          "solved": true,
+          "successes": 1
+        },
+        {
+          "backend": "relax",
+          "carrier_scaled": false,
+          "certificate": false,
+          "rows": [
+            {
+              "exact": true,
+              "failure": null,
+              "held_out_max_error": 0.0,
+              "seconds": 3.009,
+              "seed": 0,
+              "selections": {
+                "bit_0": 0,
+                "bit_1": 0,
+                "goal_relation": 6,
+                "logit0": 0,
+                "logit1": 0,
+                "mul0": 0,
+                "mul1": 0,
+                "policy": 0,
+                "prediction": 0,
+                "relation": 6,
+                "value": 0,
+                "world": 0,
+                "z": 0
+              }
+            },
+            {
+              "exact": true,
+              "failure": null,
+              "held_out_max_error": 0.0,
+              "seconds": 1.645,
+              "seed": 1,
+              "selections": {
+                "bit_0": 0,
+                "bit_1": 0,
+                "goal_relation": 6,
+                "logit0": 0,
+                "logit1": 0,
+                "mul0": 0,
+                "mul1": 0,
+                "policy": 0,
+                "prediction": 0,
+                "relation": 6,
+                "value": 0,
+                "world": 0,
+                "z": 0
+              }
+            },
+            {
+              "exact": true,
+              "failure": null,
+              "held_out_max_error": 0.0,
+              "seconds": 2.926,
+              "seed": 2,
+              "selections": {
+                "bit_0": 0,
+                "bit_1": 0,
+                "goal_relation": 6,
+                "logit0": 0,
+                "logit1": 0,
+                "mul0": 0,
+                "mul1": 0,
+                "policy": 0,
+                "prediction": 0,
+                "relation": 6,
+                "value": 0,
+                "world": 0,
+                "z": 0
+              }
+            }
+          ],
+          "seconds": 7.584,
+          "seconds_per_run": 2.528,
+          "seeds": 3,
+          "steps": 400,
+          "successes": 3
+        }
+      ],
+      "case": "joint_offline",
+      "chosen": "enumerate",
+      "decision": {
+        "blind_nodes": [
+          "relation",
+          "goal_relation"
+        ],
+        "boundary_nodes": [],
+        "certified": true,
+        "dead_nodes": [],
+        "environment_sweep": 0,
+        "feasible": true,
+        "live_constants": [],
+        "mode": "enumerate",
+        "notes": [
+          "trainable constants w0,w1,bias0,bias1,baseline receive no gradient from this supervision, so there is no continuous sub-problem to fit"
+        ],
+        "projected_enumeration_seconds": 0.010403849184513092,
+        "projected_hybrid_seconds": 0.0,
+        "reachable_fraction": 0.765625,
+        "reason": "the whole space of 256 programs is exhaustible in 0.0104s, which also certifies uniqueness",
+        "scale_surrogates": false,
+        "seconds_per_program": 4.0640035877004266e-05,
+        "space_size": 256,
+        "trainable_constants": [
+          "w0",
+          "w1",
+          "bias0",
+          "bias1",
+          "baseline"
+        ]
+      },
+      "decision_seconds": 1.655,
+      "evidence": "FINDINGS 7: the flagship joint result is a 256-way choice brute force settles in 0.081 ms against a 10-36 s gradient run, and the solution is unique.",
+      "family": "small-exact",
+      "held_out_is_independent": true,
+      "reason": "the whole space of 256 programs is exhaustible in 0.0104s, which also certifies uniqueness",
+      "relax_steps": 400,
+      "right": "enumerate",
+      "rollout_cost": 0,
+      "space": 256,
+      "test": 0,
+      "train": 22,
+      "validation": 0
+    },
+    {
+      "arms": [
+        {
+          "backend": "enumerate",
+          "certificate": true,
+          "conforming": 1,
+          "exhausted": true,
+          "held_out_max_error": 0.0,
+          "ran": true,
+          "seconds": 0.0207,
+          "seeds": 1,
+          "selections": {
+            "bit_0": 0,
+            "bit_1": 0,
+            "goal_relation": 6,
+            "logit0": 0,
+            "logit1": 0,
+            "mul0": 0,
+            "mul1": 0,
+            "policy": 0,
+            "prediction": 0,
+            "relation": 6,
+            "value": 0,
+            "world": 0,
+            "z": 0
+          },
+          "solved": true,
+          "successes": 1,
+          "train_only": {
+            "conforming": 1,
+            "exact": true,
+            "held_out_max_error": 0.0,
+            "seconds": 0.0202,
+            "solved": true,
+            "unique": true
+          },
+          "unique": true
+        },
+        {
+          "backend": "hybrid",
+          "certificate": false,
+          "constant_steps": 200,
+          "constants": {
+            "baseline": [
+              1.0
+            ],
+            "bias0": [
+              1.0
+            ],
+            "bias1": [
+              -1.0
+            ],
+            "w0": [
+              -2.0
+            ],
+            "w1": [
+              2.0
+            ]
+          },
+          "evaluated": 256,
+          "held_out_max_error": 0.0,
+          "ran": true,
+          "seconds": 14.512,
+          "seeds": 1,
+          "selections": {
+            "bit_0": 0,
+            "bit_1": 0,
+            "goal_relation": 6,
+            "logit0": 0,
+            "logit1": 0,
+            "mul0": 0,
+            "mul1": 0,
+            "policy": 0,
+            "prediction": 0,
+            "relation": 6,
+            "value": 0,
+            "world": 0,
+            "z": 0
+          },
+          "solved": true,
+          "successes": 1
+        },
+        {
+          "backend": "relax",
+          "carrier_scaled": false,
+          "certificate": false,
+          "rows": [
+            {
+              "exact": true,
+              "failure": null,
+              "held_out_max_error": 0.0,
+              "seconds": 4.049,
+              "seed": 0,
+              "selections": {
+                "bit_0": 0,
+                "bit_1": 0,
+                "goal_relation": 6,
+                "logit0": 0,
+                "logit1": 0,
+                "mul0": 0,
+                "mul1": 0,
+                "policy": 0,
+                "prediction": 0,
+                "relation": 6,
+                "value": 0,
+                "world": 0,
+                "z": 0
+              }
+            },
+            {
+              "exact": true,
+              "failure": null,
+              "held_out_max_error": 0.0,
+              "seconds": 2.611,
+              "seed": 1,
+              "selections": {
+                "bit_0": 0,
+                "bit_1": 0,
+                "goal_relation": 6,
+                "logit0": 0,
+                "logit1": 0,
+                "mul0": 0,
+                "mul1": 0,
+                "policy": 0,
+                "prediction": 0,
+                "relation": 6,
+                "value": 0,
+                "world": 0,
+                "z": 0
+              }
+            },
+            {
+              "exact": true,
+              "failure": null,
+              "held_out_max_error": 0.0,
+              "seconds": 1.541,
+              "seed": 2,
+              "selections": {
+                "bit_0": 0,
+                "bit_1": 0,
+                "goal_relation": 6,
+                "logit0": 0,
+                "logit1": 0,
+                "mul0": 0,
+                "mul1": 0,
+                "policy": 0,
+                "prediction": 0,
+                "relation": 6,
+                "value": 0,
+                "world": 0,
+                "z": 0
+              }
+            }
+          ],
+          "seconds": 8.207,
+          "seconds_per_run": 2.736,
+          "seeds": 3,
+          "steps": 400,
+          "successes": 3
+        }
+      ],
+      "case": "joint_environment",
+      "chosen": "relax",
+      "decision": {
+        "blind_nodes": [
+          "relation",
+          "goal_relation"
+        ],
+        "boundary_nodes": [],
+        "certified": false,
+        "dead_nodes": [],
+        "environment_sweep": 16384,
+        "feasible": true,
+        "live_constants": [],
+        "mode": "relax",
+        "notes": [
+          "trainable constants w0,w1,bias0,bias1,baseline receive no gradient from this supervision, so there is no continuous sub-problem to fit",
+          "relaxation searches only 0.766 of the declared space; candidates dead on every example cannot be selected by descent"
+        ],
+        "projected_enumeration_seconds": 0.0,
+        "projected_hybrid_seconds": 0.0,
+        "reachable_fraction": 0.765625,
+        "reason": "a full sweep costs 16384 environment steps against a 704-step budget; relaxation was measured 5/5 at that budget where random search over the same candidates was 0/20",
+        "scale_surrogates": false,
+        "seconds_per_program": 0.0,
+        "space_size": 256,
+        "trainable_constants": [
+          "w0",
+          "w1",
+          "bias0",
+          "bias1",
+          "baseline"
+        ]
+      },
+      "decision_seconds": 1.271,
+      "evidence": "FINDINGS 7: at the gradient run's own budget of 704 environment steps the gradient path succeeds 5/5 where random search over the same 256 candidates succeeds 0/20; a full enumerative sweep needs 16,384 environment steps.",
+      "family": "environment",
+      "held_out_is_independent": true,
+      "reason": "a full sweep costs 16384 environment steps against a 704-step budget; relaxation was measured 5/5 at that budget where random search over the same candidates was 0/20",
+      "relax_steps": 400,
+      "right": "relax",
+      "rollout_cost": 64,
+      "space": 256,
+      "test": 0,
+      "train": 22,
+      "validation": 0
+    },
+    {
+      "arms": [
+        {
+          "backend": "enumerate",
+          "certificate": false,
+          "conforming": 4,
+          "exhausted": true,
+          "held_out_max_error": 0.0,
+          "ran": true,
+          "seconds": 0.0273,
+          "seeds": 1,
+          "selections": {
+            "bytes": 0,
+            "hit": 0,
+            "hit_eq0": 0,
+            "hit_eq1": 0,
+            "hit_px0": 6,
+            "hit_px1": 6
+          },
+          "solved": true,
+          "successes": 1,
+          "train_only": {
+            "conforming": 4,
+            "exact": true,
+            "held_out_max_error": 0.0,
+            "seconds": 0.1426,
+            "solved": true,
+            "unique": false
+          },
+          "unique": false
+        },
+        {
+          "backend": "relax",
+          "carrier_scaled": true,
+          "certificate": false,
+          "rows": [
+            {
+              "exact": true,
+              "failure": null,
+              "held_out_max_error": 0.0,
+              "seconds": 1.139,
+              "seed": 0,
+              "selections": {
+                "bytes": 0,
+                "hit": 0,
+                "hit_eq0": 1,
+                "hit_eq1": 1,
+                "hit_px0": 7,
+                "hit_px1": 7
+              }
+            },
+            {
+              "exact": true,
+              "failure": null,
+              "held_out_max_error": 0.0,
+              "seconds": 1.42,
+              "seed": 1,
+              "selections": {
+                "bytes": 0,
+                "hit": 0,
+                "hit_eq0": 1,
+                "hit_eq1": 1,
+                "hit_px0": 7,
+                "hit_px1": 7
+              }
+            },
+            {
+              "exact": true,
+              "failure": null,
+              "held_out_max_error": 0.0,
+              "seconds": 0.969,
+              "seed": 2,
+              "selections": {
+                "bytes": 0,
+                "hit": 0,
+                "hit_eq0": 1,
+                "hit_eq1": 1,
+                "hit_px0": 7,
+                "hit_px1": 7
+              }
+            }
+          ],
+          "seconds": 3.534,
+          "seconds_per_run": 1.178,
+          "seeds": 3,
+          "steps": 800,
+          "successes": 3
+        },
+        {
+          "backend": "relax_shipped_surrogate",
+          "carrier_scaled": false,
+          "certificate": false,
+          "rows": [
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 1.0,
+              "seconds": 0.942,
+              "seed": 0,
+              "selections": {
+                "bytes": 0,
+                "hit": 0,
+                "hit_eq0": 0,
+                "hit_eq1": 1,
+                "hit_px0": 7,
+                "hit_px1": 4
+              }
+            },
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 1.0,
+              "seconds": 0.985,
+              "seed": 1,
+              "selections": {
+                "bytes": 0,
+                "hit": 0,
+                "hit_eq0": 0,
+                "hit_eq1": 1,
+                "hit_px0": 2,
+                "hit_px1": 7
+              }
+            },
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 1.0,
+              "seconds": 0.751,
+              "seed": 2,
+              "selections": {
+                "bytes": 0,
+                "hit": 0,
+                "hit_eq0": 0,
+                "hit_eq1": 0,
+                "hit_px0": 5,
+                "hit_px1": 2
+              }
+            }
+          ],
+          "seconds": 2.683,
+          "seconds_per_run": 0.894,
+          "seeds": 3,
+          "steps": 800,
+          "successes": 0
+        }
+      ],
+      "case": "rung3_R2",
+      "chosen": "enumerate",
+      "decision": {
+        "blind_nodes": [],
+        "boundary_nodes": [],
+        "certified": true,
+        "dead_nodes": [],
+        "environment_sweep": 0,
+        "feasible": true,
+        "live_constants": [],
+        "mode": "enumerate",
+        "notes": [
+          "carrier scaling lifts the gradient-reachable share of the space from 0.25 to 1"
+        ],
+        "projected_enumeration_seconds": 0.01654270850121975,
+        "projected_hybrid_seconds": 0.0,
+        "reachable_fraction": 1.0,
+        "reason": "the whole space of 576 programs is exhaustible in 0.0165s, which also certifies uniqueness",
+        "scale_surrogates": true,
+        "seconds_per_program": 2.8719980036839843e-05,
+        "space_size": 576,
+        "trainable_constants": []
+      },
+      "decision_seconds": 0.581,
+      "evidence": "FINDINGS 11/16: the shipped relaxation is 0/12 exact at 576 and 9,216 programs because `eq`'s surrogate is exactly 0.0 at byte spread, while enumeration solves every one of them and certifies uniqueness.",
+      "family": "dead-surrogate",
+      "held_out_is_independent": true,
+      "reason": "the whole space of 576 programs is exhaustible in 0.0165s, which also certifies uniqueness",
+      "relax_steps": 800,
+      "right": "enumerate",
+      "rollout_cost": 0,
+      "space": 576,
+      "test": 12,
+      "train": 12,
+      "validation": 12
+    },
+    {
+      "arms": [
+        {
+          "backend": "enumerate",
+          "certificate": false,
+          "conforming": 20,
+          "exhausted": true,
+          "held_out_max_error": 0.0,
+          "ran": true,
+          "seconds": 0.8815,
+          "seeds": 1,
+          "selections": {
+            "bytes": 0,
+            "hit": 0,
+            "hit_eq0": 0,
+            "hit_eq1": 0,
+            "hit_px0": 24,
+            "hit_px1": 24
+          },
+          "solved": true,
+          "successes": 1,
+          "train_only": {
+            "conforming": 20,
+            "exact": true,
+            "held_out_max_error": 0.0,
+            "seconds": 0.9683,
+            "solved": true,
+            "unique": false
+          },
+          "unique": false
+        },
+        {
+          "backend": "relax",
+          "carrier_scaled": true,
+          "certificate": false,
+          "rows": [
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 1.0,
+              "seconds": 4.781,
+              "seed": 0,
+              "selections": {
+                "bytes": 0,
+                "hit": 0,
+                "hit_eq0": 1,
+                "hit_eq1": 1,
+                "hit_px0": 12,
+                "hit_px1": 37
+              }
+            },
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 1.0,
+              "seconds": 1.828,
+              "seed": 1,
+              "selections": {
+                "bytes": 0,
+                "hit": 0,
+                "hit_eq0": 1,
+                "hit_eq1": 1,
+                "hit_px0": 40,
+                "hit_px1": 37
+              }
+            },
+            {
+              "exact": true,
+              "failure": null,
+              "held_out_max_error": 0.0,
+              "seconds": 2.496,
+              "seed": 2,
+              "selections": {
+                "bytes": 0,
+                "hit": 0,
+                "hit_eq0": 1,
+                "hit_eq1": 1,
+                "hit_px0": 25,
+                "hit_px1": 37
+              }
+            }
+          ],
+          "seconds": 9.155,
+          "seconds_per_run": 3.052,
+          "seeds": 3,
+          "steps": 800,
+          "successes": 1
+        },
+        {
+          "backend": "relax_shipped_surrogate",
+          "carrier_scaled": false,
+          "certificate": false,
+          "rows": [
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 1.0,
+              "seconds": 3.345,
+              "seed": 0,
+              "selections": {
+                "bytes": 0,
+                "hit": 0,
+                "hit_eq0": 1,
+                "hit_eq1": 1,
+                "hit_px0": 12,
+                "hit_px1": 1
+              }
+            },
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 1.0,
+              "seconds": 2.341,
+              "seed": 1,
+              "selections": {
+                "bytes": 0,
+                "hit": 0,
+                "hit_eq0": 1,
+                "hit_eq1": 1,
+                "hit_px0": 40,
+                "hit_px1": 10
+              }
+            },
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 1.0,
+              "seconds": 4.095,
+              "seed": 2,
+              "selections": {
+                "bytes": 0,
+                "hit": 0,
+                "hit_eq0": 0,
+                "hit_eq1": 0,
+                "hit_px0": 29,
+                "hit_px1": 36
+              }
+            }
+          ],
+          "seconds": 9.828,
+          "seconds_per_run": 3.276,
+          "seeds": 3,
+          "steps": 800,
+          "successes": 0
+        }
+      ],
+      "case": "rung3_R4",
+      "chosen": "enumerate",
+      "decision": {
+        "blind_nodes": [],
+        "boundary_nodes": [],
+        "certified": true,
+        "dead_nodes": [],
+        "environment_sweep": 0,
+        "feasible": true,
+        "live_constants": [],
+        "mode": "enumerate",
+        "notes": [
+          "carrier scaling lifts the gradient-reachable share of the space from 0.25 to 1"
+        ],
+        "projected_enumeration_seconds": 0.6109103858470917,
+        "projected_hybrid_seconds": 0.0,
+        "reachable_fraction": 1.0,
+        "reason": "the whole space of 9216 programs is exhaustible in 0.611s, which also certifies uniqueness",
+        "scale_surrogates": true,
+        "seconds_per_program": 6.62880192976445e-05,
+        "space_size": 9216,
+        "trainable_constants": []
+      },
+      "decision_seconds": 2.036,
+      "evidence": "FINDINGS 11/16: the shipped relaxation is 0/12 exact at 576 and 9,216 programs because `eq`'s surrogate is exactly 0.0 at byte spread, while enumeration solves every one of them and certifies uniqueness.",
+      "family": "dead-surrogate",
+      "held_out_is_independent": true,
+      "reason": "the whole space of 9216 programs is exhaustible in 0.611s, which also certifies uniqueness",
+      "relax_steps": 800,
+      "right": "enumerate",
+      "rollout_cost": 0,
+      "space": 9216,
+      "test": 12,
+      "train": 12,
+      "validation": 12
+    },
+    {
+      "arms": [
+        {
+          "backend": "enumerate",
+          "note": "priced out at 345.6s against a 300.0s measurement cap; the projection is reported instead",
+          "projected_seconds": 345.5518798828125,
+          "ran": false,
+          "seconds_per_program": 3.661599475890398e-05
+        },
+        {
+          "backend": "relax",
+          "carrier_scaled": true,
+          "certificate": false,
+          "rows": [
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 1.0,
+              "seconds": 29.779,
+              "seed": 0,
+              "selections": {
+                "bytes": 0,
+                "hit": 0,
+                "hit_eq0": 38,
+                "hit_eq1": 41,
+                "hit_px0": 8,
+                "hit_px1": 8
+              }
+            },
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 1.0,
+              "seconds": 27.048,
+              "seed": 1,
+              "selections": {
+                "bytes": 0,
+                "hit": 0,
+                "hit_eq0": 40,
+                "hit_eq1": 36,
+                "hit_px0": 8,
+                "hit_px1": 8
+              }
+            },
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 1.0,
+              "seconds": 27.909,
+              "seed": 2,
+              "selections": {
+                "bytes": 0,
+                "hit": 0,
+                "hit_eq0": 35,
+                "hit_eq1": 27,
+                "hit_px0": 7,
+                "hit_px1": 6
+              }
+            }
+          ],
+          "seconds": 84.763,
+          "seconds_per_run": 28.254,
+          "seeds": 3,
+          "steps": 800,
+          "successes": 0
+        },
+        {
+          "backend": "relax_shipped_surrogate",
+          "carrier_scaled": false,
+          "certificate": false,
+          "rows": [
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 1.0,
+              "seconds": 32.392,
+              "seed": 0,
+              "selections": {
+                "bytes": 0,
+                "hit": 0,
+                "hit_eq0": 33,
+                "hit_eq1": 31,
+                "hit_px0": 1,
+                "hit_px1": 1
+              }
+            },
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 1.0,
+              "seconds": 39.642,
+              "seed": 1,
+              "selections": {
+                "bytes": 0,
+                "hit": 0,
+                "hit_eq0": 35,
+                "hit_eq1": 31,
+                "hit_px0": 2,
+                "hit_px1": 0
+              }
+            },
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 1.0,
+              "seconds": 55.083,
+              "seed": 2,
+              "selections": {
+                "bytes": 0,
+                "hit": 0,
+                "hit_eq0": 33,
+                "hit_eq1": 33,
+                "hit_px0": 7,
+                "hit_px1": 2
+              }
+            }
+          ],
+          "seconds": 127.144,
+          "seconds_per_run": 42.381,
+          "seeds": 3,
+          "steps": 800,
+          "successes": 0
+        }
+      ],
+      "case": "rung3_bytes",
+      "chosen": "relax",
+      "decision": {
+        "blind_nodes": [
+          "hit_eq0",
+          "hit_eq1"
+        ],
+        "boundary_nodes": [],
+        "certified": false,
+        "dead_nodes": [],
+        "environment_sweep": 0,
+        "feasible": true,
+        "live_constants": [],
+        "mode": "relax",
+        "notes": [
+          "carrier scaling lifts the gradient-reachable share of the space from 0.0289 to 0.336",
+          "relaxation searches only 0.336 of the declared space; candidates dead on every example cannot be selected by descent"
+        ],
+        "projected_enumeration_seconds": 345.5518798828125,
+        "projected_hybrid_seconds": 0.0,
+        "reachable_fraction": 0.33648681640625,
+        "reason": "enumeration projects to 345.6s over 9437184 programs; the surrogate needs carrier scaling to be differentiable here",
+        "scale_surrogates": true,
+        "seconds_per_program": 3.661599475890398e-05,
+        "space_size": 9437184,
+        "trainable_constants": []
+      },
+      "decision_seconds": 11.331,
+      "evidence": "FINDINGS 14: the full 256-value byte alphabet is 6/6 exact on held-out where brute force projects to 107 days.",
+      "family": "large-space",
+      "held_out_is_independent": true,
+      "reason": "enumeration projects to 345.6s over 9437184 programs; the surrogate needs carrier scaling to be differentiable here",
+      "relax_steps": 800,
+      "right": "relax",
+      "rollout_cost": 0,
+      "space": 9437184,
+      "test": 12,
+      "train": 12,
+      "validation": 12
+    },
+    {
+      "arms": [
+        {
+          "backend": "enumerate",
+          "certificate": true,
+          "conforming": 1,
+          "exhausted": true,
+          "held_out_max_error": 0.0,
+          "ran": true,
+          "seconds": 0.003,
+          "seeds": 1,
+          "selections": {
+            "byte": 2,
+            "packed": 0,
+            "pair": 0,
+            "scale": 0,
+            "tail": 0
+          },
+          "solved": true,
+          "successes": 1,
+          "train_only": {
+            "conforming": 1,
+            "exact": true,
+            "held_out_max_error": 0.0,
+            "seconds": 0.0017,
+            "solved": true,
+            "unique": true
+          },
+          "unique": true
+        },
+        {
+          "backend": "relax",
+          "carrier_scaled": false,
+          "certificate": false,
+          "rows": [
+            {
+              "exact": true,
+              "failure": null,
+              "held_out_max_error": 0.0,
+              "seconds": 0.183,
+              "seed": 0,
+              "selections": {
+                "byte": 2,
+                "packed": 0,
+                "pair": 0,
+                "scale": 0,
+                "tail": 0
+              }
+            },
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 184.0,
+              "seconds": 0.177,
+              "seed": 1,
+              "selections": {
+                "byte": 3,
+                "packed": 0,
+                "pair": 0,
+                "scale": 0,
+                "tail": 0
+              }
+            },
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 163.0,
+              "seconds": 0.179,
+              "seed": 2,
+              "selections": {
+                "byte": 1,
+                "packed": 0,
+                "pair": 0,
+                "scale": 0,
+                "tail": 0
+              }
+            }
+          ],
+          "seconds": 0.541,
+          "seconds_per_run": 0.18,
+          "seeds": 3,
+          "steps": 400,
+          "successes": 1
+        }
+      ],
+      "case": "gradient_boundary",
+      "chosen": "enumerate",
+      "decision": {
+        "blind_nodes": [],
+        "boundary_nodes": [
+          "packed"
+        ],
+        "certified": true,
+        "dead_nodes": [
+          "byte"
+        ],
+        "environment_sweep": 0,
+        "feasible": true,
+        "live_constants": [],
+        "mode": "enumerate",
+        "notes": [],
+        "projected_enumeration_seconds": 0.00018604821525514126,
+        "projected_hybrid_seconds": 0.0,
+        "reachable_fraction": 1.0,
+        "reason": "the whole space of 12 programs is exhaustible in 0.000186s, which also certifies uniqueness",
+        "scale_surrogates": false,
+        "seconds_per_program": 1.5504017937928438e-05,
+        "space_size": 12,
+        "trainable_constants": []
+      },
+      "decision_seconds": 0.131,
+      "evidence": "FINDINGS 14: relaxation loses exactly where the choice sits behind a `gradient=\"none\"` boundary; `pack` is that boundary on byte data, and FINDINGS 11 records enumeration exhausting a 49,152-program `eq` sub-algebra behind it while gradient descent was 0/8.",
+      "family": "dead-surrogate",
+      "held_out_is_independent": true,
+      "reason": "the whole space of 12 programs is exhaustible in 0.000186s, which also certifies uniqueness",
+      "relax_steps": 400,
+      "right": "enumerate",
+      "rollout_cost": 0,
+      "space": 12,
+      "test": 24,
+      "train": 24,
+      "validation": 24
+    },
+    {
+      "arms": [
+        {
+          "backend": "enumerate",
+          "certificate": false,
+          "conforming": 4,
+          "exhausted": true,
+          "held_out_max_error": 0.0,
+          "ran": true,
+          "seconds": 88.3696,
+          "seeds": 1,
+          "selections": {
+            "byte": 2,
+            "packed": 0,
+            "pair": 0,
+            "scale": 0,
+            "tail": 1
+          },
+          "solved": true,
+          "successes": 1,
+          "train_only": {
+            "conforming": 4,
+            "exact": true,
+            "held_out_max_error": 0.0,
+            "seconds": 96.7951,
+            "solved": true,
+            "unique": false
+          },
+          "unique": false
+        },
+        {
+          "backend": "relax",
+          "carrier_scaled": false,
+          "certificate": false,
+          "rows": [
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 55193.0,
+              "seconds": 19.349,
+              "seed": 0,
+              "selections": {
+                "byte": 77,
+                "packed": 0,
+                "pair": 0,
+                "scale": 0,
+                "tail": 41
+              }
+            },
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 50404.0,
+              "seconds": 10.959,
+              "seed": 1,
+              "selections": {
+                "byte": 232,
+                "packed": 0,
+                "pair": 0,
+                "scale": 0,
+                "tail": 188
+              }
+            },
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 48452.0,
+              "seconds": 10.143,
+              "seed": 2,
+              "selections": {
+                "byte": 278,
+                "packed": 0,
+                "pair": 0,
+                "scale": 0,
+                "tail": 36
+              }
+            }
+          ],
+          "seconds": 43.907,
+          "seconds_per_run": 14.636,
+          "seeds": 3,
+          "steps": 400,
+          "successes": 0
+        }
+      ],
+      "case": "boundary_wide",
+      "chosen": "enumerate",
+      "decision": {
+        "blind_nodes": [],
+        "boundary_nodes": [
+          "packed"
+        ],
+        "certified": false,
+        "dead_nodes": [
+          "byte",
+          "tail"
+        ],
+        "environment_sweep": 0,
+        "feasible": false,
+        "live_constants": [],
+        "mode": "enumerate",
+        "notes": [],
+        "projected_enumeration_seconds": 60.65279245376587,
+        "projected_hybrid_seconds": 0.0,
+        "reachable_fraction": 1.0,
+        "reason": "neither backend is sound: enumeration projects to 60.65s and the relaxation is dead at byte,tail",
+        "scale_surrogates": false,
+        "seconds_per_program": 0.0001263599842786789,
+        "space_size": 480000,
+        "trainable_constants": []
+      },
+      "decision_seconds": 14.496,
+      "evidence": "FINDINGS 14: relaxation loses exactly where the choice sits behind a `gradient=\"none\"` boundary; `pack` is that boundary on byte data, and FINDINGS 11 records enumeration exhausting a 49,152-program `eq` sub-algebra behind it while gradient descent was 0/8.",
+      "family": "dead-surrogate",
+      "held_out_is_independent": true,
+      "reason": "neither backend is sound: enumeration projects to 60.65s and the relaxation is dead at byte,tail",
+      "relax_steps": 400,
+      "right": "enumerate",
+      "rollout_cost": 0,
+      "space": 480000,
+      "test": 24,
+      "train": 24,
+      "validation": 24
+    },
+    {
+      "arms": [
+        {
+          "backend": "enumerate",
+          "certificate": false,
+          "conforming": 0,
+          "exhausted": true,
+          "held_out_max_error": Infinity,
+          "ran": true,
+          "seconds": 0.0494,
+          "seeds": 1,
+          "selections": null,
+          "solved": false,
+          "successes": 0,
+          "train_only": {
+            "conforming": 0,
+            "exact": false,
+            "held_out_max_error": Infinity,
+            "seconds": 0.0483,
+            "solved": false,
+            "unique": false
+          },
+          "unique": false
+        },
+        {
+          "backend": "relax",
+          "carrier_scaled": false,
+          "certificate": false,
+          "rows": [
+            {
+              "exact": true,
+              "failure": null,
+              "held_out_max_error": 0.0,
+              "seconds": 0.879,
+              "seed": 0,
+              "selections": {
+                "g0": 9,
+                "g1": 1,
+                "g2": 1
+              }
+            },
+            {
+              "exact": true,
+              "failure": null,
+              "held_out_max_error": 0.0,
+              "seconds": 0.899,
+              "seed": 1,
+              "selections": {
+                "g0": 9,
+                "g1": 1,
+                "g2": 1
+              }
+            },
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 1.0,
+              "seconds": 0.895,
+              "seed": 2,
+              "selections": {
+                "g0": 9,
+                "g1": 1,
+                "g2": 9
+              }
+            }
+          ],
+          "seconds": 2.675,
+          "seconds_per_run": 0.892,
+          "seeds": 3,
+          "steps": 400,
+          "successes": 2
+        }
+      ],
+      "case": "noisy_2flip",
+      "chosen": "enumerate",
+      "decision": {
+        "blind_nodes": [
+          "g0",
+          "g1",
+          "g2"
+        ],
+        "boundary_nodes": [],
+        "certified": true,
+        "dead_nodes": [],
+        "environment_sweep": 0,
+        "feasible": true,
+        "live_constants": [],
+        "mode": "enumerate",
+        "notes": [],
+        "projected_enumeration_seconds": 0.08051097393035889,
+        "projected_hybrid_seconds": 0.0,
+        "reachable_fraction": 0.669921875,
+        "reason": "the whole space of 4096 programs is exhaustible in 0.0805s, which also certifies uniqueness",
+        "scale_surrogates": false,
+        "seconds_per_program": 1.9655999494716525e-05,
+        "space_size": 4096,
+        "trainable_constants": []
+      },
+      "decision_seconds": 0.541,
+      "evidence": "FINDINGS 7: min-Hamming enumeration recovers the uncorrupted function 4/4, 3/4 and 2/4 at 1, 2 and 3 flipped rows against the gradient path's 0.50, 0.12 and 0.12, roughly 1000x faster. `tcn.search` has no minimum-Hamming objective, so that advantage is not reachable through `enumerate_fit`; see RESULTS.md.",
+      "family": "small-exact",
+      "held_out_is_independent": true,
+      "reason": "the whole space of 4096 programs is exhaustible in 0.0805s, which also certifies uniqueness",
+      "relax_steps": 400,
+      "right": "enumerate",
+      "rollout_cost": 0,
+      "space": 4096,
+      "test": 16,
+      "train": 16,
+      "validation": 0
+    },
+    {
+      "arms": [
+        {
+          "backend": "enumerate",
+          "note": "priced out at 2.762e+04s against a 300.0s measurement cap; the projection is reported instead",
+          "projected_seconds": 27621.291959658265,
+          "ran": false,
+          "seconds_per_program": 8.15198291093111e-06
+        },
+        {
+          "backend": "relax",
+          "carrier_scaled": false,
+          "certificate": false,
+          "rows": [
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 1.0,
+              "seconds": 137.08,
+              "seed": 0,
+              "selections": {
+                "g0": 127,
+                "g1": 132,
+                "g2": 22,
+                "g3": 92
+              }
+            },
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 1.0,
+              "seconds": 89.576,
+              "seed": 1,
+              "selections": {
+                "g0": 22,
+                "g1": 100,
+                "g2": 98,
+                "g3": 78
+              }
+            },
+            {
+              "exact": false,
+              "failure": null,
+              "held_out_max_error": 1.0,
+              "seconds": 106.821,
+              "seed": 2,
+              "selections": {
+                "g0": 134,
+                "g1": 197,
+                "g2": 47,
+                "g3": 375
+              }
+            }
+          ],
+          "seconds": 333.509,
+          "seconds_per_run": 111.17,
+          "seeds": 3,
+          "steps": 1200,
+          "successes": 0
+        }
+      ],
+      "case": "wide_logic",
+      "chosen": "relax",
+      "decision": {
+        "blind_nodes": [],
+        "boundary_nodes": [],
+        "certified": false,
+        "dead_nodes": [],
+        "environment_sweep": 0,
+        "feasible": true,
+        "live_constants": [],
+        "mode": "relax",
+        "notes": [],
+        "projected_enumeration_seconds": 27621.291959658265,
+        "projected_hybrid_seconds": 0.0,
+        "reachable_fraction": 1.0,
+        "reason": "enumeration projects to 2.762e+04s over 3388291200 programs",
+        "scale_surrogates": false,
+        "seconds_per_program": 8.15198291093111e-06,
+        "space_size": 3388291200,
+        "trainable_constants": []
+      },
+      "decision_seconds": 4.874,
+      "evidence": "FINDINGS 7/14: past the sweep budget the ordering flips -- enumeration first fails at depth 5 while the relaxation is the only backend still able to start; on the 4.3e9-program byte alphabet gradient is 6/6 where brute force projects to 107 days. The 5-input truth table is exhaustive, so training and held-out are the same 32 rows and this case measures search, not generalization.",
+      "family": "large-space",
+      "held_out_is_independent": true,
+      "reason": "enumeration projects to 2.762e+04s over 3388291200 programs",
+      "relax_steps": 1200,
+      "right": "relax",
+      "rollout_cost": 0,
+      "space": 3388291200,
+      "test": 0,
+      "train": 32,
+      "validation": 0
+    }
+  ],
+  "seeds": 3,
+  "steps": 400,
+  "wall_seconds": 896.51
+}

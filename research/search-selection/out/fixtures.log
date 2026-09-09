@@ -1,0 +1,14 @@
+default path: {'fixture': 'examples/mixed.py', 'mode': 'default', 'selection': None, 'exact_max_error': 0.0, 'relaxed_loss': 1.0066399909192114e-06, 'fully_frozen': True, 'seconds': 1.241, 'matches_FINDINGS_section_10': True}
+  mixed                chose enumerate  right=enumerate  agrees=True exact=0.0 in 0.023s
+  mixed_constant       chose hybrid     right=hybrid     agrees=True exact=6.079673767089844e-06 in 2.254s
+  joint_offline        chose enumerate  right=enumerate  agrees=True exact=0.0 in 0.07s
+  joint_environment    chose relax      right=relax      agrees=True exact=0.0 in 1.072s
+  rung3_R2             chose enumerate  right=enumerate  agrees=True exact=0.0 in 0.058s
+  rung3_R4             chose enumerate  right=enumerate  agrees=True exact=0.0 in 1.037s
+  rung3_bytes          chose relax      right=relax      agrees=True exact=1.0 in 15.484s
+  gradient_boundary    chose enumerate  right=enumerate  agrees=True exact=0.0 in 0.015s
+  boundary_wide        chose enumerate  right=enumerate  agrees=True exact=0.0 in 83.429s
+  noisy_2flip          chose relax      right=enumerate  agrees=False exact=1.0 in 0.604s
+  wide_logic           chose relax      right=relax      agrees=True exact=1.0 in 16.261s
+agreement with the tracks: 10/11
+wrote /home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-afc0484c7c0dc4724/research/search-selection/out/fixtures.json

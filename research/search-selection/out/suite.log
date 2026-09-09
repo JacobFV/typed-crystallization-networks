@@ -1,0 +1,51 @@
+== mixed  space=96  chose enumerate (right: enumerate) in 0.57s
+    the whole space of 96 programs is exhaustible in 0.00358s, which also certifies uniqueness
+    enumerate                  ran=True successes=1/1 seconds=0.006 certificate=True
+    relax                      ran=True successes=3/3 seconds=3.171 certificate=False
+== mixed_constant  space=192  chose hybrid (right: hybrid) in 1.48s
+    the discrete space is exhaustible in 0.00293s and 1 constant(s) (k) must still be fitted inside it, which prices the hybrid at 2.05s
+    enumerate                  ran=True successes=0/1 seconds=0.004 certificate=False
+    hybrid                     ran=True successes=1/1 seconds=2.909 certificate=False
+    relax                      ran=True successes=0/3 seconds=5.441 certificate=False
+== joint_offline  space=256  chose enumerate (right: enumerate) in 1.66s
+    the whole space of 256 programs is exhaustible in 0.0104s, which also certifies uniqueness
+    enumerate                  ran=True successes=1/1 seconds=0.0456 certificate=True
+    hybrid                     ran=True successes=1/1 seconds=6.187 certificate=False
+    relax                      ran=True successes=3/3 seconds=7.584 certificate=False
+== joint_environment  space=256  chose relax (right: relax) in 1.27s
+    a full sweep costs 16384 environment steps against a 704-step budget; relaxation was measured 5/5 at that budget where random search over the same candidates was 0/20
+    enumerate                  ran=True successes=1/1 seconds=0.0207 certificate=True
+    hybrid                     ran=True successes=1/1 seconds=14.512 certificate=False
+    relax                      ran=True successes=3/3 seconds=8.207 certificate=False
+== rung3_R2  space=576  chose enumerate (right: enumerate) in 0.58s
+    the whole space of 576 programs is exhaustible in 0.0165s, which also certifies uniqueness
+    enumerate                  ran=True successes=1/1 seconds=0.0273 certificate=False
+    relax                      ran=True successes=3/3 seconds=3.534 certificate=False
+    relax_shipped_surrogate    ran=True successes=0/3 seconds=2.683 certificate=False
+== rung3_R4  space=9216  chose enumerate (right: enumerate) in 2.04s
+    the whole space of 9216 programs is exhaustible in 0.611s, which also certifies uniqueness
+    enumerate                  ran=True successes=1/1 seconds=0.8815 certificate=False
+    relax                      ran=True successes=1/3 seconds=9.155 certificate=False
+    relax_shipped_surrogate    ran=True successes=0/3 seconds=9.828 certificate=False
+== rung3_bytes  space=9437184  chose relax (right: relax) in 11.33s
+    enumeration projects to 345.6s over 9437184 programs; the surrogate needs carrier scaling to be differentiable here
+    enumerate                  ran=False successes=None/None seconds=345.5518798828125 certificate=None
+    relax                      ran=True successes=0/3 seconds=84.763 certificate=False
+    relax_shipped_surrogate    ran=True successes=0/3 seconds=127.144 certificate=False
+== gradient_boundary  space=12  chose enumerate (right: enumerate) in 0.13s
+    the whole space of 12 programs is exhaustible in 0.000186s, which also certifies uniqueness
+    enumerate                  ran=True successes=1/1 seconds=0.003 certificate=True
+    relax                      ran=True successes=1/3 seconds=0.541 certificate=False
+== boundary_wide  space=480000  chose enumerate (right: enumerate) in 14.50s
+    neither backend is sound: enumeration projects to 60.65s and the relaxation is dead at byte,tail
+    enumerate                  ran=True successes=1/1 seconds=88.3696 certificate=False
+    relax                      ran=True successes=0/3 seconds=43.907 certificate=False
+== noisy_2flip  space=4096  chose enumerate (right: enumerate) in 0.54s
+    the whole space of 4096 programs is exhaustible in 0.0805s, which also certifies uniqueness
+    enumerate                  ran=True successes=0/1 seconds=0.0494 certificate=False
+    relax                      ran=True successes=2/3 seconds=2.675 certificate=False
+== wide_logic  space=3388291200  chose relax (right: relax) in 4.87s
+    enumeration projects to 2.762e+04s over 3388291200 programs
+    enumerate                  ran=False successes=None/None seconds=27621.291959658265 certificate=None
+    relax                      ran=True successes=0/3 seconds=333.509 certificate=False
+wrote /home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-afc0484c7c0dc4724/research/search-selection/out/suite.json

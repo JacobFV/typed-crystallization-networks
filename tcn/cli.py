@@ -7,12 +7,19 @@ import sys
 def write_json(path,data):
     p=Path(path);p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(data,indent=2,sort_keys=True,allow_nan=False))
 
-def mixed(out,steps=300,baseline_limit=1<<16):
+def mixed(out,steps=300,baseline_limit=1<<16,mode='relax'):
+    """`mode` selects the search backend; it defaults to the shipped gradient path.
+
+    `'auto'` lets `tcn.select` decide from the scaffold and the data, which on
+    this fixture is enumeration -- 96 programs, exhaustible in milliseconds,
+    with a uniqueness certificate a gradient run cannot produce. The discrete
+    reference below is reported either way, so the two remain comparable.
+    """
     from examples.mixed import problem
     from .synthesis import fit
     from .runtime import save_program,export_executable,benchmark
     from .search import enumerate_fit,space_size
-    p,signals,examples=problem();model,report=fit(p,examples,signals,steps=steps,tolerance=.005)
+    p,signals,examples=problem();model,report=fit(p,examples,signals,steps=steps,tolerance=.005,mode=mode)
     # A synthesis number means little without the discrete reference beside it:
     # enumeration searches the identical candidate space, and when it exhausts
     # that space it also reports whether the solution is unique.
@@ -65,7 +72,7 @@ def stage_runner(stage,out):
             h.step(dt=.05)
         h.replay();h.save(out/'episode.json.gz');return {'replay':1,'steps':len(h.inputs),'observations':len(h.view().observations)}
     if stage.operation=='synthesize':
-        result=mixed(out,stage.configuration.get('steps',300));return {'exact_conformance':int(result['exact_conformance']),'fully_frozen':int(result['fully_frozen']),'loss':result['loss']}
+        result=mixed(out,stage.configuration.get('steps',300),mode=stage.configuration.get('mode','relax'));return {'exact_conformance':int(result['exact_conformance']),'fully_frozen':int(result['fully_frozen']),'loss':result['loss']}
     if stage.operation=='train':
         from .training import JointTrainer,TrainConfig
         from .learning import SoftProgram
@@ -86,7 +93,7 @@ def main(argv=None):
     sub.add_parser('generators')
     sample=sub.add_parser('sample');sample.add_argument('generator');sample.add_argument('--seed',type=int,default=0);sample.add_argument('--steps',type=int,default=2);sample.add_argument('--dt',type=float,default=.05);sample.add_argument('--config');sample.add_argument('--actions');sample.add_argument('--out',default='artifacts/episode.json.gz')
     replay=sub.add_parser('replay');replay.add_argument('episode')
-    synth=sub.add_parser('synthesize');synth.add_argument('--out',default='artifacts/mixed');synth.add_argument('--steps',type=int,default=300)
+    synth=sub.add_parser('synthesize');synth.add_argument('--out',default='artifacts/mixed');synth.add_argument('--steps',type=int,default=300);synth.add_argument('--mode',default='relax',choices=('relax','auto','enumerate','hybrid'))
     train=sub.add_parser('train');train.add_argument('--out',default='artifacts/joint');train.add_argument('--episodes',type=int,default=160);train.add_argument('--config');train.add_argument('--program');train.add_argument('--resume')
     agent=sub.add_parser('agent');agent.add_argument('program');agent.add_argument('--config',required=True);agent.add_argument('--seed',type=int,default=0);agent.add_argument('--steps',type=int);agent.add_argument('--deterministic',action='store_true');agent.add_argument('--out',default='artifacts/agent-episode.json.gz')
     curr=sub.add_parser('curriculum');curr.add_argument('spec');curr.add_argument('--out',default='artifacts/curriculum');curr.add_argument('--workers',type=int,default=1)
@@ -110,7 +117,7 @@ def main(argv=None):
         from .generation import Host
         h=Host.load(args.episode);h.replay();print(json.dumps({'replay':'identical','digest':h.digest}))
     elif args.command=='synthesize':
-        result=mixed(args.out,args.steps);print(json.dumps({k:v for k,v in result.items() if k!='training'},indent=2))
+        result=mixed(args.out,args.steps,mode=args.mode);print(json.dumps({k:v for k,v in result.items() if k!='training'},indent=2))
         if not(result['fully_frozen'] and result['exact_conformance']):return 1
     elif args.command=='train':
         if args.config or args.resume:

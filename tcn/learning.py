@@ -42,7 +42,39 @@ def exact_tensor(registry,op,xs):
     device=xs[0].device if xs else None
     return torch.tensor(vals,dtype=torch.float32,device=device).reshape(*shape,op.output.width)
 
-def relaxed(registry,op,xs,temperature=1.):
+def carrier_temperature(t):
+    """`eq`'s surrogate scale derived from a declared carrier, not tuned.
+
+    `eq` relaxes to `exp(-(a-b)^2/tau)`. At tau=1 that is **exactly 0.0** in
+    float32 once `|a-b| >= 11` (1.6e-28 is still representable at 8), so on a
+    carrier that can express differences of `2^bits` the surrogate -- and its
+    gradient -- is dead for all but near-equal values. `int[8]` image bytes sit
+    25.6 apart at a uniform mixture and read 3.2e-31, i.e. zero.
+
+    `tau = 2^bits` is the smallest scale on which a full-carrier disagreement is
+    still representable: at the measured failing distance it lifts the surrogate
+    from 0.0 to 7.7e-02. It is read off the declared type, so a `bool` carrier
+    returns 1. and its relaxation is unchanged. Composite carriers take the
+    widest leaf, since `eq` sums the squared difference over the whole width.
+    """
+    leaves=[]
+    def walk(x):
+        if x.kind=="int" and x.encoding.kind=="integer": leaves.append(float(2**x.bits))
+        elif x.items:
+            for y in x.items: walk(y)
+        else: leaves.append(1.)
+    walk(t)
+    return max(leaves) if leaves else 1.
+
+def relaxed(registry,op,xs,temperature=1.,carrier_scaled=False):
+    """`carrier_scaled` widens `eq`'s surrogate to its declared carrier.
+
+    It defaults to False so every shipped relaxation is bit-identical. Turning
+    it on is only ever correct together with a *separate* surrogate temperature
+    (see `SoftProgram.surrogate_scale`): one temperature per node divides both
+    the candidate softmax and the operator relaxation, so widening a surrogate
+    through `temperature` also flattens that node's choice distribution.
+    """
     n=op.name; p=dict(op.parameters)
     if op.gradient=="none": return exact_tensor(registry,op,xs)
     a=xs[0] if xs else None; b=xs[1] if len(xs)>1 else None
@@ -56,7 +88,9 @@ def relaxed(registry,op,xs,temperature=1.):
         return sum(v*((k>>i)&1) for i,v in enumerate(terms))
     if n=="mux": return a*xs[1]+(1-a)*xs[2]
     if n in COMPARE:
-        if n=="eq": return torch.exp(-((a-b)**2).sum(-1,keepdim=True)/temperature)
+        if n=="eq":
+            tau=temperature*(carrier_temperature(op.inputs[0]) if carrier_scaled else 1.)
+            return torch.exp(-((a-b)**2).sum(-1,keepdim=True)/tau)
         d=b-a if n in {"lt","le"} else a-b
         return torch.sigmoid(d/temperature)
     if n in BINARY | UNARY:
@@ -100,6 +134,17 @@ class SoftProgram(nn.Module):
         self.choices=nn.ParameterList([nn.Parameter(torch.zeros(len(n.candidates)),requires_grad=n.selected is None) for n in program.nodes])
         self.constants=nn.ParameterDict({k:nn.Parameter(tensor(dict(program.constants)[k])) for k in program.trainable_constants})
         self.temperatures={n.name:1. for n in program.nodes}
+        # D2, separated. One temperature per node used to divide BOTH the
+        # candidate softmax and the operator's own relaxation, so a surrogate
+        # could not be widened without flattening that node's choice
+        # distribution at the same time. `surrogate_scale` is the second axis:
+        # the relaxation sees `temperatures[n] * surrogate_scale[n]` while the
+        # softmax, the entropy and the description cost keep seeing
+        # `temperatures[n]` alone. It defaults to 1. everywhere, so every
+        # shipped run is bit-identical, and the crystallizer's anneal still
+        # sharpens surrogates proportionally because it scales the shared term.
+        self.surrogate_scale={n.name:1. for n in program.nodes}
+        self.carrier_scaled=False
         self.frozen={n.name:n.selected for n in program.nodes if n.selected is not None}
         self.trials={}
         self.quantization={}
@@ -118,7 +163,8 @@ class SoftProgram(nn.Module):
                 values[n.name]=exact_tensor(self.registry,c.operator,[values[s] for s in c.sources]).detach()
                 continue
             tau=self.temperatures[n.name]
-            ys=[relaxed(self.registry,c.operator,[values[s] for s in c.sources],tau) for c in n.candidates]
+            sur=tau*self.surrogate_scale[n.name]
+            ys=[relaxed(self.registry,c.operator,[values[s] for s in c.sources],sur,self.carrier_scaled) for c in n.candidates]
             ys=torch.broadcast_tensors(*ys)
             weights=torch.softmax(logits/tau,0)
             y=sum(w*z for w,z in zip(weights,ys))
@@ -240,6 +286,18 @@ class SoftProgram(nn.Module):
             for i,idx in per_node.items(): dead=dead*(1-live[i]*q[i][idx].sum())
             total=total+tables['module_bits'][m]*(1-dead)
         return total
+    def scale_surrogates(self):
+        """Turn on the carrier-derived `eq` surrogate width, without touching choices.
+
+        Only meaningful because `surrogate_scale` is separate from
+        `temperatures`: with the two coupled this would flatten the candidate
+        softmax of every node holding an `eq`, which is what made the emulated
+        fix need a compensating learning rate. Returns the nodes it affects.
+        """
+        self.carrier_scaled=True
+        return tuple(n.name for n in self.program.nodes
+                     if any(c.operator.name=="eq" and c.operator.gradient!="none" and
+                            carrier_temperature(c.operator.inputs[0])>1. for c in n.candidates))
     def selections(self): return {n.name:self.frozen.get(n.name,int(p.argmax())) for n,p in zip(self.program.nodes,self.choices)}
     def export(self):
         constants=tuple((k,Value.unflat(v.type,self.constants[k].detach().cpu().tolist()) if k in self.constants else v) for k,v in self.program.constants)
