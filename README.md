@@ -88,3 +88,20 @@ communication, paper, computers, containers, tools, doors, and buttons.
 The implementation is a research system, not a trained general language model.
 [Validation results](docs/VALIDATION.md) distinguish tested mechanics, demonstrated
 learning, unsuccessful experiments, and capability that remains unestablished.
+
+## Measured findings
+
+An eight-track measurement pass ran against this implementation on 2026-09-08.
+**[research/FINDINGS.md](research/FINDINGS.md) is the consolidated record** and
+supersedes the summary claims above wherever the two disagree; per-track detail
+and raw data are under `research/<track>/`, indexed by
+[research/AGENDA.md](research/AGENDA.md).
+
+Read it before building on the architecture. In short: exactness and dense
+hierarchical supervision hold up under measurement, while progressive
+crystallization, recursive module reuse, and the description-size and latency
+advantages do not. Enumeration settles both flagship results in milliseconds,
+so the differentiable path currently earns its place only where search is
+coupled to an environment. Several claims in `docs/VALIDATION.md` were corrected
+as a result, and the findings list ten proposed core changes that have been
+recorded but deliberately not applied.

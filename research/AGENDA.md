@@ -26,36 +26,27 @@ crystallization.
 
 ## Tracks
 
-| # | Question | Directory |
-|---|---|---|
-| 1 | Does progressive crystallization beat naive argmax rounding? | `research/crystallization-ablation/` |
-| 2 | Why did the arithmetic scaffold stay at chance? | `research/scaffold-autopsy/` |
-| 3 | Where does candidate search break as depth and pool size grow? | `research/search-scaling/` |
-| 4 | Does the joint agent generalize to unseen gate families? | `research/structure-generalization/` |
-| 5 | Does crystallized-module reuse measurably help? | `research/recursive-abstraction/` |
-| 6 | How does TCN compare to a matched-information baseline? | `research/baselines/` |
-| 7 | What does the literature actually establish about DLGNs? | `research/literature/` |
-| 8 | Does differentiable search beat enumeration/SAT on the same space? | `research/enumerative-baseline/` |
+| # | Question | Directory | Verdict |
+|---|---|---|---|
+| 1 | Does progressive crystallization beat naive argmax rounding? | `crystallization-ablation/` | **No.** Inert at shipped budgets, harmful at tight ones. |
+| 2 | Why did the arithmetic scaffold stay at chance? | `scaffold-autopsy/` | **Stopped too early.** Transition at ~750-2600 episodes; 4.00/4 at 5120. |
+| 3 | Where does candidate search break as depth and pool size grow? | `search-scaling/` | **Target arity, not depth.** Free wiring <50% at depth 3; dense probes fix it (88-94%). |
+| 4 | Does the joint agent generalize to unseen gate families? | `structure-generalization/` | **Not as recorded** (2.09/4 = chance). Fixed by an interpreter candidate: 4.00 frozen, unseen tables. |
+| 5 | Does crystallized-module reuse measurably help? | `recursive-abstraction/` | **No.** Module on the output path in 0 of 20 runs. |
+| 6 | How does TCN compare to a matched-information baseline? | `baselines/` | **Exactness holds** (1e-8 vs 0.232). Size and latency claims do not. |
+| 7 | What does the literature actually establish about DLGNs? | `literature/` | Selection rule falsified by DARTS-PT; depth known not to pay; rollback unclaimed. |
+| 8 | Does differentiable search beat enumeration/SAT on the same space? | `enumerative-baseline/` | **No.** Brute force settles the flagship result in 0.081 ms. Gradient wins only on env samples. |
 
-Track 1 is the load-bearing one. Progressive hardening with residual retraining
-and transactional rollback is the architecture's central mechanism. If argmax
-rounding at the end of training matches it, the mechanism is unnecessary.
+All eight tracks are complete. **The synthesis is in
+[`research/FINDINGS.md`](FINDINGS.md)** — what survived measurement, what did
+not, the instrumentation faults, the proposed core changes ordered by payoff,
+and the recommended next steps. Read that first; the per-track `RESULTS.md`
+files hold the detail and raw data.
 
-## Track 5 result (2026-09-08)
+Track 1 was the load-bearing one and it came back negative, so the headline is
+not the one the agenda anticipated: across tracks 1, 3 and 6, progressive
+crystallization does not earn its complexity and hierarchical supervision does.
 
-Answered in `research/recursive-abstraction/RESULTS.md`. **No measurable
-benefit.** Two matched experiments (half adder -> full adder; MAJ3 -> sliding
-majority), 8-12 seeds per arm, one shared scaffold whose only difference is
-whether the crystallized module is offered as a candidate:
-
-- E1 3/12 flat vs 2/12 with module (Fisher p = 1.00); E2 5/8 vs 7/8 (p = 0.57).
-- In 0 of 20 arm-B runs was the module on the output path of the discovered
-  program, including 0 of 10 successes.
-- The sec. 4 accounting claim is correctly implemented (definition once, call
-  sites each, cost per use, transitive) but the abstracted program is 1.4x
-  larger, 1.4-1.6x costlier and 1.7x slower at batch one; description-size
-  crossover needs 4 call sites and execution cost never crosses over.
-- Proposed core changes in the report: F1 collapse unit-arity module output
-  types, F2 memoize `Program.validate` (module candidates are 16-98x costlier
-  than primitives), F3 wire the MDL term into `synthesis.fit`, F4 prune dead
-  nodes before export/registration.
+`tcn/` and `generators/` are unchanged from the initial commit. Every proposed
+core change is recorded as a diff in a report rather than applied, pending
+review.
