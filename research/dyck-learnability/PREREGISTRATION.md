@@ -185,6 +185,54 @@ human input** and that is a limit of the architecture.
 **A negative on Q3 is expected and is the valuable outcome.** It is recorded as a
 limit, not softened.
 
+---
+
+## Addendum, committed after Q1 launched and **before any Q2 or Q3 arm was run**
+
+Q1's shards were already running when these were added; **no Q2 or Q3 number
+existed yet**, and the Q1 criteria above are untouched. Recorded here rather than
+edited in silently.
+
+**A1 — a generous gradient budget.** A smoke run measured the min-prefix
+scaffold's gradient step at ~0.1 s, so the 600-step arms above cost ~10 min each.
+Since the budget is not the binding constraint, **3,000-step** arms (the budget
+§44 used) are run on **both** scaffolds at **both** temperature settings, in
+addition to the pre-registered 600-step arms. More steps can only help the
+gradient path, so this can only strengthen a negative. Both budgets are reported;
+neither replaces the other.
+
+**A2 — a random-selection null for Q2.** Draw uniformly at random from the same
+680,625-program min-prefix space and from the 45,375-program counting space, and
+report the fraction of draws that conform on the 24 training episodes. This gives
+the numerical null that "fitting noise" has to be compared against, so the Q2
+falsification criterion is quantitative rather than rhetorical. `n = 2000` draws
+per space, seed fixed.
+
+**A3 — Q3a is sharpened before it is run.** The collision test as written above
+is vacuous on this stream and would have measured nothing: the counting family's
+joint statistic determines the string, so identical statistics imply identical
+labels and no collision can exist. What is actually available pre-hoc, and what
+3a will therefore measure, is:
+
+  1. **Is the failed accumulator's output label-independent?** Mutual information
+     between each existing live node's value (`acc1..acc21`, and the readout node)
+     and the label, over the 24 training episodes only. A node with **zero**
+     mutual information is a mechanically detectable statement that the quantity
+     the scaffold accumulates carries no label signal on this distribution.
+  2. **Does any core reduction over the nodes the scaffold ALREADY materialises
+     separate the labels?** The failed scaffold already computes the prefix sums
+     `acc1..acc21` as nodes. Sweep the core reductions (`reduce_min`,
+     `reduce_max`, `sum`, `mean`, `count`) over that existing node set, threshold
+     each with the same `{eq,ge,le} × {-2..2}` grid stage B searches, fit on the
+     **24 training episodes only**, and report held-out accuracy beside the
+     0.5262 majority. If a reduction that core already declares reaches train
+     1.000 by fitting on training data alone, then the scaffold change was
+     proposable from pre-hoc evidence, and Q3 has a positive component.
+
+  Falsification for 3a is unchanged in spirit: if every node has non-zero label
+  information **and** no core reduction over the existing nodes fits the training
+  set, there is no pre-hoc signal and scaffold design is a human input.
+
 ## Verification obligations
 
 - All non-environmental tests pass. The ~13 worktree failures (`computer` and
