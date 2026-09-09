@@ -1,0 +1,94 @@
+[
+ {
+  "code_bytes_in_pyz": 39417,
+  "distinct_operators": 4,
+  "gzip_ratio_vs_pyz": 100.49223946784923,
+  "indent_overhead_bytes": 3103,
+  "json_gzip_bytes": 451,
+  "json_minified_bytes": 2061,
+  "json_pretty_bytes": 5164,
+  "module_nodes": 0,
+  "name": "mixed",
+  "nodes": 4,
+  "program_json_in_pyz_bytes": 5164,
+  "pyz_bytes": 45322,
+  "pyz_stored_uncompressed": true,
+  "roles_charged_bytes": 1472,
+  "roles_minified": {
+   "constant_payload_bytes": 0,
+   "node_and_operator_bytes": 275,
+   "other_bytes": 122,
+   "type_declaration_bytes": 1075
+  },
+  "type_declaration_share_of_minified": 0.5215914604560893
+ },
+ {
+  "code_bytes_in_pyz": 39417,
+  "distinct_operators": 9,
+  "gzip_ratio_vs_pyz": 247.6638575290189,
+  "indent_overhead_bytes": 1070645,
+  "json_gzip_bytes": 6289,
+  "json_minified_bytes": 446755,
+  "json_pretty_bytes": 1517400,
+  "module_nodes": 5,
+  "name": "language",
+  "nodes": 84,
+  "program_json_in_pyz_bytes": 1517400,
+  "pyz_bytes": 1557558,
+  "pyz_stored_uncompressed": true,
+  "roles_charged_bytes": 425710,
+  "roles_minified": {
+   "constant_payload_bytes": 1018,
+   "node_and_operator_bytes": 6380,
+   "other_bytes": 222,
+   "type_declaration_bytes": 418090
+  },
+  "type_declaration_share_of_minified": 0.9358373157547202
+ },
+ {
+  "code_bytes_in_pyz": 39417,
+  "distinct_operators": 14,
+  "gzip_ratio_vs_pyz": 801.6404287499178,
+  "indent_overhead_bytes": 8398560,
+  "json_gzip_bytes": 15207,
+  "json_minified_bytes": 3751828,
+  "json_pretty_bytes": 12150388,
+  "module_nodes": 0,
+  "name": "computer",
+  "nodes": 23,
+  "program_json_in_pyz_bytes": 12150388,
+  "pyz_bytes": 12190546,
+  "pyz_stored_uncompressed": true,
+  "roles_charged_bytes": 3748259,
+  "roles_minified": {
+   "constant_payload_bytes": 2183,
+   "node_and_operator_bytes": 1698,
+   "other_bytes": 129,
+   "type_declaration_bytes": 3744249
+  },
+  "type_declaration_share_of_minified": 0.997979918055945
+ },
+ {
+  "code_bytes_in_pyz": 39417,
+  "distinct_operators": 24,
+  "gzip_ratio_vs_pyz": 830.5696625886596,
+  "indent_overhead_bytes": 88045763,
+  "json_gzip_bytes": 148602,
+  "json_minified_bytes": 35338392,
+  "json_pretty_bytes": 123384155,
+  "module_nodes": 607,
+  "name": "visual",
+  "nodes": 4,
+  "program_json_in_pyz_bytes": 123384155,
+  "pyz_bytes": 123424313,
+  "pyz_stored_uncompressed": true,
+  "roles_charged_bytes": 35270112,
+  "roles_minified": {
+   "constant_payload_bytes": 4595,
+   "node_and_operator_bytes": 41150,
+   "other_bytes": 495,
+   "type_declaration_bytes": 35223872
+  },
+  "type_declaration_share_of_minified": 0.9967593318903701
+ }
+]

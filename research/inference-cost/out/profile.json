@@ -1,0 +1,160 @@
+{
+ "by_role_seconds": {
+  "carrier revalidation": 5.478669842,
+  "operator semantics + graph walk": 0.30725441799999986,
+  "other": 4.111322838,
+  "type dict round-trip": 2.162415132,
+  "typed value decode": 37.481279210000004,
+  "typed value encode": 8.035653591
+ },
+ "by_role_share": {
+  "carrier revalidation": 0.09515446057638895,
+  "operator semantics + graph walk": 0.005336446482022254,
+  "other": 0.0714061475116132,
+  "type dict round-trip": 0.03755719022348799,
+  "typed value decode": 0.6509811702102146,
+  "typed value encode": 0.13956458499627322
+ },
+ "hot_functions": [
+  {
+   "calls": 85268798,
+   "function": "types.py:171(decode)",
+   "role": "typed value decode",
+   "tottime_s": 20.532044452
+  },
+  {
+   "calls": 76085509,
+   "function": "types.py:175(<genexpr>)",
+   "role": "typed value decode",
+   "tottime_s": 14.959672605000002
+  },
+  {
+   "calls": 9103342,
+   "function": "types.py:134(encode)",
+   "role": "typed value encode",
+   "tottime_s": 8.035653591
+  },
+  {
+   "calls": 9106480,
+   "function": "types.py:185(validate_raw)",
+   "role": "carrier revalidation",
+   "tottime_s": 5.478669842
+  },
+  {
+   "calls": 9045207,
+   "function": "types.py:142(<genexpr>)",
+   "role": "typed value decode",
+   "tottime_s": 1.8978795130000001
+  },
+  {
+   "calls": 18435310,
+   "function": "~:0(<built-in method math.isfinite>)",
+   "role": "other",
+   "tottime_s": 1.502348076
+  },
+  {
+   "calls": 18156770,
+   "function": "~:0(<built-in method builtins.isinstance>)",
+   "role": "other",
+   "tottime_s": 1.474033398
+  },
+  {
+   "calls": 278540,
+   "function": "types.py:89(from_dict)",
+   "role": "type dict round-trip",
+   "tottime_s": 0.6433763560000001
+  },
+  {
+   "calls": 1389285,
+   "function": "dataclasses.py:1411(_asdict_inner)",
+   "role": "type dict round-trip",
+   "tottime_s": 0.554764691
+  },
+  {
+   "calls": 278540,
+   "function": "types.py:81(to_dict)",
+   "role": "type dict round-trip",
+   "tottime_s": 0.367733492
+  },
+  {
+   "calls": 572500,
+   "function": "<string>:16(__eq__)",
+   "role": "other",
+   "tottime_s": 0.342002896
+  },
+  {
+   "calls": 277857,
+   "function": "dataclasses.py:1357(fields)",
+   "role": "type dict round-trip",
+   "tottime_s": 0.315541057
+  },
+  {
+   "calls": 2784042,
+   "function": "~:0(<built-in method builtins.getattr>)",
+   "role": "other",
+   "tottime_s": 0.217763633
+  },
+  {
+   "calls": 64346,
+   "function": "operators.py:175(exact)",
+   "role": "operator semantics + graph walk",
+   "tottime_s": 0.16990912100000002
+  },
+  {
+   "calls": 1389285,
+   "function": "dataclasses.py:1372(<genexpr>)",
+   "role": "type dict round-trip",
+   "tottime_s": 0.118232368
+  },
+  {
+   "calls": 565368,
+   "function": "<string>:11(__eq__)",
+   "role": "other",
+   "tottime_s": 0.10521264100000001
+  },
+  {
+   "calls": 277857,
+   "function": "dataclasses.py:1387(asdict)",
+   "role": "type dict round-trip",
+   "tottime_s": 0.102118288
+  },
+  {
+   "calls": 555193,
+   "function": "types.py:93(<genexpr>)",
+   "role": "typed value decode",
+   "tottime_s": 0.09066371200000001
+  },
+  {
+   "calls": 278540,
+   "function": "types.py:46(__post_init__)",
+   "role": "other",
+   "tottime_s": 0.07149768000000001
+  },
+  {
+   "calls": 836237,
+   "function": "~:0(<method 'get' of 'dict' objects>)",
+   "role": "other",
+   "tottime_s": 0.07085134400000001
+  },
+  {
+   "calls": 4081,
+   "function": "graph.py:89(execute)",
+   "role": "operator semantics + graph walk",
+   "tottime_s": 0.070371633
+  },
+  {
+   "calls": 278548,
+   "function": "types.py:65(__post_init__)",
+   "role": "other",
+   "tottime_s": 0.061528881
+  },
+  {
+   "calls": 277857,
+   "function": "dataclasses.py:1375(_is_dataclass_instance)",
+   "role": "type dict round-trip",
+   "tottime_s": 0.06064888
+  }
+ ],
+ "note": "cProfile inflates wall clock ~3.5x; the shares are the measurement",
+ "profiled_total_seconds": 57.57659503099999
+}

@@ -1,0 +1,18 @@
+[
+ {
+  "cold_start_min_ms": 5179.05693,
+  "cold_start_ms": 5396.062288,
+  "cold_start_peak_rss_mb": 377.52734375,
+  "flags": "-I (isolated: no repo, no venv, no torch)",
+  "inference_ms": 66556.833311,
+  "interpreter": "/usr/bin/python3",
+  "name": "visual",
+  "one_inference_min_ms": 71735.890241,
+  "one_inference_peak_rss_mb": 377.49609375,
+  "one_inference_total_ms": 73846.354066,
+  "pyz_bytes": 123424313,
+  "reply_bytes": 1475,
+  "transport_bytes": 410299,
+  "transport_serialize_ms": 6.649841
+ }
+]
