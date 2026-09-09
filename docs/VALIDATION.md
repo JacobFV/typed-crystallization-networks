@@ -64,8 +64,26 @@ long-horizon embodiment. No such capability is claimed.
 An earlier generic arithmetic/sine scaffold trained for 640 episodes stayed near
 chance: mean return **2.03125/4**, with final prediction loss around **0.2806**.
 Its report remains at `artifacts/joint-long/report.json`. Replacing that scaffold
-with the typed logic experiment established a working joint-learning path; it
-was not evidence that arbitrary scaffolds learn equally well.
+with the typed logic experiment established a working joint-learning path.
+
+That 640-episode result does not show what the scaffold can learn. It was
+reproduced and audited in `research/scaffold-autopsy/`: the run was stopped before
+its learning transition. The same scaffold, same trainer, same learning rate and
+same task, run to 5120 episodes, reaches **4/4** deterministic return on held-out
+episodes with held-out prediction loss **4.4e-4** on both seeds tested; the
+transition occurs near episode 750, 800 and 2600 for seeds 0, 2 and 1. By 2048
+episodes the relation itself is learned on all three seeds (prediction loss
+1.1e-4 to 9.4e-4); the policy readout is the slower half. Under plain
+full-batch supervision the identical program fits the same targets to MSE `1e-5`
+at 100% accuracy in about 120 optimizer steps, across twelve width/rate/seed
+settings, so neither capacity nor operator search was the obstacle. The generic
+scaffold is roughly an order of magnitude less sample efficient than the typed
+logic graph, which reached 4/4 in 160 episodes: its per-episode score-function
+gradient has a measured signal-to-noise ratio of 0.22, its policy readout must be
+found by that noisy term rather than being wired to the latent, and its prediction
+and policy gradients transiently conflict (cosine down to −0.68) while it sits on
+the plateau. Scaffold choice buys sample efficiency and a shorter search; the
+recorded episode budget, not the scaffold, produced the near-chance number.
 
 The current system curriculum samples and checks replay of image, language,
 computer, and physical generators. Those stages do **not** mean the agent has

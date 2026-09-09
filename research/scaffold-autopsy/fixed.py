@@ -11,7 +11,7 @@ import sys
 import time
 
 from arith_joint import trainer, evaluate, summarize
-from batched import held_out
+from batched import held_out, run_batched
 
 
 def main():
@@ -22,9 +22,16 @@ def main():
     out = []
     for s in seeds:
         t0 = time.time()
-        t = trainer(episodes=episodes, seed=s, batch=batch, **extra)
-        h = t.run()
-        r = summarize(h, window=64)
+        try:
+            # if the trainer exposes a declared batch, use it
+            t = trainer(episodes=episodes, seed=s, batch=batch, **extra)
+            h = t.run()
+        except TypeError:
+            # stock trainer: accumulate the identical per-episode loss ourselves
+            t = trainer(episodes=episodes, seed=s, **extra)
+            run_batched(t, batch)
+            h = t.history or [{'prediction_loss': float('nan'), 'return': float('nan')}]
+        r = summarize(h, window=min(64, len(h)))
         r['deterministic_eval_return'] = evaluate(t, episodes=16)
         r['held_out_prediction_loss'] = held_out(t, episodes=16)
         r['optimizer_steps'] = (episodes + batch - 1) // batch

@@ -1,0 +1,33 @@
+parameters: 277 nodes: 152
+{
+  "episodes": 2048,
+  "first_prediction_loss": 0.3477550186216831,
+  "final_prediction_loss": 0.0009359685795971018,
+  "final_mean_return": 4.0,
+  "mean_return_all": 3.3017578125,
+  "deterministic_eval_return": 4.0,
+  "seconds": 261.0,
+  "seed": 0
+}
+parameters: 277 nodes: 152
+{
+  "episodes": 2048,
+  "first_prediction_loss": 0.6731694154441357,
+  "final_prediction_loss": 0.000177668981905299,
+  "final_mean_return": 0.5,
+  "mean_return_all": 2.05419921875,
+  "deterministic_eval_return": 2.5,
+  "seconds": 249.1,
+  "seed": 1
+}
+parameters: 277 nodes: 152
+{
+  "episodes": 2048,
+  "first_prediction_loss": 1.2675987822003663,
+  "final_prediction_loss": 0.00010762797649022104,
+  "final_mean_return": 4.0,
+  "mean_return_all": 3.25537109375,
+  "deterministic_eval_return": 4.0,
+  "seconds": 520.9,
+  "seed": 2
+}

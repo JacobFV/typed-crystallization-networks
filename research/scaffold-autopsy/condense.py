@@ -33,3 +33,24 @@ if os.path.exists(src):
     os.remove(src)
 
 print('done')
+
+# Downsample the long per-episode training histories to keep the record reviewable.
+import glob
+
+for path in sorted(glob.glob(os.path.join(d, 'fixed_ep*.json')) + glob.glob(os.path.join(d, 'repro_seed*.json'))):
+    blob = json.load(open(path))
+    h = blob.get('history') or []
+    if len(h) <= 64:
+        continue
+    keep = ['episode', 'return', 'prediction_loss', 'policy_loss', 'value_loss', 'loss',
+            'prediction_policy_gradient_cosine', 'gradient_norm']
+    k = max(1, len(h) // 64)
+    blocks = []
+    for a in range(0, len(h), k):
+        w = h[a:a + k]
+        blocks.append({'from': a, 'n': len(w),
+                       **{f: sum(x.get(f, 0.) for x in w) / len(w) for f in keep if f in w[0]}})
+    blob['history'] = blocks
+    blob['history_note'] = f'per-episode history averaged into blocks of {k} episodes'
+    json.dump(blob, open(path, 'w'), indent=1, default=str)
+print('downsampled')

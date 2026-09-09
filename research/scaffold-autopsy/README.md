@@ -11,7 +11,15 @@ Files, in the order they were used.
 | `diagnose.py` | Tracks internal state across training: value output vs. actual return, advantage, policy logit magnitude, weight norms per region. |
 | `capacity.py` | Capacity control: fits the *same* scaffold's prediction head on the same targets by full-batch supervision (no RL, no sampling, no value head). |
 | `snr.py` | Per-term gradient signal-to-noise ratio at batch size one: `||mean g|| / mean ||g||`. |
-| `batched.py` | Gradient accumulation over episodes, before the core patch, to check the hypothesis. |
-| `fixed.py` | Decisive run of the same scaffold under the patched trainer. |
+| `batched.py` | Gradient accumulation over episodes against the unmodified trainer, to test (and ultimately reject) the batching hypothesis. |
+| `fixed.py` | Long runs of the same scaffold. Uses `TrainConfig.batch` when the trainer exposes it, otherwise `batched.run_batched`; at `batch=1` both are the stock code path. |
+| `ablate.py` | Loss-weight/learning-rate ablation grid (not needed for the verdict; kept for reuse). |
+| `condense.py` | Shrinks the raw instrumentation dumps and downsamples long histories so the record stays reviewable. |
 
-`RESULTS.md` holds the findings. Logs and `*.json` are raw output.
+`RESULTS.md` holds the findings. Logs and `*.json` are the raw output;
+per-episode histories in `fixed_ep*.json` / `repro_seed*.json` have been averaged
+into ~64 blocks by `condense.py`, and the headline `summary` object in each is
+untouched.
+
+Nothing under `tcn/` is modified by this branch. `RESULTS.md` records the core
+patch that was written, tested and then rejected on the evidence.

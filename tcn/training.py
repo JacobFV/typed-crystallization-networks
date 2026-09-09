@@ -32,7 +32,6 @@ class TrainConfig:
     generator_config: dict
     objectives: tuple[dict,...] = ({},)
     episodes: int = 64
-    batch: int = 1
     horizon: int = 8
     dt: float = 1.
     lr: float = .01
@@ -52,7 +51,6 @@ class TrainConfig:
         if len({(b.template,b.argument) for b in self.action_bindings})!=len(self.action_bindings):raise ValueError('duplicate action binding')
         if any(b.template>=len(self.action_templates) for b in self.action_bindings):raise ValueError('action binding index out of range')
         if self.episodes<1 or self.horizon<1 or self.dt<=0:raise ValueError('invalid training budget')
-        if self.batch<1:raise ValueError('an update must average at least one episode')
     def to_dict(self):
         d=asdict(self);d['action_templates']=[a.to_dict() for a in self.action_templates];d['action_bindings']=[b.to_dict() for b in self.action_bindings];return d
     @classmethod
@@ -86,7 +84,7 @@ class JointTrainer:
         if 'action' in dict(self.model.program.inputs):values['action']=torch.nn.functional.one_hot(torch.tensor(action,device=device),len(self.config.action_templates)).float()
         if 'dt' in dict(self.model.program.inputs):values['dt']=torch.tensor([self.config.dt],device=device)
         return values
-    def episode(self,index,train=True,split='train',loss_only=False,step=True,scale=1):
+    def episode(self,index,train=True,split='train',loss_only=False):
         c=self.config;goal=c.objectives[index%len(c.objectives)]
         host=Host.create(c.generator,seed=c.seed,index=index,split=split,configuration=c.generator_config|{'horizon':c.horizon},objective=goal)
         memory=None;previous=0;executed=None;rows=[]
@@ -139,21 +137,16 @@ class JointTrainer:
             if shared:
                 a=torch.cat([a for a,b in shared]);b=torch.cat([b for a,b in shared]);den=a.norm()*b.norm()
                 metrics['prediction_policy_gradient_cosine']=float((a@b/den).detach()) if den>0 else 0.
-            (loss/scale).backward()
-            if step:
-                metrics['gradient_norm']=float(torch.nn.utils.clip_grad_norm_(self.model.parameters(),5.))
-                self.optimizer.step();self.optimizer.zero_grad()
+            self.optimizer.zero_grad();loss.backward()
+            metrics['gradient_norm']=float(torch.nn.utils.clip_grad_norm_(self.model.parameters(),5.))
+            self.optimizer.step()
         return metrics,host
     def run(self,outdir=None):
-        """One update averages `batch` episodes; a batch always completes before a checkpoint."""
         torch.set_num_threads(1)
         if self.completed==0:torch.manual_seed(self.config.seed)
-        self.optimizer.zero_grad();saved=self.completed
-        while self.completed<self.config.episodes:
-            n=min(self.config.batch,self.config.episodes-self.completed)
-            for k in range(n):
-                metrics,_=self.episode(self.completed,step=k==n-1,scale=n);self.history.append(metrics);self.completed+=1
-            if outdir is not None and (self.completed-saved>=8 or self.completed==self.config.episodes):self.save(outdir);saved=self.completed
+        for i in range(self.completed,self.config.episodes):
+            metrics,_=self.episode(i);self.history.append(metrics);self.completed=i+1
+            if outdir is not None and (self.completed%8==0 or self.completed==self.config.episodes):self.save(outdir)
         return self.history
     def save(self,outdir):
         p=Path(outdir);p.mkdir(parents=True,exist_ok=True)
