@@ -1,0 +1,266 @@
+{
+ "adversarial": [
+  {
+   "after": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')",
+   "after_matches_oracle_kind": true,
+   "before": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')",
+   "before_after_identical": true,
+   "case": "fractional",
+   "oracle": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')"
+  },
+  {
+   "after": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')",
+   "after_matches_oracle_kind": true,
+   "before": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')",
+   "before_after_identical": true,
+   "case": "above range",
+   "oracle": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')"
+  },
+  {
+   "after": "ok",
+   "after_matches_oracle_kind": true,
+   "before": "ok",
+   "before_after_identical": true,
+   "case": "bool",
+   "oracle": "ok"
+  },
+  {
+   "after": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')",
+   "after_matches_oracle_kind": true,
+   "before": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')",
+   "before_after_identical": true,
+   "case": "non-finite",
+   "oracle": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')"
+  },
+  {
+   "after": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')",
+   "after_matches_oracle_kind": true,
+   "before": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')",
+   "before_after_identical": true,
+   "case": "nan",
+   "oracle": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')"
+  },
+  {
+   "after": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')",
+   "after_matches_oracle_kind": true,
+   "before": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')",
+   "before_after_identical": true,
+   "case": "huge int",
+   "oracle": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')"
+  },
+  {
+   "after": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')",
+   "after_matches_oracle_kind": true,
+   "before": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')",
+   "before_after_identical": true,
+   "case": "string",
+   "oracle": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')"
+  },
+  {
+   "after": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')",
+   "after_matches_oracle_kind": true,
+   "before": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')",
+   "before_after_identical": true,
+   "case": "none",
+   "oracle": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')"
+  },
+  {
+   "after": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')",
+   "after_matches_oracle_kind": true,
+   "before": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')",
+   "before_after_identical": true,
+   "case": "negative",
+   "oracle": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')"
+  },
+  {
+   "after": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')",
+   "after_matches_oracle_kind": true,
+   "before": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')",
+   "before_after_identical": true,
+   "case": "float in range",
+   "oracle": "('TypeError', 'Boolean encoding requires bool, not numeric coercion')"
+  }
+ ],
+ "adversarial_identical": true,
+ "artifact": "mixed",
+ "boundary_values_identical": true,
+ "bytecodes": {
+  "boundary_after": 103,
+  "boundary_before": 103,
+  "complete_after": 190,
+  "complete_before": 190,
+  "program_only": 118
+ },
+ "identical_outputs": true,
+ "profile": {
+  "after": {
+   "top": [
+    {
+     "fn": "<after>:_c1",
+     "share": 0.3844578059772559,
+     "tottime_s": 0.00020832
+    },
+    {
+     "fn": "<after>:run",
+     "share": 0.22447190571629996,
+     "tottime_s": 0.000121631
+    },
+    {
+     "fn": "~:<built-in method math.isfinite>",
+     "share": 0.09342553529179448,
+     "tottime_s": 5.0623000000000006e-05
+    },
+    {
+     "fn": "<after>:_b1",
+     "share": 0.08356494553883519,
+     "tottime_s": 4.528e-05
+    },
+    {
+     "fn": "~:<method 'pack' of '_struct.Struct' objects>",
+     "share": 0.057757255644509405,
+     "tottime_s": 3.1296e-05
+    },
+    {
+     "fn": "~:<method 'unpack' of '_struct.Struct' objects>",
+     "share": 0.05518829795479963,
+     "tottime_s": 2.9904e-05
+    },
+    {
+     "fn": "<after>:_b0",
+     "share": 0.03626069014900693,
+     "tottime_s": 1.9648000000000002e-05
+    },
+    {
+     "fn": "~:<built-in method builtins.isinstance>",
+     "share": 0.030414096786219168,
+     "tottime_s": 1.648e-05
+    }
+   ],
+   "total_s": 0.000541854
+  },
+  "before": {
+   "top": [
+    {
+     "fn": "<before>:_c1",
+     "share": 0.38256790877804636,
+     "tottime_s": 0.000212878
+    },
+    {
+     "fn": "<before>:run",
+     "share": 0.22422341830729003,
+     "tottime_s": 0.000124768
+    },
+    {
+     "fn": "~:<built-in method math.isfinite>",
+     "share": 0.09339287800231828,
+     "tottime_s": 5.1968e-05
+    },
+    {
+     "fn": "<before>:_b1",
+     "share": 0.08580183126813971,
+     "tottime_s": 4.7744e-05
+    },
+    {
+     "fn": "~:<method 'pack' of '_struct.Struct' objects>",
+     "share": 0.05687534257653496,
+     "tottime_s": 3.1648e-05
+    },
+    {
+     "fn": "~:<method 'unpack' of '_struct.Struct' objects>",
+     "share": 0.054172469875728956,
+     "tottime_s": 3.0144e-05
+    },
+    {
+     "fn": "<before>:_b0",
+     "share": 0.036201241811859214,
+     "tottime_s": 2.0144000000000002e-05
+    },
+    {
+     "fn": "~:<built-in method builtins.isinstance>",
+     "share": 0.03022041711220336,
+     "tottime_s": 1.6816e-05
+    }
+   ],
+   "total_s": 0.000556445
+  }
+ },
+ "ratios": {
+  "boundary_after_over_program": 0.8000582072176949,
+  "boundary_before_over_after": 1.0498363041105856,
+  "boundary_before_over_program": 0.839930151338766,
+  "bytecodes_before_over_after": 1.0,
+  "complete_before_over_after": 0.9999067251189254
+ },
+ "source_bytes": {
+  "after": 2629,
+  "before": 2629
+ },
+ "stats_after": {
+  "boundary_encoders": 2,
+  "boundary_identity_guards": 0,
+  "emitted_per_scope": {
+   "run": 4
+  },
+  "modules_emitted": 0,
+  "nodes_emitted": 4,
+  "nodes_folded": 0,
+  "nodes_pruned_dead": 0,
+  "scalar_canonicalisations": 3,
+  "source_bytes": 2629,
+  "source_lines": 63,
+  "structural_canonicalisations_elided": 0,
+  "type_table_entries": 2,
+  "widest_static_type": 1
+ },
+ "stats_before": {
+  "boundary_encoders": 2,
+  "boundary_identity_guards": 0,
+  "emitted_per_scope": {
+   "run": 4
+  },
+  "modules_emitted": 0,
+  "nodes_emitted": 4,
+  "nodes_folded": 0,
+  "nodes_pruned_dead": 0,
+  "scalar_canonicalisations": 3,
+  "source_bytes": 2629,
+  "source_lines": 63,
+  "structural_canonicalisations_elided": 0,
+  "type_table_entries": 2,
+  "widest_static_type": 1
+ },
+ "timing": {
+  "boundary_after": {
+   "median_ms": 0.0003200257197022438,
+   "min_ms": 0.00028795329853892326,
+   "reps": 401
+  },
+  "boundary_before": {
+   "median_ms": 0.0003359746187925339,
+   "min_ms": 0.00028801150619983673,
+   "reps": 401
+  },
+  "complete_after": {
+   "median_ms": 0.0006240443326532841,
+   "min_ms": 0.0005919719114899635,
+   "reps": 401
+  },
+  "complete_before": {
+   "median_ms": 0.0006239861249923706,
+   "min_ms": 0.0005599576979875565,
+   "reps": 401
+  },
+  "interpreter_boundary": {
+   "median_ms": 0.0020320003386586905,
+   "min_ms": 0.001935986801981926,
+   "reps": 20
+  },
+  "program_only": {
+   "median_ms": 0.000400003045797348,
+   "min_ms": 0.00036798883229494095,
+   "reps": 401
+  }
+ },
+ "widest_port": "a",
+ "widest_width": 1
+}

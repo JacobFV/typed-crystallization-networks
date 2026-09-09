@@ -15,13 +15,13 @@ def _exact_error(program,examples,signals,registry):
             worst=max(worst,float((a-b).abs().max()))
     return worst
 
-def _discrete_report(model,program,examples,signals,result,decision,tolerance,mdl_weight):
+def _discrete_report(model,program,examples,signals,result,decision,tolerance,mdl_weight,rank='order'):
     """A discrete backend's result in the shape `fit` returns, so callers do not branch."""
     # A failed discrete search has no error to report, and `None` rather than an
     # infinity keeps the report writable by `cli.write_json`, which forbids NaN
     # and infinities so an unrunnable number can never be recorded as a result.
     error=_exact_error(model.export(),examples,signals,model.registry) if result.solved else None
-    return {'selection':decision.to_dict(),'training':[],'mdl_weight':mdl_weight,
+    return {'selection':decision.to_dict(),'training':[],'mdl_weight':mdl_weight,'rank':rank,
             'description_bits':float(model.description_cost().detach()),
             'pruned_description_bits':model.export().pruned().description_bits(model.registry) if result.solved else None,
             'freeze_events':[],'fully_frozen':bool(result.solved),
@@ -30,7 +30,7 @@ def _discrete_report(model,program,examples,signals,result,decision,tolerance,md
             'tolerance':tolerance,'discrete_result':result.to_dict()}
 
 def fit(program,examples,signals,steps=300,lr=.05,freeze=True,registry=None,tolerance=.001,polish=200,mdl_weight=0.,
-        mode='relax',validation=(),rollout_cost=0,select_options=None,ticks=1,settle_window=1):
+        mode='relax',validation=(),rollout_cost=0,select_options=None,ticks=1,settle_window=1,rank='order'):
     """`mode` picks the search backend; it defaults to the shipped one.
 
     `'relax'` is the gradient path this function has always run and is the
@@ -59,11 +59,31 @@ def fit(program,examples,signals,steps=300,lr=.05,freeze=True,registry=None,tole
     where a module call is at exact parity with its inlined body. It defaults to
     zero so the shipped fixtures are unchanged; the term is bits against a probe
     loss, so a weight around 1e-5 is the scale at which it competes.
+
+    `rank` is the same preference on the *discrete* path, where a gradient term
+    has nothing to act on. `mdl_weight` only ever reached the relaxation loop;
+    the discrete backends have carried `rank` in `order`/`description`/`cost`
+    since `enumerate_fit` grew it, but `fit` did not pass it, so every discrete
+    run took the first conforming program in enumeration order regardless of its
+    size. It defaults to `'order'` so nothing shipped changes. `'description'`
+    ranks by `Program.description_bits` of the pruned hardened program and
+    `'cost'` by its `execution_cost`; both need the whole conforming set, so
+    neither is compatible with a backend that stops at the first hit, and
+    `mode='hybrid'` therefore rejects anything but `'order'`.
+
+    A note the measurement forces: ranking can only choose *between* the
+    conforming programs a scaffold admits. Where every program in the declared
+    space has the same node count -- which is the case for every artifact this
+    repository ships -- ranking is provably inert, and
+    `research/program-length/RESULTS.md` carries the enumeration certificates
+    that say so.
     """
     if not examples:raise ValueError('training examples required')
     if polish<0:raise ValueError('polish steps must be non-negative')
     if mdl_weight<0:raise ValueError('description weight must be non-negative')
+    if rank not in {'order','description','cost'}:raise ValueError('unknown ranking '+str(rank))
     if mode not in {'relax','auto','enumerate','hybrid'}:raise ValueError('unknown search mode '+mode)
+    if rank!='order' and mode=='hybrid':raise ValueError('ranking requires the full conforming set, which the hybrid backend does not build')
     program.validate_signals(signals)
     decision=None
     if mode!='relax':
@@ -80,7 +100,9 @@ def fit(program,examples,signals,steps=300,lr=.05,freeze=True,registry=None,tole
             # against training plus validation is the fix that was measured to work.
             scored=list(examples)+list(validation)
             constants=None
-            if decision.mode=='hybrid':result,constants=hybrid_fit(program,scored,signals,registry,tolerance)
+            if decision.mode=='hybrid':
+                if rank!='order':raise ValueError('ranking requires the full conforming set, which the hybrid backend does not build')
+                result,constants=hybrid_fit(program,scored,signals,registry,tolerance)
             else:
                 # Route through the discrete backend rather than assuming the
                 # feed-forward scorer. A program with `state` cannot be scored
@@ -91,8 +113,8 @@ def fit(program,examples,signals,steps=300,lr=.05,freeze=True,registry=None,tole
                 from .search import DiscreteProblem,route,solve
                 problem=DiscreteProblem(program=program,examples=tuple(scored),signals=tuple(signals),
                                         ticks=ticks,settle_window=settle_window,tolerance=tolerance,registry=registry)
-                result=(solve(problem) if route(problem) not in (None,'fit')
-                        else enumerate_fit(program,scored,signals,registry,tolerance))
+                result=(solve(problem,rank=rank) if route(problem) not in (None,'fit')
+                        else enumerate_fit(program,scored,signals,registry,tolerance,rank=rank))
             if not result.solved and result.exhausted and mode=='auto':
                 # An exhausted sweep that finds nothing is a completeness
                 # certificate, not a budget failure: no program in the declared
@@ -116,7 +138,7 @@ def fit(program,examples,signals,steps=300,lr=.05,freeze=True,registry=None,tole
                         with torch.no_grad():
                             for k,v in constants.items():model.constants[k].copy_(v)
                     for p in model.constants.values():p.requires_grad_(False)
-                return model,_discrete_report(model,program,examples,signals,result,decision,tolerance,mdl_weight)
+                return model,_discrete_report(model,program,examples,signals,result,decision,tolerance,mdl_weight,rank)
     model=SoftProgram(program,registry)
     if decision is not None and decision.scale_surrogates:model.scale_surrogates()
     optimizer=torch.optim.Adam(model.parameters(),lr=lr)
@@ -171,6 +193,6 @@ def fit(program,examples,signals,steps=300,lr=.05,freeze=True,registry=None,tole
     # never treat `loss` as evidence that synthesis succeeded.
     error=exact_error(model.export())
     return model,{'selection':None if decision is None else decision.to_dict(),
-                  'training':history,'mdl_weight':mdl_weight,'description_bits':float(model.description_cost().detach()),
+                  'training':history,'mdl_weight':mdl_weight,'rank':rank,'description_bits':float(model.description_cost().detach()),
                   'pruned_description_bits':model.export().pruned().description_bits(model.registry),
                   'freeze_events':[asdict(x) for x in scheduler.events],'fully_frozen':len(model.frozen)==len(program.nodes) and all(not p.requires_grad for p in model.constants.values()),'loss':float(loss_fn().detach()),'relaxed_loss':float(loss_fn().detach()),'exact_max_error':error,'exact_conformance':error<=tolerance,'tolerance':tolerance}

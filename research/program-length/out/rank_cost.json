@@ -1,0 +1,36 @@
+{
+ "rows": [
+  {
+   "conforming": 2,
+   "program_cost_ms_each": 48.009777965489775,
+   "ranking_overhead_fraction": 0.13242586842845167,
+   "ranking_overhead_ms": 96.01955593097955,
+   "stage": "visual S0 same",
+   "sweep_seconds": 0.7250815650331788
+  },
+  {
+   "conforming": 2,
+   "program_cost_ms_each": 103.28629502328113,
+   "ranking_overhead_fraction": 0.0021156960663914273,
+   "ranking_overhead_ms": 206.57259004656225,
+   "stage": "visual S1 corner",
+   "sweep_seconds": 97.63812171702739
+  },
+  {
+   "conforming": 1,
+   "program_cost_ms_each": 596.1301959468983,
+   "ranking_overhead_fraction": 0.0012623643295207212,
+   "ranking_overhead_ms": 596.1301959468983,
+   "stage": "visual S2 rect",
+   "sweep_seconds": 472.2330804239609
+  },
+  {
+   "conforming": 10,
+   "program_cost_ms_each": 8.092,
+   "ranking_overhead_fraction": 0.0003702122086858608,
+   "ranking_overhead_ms": 80.92,
+   "stage": "language stage_b",
+   "sweep_seconds": 218.57734051300213
+  }
+ ]
+}
