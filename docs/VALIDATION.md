@@ -49,9 +49,13 @@ copies a predecessor to avoid cancellation from a perfectly uniform gate mixture
 After 160 episodes, average prediction loss over the first/final eight episodes
 fell from **0.24884 to 0.00223**. Deterministic evaluation achieved **4/4** mean return
 in 16 held-out episodes, across both objectives. Progressive crystallization
-accepted every node after deferring four attempts that would have disconnected
-remaining gradients. The exact frozen agent subsequently achieved **4/4** mean
-return on another 16 test episodes. The CLI also replayed a frozen-agent episode.
+accepted every node after deferring three attempts that would have disconnected
+remaining gradients. Those deferrals are not evidence that the scheduler produced
+the result: an argmax of the trained soft graph, with no crystallizer and no
+trials, reaches the same 4/4 and the same frozen program
+(`research/crystallization-ablation/RESULTS.md`, arm B0;
+`research/perturbation-selection/RESULTS.md`). The exact frozen agent
+subsequently achieved **4/4** mean return on another 16 test episodes. The CLI also replayed a frozen-agent episode.
 Reports, checkpoint, frozen JSON, standalone `.pyz`, and agent configuration are
 under `artifacts/validated-system/joint_prediction_policy/`.
 
@@ -113,8 +117,16 @@ the discrete content of both learned programs in milliseconds.
 Fixes applied after that pass are listed in section 10 of the same document.
 The numbers in this file were reproduced exactly on this host before and after
 those changes: the mixed fixture still crystallizes with exact conformance, and
-the joint fixture still reports 0.24884 to 0.00223, 4/4 deterministic return,
-four disconnection deferrals, and 4/4 from the exact frozen agent.
+the joint fixture still reports 0.24884 to 0.00223, 4/4 deterministic return and
+4/4 from the exact frozen agent.
+
+`research/perturbation-selection/RESULTS.md` records two further core changes:
+the crystallizer now selects by measured perturbation rather than by choice
+entropy, and its connectivity guard probes the task objective with the
+architecture regularizers removed. The joint numbers above are unchanged by both;
+the disconnection deferrals go from four to three, and the corrected guard
+catches severed interior regions on this fixture that the previous guard passed
+silently.
 
 Generated experiment artifacts are intentionally gitignored. Run the documented
 commands to recreate them. Source fingerprints pin replay/checkpoints to their

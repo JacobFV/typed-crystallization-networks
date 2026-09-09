@@ -42,9 +42,30 @@ coerce incompatible types. Choose scaffolds whose candidates have valid domains.
 A precision change requires explicit conversion nodes; pressure alone cannot
 change the declared interface.
 
-`Crystallizer` measures entropy/stability, prefers input/output boundaries, trials
-hard nodes, retrains the residual graph, checks degradation and gradient paths,
-and rolls back failed transactions. A caller can add exact conformance checks.
+`Crystallizer` selects by measured perturbation: each unfrozen node is scored by
+how much the objective degrades when a candidate is removed from its mixture, the
+frozen candidate is the one whose removal hurts most, and nodes are ordered by how
+decisive that measurement is. It then trials hard nodes, retrains the residual
+graph, checks degradation and gradient paths, and rolls back failed transactions.
+A caller can add exact conformance checks. `Crystallizer.run` takes either a loss
+closure or an `Objective(total, task)`: the connectivity guard probes `task`, the
+objective without its discreteness and description-size terms, because those
+attach every unfrozen logit to the loss graph and would otherwise decide the
+guard. `selection="entropy"` restores the superseded entropy/stability readiness
+rule for ablation only; see `research/perturbation-selection/RESULTS.md`.
+Commitment timing is a separate control from selection. By default both the
+eligibility of a node and the temperature/quantization anneal advance on a fixed
+per-round clock. `eligibility="plateau"` instead makes a node eligible only once
+the unregularized task loss has stopped improving over a window, spending every
+other round descending the objective and accepting at most one freeze per
+opening; `anneal="plateau"` puts the anneal on the same signal, and
+`anneal="never"` holds it still for the whole run as an ablation. Window,
+threshold and patience are experiment configuration (ARCHITECTURE.md section 5).
+Both gates default off. They were measured: the gate repairs the scheduler
+substantially on the environment-coupled fixture but still does not beat
+budget-matched argmax on either fixture, and gating eligibility without also
+taking the temperature off the round clock is worse than not gating at all. See
+`research/loss-gated-eligibility/RESULTS.md`.
 An immutable registered module is one candidate with stopped internal gradients;
 recurrent modules lift state into explicit input/output ports. Definitions are
 content addressed and counted transitively once in description size.

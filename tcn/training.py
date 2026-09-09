@@ -84,7 +84,16 @@ class JointTrainer:
         if 'action' in dict(self.model.program.inputs):values['action']=torch.nn.functional.one_hot(torch.tensor(action,device=device),len(self.config.action_templates)).float()
         if 'dt' in dict(self.model.program.inputs):values['dt']=torch.tensor([self.config.dt],device=device)
         return values
-    def episode(self,index,train=True,split='train',loss_only=False):
+    def episode(self,index,train=True,split='train',loss_only=False,regularized=True):
+        # `regularized=False` drops the two terms that attach to the architecture
+        # parameters directly rather than through the graph -- the discreteness
+        # term over choice distributions and the description-size term over
+        # candidate costs. It is the unregularized task objective the
+        # crystallizer's connectivity guard must probe: with those terms present
+        # every unfrozen logit stays reachable in the autograd graph whether or
+        # not any task signal reaches it. The policy entropy bonus is retained,
+        # because it flows through the program's own policy output and so is a
+        # genuine gradient path through the graph.
         c=self.config;goal=c.objectives[index%len(c.objectives)]
         host=Host.create(c.generator,seed=c.seed,index=index,split=split,configuration=c.generator_config|{'horizon':c.horizon},objective=goal)
         memory=None;previous=0;executed=None;rows=[]
@@ -126,7 +135,8 @@ class JointTrainer:
         actor=torch.stack([-r['logp']*(ret-r['value'].detach()) for r,ret in zip(rows,returns)]).mean()
         value=torch.stack([(r['value']-ret).square() for r,ret in zip(rows,returns)]).mean()
         entropy=torch.stack([r['entropy'] for r in rows]).mean()
-        loss=c.prediction_weight*prediction+c.probe_weight*probe+c.policy_weight*actor+c.value_weight*value-c.entropy_weight*entropy+c.mdl_weight*self.model.complexity()+c.crystal_weight*self.model.entropy()
+        loss=c.prediction_weight*prediction+c.probe_weight*probe+c.policy_weight*actor+c.value_weight*value-c.entropy_weight*entropy
+        if regularized:loss=loss+c.mdl_weight*self.model.complexity()+c.crystal_weight*self.model.entropy()
         if loss_only:return loss
         metrics={'episode':index,'return':sum(r['reward'] for r in rows),'prediction_loss':float(prediction.detach()),'probe_loss':float(probe.detach()),'policy_loss':float(actor.detach()),'value_loss':float(value.detach()),'loss':float(loss.detach()),'goal':goal,'split':split}
         if train:

@@ -2,7 +2,7 @@
 from dataclasses import asdict
 import torch
 from .learning import SoftProgram,tensor
-from .crystallize import Crystallizer
+from .crystallize import Crystallizer,Objective
 
 def fit(program,examples,signals,steps=300,lr=.05,freeze=True,registry=None,tolerance=.001,polish=200):
     if not examples:raise ValueError('training examples required')
@@ -36,7 +36,7 @@ def fit(program,examples,signals,steps=300,lr=.05,freeze=True,registry=None,tole
         model.trials={}
         for p,flag in zip(model.choices,requires):p.requires_grad_(flag)
         history.append({'step':steps+polish,'loss':float(loss_fn().detach()),'entropy':float(model.entropy().detach()),'phase':'polish'})
-    scheduler=Crystallizer(model,optimizer,tolerance=tolerance,entropy_limit=.9)
+    scheduler=Crystallizer(model,optimizer,tolerance=tolerance)
     def exact_error(exact):
         """Largest absolute disagreement between the exported program and the targets."""
         worst=0.
@@ -47,7 +47,12 @@ def fit(program,examples,signals,steps=300,lr=.05,freeze=True,registry=None,tole
                 worst=max(worst,float((a-b).abs().max()))
         return worst
     def conform(exact):return exact_error(exact)<=tolerance
-    if freeze:scheduler.run(loss_fn,rounds=24,retrain_steps=10,conformance=conform)
+    # The supervised objective here carries no architecture regularizer -- the
+    # entropy term is added in the training loop above and not during residual
+    # retraining -- so the task probe and the optimized total are the same
+    # closure. Stating it explicitly keeps the connectivity guard's contract
+    # visible at the call site rather than resting on a default.
+    if freeze:scheduler.run(Objective(loss_fn,loss_fn),rounds=24,retrain_steps=10,conformance=conform)
     # The relaxed loss and the exported program's exact error are separate
     # measurements and disagree systematically: a near-one-hot mixture can reach
     # zero soft loss while its argmax is a different program. Report both, and

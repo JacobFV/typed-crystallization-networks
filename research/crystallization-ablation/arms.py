@@ -235,28 +235,35 @@ def freeze_all_argmax(model):
 
 
 def make_scheduler(arm, model, optimizer, counter, seed, tolerance, entropy_limit):
-    """Return (scheduler, retrain_steps_override) for a crystallizing arm."""
+    """Return (scheduler, retrain_steps_override) for a crystallizing arm.
+
+    `selection="entropy"` is passed explicitly everywhere. `tcn.crystallize`
+    later changed its default selection rule to the perturbation rule this track
+    measured as arm FR (see `research/perturbation-selection/`); pinning the
+    older rule here keeps every arm of this track meaning what it meant when the
+    numbers in RESULTS.md were produced.
+    """
     if arm in ("A", "H"):
         # H is A with the conformance callback disabled by the caller.
-        return Instrumented(model, optimizer, tolerance=tolerance,
+        return Instrumented(model, optimizer, selection="entropy", tolerance=tolerance,
                             entropy_limit=entropy_limit, counter=counter), None
     if arm == "C":
-        return ShuffledOrder(model, optimizer, tolerance=tolerance,
+        return ShuffledOrder(model, optimizer, selection="entropy", tolerance=tolerance,
                              entropy_limit=entropy_limit, counter=counter,
                              rng=random.Random(10_000 + seed)), None
     if arm == "D":
-        return Instrumented(model, optimizer, tolerance=tolerance,
+        return Instrumented(model, optimizer, selection="entropy", tolerance=tolerance,
                             entropy_limit=entropy_limit, counter=counter), 0
     if arm == "E":
-        return Instrumented(model, optimizer, tolerance=float("inf"),
+        return Instrumented(model, optimizer, selection="entropy", tolerance=float("inf"),
                             entropy_limit=entropy_limit, counter=counter), None
     if arm in ("F", "F2", "FR"):
-        return PerturbationSelection(model, optimizer, tolerance=tolerance,
+        return PerturbationSelection(model, optimizer, selection="entropy", tolerance=tolerance,
                                      entropy_limit=entropy_limit, counter=counter,
                                      decisions_first=(arm != "F2"),
                                      mode="remove" if arm == "FR" else "force"), None
     if arm == "G":
-        return AcceptAll(model, optimizer, tolerance=tolerance,
+        return AcceptAll(model, optimizer, selection="entropy", tolerance=tolerance,
                          entropy_limit=entropy_limit, counter=counter), None
     raise ValueError(f"unknown crystallizing arm {arm}")
 

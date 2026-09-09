@@ -1,0 +1,7538 @@
+[
+ {
+  "seed": 0,
+  "episodes": 40,
+  "eligibility": "immediate",
+  "anneal": "round",
+  "openings": [
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [],
+    "decisions": {
+     "relation": {
+      "argmax": 12,
+      "perturbation": 6
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 5
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 4
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "relation",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 6
+     }
+    }
+   }
+  ],
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "rounds": 0,
+  "total_steps": 80
+ },
+ {
+  "seed": 1,
+  "episodes": 40,
+  "eligibility": "immediate",
+  "anneal": "round",
+  "openings": [
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [],
+    "decisions": {
+     "relation": {
+      "argmax": 12,
+      "perturbation": 6
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 5
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     },
+     "goal_relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "relation",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "goal_relation": {
+      "argmax": 6,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "relation",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "goal_relation": {
+      "argmax": 6,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "relation",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "goal_relation": {
+      "argmax": 6,
+      "perturbation": 4
+     }
+    }
+   }
+  ],
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 4,
+   "z": 0,
+   "world": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "rounds": 0,
+  "total_steps": 92
+ },
+ {
+  "seed": 2,
+  "episodes": 40,
+  "eligibility": "immediate",
+  "anneal": "round",
+  "openings": [
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [],
+    "decisions": {
+     "relation": {
+      "argmax": 12,
+      "perturbation": 12
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 13
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "mul0",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 12
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 2
+     }
+    }
+   }
+  ],
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 12,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "rounds": 0,
+  "total_steps": 84
+ },
+ {
+  "seed": 3,
+  "episodes": 40,
+  "eligibility": "immediate",
+  "anneal": "round",
+  "openings": [
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [],
+    "decisions": {
+     "relation": {
+      "argmax": 12,
+      "perturbation": 12
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 0
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 12,
+      "perturbation": 6
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 4
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "mul0",
+     "relation",
+     "world"
+    ],
+    "decisions": {
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "mul0",
+     "mul1",
+     "relation",
+     "world"
+    ],
+    "decisions": {
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "relation",
+     "world"
+    ],
+    "decisions": {
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "relation",
+     "world"
+    ],
+    "decisions": {
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "relation",
+     "world"
+    ],
+    "decisions": {
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "relation",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "relation",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "relation",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "relation",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "relation",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   }
+  ],
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 12,
+   "z": 0,
+   "world": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "rounds": 0,
+  "total_steps": 170
+ },
+ {
+  "seed": 4,
+  "episodes": 40,
+  "eligibility": "immediate",
+  "anneal": "round",
+  "openings": [
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [],
+    "decisions": {
+     "relation": {
+      "argmax": 12,
+      "perturbation": 6
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 0
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "z"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   }
+  ],
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 0,
+   "z": 0,
+   "world": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "rounds": 0,
+  "total_steps": 72
+ },
+ {
+  "seed": 5,
+  "episodes": 40,
+  "eligibility": "immediate",
+  "anneal": "round",
+  "openings": [
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [],
+    "decisions": {
+     "relation": {
+      "argmax": 12,
+      "perturbation": 6
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 15
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "z"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   }
+  ],
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 15,
+   "z": 0,
+   "world": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "rounds": 0,
+  "total_steps": 72
+ },
+ {
+  "seed": 6,
+  "episodes": 40,
+  "eligibility": "immediate",
+  "anneal": "round",
+  "openings": [
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [],
+    "decisions": {
+     "relation": {
+      "argmax": 12,
+      "perturbation": 6
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 14
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "relation",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "relation",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "relation",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   }
+  ],
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 2,
+   "goal_relation": 12,
+   "z": 0,
+   "world": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "rounds": 0,
+  "total_steps": 92
+ },
+ {
+  "seed": 7,
+  "episodes": 40,
+  "eligibility": "immediate",
+  "anneal": "round",
+  "openings": [
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [],
+    "decisions": {
+     "relation": {
+      "argmax": 12,
+      "perturbation": 12
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 13
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 5
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "mul0",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "mul0",
+     "mul1",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   },
+   {
+    "round": 0,
+    "task_loss": null,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "value",
+     "world"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 2
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 12
+     }
+    }
+   }
+  ],
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 12,
+   "z": 0,
+   "world": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "rounds": 0,
+  "total_steps": 1696
+ },
+ {
+  "seed": 0,
+  "episodes": 40,
+  "eligibility": "plateau",
+  "anneal": "plateau",
+  "openings": [
+   {
+    "round": 13,
+    "task_loss": 1.0582491159439087,
+    "frozen": [],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 4
+     }
+    }
+   },
+   {
+    "round": 18,
+    "task_loss": 1.5887855291366577,
+    "frozen": [
+     "bit_0"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     },
+     "goal_relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 31,
+    "task_loss": 0.5330689549446106,
+    "frozen": [
+     "bit_0",
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 41,
+    "task_loss": 0.5048153400421143,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 44,
+    "task_loss": 0.5047444105148315,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 47,
+    "task_loss": 0.5048528909683228,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 50,
+    "task_loss": 0.5053279399871826,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 53,
+    "task_loss": 0.5061352849006653,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "mul0",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 56,
+    "task_loss": 0.5070116519927979,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "mul0",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 59,
+    "task_loss": 0.5077018737792969,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "mul0",
+     "mul1",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 62,
+    "task_loss": 0.508091390132904,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 65,
+    "task_loss": 0.5082021951675415,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 68,
+    "task_loss": 0.5081280469894409,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "prediction",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   }
+  ],
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "rounds": 68,
+  "total_steps": 182
+ },
+ {
+  "seed": 1,
+  "episodes": 40,
+  "eligibility": "plateau",
+  "anneal": "plateau",
+  "openings": [
+   {
+    "round": 13,
+    "task_loss": 0.7667597532272339,
+    "frozen": [],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 7
+     },
+     "goal_relation": {
+      "argmax": 6,
+      "perturbation": 7
+     }
+    }
+   },
+   {
+    "round": 16,
+    "task_loss": 1.1365299224853516,
+    "frozen": [
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 29,
+    "task_loss": 0.5216494798660278,
+    "frozen": [
+     "bit_0",
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 38,
+    "task_loss": 0.5039195418357849,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 41,
+    "task_loss": 0.5037704706192017,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 44,
+    "task_loss": 0.504057765007019,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 47,
+    "task_loss": 0.5048559904098511,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 50,
+    "task_loss": 0.5059892535209656,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "mul0",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 53,
+    "task_loss": 0.5070574283599854,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "mul0",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 56,
+    "task_loss": 0.5077754855155945,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "mul0",
+     "mul1",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 59,
+    "task_loss": 0.5080744028091431,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 62,
+    "task_loss": 0.5080488920211792,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 65,
+    "task_loss": 0.5078495740890503,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "prediction",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   }
+  ],
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 7,
+   "z": 0,
+   "world": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "rounds": 65,
+  "total_steps": 176
+ },
+ {
+  "seed": 2,
+  "episodes": 40,
+  "eligibility": "plateau",
+  "anneal": "plateau",
+  "openings": [
+   {
+    "round": 10,
+    "task_loss": 1.6908979415893555,
+    "frozen": [],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     },
+     "goal_relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 23,
+    "task_loss": 0.5331523418426514,
+    "frozen": [
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 33,
+    "task_loss": 0.5028399229049683,
+    "frozen": [
+     "bit_0",
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 36,
+    "task_loss": 0.502659022808075,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 39,
+    "task_loss": 0.5031783580780029,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 42,
+    "task_loss": 0.5042790174484253,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 45,
+    "task_loss": 0.5056594014167786,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 48,
+    "task_loss": 0.506891131401062,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "mul0",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 51,
+    "task_loss": 0.5076797008514404,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "mul0",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 54,
+    "task_loss": 0.507979154586792,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "mul0",
+     "mul1",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 57,
+    "task_loss": 0.5079150199890137,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 60,
+    "task_loss": 0.5076655149459839,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 63,
+    "task_loss": 0.507378339767456,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "prediction",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   }
+  ],
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "rounds": 63,
+  "total_steps": 170
+ },
+ {
+  "seed": 3,
+  "episodes": 40,
+  "eligibility": "plateau",
+  "anneal": "plateau",
+  "openings": [
+   {
+    "round": 6,
+    "task_loss": 2.9887702465057373,
+    "frozen": [],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 4
+     }
+    }
+   },
+   {
+    "round": 19,
+    "task_loss": 0.7484310269355774,
+    "frozen": [
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 32,
+    "task_loss": 0.5129213929176331,
+    "frozen": [
+     "bit_0",
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 38,
+    "task_loss": 0.5087982416152954,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 41,
+    "task_loss": 0.5085523128509521,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 44,
+    "task_loss": 0.5085391998291016,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 47,
+    "task_loss": 0.5084866881370544,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 50,
+    "task_loss": 0.5084776282310486,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "mul0",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 53,
+    "task_loss": 0.5085392594337463,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "mul0",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 56,
+    "task_loss": 0.5086460113525391,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "mul0",
+     "mul1",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 59,
+    "task_loss": 0.5087599754333496,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 62,
+    "task_loss": 0.5088513493537903,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 65,
+    "task_loss": 0.5089082717895508,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "prediction",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   }
+  ],
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 4,
+   "z": 0,
+   "world": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "rounds": 65,
+  "total_steps": 176
+ },
+ {
+  "seed": 4,
+  "episodes": 40,
+  "eligibility": "plateau",
+  "anneal": "plateau",
+  "openings": [
+   {
+    "round": 13,
+    "task_loss": 0.8454315066337585,
+    "frozen": [],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 0
+     }
+    }
+   },
+   {
+    "round": 26,
+    "task_loss": 0.5165098905563354,
+    "frozen": [
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 30,
+    "task_loss": 0.5104559063911438,
+    "frozen": [
+     "bit_0",
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 34,
+    "task_loss": 0.5095810294151306,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 37,
+    "task_loss": 0.5093634724617004,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 40,
+    "task_loss": 0.5092173218727112,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 43,
+    "task_loss": 0.5091229677200317,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 46,
+    "task_loss": 0.5091195702552795,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "mul0",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 49,
+    "task_loss": 0.509177029132843,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "mul0",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 52,
+    "task_loss": 0.5092471241950989,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "mul0",
+     "mul1",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 55,
+    "task_loss": 0.5092985033988953,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 58,
+    "task_loss": 0.5093215107917786,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 61,
+    "task_loss": 0.5093212127685547,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "prediction",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   }
+  ],
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 0,
+   "z": 0,
+   "world": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "rounds": 61,
+  "total_steps": 168
+ },
+ {
+  "seed": 5,
+  "episodes": 40,
+  "eligibility": "plateau",
+  "anneal": "plateau",
+  "openings": [
+   {
+    "round": 13,
+    "task_loss": 0.8431919813156128,
+    "frozen": [],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     },
+     "goal_relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 26,
+    "task_loss": 0.5170053243637085,
+    "frozen": [
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 30,
+    "task_loss": 0.5116665363311768,
+    "frozen": [
+     "bit_0",
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 34,
+    "task_loss": 0.510914146900177,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 37,
+    "task_loss": 0.510608434677124,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 40,
+    "task_loss": 0.5103219747543335,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 43,
+    "task_loss": 0.5100901126861572,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 46,
+    "task_loss": 0.5099668502807617,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "mul0",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 49,
+    "task_loss": 0.5099284052848816,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "mul0",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 52,
+    "task_loss": 0.5099305510520935,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "mul0",
+     "mul1",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 55,
+    "task_loss": 0.5099413990974426,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 58,
+    "task_loss": 0.5099471807479858,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 61,
+    "task_loss": 0.509946346282959,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "prediction",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   }
+  ],
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "rounds": 61,
+  "total_steps": 168
+ },
+ {
+  "seed": 6,
+  "episodes": 40,
+  "eligibility": "plateau",
+  "anneal": "plateau",
+  "openings": [
+   {
+    "round": 13,
+    "task_loss": 1.872011423110962,
+    "frozen": [],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 26,
+    "task_loss": 0.5349847078323364,
+    "frozen": [
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 36,
+    "task_loss": 0.5034160017967224,
+    "frozen": [
+     "bit_0",
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 40,
+    "task_loss": 0.5030299425125122,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 43,
+    "task_loss": 0.5035936832427979,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 46,
+    "task_loss": 0.5047603845596313,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 49,
+    "task_loss": 0.5061004161834717,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 52,
+    "task_loss": 0.507207989692688,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "mul0",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 55,
+    "task_loss": 0.5078583359718323,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "mul0",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 58,
+    "task_loss": 0.5080572962760925,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "mul0",
+     "mul1",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 61,
+    "task_loss": 0.5079461336135864,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 64,
+    "task_loss": 0.5076919794082642,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 67,
+    "task_loss": 0.507422924041748,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "prediction",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   }
+  ],
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "rounds": 67,
+  "total_steps": 180
+ },
+ {
+  "seed": 7,
+  "episodes": 40,
+  "eligibility": "plateau",
+  "anneal": "plateau",
+  "openings": [
+   {
+    "round": 13,
+    "task_loss": 0.965936005115509,
+    "frozen": [],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     },
+     "goal_relation": {
+      "argmax": 12,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 26,
+    "task_loss": 0.5092896819114685,
+    "frozen": [
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 33,
+    "task_loss": 0.5035550594329834,
+    "frozen": [
+     "bit_0",
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 36,
+    "task_loss": 0.5034030079841614,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation"
+    ],
+    "decisions": {
+     "relation": {
+      "argmax": 6,
+      "perturbation": 6
+     }
+    }
+   },
+   {
+    "round": 39,
+    "task_loss": 0.5039651393890381,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 42,
+    "task_loss": 0.5048054456710815,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 45,
+    "task_loss": 0.5056989192962646,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 48,
+    "task_loss": 0.5064722299575806,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "mul0",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 51,
+    "task_loss": 0.5070134401321411,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "mul0",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 54,
+    "task_loss": 0.5073044300079346,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "mul0",
+     "mul1",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 57,
+    "task_loss": 0.5073890686035156,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 60,
+    "task_loss": 0.5073396563529968,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   },
+   {
+    "round": 63,
+    "task_loss": 0.5072265267372131,
+    "frozen": [
+     "bit_0",
+     "bit_1",
+     "goal_relation",
+     "logit0",
+     "logit1",
+     "mul0",
+     "mul1",
+     "policy",
+     "prediction",
+     "relation",
+     "world",
+     "z"
+    ],
+    "decisions": {}
+   }
+  ],
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "rounds": 63,
+  "total_steps": 172
+ }
+]
