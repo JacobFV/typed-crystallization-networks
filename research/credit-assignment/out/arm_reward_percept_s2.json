@@ -1,0 +1,370 @@
+{
+  "arm": "reward_percept",
+  "seed": 2,
+  "episodes": 600,
+  "curve": [
+    {
+      "episode": 50,
+      "eval": {
+        "mean": 0.0,
+        "solved": 0,
+        "n": 32,
+        "stochastic": false,
+        "modal_trace": [
+          "look",
+          "look",
+          "look",
+          "look",
+          "look",
+          "look"
+        ]
+      }
+    },
+    {
+      "episode": 100,
+      "eval": {
+        "mean": 0.0,
+        "solved": 0,
+        "n": 32,
+        "stochastic": false,
+        "modal_trace": [
+          "wait",
+          "wait",
+          "wait",
+          "wait",
+          "wait",
+          "wait"
+        ]
+      }
+    },
+    {
+      "episode": 200,
+      "eval": {
+        "mean": 0.125,
+        "solved": 4,
+        "n": 32,
+        "stochastic": false,
+        "modal_trace": [
+          "commit"
+        ]
+      }
+    },
+    {
+      "episode": 400,
+      "eval": {
+        "mean": 0.125,
+        "solved": 4,
+        "n": 32,
+        "stochastic": false,
+        "modal_trace": [
+          "commit"
+        ]
+      }
+    }
+  ],
+  "final": {
+    "mean": 0.09375,
+    "solved": 6,
+    "n": 64,
+    "stochastic": false,
+    "modal_trace": [
+      "commit"
+    ]
+  },
+  "final_stochastic": {
+    "mean": 0.0625,
+    "solved": 4,
+    "n": 64,
+    "stochastic": true,
+    "modal_trace": [
+      "commit"
+    ]
+  },
+  "program": {
+    "selections": {
+      "length": 0,
+      "data": 0,
+      "pos": 0,
+      "byte": 0,
+      "unpacked": 0,
+      "code": 0,
+      "codef": 0,
+      "shift": 0,
+      "qpos": 17,
+      "brandbyte": 0,
+      "brand": 1,
+      "answer_lo": 0,
+      "answer": 0,
+      "dial_lo": 0,
+      "dial_hi": 0,
+      "dial_loglo": 0,
+      "dial_loghi": 0,
+      "dial_diff": 0,
+      "dial_mean": 0,
+      "dial_params": 0,
+      "next_slot": 5,
+      "next_slot_f": 0,
+      "slot_over": 0,
+      "slot_shifted": 0,
+      "slot_wrapped": 0,
+      "slot_clamped_lo": 0,
+      "slot_clamped": 0,
+      "slot_scaled": 0,
+      "slot_y": 0,
+      "slot_lo": 0,
+      "slot_hi": 0,
+      "slot_loglo": 0,
+      "slot_loghi": 0,
+      "slot_diff": 0,
+      "slot_mean": 0,
+      "slot_params": 0,
+      "logits_idle": 0,
+      "logits_found": 0,
+      "logits_dialled": 0,
+      "prev_dial_f": 0,
+      "prev_dial": 0,
+      "inner": 0,
+      "policy": 0,
+      "value": 0,
+      "brandf": 0,
+      "probe": 0
+    },
+    "logstd_slot": 2.502,
+    "logits": {
+      "idle": [
+        -0.926,
+        -0.096,
+        -0.315,
+        0.601
+      ],
+      "found": [
+        -0.0,
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "dialled": [
+        -0.783,
+        1.507,
+        -1.057,
+        -0.47
+      ]
+    },
+    "candidate": {
+      "pos": "identity(length)",
+      "shift": "identity(codef)",
+      "qpos": "sub(zero_len,a3)",
+      "brand": "eq(brandbyte,b1)",
+      "next_slot": "add(action.1.slot,one_slot)"
+    }
+  },
+  "history": [
+    {
+      "episode": 50,
+      "grad_norm": 0.02609880641102791,
+      "train_return": 0.02,
+      "reward_rate": 0.02,
+      "selection": {
+        "pos": "identity(length)",
+        "shift": "sub(u3,u0)",
+        "qpos": "identity(a3)",
+        "brand": "eq(brandbyte,b2)",
+        "next_slot": "add(action.1.slot,one_slot)"
+      },
+      "actor": -0.03277105838060379,
+      "value": 0.0002766574325505644,
+      "entropy": 2.1459898948669434,
+      "probe": 6.743711471557617
+    },
+    {
+      "episode": 100,
+      "grad_norm": 0.012865955010056496,
+      "train_return": 0.02,
+      "reward_rate": 0.02,
+      "selection": {
+        "pos": "identity(length)",
+        "shift": "sub(u3,u0)",
+        "qpos": "identity(a3)",
+        "brand": "eq(brandbyte,b2)",
+        "next_slot": "add(action.1.slot,action.1.slot)"
+      },
+      "actor": -0.011714108288288116,
+      "value": 0.00010396926518296823,
+      "entropy": 1.3593368530273438,
+      "probe": 0.7893893718719482
+    },
+    {
+      "episode": 150,
+      "grad_norm": 0.005032478366047144,
+      "train_return": 0.0,
+      "reward_rate": 0.0,
+      "selection": {
+        "pos": "identity(length)",
+        "shift": "sub(u3,u0)",
+        "qpos": "identity(a3)",
+        "brand": "eq(brandbyte,b2)",
+        "next_slot": "add(action.1.slot,action.1.slot)"
+      },
+      "actor": 0.0025792038068175316,
+      "value": 2.338210606467328e-06,
+      "entropy": 1.8936564922332764,
+      "probe": 4.381169319152832
+    },
+    {
+      "episode": 200,
+      "grad_norm": 0.26029419898986816,
+      "train_return": 0.12,
+      "reward_rate": 0.12,
+      "selection": {
+        "pos": "identity(length)",
+        "shift": "sub(u3,u0)",
+        "qpos": "identity(a3)",
+        "brand": "eq(brandbyte,b2)",
+        "next_slot": "add(action.1.slot,one_slot)"
+      },
+      "actor": -0.18437190353870392,
+      "value": 0.04599115625023842,
+      "entropy": 1.3087875843048096,
+      "probe": 2.164088487625122
+    },
+    {
+      "episode": 250,
+      "grad_norm": 0.6566089987754822,
+      "train_return": 0.08,
+      "reward_rate": 0.08,
+      "selection": {
+        "pos": "identity(length)",
+        "shift": "sub(codef,u0)",
+        "qpos": "identity(a3)",
+        "brand": "eq(brandbyte,b2)",
+        "next_slot": "add(action.1.slot,one_slot)"
+      },
+      "actor": -0.07852653414011002,
+      "value": 0.017076730728149414,
+      "entropy": -0.49549925327301025,
+      "probe": 1.886074423789978
+    },
+    {
+      "episode": 300,
+      "grad_norm": 0.21086767315864563,
+      "train_return": 0.04,
+      "reward_rate": 0.04,
+      "selection": {
+        "pos": "identity(length)",
+        "shift": "sub(codef,u0)",
+        "qpos": "identity(a3)",
+        "brand": "eq(brandbyte,b2)",
+        "next_slot": "add(action.1.slot,one_slot)"
+      },
+      "actor": -0.17011281847953796,
+      "value": 0.027952665463089943,
+      "entropy": 1.2801673412322998,
+      "probe": 1.5996907949447632
+    },
+    {
+      "episode": 350,
+      "grad_norm": 1.2266950607299805,
+      "train_return": 0.14,
+      "reward_rate": 0.14,
+      "selection": {
+        "pos": "identity(length)",
+        "shift": "sub(codef,u0)",
+        "qpos": "sub(zero_len,a3)",
+        "brand": "eq(brandbyte,b0)",
+        "next_slot": "add(action.1.slot,one_slot)"
+      },
+      "actor": -0.1442183256149292,
+      "value": 0.01580832339823246,
+      "entropy": 0.11357507109642029,
+      "probe": 10.551424026489258
+    },
+    {
+      "episode": 400,
+      "grad_norm": 0.9405572414398193,
+      "train_return": 0.1,
+      "reward_rate": 0.1,
+      "selection": {
+        "pos": "identity(length)",
+        "shift": "sub(codef,u0)",
+        "qpos": "sub(zero_len,a3)",
+        "brand": "eq(brandbyte,b0)",
+        "next_slot": "add(action.1.slot,one_slot)"
+      },
+      "actor": -0.15527182817459106,
+      "value": 0.7395721077919006,
+      "entropy": 3.123873710632324,
+      "probe": 17.8426570892334
+    },
+    {
+      "episode": 450,
+      "grad_norm": 0.03426651284098625,
+      "train_return": 0.1,
+      "reward_rate": 0.1,
+      "selection": {
+        "pos": "identity(length)",
+        "shift": "sub(codef,u0)",
+        "qpos": "sub(zero_len,a3)",
+        "brand": "eq(brandbyte,b1)",
+        "next_slot": "add(action.1.slot,one_slot)"
+      },
+      "actor": -0.07897204160690308,
+      "value": 0.0010126079432666302,
+      "entropy": 2.9772963523864746,
+      "probe": 22.934406280517578
+    },
+    {
+      "episode": 500,
+      "grad_norm": 0.21026849746704102,
+      "train_return": 0.04,
+      "reward_rate": 0.04,
+      "selection": {
+        "pos": "identity(length)",
+        "shift": "sub(codef,u0)",
+        "qpos": "sub(zero_len,a3)",
+        "brand": "eq(brandbyte,b1)",
+        "next_slot": "add(action.1.slot,one_slot)"
+      },
+      "actor": -0.012006242759525776,
+      "value": 0.00019617674115579575,
+      "entropy": 1.0604400634765625,
+      "probe": 3.7732160091400146
+    },
+    {
+      "episode": 550,
+      "grad_norm": 0.055883340537548065,
+      "train_return": 0.04,
+      "reward_rate": 0.04,
+      "selection": {
+        "pos": "identity(length)",
+        "shift": "sub(codef,u0)",
+        "qpos": "sub(zero_len,a3)",
+        "brand": "eq(brandbyte,b1)",
+        "next_slot": "add(action.1.slot,one_slot)"
+      },
+      "actor": 0.05815652385354042,
+      "value": 0.002467159880325198,
+      "entropy": 2.196460008621216,
+      "probe": 1.9237664937973022
+    },
+    {
+      "episode": 600,
+      "grad_norm": 1.0712835788726807,
+      "train_return": 0.08,
+      "reward_rate": 0.08,
+      "selection": {
+        "pos": "identity(length)",
+        "shift": "identity(codef)",
+        "qpos": "sub(zero_len,a3)",
+        "brand": "eq(brandbyte,b1)",
+        "next_slot": "add(action.1.slot,one_slot)"
+      },
+      "actor": 0.6985732316970825,
+      "value": 0.8285814523696899,
+      "entropy": 1.2517497539520264,
+      "probe": 15.669731140136719
+    }
+  ],
+  "environment_episodes": 856,
+  "environment_steps": 2267,
+  "seconds": 647.9378939299495
+}
