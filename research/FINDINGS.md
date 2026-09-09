@@ -295,9 +295,16 @@ across seeds, so each row is one outcome rather than a distribution:
 So the fix removes about three quarters of the wasted freeze trials at the tight
 budget and lets hardening make partial progress, while changing nothing at
 budgets that already worked. It does **not** make the 30-step budget succeed:
-the mixed program is genuinely not learned in 30 steps (exact error 0.826), and
-track 1's 3/16 for arm A at that budget came from the 691 extra retraining steps
-its rollbacks bought, which is the confound track 1 itself identified.
+the mixed program is genuinely not learned in 30 steps (exact error 0.826).
+
+Two harness differences to keep in mind when comparing against track 1, which
+measured 3/16 conformance and 18.8% frozen for arm A at this budget where the
+table above measures 0/16 and 0%. Track 1 added initialization noise to obtain
+seed variation, whereas this fixture is deterministic as shipped; and its arm H
+removed the conformance callback outright rather than gating it, which reports
+`fully_frozen` without requiring the frozen program to be exact. The direction
+of both measurements agrees — the callback wastes most of its trials — but the
+counts are not directly comparable and no causal attribution is made here.
 
 ### The connectivity guard is still wrong — a fix was tried and reverted
 
