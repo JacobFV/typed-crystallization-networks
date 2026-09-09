@@ -1410,3 +1410,23 @@ That is the same shape as every other result here: the tool works where
 supervision is dense and degenerates where it is not.
 
 264 tests pass on merged main.
+
+## 28. `mode="auto"` now routes through the discrete backend
+
+The discrete-backend track left routing exposed but not wired, because
+`tcn/select.py` was not on main when it started. Both are now, so
+`synthesis.fit`'s auto path dispatches through `search.route`/`solve` instead of
+assuming the feed-forward scorer, with `ticks` and `settle_window` plumbed
+through. That completes the hybrid-search requirement: a recurrent or
+environment-coupled problem reaches the mode that can score it.
+
+**A correction to my own demonstration, recorded because the first version
+overclaimed.** I built a single-tick stateful program to show the fix mattering
+and it did not: `enumerate_fit` solves that one too, because a one-tick program
+with zero-initialised state happens to be scorable feed-forward. The measured
+case where feed-forward genuinely returns **0 conforming** is the *multi-tick*
+depth interpreter of section 27, reproduced independently earlier. So this is a
+principled-routing improvement rather than a rescue of the case I first reached
+for, and the toy proves nothing on its own.
+
+264 tests pass.

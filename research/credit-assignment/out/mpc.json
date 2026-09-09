@@ -1,0 +1,30 @@
+{
+  "perception_episodes": 12,
+  "eval_episodes": 24,
+  "transform_program": {
+    "pos": "sub(length,one_len)",
+    "answer": "sub(codef,u2)"
+  },
+  "predicate_program": {
+    "qpos": "identity(zero_len)",
+    "brand": "eq(qbyte,b1)"
+  },
+  "transform_space": 2160,
+  "transform_conforming": 1,
+  "predicate_space": 252,
+  "predicate_conforming": 7,
+  "mean": 1.0,
+  "solved": 24,
+  "modal_trace": [
+    "look",
+    "look",
+    "look",
+    "wait",
+    "dial",
+    "commit"
+  ],
+  "sequences_evaluated": 131040,
+  "environment_episodes": 36,
+  "environment_steps": 216,
+  "seconds": 71.14912277902476
+}

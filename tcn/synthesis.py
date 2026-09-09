@@ -30,7 +30,7 @@ def _discrete_report(model,program,examples,signals,result,decision,tolerance,md
             'tolerance':tolerance,'discrete_result':result.to_dict()}
 
 def fit(program,examples,signals,steps=300,lr=.05,freeze=True,registry=None,tolerance=.001,polish=200,mdl_weight=0.,
-        mode='relax',validation=(),rollout_cost=0,select_options=None):
+        mode='relax',validation=(),rollout_cost=0,select_options=None,ticks=1,settle_window=1):
     """`mode` picks the search backend; it defaults to the shipped one.
 
     `'relax'` is the gradient path this function has always run and is the
@@ -81,7 +81,18 @@ def fit(program,examples,signals,steps=300,lr=.05,freeze=True,registry=None,tole
             scored=list(examples)+list(validation)
             constants=None
             if decision.mode=='hybrid':result,constants=hybrid_fit(program,scored,signals,registry,tolerance)
-            else:result=enumerate_fit(program,scored,signals,registry,tolerance)
+            else:
+                # Route through the discrete backend rather than assuming the
+                # feed-forward scorer. A program with `state` cannot be scored
+                # feed-forward at all -- measured, `enumerate_fit` returns zero
+                # conforming programs on a recurrent scaffold that
+                # `enumerate_recurrent` certifies unique -- so dispatching on
+                # `route` is a correctness matter, not a speed one.
+                from .search import DiscreteProblem,route,solve
+                problem=DiscreteProblem(program=program,examples=tuple(scored),signals=tuple(signals),
+                                        ticks=ticks,settle_window=settle_window,tolerance=tolerance,registry=registry)
+                result=(solve(problem) if route(problem) not in (None,'fit')
+                        else enumerate_fit(program,scored,signals,registry,tolerance))
             if not result.solved and result.exhausted and mode=='auto':
                 # An exhausted sweep that finds nothing is a completeness
                 # certificate, not a budget failure: no program in the declared
