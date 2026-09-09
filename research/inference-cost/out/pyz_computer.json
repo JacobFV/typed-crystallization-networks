@@ -1,0 +1,22 @@
+[
+ {
+  "amortized_inference_ms": 48.63521565,
+  "batch_n": 20,
+  "batch_peak_rss_mb": 60.30078125,
+  "batch_total_ms": 1472.754142,
+  "cold_start_min_ms": 409.715122,
+  "cold_start_ms": 478.560453,
+  "cold_start_peak_rss_mb": 60.421875,
+  "flags": "-I (isolated: no repo, no venv, no torch)",
+  "inference_ms": 210.289513,
+  "interpreter": "/usr/bin/python3",
+  "name": "computer",
+  "one_inference_min_ms": 620.004635,
+  "one_inference_peak_rss_mb": 60.34765625,
+  "one_inference_total_ms": 654.787533,
+  "pyz_bytes": 12190546,
+  "reply_bytes": 117558,
+  "transport_bytes": 609151,
+  "transport_serialize_ms": 10.744512
+ }
+]

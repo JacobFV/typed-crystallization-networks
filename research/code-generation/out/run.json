@@ -1,0 +1,734 @@
+{
+  "stage_a": {
+    "beam": null,
+    "best_return": null,
+    "certificate": "complete",
+    "conforming": 2,
+    "conforming_variants": 2,
+    "continuous": [],
+    "description_bits": 19928,
+    "discarded": 0,
+    "episodes": 0,
+    "evaluated": 432,
+    "exact_max_error": 0.0,
+    "execution_cost": 5.0,
+    "exhausted": true,
+    "holdout_examples": 1952,
+    "holdout_max_error": 0.0,
+    "mode": "prefix",
+    "module": "module:2d6ab41f53f0989d9f5b3481",
+    "node_evaluations": 7972,
+    "port_when_selector_false": "c0",
+    "ranked_by": "order",
+    "seconds": 0.02128136099781841,
+    "selections": {
+      "j": 0,
+      "jt": 3,
+      "out": 10,
+      "v0": 0,
+      "v1": 1
+    },
+    "selector": "x2",
+    "settle_window": 0,
+    "solved": true,
+    "space": 432,
+    "space_size": 432,
+    "steps": 0,
+    "threshold": null,
+    "ticks": 0,
+    "train_examples": 96,
+    "train_pairs": 12,
+    "unique": false,
+    "variants_extensionally_identical": true
+  },
+  "stage_b": {
+    "popcount2": {
+      "addresses": {
+        "a": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "b": [
+          4,
+          6,
+          5,
+          7
+        ]
+      },
+      "all_256": {
+        "assignment_accuracy": 1.0,
+        "behaviours": 256,
+        "exact": 256,
+        "exact_rate": 1.0
+      },
+      "baselines": {
+        "best_constant_netlist": {
+          "assignment_accuracy": 0.4692982456140351,
+          "exact_rate": 0.0043859649122807015,
+          "netlist": [
+            0,
+            0
+          ]
+        },
+        "identity_addresses": {
+          "assignment_accuracy": 0.7456140350877193,
+          "exact_rate": 0.24561403508771928
+        },
+        "random_addresses_mean": {
+          "assignment_accuracy": 0.5627741228070176,
+          "exact_rate": 0.018434758771929825
+        }
+      },
+      "example_artifacts": [
+        {
+          "gate_list": [
+            [
+              0,
+              1,
+              6
+            ],
+            [
+              0,
+              1,
+              9
+            ],
+            [
+              3,
+              2,
+              4
+            ],
+            [
+              4,
+              2,
+              8
+            ],
+            [
+              5,
+              6,
+              14
+            ]
+          ],
+          "spec": "01101001"
+        },
+        {
+          "gate_list": [
+            [
+              0,
+              1,
+              8
+            ],
+            [
+              0,
+              1,
+              14
+            ],
+            [
+              3,
+              2,
+              4
+            ],
+            [
+              4,
+              2,
+              8
+            ],
+            [
+              5,
+              6,
+              14
+            ]
+          ],
+          "spec": "00010111"
+        },
+        {
+          "gate_list": [
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              3,
+              2,
+              4
+            ],
+            [
+              4,
+              2,
+              8
+            ],
+            [
+              5,
+              6,
+              14
+            ]
+          ],
+          "spec": "10000000"
+        }
+      ],
+      "head_a": {
+        "beam": null,
+        "best_return": null,
+        "certificate": "unique",
+        "conforming": 1,
+        "continuous": [],
+        "description_bits": 77128,
+        "discarded": 0,
+        "episodes": 0,
+        "evaluated": 4096,
+        "exact_max_error": 0.0,
+        "examples": 112,
+        "execution_cost": 15.0,
+        "exhausted": true,
+        "mode": "prefix",
+        "node_evaluations": 3282634,
+        "ranked_by": "order",
+        "seconds": 6.614307254028972,
+        "selections": {
+          "a0": 0,
+          "a1": 2,
+          "a2": 1,
+          "a3": 3,
+          "b0": 0,
+          "b1": 0,
+          "b2": 0,
+          "b3": 0,
+          "out": 0,
+          "ta": 0,
+          "tb": 0
+        },
+        "settle_window": 0,
+        "solved": true,
+        "space": 4096,
+        "space_size": 4096,
+        "steps": 0,
+        "threshold": null,
+        "ticks": 0,
+        "unique": true
+      },
+      "head_b": {
+        "beam": null,
+        "best_return": null,
+        "certificate": "unique",
+        "conforming": 1,
+        "continuous": [],
+        "description_bits": 77128,
+        "discarded": 0,
+        "episodes": 0,
+        "evaluated": 4096,
+        "exact_max_error": 0.0,
+        "examples": 112,
+        "execution_cost": 15.0,
+        "exhausted": true,
+        "mode": "prefix",
+        "node_evaluations": 1006014,
+        "ranked_by": "order",
+        "seconds": 2.3204499810235575,
+        "selections": {
+          "a0": 0,
+          "a1": 0,
+          "a2": 0,
+          "a3": 0,
+          "b0": 4,
+          "b1": 6,
+          "b2": 5,
+          "b3": 7,
+          "out": 0,
+          "ta": 0,
+          "tb": 0
+        },
+        "settle_window": 0,
+        "solved": true,
+        "space": 4096,
+        "space_size": 4096,
+        "steps": 0,
+        "threshold": null,
+        "ticks": 0,
+        "unique": true
+      },
+      "held_out": {
+        "assignment_accuracy": 1.0,
+        "behaviours": 228,
+        "exact": 228,
+        "exact_rate": 1.0
+      },
+      "holdout_behaviours": 228,
+      "train_behaviours": 28,
+      "train_fit": {
+        "assignment_accuracy": 1.0,
+        "behaviours": 28,
+        "exact": 28,
+        "exact_rate": 1.0
+      }
+    },
+    "random12": {
+      "addresses": {
+        "a": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "b": [
+          4,
+          6,
+          5,
+          7
+        ]
+      },
+      "all_256": {
+        "assignment_accuracy": 1.0,
+        "behaviours": 256,
+        "exact": 256,
+        "exact_rate": 1.0
+      },
+      "baselines": {
+        "best_constant_netlist": {
+          "assignment_accuracy": 0.4953893442622951,
+          "exact_rate": 0.004098360655737705,
+          "netlist": [
+            2,
+            12
+          ]
+        },
+        "identity_addresses": {
+          "assignment_accuracy": 0.7479508196721312,
+          "exact_rate": 0.2459016393442623
+        },
+        "random_addresses_mean": {
+          "assignment_accuracy": 0.5707447489754098,
+          "exact_rate": 0.014728483606557378
+        }
+      },
+      "example_artifacts": [
+        {
+          "gate_list": [
+            [
+              0,
+              1,
+              6
+            ],
+            [
+              0,
+              1,
+              9
+            ],
+            [
+              3,
+              2,
+              4
+            ],
+            [
+              4,
+              2,
+              8
+            ],
+            [
+              5,
+              6,
+              14
+            ]
+          ],
+          "spec": "01101001"
+        },
+        {
+          "gate_list": [
+            [
+              0,
+              1,
+              8
+            ],
+            [
+              0,
+              1,
+              14
+            ],
+            [
+              3,
+              2,
+              4
+            ],
+            [
+              4,
+              2,
+              8
+            ],
+            [
+              5,
+              6,
+              14
+            ]
+          ],
+          "spec": "00010111"
+        },
+        {
+          "gate_list": [
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              3,
+              2,
+              4
+            ],
+            [
+              4,
+              2,
+              8
+            ],
+            [
+              5,
+              6,
+              14
+            ]
+          ],
+          "spec": "10000000"
+        }
+      ],
+      "head_a": {
+        "beam": null,
+        "best_return": null,
+        "certificate": "unique",
+        "conforming": 1,
+        "continuous": [],
+        "description_bits": 77128,
+        "discarded": 0,
+        "episodes": 0,
+        "evaluated": 4096,
+        "exact_max_error": 0.0,
+        "examples": 48,
+        "execution_cost": 15.0,
+        "exhausted": true,
+        "mode": "prefix",
+        "node_evaluations": 1428044,
+        "ranked_by": "order",
+        "seconds": 3.1616471100132912,
+        "selections": {
+          "a0": 0,
+          "a1": 2,
+          "a2": 1,
+          "a3": 3,
+          "b0": 0,
+          "b1": 0,
+          "b2": 0,
+          "b3": 0,
+          "out": 0,
+          "ta": 0,
+          "tb": 0
+        },
+        "settle_window": 0,
+        "solved": true,
+        "space": 4096,
+        "space_size": 4096,
+        "steps": 0,
+        "threshold": null,
+        "ticks": 0,
+        "unique": true
+      },
+      "head_b": {
+        "beam": null,
+        "best_return": null,
+        "certificate": "unique",
+        "conforming": 1,
+        "continuous": [],
+        "description_bits": 77128,
+        "discarded": 0,
+        "episodes": 0,
+        "evaluated": 4096,
+        "exact_max_error": 0.0,
+        "examples": 48,
+        "execution_cost": 15.0,
+        "exhausted": true,
+        "mode": "prefix",
+        "node_evaluations": 448381,
+        "ranked_by": "order",
+        "seconds": 1.2646512660430744,
+        "selections": {
+          "a0": 0,
+          "a1": 0,
+          "a2": 0,
+          "a3": 0,
+          "b0": 4,
+          "b1": 6,
+          "b2": 5,
+          "b3": 7,
+          "out": 0,
+          "ta": 0,
+          "tb": 0
+        },
+        "settle_window": 0,
+        "solved": true,
+        "space": 4096,
+        "space_size": 4096,
+        "steps": 0,
+        "threshold": null,
+        "ticks": 0,
+        "unique": true
+      },
+      "held_out": {
+        "assignment_accuracy": 1.0,
+        "behaviours": 244,
+        "exact": 244,
+        "exact_rate": 1.0
+      },
+      "holdout_behaviours": 244,
+      "train_behaviours": 12,
+      "train_fit": {
+        "assignment_accuracy": 1.0,
+        "behaviours": 12,
+        "exact": 12,
+        "exact_rate": 1.0
+      }
+    },
+    "x2_independent": {
+      "addresses": {
+        "a": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "b": [
+          0,
+          2,
+          1,
+          3
+        ]
+      },
+      "all_256": {
+        "assignment_accuracy": 0.75,
+        "behaviours": 256,
+        "exact": 16,
+        "exact_rate": 0.0625
+      },
+      "baselines": {
+        "best_constant_netlist": {
+          "assignment_accuracy": 0.5,
+          "exact_rate": 0.0,
+          "netlist": [
+            0,
+            0
+          ]
+        },
+        "identity_addresses": {
+          "assignment_accuracy": 0.75,
+          "exact_rate": 0.23333333333333334
+        },
+        "random_addresses_mean": {
+          "assignment_accuracy": 0.5659505208333333,
+          "exact_rate": 0.009635416666666667
+        }
+      },
+      "example_artifacts": [
+        {
+          "gate_list": [
+            [
+              0,
+              1,
+              6
+            ],
+            [
+              0,
+              1,
+              6
+            ],
+            [
+              3,
+              2,
+              4
+            ],
+            [
+              4,
+              2,
+              8
+            ],
+            [
+              5,
+              6,
+              14
+            ]
+          ],
+          "spec": "01101001"
+        },
+        {
+          "gate_list": [
+            [
+              0,
+              1,
+              8
+            ],
+            [
+              0,
+              1,
+              8
+            ],
+            [
+              3,
+              2,
+              4
+            ],
+            [
+              4,
+              2,
+              8
+            ],
+            [
+              5,
+              6,
+              14
+            ]
+          ],
+          "spec": "00010111"
+        },
+        {
+          "gate_list": [
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              3,
+              2,
+              4
+            ],
+            [
+              4,
+              2,
+              8
+            ],
+            [
+              5,
+              6,
+              14
+            ]
+          ],
+          "spec": "10000000"
+        }
+      ],
+      "head_a": {
+        "beam": null,
+        "best_return": null,
+        "certificate": "complete",
+        "conforming": 16,
+        "continuous": [],
+        "description_bits": 77128,
+        "discarded": 0,
+        "episodes": 0,
+        "evaluated": 4096,
+        "exact_max_error": 0.0,
+        "examples": 64,
+        "execution_cost": 15.0,
+        "exhausted": true,
+        "mode": "prefix",
+        "node_evaluations": 1897520,
+        "ranked_by": "order",
+        "seconds": 3.980008149985224,
+        "selections": {
+          "a0": 0,
+          "a1": 2,
+          "a2": 1,
+          "a3": 3,
+          "b0": 0,
+          "b1": 0,
+          "b2": 0,
+          "b3": 0,
+          "out": 0,
+          "ta": 0,
+          "tb": 0
+        },
+        "settle_window": 0,
+        "solved": true,
+        "space": 4096,
+        "space_size": 4096,
+        "steps": 0,
+        "threshold": null,
+        "ticks": 0,
+        "unique": false
+      },
+      "head_b": {
+        "beam": null,
+        "best_return": null,
+        "certificate": "complete",
+        "conforming": 16,
+        "continuous": [],
+        "description_bits": 77128,
+        "discarded": 0,
+        "episodes": 0,
+        "evaluated": 4096,
+        "exact_max_error": 0.0,
+        "examples": 64,
+        "execution_cost": 15.0,
+        "exhausted": true,
+        "mode": "prefix",
+        "node_evaluations": 587120,
+        "ranked_by": "order",
+        "seconds": 1.4776459319982678,
+        "selections": {
+          "a0": 0,
+          "a1": 0,
+          "a2": 0,
+          "a3": 0,
+          "b0": 0,
+          "b1": 2,
+          "b2": 1,
+          "b3": 3,
+          "out": 0,
+          "ta": 0,
+          "tb": 0
+        },
+        "settle_window": 0,
+        "solved": true,
+        "space": 4096,
+        "space_size": 4096,
+        "steps": 0,
+        "threshold": null,
+        "ticks": 0,
+        "unique": false
+      },
+      "held_out": {
+        "assignment_accuracy": 0.7333333333333333,
+        "behaviours": 240,
+        "exact": 0,
+        "exact_rate": 0.0
+      },
+      "holdout_behaviours": 240,
+      "train_behaviours": 16,
+      "train_fit": {
+        "assignment_accuracy": 1.0,
+        "behaviours": 16,
+        "exact": 16,
+        "exact_rate": 1.0
+      }
+    }
+  },
+  "stage_b_unstaged": {
+    "space": 16777216,
+    "viability": {
+      "environment_episodes": 0,
+      "executions": 1610612736,
+      "exhaustible": false,
+      "projected_seconds": 80530.6368,
+      "space_size": 16777216
+    }
+  }
+}

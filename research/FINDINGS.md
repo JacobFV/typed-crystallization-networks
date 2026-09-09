@@ -1632,3 +1632,44 @@ false negatives in training.
 
 So the visual line now reaches an exact hierarchy from raw pixels, and stops at
 character identity, where the ceiling is structural and measured.
+
+## 34. Code generation: a netlist emitted from behaviour alone, certified unique
+
+`research/code-generation/RESULTS.md`. The first result in this project that
+emits a program rather than executing one — the exact inverse of section 15's
+interpreter.
+
+**Target.** Gate lists for `generators/logic` at width 3: `(wire_a, wire_b,
+table)` triples, run by that generator's own `evaluate`. The specification is
+behaviour only — an 8-entry truth table — and the artifact is a five-gate
+netlist that is **executed**, not compared for similarity. Exact checkability is
+the whole advantage of this substrate and a fuzzy target would have thrown it
+away.
+
+**Bounded before searching, and the bound changed the design.** Free 3-gate lists
+number 14,745,600 and reach only **232 of 256** behaviours, with a **median of
+4,672 programs per behaviour** and a maximum of 2,320,704 — verified here from
+`bound.json`. So behaviour badly under-determines the program, and emitting "a"
+program would have been unfalsifiable. A target shape is therefore declared, the
+Shannon skeleton, which the same bound certifies is a **bijection**: verified
+here as 256 behaviours covered, `programs_per_behaviour: [1]`, 256 total pairs.
+
+**It generates correct programs, with certificates.** Stage A learns the
+instruction set's executor from `evaluate`: space 432, exhausted, 2 conforming
+and extensionally identical, held-out max error 0.0 on 1,952 examples,
+recovering the table bit order and selector. Stage B, supervised on **behaviour
+only**, recovers the emitter: two searches of 4,096, **conforming = 1,
+certificate `unique`** on both heads.
+
+**It generalizes structurally, not just across seeds.** Verified from `run.json`:
+**228 of 228** unseen behaviours on a structural split trained only on weight-2
+functions, **244 of 244** on a random split, and exact on all 256 in both.
+Baselines: identity addresses 0.246, random 0.015, best constant netlist 0.004.
+
+**The negative control fails as it should**, which is what makes the rest
+credible: trained on `x2`-independent functions, it is exact on only 16 of 256
+and **0 of 240** held out, with 16 conforming per head rather than one — the
+supervision genuinely cannot identify the emitter from that slice.
+
+Staging again carried it: 16.7M programs to 8,192, a projected 7.2 hours to
+4.4 seconds.

@@ -1,0 +1,150 @@
+{
+ "artifact": "computer-capability frozen agent (successor task)",
+ "episodes": [
+  {
+   "document": "k = 7",
+   "return": 2.0,
+   "steps": [
+    {
+     "agent_act_ms": 13.151442,
+     "kernel_step_ms": 869.403974,
+     "operator_applications": 46,
+     "tick": 0,
+     "us_per_operator": 285.9009130434782,
+     "verb": "read"
+    },
+    {
+     "agent_act_ms": 13.405361,
+     "kernel_step_ms": 947.894524,
+     "operator_applications": 46,
+     "tick": 1,
+     "us_per_operator": 291.4208913043478,
+     "verb": "write"
+    },
+    {
+     "agent_act_ms": 13.141937,
+     "kernel_step_ms": 1019.38093,
+     "operator_applications": 46,
+     "tick": 2,
+     "us_per_operator": 285.69428260869563,
+     "verb": "read"
+    }
+   ]
+  },
+  {
+   "document": "xy = 1",
+   "return": 2.0,
+   "steps": [
+    {
+     "agent_act_ms": 13.139601,
+     "kernel_step_ms": 973.124446,
+     "operator_applications": 46,
+     "tick": 0,
+     "us_per_operator": 285.6435,
+     "verb": "read"
+    },
+    {
+     "agent_act_ms": 13.488225,
+     "kernel_step_ms": 1296.435959,
+     "operator_applications": 46,
+     "tick": 1,
+     "us_per_operator": 293.22228260869565,
+     "verb": "write"
+    },
+    {
+     "agent_act_ms": 13.119441,
+     "kernel_step_ms": 1272.235332,
+     "operator_applications": 46,
+     "tick": 2,
+     "us_per_operator": 285.2052391304348,
+     "verb": "read"
+    }
+   ]
+  },
+  {
+   "document": "idx = 8",
+   "return": 2.0,
+   "steps": [
+    {
+     "agent_act_ms": 13.207729,
+     "kernel_step_ms": 911.945496,
+     "operator_applications": 46,
+     "tick": 0,
+     "us_per_operator": 287.1245434782609,
+     "verb": "read"
+    },
+    {
+     "agent_act_ms": 13.684449,
+     "kernel_step_ms": 962.575147,
+     "operator_applications": 46,
+     "tick": 1,
+     "us_per_operator": 297.48802173913043,
+     "verb": "write"
+    },
+    {
+     "agent_act_ms": 13.251889,
+     "kernel_step_ms": 1078.344581,
+     "operator_applications": 46,
+     "tick": 2,
+     "us_per_operator": 288.0845434782609,
+     "verb": "read"
+    }
+   ]
+  },
+  {
+   "document": "amount = 4",
+   "return": 2.0,
+   "steps": [
+    {
+     "agent_act_ms": 13.147217,
+     "kernel_step_ms": 911.817639,
+     "operator_applications": 46,
+     "tick": 0,
+     "us_per_operator": 285.80906521739126,
+     "verb": "read"
+    },
+    {
+     "agent_act_ms": 13.449825,
+     "kernel_step_ms": 993.173917,
+     "operator_applications": 46,
+     "tick": 1,
+     "us_per_operator": 292.3875,
+     "verb": "write"
+    },
+    {
+     "agent_act_ms": 23.110481,
+     "kernel_step_ms": 954.36505,
+     "operator_applications": 46,
+     "tick": 2,
+     "us_per_operator": 502.40176086956524,
+     "verb": "read"
+    }
+   ]
+  }
+ ],
+ "peak_rss_mb": 248.79296875,
+ "per_step": {
+  "agent_act_ms_median": 13.229809,
+  "kernel_step_ms_median": 967.8497965,
+  "operator_applications_median": 46.0,
+  "program_share_of_step": 0.013484949565593634
+ },
+ "search_space": {
+  "policy": 448,
+  "policy_conforming": 21,
+  "transform": 7480,
+  "transform_conforming": 2
+ },
+ "size": {
+  "description_bits": 33971936,
+  "distinct_operators": 14,
+  "estimated_operator_cost": 23.0,
+  "gzip_bits": 151416,
+  "gzip_bytes": 18927,
+  "json_bytes": 4246492,
+  "module_count": 0,
+  "module_nodes": {},
+  "pruned_nodes": 23,
+  "total_static_nodes": 23
+ }
+}

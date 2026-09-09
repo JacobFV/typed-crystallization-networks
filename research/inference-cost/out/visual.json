@@ -1,0 +1,92 @@
+{
+ "artifact": "visual-ladder S3 screenshot->hierarchy parse",
+ "episodes": [
+  {
+   "acquire_ms": 4.917184,
+   "decode_ms": 0.023104,
+   "encode_ms": 1.779169,
+   "execute_min_ms": 14981.555095,
+   "execute_ms": 15363.880242,
+   "operator_applications": 64346,
+   "outputs_identical": true,
+   "plain_python_min_ms": 0.168624,
+   "plain_python_ms": 0.170064,
+   "positions": 961,
+   "python_rects": 19,
+   "rects": 19,
+   "seed": 200,
+   "total_ms": 15370.599698999999,
+   "us_per_operator": 238.7697796599633
+  },
+  {
+   "acquire_ms": 4.247921,
+   "decode_ms": 0.03536,
+   "encode_ms": 1.692384,
+   "execute_min_ms": 15173.348527,
+   "execute_ms": 15261.093378,
+   "operator_applications": 64346,
+   "outputs_identical": true,
+   "plain_python_min_ms": 0.159712,
+   "plain_python_ms": 0.161888,
+   "positions": 961,
+   "python_rects": 19,
+   "rects": 19,
+   "seed": 201,
+   "total_ms": 15267.069043,
+   "us_per_operator": 237.17237090106613
+  },
+  {
+   "acquire_ms": 4.348881,
+   "decode_ms": 0.019088,
+   "encode_ms": 1.734656,
+   "execute_min_ms": 14791.67375,
+   "execute_ms": 14858.004555,
+   "operator_applications": 59801,
+   "outputs_identical": true,
+   "plain_python_min_ms": 0.1708,
+   "plain_python_ms": 0.173408,
+   "positions": 961,
+   "python_rects": 16,
+   "rects": 16,
+   "seed": 202,
+   "total_ms": 14864.107179999999,
+   "us_per_operator": 248.45745982508654
+  }
+ ],
+ "fixable": {
+  "memoized_decode_ms": 6711.240757,
+  "memoized_plus_no_revalidate_ms": 4476.429613,
+  "outputs_identical": true
+ },
+ "module_build_seconds": 2.2098756480263546,
+ "peak_rss_mb": 429.61328125,
+ "screen": {
+  "bytes": 3072,
+  "configuration": {
+   "horizon": 2,
+   "min_size": 4,
+   "nesting": 5,
+   "palette": 32,
+   "resolution": 32,
+   "widgets": 20
+  },
+  "height": 32,
+  "width": 32
+ },
+ "size": {
+  "description_bits": 319889560,
+  "distinct_operators": 24,
+  "estimated_operator_cost": 1429970.0,
+  "gzip_bits": 1470200,
+  "gzip_bytes": 183775,
+  "json_bytes": 39986195,
+  "module_count": 3,
+  "module_nodes": {
+   "module:117c596cccfb573f606e8d7f": 7,
+   "module:b409b71ea0e41d77abb7cb9c": 15,
+   "module:c79e712699a5aa1716f3f65c": 585
+  },
+  "pruned_nodes": 4,
+  "total_static_nodes": 611
+ }
+}

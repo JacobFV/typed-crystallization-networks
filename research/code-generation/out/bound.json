@@ -1,0 +1,36 @@
+{
+  "canonical_shape": {
+    "behaviours_covered": 256,
+    "programs_per_behaviour": [
+      1
+    ],
+    "total_pairs": 256
+  },
+  "free_gate_lists": {
+    "1": {
+      "behaviours_reached": 38,
+      "max": 18,
+      "median": 2,
+      "min": 2,
+      "programs": 144,
+      "seconds": 0.0
+    },
+    "2": {
+      "behaviours_reached": 152,
+      "max": 5304,
+      "median": 8,
+      "min": 8,
+      "programs": 36864,
+      "seconds": 0.01
+    },
+    "3": {
+      "behaviours_reached": 232,
+      "max": 2320704,
+      "median": 4672,
+      "min": 192,
+      "programs": 14745600,
+      "seconds": 0.33
+    }
+  },
+  "mask_convention_checked_against_generator": true
+}
