@@ -1,0 +1,45 @@
+wide B w=0 seed=0 conformant=True step=70 live=3 calls=2 bits=19496 0.41s/step
+wide B w=0 seed=1 conformant=True step=50 live=5 calls=3 bits=23960 0.41s/step
+wide B w=0 seed=2 conformant=True step=90 live=3 calls=2 bits=19496 0.41s/step
+wide B w=0 seed=3 conformant=True step=80 live=3 calls=2 bits=19496 0.41s/step
+wide B w=0 seed=4 conformant=True step=90 live=3 calls=2 bits=19496 0.42s/step
+wide B w=0 seed=5 conformant=True step=90 live=3 calls=2 bits=19496 0.42s/step
+wide B w=0 seed=6 conformant=True step=90 live=3 calls=2 bits=19496 0.41s/step
+wide B w=0 seed=7 conformant=True step=40 live=3 calls=2 bits=19496 0.46s/step
+wide B w=1e-06 seed=0 conformant=True step=60 live=3 calls=2 bits=19496 0.53s/step
+wide B w=1e-06 seed=1 conformant=True step=80 live=3 calls=2 bits=19496 0.60s/step
+wide B w=1e-06 seed=2 conformant=True step=80 live=3 calls=2 bits=19496 0.51s/step
+wide B w=1e-06 seed=3 conformant=True step=40 live=3 calls=2 bits=19496 0.44s/step
+wide B w=1e-06 seed=4 conformant=True step=60 live=3 calls=2 bits=19496 0.44s/step
+wide B w=1e-06 seed=5 conformant=True step=90 live=4 calls=2 bits=21528 0.43s/step
+wide B w=1e-06 seed=6 conformant=True step=80 live=3 calls=2 bits=19496 0.47s/step
+wide B w=1e-06 seed=7 conformant=True step=100 live=3 calls=2 bits=19496 0.43s/step
+wide B w=1e-05 seed=0 conformant=True step=170 live=3 calls=2 bits=19496 0.43s/step
+wide B w=1e-05 seed=1 conformant=True step=170 live=3 calls=2 bits=19496 0.43s/step
+wide B w=1e-05 seed=2 conformant=True step=150 live=3 calls=2 bits=19496 0.42s/step
+wide B w=1e-05 seed=3 conformant=True step=170 live=3 calls=2 bits=19496 0.40s/step
+wide B w=1e-05 seed=4 conformant=True step=170 live=3 calls=2 bits=19496 0.48s/step
+wide B w=1e-05 seed=5 conformant=True step=140 live=3 calls=2 bits=19496 0.65s/step
+wide B w=1e-05 seed=6 conformant=True step=130 live=3 calls=2 bits=19496 0.77s/step
+wide B w=1e-05 seed=7 conformant=True step=150 live=3 calls=2 bits=19496 0.61s/step
+wide B w=0.0001 seed=0 conformant=False step=None live=- calls=- bits=- 0.76s/step
+wide B w=0.0001 seed=1 conformant=False step=None live=- calls=- bits=- 0.55s/step
+wide B w=0.0001 seed=2 conformant=False step=None live=- calls=- bits=- 0.41s/step
+wide B w=0.0001 seed=3 conformant=False step=None live=- calls=- bits=- 0.50s/step
+wide B w=0.0001 seed=4 conformant=False step=None live=- calls=- bits=- 0.41s/step
+wide B w=0.0001 seed=5 conformant=False step=None live=- calls=- bits=- 0.41s/step
+wide B w=0.0001 seed=6 conformant=False step=None live=- calls=- bits=- 0.41s/step
+wide B w=0.0001 seed=7 conformant=False step=None live=- calls=- bits=- 0.41s/step
+wide B w=0.001 seed=0 conformant=False step=None live=- calls=- bits=- 0.43s/step
+wide B w=0.001 seed=1 conformant=False step=None live=- calls=- bits=- 0.48s/step
+wide B w=0.001 seed=2 conformant=False step=None live=- calls=- bits=- 0.41s/step
+wide B w=0.001 seed=3 conformant=False step=None live=- calls=- bits=- 0.42s/step
+wide B w=0.001 seed=4 conformant=False step=None live=- calls=- bits=- 0.42s/step
+wide B w=0.001 seed=5 conformant=False step=None live=- calls=- bits=- 0.42s/step
+wide B w=0.001 seed=6 conformant=False step=None live=- calls=- bits=- 0.51s/step
+wide B w=0.001 seed=7 conformant=False step=None live=- calls=- bits=- 0.42s/step
+== w=0: 8/8 conformant, median live=3.0, median calls=2.0, median bits=19496.0, median step=85.0
+== w=1e-06: 8/8 conformant, median live=3.0, median calls=2.0, median bits=19496.0, median step=80.0
+== w=1e-05: 8/8 conformant, median live=3.0, median calls=2.0, median bits=19496.0, median step=160.0
+== w=0.0001: 0/8 conformant
+== w=0.001: 0/8 conformant

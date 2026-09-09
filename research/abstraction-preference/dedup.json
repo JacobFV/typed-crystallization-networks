@@ -1,0 +1,68 @@
+{
+ "cases": [
+  {
+   "case": "MAJ3 module over (a,b,c), 64-row truth table",
+   "batch": 64,
+   "distinct_rows": 8,
+   "bit_identical": true,
+   "shipped_us": 679.0,
+   "deduped_us": 144.7,
+   "speedup": 4.69
+  },
+  {
+   "case": "MAJ3 module over (a,a,b), 64-row truth table",
+   "batch": 64,
+   "distinct_rows": 4,
+   "bit_identical": true,
+   "shipped_us": 685.4,
+   "deduped_us": 101.0,
+   "speedup": 6.79
+  },
+  {
+   "case": "int[8] add module, 64 random rows (worst case)",
+   "batch": 64,
+   "distinct_rows": 64,
+   "bit_identical": true,
+   "shipped_us": 573.0,
+   "deduped_us": 619.1,
+   "speedup": 0.93
+  },
+  {
+   "case": "int[8] add module, 512 random rows (worst case)",
+   "batch": 512,
+   "distinct_rows": 510,
+   "bit_identical": true,
+   "shipped_us": 4591.5,
+   "deduped_us": 4888.1,
+   "speedup": 0.94
+  },
+  {
+   "case": "float atan2 primitive, 64 random rows (worst case)",
+   "batch": 64,
+   "distinct_rows": 64,
+   "bit_identical": true,
+   "shipped_us": 498.5,
+   "deduped_us": 532.6,
+   "speedup": 0.94
+  },
+  {
+   "case": "tight arm B scaffold, one soft forward pass over 64 rows",
+   "batch": 64,
+   "distinct_rows": null,
+   "bit_identical": null,
+   "shipped_us": 305667.3,
+   "deduped_us": 62017.2,
+   "speedup": 4.93
+  },
+  {
+   "case": "wide arm B scaffold, one soft forward pass over 64 rows",
+   "batch": 64,
+   "distinct_rows": null,
+   "bit_identical": null,
+   "shipped_us": 1380252.5,
+   "deduped_us": 307890.1,
+   "speedup": 4.48
+  }
+ ],
+ "all_bit_identical": true
+}

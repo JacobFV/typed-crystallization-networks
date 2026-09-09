@@ -239,7 +239,7 @@ class Runner:
             rows.append({'logits': logits, 'logp': dist.log_prob(choice), 'action': i,
                          'entropy': dist.entropy(), 'value': out['value'].reshape(()),
                          'probe': out['probe'].flatten(), 'reward': float(reward),
-                         'counterfactual': (reward, other) if i == 1 else (other, reward),
+                         'counterfactual': (reward, other) if i == 0 else (other, reward),
                          'target': float(host.records[0].probes['target'].decoded),
                          'gate': float(host.records[0].probes['gate'].decoded)})
             previous = i

@@ -1,0 +1,89 @@
+{
+ "rows": [
+  {
+   "seed": 0,
+   "acquired": true,
+   "steps": 171,
+   "scaffold_nodes": 5,
+   "registered_nodes_unpruned": 5,
+   "registered_nodes_pruned": 5,
+   "call_cost_unpruned": 5.0,
+   "call_cost_pruned": 5.0,
+   "definition_bits_unpruned": 12088,
+   "definition_bits_pruned": 12088,
+   "pruned_module_still_exact": true
+  },
+  {
+   "seed": 1,
+   "acquired": true,
+   "steps": 161,
+   "scaffold_nodes": 5,
+   "registered_nodes_unpruned": 5,
+   "registered_nodes_pruned": 5,
+   "call_cost_unpruned": 5.0,
+   "call_cost_pruned": 5.0,
+   "definition_bits_unpruned": 12088,
+   "definition_bits_pruned": 12088,
+   "pruned_module_still_exact": true
+  },
+  {
+   "seed": 2,
+   "acquired": false
+  },
+  {
+   "seed": 3,
+   "acquired": true,
+   "steps": 116,
+   "scaffold_nodes": 5,
+   "registered_nodes_unpruned": 5,
+   "registered_nodes_pruned": 5,
+   "call_cost_unpruned": 5.0,
+   "call_cost_pruned": 5.0,
+   "definition_bits_unpruned": 12088,
+   "definition_bits_pruned": 12088,
+   "pruned_module_still_exact": true
+  },
+  {
+   "seed": 4,
+   "acquired": true,
+   "steps": 66,
+   "scaffold_nodes": 5,
+   "registered_nodes_unpruned": 5,
+   "registered_nodes_pruned": 4,
+   "call_cost_unpruned": 5.0,
+   "call_cost_pruned": 4.0,
+   "definition_bits_unpruned": 12080,
+   "definition_bits_pruned": 10056,
+   "pruned_module_still_exact": true
+  },
+  {
+   "seed": 5,
+   "acquired": false
+  },
+  {
+   "seed": 6,
+   "acquired": false
+  },
+  {
+   "seed": 7,
+   "acquired": true,
+   "steps": 96,
+   "scaffold_nodes": 5,
+   "registered_nodes_unpruned": 5,
+   "registered_nodes_pruned": 5,
+   "call_cost_unpruned": 5.0,
+   "call_cost_pruned": 5.0,
+   "definition_bits_unpruned": 12088,
+   "definition_bits_pruned": 12088,
+   "pruned_module_still_exact": true
+  }
+ ],
+ "summary": {
+  "acquired": 5,
+  "of": 8,
+  "seeds_with_dead_gates": 1,
+  "median_nodes_unpruned": 5,
+  "median_nodes_pruned": 5,
+  "all_pruned_modules_exact": true
+ }
+}

@@ -1,0 +1,154 @@
+{
+ "runs_wide_B.json": {
+  "scaffold": "wide",
+  "arm": "B",
+  "candidates": 5004,
+  "rows": [
+   {
+    "weight": 0.0,
+    "n": 8,
+    "conformant": 8,
+    "median_step": 85.0,
+    "median_live": 3.0,
+    "median_calls": 2.0,
+    "median_bits": 19496.0,
+    "median_cost": 9.0,
+    "minimal_programs": 7,
+    "redundant_programs": 1
+   },
+   {
+    "weight": 1e-06,
+    "n": 8,
+    "conformant": 8,
+    "median_step": 80.0,
+    "median_live": 3.0,
+    "median_calls": 2.0,
+    "median_bits": 19496.0,
+    "median_cost": 9.0,
+    "minimal_programs": 7,
+    "redundant_programs": 1,
+    "fisher_vs_w0": 1.0
+   },
+   {
+    "weight": 1e-05,
+    "n": 8,
+    "conformant": 8,
+    "median_step": 160.0,
+    "median_live": 3.0,
+    "median_calls": 2.0,
+    "median_bits": 19496.0,
+    "median_cost": 9.0,
+    "minimal_programs": 8,
+    "redundant_programs": 0,
+    "fisher_vs_w0": 1.0
+   },
+   {
+    "weight": 0.0001,
+    "n": 8,
+    "conformant": 0,
+    "fisher_vs_w0": 0.0002
+   },
+   {
+    "weight": 0.001,
+    "n": 8,
+    "conformant": 0,
+    "fisher_vs_w0": 0.0002
+   }
+  ]
+ },
+ "runs_tight_B.json": {
+  "scaffold": "tight",
+  "arm": "B",
+  "candidates": 696,
+  "rows": [
+   {
+    "weight": 0.0,
+    "n": 24,
+    "conformant": 19,
+    "median_step": 50,
+    "median_live": 3,
+    "median_calls": 2,
+    "median_bits": 19496,
+    "median_cost": 9.0,
+    "minimal_programs": 19,
+    "redundant_programs": 0
+   },
+   {
+    "weight": 1e-06,
+    "n": 24,
+    "conformant": 13,
+    "median_step": 40,
+    "median_live": 3,
+    "median_calls": 2,
+    "median_bits": 19496,
+    "median_cost": 9.0,
+    "minimal_programs": 13,
+    "redundant_programs": 0,
+    "fisher_vs_w0": 0.1246
+   },
+   {
+    "weight": 1e-05,
+    "n": 24,
+    "conformant": 2,
+    "median_step": 45.0,
+    "median_live": 3.0,
+    "median_calls": 2.0,
+    "median_bits": 19496.0,
+    "median_cost": 9.0,
+    "minimal_programs": 2,
+    "redundant_programs": 0,
+    "fisher_vs_w0": 0.0
+   },
+   {
+    "weight": 0.0001,
+    "n": 24,
+    "conformant": 0,
+    "fisher_vs_w0": 0.0
+   },
+   {
+    "weight": 0.001,
+    "n": 24,
+    "conformant": 0,
+    "fisher_vs_w0": 0.0
+   }
+  ]
+ },
+ "runs_wide_B_nostop.json": {
+  "scaffold": "wide",
+  "arm": "B",
+  "candidates": 5004,
+  "rows": [
+   {
+    "weight": 0.0,
+    "n": 8,
+    "conformant": 8,
+    "median_step": 85.0,
+    "median_live": 3.0,
+    "median_calls": 2.0,
+    "median_bits": 19496.0,
+    "median_cost": 9.0,
+    "minimal_programs": 7,
+    "redundant_programs": 1,
+    "exact_at_end": 8,
+    "median_live_at_end": 3.0,
+    "median_bits_at_end": 19496.0
+   },
+   {
+    "weight": 1e-05,
+    "n": 8,
+    "conformant": 8,
+    "median_step": 160.0,
+    "median_live": 3.0,
+    "median_calls": 2.0,
+    "median_bits": 19496.0,
+    "median_cost": 9.0,
+    "minimal_programs": 8,
+    "redundant_programs": 0,
+    "exact_at_end": 8,
+    "median_live_at_end": 3.0,
+    "median_bits_at_end": 19496.0,
+    "fisher_vs_w0": 1.0
+   }
+  ]
+ }
+}

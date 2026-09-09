@@ -1,0 +1,110 @@
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:328: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  ent[node.name] = float(-(q * q.clamp_min(1e-12).log()).sum())
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:328: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  ent[node.name] = float(-(q * q.clamp_min(1e-12).log()).sum())
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:328: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  ent[node.name] = float(-(q * q.clamp_min(1e-12).log()).sum())
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:328: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  ent[node.name] = float(-(q * q.clamp_min(1e-12).log()).sum())
+R0_baseline_rewardonly                 seed 0 eval 4.000 env_ep   2064 82.4s
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:328: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  ent[node.name] = float(-(q * q.clamp_min(1e-12).log()).sum())
+R0_baseline_rewardonly                 seed 1 eval 4.000 env_ep   2064 83.4s
+R0_baseline_rewardonly                 seed 2 eval 4.000 env_ep   2064 76.2s
+R0_baseline_rewardonly                 seed 3 eval 4.000 env_ep   2064 71.2s
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:328: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  ent[node.name] = float(-(q * q.clamp_min(1e-12).log()).sum())
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:328: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  ent[node.name] = float(-(q * q.clamp_min(1e-12).log()).sum())
+R0_baseline_rewardonly                 seed 4 eval 4.000 env_ep   2064 90.3s
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:328: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  ent[node.name] = float(-(q * q.clamp_min(1e-12).log()).sum())
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:328: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  ent[node.name] = float(-(q * q.clamp_min(1e-12).log()).sum())
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:328: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  ent[node.name] = float(-(q * q.clamp_min(1e-12).log()).sum())
+R0_baseline_rewardonly                 seed 5 eval 4.000 env_ep   2064 96.3s
+R0_baseline_rewardonly                 seed 6 eval 4.000 env_ep   2064 92.3s
+R0_baseline_rewardonly                 seed 7 eval 4.000 env_ep   2064 84.4s
+R1_batch8                              seed 0 eval 4.000 env_ep   2064 78.9s
+R1_batch8                              seed 1 eval 4.000 env_ep   2064 94.1s
+R1_batch8                              seed 2 eval 4.000 env_ep   2064 111.8s
+R1_batch8                              seed 3 eval 4.000 env_ep   2064 116.9s
+R1_batch8                              seed 4 eval 4.000 env_ep   2064 102.9s
+R1_batch8                              seed 5 eval 4.000 env_ep   2064 99.1s
+R1_batch8                              seed 6 eval 4.000 env_ep   2064 101.3s
+R1_batch8                              seed 7 eval 4.000 env_ep   2064 116.2s
+R2_batch32                             seed 0 eval 2.125 env_ep   2064 118.1s
+R2_batch32                             seed 1 eval 1.750 env_ep   2064 115.7s
+R2_batch32                             seed 2 eval 2.000 env_ep   2064 128.7s
+R2_batch32                             seed 3 eval 2.125 env_ep   2064 121.3s
+R2_batch32                             seed 4 eval 2.438 env_ep   2064 123.1s
+R2_batch32                             seed 5 eval 1.688 env_ep   2064 117.5s
+R2_batch32                             seed 6 eval 2.125 env_ep   2064 127.9s
+R2_batch32                             seed 7 eval 4.000 env_ep   2064 145.8s
+R3_batch32_lr01                        seed 0 eval 4.000 env_ep   2064 112.1s
+R3_batch32_lr01                        seed 1 eval 4.000 env_ep   2064 124.1s
+R3_batch32_lr01                        seed 2 eval 4.000 env_ep   2064 108.3s
+R3_batch32_lr01                        seed 3 eval 4.000 env_ep   2064 148.5s
+R3_batch32_lr01                        seed 4 eval 4.000 env_ep   2064 122.7s
+R3_batch32_lr01                        seed 5 eval 4.000 env_ep   2064 123.8s
+R3_batch32_lr01                        seed 6 eval 4.000 env_ep   2064 159.1s
+R3_batch32_lr01                        seed 7 eval 4.000 env_ep   2064 156.2s
+R4_entropy_schedule                    seed 0 eval 4.000 env_ep   2064 126.3s
+R4_entropy_schedule                    seed 1 eval 4.000 env_ep   2064 140.8s
+R4_entropy_schedule                    seed 2 eval 4.000 env_ep   2064 130.8s
+R4_entropy_schedule                    seed 3 eval 4.000 env_ep   2064 127.7s
+R4_entropy_schedule                    seed 4 eval 4.000 env_ep   2064 132.6s
+R4_entropy_schedule                    seed 5 eval 4.000 env_ep   2064 124.4s
+R4_entropy_schedule                    seed 6 eval 4.000 env_ep   2064 128.3s
+R4_entropy_schedule                    seed 7 eval 4.000 env_ep   2064 119.8s
+R5_entropy_high_flat                   seed 0 eval 4.000 env_ep   2064 116.4s
+R5_entropy_high_flat                   seed 1 eval 4.000 env_ep   2064 127.4s
+R5_entropy_high_flat                   seed 2 eval 4.000 env_ep   2064 127.6s
+R5_entropy_high_flat                   seed 3 eval 4.000 env_ep   2064 132.5s
+R5_entropy_high_flat                   seed 4 eval 4.000 env_ep   2064 132.2s
+R5_entropy_high_flat                   seed 5 eval 4.000 env_ep   2064 137.2s
+R5_entropy_high_flat                   seed 6 eval 4.000 env_ep   2064 136.5s
+R5_entropy_high_flat                   seed 7 eval 4.000 env_ep   2064 131.5s
+R6_advnorm_batch32                     seed 0 eval 2.125 env_ep   2064 135.6s
+R6_advnorm_batch32                     seed 1 eval 1.750 env_ep   2064 153.5s
+R6_advnorm_batch32                     seed 2 eval 2.000 env_ep   2064 143.6s
+R6_advnorm_batch32                     seed 3 eval 2.125 env_ep   2064 162.5s
+R6_advnorm_batch32                     seed 4 eval 2.438 env_ep   2064 164.2s
+R6_advnorm_batch32                     seed 5 eval 1.688 env_ep   2064 163.2s
+R6_advnorm_batch32                     seed 6 eval 2.125 env_ep   2064 187.5s
+R6_advnorm_batch32                     seed 7 eval 1.812 env_ep   2064 174.5s
+R7_statevalue_advnorm_b32              seed 0 eval 2.125 env_ep   2064 214.5s
+R7_statevalue_advnorm_b32              seed 1 eval 1.750 env_ep   2064 202.1s
+R7_statevalue_advnorm_b32              seed 2 eval 2.000 env_ep   2064 200.9s
+R7_statevalue_advnorm_b32              seed 3 eval 2.125 env_ep   2064 193.2s
+R7_statevalue_advnorm_b32              seed 4 eval 2.438 env_ep   2064 184.2s
+R7_statevalue_advnorm_b32              seed 5 eval 1.688 env_ep   2064 201.4s
+R7_statevalue_advnorm_b32              seed 6 eval 2.125 env_ep   2064 218.2s
+R7_statevalue_advnorm_b32              seed 7 eval 1.812 env_ep   2064 221.6s
+R8_lr005                               seed 0 eval 4.000 env_ep   2064 139.5s
+R8_lr005                               seed 1 eval 4.000 env_ep   2064 150.7s
+R8_lr005                               seed 2 eval 4.000 env_ep   2064 160.4s
+R8_lr005                               seed 3 eval 4.000 env_ep   2064 132.8s
+R8_lr005                               seed 4 eval 4.000 env_ep   2064 151.1s
+R8_lr005                               seed 5 eval 4.000 env_ep   2064 159.1s
+R8_lr005                               seed 6 eval 4.000 env_ep   2064 166.2s
+R8_lr005                               seed 7 eval 4.000 env_ep   2064 167.4s
+R9_lr20                                seed 0 eval 4.000 env_ep   2064 171.9s
+R9_lr20                                seed 1 eval 4.000 env_ep   2064 165.1s
+R9_lr20                                seed 2 eval 4.000 env_ep   2064 200.2s
+R9_lr20                                seed 3 eval 4.000 env_ep   2064 136.8s
+R9_lr20                                seed 4 eval 3.250 env_ep   2064 162.6s
+R9_lr20                                seed 5 eval 4.000 env_ep   2064 183.1s
+R9_lr20                                seed 6 eval 4.000 env_ep   2064 178.2s
+R9_lr20                                seed 7 eval 4.000 env_ep   2064 169.7s

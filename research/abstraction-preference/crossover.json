@@ -1,0 +1,382 @@
+{
+ "minimal body, pruning off": {
+  "dead_gates_registered": 0,
+  "pruning": false,
+  "module_nodes": 4,
+  "definition_bits": 10056,
+  "execution_cost": 4.0,
+  "ratio_at_8": 0.476,
+  "description_bits_crossover": 2,
+  "rows": [
+   {
+    "call_sites": 1,
+    "module_bits": 14480,
+    "flat_bits": 10176,
+    "module_cost": 4.0,
+    "flat_cost": 4.0
+   },
+   {
+    "call_sites": 2,
+    "module_bits": 17072,
+    "flat_bits": 18520,
+    "module_cost": 8.0,
+    "flat_cost": 8.0
+   },
+   {
+    "call_sites": 3,
+    "module_bits": 19664,
+    "flat_bits": 26864,
+    "module_cost": 12.0,
+    "flat_cost": 12.0
+   },
+   {
+    "call_sites": 4,
+    "module_bits": 22256,
+    "flat_bits": 35208,
+    "module_cost": 16.0,
+    "flat_cost": 16.0
+   },
+   {
+    "call_sites": 5,
+    "module_bits": 24848,
+    "flat_bits": 43552,
+    "module_cost": 20.0,
+    "flat_cost": 20.0
+   },
+   {
+    "call_sites": 6,
+    "module_bits": 27440,
+    "flat_bits": 51896,
+    "module_cost": 24.0,
+    "flat_cost": 24.0
+   },
+   {
+    "call_sites": 7,
+    "module_bits": 30032,
+    "flat_bits": 60240,
+    "module_cost": 28.0,
+    "flat_cost": 28.0
+   },
+   {
+    "call_sites": 8,
+    "module_bits": 32624,
+    "flat_bits": 68584,
+    "module_cost": 32.0,
+    "flat_cost": 32.0
+   },
+   {
+    "call_sites": 9,
+    "module_bits": 35216,
+    "flat_bits": 76928,
+    "module_cost": 36.0,
+    "flat_cost": 36.0
+   },
+   {
+    "call_sites": 10,
+    "module_bits": 37808,
+    "flat_bits": 85272,
+    "module_cost": 40.0,
+    "flat_cost": 40.0
+   },
+   {
+    "call_sites": 11,
+    "module_bits": 40424,
+    "flat_bits": 93688,
+    "module_cost": 44.0,
+    "flat_cost": 44.0
+   },
+   {
+    "call_sites": 12,
+    "module_bits": 43040,
+    "flat_bits": 102104,
+    "module_cost": 48.0,
+    "flat_cost": 48.0
+   }
+  ]
+ },
+ "minimal body, pruning on": {
+  "dead_gates_registered": 0,
+  "pruning": true,
+  "module_nodes": 4,
+  "definition_bits": 10056,
+  "execution_cost": 4.0,
+  "ratio_at_8": 0.476,
+  "description_bits_crossover": 2,
+  "rows": [
+   {
+    "call_sites": 1,
+    "module_bits": 14480,
+    "flat_bits": 10176,
+    "module_cost": 4.0,
+    "flat_cost": 4.0
+   },
+   {
+    "call_sites": 2,
+    "module_bits": 17072,
+    "flat_bits": 18520,
+    "module_cost": 8.0,
+    "flat_cost": 8.0
+   },
+   {
+    "call_sites": 3,
+    "module_bits": 19664,
+    "flat_bits": 26864,
+    "module_cost": 12.0,
+    "flat_cost": 12.0
+   },
+   {
+    "call_sites": 4,
+    "module_bits": 22256,
+    "flat_bits": 35208,
+    "module_cost": 16.0,
+    "flat_cost": 16.0
+   },
+   {
+    "call_sites": 5,
+    "module_bits": 24848,
+    "flat_bits": 43552,
+    "module_cost": 20.0,
+    "flat_cost": 20.0
+   },
+   {
+    "call_sites": 6,
+    "module_bits": 27440,
+    "flat_bits": 51896,
+    "module_cost": 24.0,
+    "flat_cost": 24.0
+   },
+   {
+    "call_sites": 7,
+    "module_bits": 30032,
+    "flat_bits": 60240,
+    "module_cost": 28.0,
+    "flat_cost": 28.0
+   },
+   {
+    "call_sites": 8,
+    "module_bits": 32624,
+    "flat_bits": 68584,
+    "module_cost": 32.0,
+    "flat_cost": 32.0
+   },
+   {
+    "call_sites": 9,
+    "module_bits": 35216,
+    "flat_bits": 76928,
+    "module_cost": 36.0,
+    "flat_cost": 36.0
+   },
+   {
+    "call_sites": 10,
+    "module_bits": 37808,
+    "flat_bits": 85272,
+    "module_cost": 40.0,
+    "flat_cost": 40.0
+   },
+   {
+    "call_sites": 11,
+    "module_bits": 40424,
+    "flat_bits": 93688,
+    "module_cost": 44.0,
+    "flat_cost": 44.0
+   },
+   {
+    "call_sites": 12,
+    "module_bits": 43040,
+    "flat_bits": 102104,
+    "module_cost": 48.0,
+    "flat_cost": 48.0
+   }
+  ]
+ },
+ "learned body with 1 dead gate, pruning off": {
+  "dead_gates_registered": 1,
+  "pruning": false,
+  "module_nodes": 5,
+  "definition_bits": 12104,
+  "execution_cost": 5.0,
+  "ratio_at_8": 0.407,
+  "description_bits_crossover": 2,
+  "rows": [
+   {
+    "call_sites": 1,
+    "module_bits": 16528,
+    "flat_bits": 12240,
+    "module_cost": 5.0,
+    "flat_cost": 5.0
+   },
+   {
+    "call_sites": 2,
+    "module_bits": 19120,
+    "flat_bits": 22648,
+    "module_cost": 10.0,
+    "flat_cost": 10.0
+   },
+   {
+    "call_sites": 3,
+    "module_bits": 21712,
+    "flat_bits": 33056,
+    "module_cost": 15.0,
+    "flat_cost": 15.0
+   },
+   {
+    "call_sites": 4,
+    "module_bits": 24304,
+    "flat_bits": 43464,
+    "module_cost": 20.0,
+    "flat_cost": 20.0
+   },
+   {
+    "call_sites": 5,
+    "module_bits": 26896,
+    "flat_bits": 53872,
+    "module_cost": 25.0,
+    "flat_cost": 25.0
+   },
+   {
+    "call_sites": 6,
+    "module_bits": 29488,
+    "flat_bits": 64280,
+    "module_cost": 30.0,
+    "flat_cost": 30.0
+   },
+   {
+    "call_sites": 7,
+    "module_bits": 32080,
+    "flat_bits": 74688,
+    "module_cost": 35.0,
+    "flat_cost": 35.0
+   },
+   {
+    "call_sites": 8,
+    "module_bits": 34672,
+    "flat_bits": 85096,
+    "module_cost": 40.0,
+    "flat_cost": 40.0
+   },
+   {
+    "call_sites": 9,
+    "module_bits": 37264,
+    "flat_bits": 95504,
+    "module_cost": 45.0,
+    "flat_cost": 45.0
+   },
+   {
+    "call_sites": 10,
+    "module_bits": 39856,
+    "flat_bits": 105912,
+    "module_cost": 50.0,
+    "flat_cost": 50.0
+   },
+   {
+    "call_sites": 11,
+    "module_bits": 42472,
+    "flat_bits": 116400,
+    "module_cost": 55.0,
+    "flat_cost": 55.0
+   },
+   {
+    "call_sites": 12,
+    "module_bits": 45088,
+    "flat_bits": 126888,
+    "module_cost": 60.0,
+    "flat_cost": 60.0
+   }
+  ]
+ },
+ "learned body with 1 dead gate, pruning on": {
+  "dead_gates_registered": 1,
+  "pruning": true,
+  "module_nodes": 4,
+  "definition_bits": 10056,
+  "execution_cost": 4.0,
+  "ratio_at_8": 0.476,
+  "description_bits_crossover": 2,
+  "rows": [
+   {
+    "call_sites": 1,
+    "module_bits": 14480,
+    "flat_bits": 10176,
+    "module_cost": 4.0,
+    "flat_cost": 4.0
+   },
+   {
+    "call_sites": 2,
+    "module_bits": 17072,
+    "flat_bits": 18520,
+    "module_cost": 8.0,
+    "flat_cost": 8.0
+   },
+   {
+    "call_sites": 3,
+    "module_bits": 19664,
+    "flat_bits": 26864,
+    "module_cost": 12.0,
+    "flat_cost": 12.0
+   },
+   {
+    "call_sites": 4,
+    "module_bits": 22256,
+    "flat_bits": 35208,
+    "module_cost": 16.0,
+    "flat_cost": 16.0
+   },
+   {
+    "call_sites": 5,
+    "module_bits": 24848,
+    "flat_bits": 43552,
+    "module_cost": 20.0,
+    "flat_cost": 20.0
+   },
+   {
+    "call_sites": 6,
+    "module_bits": 27440,
+    "flat_bits": 51896,
+    "module_cost": 24.0,
+    "flat_cost": 24.0
+   },
+   {
+    "call_sites": 7,
+    "module_bits": 30032,
+    "flat_bits": 60240,
+    "module_cost": 28.0,
+    "flat_cost": 28.0
+   },
+   {
+    "call_sites": 8,
+    "module_bits": 32624,
+    "flat_bits": 68584,
+    "module_cost": 32.0,
+    "flat_cost": 32.0
+   },
+   {
+    "call_sites": 9,
+    "module_bits": 35216,
+    "flat_bits": 76928,
+    "module_cost": 36.0,
+    "flat_cost": 36.0
+   },
+   {
+    "call_sites": 10,
+    "module_bits": 37808,
+    "flat_bits": 85272,
+    "module_cost": 40.0,
+    "flat_cost": 40.0
+   },
+   {
+    "call_sites": 11,
+    "module_bits": 40424,
+    "flat_bits": 93688,
+    "module_cost": 44.0,
+    "flat_cost": 44.0
+   },
+   {
+    "call_sites": 12,
+    "module_bits": 43040,
+    "flat_bits": 102104,
+    "module_cost": 48.0,
+    "flat_cost": 48.0
+   }
+  ]
+ }
+}

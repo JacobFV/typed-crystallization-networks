@@ -11,7 +11,10 @@ from .operators import Registry
 
 def save_program(program,path,registry=None):
     if not program.is_frozen:raise ValueError('export requires a fully crystallized program')
-    r=registry or Registry();program.validate(r)
+    # Export the program, not the scaffold it was found in. `SoftProgram.export()`
+    # hardens every node and keeps the dead ones, so an unpruned artifact's
+    # description bits and execution cost describe the search space.
+    r=registry or Registry();program=program.pruned();program.validate(r)
     # Dependency order is insertion order: a module can only reference previously
     # registered modules. The loader checks every digest and type signature.
     d={'format':'tcn.artifact/1','digest':program.digest,'program':program.to_dict(),'modules':[m.to_dict() for m in r.modules.values()]}

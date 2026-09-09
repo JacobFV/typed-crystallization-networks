@@ -3,3 +3,12 @@ edge records (positive fraction)                               192 (37.0%)
 --- ablation H2: the offset pool is not hand-restricted ---
 [wide-offsets] space / nodes / records                         13056 / 19 / 192
 [wide-offsets] enumerate_fit solved/exhausted/unique/evaluated/s True / True / False / 13056 / 90.4
+[wide-offsets] conforming / space / exhausted / s              2 / 13056 / True / 69.1
+[wide-offsets] lexicographic pick held-out max error / accuracy 0.0 / 1.000000
+[wide-offsets] conforming selections / distinct functions      2 / 1
+[wide-offsets] validation-filtered survivors / distinct functions / held-out errors 2 / 1 / [0.0, 0.0]
+[wide-offsets] random-draw solution density                    0.0000
+  [wide-offsets] seed 0: ok=False train=1 held=1.0 (455.1s) 
+  [wide-offsets] seed 1: ok=False train=1 held=1.0 (418.5s) 
+  [wide-offsets] seed 2: ok=False train=1 held=1.0 (455.2s) 
+  [wide-offsets] seed 3: ok=False train=1 held=1.0 (685.4s) 

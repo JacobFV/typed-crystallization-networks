@@ -53,19 +53,22 @@ Five results, in the order they should change what the project does.
    and the collinearity test is then ordinary `mul`/`sub`/`abs`/`le`.  No
    operator was added and no type rule bent.
 
-4. **On this rung enumeration wins outright, and for three separately measured
-   reasons.**  The gradient arm is {{direct_grad}} on the 6,144-program space
+4. **Enumeration settles this rung; the relaxed path's recorded failures were
+   invalid relaxations, and one real boundary survives the correction.**  The gradient arm is {{direct_grad}} on the 6,144-program space
    and {{wide_grad}} on the 393,216-program one -- and **{{wide_grad_held}}
    exact on held-out episodes**, so its one training success does not
    generalise -- where enumeration exhausts both and returns a program with
-   held-out max error 0.0.  The corrected logit probe says why: `shifted` (the
-   offset) has `grad = None` because `pack` declares `gradient="none"`; `thr`
-   (the threshold) has `grad = None` because `SoftProgram` treats every
-   single-candidate node as frozen and detaches it; and with that second cause
-   removed `thr`'s gradient is **{{unfreeze_thr}}** -- reachable and
-   numerically dead, because the `le` surrogate underflows to exactly zero at a
-   gap of **{{le_zero}}** while the cross products span 0..65,025.  This is the
-   `eq`-underflow fault of the perception ladder, found again in `le`.
+   held-out max error {{wide_val_err}}.  But **those gradient numbers were
+   measured on a surrogate that is exactly 0.0** at the operating distance:
+   `relaxed` computes `le` as `sigmoid(d/tau)` at `tau = 1`, which underflows in
+   float32 at a gap of {{le_zero}}, and this rung's gaps have median
+   {{gap_median}}.  Re-run with a live surrogate the arms are
+   {{sfix_operand}} and {{sfix_carrier}}, and the reason is now a *declared*
+   boundary rather than an accident: `shifted`, the neighbour offset, is
+   `grad = None` under every temperature policy because `pack` declares
+   `gradient="none"`, while `thr` goes from `None` to {{unfreeze_thr}} to
+   {{sfix_thr}} as the two accidents are removed.  Section 4 separates the three
+   mechanisms.
 
 5. **A certificate about a family is not a certificate about a target, and the
    candidate pool is part of the family.**  The coarse eight-value threshold
@@ -246,6 +249,12 @@ itself is not.
 
 ## 3. The searched rungs
 
+**Read every `gradient` column in this section together with section 4.**  They
+were all measured with the shipped `le` surrogate, which section 4.2 shows is
+*exactly* 0.0 at 91-100% of this rung's operating distances.  A gradient arm run
+on a dead surrogate is not evidence about learnability, and section 4.4 re-runs
+them with a live one.
+
 Target: `same(i, i+k) = object_ids[i] == object_ids[i+k]` at every position,
 supervised from the `object_ids` probe, with the offset `k` searched over
 {+1 pixel, +2 pixels, +1 row}.  {{train_records}} training records,
@@ -256,7 +265,7 @@ supervised from the `object_ids` probe, with the offset `k` searched over
 
 | arm | space | evaluated | exhausted | conforming on train | + exact at every validation position | unique | enum s | held-out max error | held-out accuracy | gradient |
 |---|---|---|---|---|---|---|---|---|---|---|
-| direct (8-value pool) | {{direct_space}} | {{direct_evaluated}} | {{direct_exhausted}} | {{direct_conforming}} | {{direct_val}} | no | {{direct_seconds}} | {{direct_lex_err}} | {{direct_val_acc}} | {{direct_grad}} |
+| direct (8-value pool) | {{direct_space}} | {{direct_evaluated}} | {{direct_exhausted}} | {{direct_conforming}} | {{direct_val}} | no | {{direct_seconds}} | {{direct_lex_err}} | {{direct_val_acc}} | {{direct_grad}} (dead surrogate; see 4.4) |
 
 {{direct_conforming}} of {{direct_space}} programs conform, and **all
 {{direct_val}} of them are also exact at every position of the validation
@@ -321,7 +330,7 @@ constant sits behind `pack`.
 | `enumerate_fit`, capped | {{wide_space}} | 40,000 | no | -- | -- | -- | -- | rate {{wide_enum_rate}} prog/s, projects to {{wide_enum_proj}} s |
 | `enumerate_fit`, stop-at-first | {{wide_space}} | {{wide_first_evaluated}} | no | -- | -- | -- | -- | {{wide_first_s}} |
 | prefix-reusing exhaustive walk | {{wide_space}} | {{wide_inc_nodes}} node evals | yes | {{wide_conforming}} | {{wide_val}} | {{wide_val_err}} | {{wide_val_acc}} | {{wide_inc_seconds}} |
-| gradient descent (init_noise 0.5) | {{wide_space}} | -- | no | {{wide_grad}} conforming on train | -- | -- | {{wide_grad_held}} exact on held-out | {{wide_grad_s}} s median |
+| gradient descent (init_noise 0.5, dead surrogate -- see 4.4) | {{wide_space}} | -- | no | {{wide_grad}} conforming on train | -- | -- | {{wide_grad_held}} exact on held-out | {{wide_grad_s}} s median |
 
 **{{wide_val}} programs conform on training and are exact at every validation
 position, and their held-out max error is {{wide_val_err}}.**
@@ -351,7 +360,7 @@ agreement combines with the collinearity predicate.
 
 | arm | space | conforming | + validation exact | enum s | held-out accuracy | gradient |
 |---|---|---|---|---|---|---|
-| staged (frozen fg module + collinearity) | {{staged_space}} | {{staged_conforming}} | {{staged_val}} | {{staged_seconds}} | {{staged_val_acc}} | {{staged_grad}} |
+| staged (frozen fg module + collinearity) | {{staged_space}} | {{staged_conforming}} | {{staged_val}} | {{staged_seconds}} | {{staged_val_acc}} | {{staged_grad}} (dead surrogate) |
 
 Staging is not what makes this rung reachable -- the direct arm is already only
 6,144 programs, because the *collinearity* predicate does the work the frozen
@@ -654,28 +663,50 @@ which for a `gradient="none"` operator is the same call either way.
 
 ### E2.  The `le`/`lt` surrogate has no dynamic range on integer operands
 
-`relaxed` computes `lt`/`le`/`gt`/`ge` as `torch.sigmoid(d/temperature)` with
-`temperature = 1`.  In float32 both the value and its derivative are **exactly
-0.0 at `|d| >= {{le_zero}}`**.  Any comparison on operands wider than about two
-decimal digits -- a product of two bytes, a squared distance, a pixel count --
-is therefore invisible to the optimiser.  This is the same fault the perception
-ladder found in `eq`'s `exp(-(a-b)^2/tau)` at `|a-b| >= 11`, and it has the same
-one-line shape: scale by the operand magnitude rather than by a fixed constant.
+This is `eq`'s underflow, in the other comparison operator.  `relaxed` computes
+`lt`/`le`/`gt`/`ge` as `torch.sigmoid(d/temperature)` with `temperature = 1`; in
+float32 both the value and its derivative are **exactly 0.0 at
+`|d| >= {{le_zero}}`**, and this rung's operating gaps have median
+{{gap_median}} with {{gap_worst_fraction}} of records at or past the underflow
+point (section 4.2).  Any comparison on operands wider than about two decimal
+digits -- a product of two bytes, a squared distance, a pixel count -- is
+invisible to the optimiser, and every gradient arm over such a comparison is a
+measurement of a dead relaxation rather than of learnability.
+
+Two scalings were measured (section 4.4): `tau = 2^bits` of the compared carrier,
+which is the rule that fixed the `eq` benchmark, and `tau = mean|operand|` over
+the batch.  Both take the threshold logit's gradient from {{unfreeze_thr}} to
+{{sfix_thr}}.
 
 ```python
      if n in COMPARE:
-         if n=="eq": return torch.exp(-((a-b)**2).sum(-1,keepdim=True)/temperature)
+-        if n=="eq": return torch.exp(-((a-b)**2).sum(-1,keepdim=True)/temperature)
          d=b-a if n in {"lt","le"} else a-b
 -        return torch.sigmoid(d/temperature)
-+        # A fixed temperature makes the comparison blind past |d| ~ 89 in
-+        # float32.  Normalising by the batch's own scale keeps the surrogate
-+        # informative on integer operands without changing its exact semantics.
-+        scale=d.detach().abs().mean().clamp_min(1.)
-+        return torch.sigmoid(d/(temperature*scale))
++        # A fixed temperature makes a comparison blind past |a-b| ~ 11 for `eq`
++        # and |d| ~ 89 for the orderings, in float32.  Scale by the carrier so
++        # the surrogate is informative across the representable range; the exact
++        # semantics are unchanged.
++        tau=temperature*float(2**op.inputs[0].bits)
++        if n=="eq": return torch.exp(-((a-b)**2).sum(-1,keepdim=True)/tau)
++        return torch.sigmoid(d/tau)
 ```
 
-Any scale-aware choice would do; the measurement that matters is that the
-present one is a constant and the operands are not bounded.
+Whatever the scaling, the requirement is that a gradient arm reports the
+surrogate's value at its operating distance; a `0/n` recorded next to a
+surrogate of 0.0 says nothing.
+
+### E3.  `index`'s address relaxation is not sharp enough to read a pixel
+
+`relaxed` computes `index` as `softmax(-(address - arange(n))^2 / temperature)`
+at `temperature = 1`.  Over a 192-byte observation that puts only
+**{{addr_true}}** of its weight on the true address and {{addr_nb}} on each
+immediate neighbour, so a relaxed read returns a blur of about five bytes.  A
+scaffold whose deterministic nodes are relaxed (which E1 would make the default)
+therefore reads a blurred pixel, which is a second invalid relaxation in the
+same place.  Sharpening the temperature, or using a straight-through estimator
+on the argmax address as `relaxed` already does for `idiv`, would fix it; this
+track measured the sharpness rather than choosing between them.
 
 ### Re-statement of the previous track's D2/D3/D6, all still unmerged
 

@@ -4,9 +4,19 @@ import torch
 from .learning import SoftProgram,tensor
 from .crystallize import Crystallizer,Objective
 
-def fit(program,examples,signals,steps=300,lr=.05,freeze=True,registry=None,tolerance=.001,polish=200):
+def fit(program,examples,signals,steps=300,lr=.05,freeze=True,registry=None,tolerance=.001,polish=200,mdl_weight=0.):
+    """`mdl_weight` scales ARCHITECTURE section 8's `L_program_description`.
+
+    It weights `SoftProgram.description_cost()`, the expected description length
+    in bits of the pruned hardened program -- not `complexity()`, which is a
+    softmax-weighted sum of `operator.cost` and therefore measures execution,
+    where a module call is at exact parity with its inlined body. It defaults to
+    zero so the shipped fixtures are unchanged; the term is bits against a probe
+    loss, so a weight around 1e-5 is the scale at which it competes.
+    """
     if not examples:raise ValueError('training examples required')
     if polish<0:raise ValueError('polish steps must be non-negative')
+    if mdl_weight<0:raise ValueError('description weight must be non-negative')
     program.validate_signals(signals)
     model=SoftProgram(program,registry);optimizer=torch.optim.Adam(model.parameters(),lr=lr)
     inputs={k:torch.stack([tensor(ex['inputs'][k]) for ex in examples]) for k,_ in program.inputs}
@@ -17,6 +27,7 @@ def fit(program,examples,signals,steps=300,lr=.05,freeze=True,registry=None,tole
     history=[];torch.set_num_threads(1)
     for step in range(steps):
         optimizer.zero_grad();loss=loss_fn()+.001*(step/max(1,steps))*model.entropy()
+        if mdl_weight:loss=loss+mdl_weight*model.description_cost()
         if loss.requires_grad:loss.backward();optimizer.step()
         if step%25==0 or step==steps-1:history.append({'step':step,'loss':float(loss.detach()),'entropy':float(model.entropy().detach())})
     # A trainable constant sees a gradient blurred by the candidate mixture, so it
@@ -58,4 +69,6 @@ def fit(program,examples,signals,steps=300,lr=.05,freeze=True,registry=None,tole
     # zero soft loss while its argmax is a different program. Report both, and
     # never treat `loss` as evidence that synthesis succeeded.
     error=exact_error(model.export())
-    return model,{'training':history,'freeze_events':[asdict(x) for x in scheduler.events],'fully_frozen':len(model.frozen)==len(program.nodes) and all(not p.requires_grad for p in model.constants.values()),'loss':float(loss_fn().detach()),'relaxed_loss':float(loss_fn().detach()),'exact_max_error':error,'exact_conformance':error<=tolerance,'tolerance':tolerance}
+    return model,{'training':history,'mdl_weight':mdl_weight,'description_bits':float(model.description_cost().detach()),
+                  'pruned_description_bits':model.export().pruned().description_bits(model.registry),
+                  'freeze_events':[asdict(x) for x in scheduler.events],'fully_frozen':len(model.frozen)==len(program.nodes) and all(not p.requires_grad for p in model.constants.values()),'loss':float(loss_fn().detach()),'relaxed_loss':float(loss_fn().detach()),'exact_max_error':error,'exact_conformance':error<=tolerance,'tolerance':tolerance}

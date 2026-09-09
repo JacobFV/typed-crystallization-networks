@@ -1,0 +1,40 @@
+order: {
+ "seconds": 48.0,
+ "solved": true,
+ "evaluated": 1038370,
+ "program": [
+  "n1 = module:8ceedf7(a, b, c)",
+  "n2 = module:8ceedf7(d, e, f)",
+  "y = xor(n1, n2)"
+ ],
+ "description_bits": 19496,
+ "execution_cost": 9.0
+}
+description: {
+ "seconds": 178.2,
+ "solved": true,
+ "exhausted": true,
+ "conforming": 144,
+ "evaluated": 2709504,
+ "program": [
+  "n1 = module:8ceedf7(a, b, c)",
+  "n2 = module:8ceedf7(d, e, f)",
+  "y = xor(n1, n2)"
+ ],
+ "description_bits": 19496,
+ "execution_cost": 9.0
+}
+cost: {
+ "seconds": 175.8,
+ "solved": true,
+ "exhausted": true,
+ "conforming": 144,
+ "evaluated": 2709504,
+ "program": [
+  "n1 = module:8ceedf7(a, b, c)",
+  "n2 = module:8ceedf7(d, e, f)",
+  "y = xor(n1, n2)"
+ ],
+ "description_bits": 19496,
+ "execution_cost": 9.0
+}

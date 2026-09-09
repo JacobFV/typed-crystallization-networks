@@ -18,6 +18,13 @@ ARMS = {
                                  'cfg':cfg(episodes=8000,batch=32,normalize_advantage=True,
                                            w_entropy=.2,entropy_final=.001)},
  'R12_exactPG_upperbound':      {'policy_init':'zero','cfg':cfg(exact_policy_gradient=True)},
+ 'R13_exactPG_pinned':          {'policy_init':'zero','pin_choices':{'relation':6,'goal_relation':6},
+                                 'cfg':cfg(exact_policy_gradient=True)},
+ 'R14_exactPG_bias12':          {'policy_init':'zero','cfg':cfg(exact_policy_gradient=True,choice_bias12=True)},
+ 'R15_rewardonly_bias12_b32':   {'policy_init':'zero','cfg':cfg(choice_bias12=True,batch=32,normalize_advantage=True)},
+ 'R16_rewardonly_bias12_160ep': {'policy_init':'zero','cfg':cfg(choice_bias12=True,episodes=160)},
+ 'R17_rewardonly_bias12_400ep': {'policy_init':'zero','cfg':cfg(choice_bias12=True,episodes=400)},
+ 'R18_rewardonly_bias12_800ep': {'policy_init':'zero','cfg':cfg(choice_bias12=True,episodes=800)},
 }
 if __name__ == '__main__':
     main('research/policy-learning/out/e3.json', ARMS, seeds=8)

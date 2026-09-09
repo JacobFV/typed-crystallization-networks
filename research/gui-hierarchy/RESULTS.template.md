@@ -362,6 +362,15 @@ and a distractor that is the identical program reading the row below instead of
 the pixel to the right -- and lets the search choose, scored against the whole
 dense edge map of held-out screens.
 
+**One number in the stage-C table should not be read as a cost claim.**
+`description_bits` is the length of the serialised JSON, and for a module whose
+input type is a 768-field byte tuple that length is dominated by the type
+declaration, not by the learned content -- the same fault FINDINGS records as
+"`description_bits` measures JSON verbosity".  The figures are reported because
+the interface asks for them, and they are not evidence about abstraction
+economics here.  `execution_cost` is the meaningful one: the module costs 19 and
+the caller charges it once per position.
+
 ---
 
 ## 7. The gradient arm, and the two things that stop it

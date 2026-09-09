@@ -1,0 +1,44 @@
+{
+ "space_size": 1024,
+ "order": {
+  "conforming": 168,
+  "exhausted": true,
+  "seconds": 0.4,
+  "program": [
+   "n1 = module:8ceedf7(a, b, c)",
+   "n2 = module:8ceedf7(d, e, f)",
+   "n3 = module:8ceedf7(d, e, f)",
+   "m = or(n2, n3)",
+   "y = xor(n1, m)"
+  ],
+  "live_nodes": 5,
+  "description_bits": 23944,
+  "execution_cost": 14.0
+ },
+ "description": {
+  "conforming": 168,
+  "exhausted": true,
+  "seconds": 0.4,
+  "program": [
+   "n1 = module:8ceedf7(a, b, c)",
+   "n2 = module:8ceedf7(d, e, f)",
+   "y = xor(n1, n2)"
+  ],
+  "live_nodes": 3,
+  "description_bits": 19496,
+  "execution_cost": 9.0
+ },
+ "cost": {
+  "conforming": 168,
+  "exhausted": true,
+  "seconds": 0.4,
+  "program": [
+   "n1 = module:8ceedf7(a, b, c)",
+   "n2 = module:8ceedf7(d, e, f)",
+   "y = xor(n1, n2)"
+  ],
+  "live_nodes": 3,
+  "description_bits": 19496,
+  "execution_cost": 9.0
+ }
+}

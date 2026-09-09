@@ -292,6 +292,9 @@ def main():
               "%.3g" % x["shipped_surrogate_at_median_gap"],
               "%.3g" % x["shipped_derivative_at_median_gap"]]
              for k, x in g.items() if isinstance(x, dict)])
+        v["gap_median"] = f(max(x["median_gap"] for x in g.values() if isinstance(x, dict)), 0)
+        v["gap_worst_fraction"] = f(min(x["fraction_at_or_past_underflow"]
+                                        for x in g.values() if isinstance(x, dict)), 3)
         a = src.get("address_sharpness") or (ff or {}).get("address_sharpness")
         if a:
             v["addr_true"] = f(a["weight_on_true_address"], 3)

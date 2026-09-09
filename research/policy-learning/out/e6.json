@@ -1,0 +1,2946 @@
+[
+ {
+  "probe_episodes": 25,
+  "seed": 0,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 25,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.01
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.03
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 9.27
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 10.88
+   }
+  },
+  "total_env_episodes_including_eval": 89,
+  "wall_s": 31.5
+ },
+ {
+  "probe_episodes": 25,
+  "seed": 1,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 25,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.03
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.03
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 18.16
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 13.49
+   }
+  },
+  "total_env_episodes_including_eval": 89,
+  "wall_s": 44.9
+ },
+ {
+  "probe_episodes": 25,
+  "seed": 2,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 25,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.02
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.05
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 7.37
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 9.82
+   }
+  },
+  "total_env_episodes_including_eval": 89,
+  "wall_s": 30.5
+ },
+ {
+  "probe_episodes": 25,
+  "seed": 3,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 25,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.03
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.1
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 16.79
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 11.84
+   }
+  },
+  "total_env_episodes_including_eval": 89,
+  "wall_s": 43.1
+ },
+ {
+  "probe_episodes": 25,
+  "seed": 4,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 25,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.02
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.04
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 18.19
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 10.57
+   }
+  },
+  "total_env_episodes_including_eval": 89,
+  "wall_s": 43.7
+ },
+ {
+  "probe_episodes": 25,
+  "seed": 5,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 25,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.02
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.02
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 10.89
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 10.61
+   }
+  },
+  "total_env_episodes_including_eval": 89,
+  "wall_s": 40.7
+ },
+ {
+  "probe_episodes": 25,
+  "seed": 6,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 25,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.08
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.17
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 21.9
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 12.15
+   }
+  },
+  "total_env_episodes_including_eval": 89,
+  "wall_s": 47.7
+ },
+ {
+  "probe_episodes": 25,
+  "seed": 7,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 25,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.05
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.15
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 15.78
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 7.37
+   }
+  },
+  "total_env_episodes_including_eval": 89,
+  "wall_s": 39.8
+ },
+ {
+  "probe_episodes": 50,
+  "seed": 0,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 50,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.26
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.12
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 13.02
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 12.84
+   }
+  },
+  "total_env_episodes_including_eval": 114,
+  "wall_s": 43.0
+ },
+ {
+  "probe_episodes": 50,
+  "seed": 1,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 50,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.01
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.02
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 11.5
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 9.09
+   }
+  },
+  "total_env_episodes_including_eval": 114,
+  "wall_s": 45.5
+ },
+ {
+  "probe_episodes": 50,
+  "seed": 2,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 50,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.1
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.1
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 11.72
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 8.03
+   }
+  },
+  "total_env_episodes_including_eval": 114,
+  "wall_s": 27.1
+ },
+ {
+  "probe_episodes": 50,
+  "seed": 3,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 50,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.01
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.03
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 17.79
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 2.48
+   }
+  },
+  "total_env_episodes_including_eval": 114,
+  "wall_s": 24.2
+ },
+ {
+  "probe_episodes": 50,
+  "seed": 4,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 50,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.02
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.05
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 14.87
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 20.03
+   }
+  },
+  "total_env_episodes_including_eval": 114,
+  "wall_s": 45.0
+ },
+ {
+  "probe_episodes": 50,
+  "seed": 5,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 50,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.01
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.04
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 15.31
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 6.68
+   }
+  },
+  "total_env_episodes_including_eval": 114,
+  "wall_s": 29.9
+ },
+ {
+  "probe_episodes": 50,
+  "seed": 6,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 50,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.13
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.3
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 15.63
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 5.96
+   }
+  },
+  "total_env_episodes_including_eval": 114,
+  "wall_s": 33.2
+ },
+ {
+  "probe_episodes": 50,
+  "seed": 7,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 50,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.21
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.15
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 17.98
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 10.51
+   }
+  },
+  "total_env_episodes_including_eval": 114,
+  "wall_s": 40.8
+ },
+ {
+  "probe_episodes": 100,
+  "seed": 0,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 100,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.08
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.2
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 10.48
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 11.66
+   }
+  },
+  "total_env_episodes_including_eval": 164,
+  "wall_s": 37.2
+ },
+ {
+  "probe_episodes": 100,
+  "seed": 1,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 100,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.01
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.02
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 14.33
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 10.5
+   }
+  },
+  "total_env_episodes_including_eval": 164,
+  "wall_s": 41.1
+ },
+ {
+  "probe_episodes": 100,
+  "seed": 2,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 100,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.02
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.05
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 10.1
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 5.44
+   }
+  },
+  "total_env_episodes_including_eval": 164,
+  "wall_s": 28.5
+ },
+ {
+  "probe_episodes": 100,
+  "seed": 3,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 100,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.02
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.05
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 11.46
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 13.76
+   }
+  },
+  "total_env_episodes_including_eval": 164,
+  "wall_s": 42.7
+ },
+ {
+  "probe_episodes": 100,
+  "seed": 4,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 100,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.3
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.73
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 25.08
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 6.68
+   }
+  },
+  "total_env_episodes_including_eval": 164,
+  "wall_s": 47.0
+ },
+ {
+  "probe_episodes": 100,
+  "seed": 5,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 100,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.02
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.06
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 11.93
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 11.56
+   }
+  },
+  "total_env_episodes_including_eval": 164,
+  "wall_s": 36.0
+ },
+ {
+  "probe_episodes": 100,
+  "seed": 6,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 100,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.14
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.44
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 18.46
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 14.39
+   }
+  },
+  "total_env_episodes_including_eval": 164,
+  "wall_s": 41.0
+ },
+ {
+  "probe_episodes": 100,
+  "seed": 7,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 100,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.07
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.11
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 20.24
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 11.4
+   }
+  },
+  "total_env_episodes_including_eval": 164,
+  "wall_s": 47.7
+ },
+ {
+  "probe_episodes": 200,
+  "seed": 0,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 200,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.05
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.53
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 16.42
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 8.96
+   }
+  },
+  "total_env_episodes_including_eval": 264,
+  "wall_s": 71.0
+ },
+ {
+  "probe_episodes": 200,
+  "seed": 1,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 200,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.01
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.02
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 10.14
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 3.51
+   }
+  },
+  "total_env_episodes_including_eval": 264,
+  "wall_s": 51.9
+ },
+ {
+  "probe_episodes": 200,
+  "seed": 2,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 200,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.03
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.06
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 7.44
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 6.78
+   }
+  },
+  "total_env_episodes_including_eval": 264,
+  "wall_s": 53.1
+ },
+ {
+  "probe_episodes": 200,
+  "seed": 3,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 200,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.01
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.02
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 11.61
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 8.54
+   }
+  },
+  "total_env_episodes_including_eval": 264,
+  "wall_s": 49.8
+ },
+ {
+  "probe_episodes": 200,
+  "seed": 4,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 200,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.11
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.14
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 13.81
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 9.94
+   }
+  },
+  "total_env_episodes_including_eval": 264,
+  "wall_s": 55.5
+ },
+ {
+  "probe_episodes": 200,
+  "seed": 5,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 200,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.11
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.17
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 13.57
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 9.3
+   }
+  },
+  "total_env_episodes_including_eval": 264,
+  "wall_s": 56.2
+ },
+ {
+  "probe_episodes": 200,
+  "seed": 6,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 200,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.05
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.08
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 14.59
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 7.92
+   }
+  },
+  "total_env_episodes_including_eval": 264,
+  "wall_s": 47.8
+ },
+ {
+  "probe_episodes": 200,
+  "seed": 7,
+  "selections": {
+   "bit_0": 0,
+   "bit_1": 0,
+   "relation": 6,
+   "goal_relation": 6,
+   "z": 0,
+   "world": 0,
+   "goal_f": 0,
+   "mul0": 0,
+   "logit0": 0,
+   "mul1": 0,
+   "logit1": 0,
+   "policy": 0,
+   "features": 0,
+   "prediction": 0,
+   "value": 0
+  },
+  "supervised_env_episodes": 200,
+  "model_target_accuracy": 1.0,
+  "model_gate_accuracy": 1.0,
+  "sign_k1": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 2,
+   "eval_return": 4.0
+  },
+  "sign_k2": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 4,
+   "eval_return": 4.0
+  },
+  "sign_k4": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 8,
+   "eval_return": 4.0
+  },
+  "sign_k8": {
+   "sign": 0,
+   "scores": [
+    4.0,
+    0.0
+   ],
+   "reward_env_episodes": 16,
+   "eval_return": 4.0
+  },
+  "horizon": {
+   "4": {
+    "plan_horizon": 4,
+    "sequences_enumerated_per_step": 16,
+    "mean_return": 4.0,
+    "normalized": 1.0,
+    "wall_s": 0.12
+   },
+   "8": {
+    "plan_horizon": 8,
+    "sequences_enumerated_per_step": 256,
+    "mean_return": 8.0,
+    "normalized": 1.0,
+    "wall_s": 0.05
+   },
+   "16": {
+    "plan_horizon": 16,
+    "sequences_enumerated_per_step": 65536,
+    "mean_return": 16.0,
+    "normalized": 1.0,
+    "wall_s": 14.26
+   },
+   "32": {
+    "plan_horizon": 12,
+    "sequences_enumerated_per_step": 4096,
+    "mean_return": 32.0,
+    "normalized": 1.0,
+    "wall_s": 10.52
+   }
+  },
+  "total_env_episodes_including_eval": 264,
+  "wall_s": 61.3
+ }
+]

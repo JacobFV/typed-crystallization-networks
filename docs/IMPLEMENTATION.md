@@ -69,10 +69,23 @@ taking the temperature off the round clock is worse than not gating at all. See
 An immutable registered module is one candidate with stopped internal gradients;
 recurrent modules lift state into explicit input/output ports. Definitions are
 content addressed and counted transitively once in description size.
+`Registry.register_module` and `runtime.save_program` apply `Program.pruned`
+first, so a definition charges its live nodes rather than the scaffold it was
+learned in; the content address is of the pruned program.
 
 `SoftProgram.export()` materializes an exact candidate program. That operation
 alone is not evidence of successful crystallization; check scheduler acceptance
 and exact task behavior. The shipped synthesis and joint experiments do both.
+
+`SoftProgram.complexity()` weights `operator.cost` by the choice distribution and
+measures execution. `SoftProgram.description_cost()` measures
+`L_program_description` instead: expected serialized size in bits of the pruned
+hardened program, node liveness and module use both taken as expectations under
+the factorized choice distribution, exact at any one-hot point. `synthesis.fit`
+exposes it as `mdl_weight` and `TrainConfig` as `description_weight`; both default
+to zero. `search.enumerate_fit` takes `rank` in `order`, `description` or `cost`,
+returning the first conforming program or the cheapest one, and reports how many
+conforming programs it found.
 
 ## One generator contract
 

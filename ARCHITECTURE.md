@@ -124,7 +124,12 @@ A crystallized module is an immutable, versioned, discrete callable program with
 synthesis: this is recursive abstraction. Its internal description, precision,
 latency, and storage still count toward complexity/cost; a call is not free.
 Sharing counts a module definition once plus its call sites, with execution cost
-charged per use. Relearning creates a new version and revalidates dependents.
+charged per use. What is registered and exported is the program, not the scaffold
+it was found in: nodes that cannot reach an output or a state update are dropped
+first, since a dead gate kept from the search space would otherwise be charged
+transitively at every call site for the life of the module. Pruning preserves
+exact semantics and changes the content address.
+Relearning creates a new version and revalidates dependents.
 Matching interfaces includes semantic meaning, not merely matching array sizes.
 
 ## 5. Crystallization algorithm
@@ -242,6 +247,11 @@ using actual synthetic rollouts initially. The environment need not be
 differentiable. Rewards determine task utility; prediction supplies dense signal.
 Track actual return and gradient conflicts because a weighted sum does not
 guarantee alignment. Program-description cost includes frozen library modules.
+`L_program_description` is description length, not execution cost: the expected
+serialized size of the pruned program under the current choice distribution, with
+each distinct module definition charged once and every call site charged
+individually. It is a distinct term from the execution-cost sum, which a module
+call and its inlined body pay equally, and it is exact at any discrete selection.
 Type errors are impossible by construction; a penalty may address numerical
 relaxation consistency but never buy permission for illegal wiring.
 

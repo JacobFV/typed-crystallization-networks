@@ -48,6 +48,42 @@ Note for a fresh worktree: the four `generators/computer` tests need
 `generators/computer/engine/node_modules`, which is gitignored. Symlink it from
 the main checkout to run the full suite.
 
+### `abstraction-preference` (commit on branch `abstraction-preference`) — blocked on quiet tree
+
+Makes the objective able to prefer the cheaper program. Adds
+`SoftProgram.description_cost()` (ARCHITECTURE section 8's
+`L_program_description`: expected description length in bits of the pruned
+hardened program, exact at any one-hot selection), exposes it as
+`synthesis.fit(mdl_weight=...)` and `TrainConfig.description_weight` (both
+default 0), deduplicates argument rows in `exact_tensor`, adds
+`Program.pruned()` applied by `Registry.register_module` and
+`runtime.save_program`, and gives `enumerate_fit` a `rank` of
+`order`/`description`/`cost` plus a `conforming` count.
+
+108 tests pass (93 shipped plus 15 new in `tests/test_preference.py`), and
+`tcn train --episodes 160` still reports `0.248836 -> 0.002231`, fully frozen,
+4.0/4.0 return.
+
+**Two things that change behaviour even with every new weight at zero**, and both
+need re-verifying against whatever else is in flight before merging:
+
+- **Pruning changes content addresses.** A registered module and a saved artifact
+  are now the pruned program, so a module learned in a scaffold with a dead gate
+  gets a different `module:<digest>` than it did before, and `save_program`
+  writes a different digest than `program.digest` of the unpruned export. Any
+  recorded digest that straddles the merge is not comparable.
+- **`exact_tensor` output is bit-identical** (checked on the Boolean and float
+  paths) but roughly 4.5x faster on module-heavy scaffolds and 6-8% slower where
+  argument rows never repeat, so wall-clock figures straddling the merge are not
+  comparable either.
+
+Blocked because it changes `tcn/learning.py`, `tcn/graph.py`, `tcn/operators.py`,
+`tcn/runtime.py`, `tcn/search.py`, `tcn/synthesis.py` and `tcn/training.py`,
+which overlaps `perturbation-selection` (`tcn/synthesis.py`) and
+`positional-reuse` (`tcn/graph.py`). Merge order has **not** been dry-run against
+those two; do that first. Results are in
+`research/abstraction-preference/RESULTS.md`.
+
 ### `positional-reuse` — verified, blocked on quiet tree
 
 Refutes the positional-reuse blocker: one crystallized module applies at every

@@ -26,6 +26,11 @@ class Operator:
 class Registry:
     def __init__(self): self.modules = {}
     def register_module(self, module):
+        # Register the program the module actually computes, not the scaffold it
+        # was learned in: a dead gate kept by `SoftProgram.export()` would be
+        # charged to description size and execution cost at every call site for
+        # the life of the module. Pruning preserves exact semantics.
+        module = module.pruned()
         name = "module:" + module.digest
         if not module.is_frozen: raise ValueError("only crystallized modules are callable operators")
         if module.state:

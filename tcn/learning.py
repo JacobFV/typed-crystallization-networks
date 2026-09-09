@@ -1,5 +1,6 @@
 """Type-checked soft choices; exact hard-forward trials; frozen gradient boundaries."""
 from __future__ import annotations
+import json
 import math
 from dataclasses import replace
 import torch
@@ -14,10 +15,30 @@ def exact_tensor(registry,op,xs):
     shape=torch.broadcast_shapes(*(x.shape[:-1] for x in xs)) if xs else ()
     batch=math.prod(shape) if shape else 1
     flat=[x.detach().expand(*shape,x.shape[-1]).reshape(batch,-1).cpu().tolist() for x in xs]
+    # Exact execution is a pure function of the argument row, and a typed row over
+    # finite carriers repeats: a 3-input Boolean module has at most 8 distinct
+    # argument rows whatever the batch, so a 64-row truth table holds 8 real calls
+    # and 56 repeats. Evaluate each distinct row once. This is memoization of a
+    # pure function within one call -- no new semantics, and the returned tensor is
+    # bit-identical. Rows that never repeat (wide integer or float carriers) pay
+    # only the hashing of the key, measured at 4-13%.
+    #
+    # The key is the row's decoded values. Two distinct float rows can compare
+    # equal only through signed zero (`-0.0 == 0.0`), and that difference is
+    # observable in exact execution (`atan2`), so a call whose arguments contain a
+    # negative zero skips the cache rather than risking a wrong reuse. NaN keys
+    # never match and simply miss, which is safe.
+    cache=None if any(x.dtype.is_floating_point and bool((torch.signbit(x.detach())&(x.detach()==0)).any()) for x in xs) else {}
     vals=[]
     for i in range(batch):
-        args=[Value.unflat(t,x[i]) for t,x in zip(op.inputs,flat)]
-        vals.append(registry.exact(op,args).flat())
+        if cache is None:
+            vals.append(registry.exact(op,[Value.unflat(t,x[i]) for t,x in zip(op.inputs,flat)]).flat()); continue
+        key=tuple(tuple(x[i]) for x in flat)
+        got=cache.get(key)
+        if got is None:
+            args=[Value.unflat(t,x[i]) for t,x in zip(op.inputs,flat)]
+            got=cache[key]=registry.exact(op,args).flat()
+        vals.append(got)
     device=xs[0].device if xs else None
     return torch.tensor(vals,dtype=torch.float32,device=device).reshape(*shape,op.output.width)
 
@@ -125,6 +146,100 @@ class SoftProgram(nn.Module):
             costs=torch.tensor([c.operator.cost for c in n.candidates],device=p.device)
             terms.append((torch.softmax(p/self.temperatures[n.name],0)*costs).sum())
         return sum(terms,torch.zeros((),device=self.choices[0].device if len(self.choices) else None))
+    def distributions(self):
+        """Per-node choice distribution: the softmax, or one-hot where hardened."""
+        out=[]
+        for n,p in zip(self.program.nodes,self.choices):
+            if n.name in self.frozen:
+                q=torch.zeros(len(n.candidates),device=p.device); q[self.frozen[n.name]]=1.
+            else: q=torch.softmax(p/self.temperatures[n.name],0)
+            out.append(q)
+        return out
+    def _description_tables(self):
+        """Static per-candidate description sizes, source uses, and module closures.
+
+        `Program.description_bits` is the byte length of the serialized program
+        times eight, plus each distinct frozen module definition once. That
+        decomposes exactly: the node list contributes one serialized node per
+        live node plus its two separator characters, and everything else is a
+        header that does not depend on which candidates are selected.
+        """
+        tables=getattr(self,'_desc_tables',None)
+        if tables is not None: return tables
+        registry=self.registry
+        def referenced(op):
+            names=[op.name,dict(op.parameters).get('module','')]
+            return [n for n in names if isinstance(n,str) and n.startswith('module:')]
+        closures={}
+        def closure(name):
+            if name in closures: return closures[name]
+            seen=set(); stack=[name]
+            while stack:
+                m=stack.pop()
+                if m in seen: continue
+                seen.add(m)
+                for node in registry.modules[m].nodes:
+                    for c in node.candidates: stack+=referenced(c.operator)
+            closures[name]=seen; return seen
+        bits=[]; uses=[]; module_uses={}
+        for i,n in enumerate(self.program.nodes):
+            envelope=len(json.dumps({"name":n.name,"output":n.output.to_dict(),"candidates":[],"region":n.region,"depth":n.depth,"selected":0},sort_keys=True))
+            bits.append(torch.tensor([8.*(envelope+len(json.dumps(c.to_dict(),sort_keys=True))+2) for c in n.candidates]))
+            u={}
+            for j,c in enumerate(n.candidates):
+                for s in set(c.sources): u.setdefault(s,[]).append(j)
+                for m in referenced(c.operator):
+                    for name in closure(m): module_uses.setdefault(name,{}).setdefault(i,set()).add(j)
+            uses.append(u)
+        module_uses={m:{i:sorted(j) for i,j in per.items()} for m,per in module_uses.items()}
+        module_bits={m:float(registry.modules[m].description_bits()) for m in module_uses}
+        tables={'bits':bits,'uses':uses,'module_uses':module_uses,'module_bits':module_bits}
+        self._desc_tables=tables; return tables
+    def _description_header(self):
+        """Bits of the serialized program that do not depend on the selection."""
+        constants=tuple((k,Value.unflat(v.type,self.constants[k].detach().cpu().tolist()) if k in self.constants else v) for k,v in self.program.constants)
+        empty=replace(self.program,nodes=(),constants=constants,trainable_constants=(),version=self.program.version+1)
+        return 8.*(len(json.dumps(empty.to_dict(),sort_keys=True))-2)
+    def description_cost(self):
+        """Expected description length, in bits, of the pruned hardened program.
+
+        This is the term ARCHITECTURE section 8 calls `L_program_description`, and
+        it measures what `Program.description_bits` measures: the serialized
+        program plus each distinct frozen module definition charged **once**,
+        with call sites charged individually. It is not `complexity()`: that is a
+        softmax-weighted sum of `operator.cost`, which is execution cost, and a
+        module call's execution cost is at parity with its inlined body.
+
+        Two expectations are taken under the current factorized choice
+        distribution. A node is charged only when it is live, where liveness
+        propagates backwards from the outputs and the state updates; a module
+        definition is charged once, when *some* live node calls it. Both are
+        products of independent per-node choice probabilities, so this is a
+        mean-field relaxation: it ignores correlations between nodes while the
+        distribution is diffuse, and at any one-hot distribution it is **exactly**
+        `pruned().harden(selections).description_bits(registry)`.
+
+        Bits, so the natural weight against a probe loss is around 1e-5.
+        """
+        tables=self._description_tables(); q=self.distributions()
+        nodes=self.program.nodes; device=self.choices[0].device if len(self.choices) else None
+        sinks={v for _,v in self.program.outputs}|{u for _,_,u in self.program.state}
+        one=torch.ones((),device=device); live=[one]*len(nodes)
+        for i in range(len(nodes)-1,-1,-1):
+            if nodes[i].name in sinks: continue
+            dead=one
+            for k in range(i+1,len(nodes)):
+                idx=tables['uses'][k].get(nodes[i].name)
+                if idx: dead=dead*(1-live[k]*q[k][idx].sum())
+            live[i]=1-dead
+        total=torch.as_tensor(self._description_header(),device=device)
+        for i,n in enumerate(nodes):
+            total=total+live[i]*(q[i]*tables['bits'][i].to(device)).sum()
+        for m,per_node in tables['module_uses'].items():
+            dead=one
+            for i,idx in per_node.items(): dead=dead*(1-live[i]*q[i][idx].sum())
+            total=total+tables['module_bits'][m]*(1-dead)
+        return total
     def selections(self): return {n.name:self.frozen.get(n.name,int(p.argmax())) for n,p in zip(self.program.nodes,self.choices)}
     def export(self):
         constants=tuple((k,Value.unflat(v.type,self.constants[k].detach().cpu().tolist()) if k in self.constants else v) for k,v in self.program.constants)

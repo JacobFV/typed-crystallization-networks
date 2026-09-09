@@ -1,0 +1,99 @@
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:331: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  'constants': {k: float(v) for k, v in self.model.constants.items()}}
+S1_staged_probe25_then_reward800       seed 0 eval 4.000 env_ep   1145 9.7s
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:331: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  'constants': {k: float(v) for k, v in self.model.constants.items()}}
+S1_staged_probe25_then_reward800       seed 1 eval 4.000 env_ep   1145 10.8s
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:331: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  'constants': {k: float(v) for k, v in self.model.constants.items()}}
+S1_staged_probe25_then_reward800       seed 2 eval 4.000 env_ep   1145 13.3s
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:331: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  'constants': {k: float(v) for k, v in self.model.constants.items()}}
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:331: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  'constants': {k: float(v) for k, v in self.model.constants.items()}}
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:331: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  'constants': {k: float(v) for k, v in self.model.constants.items()}}
+S1_staged_probe25_then_reward800       seed 3 eval 4.000 env_ep   1145 18.8s
+S1_staged_probe25_then_reward800       seed 4 eval 4.000 env_ep   1145 15.8s
+S1_staged_probe25_then_reward800       seed 5 eval 4.000 env_ep   1145 14.4s
+S1_staged_probe25_then_reward800       seed 6 eval 4.000 env_ep   1145 11.2s
+S1_staged_probe25_then_reward800       seed 7 eval 4.000 env_ep   1145 11.3s
+S1_staged_probe50_then_reward800       seed 0 eval 4.000 env_ep   1170 20.8s
+S1_staged_probe50_then_reward800       seed 1 eval 4.000 env_ep   1170 16.9s
+S1_staged_probe50_then_reward800       seed 2 eval 4.000 env_ep   1170 14.6s
+S1_staged_probe50_then_reward800       seed 3 eval 4.000 env_ep   1170 15.2s
+S1_staged_probe50_then_reward800       seed 4 eval 4.000 env_ep   1170 9.0s
+S1_staged_probe50_then_reward800       seed 5 eval 4.000 env_ep   1170 11.0s
+S1_staged_probe50_then_reward800       seed 6 eval 4.000 env_ep   1170 9.2s
+S1_staged_probe50_then_reward800       seed 7 eval 4.000 env_ep   1170 12.7s
+S1_staged_probe100_then_reward800      seed 0 eval 4.000 env_ep   1220 15.9s
+S1_staged_probe100_then_reward800      seed 1 eval 4.000 env_ep   1220 20.2s
+S1_staged_probe100_then_reward800      seed 2 eval 4.000 env_ep   1220 22.9s
+S1_staged_probe100_then_reward800      seed 3 eval 4.000 env_ep   1220 10.5s
+S1_staged_probe100_then_reward800      seed 4 eval 4.000 env_ep   1220 13.0s
+S1_staged_probe100_then_reward800      seed 5 eval 4.000 env_ep   1220 14.9s
+S1_staged_probe100_then_reward800      seed 6 eval 4.000 env_ep   1220 9.7s
+S1_staged_probe100_then_reward800      seed 7 eval 4.000 env_ep   1220 13.7s
+S1_staged_probe200_then_reward800      seed 0 eval 4.000 env_ep   1320 17.3s
+S1_staged_probe200_then_reward800      seed 1 eval 4.000 env_ep   1320 17.9s
+S1_staged_probe200_then_reward800      seed 2 eval 4.000 env_ep   1320 13.9s
+S1_staged_probe200_then_reward800      seed 3 eval 4.000 env_ep   1320 15.9s
+S1_staged_probe200_then_reward800      seed 4 eval 4.000 env_ep   1320 17.7s
+S1_staged_probe200_then_reward800      seed 5 eval 4.000 env_ep   1320 18.9s
+S1_staged_probe200_then_reward800      seed 6 eval 4.000 env_ep   1320 14.7s
+S1_staged_probe200_then_reward800      seed 7 eval 4.000 env_ep   1320 16.9s
+S1_staged_probe400_then_reward800      seed 0 eval 4.000 env_ep   1520 29.4s
+S1_staged_probe400_then_reward800      seed 1 eval 4.000 env_ep   1520 29.3s
+S1_staged_probe400_then_reward800      seed 2 eval 4.000 env_ep   1520 27.6s
+S1_staged_probe400_then_reward800      seed 3 eval 4.000 env_ep   1520 27.4s
+S1_staged_probe400_then_reward800      seed 4 eval 4.000 env_ep   1520 22.4s
+S1_staged_probe400_then_reward800      seed 5 eval 4.000 env_ep   1520 34.0s
+S1_staged_probe400_then_reward800      seed 6 eval 4.000 env_ep   1520 29.1s
+S1_staged_probe400_then_reward800      seed 7 eval 4.000 env_ep   1520 28.2s
+S2_staged_probe200_nofreeze            seed 0 eval 4.000 env_ep   1256 52.9s
+S2_staged_probe200_nofreeze            seed 1 eval 4.000 env_ep   1256 52.3s
+S2_staged_probe200_nofreeze            seed 2 eval 4.000 env_ep   1256 56.7s
+S2_staged_probe200_nofreeze            seed 3 eval 4.000 env_ep   1256 63.8s
+S2_staged_probe200_nofreeze            seed 4 eval 4.000 env_ep   1256 62.3s
+S2_staged_probe200_nofreeze            seed 5 eval 4.000 env_ep   1256 57.6s
+S2_staged_probe200_nofreeze            seed 6 eval 4.000 env_ep   1256 64.6s
+S2_staged_probe200_nofreeze            seed 7 eval 4.000 env_ep   1256 61.9s
+S3_staged_probe200_reward_exactPG      seed 0 eval 4.000 env_ep   1320 18.2s
+S3_staged_probe200_reward_exactPG      seed 1 eval 4.000 env_ep   1320 20.3s
+S3_staged_probe200_reward_exactPG      seed 2 eval 4.000 env_ep   1320 24.6s
+S3_staged_probe200_reward_exactPG      seed 3 eval 4.000 env_ep   1320 24.5s
+S3_staged_probe200_reward_exactPG      seed 4 eval 4.000 env_ep   1320 16.4s
+S3_staged_probe200_reward_exactPG      seed 5 eval 4.000 env_ep   1320 17.9s
+S3_staged_probe200_reward_exactPG      seed 6 eval 4.000 env_ep   1320 18.1s
+S3_staged_probe200_reward_exactPG      seed 7 eval 4.000 env_ep   1320 17.6s
+S4_staged_probe200_reward_statevalue   seed 0 eval 4.000 env_ep   1320 27.0s
+S4_staged_probe200_reward_statevalue   seed 1 eval 4.000 env_ep   1320 20.5s
+S4_staged_probe200_reward_statevalue   seed 2 eval 4.000 env_ep   1320 22.0s
+S4_staged_probe200_reward_statevalue   seed 3 eval 4.000 env_ep   1320 23.6s
+S4_staged_probe200_reward_statevalue   seed 4 eval 4.000 env_ep   1320 20.8s
+S4_staged_probe200_reward_statevalue   seed 5 eval 4.000 env_ep   1320 23.0s
+S4_staged_probe200_reward_statevalue   seed 6 eval 4.000 env_ep   1320 27.6s
+S4_staged_probe200_reward_statevalue   seed 7 eval 4.000 env_ep   1320 24.2s
+S5_simultaneous_probe_reward           seed 0 eval 4.000 env_ep   1064 50.5s
+S5_simultaneous_probe_reward           seed 1 eval 4.000 env_ep   1064 48.4s
+S5_simultaneous_probe_reward           seed 2 eval 4.000 env_ep   1064 54.8s
+S5_simultaneous_probe_reward           seed 3 eval 4.000 env_ep   1064 42.4s
+S5_simultaneous_probe_reward           seed 4 eval 4.000 env_ep   1064 58.9s
+S5_simultaneous_probe_reward           seed 5 eval 4.000 env_ep   1064 55.2s
+S5_simultaneous_probe_reward           seed 6 eval 4.000 env_ep   1064 72.4s
+S5_simultaneous_probe_reward           seed 7 eval 4.000 env_ep   1064 62.5s
+S6_staged_probe200_then_reward_externallinear seed 0 eval 4.000 env_ep   1320 15.0s
+S6_staged_probe200_then_reward_externallinear seed 1 eval 4.000 env_ep   1320 19.2s
+S6_staged_probe200_then_reward_externallinear seed 2 eval 4.000 env_ep   1320 29.7s
+S6_staged_probe200_then_reward_externallinear seed 3 eval 4.000 env_ep   1320 19.9s
+S6_staged_probe200_then_reward_externallinear seed 4 eval 4.000 env_ep   1320 27.1s
+S6_staged_probe200_then_reward_externallinear seed 5 eval 4.000 env_ep   1320 29.0s
+S6_staged_probe200_then_reward_externallinear seed 6 eval 4.000 env_ep   1320 22.8s
+S6_staged_probe200_then_reward_externallinear seed 7 eval 4.000 env_ep   1320 17.4s
+references {'always_false': 2.125, 'always_true': 1.875, 'uniform': 2.046875, 'oracle': 4.0}

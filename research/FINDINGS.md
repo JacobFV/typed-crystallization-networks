@@ -778,3 +778,58 @@ documented intent — `docs/VALIDATION.md` says fingerprints pin replay to their
 code revision so stale artifacts are not silently resumed — and tonight's core
 commits are what invalidated them. The finding is that the granularity is coarse:
 adding a generator invalidates episodes from every other generator.
+
+## 14. Preference: the objective can now see program size, and it costs search
+
+Full detail in `research/abstraction-preference/RESULTS.md`. Branch
+`abstraction-preference`, **not merged** — see `MERGE-QUEUE.md`.
+
+Section 12 closed with "reuse is a capability, not an objective". Four changes
+make it one, and the measurement is a genuine trade rather than a free win.
+
+**`complexity()` could not have done it, and enabling it would have hurt.**
+Section 12 records it measuring 20.43 for both routes; that is the *diffuse
+mixture*. At the discrete selections realising each route it is **9.0 flat
+against 15.0 abstracted**, because it charges every scaffold node including the
+six that go dead on the abstracted route. It penalizes abstraction for exactly
+the saving that makes it worth having.
+
+**`SoftProgram.description_cost()` is the term that can.** Expected description
+length in bits of the *pruned hardened* program under the current choice
+distribution, module definitions charged once and call sites charged
+individually, node liveness and module use taken as mean-field expectations. At
+any one-hot distribution it equals `export().pruned().description_bits(registry)`
+exactly. It penalizes each call site and rewards only shortness, so a
+one-call-site module is dispreferred and abstraction wins only from two sites.
+Exposed as `synthesis.fit(mdl_weight=...)` and `TrainConfig.description_weight`,
+both defaulting to zero.
+
+| wide scaffold, arm B, 8 seeds | conformant | median steps | 3-node (2-call) programs |
+|---|---|---|---|
+| `mdl_weight = 0` | 8/8 | 85 | **7/8** |
+| `mdl_weight = 1e-5` | 8/8 | 160 | **8/8** |
+
+Run to a full budget instead of stopping at the first success, the untermed
+search **drifts into a larger exactly-conformant program in 3 of 8 runs after
+already finding the small one**; with the term, 0 of 8. Section 12's redundant
+three-call success was not an unlucky stopping point.
+
+**What preference costs.** On the tight scaffold, where every node must live and
+all 144 solutions have identical size, the same weight takes conformance from
+**19/24 to 2/24** (p = 1.1e-6), and 1e-4 gives 0/24 and 0/8 on both scaffolds.
+The pressure is "make fewer nodes live", which is aligned with the target on an
+over-provisioned scaffold and opposed to it on an exactly-sized one.
+
+**Three smaller results.** `exact_tensor` now evaluates each distinct argument
+row once: **4.5-4.9x** on a whole soft forward pass, **6-8%** slower where rows
+never repeat, bit-identical throughout — against the 7.45x section 12 quoted from
+the re-test's projection for the module candidates alone. `Program.pruned()` is
+applied by `Registry.register_module` and `runtime.save_program`, preserving
+semantics over 3,875 row comparisons on every fixture; it removes a 62%
+description overstatement from an abstracted export, but **does not move the
+section 10 crossover** (still 2 call sites) and fixes only 1 of 5 learned
+modules, because most of the "5 gates where 4 suffice" surcharge is redundant
+*live* structure. And `enumerate_fit` takes `rank` in `order`/`description`/`cost`
+and reports how many conforming programs it found, so declaration order no longer
+decides between equivalent candidates; on a space holding both routes it returns
+the 3-node 19,496-bit program where `order` returns the 5-node 23,944-bit one.
