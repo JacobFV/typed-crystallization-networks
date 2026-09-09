@@ -1354,3 +1354,59 @@ address-choice gradient (3/4 to 0/4) — one number at one node doing two jobs, 
 fourth instance of the D2 coupling, now at `index` rather than `eq`.
 
 243 tests pass on merged main and the fixtures are byte-for-byte identical.
+
+## 27. The discrete backend now scores recurrence and live environment return
+
+Full detail in `research/discrete-backend/RESULTS.md`. All core changes are in
+`tcn/search.py` alone.
+
+**Recurrence.** `enumerate_recurrent` runs a program with `Program.state` over a
+**declared tick budget with a declared trailing settle window**, chosen over
+run-until-stable and the reasoning is worth keeping: a stability detector would
+sit invisibly inside the scorer (a program wrong the same way at every tick is
+perfectly stable), one evaluation's cost would become unbounded, and candidates
+settling at different ticks would be incomparable on a single budget — which is
+exactly what a certificate needs them to be. `settle_window=1` is "read the
+final value"; `k>1` is "arrived and stayed".
+
+Verified independently by re-running the track's own script: on the depth
+interpreter the feed-forward mode returns **0 conforming** while the recurrent
+mode returns **1, certificate unique**, on the identical scaffold and data, at
+both 272 and 1,088 programs. It was not slow at the recurrence — it could not
+see it. The returned program is probe-exact and scores 4.00/4 on 40/40 held-out
+episodes at depths 1, 2, 3, 4, 6 and 8, and recovers the general `mux` wire
+lookup that the gradient run lost on 2 of 8 seeds.
+
+**Live environment return.** `enumerate_environment` hardens a candidate, hands
+it to the shipped `Agent`, rolls out and sums reward components, with an
+`EpisodeLedger` counting episodes and steps as first-class returned costs. The
+27-episode staged result of section 22 reproduces through the backend and now
+carries a certificate the bespoke loop could not produce: **supervision proves 2
+of 512 programs conform — probes determine everything except one bit — and
+reward proves 1 of those 2.** Unstaged, the same answer costs 512 episodes and
+still leaves 256 conforming, or 8,192 episodes for 8. So staging is a **300x
+episode ratio with the better certificate on the cheaper side**.
+
+**Prefix reuse.** `enumerate_prefix` keeps the certificate, since a rejected
+subtree is *decided* rather than skipped: 6.4 s against the feed-forward
+baseline's 490.8 s on the same 32,000-program space, identical conforming set of
+2,608. `SearchResult` gains an explicit `certificate` field
+(`unique`/`complete`/`none`) so forfeiting one cannot be silent.
+
+**The beam is a negative, and the analysis is the useful part.** At width 1 it
+found **nothing** in a space where 8.2% of programs conform. The reason: a beam
+prunes by the score of a partial prefix, and a prefix has a score only where a
+decided node is supervised. With dense probes, width 4 discards nothing and
+stays exhaustive, so the beam is unnecessary; with output-only supervision —
+which that fixture is — every prefix ties until the last node and the beam
+degenerates to "keep the first k in enumeration order", returning exactly k
+programs at width k. At width 1,024 it took 10.5 s against the exhaustive walk's
+6.4 s and certified nothing. **No regime measured here makes the beam the right
+answer**, and the recommendation is the exhaustive prefix walk as the default
+fast path with the beam reserved for spaces above about 1e8 where nothing else
+exists.
+
+That is the same shape as every other result here: the tool works where
+supervision is dense and degenerates where it is not.
+
+264 tests pass on merged main.

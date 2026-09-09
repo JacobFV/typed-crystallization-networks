@@ -25,6 +25,11 @@ from tcn.policy import bind_action,action_inputs
 from panel import Counter,TEMPLATES,BINDINGS,HORIZON
 from program import panel_program
 
+# Nodes whose relaxation must be sharp for the *executed action* to be the one the
+# program computes: the two byte addresses, the byte comparison, and the two
+# thresholds. None of them is a searched choice in the default scaffold.
+SHARP=('byte','brandbyte','brand','prev_dial','slot_over')
+
 
 @dataclass
 class Cfg:
@@ -47,6 +52,7 @@ class Cfg:
     eval_every:int=0
     eval_n:int=32
     seed_logits:dict|None=None
+    sharp:float=.02
 
 
 class Runner:
@@ -57,6 +63,17 @@ class Runner:
                                        slot_pool=cfg.slot_pool,seed_logits=cfg.seed_logits)
         self.program=program;self.registry=registry
         self.model=SoftProgram(program,registry)
+        # Declared temperatures, stated because they are a hand-setting.
+        # `relaxed`'s `index` is a softmax over byte positions and its `gt` is a
+        # sigmoid, both at temperature 1 by default: at that width the relaxed
+        # "byte at length-1" is a blend of three neighbouring bytes and no `eq`
+        # against it can fire, so the program's *perception is wrong in the
+        # relaxed forward* even when its choices are exactly right -- measured
+        # here: the reference program scored 0.00/1 until these were set and
+        # 1.00/1 after. Sharpening is what `ARCHITECTURE.md` section 5's anneal
+        # does; setting it at the start on nodes whose choice is declared costs
+        # no search, and `SHARP` names every node it touches.
+        for name in SHARP:self.model.temperatures[name]=cfg.sharp
         params=[]
         if cfg.train_choices:params+=[p for p in self.model.choices if p.requires_grad]
         if cfg.train_constants:params+=list(self.model.constants.parameters())
@@ -112,7 +129,7 @@ class Runner:
                       'entropy':float(entropy.detach()),'probe':float(probe.detach())}
 
     def train(self,log_every=50,evaluate_at=()):
-        c=self.cfg;i=0;curve=[]
+        c=self.cfg;i=0;curve=[];window=[]
         while i<c.episodes:
             n=min(c.batch,c.episodes-i)
             self.optimizer.zero_grad()
@@ -121,12 +138,15 @@ class Runner:
                 rows,returns,_=self.rollout(i+k)
                 total,info=self.loss(rows,returns)
                 (total/n).backward()
-                terms.append(info);rewards.append(sum(r['reward'] for r in rows))
+                terms.append(info);rewards.append(sum(r['reward'] for r in rows));window.append(rewards[-1])
             gn=float(torch.nn.utils.clip_grad_norm_(self.params,5.))
             self.optimizer.step();i+=n
             if log_every and i%log_every<n:
-                self.history.append({'episode':i,'grad_norm':gn,'train_return':statistics.fmean(rewards),
+                self.history.append({'episode':i,'grad_norm':gn,'train_return':statistics.fmean(window),
+                                     'reward_rate':sum(1 for x in window if x>0)/len(window),
+                                     'selection':self.candidate_names(),
                                      **{k:statistics.fmean(t[k] for t in terms) for k in terms[0]}})
+                window=[]
             if i in evaluate_at:
                 curve.append({'episode':i,'eval':self.evaluate(c.eval_n)})
         return curve
@@ -144,7 +164,7 @@ class Runner:
         return {k:v for k,v in self.model.selections().items()}
 
     def report(self):
-        constants={k:float(v) for k,v in self.model.constants.items()}
+        constants={k:float(v.detach()) for k,v in self.model.constants.items()}
         return {'selections':self.selections(),
                 'logits':{name:[round(constants[f'{name}{i}'],3) for i in range(4)]
                           for name in ('idle','found','dialled') if f'{name}0' in constants},
