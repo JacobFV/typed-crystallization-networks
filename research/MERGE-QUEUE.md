@@ -15,6 +15,30 @@ Check first: `ListAgents`, plus `ps -eo args | grep research/` for detached runs
 
 ## Waiting
 
+### `stranded-block-guard` (77b9804) — verified, blocked on quiet tree, and NEGATIVE
+
+Isolates the guard hazard FINDINGS §37 found inside the seasons branch, so that
+none of seasons' +345 lines of scheduler machinery has to be merged to keep it.
+Adds `Crystallizer.try_freeze_block` (~45 lines) plus `close_block`, and 7 tests
+in `tests/test_stranded_block.py`. `research/stranded-block/RESULTS.md`.
+
+**Read the verdict before merging: the fix does not raise the completion rate.**
+The hazard is real and reproduces on `main` (seed 7 of 8 ends 9/13 frozen behind
+29 refusals; rounds=48 buys 77 refusals and no progress). The block trial fires
+on exactly that seed and is *refused for degradation*, 1.4636 → 2.4682 against a
+tolerance of 0.05. Seeds 0–6 are bit-identical on the committed selections map
+with it enabled and no trial fires. What it buys is diagnosis, not completion.
+
+Verified in-branch: 295 tests pass; `python -m tcn train --episodes 160` gives
+0.24884 → 0.00223, fully frozen, 4.0 evaluation and 4.0 exact frozen return,
+with zero block events — the fix never fires on the shipped path.
+
+Blocked because it changes `tcn/crystallize.py` while the compiled-runtime and
+neural-baselines agents are measuring against main's core. Merge when the tree
+is quiet, or decide not to: a change measured to alter no outcome is a legitimate
+thing to leave on a branch, and the RESULTS stands on its own either way.
+
+
 ### `perturbation-selection` (90dd08a) — SUPERSEDED by `loss-gated-eligibility`
 
 `loss-gated-eligibility` (ec953bc) is built on this commit and contains it

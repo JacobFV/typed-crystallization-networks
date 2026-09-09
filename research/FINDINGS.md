@@ -1817,3 +1817,57 @@ wants to re-test the idea.
 strands a node set that the per-node connectivity guard can never close — 1 of 8
 runs completes without a block trial, 7 of 8 with. That structure exists on main
 today, independent of seasons.
+
+## 38. The guard hazard is real on main, and the obvious fix does not fix it
+
+`research/stranded-block/RESULTS.md`, branch `stranded-block-guard` (77b9804),
+**not merged**. Section 37 found this inside the seasons branch and claimed the
+structure exists on main independently. Verified here, with no seasons machinery
+anywhere: the shipped `Crystallizer`, the shipped `examples/joint` fixture, and
+`tcn.cli.joint`'s own settings — 40 episodes, `rounds=24`, `retrain_steps=2`,
+`tolerance=0.05`, 8 seeds.
+
+**The hazard reproduces.** Seven seeds close fully. Seed 7 ends **9/13 frozen**
+behind **29** "disconnected remaining region" refusals, stranding
+`{goal_relation, prediction, relation, z}`. The per-node viability guard is
+correct per node and **incomplete over sets**: it can report a state that no
+single-node trial can leave, because freezing any member severs the others.
+
+**It is not a budget shortage.** At `rounds=48` the same seed is still 9/13, now
+with **77** refusals over 220 node trials. The extra rounds bought only more
+refusals.
+
+**The fix is the right shape and does not work.** `try_freeze_block` hardens the
+residual set in one transactional trial under the same tolerance, conformance
+check and all-or-nothing rollback as a single-node freeze, firing only when the
+final round actually refused for disconnection. On seeds 0–6 the committed
+`selections()` map is **bit-identical** with it enabled and no trial fires, which
+is the inertness it had to have. On seed 7 the trial fires and is **refused**:
+committing the set together takes the objective **1.4636 → 2.4682** against a
+tolerance of 0.05. Completion rate is 1 of 8 failing before and 1 of 8 after.
+
+The tolerance was not loosened to convert that into a pass.
+
+**What section 37's "7 of 8 with a block trial" was.** That was measured *under
+seasons*, where the set had been thawed and rewarmed before the trial. It does
+not transfer to main, where there is no thaw to make the joint commitment cheap.
+The block trial is necessary to close a strand and not sufficient.
+
+**What the change is worth.** Diagnosis, not completion: a silent
+non-terminating strand becomes a recorded `block degradation` event carrying its
+before/after loss. Whether that earns a core change is a judgement call recorded
+in `research/MERGE-QUEUE.md` rather than settled here.
+
+**Still open, and upstream of the guard.** Why the schedule arrives at a state
+where that set cannot be committed at all — neither singly nor jointly — at a
+loss the tolerance accepts. Given sections 7, 12 and 37, the cheapest answer may
+be that the failure mode is only reachable from a schedule nobody should run.
+
+**Verification record.** 295 tests pass in the branch, including 7 new ones
+covering whole-block rollback, all-at-once commitment, tolerance, conformance,
+inertness on an already-closing run, the off switch, and the deferred-run
+trigger. Two pre-existing gate tests caught an earlier version that fired
+unconditionally on runs whose eligibility gate had deliberately deferred every
+commitment; that failure is what narrowed the trigger. The shipped fixture
+reproduces at 0.24884 → 0.00223, fully frozen, 4.0 and 4.0 exact, with zero
+block events.
