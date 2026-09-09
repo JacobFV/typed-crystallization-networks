@@ -1798,3 +1798,59 @@ wants to re-test the idea.
 strands a node set that the per-node connectivity guard can never close — 1 of 8
 runs completes without a block trial, 7 of 8 with. That structure exists on main
 today, independent of seasons.
+
+## 38. The inference cost was interpreter overhead, and compiling removes it
+
+`research/compiled-runtime/RESULTS.md`. Section 36 left the project's efficiency
+claim resting on a diagnosis rather than a fix: 97.7% of exact execution in
+`Type.decode`, `Type.encode` and `validate_raw`, 0.56% in the operator semantics
+and the graph walk, and no answer to whether that is removable interpreter
+overhead or an inherent cost of carrying typed values.
+
+**It is interpreter overhead.** `tcn/compile.py` — a **pure addition**; `types.py`,
+`graph.py` and `operators.py` are untouched — turns a frozen `Program` plus its
+`Registry` into standalone Python that carries native `bool`/`int`/`float`/
+`tuple`/`frozenset` values and never constructs a `Value` on an internal edge.
+Four arms on the same frozen program and the same inputs, with **exact output
+equality asserted against the interpreter before any timing was recorded**:
+
+| artifact | A interpreter | B cached interpreter | **C generated Python** | D hand-written | A ÷ C | **C ÷ D** |
+|---|---|---|---|---|---|---|
+| mixed (4 operations) | 0.0136 ms | 0.0132 ms | **0.000496 ms** | 0.000160 ms | 27x | **3.1x** |
+| language (164) | 2.661 ms | 1.505 ms | **0.00418 ms** | 0.000592 ms | 637x | **7.1x** |
+| visual (64,346, 3,072-wide) | 17,254 ms | 4,665 ms | **5.137 ms** | 0.1861 ms | 3,359x | **27.6x** |
+| computer (23, 4,097-wide) | 15.94 ms | 11.75 ms | **0.00112 ms** | — | 14,232x | — |
+
+On the parse the typed value layer performs **103,487,972** element operations in
+arm A and **6,144** in arm C, all of arm C's at the external boundary and **zero**
+on internal edges. Peak Python allocation falls **48.4 MB to 0.121 MB**, because
+961 records share one immutable 3,072-element observation by reference instead of
+each re-encoding a copy. The profile attribution inverts: 97.7% typed value
+layer / 0.60% operator semantics becomes 24.4% boundary / 66.7% straight-line
+operator work.
+
+**The residue is work, not representation.** Counting executed CPython bytecodes
+with `sys.monitoring`: language is 7.9x the bytecodes of hand-written code and
+7.1x the time, at a *lower* cost per bytecode (2.37 ns against 2.63 ns). The
+parse's 27.6x decomposes as **11.1x more elementary operations** — the S2 module
+is a fixed-depth 30-term formulation with no early exit — times 2.25x per-bytecode
+cost. **Native compilation would attack only the 2.25x**; the 11x is what the
+program says to compute, and the lever for it is a search that finds shorter
+programs, not a faster backend.
+
+**Two negatives worth recording.** First, the cheap fix section 36 recommended is
+worth **3.70x** on the parse and leaves the profile attribution *unchanged* at
+97.6% typed value layer — a cache cannot remove a cost that is paid on
+construction, and `Type.encode` is 60% of the cached arm. Second, the language
+fixture does not reproduce its own recorded accuracy: rebuilt with the identical
+stage-A module digest and the identical selection verified by name, it scores
+**0.44** where `final_eval.json` records **0.9986**. `research/inference-cost` hit
+the same wall — its `out/inproc.json` records `all_agree: false` while its
+RESULTS.md claims 12/12. That defect is upstream of both tracks.
+
+**Deployment.** Under `/usr/bin/python3 -I` with no torch, no numpy and no `tcn`:
+the parse ships as a **22.6 KB zipapp** against the 117.7 MB `.pyz` (a factor of
+5,458), starts in **90 ms** against 5,179 ms, and peaks at **30.2 MB** of RSS
+against 377.5 MB. What now dominates the compiled path is the typed boundary and
+the JSON transport around it — for the computer artifact, **585 us of input
+validation around a 1.12 us program** — which is the next thing worth engineering.

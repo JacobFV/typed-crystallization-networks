@@ -1,0 +1,172 @@
+{
+ "arms": {
+  "A": {
+   "boundary_decode_ms": 0.000256,
+   "boundary_encode_ms": 0.078095,
+   "complete_ms": 2.7393419999999997,
+   "peak_alloc_mb": 0.049216,
+   "program_min_ms": 2.580686,
+   "program_ms": 2.660991
+  },
+  "B": {
+   "boundary_decode_ms": 0.000272,
+   "boundary_encode_ms": 0.045695,
+   "complete_ms": 1.550478,
+   "peak_alloc_mb": 0.047536,
+   "program_min_ms": 1.43928,
+   "program_ms": 1.504511
+  },
+  "C": {
+   "boundary_decode_ms": 0.0,
+   "boundary_encode_ms": 0.017152,
+   "complete_ms": 0.021328,
+   "peak_alloc_mb": 0.001496,
+   "program_min_ms": 0.004063,
+   "program_ms": 0.004176
+  },
+  "D": {
+   "boundary_decode_ms": 0.0,
+   "boundary_encode_ms": 0.0,
+   "complete_ms": 0.000592,
+   "peak_alloc_mb": 0.000184,
+   "program_min_ms": 0.00056,
+   "program_ms": 0.000592
+  }
+ },
+ "artifact": "language",
+ "build_seconds": 0.35174772900063545,
+ "bytes": {
+  "A_artifact_json": 1517400,
+  "A_artifact_json_gzip": 19116,
+  "A_interpreter_source": 38575,
+  "C_generated_python": 24097,
+  "C_generated_python_gzip": 4903,
+  "D_hand_written_source": 685
+ },
+ "cases": 12,
+ "compile_seconds": 0.027613105019554496,
+ "compiler": {
+  "boundary_encoders": 4,
+  "emitted_per_scope": {
+   "module:8063993bfeee7393683e47b3": 4,
+   "run": 82
+  },
+  "module_function": {
+   "module:8063993bfeee7393683e47b3": "_m0"
+  },
+  "modules_emitted": 1,
+  "nodes_emitted": 86,
+  "nodes_folded": 3,
+  "nodes_pruned_dead": 0,
+  "scalar_canonicalisations": 17,
+  "source_bytes": 24097,
+  "source_lines": 519,
+  "structural_canonicalisations_elided": 51,
+  "type_table_entries": 6,
+  "widest_static_type": 129
+ },
+ "equivalence": {
+  "B_identical_to_A": true,
+  "C_identical_to_A": true,
+  "D_agreement": [
+   {
+    "discrepancy": null,
+    "identical": true
+   },
+   {
+    "discrepancy": null,
+    "identical": true
+   },
+   {
+    "discrepancy": 1,
+    "identical": false
+   },
+   {
+    "discrepancy": 1,
+    "identical": false
+   },
+   {
+    "discrepancy": null,
+    "identical": true
+   },
+   {
+    "discrepancy": null,
+    "identical": true
+   },
+   {
+    "discrepancy": 1,
+    "identical": false
+   },
+   {
+    "discrepancy": null,
+    "identical": true
+   },
+   {
+    "discrepancy": null,
+    "identical": true
+   },
+   {
+    "discrepancy": null,
+    "identical": true
+   },
+   {
+    "discrepancy": null,
+    "identical": true
+   },
+   {
+    "discrepancy": null,
+    "identical": true
+   }
+  ],
+  "D_identical_to_A": false
+ },
+ "peak_rss_mb_process": 41.1875,
+ "ratios": {
+  "A_over_B_program": 1.7686750047025248,
+  "A_over_C_program": 637.2104885057471,
+  "A_over_D_complete": 4627.266891891892,
+  "A_over_D_program": 4494.91722972973,
+  "B_over_D_program": 2541.4037162162163,
+  "C_over_D_complete": 36.02702702702703,
+  "C_over_D_program": 7.054054054054054
+ },
+ "repeats": 21,
+ "structure": {
+  "caller_nodes": 84,
+  "distinct_operators": 9,
+  "modules": 1,
+  "total_static_nodes": 89,
+  "widest_declared_value_elements": 129
+ },
+ "type_identity_live": {
+  "distinct_canonical_types": 6,
+  "distinct_type_objects": 6
+ },
+ "what": "grammaticality of a Dyck word from a 128-byte prompt",
+ "work": {
+  "encode_decode_validate_calls": {
+   "A": {
+    "decode": 8922,
+    "encode": 2309,
+    "total": 13556,
+    "validate_raw": 2325
+   },
+   "B": {
+    "decode": 2309,
+    "encode": 2309,
+    "total": 4618,
+    "validate_raw": 0
+   },
+   "C": {
+    "boundary": 259,
+    "internal": 17,
+    "total": 276
+   }
+  },
+  "module_calls_C": {
+   "_m0": 16
+  },
+  "operator_applications_A": 164,
+  "operator_applications_C": 146
+ }
+}
