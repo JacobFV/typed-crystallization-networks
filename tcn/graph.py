@@ -120,6 +120,27 @@ class Program:
             i=n.selected if n.selected is not None else selections.get(n.name)
             nodes.append(n if i is None else replace(n,candidates=(n.candidates[i],),selected=0))
         return replace(self,nodes=tuple(nodes),version=self.version+1)
+    def pruned(self):
+        """Drop nodes that cannot influence any output or state update.
+
+        A hardened export keeps the whole scaffold, so its description bits and
+        execution cost describe the scaffold rather than the discovered program,
+        and a registered module's dead gates are charged transitively at every
+        call site for the life of the module. Reachability is taken over the
+        selected candidate where a node is hardened and over *every* candidate
+        where it is not, so removal is semantics-preserving for a soft scaffold
+        as well as for a frozen program. Constants and state ports are part of
+        the declared interface and are left alone. This changes the digest.
+        """
+        by={n.name:n for n in self.nodes}; keep=set()
+        stack=[v for _,v in self.outputs]+[u for _,_,u in self.state]
+        while stack:
+            k=stack.pop()
+            if k in by and k not in keep:
+                keep.add(k); n=by[k]
+                live=(n.candidates[n.selected],) if n.selected is not None else n.candidates
+                stack+=[s for c in live for s in c.sources]
+        return replace(self,nodes=tuple(n for n in self.nodes if n.name in keep))
     def to_dict(self):
         return {"format":"tcn.program/1","version":self.version,"trainable_constants":list(self.trainable_constants),"inputs":[[k,t.to_dict()] for k,t in self.inputs],"nodes":[{"name":n.name,"output":n.output.to_dict(),"candidates":[c.to_dict() for c in n.candidates],"region":n.region,"depth":n.depth,"selected":n.selected} for n in self.nodes],"outputs":list(self.outputs),"constants":[[k,v.to_dict()] for k,v in self.constants],"state":[[k,v.to_dict(),u] for k,v,u in self.state],"input_depths":list(self.input_depths)}
     @classmethod

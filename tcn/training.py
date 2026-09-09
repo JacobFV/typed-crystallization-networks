@@ -42,6 +42,14 @@ class TrainConfig:
     value_weight: float = .5
     entropy_weight: float = .01
     mdl_weight: float = 0.
+    # `mdl_weight` weights execution cost (`SoftProgram.complexity()`), which is a
+    # softmax-weighted sum of `operator.cost`. `description_weight` weights
+    # ARCHITECTURE section 8's `L_program_description` proper --
+    # `SoftProgram.description_cost()`, expected description length in bits of the
+    # pruned hardened program, with module definitions charged once. The two are
+    # different quantities: a module call's execution cost is at parity with its
+    # inlined body, so only the second can prefer the smaller program.
+    description_weight: float = 0.
     crystal_weight: float = .001
     seed: int = 0
     action_bindings: tuple[ActionBinding,...] = ()
@@ -127,6 +135,7 @@ class JointTrainer:
         value=torch.stack([(r['value']-ret).square() for r,ret in zip(rows,returns)]).mean()
         entropy=torch.stack([r['entropy'] for r in rows]).mean()
         loss=c.prediction_weight*prediction+c.probe_weight*probe+c.policy_weight*actor+c.value_weight*value-c.entropy_weight*entropy+c.mdl_weight*self.model.complexity()+c.crystal_weight*self.model.entropy()
+        if c.description_weight:loss=loss+c.description_weight*self.model.description_cost()
         if loss_only:return loss
         metrics={'episode':index,'return':sum(r['reward'] for r in rows),'prediction_loss':float(prediction.detach()),'probe_loss':float(probe.detach()),'policy_loss':float(actor.detach()),'value_loss':float(value.detach()),'loss':float(loss.detach()),'goal':goal,'split':split}
         if train:
