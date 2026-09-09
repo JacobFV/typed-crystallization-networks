@@ -99,6 +99,10 @@ def main():
     ap.add_argument("--seeds", type=int, default=4)
     ap.add_argument("--width", type=int, default=0, help="0 = coarse pool, else 0..width-1")
     ap.add_argument("--policies", default="operand,carrier")
+    ap.add_argument("--pin-offset", action="store_true",
+                    help="pin `shifted` to +1 pixel: removes the one choice that is "
+                         "behind a DECLARED gradient boundary, leaving only choices "
+                         "the relaxed backend can in principle see")
     ap.add_argument("--tag", default="surrogate_fix")
     args = ap.parse_args()
     r = Registry()
@@ -123,9 +127,18 @@ def main():
     # Unfreeze ONLY the comparison nodes: that restores the gradient to `thr`
     # without replacing the exact `index` reads with a five-byte blur.
     COMPARE_NODES = ("rg_le", "gb_le", "rb_le")
-    build = lambda: unfreeze(collinear_scaffold(r, R, thresholds=thresholds),
-                             only=COMPARE_NODES)
+    def make():
+        p = unfreeze(collinear_scaffold(r, R, thresholds=thresholds), only=COMPARE_NODES)
+        if args.pin_offset:
+            import dataclasses
+            p = dataclasses.replace(p, nodes=tuple(
+                dataclasses.replace(n, candidates=n.candidates[:1], selected=0)
+                if n.name == "shifted" else n for n in p.nodes))
+        return p
+    build = make
     result["unfrozen_nodes"] = list(COMPARE_NODES)
+    result["offset_pinned"] = bool(args.pin_offset)
+    result["space_size_searched"] = space_size(build())
     for policy in args.policies.split(","):
         L.relaxed = scaled_relaxed(policy)
         try:

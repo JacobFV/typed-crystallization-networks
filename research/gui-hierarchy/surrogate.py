@@ -118,9 +118,29 @@ def choice_gradients(registry, program, rows, label):  # noqa: D401
     return out
 
 
+def index_blur(count, address=300, tau=1.):
+    """How much of `index`'s relaxed mass lands on the byte it was asked for.
+
+    This is why "just do not detach the single-candidate nodes" is not a free
+    fix: leaving them relaxed restores the gradient edge, but `index`'s
+    relaxation is a soft attention over every position, so at an *exact* integer
+    address it still returns a blur of the neighbourhood rather than the byte.
+    """
+    weights = torch.softmax(-(torch.tensor([[float(address)]]) -
+                              torch.arange(count)) ** 2 / tau, dim=-1)
+    return {"positions": count, "address": address, "tau": tau,
+            "mass_on_the_addressed_byte": float(weights[0, address]),
+            "mass_on_each_neighbour": float(weights[0, address - 1]),
+            "mass_elsewhere": float(1 - weights[0, address])}
+
+
 def main():
     registry = Registry()
     result = {"screen": SCREEN}
+    result["index_blur"] = index_blur(768)
+    report("relaxed `index` mass on the exact address it was given",
+           f"{result['index_blur']['mass_on_the_addressed_byte']:.4f} "
+           f"(neighbours {result['index_blur']['mass_on_each_neighbour']:.4f} each)")
     print("--- palette separation against the eq surrogate ---")
     result["palette"] = palette_table()
 

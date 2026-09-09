@@ -1,19 +1,7 @@
-baseline: 6 widgets, nesting 2, palette 32, R=16               widgets 3.0 depth 1 colours 3.0 bytes 768 | majority 0.8511 ceiling 1.0000 | space 1280 conforming 2
+baseline: 6 widgets, nesting 2, palette 32, R=16               widgets 3.0 depth 1 colours 3.0 bytes 768 | majority 0.8511 ceiling 1.0000 | space 1280 conforming 4
 widgets 2                                                      widgets 2.0 depth 1 colours 2.0 bytes 768 | majority 0.9244 ceiling 1.0000 | space 1280 conforming 12
-widgets 12                                                     widgets 3.0 depth 1 colours 3.0 bytes 768 | majority 0.8511 ceiling 1.0000 | space 1280 conforming 2
-widgets 20, nesting 5, R=32                                    widgets 12.0 depth 3 colours 12.0 bytes 3072 | majority 0.7482 ceiling 1.0000 | space 1280 conforming 4
-nesting 1                                                      widgets 3.0 depth 1 colours 3.0 bytes 768 | majority 0.8511 ceiling 1.0000 | space 1280 conforming 8
-nesting 4                                                      widgets 3.0 depth 1 colours 3.0 bytes 768 | majority 0.8511 ceiling 1.0000 | space 1280 conforming 2
+widgets 12                                                     widgets 3.0 depth 1 colours 3.0 bytes 768 | majority 0.8511 ceiling 1.0000 | space 1280 conforming 4
+widgets 20, nesting 5, R=32                                    widgets 12.0 depth 3 colours 12.0 bytes 3072 | majority 0.7482 ceiling 1.0000 | space 1280 conforming 2
+nesting 1                                                      widgets 3.0 depth 1 colours 3.0 bytes 768 | majority 0.8511 ceiling 1.0000 | space 1280 conforming 6
+nesting 4                                                      widgets 3.0 depth 1 colours 3.0 bytes 768 | majority 0.8511 ceiling 1.0000 | space 1280 conforming 4
 palette 4                                                      widgets 3.0 depth 1 colours 2.0 bytes 768 | majority 0.8511 ceiling 0.9267 | space 1280 conforming 0
-palette 4, widgets 12                                          widgets 3.0 depth 1 colours 2.0 bytes 768 | majority 0.8511 ceiling 0.9267 | space 1280 conforming 0
-palette 64                                                     widgets 3.0 depth 1 colours 3.0 bytes 768 | majority 0.8511 ceiling 1.0000 | space 1280 conforming 8
-resolution 32                                                  widgets 6.0 depth 2 colours 6.0 bytes 3072 | majority 0.8473 ceiling 1.0000 | space 1280 conforming 4
-resolution 48                                                  widgets 6.0 depth 2 colours 6.0 bytes 6912 | majority 0.8958 ceiling 1.0000 | space 1280 conforming 2
-borders                                                        widgets 3.0 depth 1 colours 4.0 bytes 768 | majority 0.8511 ceiling 0.8778 | space 1280 conforming 0
-labels, R=32                                                   widgets 6.0 depth 2 colours 6.8 bytes 3072 | majority 0.8473 ceiling 1.0000 | space 1280 conforming 0
-colour_mode=kind                                               widgets 3.0 depth 1 colours 2.6 bytes 768 | majority 0.8511 ceiling 1.0000 | space 1280 conforming 16
-rung-1 screen: 12 widgets, nesting 4, min_size 4               widgets 8.5 depth 2 colours 8.5 bytes 768 | majority 0.6700 ceiling 1.0000 | space 1280 conforming 2
-min_size 3, widgets 12, nesting 4                              widgets 9.2 depth 2 colours 9.2 bytes 768 | majority 0.6489 ceiling 1.0000 | space 1280 conforming 2
-rung-1 screen, palette_levels 16                               widgets 8.5 depth 2 colours 8.5 bytes 768 | majority 0.6700 ceiling 1.0000 | space 1280 conforming 8
-rung-1 screen, palette_levels 32                               widgets 8.5 depth 2 colours 8.5 bytes 768 | majority 0.6700 ceiling 1.0000 | space 1280 conforming 64
-wrote /home/brandonin/Documents/typed-crystallization-networks/research/gui-hierarchy/out/dial.json

@@ -1,0 +1,42 @@
+relaxed `index` mass on the exact address it was given         0.5641 (neighbours 0.2075 each)
+--- palette separation against the eq surrogate ---
+palette_levels=2                                               colours      8 separation 210 eq tau=1 value 0.00e+00 slope 0.00e+00 | tau=256 value 0.00e+00 slope 0.00e+00
+palette_levels=4                                               colours     64 separation  70 eq tau=1 value 0.00e+00 slope 0.00e+00 | tau=256 value 4.87e-09 slope 2.66e-09
+palette_levels=8                                               colours    512 separation  30 eq tau=1 value 0.00e+00 slope 0.00e+00 | tau=256 value 2.97e-02 slope 6.97e-03
+palette_levels=16                                              colours   4096 separation  14 eq tau=1 value 0.00e+00 slope 0.00e+00 | tau=256 value 4.65e-01 slope 5.09e-02
+palette_levels=32                                              colours  32768 separation   7 eq tau=1 value 5.24e-22 slope 7.34e-21 | tau=256 value 8.26e-01 slope 4.52e-02
+
+--- distances actually seen at the rung-1 operating point ---
+palette_levels=4 neighbour |a-b|                               zero 0.7711  live tau=1 0.0000  live tau=256 0.0000  distances [0, 70, 140, 210]
+palette_levels=16 neighbour |a-b|                              zero 0.7711  live tau=1 0.0000  live tau=256 0.2289  distances [0, 14, 28, 42]
+palette_levels=32 neighbour |a-b|                              zero 0.7711  live tau=1 0.0000  live tau=256 0.2289  distances [0, 7, 13, 14, 20]
+
+--- gradient at each choice node, one backward pass at initialisation ---
+[levels=4 narrow | single-candidate nodes pre-selected] shifted (5 candidates) grad_is_none=True |g|max=0.000e+00
+[levels=4 narrow | single-candidate nodes pre-selected] rg (16 candidates) grad_is_none=False |g|max=8.731e-11
+[levels=4 narrow | single-candidate nodes pre-selected] edge (16 candidates) grad_is_none=False |g|max=2.734e-02
+/home/brandonin/Documents/typed-crystallization-networks/research/gui-hierarchy/surrogate.py:117: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  out["_loss"] = float(loss)
+[levels=4 narrow | single-candidate nodes relaxed] shifted (5 candidates) grad_is_none=False |g|max=7.973e-09
+[levels=4 narrow | single-candidate nodes relaxed] rg (16 candidates) grad_is_none=False |g|max=2.729e-11
+[levels=4 narrow | single-candidate nodes relaxed] edge (16 candidates) grad_is_none=False |g|max=2.734e-02
+[levels=4 wide | single-candidate nodes pre-selected] shifted (51 candidates) grad_is_none=True |g|max=0.000e+00
+[levels=4 wide | single-candidate nodes pre-selected] rg (16 candidates) grad_is_none=False |g|max=1.164e-10
+[levels=4 wide | single-candidate nodes pre-selected] edge (16 candidates) grad_is_none=False |g|max=2.734e-02
+[levels=4 wide | single-candidate nodes relaxed] shifted (51 candidates) grad_is_none=False |g|max=4.081e-09
+[levels=4 wide | single-candidate nodes relaxed] rg (16 candidates) grad_is_none=False |g|max=2.910e-11
+[levels=4 wide | single-candidate nodes relaxed] edge (16 candidates) grad_is_none=False |g|max=2.734e-02
+[levels=16 narrow | single-candidate nodes pre-selected] shifted (5 candidates) grad_is_none=True |g|max=0.000e+00
+[levels=16 narrow | single-candidate nodes pre-selected] rg (16 candidates) grad_is_none=False |g|max=8.731e-11
+[levels=16 narrow | single-candidate nodes pre-selected] edge (16 candidates) grad_is_none=False |g|max=2.734e-02
+[levels=16 narrow | single-candidate nodes relaxed] shifted (5 candidates) grad_is_none=False |g|max=5.369e-09
+[levels=16 narrow | single-candidate nodes relaxed] rg (16 candidates) grad_is_none=False |g|max=3.468e-11
+[levels=16 narrow | single-candidate nodes relaxed] edge (16 candidates) grad_is_none=False |g|max=2.734e-02
+[levels=16 wide | single-candidate nodes pre-selected] shifted (51 candidates) grad_is_none=True |g|max=0.000e+00
+[levels=16 wide | single-candidate nodes pre-selected] rg (16 candidates) grad_is_none=False |g|max=1.164e-10
+[levels=16 wide | single-candidate nodes pre-selected] edge (16 candidates) grad_is_none=False |g|max=2.734e-02
+[levels=16 wide | single-candidate nodes relaxed] shifted (51 candidates) grad_is_none=False |g|max=5.444e-10
+[levels=16 wide | single-candidate nodes relaxed] rg (16 candidates) grad_is_none=False |g|max=5.172e-11
+[levels=16 wide | single-candidate nodes relaxed] edge (16 candidates) grad_is_none=False |g|max=2.734e-02
+wrote /home/brandonin/Documents/typed-crystallization-networks/research/gui-hierarchy/out/surrogate.json

@@ -23,6 +23,13 @@ def palette_levels(levels):
 def palette_colours(levels=4):
     """The full colour grid at that separation, ordered so a prefix stays spread.
 
+    The ordering is load-bearing, because `palette` takes a *prefix* of this
+    list.  A plain lexicographic product would make the first `palette` entries
+    vary only the last channel or two -- at `palette_levels 32, palette 32` every
+    widget would share a red and a green value, and a comparison on those
+    channels would be constant.  Sorting by the largest channel index first fills
+    a growing cube corner instead, so any prefix varies all three channels.
+
     Separation is a declared dial, not a cosmetic one.  `eq`'s training surrogate
     is `exp(-(a-b)^2/tau)`; at the shipped `tau = 1` it is exactly 0.0 in float32
     for `|a-b| >= 11`, so how far apart two palette entries sit decides whether a
@@ -30,7 +37,9 @@ def palette_colours(levels=4):
     unaffected either way -- distinct is distinct.
     """
     values = palette_levels(levels)
-    return tuple((r, g, b) for r in values for g in values for b in values)
+    grid = sorted(((i, j, k) for i in range(levels) for j in range(levels)
+                   for k in range(levels)), key=lambda t: (max(t), t))
+    return tuple((values[i], values[j], values[k]) for i, j, k in grid)
 
 
 # Four levels per channel: 64 colours, minimum per-channel separation 70, none of

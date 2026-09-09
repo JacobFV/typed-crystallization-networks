@@ -372,6 +372,17 @@ is alive at the mixture.  Both checks were run.
 
 <!-- TABLE: surrogate -->
 
+**Finding zero, so the other two are not over-read: relaxing the single-candidate
+nodes is not a free fix either.**  `index`'s relaxation is a soft attention over
+every position, `softmax(-(b - arange)^2 / tau)`.  At an **exact integer**
+address over a 768-byte observation it puts only **0.5641** of its mass on the
+byte it was asked for and 0.2075 on each immediate neighbour -- 43.6% of the
+value returned is the neighbourhood rather than the pixel.  So the workaround in
+finding one restores the gradient edge at the cost of a forward pass that is no
+longer the program being searched.  There is no configuration of this scaffold
+on current main in which the address logit receives a *faithful* gradient, and
+that is the honest statement, not "the address search is hard".
+
 **Finding one: the graph is severed, and it has nothing to do with the data.**
 `SoftProgram.forward` treats any node with `selected is not None` as frozen and
 evaluates it through `exact_tensor(...).detach()`.  Every single-candidate node
@@ -484,8 +495,14 @@ address logit in four separate configurations.
 ```
 
 A scaffold can work around this today by writing `selected=None`, which is what
-`common.Builder(relax_single=True)` does, so this is a usability and
-correctness-of-measurement fix rather than a blocker.
+`common.Builder(relax_single=True)` does, so this is a
+correctness-of-measurement fix rather than a blocker.  **It is not a complete
+fix**: with those nodes relaxed, `index` contributes the 0.5641/0.2075 blur of
+section 7, so the diff above should be read as "make the gradient observable",
+not "make the address search work".  The naive form of the diff (dropping the
+`len(n.candidates) > 1` guard) would also change the forward pass of a *hardened*
+program used inside `SoftProgram`, since every node there has one candidate;
+the guard is what keeps that case exact.
 
 ### D2 — scale `eq`'s surrogate by the declared carrier width
 

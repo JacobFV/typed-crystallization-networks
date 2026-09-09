@@ -30,3 +30,30 @@ A0_shipped_oracleinit_probe            seed 4 eval 4.000 env_ep    224 12.6s
 A0_shipped_oracleinit_probe            seed 5 eval 4.000 env_ep    224 14.7s
 A0_shipped_oracleinit_probe            seed 6 eval 4.000 env_ep    224 14.0s
 A0_shipped_oracleinit_probe            seed 7 eval 4.000 env_ep    224 12.9s
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:328: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  ent[node.name] = float(-(q * q.clamp_min(1e-12).log()).sum())
+A0b_shipped_2000ep                     seed 0 eval 4.000 env_ep   2064 128.9s
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:328: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  ent[node.name] = float(-(q * q.clamp_min(1e-12).log()).sum())
+A0b_shipped_2000ep                     seed 1 eval 4.000 env_ep   2064 146.1s
+A0b_shipped_2000ep                     seed 2 eval 4.000 env_ep   2064 134.4s
+A0b_shipped_2000ep                     seed 3 eval 4.000 env_ep   2064 139.6s
+A0b_shipped_2000ep                     seed 4 eval 4.000 env_ep   2064 143.9s
+A0b_shipped_2000ep                     seed 5 eval 4.000 env_ep   2064 128.9s
+A0b_shipped_2000ep                     seed 6 eval 4.000 env_ep   2064 142.8s
+A0b_shipped_2000ep                     seed 7 eval 4.000 env_ep   2064 131.0s
+A1_rewardonly_zeroinit                 seed 0 eval 4.000 env_ep   2256 141.4s
+A1_rewardonly_zeroinit                 seed 1 eval 4.000 env_ep   2256 154.5s
+A1_rewardonly_zeroinit                 seed 2 eval 4.000 env_ep   2256 98.1s
+A1_rewardonly_zeroinit                 seed 3 eval 4.000 env_ep   2256 121.2s
+A1_rewardonly_zeroinit                 seed 4 eval 4.000 env_ep   2256 119.6s
+A1_rewardonly_zeroinit                 seed 5 eval 4.000 env_ep   2256 133.2s
+A1_rewardonly_zeroinit                 seed 6 eval 4.000 env_ep   2256 113.2s
+A1_rewardonly_zeroinit                 seed 7 eval 4.000 env_ep   2256 122.1s
+A1c_rewardonly_zeroinit_bias12         seed 0 eval 4.000 env_ep   2256 101.7s
+A1c_rewardonly_zeroinit_bias12         seed 1 eval 4.000 env_ep   2256 108.3s
+A1c_rewardonly_zeroinit_bias12         seed 2 eval 4.000 env_ep   2256 106.6s
+A1c_rewardonly_zeroinit_bias12         seed 3 eval 4.000 env_ep   2256 121.7s
+A1c_rewardonly_zeroinit_bias12         seed 4 eval 4.000 env_ep   2256 111.4s
