@@ -1224,3 +1224,57 @@ structural: the query's predicate type partitions the four labels, giving a hard
 **This retroactively qualifies a claim in `docs/VALIDATION.md`**, which cited
 "179 executable lessons" as evidence. That was only ever a sampling check, and
 63 of those lessons could be beaten by a cheap heuristic.
+
+## 25. The substrate fixes are merged
+
+Three defects that were blocking gradient learning across four tracks are fixed
+and on main. Full detail in `research/core-gradient-fixes/RESULTS.md` and
+`research/search-selection/RESULTS.md`.
+
+**D1, severing.** `SoftProgram` now distinguishes three fixed-choice states
+where it previously conflated them. A *declared* `Node.selected` fixes the
+choice but not the value path, so hand-wired plumbing no longer cuts the
+gradient to everything upstream — verified on merged main, a trainable constant
+behind a `selected=0` node now receives `tensor([1.])` where it received `None`,
+identical to the unselected case. A *frozen module* still stops gradients,
+because that boundary belongs to the operator contract where section 4 puts it.
+A *crystallized* node stays an exact detached boundary, since the scheduler's
+connectivity guard exists to check precisely that commitment. This defect was
+confirmed independently four times before it was fixed.
+
+**D2, temperatures.** `SoftProgram.surrogate_scale` multiplies only the
+relaxation path, so a surrogate widens without flattening that node's candidate
+softmax. Implemented once on the selector branch and adopted verbatim by the
+core-fix branch, so the merge conflicts were documentation only.
+
+**D3, tuple broadcasting.** `relaxed`'s `tuple` branch broadcasts before
+concatenating. Verified: a batched value packed with an unbatched constant now
+yields shape (8,2) where it raised `RuntimeError`, with the constant still on
+the gradient path.
+
+**Also merged: automatic search-mode selection.** `tcn/select.py` with
+per-example liveness, cost projection and `select_backend`, plus `mode="auto"`
+on `synthesis.fit`, defaulting to the shipped path.
+
+**Verified on merged main: 235 tests pass**, and the shipped fixture reproduces
+at 0.24884 to 0.00223 with 4/4 deterministic, fully frozen and 4/4 from the
+exact frozen agent.
+
+**The costs, recorded rather than elided.** The carrier width ships for `eq`
+only and opt-in. On `le` over bytes the shipped temperature is numerically dead
+past |d| >= 17 **yet keeps its loss minimum on the correct threshold**, while
+the carrier restores the derivative and moves that minimum onto a wrong one,
+collapsing the loss spread by two to three orders of magnitude. A margin is a
+property of the decision being learned rather than of the declared type, so no
+constant was invented for that family. `eq`'s own width biases a
+constant-selection minimum by two bytes while buying 0/12 to 12/12 on a
+free-address benchmark — a trade, not a free win.
+
+**The language track is not unblocked: still 0 of 44.** Section 19 called the
+temperature separation a prerequisite. It is one, and it is not the remedy.
+
+Liveness, measured per candidate per example: **92 of 256 candidates were live
+on zero of twelve examples before the fix and none after**, while the pooled
+reading reports "differentiable" in both columns. And unchanged by any of this:
+`truth_0` and `truth_15` are constants with zero input gradient, so relaxation
+reaches 0.875 of the mixed fixture's space and 0.766 of joint's.

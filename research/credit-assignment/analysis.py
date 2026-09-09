@@ -66,8 +66,8 @@ def solve(horizon,discount=1.):
             if k<PANEL_SLOTS:
                 hit=Q(1,PANEL_SLOTS-k)
                 options['look']=g*(hit*value(('found',dialled),m-1)[0]+(1-hit)*value(('search',k+1,dialled),m-1)[0])
-        best=max(options.values());action=sorted(a for a,v in options.items() if v==best)[0]
-        memo[key]=(best,action);return memo[key]
+        best=max(options.values());actions=tuple(sorted(a for a,v in options.items() if v==best))
+        memo[key]=(best,actions);return memo[key]
     return value(('search',0,None),horizon),value
 
 
@@ -76,8 +76,8 @@ def values_table(max_horizon=8):
     for h in range(1,max_horizon+1):
         (opt,first),_=solve(h,1.)
         (myo,myo_first),_=solve(h,0.)
-        rows.append({'horizon':h,'optimal':float(opt),'optimal_first_action':first,
-                     'myopic':float(myo),'myopic_first_action':myo_first,
+        rows.append({'horizon':h,'optimal':float(opt),'optimal_first_action':list(first),
+                     'myopic':float(myo),'myopic_first_action':list(myo_first),
                      'gap':float(opt-myo),'ratio':float(opt/myo) if myo else None,
                      'bandit_prediction':float(h*solve(1,1.)[0][0])})
     return rows
@@ -87,14 +87,16 @@ def discount_threshold(horizon=HORIZON,steps=2001):
     """The smallest discount at which the optimal first action stops being `commit`."""
     lo,hi=0.,1.
     first=lambda g:solve(horizon,g)[0][1]
-    if first(1.)=='commit':return None
+    if 'commit' in first(1.):return None
     for _ in range(60):
         mid=(lo+hi)/2
-        if first(mid)=='commit':lo=mid
+        if 'commit' in first(mid):lo=mid
         else:hi=mid
-    return {'threshold':hi,'first_below':first(lo),'first_above':first(hi),
-            'closed_form':(1/REGISTERS)**(1/(horizon-1)),
-            'note':'commit now pays 1/16; the plan pays gamma^(H-1); they cross at (1/16)^(1/(H-1))'}
+    return {'threshold':hi,'first_below':list(first(lo)),'first_above':list(first(hi)),
+            'worst_case_bound':(1/REGISTERS)**(1/(horizon-1)),
+            'note':('committing now pays 1/16 at once; the plan pays 1 after a variable '
+                    'number of looks, so the crossing is below the worst-case bound '
+                    '(1/16)^(1/(H-1)) that a plan taking all H-1 remaining steps would give')}
 
 
 # ---------------------------------------------------------------------------
@@ -109,27 +111,40 @@ def exploration(horizon=HORIZON,templates=4):
     zero parameters. Success therefore depends only on the register at the moment
     of the first commit, so the whole chain is a three-state Markov computation.
     """
-    p_commit=1/templates;p_dial=1/templates
+    p_verb=1/templates
     p_dial_right=sum(P for v,P in DIAL_NEUTRAL.items() if 1<=v<=ANSWERS)/ANSWERS
     p_blind=float(P_BLIND_REGISTER)
-    # state: (has dialled) -> probability mass still running
-    mass_undialled,mass_dialled,hit=1.,0.,0.
-    per_step=[]
+    p_look_task=p_verb*sum(P for s,P in SLOT_NEUTRAL.items() if s<PANEL_SLOTS)/PANEL_SLOTS
+    # Exact forward chain. `register` is 'init' (never dialled), 'pre' (last dialled
+    # before any look at the task slot) or 'post' (last dialled after one), and
+    # `seen` records whether the task record has ever been on the panel. Only the
+    # 'post' mass could have been the intended route; under a neutral policy even
+    # that is luck, because the sampler does not read the terminal.
+    mass={('init',False):1.};hit=0.;hit_post=0.;per_step=[]
     for t in range(horizon):
-        step_hit=mass_undialled*p_commit*p_blind+mass_dialled*p_commit*p_dial_right
-        hit+=step_hit;per_step.append(step_hit)
-        surviving_u=mass_undialled*(1-p_commit);surviving_d=mass_dialled*(1-p_commit)
-        mass_dialled=surviving_d*(1-p_dial)+surviving_d*p_dial+surviving_u*p_dial
-        mass_undialled=surviving_u*(1-p_dial)
-    # the intended route: look at the task slot, then dial what was read, then commit.
-    p_look_task=sum(P for s,P in SLOT_NEUTRAL.items() if s<PANEL_SLOTS)/(templates*PANEL_SLOTS)
-    p_seq=p_look_task*(p_dial*p_dial_right)*p_commit
-    orderings=sum(1 for a in range(horizon) for b in range(a+1,horizon) for c in range(b+1,horizon))
+        step=0.;step_post=0.
+        for (reg,seen),m in mass.items():
+            p_right=p_blind if reg=='init' else p_dial_right
+            step+=m*p_verb*p_right
+            if reg=='post':step_post+=m*p_verb*p_right
+        hit+=step;hit_post+=step_post;per_step.append(step)
+        nxt={}
+        for (reg,seen),m in mass.items():
+            survive=m*(1-p_verb)                                  # did not commit
+            # look at the task slot
+            nxt[(reg,True)]=nxt.get((reg,True),0.)+survive*p_look_task
+            # look elsewhere, or wait
+            other=survive*(p_verb-p_look_task)+survive*p_verb
+            nxt[(reg,seen)]=nxt.get((reg,seen),0.)+other
+            # dial
+            landed='post' if seen else 'pre'
+            nxt[(landed,seen)]=nxt.get((landed,seen),0.)+survive*p_verb
+        mass=nxt
     return {'horizon':horizon,'p_neutral_commit_rewarded':p_dial_right,
             'p_blind_register_rewarded':p_blind,
             'p_episode_rewarded':hit,'episodes_per_reward':1/hit if hit else None,
+            'p_episode_rewarded_after_seeing_task':hit_post,
             'per_step':per_step,
-            'p_intended_triple_in_order':min(1.,p_seq*orderings),
             'shell_write_text_reference':5.65e-06,
             'improvement_over_write_text':p_dial_right/5.65e-06}
 

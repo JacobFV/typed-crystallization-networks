@@ -1,0 +1,283 @@
+{
+  "values": [
+    {
+      "horizon": 1,
+      "optimal": 0.0625,
+      "optimal_first_action": [
+        "commit"
+      ],
+      "myopic": 0.0625,
+      "myopic_first_action": [
+        "commit"
+      ],
+      "gap": 0.0,
+      "ratio": 1.0,
+      "bandit_prediction": 0.0625
+    },
+    {
+      "horizon": 2,
+      "optimal": 0.1111111111111111,
+      "optimal_first_action": [
+        "dial"
+      ],
+      "myopic": 0.0625,
+      "myopic_first_action": [
+        "commit"
+      ],
+      "gap": 0.04861111111111111,
+      "ratio": 1.7777777777777777,
+      "bandit_prediction": 0.125
+    },
+    {
+      "horizon": 3,
+      "optimal": 0.3333333333333333,
+      "optimal_first_action": [
+        "look"
+      ],
+      "myopic": 0.0625,
+      "myopic_first_action": [
+        "commit"
+      ],
+      "gap": 0.2708333333333333,
+      "ratio": 5.333333333333333,
+      "bandit_prediction": 0.1875
+    },
+    {
+      "horizon": 4,
+      "optimal": 0.5555555555555556,
+      "optimal_first_action": [
+        "look"
+      ],
+      "myopic": 0.0625,
+      "myopic_first_action": [
+        "commit"
+      ],
+      "gap": 0.4930555555555556,
+      "ratio": 8.88888888888889,
+      "bandit_prediction": 0.25
+    },
+    {
+      "horizon": 5,
+      "optimal": 0.7777777777777778,
+      "optimal_first_action": [
+        "look"
+      ],
+      "myopic": 0.0625,
+      "myopic_first_action": [
+        "commit"
+      ],
+      "gap": 0.7152777777777778,
+      "ratio": 12.444444444444445,
+      "bandit_prediction": 0.3125
+    },
+    {
+      "horizon": 6,
+      "optimal": 1.0,
+      "optimal_first_action": [
+        "look"
+      ],
+      "myopic": 0.0625,
+      "myopic_first_action": [
+        "commit"
+      ],
+      "gap": 0.9375,
+      "ratio": 16.0,
+      "bandit_prediction": 0.375
+    },
+    {
+      "horizon": 7,
+      "optimal": 1.0,
+      "optimal_first_action": [
+        "dial",
+        "look",
+        "wait"
+      ],
+      "myopic": 0.0625,
+      "myopic_first_action": [
+        "commit"
+      ],
+      "gap": 0.9375,
+      "ratio": 16.0,
+      "bandit_prediction": 0.4375
+    },
+    {
+      "horizon": 8,
+      "optimal": 1.0,
+      "optimal_first_action": [
+        "dial",
+        "look",
+        "wait"
+      ],
+      "myopic": 0.0625,
+      "myopic_first_action": [
+        "commit"
+      ],
+      "gap": 0.9375,
+      "ratio": 16.0,
+      "bandit_prediction": 0.5
+    }
+  ],
+  "discount": {
+    "threshold": 0.3940050055418135,
+    "first_below": [
+      "commit"
+    ],
+    "first_above": [
+      "look"
+    ],
+    "worst_case_bound": 0.5743491774985174,
+    "note": "committing now pays 1/16 at once; the plan pays 1 after a variable number of looks, so the crossing is below the worst-case bound (1/16)^(1/(H-1)) that a plan taking all H-1 remaining steps would give"
+  },
+  "exploration": {
+    "3": {
+      "horizon": 3,
+      "p_neutral_commit_rewarded": 0.06239477872797662,
+      "p_blind_register_rewarded": 0.0625,
+      "p_episode_rewarded": 0.02934835392744319,
+      "episodes_per_reward": 34.0734612398454,
+      "p_episode_rewarded_after_seeing_task": 0.00013709790247846425,
+      "per_step": [
+        0.015625,
+        0.008784130252873903,
+        0.004939223674569285
+      ],
+      "shell_write_text_reference": 5.65e-06,
+      "improvement_over_write_text": 11043.323668668429
+    },
+    "4": {
+      "horizon": 4,
+      "p_neutral_commit_rewarded": 0.06239477872797662,
+      "p_blind_register_rewarded": 0.0625,
+      "p_episode_rewarded": 0.032125973647136305,
+      "episodes_per_reward": 31.127461255610523,
+      "p_episode_rewarded_after_seeing_task": 0.0003363182920174826,
+      "per_step": [
+        0.015625,
+        0.008784130252873903,
+        0.004939223674569285,
+        0.0027776197196931157
+      ],
+      "shell_write_text_reference": 5.65e-06,
+      "improvement_over_write_text": 11043.323668668429
+    },
+    "6": {
+      "horizon": 6,
+      "p_neutral_commit_rewarded": 0.06239477872797662,
+      "p_blind_register_rewarded": 0.0625,
+      "p_episode_rewarded": 0.03456673703714435,
+      "episodes_per_reward": 28.929545734254027,
+      "p_episode_rewarded_after_seeing_task": 0.0006895463225025105,
+      "per_step": [
+        0.015625,
+        0.008784130252873903,
+        0.004939223674569285,
+        0.0027776197196931157,
+        0.0015621509933578374,
+        0.000878612396650206
+      ],
+      "shell_write_text_reference": 5.65e-06,
+      "improvement_over_write_text": 11043.323668668429
+    },
+    "8": {
+      "horizon": 8,
+      "p_neutral_commit_rewarded": 0.06239477872797662,
+      "p_blind_register_rewarded": 0.0625,
+      "p_episode_rewarded": 0.03533888409707861,
+      "episodes_per_reward": 28.297441346843996,
+      "p_episode_rewarded_after_seeing_task": 0.0008890644403909112,
+      "per_step": [
+        0.015625,
+        0.008784130252873903,
+        0.004939223674569285,
+        0.0027776197196931157,
+        0.0015621509933578374,
+        0.000878612396650206,
+        0.0004941828966981492,
+        0.00027796416323611214
+      ],
+      "shell_write_text_reference": 5.65e-06,
+      "improvement_over_write_text": 11043.323668668429
+    }
+  },
+  "bandit_check": {
+    "linear_in_horizon": false,
+    "myopic_is_optimal": false,
+    "per_horizon": [
+      {
+        "horizon": 1,
+        "optimal": 0.0625,
+        "bandit_prediction": 0.0625,
+        "myopic": 0.0625
+      },
+      {
+        "horizon": 2,
+        "optimal": 0.1111111111111111,
+        "bandit_prediction": 0.125,
+        "myopic": 0.0625
+      },
+      {
+        "horizon": 3,
+        "optimal": 0.3333333333333333,
+        "bandit_prediction": 0.1875,
+        "myopic": 0.0625
+      },
+      {
+        "horizon": 4,
+        "optimal": 0.5555555555555556,
+        "bandit_prediction": 0.25,
+        "myopic": 0.0625
+      },
+      {
+        "horizon": 5,
+        "optimal": 0.7777777777777778,
+        "bandit_prediction": 0.3125,
+        "myopic": 0.0625
+      },
+      {
+        "horizon": 6,
+        "optimal": 1.0,
+        "bandit_prediction": 0.375,
+        "myopic": 0.0625
+      },
+      {
+        "horizon": 7,
+        "optimal": 1.0,
+        "bandit_prediction": 0.4375,
+        "myopic": 0.0625
+      },
+      {
+        "horizon": 8,
+        "optimal": 1.0,
+        "bandit_prediction": 0.5,
+        "myopic": 0.0625
+      }
+    ],
+    "verdict": "not a bandit"
+  },
+  "neutral_distributions": {
+    "slot": {
+      "0": 0.2104909390487631,
+      "1": 0.2895090609512369,
+      "2": 0.28950906095123696,
+      "3": 0.21049093904876304
+    },
+    "dial": {
+      "0": 0.04612486641299551,
+      "1": 0.08984374122842897,
+      "2": 0.0745223314073386,
+      "3": 0.06550030766107456,
+      "4": 0.059919685881987095,
+      "5": 0.056411192443390046,
+      "6": 0.054326975581968195,
+      "7": 0.05335089938281701,
+      "8": 0.05335089938281701,
+      "9": 0.054326975581968084,
+      "10": 0.0564111924433901,
+      "11": 0.05991968588198726,
+      "12": 0.06550030766107451,
+      "13": 0.07452233140733855,
+      "14": 0.08984374122842897,
+      "15": 0.04612486641299551
+    }
+  }
+}
