@@ -52,6 +52,7 @@ class Cfg:
     eval_every:int=0
     eval_n:int=32
     seed_logits:dict|None=None
+    dial_explores:bool=False
     sharp:float=.02
 
 
@@ -60,7 +61,8 @@ class Runner:
         self.cfg=cfg;self.counter=counter
         torch.manual_seed(cfg.seed);torch.set_num_threads(1)
         program,registry=panel_program(perception=cfg.perception,policy_state=cfg.policy_state,
-                                       slot_pool=cfg.slot_pool,seed_logits=cfg.seed_logits)
+                                       slot_pool=cfg.slot_pool,seed_logits=cfg.seed_logits,
+                                       dial_explores=cfg.dial_explores)
         self.program=program;self.registry=registry
         self.model=SoftProgram(program,registry)
         # Declared temperatures, stated because they are a hand-setting.
@@ -151,14 +153,18 @@ class Runner:
                 curve.append({'episode':i,'eval':self.evaluate(c.eval_n)})
         return curve
 
-    def evaluate(self,n=32,start=10000,split='test'):
+    def evaluate(self,n=32,start=10000,split='test',stochastic=False):
+        """Deterministic by default (argmax template, argument at its mean), which is
+        what `tcn/agent.py` does at `deterministic=True`. `stochastic=True` reports
+        the sampling policy's own return, because a policy that explores by keeping a
+        wide argument sampler scores differently under the two."""
         totals=[];verbs=[]
         with torch.no_grad():
             for k in range(n):
-                rows,_,_=self.rollout(start+k,train=False,split=split)
+                rows,_,_=self.rollout(start+k,train=stochastic,split=split)
                 totals.append(sum(r['reward'] for r in rows));verbs.append([r['verb'] for r in rows])
         return {'mean':statistics.fmean(totals),'solved':sum(1 for x in totals if x>0),'n':n,
-                'modal_trace':statistics.mode([tuple(v) for v in verbs])}
+                'stochastic':stochastic,'modal_trace':statistics.mode([tuple(v) for v in verbs])}
 
     def selections(self):
         return {k:v for k,v in self.model.selections().items()}
@@ -166,6 +172,7 @@ class Runner:
     def report(self):
         constants={k:float(v.detach()) for k,v in self.model.constants.items()}
         return {'selections':self.selections(),
+                'logstd_slot':round(float(self.model.constants['logstd_slot'].detach()),3),
                 'logits':{name:[round(constants[f'{name}{i}'],3) for i in range(4)]
                           for name in ('idle','found','dialled') if f'{name}0' in constants},
                 'candidate':self.candidate_names()}

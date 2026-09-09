@@ -122,8 +122,10 @@ class Implementation(Generator):
         digit is always the last byte of a record whose length varies, so the
         address must be computed rather than constant; and the register starts at
         a value the agent did not choose, which is what gives a myopic policy
-        something to be myopic about. Every one of the three is a property of the generated data,
-        not of a model input, and none of them is the answer.
+        something to be myopic about. Every one of the three is a property of the
+        generated data, not of a model input, and none of them is the answer: the
+        agent still has to find which slot holds the task record, read a digit out
+        of raw bytes, and choose when to act.
         """
         rng=address.rng('panel')
         slots=int(configuration.get('panel_slots',PANEL_SLOTS))

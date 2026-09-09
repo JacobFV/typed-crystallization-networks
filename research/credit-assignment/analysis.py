@@ -40,9 +40,18 @@ P_BLIND_DIAL=Q(1,ANSWERS)                # P(a uniform dial in 1..9 == answer)
 # `dialled` is None (register unknown, uniform), 'blind' (dialled a guess), or
 # 'answer' (dialled the digit the agent read).
 
-def solve(horizon,discount=1.):
-    """Optimal value and greedy action at every belief state, for one discount."""
+def solve(horizon,discount=1.,blind_register=None):
+    """Optimal value and greedy action at every belief state, for one discount.
+
+    `blind_register` overrides P(the initial register already holds the answer). The
+    default is 1/16, the generator's own uniform draw. Setting it to 0 is the
+    `panel_register=0` configuration, and separates two things the headline task
+    conflates: the *delay* (intrinsic -- the reward arrives strictly after the look
+    and the dial either way) from the *trap* (a dial -- a myopic policy is strictly
+    wrong only because committing at once pays 1/16).
+    """
     g=Q(discount).limit_denominator(10**9) if isinstance(discount,(int,float)) else discount
+    blind=P_BLIND_REGISTER if blind_register is None else Q(blind_register).limit_denominator(10**9)
     memo={}
     def value(state,m):
         """Expected *discounted* return with m steps remaining."""
@@ -53,13 +62,13 @@ def solve(horizon,discount=1.):
         # commit: immediate reward, then the episode ends.
         if kind=='found':
             dialled=state[1]
-            options['commit']=P_BLIND_REGISTER if dialled is None else (Q(1) if dialled=='answer' else P_BLIND_DIAL)
+            options['commit']=blind if dialled is None else (Q(1) if dialled=='answer' else P_BLIND_DIAL)
             options['dial']=g*value(('found','answer'),m-1)[0]
             options['wait']=g*value(state,m-1)[0]
             options['look']=g*value(state,m-1)[0]       # re-looking learns nothing new
         else:
             k=state[1];dialled=state[2]
-            options['commit']=P_BLIND_REGISTER if dialled is None else (Q(1) if dialled=='answer' else P_BLIND_DIAL)
+            options['commit']=blind if dialled is None else (Q(1) if dialled=='answer' else P_BLIND_DIAL)
             # a blind dial cannot be the read answer: the digit is still unknown
             if dialled!='blind':options['dial']=g*value(('search',k,'blind'),m-1)[0]
             options['wait']=g*value(state,m-1)[0]
@@ -149,6 +158,47 @@ def exploration(horizon=HORIZON,templates=4):
             'improvement_over_write_text':p_dial_right/5.65e-06}
 
 
+def register_ablation(max_horizon=8):
+    """The same table with the initial register pinned to 0 (`panel_register=0`).
+
+    The answer is always 1..9, so a register of 0 is never right and `commit` pays
+    nothing until something has been dialled. Delay survives; the myopic trap does
+    not become a *tie* either, because a blind dial then commit still pays 1/9.
+    """
+    rows=[]
+    for h in range(1,max_horizon+1):
+        (opt,first),_=solve(h,1.,blind_register=0)
+        (myo,myo_first),_=solve(h,0.,blind_register=0)
+        rows.append({'horizon':h,'optimal':float(opt),'optimal_first_action':list(first),
+                     'myopic':float(myo),'myopic_first_action':list(myo_first),'gap':float(opt-myo)})
+    return rows
+
+
+def look_ceilings(horizon=HORIZON):
+    """What a policy that cannot sweep can reach, as a ceiling for the learning arms.
+
+    The scaffold's `look` argument is one number computed from the executed-slot
+    input. Three policy classes are separated by which number it is:
+
+    * `sweeping`      -- a different unseen slot each look. This is the DP optimum.
+    * `iid_neutral`   -- slots drawn i.i.d. from `tcn/policy.py`'s neutral sampler,
+                         which is what a wide argument sampler does. Looks repeat,
+                         so P(found in k) = 1 - sum_s P(s) (1 - q(s))^k.
+    * `constant`      -- the same slot every look, which is what the deterministic
+                         evaluation of any non-sweeping program does: it finds the
+                         task in exactly 1/4 of episodes.
+    """
+    looks=horizon-2                                        # dial and commit must fit
+    q=SLOT_NEUTRAL
+    p_iid=1-sum(1/PANEL_SLOTS*(1-q.get(s,0.))**looks for s in range(PANEL_SLOTS))
+    blind=float(P_BLIND_DIAL)
+    return {'horizon':horizon,'looks_available':looks,
+            'sweeping':float(solve(horizon,1.)[0][0]),
+            'iid_neutral':p_iid+(1-p_iid)*blind,
+            'constant_slot':1/PANEL_SLOTS+(1-1/PANEL_SLOTS)*blind,
+            'note':'the residual term is a blind dial-then-commit, worth 1/9, on the episodes where the task was never seen'}
+
+
 def bandit_check(max_horizon=8):
     """The `logic` failure mode, tested for directly.
 
@@ -167,9 +217,9 @@ def bandit_check(max_horizon=8):
 
 
 def main():
-    report={'values':values_table(8),'discount':discount_threshold(),
+    report={'values':values_table(8),'discount':discount_threshold(),'look_ceilings':look_ceilings(),
             'exploration':{h:exploration(h) for h in (3,4,6,8)},
-            'bandit_check':bandit_check(8),
+            'bandit_check':bandit_check(8),'register_ablation':register_ablation(8),
             'neutral_distributions':{'slot':SLOT_NEUTRAL,'dial':DIAL_NEUTRAL}}
     print(json.dumps({k:v for k,v in report.items() if k!='neutral_distributions'},indent=2,default=str))
     open(ROOT+'/research/credit-assignment/out/analysis.json','w').write(json.dumps(report,indent=2,default=str))

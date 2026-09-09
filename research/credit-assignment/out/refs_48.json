@@ -1,0 +1,115 @@
+{
+  "horizon": 6,
+  "episodes": 48,
+  "policies": [
+    {
+      "policy": "commit_now",
+      "episodes": 48,
+      "mean": 0.020833333333333332,
+      "sd": 0.14282613750835507,
+      "solved": 1
+    },
+    {
+      "policy": "always_wait",
+      "episodes": 48,
+      "mean": 0.0,
+      "sd": 0.0,
+      "solved": 0
+    },
+    {
+      "policy": "look_only",
+      "episodes": 48,
+      "mean": 0.0,
+      "sd": 0.0,
+      "solved": 0
+    },
+    {
+      "policy": "uniform_random",
+      "episodes": 48,
+      "mean": 0.0,
+      "sd": 0.0,
+      "solved": 0
+    },
+    {
+      "policy": "neutral_typed",
+      "episodes": 48,
+      "mean": 0.08333333333333333,
+      "sd": 0.2763853991962833,
+      "solved": 4
+    },
+    {
+      "policy": "dial_then_commit",
+      "episodes": 48,
+      "mean": 0.10416666666666667,
+      "sd": 0.3054766312211496,
+      "solved": 5
+    },
+    {
+      "policy": "fixed_slot_plan",
+      "episodes": 48,
+      "mean": 0.25,
+      "sd": 0.4330127018922193,
+      "solved": 12
+    },
+    {
+      "policy": "oracle",
+      "episodes": 48,
+      "mean": 1.0,
+      "sd": 0.0,
+      "solved": 48
+    }
+  ],
+  "horizon_sweep": [
+    {
+      "horizon": 1,
+      "oracle": 0.0,
+      "commit_now": 0.020833333333333332,
+      "uniform_random": 0.0,
+      "neutral_typed": 0.0,
+      "episodes_each": 48
+    },
+    {
+      "horizon": 2,
+      "oracle": 0.0,
+      "commit_now": 0.020833333333333332,
+      "uniform_random": 0.0,
+      "neutral_typed": 0.020833333333333332,
+      "episodes_each": 48
+    },
+    {
+      "horizon": 3,
+      "oracle": 0.375,
+      "commit_now": 0.020833333333333332,
+      "uniform_random": 0.0,
+      "neutral_typed": 0.041666666666666664,
+      "episodes_each": 48
+    },
+    {
+      "horizon": 4,
+      "oracle": 0.5208333333333334,
+      "commit_now": 0.020833333333333332,
+      "uniform_random": 0.0,
+      "neutral_typed": 0.08333333333333333,
+      "episodes_each": 48
+    },
+    {
+      "horizon": 6,
+      "oracle": 1.0,
+      "commit_now": 0.020833333333333332,
+      "uniform_random": 0.0,
+      "neutral_typed": 0.08333333333333333,
+      "episodes_each": 48
+    },
+    {
+      "horizon": 8,
+      "oracle": 1.0,
+      "commit_now": 0.020833333333333332,
+      "uniform_random": 0.0,
+      "neutral_typed": 0.10416666666666667,
+      "episodes_each": 48
+    }
+  ],
+  "environment_episodes": 1536,
+  "environment_steps": 3837,
+  "seconds": 1446.262307359022
+}

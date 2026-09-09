@@ -128,6 +128,14 @@
     "worst_case_bound": 0.5743491774985174,
     "note": "committing now pays 1/16 at once; the plan pays 1 after a variable number of looks, so the crossing is below the worst-case bound (1/16)^(1/(H-1)) that a plan taking all H-1 remaining steps would give"
   },
+  "look_ceilings": {
+    "horizon": 6,
+    "looks_available": 4,
+    "sweeping": 1.0,
+    "iid_neutral": 0.71406493642867,
+    "constant_slot": 0.3333333333333333,
+    "note": "the residual term is a blind dial-then-commit, worth 1/9, on the episodes where the task was never seen"
+  },
   "exploration": {
     "3": {
       "horizon": 3,
@@ -254,6 +262,135 @@
     ],
     "verdict": "not a bandit"
   },
+  "register_ablation": [
+    {
+      "horizon": 1,
+      "optimal": 0.0,
+      "optimal_first_action": [
+        "commit",
+        "dial",
+        "look",
+        "wait"
+      ],
+      "myopic": 0.0,
+      "myopic_first_action": [
+        "commit",
+        "dial",
+        "look",
+        "wait"
+      ],
+      "gap": 0.0
+    },
+    {
+      "horizon": 2,
+      "optimal": 0.1111111111111111,
+      "optimal_first_action": [
+        "dial"
+      ],
+      "myopic": 0.0,
+      "myopic_first_action": [
+        "commit",
+        "dial",
+        "look",
+        "wait"
+      ],
+      "gap": 0.1111111111111111
+    },
+    {
+      "horizon": 3,
+      "optimal": 0.3333333333333333,
+      "optimal_first_action": [
+        "look"
+      ],
+      "myopic": 0.0,
+      "myopic_first_action": [
+        "commit",
+        "dial",
+        "look",
+        "wait"
+      ],
+      "gap": 0.3333333333333333
+    },
+    {
+      "horizon": 4,
+      "optimal": 0.5555555555555556,
+      "optimal_first_action": [
+        "look"
+      ],
+      "myopic": 0.0,
+      "myopic_first_action": [
+        "commit",
+        "dial",
+        "look",
+        "wait"
+      ],
+      "gap": 0.5555555555555556
+    },
+    {
+      "horizon": 5,
+      "optimal": 0.7777777777777778,
+      "optimal_first_action": [
+        "look"
+      ],
+      "myopic": 0.0,
+      "myopic_first_action": [
+        "commit",
+        "dial",
+        "look",
+        "wait"
+      ],
+      "gap": 0.7777777777777778
+    },
+    {
+      "horizon": 6,
+      "optimal": 1.0,
+      "optimal_first_action": [
+        "look"
+      ],
+      "myopic": 0.0,
+      "myopic_first_action": [
+        "commit",
+        "dial",
+        "look",
+        "wait"
+      ],
+      "gap": 1.0
+    },
+    {
+      "horizon": 7,
+      "optimal": 1.0,
+      "optimal_first_action": [
+        "dial",
+        "look",
+        "wait"
+      ],
+      "myopic": 0.0,
+      "myopic_first_action": [
+        "commit",
+        "dial",
+        "look",
+        "wait"
+      ],
+      "gap": 1.0
+    },
+    {
+      "horizon": 8,
+      "optimal": 1.0,
+      "optimal_first_action": [
+        "dial",
+        "look",
+        "wait"
+      ],
+      "myopic": 0.0,
+      "myopic_first_action": [
+        "commit",
+        "dial",
+        "look",
+        "wait"
+      ],
+      "gap": 1.0
+    }
+  ],
   "neutral_distributions": {
     "slot": {
       "0": 0.2104909390487631,

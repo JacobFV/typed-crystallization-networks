@@ -1,0 +1,120 @@
+{
+  "stage1_episodes": 45,
+  "enumerated": {
+    "pos": "sub(length,k0)",
+    "shift": "sub(codef,u2)",
+    "qpos": "identity(a0)",
+    "brand": "eq(brandbyte,b1)"
+  },
+  "transform_conforming": 2,
+  "predicate_conforming": 10,
+  "arm": "staged_enum",
+  "seed": 98,
+  "episodes": 20,
+  "curve": [],
+  "final": {
+    "mean": 0.0,
+    "solved": 0,
+    "n": 64,
+    "stochastic": false,
+    "modal_trace": [
+      "wait",
+      "wait",
+      "wait",
+      "wait",
+      "wait",
+      "wait"
+    ]
+  },
+  "final_stochastic": {
+    "mean": 0.078125,
+    "solved": 5,
+    "n": 64,
+    "stochastic": true,
+    "modal_trace": [
+      "commit"
+    ]
+  },
+  "program": {
+    "selections": {
+      "length": 0,
+      "data": 0,
+      "pos": 11,
+      "byte": 0,
+      "unpacked": 0,
+      "code": 0,
+      "codef": 0,
+      "shift": 8,
+      "qpos": 2,
+      "brandbyte": 0,
+      "brand": 1,
+      "answer_lo": 0,
+      "answer": 0,
+      "dial_lo": 0,
+      "dial_hi": 0,
+      "dial_loglo": 0,
+      "dial_loghi": 0,
+      "dial_diff": 0,
+      "dial_mean": 0,
+      "dial_params": 0,
+      "next_slot": 0,
+      "next_slot_f": 0,
+      "slot_over": 0,
+      "slot_shifted": 0,
+      "slot_wrapped": 0,
+      "slot_clamped_lo": 0,
+      "slot_clamped": 0,
+      "slot_scaled": 0,
+      "slot_y": 0,
+      "slot_lo": 0,
+      "slot_hi": 0,
+      "slot_loglo": 0,
+      "slot_loghi": 0,
+      "slot_diff": 0,
+      "slot_mean": 0,
+      "slot_params": 0,
+      "logits_idle": 0,
+      "logits_found": 0,
+      "logits_dialled": 0,
+      "prev_dial_f": 0,
+      "prev_dial": 0,
+      "inner": 0,
+      "policy": 0,
+      "value": 0,
+      "brandf": 0,
+      "probe": 0
+    },
+    "logstd_slot": 0.663,
+    "logits": {
+      "idle": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "found": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "dialled": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "candidate": {
+      "pos": "sub(length,k0)",
+      "shift": "sub(codef,u2)",
+      "qpos": "identity(a0)",
+      "brand": "eq(brandbyte,b1)",
+      "next_slot": "identity(action.1.slot)"
+    }
+  },
+  "history": [],
+  "environment_episodes": 173,
+  "environment_steps": 806,
+  "seconds": 301.77385148697067
+}

@@ -1,0 +1,5265 @@
+{
+  "arms": [
+    {
+      "arm": "flat",
+      "seeds": 2,
+      "episodes": 600,
+      "eval_deterministic": 0.0391,
+      "sd": 0.0391,
+      "eval_stochastic": 0.1094,
+      "seeds_at_1.00": 0,
+      "seeds_above_0.25": 0,
+      "slot_selected": [
+        "identity(action.1.slot)",
+        "add(one_slot,one_slot)"
+      ],
+      "logits": [
+        {
+          "idle": "dial",
+          "found": "wait",
+          "dialled": "wait"
+        },
+        {
+          "idle": "commit",
+          "found": "wait",
+          "dialled": "wait"
+        }
+      ],
+      "logstd_slot": [
+        1.256,
+        2.234
+      ],
+      "reward_rate": {
+        "50": 0.12,
+        "100": 0.1,
+        "150": 0.06,
+        "200": 0.02,
+        "250": 0.12,
+        "300": 0.07,
+        "350": 0.07,
+        "400": 0.12,
+        "450": 0.1,
+        "500": 0.11,
+        "550": 0.04,
+        "600": 0.06
+      },
+      "env_episodes": 856,
+      "minutes": 16.9
+    },
+    {
+      "arm": "myopic",
+      "seeds": 4,
+      "episodes": 600,
+      "eval_deterministic": 0.0664,
+      "sd": 0.0231,
+      "eval_stochastic": 0.082,
+      "seeds_at_1.00": 0,
+      "seeds_above_0.25": 0,
+      "slot_selected": [
+        "add(action.1.slot,one_slot)",
+        "add(action.1.slot,one_slot)",
+        "identity(action.1.slot)",
+        "identity(one_slot)"
+      ],
+      "logits": [
+        {
+          "idle": "commit",
+          "found": "dial",
+          "dialled": "commit"
+        },
+        {
+          "idle": "commit",
+          "found": "commit",
+          "dialled": "commit"
+        },
+        {
+          "idle": "commit",
+          "found": "wait",
+          "dialled": "commit"
+        },
+        {
+          "idle": "commit",
+          "found": "commit",
+          "dialled": "commit"
+        }
+      ],
+      "logstd_slot": [
+        2.402,
+        2.238,
+        1.267,
+        2.146
+      ],
+      "reward_rate": {
+        "50": 0.14,
+        "100": 0.1,
+        "150": 0.07,
+        "200": 0.09,
+        "250": 0.085,
+        "300": 0.08,
+        "350": 0.085,
+        "400": 0.045,
+        "450": 0.105,
+        "500": 0.055,
+        "550": 0.065,
+        "600": 0.07
+      },
+      "env_episodes": 856,
+      "minutes": 15.3
+    },
+    {
+      "arm": "probe_only",
+      "seeds": 2,
+      "episodes": 300,
+      "eval_deterministic": 0.0,
+      "sd": 0.0,
+      "eval_stochastic": 0.0781,
+      "seeds_at_1.00": 0,
+      "seeds_above_0.25": 0,
+      "slot_selected": [
+        "identity(action.1.slot)",
+        "identity(action.1.slot)"
+      ],
+      "logits": [
+        {
+          "idle": "wait",
+          "found": "wait",
+          "dialled": "wait"
+        },
+        {
+          "idle": "wait",
+          "found": "wait",
+          "dialled": "wait"
+        }
+      ],
+      "logstd_slot": [
+        0.0,
+        0.0
+      ],
+      "reward_rate": {
+        "50": 0.08,
+        "100": 0.05,
+        "150": 0.06,
+        "200": 0.12,
+        "250": 0.11,
+        "300": 0.05
+      },
+      "env_episodes": 524,
+      "minutes": 8.2
+    },
+    {
+      "arm": "reward",
+      "seeds": 6,
+      "episodes": 600,
+      "eval_deterministic": 0.2396,
+      "sd": 0.0582,
+      "eval_stochastic": 0.5938,
+      "seeds_at_1.00": 0,
+      "seeds_above_0.25": 3,
+      "slot_selected": [
+        "add(one_slot,one_slot)",
+        "add(one_slot,one_slot)",
+        "add(one_slot,one_slot)",
+        "add(one_slot,one_slot)",
+        "add(one_slot,one_slot)",
+        "identity(one_slot)"
+      ],
+      "logits": [
+        {
+          "idle": "look",
+          "found": "dial",
+          "dialled": "commit"
+        },
+        {
+          "idle": "look",
+          "found": "dial",
+          "dialled": "commit"
+        },
+        {
+          "idle": "look",
+          "found": "dial",
+          "dialled": "commit"
+        },
+        {
+          "idle": "look",
+          "found": "dial",
+          "dialled": "commit"
+        },
+        {
+          "idle": "look",
+          "found": "dial",
+          "dialled": "commit"
+        },
+        {
+          "idle": "look",
+          "found": "dial",
+          "dialled": "commit"
+        }
+      ],
+      "logstd_slot": [
+        0.489,
+        0.259,
+        1.311,
+        2.245,
+        2.318,
+        0.567
+      ],
+      "reward_rate": {
+        "50": 0.113,
+        "100": 0.11,
+        "150": 0.203,
+        "200": 0.293,
+        "250": 0.33,
+        "300": 0.497,
+        "350": 0.46,
+        "400": 0.47,
+        "450": 0.56,
+        "500": 0.55,
+        "550": 0.627,
+        "600": 0.583
+      },
+      "env_episodes": 856,
+      "minutes": 23.2
+    },
+    {
+      "arm": "reward_sweep_given",
+      "seeds": 3,
+      "episodes": 600,
+      "eval_deterministic": 1.0,
+      "sd": 0.0,
+      "eval_stochastic": 0.6927,
+      "seeds_at_1.00": 3,
+      "seeds_above_0.25": 3,
+      "slot_selected": [
+        null,
+        null,
+        null
+      ],
+      "logits": [
+        {
+          "idle": "look",
+          "found": "dial",
+          "dialled": "commit"
+        },
+        {
+          "idle": "look",
+          "found": "dial",
+          "dialled": "commit"
+        },
+        {
+          "idle": "look",
+          "found": "dial",
+          "dialled": "commit"
+        }
+      ],
+      "logstd_slot": [
+        -0.581,
+        -0.39,
+        0.837
+      ],
+      "reward_rate": {
+        "50": 0.08,
+        "100": 0.12,
+        "150": 0.193,
+        "200": 0.293,
+        "250": 0.473,
+        "300": 0.64,
+        "350": 0.62,
+        "400": 0.607,
+        "450": 0.613,
+        "500": 0.633,
+        "550": 0.593,
+        "600": 0.74
+      },
+      "env_episodes": 856,
+      "minutes": 17.6
+    }
+  ],
+  "curves": {
+    "flat": {
+      "50": 0.0,
+      "100": 0.0,
+      "200": 0.0,
+      "400": 0.0
+    },
+    "myopic": {
+      "50": 0.031,
+      "100": 0.07,
+      "200": 0.07,
+      "400": 0.07
+    },
+    "probe_only": {
+      "50": 0.0,
+      "100": 0.0,
+      "200": 0.0
+    },
+    "reward": {
+      "50": 0.047,
+      "100": 0.104,
+      "200": 0.224,
+      "400": 0.229
+    },
+    "reward_sweep_given": {
+      "50": 0.073,
+      "100": 0.094,
+      "200": 1.0,
+      "400": 1.0
+    }
+  },
+  "macros": [],
+  "analysis": {
+    "values": [
+      {
+        "horizon": 1,
+        "optimal": 0.0625,
+        "optimal_first_action": [
+          "commit"
+        ],
+        "myopic": 0.0625,
+        "myopic_first_action": [
+          "commit"
+        ],
+        "gap": 0.0,
+        "ratio": 1.0,
+        "bandit_prediction": 0.0625
+      },
+      {
+        "horizon": 2,
+        "optimal": 0.1111111111111111,
+        "optimal_first_action": [
+          "dial"
+        ],
+        "myopic": 0.0625,
+        "myopic_first_action": [
+          "commit"
+        ],
+        "gap": 0.04861111111111111,
+        "ratio": 1.7777777777777777,
+        "bandit_prediction": 0.125
+      },
+      {
+        "horizon": 3,
+        "optimal": 0.3333333333333333,
+        "optimal_first_action": [
+          "look"
+        ],
+        "myopic": 0.0625,
+        "myopic_first_action": [
+          "commit"
+        ],
+        "gap": 0.2708333333333333,
+        "ratio": 5.333333333333333,
+        "bandit_prediction": 0.1875
+      },
+      {
+        "horizon": 4,
+        "optimal": 0.5555555555555556,
+        "optimal_first_action": [
+          "look"
+        ],
+        "myopic": 0.0625,
+        "myopic_first_action": [
+          "commit"
+        ],
+        "gap": 0.4930555555555556,
+        "ratio": 8.88888888888889,
+        "bandit_prediction": 0.25
+      },
+      {
+        "horizon": 5,
+        "optimal": 0.7777777777777778,
+        "optimal_first_action": [
+          "look"
+        ],
+        "myopic": 0.0625,
+        "myopic_first_action": [
+          "commit"
+        ],
+        "gap": 0.7152777777777778,
+        "ratio": 12.444444444444445,
+        "bandit_prediction": 0.3125
+      },
+      {
+        "horizon": 6,
+        "optimal": 1.0,
+        "optimal_first_action": [
+          "look"
+        ],
+        "myopic": 0.0625,
+        "myopic_first_action": [
+          "commit"
+        ],
+        "gap": 0.9375,
+        "ratio": 16.0,
+        "bandit_prediction": 0.375
+      },
+      {
+        "horizon": 7,
+        "optimal": 1.0,
+        "optimal_first_action": [
+          "dial",
+          "look",
+          "wait"
+        ],
+        "myopic": 0.0625,
+        "myopic_first_action": [
+          "commit"
+        ],
+        "gap": 0.9375,
+        "ratio": 16.0,
+        "bandit_prediction": 0.4375
+      },
+      {
+        "horizon": 8,
+        "optimal": 1.0,
+        "optimal_first_action": [
+          "dial",
+          "look",
+          "wait"
+        ],
+        "myopic": 0.0625,
+        "myopic_first_action": [
+          "commit"
+        ],
+        "gap": 0.9375,
+        "ratio": 16.0,
+        "bandit_prediction": 0.5
+      }
+    ],
+    "discount": {
+      "threshold": 0.3940050055418135,
+      "first_below": [
+        "commit"
+      ],
+      "first_above": [
+        "look"
+      ],
+      "worst_case_bound": 0.5743491774985174,
+      "note": "committing now pays 1/16 at once; the plan pays 1 after a variable number of looks, so the crossing is below the worst-case bound (1/16)^(1/(H-1)) that a plan taking all H-1 remaining steps would give"
+    },
+    "look_ceilings": {
+      "horizon": 6,
+      "looks_available": 4,
+      "sweeping": 1.0,
+      "iid_neutral": 0.71406493642867,
+      "constant_slot": 0.3333333333333333,
+      "note": "the residual term is a blind dial-then-commit, worth 1/9, on the episodes where the task was never seen"
+    },
+    "exploration": {
+      "3": {
+        "horizon": 3,
+        "p_neutral_commit_rewarded": 0.06239477872797662,
+        "p_blind_register_rewarded": 0.0625,
+        "p_episode_rewarded": 0.02934835392744319,
+        "episodes_per_reward": 34.0734612398454,
+        "p_episode_rewarded_after_seeing_task": 0.00013709790247846425,
+        "per_step": [
+          0.015625,
+          0.008784130252873903,
+          0.004939223674569285
+        ],
+        "shell_write_text_reference": 5.65e-06,
+        "improvement_over_write_text": 11043.323668668429
+      },
+      "4": {
+        "horizon": 4,
+        "p_neutral_commit_rewarded": 0.06239477872797662,
+        "p_blind_register_rewarded": 0.0625,
+        "p_episode_rewarded": 0.032125973647136305,
+        "episodes_per_reward": 31.127461255610523,
+        "p_episode_rewarded_after_seeing_task": 0.0003363182920174826,
+        "per_step": [
+          0.015625,
+          0.008784130252873903,
+          0.004939223674569285,
+          0.0027776197196931157
+        ],
+        "shell_write_text_reference": 5.65e-06,
+        "improvement_over_write_text": 11043.323668668429
+      },
+      "6": {
+        "horizon": 6,
+        "p_neutral_commit_rewarded": 0.06239477872797662,
+        "p_blind_register_rewarded": 0.0625,
+        "p_episode_rewarded": 0.03456673703714435,
+        "episodes_per_reward": 28.929545734254027,
+        "p_episode_rewarded_after_seeing_task": 0.0006895463225025105,
+        "per_step": [
+          0.015625,
+          0.008784130252873903,
+          0.004939223674569285,
+          0.0027776197196931157,
+          0.0015621509933578374,
+          0.000878612396650206
+        ],
+        "shell_write_text_reference": 5.65e-06,
+        "improvement_over_write_text": 11043.323668668429
+      },
+      "8": {
+        "horizon": 8,
+        "p_neutral_commit_rewarded": 0.06239477872797662,
+        "p_blind_register_rewarded": 0.0625,
+        "p_episode_rewarded": 0.03533888409707861,
+        "episodes_per_reward": 28.297441346843996,
+        "p_episode_rewarded_after_seeing_task": 0.0008890644403909112,
+        "per_step": [
+          0.015625,
+          0.008784130252873903,
+          0.004939223674569285,
+          0.0027776197196931157,
+          0.0015621509933578374,
+          0.000878612396650206,
+          0.0004941828966981492,
+          0.00027796416323611214
+        ],
+        "shell_write_text_reference": 5.65e-06,
+        "improvement_over_write_text": 11043.323668668429
+      }
+    },
+    "bandit_check": {
+      "linear_in_horizon": false,
+      "myopic_is_optimal": false,
+      "per_horizon": [
+        {
+          "horizon": 1,
+          "optimal": 0.0625,
+          "bandit_prediction": 0.0625,
+          "myopic": 0.0625
+        },
+        {
+          "horizon": 2,
+          "optimal": 0.1111111111111111,
+          "bandit_prediction": 0.125,
+          "myopic": 0.0625
+        },
+        {
+          "horizon": 3,
+          "optimal": 0.3333333333333333,
+          "bandit_prediction": 0.1875,
+          "myopic": 0.0625
+        },
+        {
+          "horizon": 4,
+          "optimal": 0.5555555555555556,
+          "bandit_prediction": 0.25,
+          "myopic": 0.0625
+        },
+        {
+          "horizon": 5,
+          "optimal": 0.7777777777777778,
+          "bandit_prediction": 0.3125,
+          "myopic": 0.0625
+        },
+        {
+          "horizon": 6,
+          "optimal": 1.0,
+          "bandit_prediction": 0.375,
+          "myopic": 0.0625
+        },
+        {
+          "horizon": 7,
+          "optimal": 1.0,
+          "bandit_prediction": 0.4375,
+          "myopic": 0.0625
+        },
+        {
+          "horizon": 8,
+          "optimal": 1.0,
+          "bandit_prediction": 0.5,
+          "myopic": 0.0625
+        }
+      ],
+      "verdict": "not a bandit"
+    },
+    "register_ablation": [
+      {
+        "horizon": 1,
+        "optimal": 0.0,
+        "optimal_first_action": [
+          "commit",
+          "dial",
+          "look",
+          "wait"
+        ],
+        "myopic": 0.0,
+        "myopic_first_action": [
+          "commit",
+          "dial",
+          "look",
+          "wait"
+        ],
+        "gap": 0.0
+      },
+      {
+        "horizon": 2,
+        "optimal": 0.1111111111111111,
+        "optimal_first_action": [
+          "dial"
+        ],
+        "myopic": 0.0,
+        "myopic_first_action": [
+          "commit",
+          "dial",
+          "look",
+          "wait"
+        ],
+        "gap": 0.1111111111111111
+      },
+      {
+        "horizon": 3,
+        "optimal": 0.3333333333333333,
+        "optimal_first_action": [
+          "look"
+        ],
+        "myopic": 0.0,
+        "myopic_first_action": [
+          "commit",
+          "dial",
+          "look",
+          "wait"
+        ],
+        "gap": 0.3333333333333333
+      },
+      {
+        "horizon": 4,
+        "optimal": 0.5555555555555556,
+        "optimal_first_action": [
+          "look"
+        ],
+        "myopic": 0.0,
+        "myopic_first_action": [
+          "commit",
+          "dial",
+          "look",
+          "wait"
+        ],
+        "gap": 0.5555555555555556
+      },
+      {
+        "horizon": 5,
+        "optimal": 0.7777777777777778,
+        "optimal_first_action": [
+          "look"
+        ],
+        "myopic": 0.0,
+        "myopic_first_action": [
+          "commit",
+          "dial",
+          "look",
+          "wait"
+        ],
+        "gap": 0.7777777777777778
+      },
+      {
+        "horizon": 6,
+        "optimal": 1.0,
+        "optimal_first_action": [
+          "look"
+        ],
+        "myopic": 0.0,
+        "myopic_first_action": [
+          "commit",
+          "dial",
+          "look",
+          "wait"
+        ],
+        "gap": 1.0
+      },
+      {
+        "horizon": 7,
+        "optimal": 1.0,
+        "optimal_first_action": [
+          "dial",
+          "look",
+          "wait"
+        ],
+        "myopic": 0.0,
+        "myopic_first_action": [
+          "commit",
+          "dial",
+          "look",
+          "wait"
+        ],
+        "gap": 1.0
+      },
+      {
+        "horizon": 8,
+        "optimal": 1.0,
+        "optimal_first_action": [
+          "dial",
+          "look",
+          "wait"
+        ],
+        "myopic": 0.0,
+        "myopic_first_action": [
+          "commit",
+          "dial",
+          "look",
+          "wait"
+        ],
+        "gap": 1.0
+      }
+    ],
+    "neutral_distributions": {
+      "slot": {
+        "0": 0.2104909390487631,
+        "1": 0.2895090609512369,
+        "2": 0.28950906095123696,
+        "3": 0.21049093904876304
+      },
+      "dial": {
+        "0": 0.04612486641299551,
+        "1": 0.08984374122842897,
+        "2": 0.0745223314073386,
+        "3": 0.06550030766107456,
+        "4": 0.059919685881987095,
+        "5": 0.056411192443390046,
+        "6": 0.054326975581968195,
+        "7": 0.05335089938281701,
+        "8": 0.05335089938281701,
+        "9": 0.054326975581968084,
+        "10": 0.0564111924433901,
+        "11": 0.05991968588198726,
+        "12": 0.06550030766107451,
+        "13": 0.07452233140733855,
+        "14": 0.08984374122842897,
+        "15": 0.04612486641299551
+      }
+    }
+  },
+  "refs": {
+    "horizon": 6,
+    "episodes": 48,
+    "policies": [
+      {
+        "policy": "commit_now",
+        "episodes": 48,
+        "mean": 0.020833333333333332,
+        "sd": 0.14282613750835507,
+        "solved": 1
+      },
+      {
+        "policy": "always_wait",
+        "episodes": 48,
+        "mean": 0.0,
+        "sd": 0.0,
+        "solved": 0
+      },
+      {
+        "policy": "look_only",
+        "episodes": 48,
+        "mean": 0.0,
+        "sd": 0.0,
+        "solved": 0
+      },
+      {
+        "policy": "uniform_random",
+        "episodes": 48,
+        "mean": 0.0,
+        "sd": 0.0,
+        "solved": 0
+      },
+      {
+        "policy": "neutral_typed",
+        "episodes": 48,
+        "mean": 0.08333333333333333,
+        "sd": 0.2763853991962833,
+        "solved": 4
+      },
+      {
+        "policy": "dial_then_commit",
+        "episodes": 48,
+        "mean": 0.10416666666666667,
+        "sd": 0.3054766312211496,
+        "solved": 5
+      },
+      {
+        "policy": "fixed_slot_plan",
+        "episodes": 48,
+        "mean": 0.25,
+        "sd": 0.4330127018922193,
+        "solved": 12
+      },
+      {
+        "policy": "oracle",
+        "episodes": 48,
+        "mean": 1.0,
+        "sd": 0.0,
+        "solved": 48
+      }
+    ],
+    "horizon_sweep": [
+      {
+        "horizon": 1,
+        "oracle": 0.0,
+        "commit_now": 0.020833333333333332,
+        "uniform_random": 0.0,
+        "neutral_typed": 0.0,
+        "episodes_each": 48
+      },
+      {
+        "horizon": 2,
+        "oracle": 0.0,
+        "commit_now": 0.020833333333333332,
+        "uniform_random": 0.0,
+        "neutral_typed": 0.020833333333333332,
+        "episodes_each": 48
+      },
+      {
+        "horizon": 3,
+        "oracle": 0.375,
+        "commit_now": 0.020833333333333332,
+        "uniform_random": 0.0,
+        "neutral_typed": 0.041666666666666664,
+        "episodes_each": 48
+      },
+      {
+        "horizon": 4,
+        "oracle": 0.5208333333333334,
+        "commit_now": 0.020833333333333332,
+        "uniform_random": 0.0,
+        "neutral_typed": 0.08333333333333333,
+        "episodes_each": 48
+      },
+      {
+        "horizon": 6,
+        "oracle": 1.0,
+        "commit_now": 0.020833333333333332,
+        "uniform_random": 0.0,
+        "neutral_typed": 0.08333333333333333,
+        "episodes_each": 48
+      },
+      {
+        "horizon": 8,
+        "oracle": 1.0,
+        "commit_now": 0.020833333333333332,
+        "uniform_random": 0.0,
+        "neutral_typed": 0.10416666666666667,
+        "episodes_each": 48
+      }
+    ],
+    "environment_episodes": 1536,
+    "environment_steps": 3837,
+    "seconds": 1446.262307359022
+  },
+  "mpc": {
+    "perception_episodes": 25,
+    "eval_episodes": 64,
+    "transform_program": {
+      "pos": "sub(length,k0)",
+      "shift": "sub(codef,u2)"
+    },
+    "predicate_program": {
+      "qpos": "identity(a0)",
+      "brand": "eq(brandbyte,b1)"
+    },
+    "transform_space": 2700,
+    "transform_conforming": 2,
+    "predicate_space": 168,
+    "predicate_conforming": 10,
+    "mean": 1.0,
+    "solved": 64,
+    "modal_trace": [
+      "look",
+      "look",
+      "look",
+      "look",
+      "dial",
+      "commit"
+    ],
+    "sequences_evaluated": 349440,
+    "environment_episodes": 89,
+    "environment_steps": 534,
+    "seconds": 197.5930690719979
+  },
+  "perception": {
+    "episodes": 25,
+    "transform": {
+      "solved": true,
+      "selections": {
+        "length": 0,
+        "data": 0,
+        "pos": 11,
+        "byte": 0,
+        "unpacked": 0,
+        "code": 0,
+        "codef": 0,
+        "shift": 8
+      },
+      "exact_max_error": 0.0,
+      "evaluated": 2700,
+      "space_size": 2700,
+      "exhausted": true,
+      "unique": false,
+      "seconds": 19.844492459960748,
+      "continuous": [],
+      "conforming": 2,
+      "ranked_by": "description",
+      "description_bits": 25419352,
+      "execution_cost": 8.0,
+      "certificate": "complete",
+      "mode": "fit",
+      "node_evaluations": 669600,
+      "episodes": 0,
+      "steps": 0,
+      "ticks": 0,
+      "settle_window": 0,
+      "best_return": null,
+      "threshold": null,
+      "beam": null,
+      "discarded": 0,
+      "space": 2700,
+      "program": {
+        "pos": "sub(length,k0)",
+        "shift": "sub(codef,u2)"
+      },
+      "held_out_max_error": 0.0,
+      "train_examples": 31
+    },
+    "predicate": {
+      "solved": true,
+      "selections": {
+        "length": 0,
+        "data": 0,
+        "qpos": 2,
+        "brandbyte": 0,
+        "brand": 1
+      },
+      "exact_max_error": 0.0,
+      "evaluated": 168,
+      "space_size": 168,
+      "exhausted": true,
+      "unique": false,
+      "seconds": 17.50421743898187,
+      "continuous": [],
+      "conforming": 10,
+      "ranked_by": "description",
+      "description_bits": 21167440,
+      "execution_cost": 4.0,
+      "certificate": "complete",
+      "mode": "fit",
+      "node_evaluations": 147000,
+      "episodes": 0,
+      "steps": 0,
+      "ticks": 0,
+      "settle_window": 0,
+      "best_return": null,
+      "threshold": null,
+      "beam": null,
+      "discarded": 0,
+      "space": 168,
+      "program": {
+        "qpos": "identity(a0)",
+        "brand": "eq(brandbyte,b1)"
+      },
+      "held_out_max_error": 0.0,
+      "train_examples": 175
+    },
+    "environment_episodes": 41,
+    "environment_steps": 246,
+    "seconds": 115.35784858698025
+  },
+  "equivalence": {
+    "combinations": 384,
+    "identical": 384,
+    "mismatched": [],
+    "chunks": 6,
+    "rows": [
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": false,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "count = 7",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "total = 3",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "x = 0",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 0,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 1,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 2,
+        "split": "validation"
+      },
+      {
+        "actions": "read_write",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "command_wait",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": false,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "train"
+      },
+      {
+        "actions": "write_command",
+        "document": "accumulator = 9",
+        "identical": true,
+        "objective": true,
+        "probe": true,
+        "records": 3,
+        "seed": 3,
+        "split": "validation"
+      }
+    ]
+  },
+  "session_equivalence": {
+    "combinations": 64,
+    "identical": 64,
+    "mismatched": [],
+    "rows": [
+      {
+        "case": "panel/find_then_commit",
+        "identical": true,
+        "index": 0,
+        "records": 6,
+        "split": "train"
+      },
+      {
+        "case": "panel/find_then_commit",
+        "identical": true,
+        "index": 0,
+        "records": 6,
+        "split": "test"
+      },
+      {
+        "case": "panel/commit_now",
+        "identical": true,
+        "index": 0,
+        "records": 2,
+        "split": "train"
+      },
+      {
+        "case": "panel/commit_now",
+        "identical": true,
+        "index": 0,
+        "records": 2,
+        "split": "test"
+      },
+      {
+        "case": "panel/wait_look_dial",
+        "identical": true,
+        "index": 0,
+        "records": 6,
+        "split": "train"
+      },
+      {
+        "case": "panel/wait_look_dial",
+        "identical": true,
+        "index": 0,
+        "records": 6,
+        "split": "test"
+      },
+      {
+        "case": "panel/never_commit",
+        "identical": true,
+        "index": 0,
+        "records": 9,
+        "split": "train"
+      },
+      {
+        "case": "panel/never_commit",
+        "identical": true,
+        "index": 0,
+        "records": 9,
+        "split": "test"
+      },
+      {
+        "case": "panel/find_then_commit",
+        "identical": true,
+        "index": 1,
+        "records": 6,
+        "split": "train"
+      },
+      {
+        "case": "panel/find_then_commit",
+        "identical": true,
+        "index": 1,
+        "records": 6,
+        "split": "test"
+      },
+      {
+        "case": "panel/commit_now",
+        "identical": true,
+        "index": 1,
+        "records": 2,
+        "split": "train"
+      },
+      {
+        "case": "panel/commit_now",
+        "identical": true,
+        "index": 1,
+        "records": 2,
+        "split": "test"
+      },
+      {
+        "case": "panel/wait_look_dial",
+        "identical": true,
+        "index": 1,
+        "records": 6,
+        "split": "train"
+      },
+      {
+        "case": "panel/wait_look_dial",
+        "identical": true,
+        "index": 1,
+        "records": 6,
+        "split": "test"
+      },
+      {
+        "case": "panel/never_commit",
+        "identical": true,
+        "index": 1,
+        "records": 9,
+        "split": "train"
+      },
+      {
+        "case": "panel/never_commit",
+        "identical": true,
+        "index": 1,
+        "records": 9,
+        "split": "test"
+      },
+      {
+        "case": "panel/find_then_commit",
+        "identical": true,
+        "index": 2,
+        "records": 6,
+        "split": "train"
+      },
+      {
+        "case": "panel/find_then_commit",
+        "identical": true,
+        "index": 2,
+        "records": 6,
+        "split": "test"
+      },
+      {
+        "case": "panel/commit_now",
+        "identical": true,
+        "index": 2,
+        "records": 2,
+        "split": "train"
+      },
+      {
+        "case": "panel/commit_now",
+        "identical": true,
+        "index": 2,
+        "records": 2,
+        "split": "test"
+      },
+      {
+        "case": "panel/wait_look_dial",
+        "identical": true,
+        "index": 2,
+        "records": 6,
+        "split": "train"
+      },
+      {
+        "case": "panel/wait_look_dial",
+        "identical": true,
+        "index": 2,
+        "records": 6,
+        "split": "test"
+      },
+      {
+        "case": "panel/never_commit",
+        "identical": true,
+        "index": 2,
+        "records": 9,
+        "split": "train"
+      },
+      {
+        "case": "panel/never_commit",
+        "identical": true,
+        "index": 2,
+        "records": 9,
+        "split": "test"
+      },
+      {
+        "case": "panel/find_then_commit",
+        "identical": true,
+        "index": 3,
+        "records": 6,
+        "split": "train"
+      },
+      {
+        "case": "panel/find_then_commit",
+        "identical": true,
+        "index": 3,
+        "records": 6,
+        "split": "test"
+      },
+      {
+        "case": "panel/commit_now",
+        "identical": true,
+        "index": 3,
+        "records": 2,
+        "split": "train"
+      },
+      {
+        "case": "panel/commit_now",
+        "identical": true,
+        "index": 3,
+        "records": 2,
+        "split": "test"
+      },
+      {
+        "case": "panel/wait_look_dial",
+        "identical": true,
+        "index": 3,
+        "records": 6,
+        "split": "train"
+      },
+      {
+        "case": "panel/wait_look_dial",
+        "identical": true,
+        "index": 3,
+        "records": 6,
+        "split": "test"
+      },
+      {
+        "case": "panel/never_commit",
+        "identical": true,
+        "index": 3,
+        "records": 9,
+        "split": "train"
+      },
+      {
+        "case": "panel/never_commit",
+        "identical": true,
+        "index": 3,
+        "records": 9,
+        "split": "test"
+      },
+      {
+        "case": "panel/find_then_commit",
+        "identical": true,
+        "index": 4,
+        "records": 6,
+        "split": "train"
+      },
+      {
+        "case": "panel/find_then_commit",
+        "identical": true,
+        "index": 4,
+        "records": 6,
+        "split": "test"
+      },
+      {
+        "case": "panel/commit_now",
+        "identical": true,
+        "index": 4,
+        "records": 2,
+        "split": "train"
+      },
+      {
+        "case": "panel/commit_now",
+        "identical": true,
+        "index": 4,
+        "records": 2,
+        "split": "test"
+      },
+      {
+        "case": "panel/wait_look_dial",
+        "identical": true,
+        "index": 4,
+        "records": 6,
+        "split": "train"
+      },
+      {
+        "case": "panel/wait_look_dial",
+        "identical": true,
+        "index": 4,
+        "records": 6,
+        "split": "test"
+      },
+      {
+        "case": "panel/never_commit",
+        "identical": true,
+        "index": 4,
+        "records": 9,
+        "split": "train"
+      },
+      {
+        "case": "panel/never_commit",
+        "identical": true,
+        "index": 4,
+        "records": 9,
+        "split": "test"
+      },
+      {
+        "case": "panel/find_then_commit",
+        "identical": true,
+        "index": 5,
+        "records": 6,
+        "split": "train"
+      },
+      {
+        "case": "panel/find_then_commit",
+        "identical": true,
+        "index": 5,
+        "records": 6,
+        "split": "test"
+      },
+      {
+        "case": "panel/commit_now",
+        "identical": true,
+        "index": 5,
+        "records": 2,
+        "split": "train"
+      },
+      {
+        "case": "panel/commit_now",
+        "identical": true,
+        "index": 5,
+        "records": 2,
+        "split": "test"
+      },
+      {
+        "case": "panel/wait_look_dial",
+        "identical": true,
+        "index": 5,
+        "records": 6,
+        "split": "train"
+      },
+      {
+        "case": "panel/wait_look_dial",
+        "identical": true,
+        "index": 5,
+        "records": 6,
+        "split": "test"
+      },
+      {
+        "case": "panel/never_commit",
+        "identical": true,
+        "index": 5,
+        "records": 9,
+        "split": "train"
+      },
+      {
+        "case": "panel/never_commit",
+        "identical": true,
+        "index": 5,
+        "records": 9,
+        "split": "test"
+      },
+      {
+        "case": "shell/read_write",
+        "identical": true,
+        "index": 0,
+        "records": 3,
+        "split": "train"
+      },
+      {
+        "case": "shell/read_write",
+        "identical": true,
+        "index": 0,
+        "records": 3,
+        "split": "train"
+      },
+      {
+        "case": "shell/command_wait",
+        "identical": true,
+        "index": 0,
+        "records": 3,
+        "split": "train"
+      },
+      {
+        "case": "shell/command_wait",
+        "identical": true,
+        "index": 0,
+        "records": 3,
+        "split": "train"
+      },
+      {
+        "case": "shell/read_write",
+        "identical": true,
+        "index": 1,
+        "records": 3,
+        "split": "train"
+      },
+      {
+        "case": "shell/read_write",
+        "identical": true,
+        "index": 1,
+        "records": 3,
+        "split": "train"
+      },
+      {
+        "case": "shell/command_wait",
+        "identical": true,
+        "index": 1,
+        "records": 3,
+        "split": "train"
+      },
+      {
+        "case": "shell/command_wait",
+        "identical": true,
+        "index": 1,
+        "records": 3,
+        "split": "train"
+      },
+      {
+        "case": "shell/read_write",
+        "identical": true,
+        "index": 2,
+        "records": 3,
+        "split": "train"
+      },
+      {
+        "case": "shell/read_write",
+        "identical": true,
+        "index": 2,
+        "records": 3,
+        "split": "train"
+      },
+      {
+        "case": "shell/command_wait",
+        "identical": true,
+        "index": 2,
+        "records": 3,
+        "split": "train"
+      },
+      {
+        "case": "shell/command_wait",
+        "identical": true,
+        "index": 2,
+        "records": 3,
+        "split": "train"
+      },
+      {
+        "case": "shell/read_write",
+        "identical": true,
+        "index": 3,
+        "records": 3,
+        "split": "train"
+      },
+      {
+        "case": "shell/read_write",
+        "identical": true,
+        "index": 3,
+        "records": 3,
+        "split": "train"
+      },
+      {
+        "case": "shell/command_wait",
+        "identical": true,
+        "index": 3,
+        "records": 3,
+        "split": "train"
+      },
+      {
+        "case": "shell/command_wait",
+        "identical": true,
+        "index": 3,
+        "records": 3,
+        "split": "train"
+      }
+    ],
+    "seconds": 870.9165046819835
+  }
+}

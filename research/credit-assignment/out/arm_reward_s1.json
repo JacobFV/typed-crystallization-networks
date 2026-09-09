@@ -1,0 +1,336 @@
+{
+  "arm": "reward",
+  "seed": 1,
+  "episodes": 600,
+  "curve": [
+    {
+      "episode": 50,
+      "eval": {
+        "mean": 0.21875,
+        "solved": 7,
+        "n": 32,
+        "stochastic": false,
+        "modal_trace": [
+          "look",
+          "look",
+          "look",
+          "look",
+          "look",
+          "look"
+        ]
+      }
+    },
+    {
+      "episode": 100,
+      "eval": {
+        "mean": 0.0,
+        "solved": 0,
+        "n": 32,
+        "stochastic": false,
+        "modal_trace": [
+          "look",
+          "look",
+          "look",
+          "look",
+          "look",
+          "look"
+        ]
+      }
+    },
+    {
+      "episode": 200,
+      "eval": {
+        "mean": 0.21875,
+        "solved": 7,
+        "n": 32,
+        "stochastic": false,
+        "modal_trace": [
+          "look",
+          "look",
+          "look",
+          "look",
+          "look",
+          "look"
+        ]
+      }
+    },
+    {
+      "episode": 400,
+      "eval": {
+        "mean": 0.21875,
+        "solved": 7,
+        "n": 32,
+        "stochastic": false,
+        "modal_trace": [
+          "look",
+          "look",
+          "look",
+          "look",
+          "look",
+          "look"
+        ]
+      }
+    }
+  ],
+  "final": {
+    "mean": 0.3125,
+    "solved": 20,
+    "n": 64,
+    "stochastic": false,
+    "modal_trace": [
+      "look",
+      "look",
+      "look",
+      "look",
+      "look",
+      "look"
+    ]
+  },
+  "final_stochastic": {
+    "mean": 0.65625,
+    "solved": 42,
+    "n": 64,
+    "stochastic": true,
+    "modal_trace": [
+      "look",
+      "look",
+      "dial",
+      "commit"
+    ]
+  },
+  "program": {
+    "selections": {
+      "length": 0,
+      "data": 0,
+      "pos": 0,
+      "byte": 0,
+      "unpacked": 0,
+      "code": 0,
+      "codef": 0,
+      "shift": 0,
+      "qpos": 0,
+      "brandbyte": 0,
+      "brand": 0,
+      "answer_lo": 0,
+      "answer": 0,
+      "dial_lo": 0,
+      "dial_hi": 0,
+      "dial_loglo": 0,
+      "dial_loghi": 0,
+      "dial_diff": 0,
+      "dial_mean": 0,
+      "dial_params": 0,
+      "next_slot": 11,
+      "next_slot_f": 0,
+      "slot_over": 0,
+      "slot_shifted": 0,
+      "slot_wrapped": 0,
+      "slot_clamped_lo": 0,
+      "slot_clamped": 0,
+      "slot_scaled": 0,
+      "slot_y": 0,
+      "slot_lo": 0,
+      "slot_hi": 0,
+      "slot_loglo": 0,
+      "slot_loghi": 0,
+      "slot_diff": 0,
+      "slot_mean": 0,
+      "slot_params": 0,
+      "logits_idle": 0,
+      "logits_found": 0,
+      "logits_dialled": 0,
+      "prev_dial_f": 0,
+      "prev_dial": 0,
+      "inner": 0,
+      "policy": 0,
+      "value": 0,
+      "brandf": 0,
+      "probe": 0
+    },
+    "logstd_slot": 0.259,
+    "logits": {
+      "idle": [
+        0.535,
+        4.305,
+        -2.703,
+        -3.388
+      ],
+      "found": [
+        -1.469,
+        -2.045,
+        4.099,
+        -2.113
+      ],
+      "dialled": [
+        -1.789,
+        -2.483,
+        -1.438,
+        3.106
+      ]
+    },
+    "candidate": {
+      "next_slot": "add(one_slot,one_slot)"
+    }
+  },
+  "history": [
+    {
+      "episode": 50,
+      "grad_norm": 0.2501216530799866,
+      "train_return": 0.12,
+      "reward_rate": 0.12,
+      "selection": {
+        "next_slot": "identity(action.1.slot)"
+      },
+      "actor": -0.17917966842651367,
+      "value": 0.0377923846244812,
+      "entropy": 2.230952024459839,
+      "probe": 1.5
+    },
+    {
+      "episode": 100,
+      "grad_norm": 0.22761879861354828,
+      "train_return": 0.06,
+      "reward_rate": 0.06,
+      "selection": {
+        "next_slot": "add(one_slot,one_slot)"
+      },
+      "actor": -0.11633419245481491,
+      "value": 0.0374317429959774,
+      "entropy": -0.554103434085846,
+      "probe": 32.0
+    },
+    {
+      "episode": 150,
+      "grad_norm": 0.3398699164390564,
+      "train_return": 0.24,
+      "reward_rate": 0.24,
+      "selection": {
+        "next_slot": "add(one_slot,one_slot)"
+      },
+      "actor": 0.02147773467004299,
+      "value": 0.10508709400892258,
+      "entropy": 2.700479507446289,
+      "probe": 12.0
+    },
+    {
+      "episode": 200,
+      "grad_norm": 0.41873830556869507,
+      "train_return": 0.48,
+      "reward_rate": 0.48,
+      "selection": {
+        "next_slot": "add(one_slot,one_slot)"
+      },
+      "actor": 0.2998095452785492,
+      "value": 0.16020077466964722,
+      "entropy": -0.011570245027542114,
+      "probe": 0.5
+    },
+    {
+      "episode": 250,
+      "grad_norm": 0.34547334909439087,
+      "train_return": 0.56,
+      "reward_rate": 0.56,
+      "selection": {
+        "next_slot": "add(one_slot,one_slot)"
+      },
+      "actor": 0.08731993287801743,
+      "value": 0.11694047600030899,
+      "entropy": 0.5117130279541016,
+      "probe": 3.799999952316284
+    },
+    {
+      "episode": 300,
+      "grad_norm": 0.5807610154151917,
+      "train_return": 0.64,
+      "reward_rate": 0.64,
+      "selection": {
+        "next_slot": "add(one_slot,one_slot)"
+      },
+      "actor": 0.10735611617565155,
+      "value": 0.31744110584259033,
+      "entropy": -0.20933321118354797,
+      "probe": 16.25
+    },
+    {
+      "episode": 350,
+      "grad_norm": 0.5640724301338196,
+      "train_return": 0.56,
+      "reward_rate": 0.56,
+      "selection": {
+        "next_slot": "add(one_slot,one_slot)"
+      },
+      "actor": -0.1376940757036209,
+      "value": 0.23737752437591553,
+      "entropy": -0.47715654969215393,
+      "probe": 4.5
+    },
+    {
+      "episode": 400,
+      "grad_norm": 0.4287499487400055,
+      "train_return": 0.56,
+      "reward_rate": 0.56,
+      "selection": {
+        "next_slot": "add(one_slot,one_slot)"
+      },
+      "actor": -0.2468719631433487,
+      "value": 0.17848266661167145,
+      "entropy": 2.1059796810150146,
+      "probe": 11.166666984558105
+    },
+    {
+      "episode": 450,
+      "grad_norm": 0.4897714853286743,
+      "train_return": 0.66,
+      "reward_rate": 0.66,
+      "selection": {
+        "next_slot": "add(one_slot,one_slot)"
+      },
+      "actor": -0.05423678457736969,
+      "value": 0.23897020518779755,
+      "entropy": 2.377728223800659,
+      "probe": 3.0
+    },
+    {
+      "episode": 500,
+      "grad_norm": 0.5762792825698853,
+      "train_return": 0.58,
+      "reward_rate": 0.58,
+      "selection": {
+        "next_slot": "add(one_slot,one_slot)"
+      },
+      "actor": -0.3923611342906952,
+      "value": 0.3099725544452667,
+      "entropy": 2.1775999069213867,
+      "probe": 17.5
+    },
+    {
+      "episode": 550,
+      "grad_norm": 0.6910017132759094,
+      "train_return": 0.58,
+      "reward_rate": 0.58,
+      "selection": {
+        "next_slot": "add(one_slot,one_slot)"
+      },
+      "actor": -0.5895524024963379,
+      "value": 0.4767954647541046,
+      "entropy": 1.5750303268432617,
+      "probe": 5.75
+    },
+    {
+      "episode": 600,
+      "grad_norm": 0.34218814969062805,
+      "train_return": 0.66,
+      "reward_rate": 0.66,
+      "selection": {
+        "next_slot": "add(one_slot,one_slot)"
+      },
+      "actor": -0.03892065957188606,
+      "value": 0.07666881382465363,
+      "entropy": 0.045302439481019974,
+      "probe": 4.875
+    }
+  ],
+  "environment_episodes": 856,
+  "environment_steps": 4091,
+  "seconds": 1419.9614389149938
+}

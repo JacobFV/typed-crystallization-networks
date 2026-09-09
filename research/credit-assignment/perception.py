@@ -6,8 +6,13 @@ the shell task's address and shift. They are separate searches because they are
 independent nodes; enumerating the joint space would be their product for no
 extra information.
 
-    transform :  terminal -> answer        (which byte, and what arithmetic)
-    predicate :  terminal -> showing_task  (which byte, against which constant)
+    transform :  terminal -> shift         (which byte, and what arithmetic)
+    predicate :  terminal -> brand          (which byte, against which constant)
+
+Both are node-for-node the corresponding region of `program.py`'s panel scaffold,
+with the same constant pools and the same node names, so a selection found here
+names a candidate of the panel scaffold unambiguously and `arms.py`'s `staged_enum`
+can install it by string -- and raises if any node fails to match.
 
 The examples come from recorded episodes driven through one fixed sweep, and the
 targets come from `StepRecord.probes`, never from the generator's internal state.
@@ -28,12 +33,15 @@ from program import TERMINAL,LEN,DATA,BYTE,U8,F,_node,constant
 SWEEP=[look(3),look(0),look(1),look(2),dial(0),COMMIT]
 
 def transform_program():
+    """Exactly `program.py`'s perception/transform region, with the same constant
+    pools and the same node names, so a selection found here names a candidate of
+    the panel scaffold by string and can be installed there without ambiguity."""
     r=Registry()
     constants=[constant('one_len',LEN,1)]
-    constants+=[constant(f'k{i}',LEN,v) for i,v in enumerate((2,3))]
-    constants+=[constant(f'a{i}',LEN,v) for i,v in enumerate((0,4,7,8))]
+    constants+=[constant(f'k{i}',LEN,v) for i,v in enumerate((1,2,3))]
+    constants+=[constant(f'a{i}',LEN,v) for i,v in enumerate((0,4,8,42))]
     constants+=[constant(f'u{i}',F,float(v)) for i,v in enumerate((45.,46.,47.,48.))]
-    ports={'length':LEN,'one_len':LEN}|{f'k{i}':LEN for i in range(2)}|{f'a{i}':LEN for i in range(4)}
+    ports={'length':LEN,'one_len':LEN}|{f'k{i}':LEN for i in range(3)}|{f'a{i}':LEN for i in range(4)}
     vports={'codef':F}|{f'u{i}':F for i in range(4)}
     nodes=[
       _node('length',LEN,[Candidate(r.resolve('project',(TERMINAL,),LEN,{'index':0}),('terminal',))],'perception',1),
@@ -43,25 +51,25 @@ def transform_program():
       _node('unpacked',product(U8),[Candidate(r.resolve('unpack',(BYTE,),product(U8)),('byte',))],'perception',4),
       _node('code',U8,[Candidate(r.resolve('project',(product(U8),),U8,{'index':0}),('unpacked',))],'perception',5),
       _node('codef',F,[Candidate(r.resolve('decode',(U8,),F),('code',))],'perception',6),
-      _node('answer',F,legal_candidates(r,('identity','sub'),vports,F,arities=(1,2)),'transform',7),
+      _node('shift',F,legal_candidates(r,('identity','sub'),vports,F,arities=(1,2)),'transform',7),
     ]
-    return Program((('terminal',TERMINAL),),tuple(nodes),(('answer','answer'),),tuple(constants)).validate(r),r
+    return Program((('terminal',TERMINAL),),tuple(nodes),(('shift','shift'),),tuple(constants)).validate(r),r
 
 def predicate_program():
+    """Likewise for the perceptual predicate, node for node."""
     r=Registry()
     constants=[constant('zero_len',LEN,0)]
-    constants+=[constant(f'a{i}',LEN,v) for i,v in enumerate((1,2,4,7))]
-    constants+=[constant(f'b{i}',BYTE,ord(c)) for i,c in enumerate(('{','t','n','0',' ','='))]
+    constants+=[constant(f'a{i}',LEN,v) for i,v in enumerate((0,4,8,42))]
+    constants+=[constant(f'b{i}',BYTE,ord(c)) for i,c in enumerate(('{','t','n','0'))]
     ports={'length':LEN,'zero_len':LEN}|{f'a{i}':LEN for i in range(4)}
     nodes=[
       _node('length',LEN,[Candidate(r.resolve('project',(TERMINAL,),LEN,{'index':0}),('terminal',))],'perception',1),
       _node('data',DATA,[Candidate(r.resolve('project',(TERMINAL,),DATA,{'index':1}),('terminal',))],'perception',1),
       _node('qpos',LEN,legal_candidates(r,('identity','sub'),ports,LEN,arities=(1,2)),'perception',2),
-      _node('qbyte',BYTE,[Candidate(r.resolve('index',(DATA,LEN),BYTE),('data','qpos'))],'perception',3),
-      _node('brand',BOOL,[Candidate(r.resolve('eq',(BYTE,BYTE)),('qbyte',f'b{i}')) for i in range(6)],'perception',4),
+      _node('brandbyte',BYTE,[Candidate(r.resolve('index',(DATA,LEN),BYTE),('data','qpos'))],'perception',3),
+      _node('brand',BOOL,[Candidate(r.resolve('eq',(BYTE,BYTE)),('brandbyte',f'b{i}')) for i in range(4)],'perception',4),
     ]
     return Program((('terminal',TERMINAL),),tuple(nodes),(('brand','brand'),),tuple(constants)).validate(r),r
-
 
 def collect(counter,indices,split='train'):
     """Recorded episodes under one fixed sweep. Targets come only from `probes`."""
@@ -88,7 +96,7 @@ def main(episodes=25):
     train_t,train_p=collect(counter,range(episodes))
     held_t,held_p=collect(counter,range(20000,20000+16),split='test')
     tp,tr=transform_program();pp,pr=predicate_program()
-    ts=(Signal('answer','reference_answer',('perception','transform'),F,'mse'),)
+    ts=(Signal('shift','reference_answer',('perception','transform'),F,'mse'),)
     ps=(Signal('brand','reference_brand',('perception',),BOOL,'mse'),)
     a=enumerate_fit(tp,train_t,ts,tr,tolerance=1e-6,rank='description')
     b=enumerate_fit(pp,train_p,ps,pr,tolerance=1e-6,rank='description')

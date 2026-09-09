@@ -36,10 +36,23 @@ let live:Live|null=null;
 async function teardown() {
   if(!live) return;
   const root=live.root; live=null;
-  await rm(root,{recursive:true,force:true});
+  // Deleting the episode's scratch directory is cleanup, not semantics. Under heavy
+  // parallel load `rm` intermittently raises ENOTEMPTY here and in `bridge.ts`, and
+  // in `bridge.ts` -- where it sits in a `finally` -- that kills the whole
+  // transition. A failed cleanup must not end an episode, so retry and then give up.
+  for(let attempt=0;attempt<3;attempt++) {
+    try { await rm(root,{recursive:true,force:true}); return; }
+    catch { await new Promise(resolve=>setTimeout(resolve,20)); }
+  }
 }
 
 async function boot(seed:any):Promise<Live> {
+  // `bridge.ts` boots in a fresh process, so the logical clock is always at the
+  // epoch when the runtime is constructed and every boot-time stamp -- inode
+  // times, process start times, the first trajectory entry -- is t = 0. A rebuild
+  // inside a live session inherits the clock from the previous request, which
+  // silently moved all of them and made a replayed episode diverge. Reset it.
+  logicalTime=946684800000;
   setIdentitySeed(String(seed));
   const root=await mkdtemp(path.join(tmpdir(),'tcn-computer-'));
   const runtime=new SimulationRuntime({topology:seed2026Blueprint,stateRoot:root,runId:`episode-${seed}`});

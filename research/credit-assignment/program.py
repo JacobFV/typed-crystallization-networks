@@ -54,6 +54,14 @@ DIGIT_LO,DIGIT_HI=1.,9.                    # the answer is always in 1..9
 DIAL_HI=float((1<<DIAL.bits)-1)
 SLOT_HI=float((1<<SLOT.bits)-1)
 LOG_STD=-5.
+# The dial argument is *computed* from the terminal, so its sampler is deterministic
+# (sigma = exp(-5)) and nothing about the answer is explored -- stated, and ablated by
+# `dial_explores=True`. The slot argument is the opposite: which slot to look at is
+# what the reward has to discover, and a score-function estimator through a sampler
+# of width exp(-5) has variance exp(10) and estimates nothing. So the slot's log
+# sigma starts at 0 -- `tcn/policy.py`'s neutral width, P(slot) =
+# (0.21, 0.29, 0.29, 0.21) -- and is trainable, so the policy can narrow it itself.
+SLOT_LOG_STD=0.
 ZERO4=(0.,0.,0.,0.)
 
 def _node(name,output,candidates,region,depth):
@@ -69,7 +77,7 @@ def _node(name,output,candidates,region,depth):
 def constant(name,type_,value):return (name,Value.of(type_,value))
 
 
-def encoder(r,nodes,source,name,depth):
+def encoder(r,nodes,source,name,depth,logstd='logstd'):
     """`mean = atanh(2*(x-lo)/(hi-lo) - 1)`, as log((x-lo)) - log((hi-x)), halved.
 
     Exactly inverts `tcn/policy.py:sample_typed`'s bounded decode, so the sampled
@@ -82,12 +90,12 @@ def encoder(r,nodes,source,name,depth):
       _node(f'{name}_loghi',F,[Candidate(r.resolve('log',(F,)),(f'{name}_hi',))],'encode',depth+1),
       _node(f'{name}_diff',F,[Candidate(r.resolve('sub',(F,F)),(f'{name}_loglo',f'{name}_loghi'))],'encode',depth+2),
       _node(f'{name}_mean',F,[Candidate(r.resolve('mul',(F,F)),(f'{name}_diff','half'))],'encode',depth+3),
-      _node(f'{name}_params',PAIR,[Candidate(r.resolve('tuple',(F,F)),(f'{name}_mean','logstd'))],'encode',depth+4),
+      _node(f'{name}_params',PAIR,[Candidate(r.resolve('tuple',(F,F)),(f'{name}_mean',logstd))],'encode',depth+4),
     ]
     return nodes
 
 
-def panel_program(perception=False,policy_state=True,slot_pool=True,seed_logits=None):
+def panel_program(perception=False,policy_state=True,slot_pool=True,seed_logits=None,dial_explores=False):
     """The scaffold. `perception=True` puts the four perception choices in the search."""
     r=Registry()
     inputs=(('terminal',TERMINAL),('action',ACTION),('action.1.slot',SLOT),('action.2.value',DIAL))
@@ -95,7 +103,8 @@ def panel_program(perception=False,policy_state=True,slot_pool=True,seed_logits=
                constant('t_byte',BYTE,ord('t')),
                constant('c47',F,47.),constant('c15',F,DIAL_HI),
                constant('dlo',F,DIGIT_LO),constant('dhi',F,DIGIT_HI),
-               constant('half',F,.5),constant('logstd',F,LOG_STD),
+               constant('half',F,.5),constant('logstd',F,0. if dial_explores else LOG_STD),
+               constant('logstd_slot',F,SLOT_LOG_STD),
                constant('slot_scale',F,.96),constant('slot_bias',F,.06),
                constant('zero_slot',SLOT,0),constant('one_slot',SLOT,1),constant('three_slot',SLOT,3)]
     if perception:
@@ -169,7 +178,7 @@ def panel_program(perception=False,policy_state=True,slot_pool=True,seed_logits=
     constants+=[constant('zerof',F,0.),constant('slot_hif',F,SLOT_HI),constant('slot_mod',F,SLOT_HI+1),constant('slot_edge',F,SLOT_HI+.5),
                 constant('slot_c_lo',F,0.),constant('slot_c_hi',F,SLOT_HI),
                 constant('dial_c_lo',F,0.),constant('dial_c_hi',F,DIAL_HI)]
-    nodes=encoder(r,nodes,'slot_y','slot',10)
+    nodes=encoder(r,nodes,'slot_y','slot',10,'logstd_slot')
 
     # --- policy -------------------------------------------------------------
     # `Program.validate` requires a trainable constant to be numeric, so each logit
@@ -199,7 +208,8 @@ def panel_program(perception=False,policy_state=True,slot_pool=True,seed_logits=
     ]
     outputs=(('policy','policy'),('slot_params','slot_params'),('dial_params','dial_params'),
              ('value','value'),('probe','probe'))
-    trainable=tuple(f'{name}{i}' for name in situations for i in range(4))+('baseline',)
+    trainable=tuple(f'{name}{i}' for name in situations for i in range(4))+('baseline','logstd_slot')
+    if dial_explores:trainable=trainable+('logstd',)
     program=Program(inputs,tuple(nodes),outputs,tuple(constants),trainable_constants=trainable)
     return program.validate(r),r
 

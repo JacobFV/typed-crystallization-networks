@@ -1,31 +1,31 @@
 {
-  "episodes": 8,
+  "episodes": 25,
   "transform": {
     "solved": true,
     "selections": {
       "length": 0,
       "data": 0,
-      "pos": 9,
+      "pos": 11,
       "byte": 0,
       "unpacked": 0,
       "code": 0,
       "codef": 0,
-      "answer": 8
+      "shift": 8
     },
     "exact_max_error": 0.0,
-    "evaluated": 2160,
-    "space_size": 2160,
+    "evaluated": 2700,
+    "space_size": 2700,
     "exhausted": true,
-    "unique": true,
-    "seconds": 12.03591483499622,
+    "unique": false,
+    "seconds": 19.844492459960748,
     "continuous": [],
-    "conforming": 1,
+    "conforming": 2,
     "ranked_by": "description",
-    "description_bits": 25418104,
+    "description_bits": 25419352,
     "execution_cost": 8.0,
-    "certificate": "unique",
+    "certificate": "complete",
     "mode": "fit",
-    "node_evaluations": 190080,
+    "node_evaluations": 669600,
     "episodes": 0,
     "steps": 0,
     "ticks": 0,
@@ -34,37 +34,37 @@
     "threshold": null,
     "beam": null,
     "discarded": 0,
-    "space": 2160,
+    "space": 2700,
     "program": {
-      "pos": "sub(length,one_len)",
-      "answer": "sub(codef,u2)"
+      "pos": "sub(length,k0)",
+      "shift": "sub(codef,u2)"
     },
     "held_out_max_error": 0.0,
-    "train_examples": 11
+    "train_examples": 31
   },
   "predicate": {
     "solved": true,
     "selections": {
       "length": 0,
       "data": 0,
-      "qpos": 1,
-      "qbyte": 0,
+      "qpos": 2,
+      "brandbyte": 0,
       "brand": 1
     },
     "exact_max_error": 0.0,
-    "evaluated": 252,
-    "space_size": 252,
+    "evaluated": 168,
+    "space_size": 168,
     "exhausted": true,
     "unique": false,
-    "seconds": 8.183045645011589,
+    "seconds": 17.50421743898187,
     "continuous": [],
-    "conforming": 7,
+    "conforming": 10,
     "ranked_by": "description",
-    "description_bits": 21169944,
+    "description_bits": 21167440,
     "execution_cost": 4.0,
     "certificate": "complete",
     "mode": "fit",
-    "node_evaluations": 70560,
+    "node_evaluations": 147000,
     "episodes": 0,
     "steps": 0,
     "ticks": 0,
@@ -73,15 +73,15 @@
     "threshold": null,
     "beam": null,
     "discarded": 0,
-    "space": 252,
+    "space": 168,
     "program": {
-      "qpos": "identity(zero_len)",
-      "brand": "eq(qbyte,b1)"
+      "qpos": "identity(a0)",
+      "brand": "eq(brandbyte,b1)"
     },
     "held_out_max_error": 0.0,
-    "train_examples": 56
+    "train_examples": 175
   },
-  "environment_episodes": 24,
-  "environment_steps": 144,
-  "seconds": 48.75871254096273
+  "environment_episodes": 41,
+  "environment_steps": 246,
+  "seconds": 115.35784858698025
 }

@@ -46,12 +46,12 @@ def frozen_perception(counter,episodes):
     from tcn.search import enumerate_fit
     from program import F
     from tcn.types import BOOL
-    a=enumerate_fit(tp,train_t,(Signal('answer','reference_answer',('perception','transform'),F,'mse'),),tr,tolerance=1e-6,rank='description')
+    a=enumerate_fit(tp,train_t,(Signal('shift','reference_answer',('perception','transform'),F,'mse'),),tr,tolerance=1e-6,rank='description')
     b=enumerate_fit(pp,train_p,(Signal('brand','reference_brand',('perception',),BOOL,'mse'),),pr,tolerance=1e-6,rank='description')
     if not (a.solved and b.solved):raise RuntimeError('perception enumeration found no conforming program')
     ht=tp.harden(a.selections);hp=pp.harden(b.selections)
     def answer_of(terminal):
-        out,_=ht.run({'terminal':terminal},registry=tr);return float(out['answer'].decoded)
+        out,_=ht.run({'terminal':terminal},registry=tr);return float(out['shift'].decoded)
     def brand_of(terminal):
         out,_=hp.run({'terminal':terminal},registry=pr);return bool(out['brand'].decoded)
     return answer_of,brand_of,a,b

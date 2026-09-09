@@ -1,0 +1,299 @@
+{
+  "arm": "reward_sweep_given",
+  "seed": 1,
+  "episodes": 600,
+  "curve": [
+    {
+      "episode": 50,
+      "eval": {
+        "mean": 0.125,
+        "solved": 4,
+        "n": 32,
+        "stochastic": false,
+        "modal_trace": [
+          "dial",
+          "commit"
+        ]
+      }
+    },
+    {
+      "episode": 100,
+      "eval": {
+        "mean": 0.125,
+        "solved": 4,
+        "n": 32,
+        "stochastic": false,
+        "modal_trace": [
+          "dial",
+          "commit"
+        ]
+      }
+    },
+    {
+      "episode": 200,
+      "eval": {
+        "mean": 1.0,
+        "solved": 32,
+        "n": 32,
+        "stochastic": false,
+        "modal_trace": [
+          "look",
+          "look",
+          "dial",
+          "commit"
+        ]
+      }
+    },
+    {
+      "episode": 400,
+      "eval": {
+        "mean": 1.0,
+        "solved": 32,
+        "n": 32,
+        "stochastic": false,
+        "modal_trace": [
+          "look",
+          "look",
+          "dial",
+          "commit"
+        ]
+      }
+    }
+  ],
+  "final": {
+    "mean": 1.0,
+    "solved": 64,
+    "n": 64,
+    "stochastic": false,
+    "modal_trace": [
+      "look",
+      "look",
+      "look",
+      "look",
+      "dial",
+      "commit"
+    ]
+  },
+  "final_stochastic": {
+    "mean": 0.765625,
+    "solved": 49,
+    "n": 64,
+    "stochastic": true,
+    "modal_trace": [
+      "look",
+      "look",
+      "look",
+      "dial",
+      "commit"
+    ]
+  },
+  "program": {
+    "selections": {
+      "length": 0,
+      "data": 0,
+      "pos": 0,
+      "byte": 0,
+      "unpacked": 0,
+      "code": 0,
+      "codef": 0,
+      "shift": 0,
+      "qpos": 0,
+      "brandbyte": 0,
+      "brand": 0,
+      "answer_lo": 0,
+      "answer": 0,
+      "dial_lo": 0,
+      "dial_hi": 0,
+      "dial_loglo": 0,
+      "dial_loghi": 0,
+      "dial_diff": 0,
+      "dial_mean": 0,
+      "dial_params": 0,
+      "next_slot": 0,
+      "next_slot_f": 0,
+      "slot_over": 0,
+      "slot_shifted": 0,
+      "slot_wrapped": 0,
+      "slot_clamped_lo": 0,
+      "slot_clamped": 0,
+      "slot_scaled": 0,
+      "slot_y": 0,
+      "slot_lo": 0,
+      "slot_hi": 0,
+      "slot_loglo": 0,
+      "slot_loghi": 0,
+      "slot_diff": 0,
+      "slot_mean": 0,
+      "slot_params": 0,
+      "logits_idle": 0,
+      "logits_found": 0,
+      "logits_dialled": 0,
+      "prev_dial_f": 0,
+      "prev_dial": 0,
+      "inner": 0,
+      "policy": 0,
+      "value": 0,
+      "brandf": 0,
+      "probe": 0
+    },
+    "logstd_slot": -0.39,
+    "logits": {
+      "idle": [
+        -0.785,
+        3.961,
+        -1.449,
+        -1.703
+      ],
+      "found": [
+        -1.398,
+        -2.36,
+        4.494,
+        -3.328
+      ],
+      "dialled": [
+        -1.803,
+        -2.994,
+        -2.139,
+        2.902
+      ]
+    },
+    "candidate": {}
+  },
+  "history": [
+    {
+      "episode": 50,
+      "grad_norm": 0.15682443976402283,
+      "train_return": 0.06,
+      "reward_rate": 0.06,
+      "selection": {},
+      "actor": -0.055943749845027924,
+      "value": 0.02158886194229126,
+      "entropy": -0.808819591999054,
+      "probe": 2.0
+    },
+    {
+      "episode": 100,
+      "grad_norm": 0.1359255462884903,
+      "train_return": 0.08,
+      "reward_rate": 0.08,
+      "selection": {},
+      "actor": -0.2879994511604309,
+      "value": 0.012813015840947628,
+      "entropy": 2.279836893081665,
+      "probe": 17.0
+    },
+    {
+      "episode": 150,
+      "grad_norm": 0.35402679443359375,
+      "train_return": 0.16,
+      "reward_rate": 0.16,
+      "selection": {},
+      "actor": -0.17895686626434326,
+      "value": 0.10584615916013718,
+      "entropy": 1.4503796592180151e-05,
+      "probe": 32.0
+    },
+    {
+      "episode": 200,
+      "grad_norm": 0.42724278569221497,
+      "train_return": 0.28,
+      "reward_rate": 0.28,
+      "selection": {},
+      "actor": 0.41136860847473145,
+      "value": 0.17585672438144684,
+      "entropy": 2.706655502319336,
+      "probe": 4.5
+    },
+    {
+      "episode": 250,
+      "grad_norm": 0.5392822623252869,
+      "train_return": 0.52,
+      "reward_rate": 0.52,
+      "selection": {},
+      "actor": 0.13557100296020508,
+      "value": 0.28780677914619446,
+      "entropy": 2.052260160446167,
+      "probe": 6.0
+    },
+    {
+      "episode": 300,
+      "grad_norm": 0.38840052485466003,
+      "train_return": 0.56,
+      "reward_rate": 0.56,
+      "selection": {},
+      "actor": -0.84748375415802,
+      "value": 0.11435459554195404,
+      "entropy": 0.28536397218704224,
+      "probe": 16.25
+    },
+    {
+      "episode": 350,
+      "grad_norm": 0.3305853605270386,
+      "train_return": 0.56,
+      "reward_rate": 0.56,
+      "selection": {},
+      "actor": -0.03685733675956726,
+      "value": 0.09048744291067123,
+      "entropy": 0.04657967761158943,
+      "probe": 3.75
+    },
+    {
+      "episode": 400,
+      "grad_norm": 0.7354873418807983,
+      "train_return": 0.6,
+      "reward_rate": 0.6,
+      "selection": {},
+      "actor": 0.06624006479978561,
+      "value": 0.38979437947273254,
+      "entropy": 2.0461647510528564,
+      "probe": 8.5
+    },
+    {
+      "episode": 450,
+      "grad_norm": 0.9121599793434143,
+      "train_return": 0.7,
+      "reward_rate": 0.7,
+      "selection": {},
+      "actor": -0.6794029474258423,
+      "value": 0.7305623888969421,
+      "entropy": 0.841996967792511,
+      "probe": 3.200000047683716
+    },
+    {
+      "episode": 500,
+      "grad_norm": 0.5668842196464539,
+      "train_return": 0.72,
+      "reward_rate": 0.72,
+      "selection": {},
+      "actor": 0.2915792167186737,
+      "value": 0.26487448811531067,
+      "entropy": 1.2186698913574219,
+      "probe": 13.583333015441895
+    },
+    {
+      "episode": 550,
+      "grad_norm": 0.3227802515029907,
+      "train_return": 0.6,
+      "reward_rate": 0.6,
+      "selection": {},
+      "actor": -0.07248074561357498,
+      "value": 0.09899301826953888,
+      "entropy": -0.24554862082004547,
+      "probe": 4.75
+    },
+    {
+      "episode": 600,
+      "grad_norm": 0.6249089241027832,
+      "train_return": 0.7,
+      "reward_rate": 0.7,
+      "selection": {},
+      "actor": -0.1942928433418274,
+      "value": 0.38233456015586853,
+      "entropy": 1.1185053586959839,
+      "probe": 15.583333015441895
+    }
+  ],
+  "environment_episodes": 856,
+  "environment_steps": 3533,
+  "seconds": 1051.2605383759947
+}

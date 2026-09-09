@@ -38,10 +38,11 @@ def run(generator,address,configuration,objective,actions):
     for a in actions:h.step((a,))
     return [json.dumps(r.to_dict(),sort_keys=True) for r in h.records]
 
-def main(limit=None):
+def main(limit=None,chunk=None,chunks=1):
     rows=[];t0=time.perf_counter()
     grid=list(itertools.product(DOCS,SEEDS,SEQS.items(),OBJECTIVES,SPLITS,PROBES))
     if limit:grid=grid[:limit]
+    if chunk is not None:grid=grid[chunk::chunks]
     for doc,seed,(name,seq),objective,split,probe in grid:
         address=Address('computer',seed,0,split);cfg={'document':doc,'horizon':len(seq)}
         if probe:cfg['probe']=probe
@@ -53,6 +54,18 @@ def main(limit=None):
     report={'combinations':len(rows),'identical':sum(r['identical'] for r in rows),
             'mismatched':[r for r in rows if not r['identical']],'seconds':time.perf_counter()-t0,'rows':rows}
     print(json.dumps({k:v for k,v in report.items() if k!='rows'},indent=2))
-    open(ROOT+'/research/credit-assignment/out/equivalence.json','w').write(json.dumps(report,indent=2,sort_keys=True))
+    name='equivalence.json' if chunk is None else f'equivalence_{chunk}.json'
+    open(ROOT+'/research/credit-assignment/out/'+name,'w').write(json.dumps(report,indent=2,sort_keys=True))
 
-if __name__=='__main__':main(int(sys.argv[1]) if len(sys.argv)>1 else None)
+def merge(chunks):
+    rows=[]
+    for i in range(chunks):
+        rows+=json.load(open(f'{ROOT}/research/credit-assignment/out/equivalence_{i}.json'))['rows']
+    report={'combinations':len(rows),'identical':sum(r['identical'] for r in rows),
+            'mismatched':[r for r in rows if not r['identical']],'chunks':chunks,'rows':rows}
+    print(json.dumps({k:v for k,v in report.items() if k!='rows'},indent=2))
+    open(ROOT+'/research/credit-assignment/out/equivalence.json','w').write(json.dumps(report,indent=2))
+
+if __name__=='__main__':
+    if sys.argv[1:2]==['merge']:merge(int(sys.argv[2]))
+    else:main(None,int(sys.argv[1]),int(sys.argv[2])) if len(sys.argv)>2 else main(int(sys.argv[1]) if len(sys.argv)>1 else None)

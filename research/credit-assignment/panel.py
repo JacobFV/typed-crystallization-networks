@@ -134,6 +134,17 @@ def policy_oracle(host,t,rng,memory):
     if stage=='dial':return dial(p['answer']),('commit',i)
     return COMMIT,('done',i)
 
+def policy_fixed_slot_plan(host,t,rng,memory):
+    """The best a non-sweeping program can do: look at one fixed slot, then dial what
+    was read if it was the task record and a guess otherwise, then commit. This is the
+    measured form of `analysis.look_ceilings`'s `constant_slot` value, 1/3."""
+    p=host.state['panel']
+    if memory is None:return look(0),'looked'
+    if memory=='looked':
+        value=p['answer'] if p['task']==0 else rng.randrange(1,PANEL_DIGITS+1)
+        return dial(value),'dialled'
+    return COMMIT,'done'
+
 def policy_oracle_myopic_first(host,t,rng,memory):
     """The oracle's plan with the myopic first move spliced in, for the gap table."""
     if t==0:return COMMIT,memory
@@ -141,7 +152,8 @@ def policy_oracle_myopic_first(host,t,rng,memory):
 
 POLICIES={'commit_now':policy_commit_now,'always_wait':policy_wait,'look_only':policy_look_only,
           'uniform_random':policy_uniform,'neutral_typed':policy_neutral_typed,
-          'dial_then_commit':policy_dial_then_commit,'oracle':policy_oracle}
+          'dial_then_commit':policy_dial_then_commit,'fixed_slot_plan':policy_fixed_slot_plan,
+          'oracle':policy_oracle}
 
 
 def rollout(counter,policy,index,seed=0,split='train',horizon=HORIZON,rng=None):
