@@ -71,6 +71,17 @@ _UNKNOWN = object()
 _FLOAT_CLOSED = {"add", "sub", "mul", "div", "pow", "min", "max", "atan2",
                  "neg", "abs", "exp", "log", "sin", "cos", "sqrt"}
 
+# Above this many admissible values the boundary's identity guard falls back to
+# an interval comparison rather than materialising a `frozenset` of them.  Both
+# spellings enforce the same contract and both are sound, so the cap is a
+# *cold-start allocation* decision, not a correctness one: the set is built at
+# import, and `research/compiled-runtime/RESULTS.md` sec 11 measures cold start at
+# 38-90 ms for these artifacts, which a multi-megabyte set would dominate.  8,192
+# covers every byte and every refinement-bounded address type in the repository
+# at roughly 300 KB; wider types take the `min`/`max` form, measured 1.5x slower
+# per element and unbounded in range (`research/program-length` sec 6.1).
+_IDENTITY_SET_MAX = 1 << 13
+
 
 class CompileResult:
     """Generated source plus the audit trail from each line back to a node."""
@@ -117,6 +128,7 @@ class _Compiler:
         self.type_dicts = []       # index -> canonical dict
         self.canon = {}            # type index -> helper name (scalar canonicaliser)
         self.bound = {}            # type index -> helper name (boundary encoder)
+        self.idset = {}            # (lo, hi) -> name of the admissible-value frozenset
         self.helpers = []          # helper function sources, in emission order
         self.consts = {}           # literal source -> constant name
         self.known = {}            # constant name -> its value, for guard folding
@@ -127,7 +139,8 @@ class _Compiler:
         self.n = 0
         self.stats = {"nodes_emitted": 0, "nodes_folded": 0, "nodes_pruned_dead": 0,
                       "scalar_canonicalisations": 0, "structural_canonicalisations_elided": 0,
-                      "boundary_encoders": 0, "modules_emitted": 0, "widest_static_type": 0}
+                      "boundary_encoders": 0, "modules_emitted": 0, "widest_static_type": 0,
+                      "boundary_identity_guards": 0}
         self.needs = set()
 
     # ---- type table -------------------------------------------------------
@@ -246,6 +259,70 @@ class _Compiler:
         return L
 
     # ---- boundary encoders ------------------------------------------------
+    def _identity_interval(self, t):
+        """The closed integer interval on which this scalar boundary is the identity.
+
+        Purely a property of the declared type.  For an integer-encoded `int`,
+        `_canon_body` performs, in order: a finiteness test, an optional
+        refinement-bounds test, `int(x)` with a fractional test, an overflow
+        action at the encoded width, and an optional post-encoding bounds test.
+        For a Python `int` inside the intersection of the encoded range with the
+        refinement bounds, every one of those is provably satisfied and the
+        function returns `x` itself -- so the whole chain is a no-op *on that
+        branch*, and the branch can be recognised by one type test and one
+        interval test.  Returns `None` where no such interval exists (float and
+        fixed-point encodings, where the round trip genuinely changes the value).
+
+        `Type.__post_init__` caps `bits` at 64, so the interval endpoints are
+        always exactly representable as floats and `math.isfinite` on a member
+        can never itself raise.
+        """
+        if t.kind != "int" or t.encoding.kind != "integer":
+            return None
+        e = t.encoding
+        lo = -(2 ** (t.bits - 1)) if e.signed else 0
+        hi = 2 ** (t.bits - int(e.signed)) - 1
+        if t.bounds is not None:
+            lo = max(lo, math.ceil(t.bounds[0]))
+            hi = min(hi, math.floor(t.bounds[1]))
+        return (lo, hi) if lo <= hi else None
+
+    def _identity_guard(self, t, arity):
+        """A sound, cheap predicate for "this whole tuple is already canonical".
+
+        Two spellings, both keyed only on the type and both running entirely in
+        C over the container at once.  `set(map(type, x)) == _INTTYPE` is not
+        redundant with the value test and cannot be dropped: `hash(True) ==
+        hash(1.0) == hash(1)`, so a membership or interval test alone accepts a
+        `bool` or a `float` whose value happens to be admissible, and returning
+        the container unchanged would then hand the program a non-canonical
+        carrier where the boundary is required to raise `TypeError` or to
+        round.  Where the admissible set is small enough to enumerate,
+        `frozenset.issuperset` is the value test; otherwise `min`/`max` are,
+        which carry no cardinality cap.
+
+        The guard is a *recogniser*, never a replacement: a value it rejects
+        falls through to the unmodified boundary function, so the exception
+        type, its message and the element it is raised at are all unchanged.
+        Returns `None` where the type admits no such branch -- float and
+        fixed-point encodings, where the round trip genuinely changes the value.
+        """
+        span = self._identity_interval(t)
+        if span is None or arity <= 0:
+            return None
+        lo, hi = span
+        self.needs.add("inttype")
+        if hi - lo + 1 <= _IDENTITY_SET_MAX:
+            name = self.idset.get(span)
+            if name is None:
+                name = "_okset%d" % len(self.idset)
+                self.idset[span] = name
+                self.const_lines.append("%s = frozenset(range(%d, %d))" % (name, lo, hi + 1))
+            value = "%s.issuperset(x)" % name
+        else:
+            value = "%d <= min(x) and max(x) <= %d" % (lo, hi)
+        return "type(x) is tuple and set(map(type, x)) == _INTTYPE and " + value
+
     def _boundary_fn(self, t):
         """Full `Value.of` semantics: encode with every guard, then decode."""
         i = self.tid(t)
@@ -260,6 +337,16 @@ class _Compiler:
             inner = [self._boundary_fn(s) for s in t.items]
             body = ["    if len(x) != %d: raise ValueError('tuple arity mismatch')" % len(t.items)]
             if len(set(inner)) == 1 and len(inner) > 4:
+                # A homogeneous wide tuple is where the boundary cost lives:
+                # `research/compiled-runtime/RESULTS.md` section 5 measured 585 us
+                # of validation around a 1.12 us program on a 4,097-element
+                # observation.  Every check below is still enforced; what the
+                # guard removes is one Python frame per element and the
+                # re-materialisation of a tuple that is already canonical.
+                guard = self._identity_guard(t.items[0], len(t.items))
+                if guard is not None:
+                    self.stats["boundary_identity_guards"] += 1
+                    body.append("    if %s: return x" % guard)
                 body.append("    return tuple(map(%s, x))" % inner[0])
             else:
                 body.append("    return (%s)" % "".join("%s(x[%d])," % (f, k) for k, f in enumerate(inner)))
@@ -679,6 +766,8 @@ class _Compiler:
         if "f64" in self.needs:
             header += ["_F64P = struct.Struct('<d').pack", "_F64U = struct.Struct('<d').unpack",
                        "_U64P = struct.Struct('<Q').pack", "_U64U = struct.Struct('<Q').unpack"]
+        if "inttype" in self.needs:
+            header.append("_INTTYPE = frozenset((int,))")
         header += ["", "def _nonfinite(): raise TypeError('finite numeric value required')", ""]
         if "ovf" in self.needs:
             header += ["def _ovf(x, lo, hi):",

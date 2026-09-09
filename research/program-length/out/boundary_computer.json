@@ -1,0 +1,266 @@
+{
+ "adversarial": [
+  {
+   "after": "('ValueError', 'fractional value requires explicit quantization')",
+   "after_matches_oracle_kind": true,
+   "before": "('ValueError', 'fractional value requires explicit quantization')",
+   "before_after_identical": true,
+   "case": "fractional",
+   "oracle": "('ValueError', 'fractional value requires explicit quantization')"
+  },
+  {
+   "after": "('OverflowError', '1099511627776 outside [0, 255]')",
+   "after_matches_oracle_kind": true,
+   "before": "('OverflowError', '1099511627776 outside [0, 255]')",
+   "before_after_identical": true,
+   "case": "above range",
+   "oracle": "('OverflowError', '1099511627776 outside [0, 255]')"
+  },
+  {
+   "after": "('TypeError', 'finite numeric value required')",
+   "after_matches_oracle_kind": true,
+   "before": "('TypeError', 'finite numeric value required')",
+   "before_after_identical": true,
+   "case": "bool",
+   "oracle": "('TypeError', 'finite numeric value required')"
+  },
+  {
+   "after": "('TypeError', 'finite numeric value required')",
+   "after_matches_oracle_kind": true,
+   "before": "('TypeError', 'finite numeric value required')",
+   "before_after_identical": true,
+   "case": "non-finite",
+   "oracle": "('TypeError', 'finite numeric value required')"
+  },
+  {
+   "after": "('TypeError', 'finite numeric value required')",
+   "after_matches_oracle_kind": true,
+   "before": "('TypeError', 'finite numeric value required')",
+   "before_after_identical": true,
+   "case": "nan",
+   "oracle": "('TypeError', 'finite numeric value required')"
+  },
+  {
+   "after": "('OverflowError', 'int too large to convert to float')",
+   "after_matches_oracle_kind": true,
+   "before": "('OverflowError', 'int too large to convert to float')",
+   "before_after_identical": true,
+   "case": "huge int",
+   "oracle": "('OverflowError', 'int too large to convert to float')"
+  },
+  {
+   "after": "('TypeError', 'finite numeric value required')",
+   "after_matches_oracle_kind": true,
+   "before": "('TypeError', 'finite numeric value required')",
+   "before_after_identical": true,
+   "case": "string",
+   "oracle": "('TypeError', 'finite numeric value required')"
+  },
+  {
+   "after": "('TypeError', 'finite numeric value required')",
+   "after_matches_oracle_kind": true,
+   "before": "('TypeError', 'finite numeric value required')",
+   "before_after_identical": true,
+   "case": "none",
+   "oracle": "('TypeError', 'finite numeric value required')"
+  },
+  {
+   "after": "('OverflowError', '-1 outside [0, 255]')",
+   "after_matches_oracle_kind": true,
+   "before": "('OverflowError', '-1 outside [0, 255]')",
+   "before_after_identical": true,
+   "case": "negative",
+   "oracle": "('OverflowError', '-1 outside [0, 255]')"
+  },
+  {
+   "after": "ok",
+   "after_matches_oracle_kind": true,
+   "before": "ok",
+   "before_after_identical": true,
+   "case": "float in range",
+   "oracle": "ok"
+  }
+ ],
+ "adversarial_identical": true,
+ "artifact": "computer",
+ "boundary_values_identical": true,
+ "bytecodes": {
+  "boundary_after": 402,
+  "boundary_before": 198514,
+  "complete_after": 697,
+  "complete_before": 198809,
+  "program_only": 326
+ },
+ "identical_outputs": true,
+ "profile": {
+  "after": {
+   "top": [
+    {
+     "fn": "<after>:_b2",
+     "share": 0.42193044728090123,
+     "tottime_s": 0.00289271
+    },
+    {
+     "fn": "~:<method 'issuperset' of 'frozenset' objects>",
+     "share": 0.2640122884064848,
+     "tottime_s": 0.0018100400000000002
+    },
+    {
+     "fn": "<after>:_c4",
+     "share": 0.07580004530409094,
+     "tottime_s": 0.0005196770000000001
+    },
+    {
+     "fn": "<after>:_b7",
+     "share": 0.05924713235752075,
+     "tottime_s": 0.00040619200000000004
+    },
+    {
+     "fn": "<after>:run",
+     "share": 0.03715577241360097,
+     "tottime_s": 0.00025473600000000004
+    },
+    {
+     "fn": "~:<built-in method math.isfinite>",
+     "share": 0.020868324520233905,
+     "tottime_s": 0.000143071
+    },
+    {
+     "fn": "<after>:_b4",
+     "share": 0.02072144358145613,
+     "tottime_s": 0.00014206400000000001
+    },
+    {
+     "fn": "~:<method 'pack' of '_struct.Struct' objects>",
+     "share": 0.011605636202315292,
+     "tottime_s": 7.9567e-05
+    }
+   ],
+   "total_s": 0.006855893000000001
+  },
+  "before": {
+   "top": [
+    {
+     "fn": "<before>:_b1",
+     "share": 0.4241446817028435,
+     "tottime_s": 0.18146612
+    },
+    {
+     "fn": "<before>:_c1",
+     "share": 0.2414058367688455,
+     "tottime_s": 0.10328310700000001
+    },
+    {
+     "fn": "~:<built-in method builtins.isinstance>",
+     "share": 0.13972158152341665,
+     "tottime_s": 0.059778501000000005
+    },
+    {
+     "fn": "<before>:_b2",
+     "share": 0.1053602076700891,
+     "tottime_s": 0.045077326
+    },
+    {
+     "fn": "~:<built-in method math.isfinite>",
+     "share": 0.07215694628372177,
+     "tottime_s": 0.030871638000000003
+    },
+    {
+     "fn": "<before>:_b7",
+     "share": 0.013407769546821857,
+     "tottime_s": 0.005736382
+    },
+    {
+     "fn": "<before>:_c4",
+     "share": 0.001298987514355245,
+     "tottime_s": 0.0005557590000000001
+    },
+    {
+     "fn": "<before>:run",
+     "share": 0.0006171230216968422,
+     "tottime_s": 0.00026403
+    }
+   ],
+   "total_s": 0.42784014000000004
+  }
+ },
+ "ratios": {
+  "boundary_after_over_program": 48.81804652188293,
+  "boundary_before_over_after": 11.203246855159502,
+  "boundary_before_over_program": 546.9206261713152,
+  "bytecodes_before_over_after": 493.81592039800995,
+  "complete_before_over_after": 10.895682689971427
+ },
+ "source_bytes": {
+  "after": 30645,
+  "before": 30393
+ },
+ "stats_after": {
+  "boundary_encoders": 9,
+  "boundary_identity_guards": 2,
+  "emitted_per_scope": {
+   "run": 22
+  },
+  "modules_emitted": 0,
+  "nodes_emitted": 22,
+  "nodes_folded": 1,
+  "nodes_pruned_dead": 0,
+  "scalar_canonicalisations": 8,
+  "source_bytes": 30645,
+  "source_lines": 189,
+  "structural_canonicalisations_elided": 10,
+  "type_table_entries": 15,
+  "widest_static_type": 4097
+ },
+ "stats_before": {
+  "boundary_encoders": 9,
+  "boundary_identity_guards": 0,
+  "emitted_per_scope": {
+   "run": 22
+  },
+  "modules_emitted": 0,
+  "nodes_emitted": 22,
+  "nodes_folded": 1,
+  "nodes_pruned_dead": 0,
+  "scalar_canonicalisations": 8,
+  "source_bytes": 30393,
+  "source_lines": 185,
+  "structural_canonicalisations_elided": 10,
+  "type_table_entries": 15,
+  "widest_static_type": 4097
+ },
+ "timing": {
+  "boundary_after": {
+   "median_ms": 0.051552022341638803,
+   "min_ms": 0.05036697257310152,
+   "reps": 401
+  },
+  "boundary_before": {
+   "median_ms": 0.5775500321760774,
+   "min_ms": 0.5627659847959876,
+   "reps": 401
+  },
+  "complete_after": {
+   "median_ms": 0.05294400034472346,
+   "min_ms": 0.05179201252758503,
+   "reps": 401
+  },
+  "complete_before": {
+   "median_ms": 0.5768610280938447,
+   "min_ms": 0.5648129736073315,
+   "reps": 401
+  },
+  "interpreter_boundary": {
+   "median_ms": 2.9275559936650097,
+   "min_ms": 2.884084009565413,
+   "reps": 20
+  },
+  "program_only": {
+   "median_ms": 0.0010560033842921257,
+   "min_ms": 0.001007982064038515,
+   "reps": 401
+  }
+ },
+ "widest_port": "terminal",
+ "widest_width": 4097
+}

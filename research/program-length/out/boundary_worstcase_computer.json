@@ -1,0 +1,39 @@
+{
+ "artifact": "computer",
+ "port": "terminal",
+ "rows": [
+  {
+   "after_ms": 0.044720014557242393,
+   "after_over_before": 0.08667508879220266,
+   "before_ms": 0.5159500287845731,
+   "identical": true,
+   "input": "canonical tuple",
+   "returned_by_reference": false
+  },
+  {
+   "after_ms": 0.5149099742993712,
+   "after_over_before": 1.0011198264048389,
+   "before_ms": 0.5143340094946325,
+   "identical": true,
+   "input": "JSON list",
+   "returned_by_reference": false
+  },
+  {
+   "after_ms": 0.5716130253858864,
+   "after_over_before": 1.0475587669485478,
+   "before_ms": 0.5456620128825307,
+   "identical": true,
+   "input": "integral floats",
+   "returned_by_reference": false
+  },
+  {
+   "after_ms": 0.5369259743019938,
+   "after_over_before": 1.0564459880830954,
+   "before_ms": 0.508237979374826,
+   "identical": true,
+   "input": "late reject",
+   "returned_by_reference": false
+  }
+ ],
+ "width": 4097
+}
