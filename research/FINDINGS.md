@@ -1489,3 +1489,30 @@ verbs are refused outside the panel interface.
 **A required core diff, not applied**: `TrainConfig.__post_init__`'s `> 0` weight
 checks make reward-only, supervision-only and gamma=0 arms inexpressible, which
 is why the track re-implements `JointTrainer.episode` rather than using it.
+
+## 30. Module selections transfer across widths; a hardened module does not
+
+Surfaced by the object-identity track while its positional-application loop
+crashed, and worth recording because it is a real constraint on the composition
+story rather than a bug in that script.
+
+Registering a module hardened at one observation width and calling it at another
+raises `map: operator signature mismatch`. The reason is structural: a module's
+input type **names the observation**, so a module hardened against an 8x8 raster
+is typed for that raster and is not the same operator as one hardened against
+16x16. Nothing in the type algebra makes them interchangeable, and nothing
+should.
+
+What transfers is the **selections**, not the hardened artifact. `apply.py`
+rebuilds the scaffold at each width and reuses the chosen candidate indices,
+which is what produced the reported one wrong slot in 5,520 across R=8, 16, 24
+and 32 with three caller nodes, and what makes
+`tcn.scaffold.positional_scaffold` agree bit-identically with a copied caller.
+
+The practical consequence for the module library: a stored module is
+width-specific. A library entry is reusable at the width it was learned at, and
+generalising across widths means storing the selections and rebuilding, or
+declaring an observation type that does not fix the width. Neither is
+implemented. This sits alongside the interface-exactness fragility of section
+27 — a stage-1 module wrong at 1 of 384 positions took stage 2 from a unique
+solution to zero conforming — as the two known limits on chaining.

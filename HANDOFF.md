@@ -1,7 +1,7 @@
 # Handoff — 2026-09-09
 
 One overnight session. Read this, then `research/FINDINGS.md`, then `STATUS.md`.
-`research/FINDINGS.md` is the authoritative record: 29 numbered sections, each
+`research/FINDINGS.md` is the authoritative record: 30 numbered sections, each
 with measurements, and it supersedes older claims wherever they disagree.
 
 ## The one-paragraph version
@@ -82,7 +82,13 @@ These were believed and are now refuted. Do not reintroduce them.
    384 positions took stage 2 from a unique solution to zero conforming. Chains
    need exactness, not accuracy. This is the most important open risk in the
    composition story.
-4. **`index`'s temperature does two jobs** — the value that makes the gather
+4. **A stored module is width-specific.** A module hardened at one observation
+   width cannot be registered against another — its input type names the
+   observation, so `map` raises a signature mismatch. What transfers is the
+   *selections*: rebuild the scaffold at the new width and reuse the chosen
+   indices. Generalising across widths needs either stored selections or an
+   observation type that does not fix the width; neither exists.
+5. **`index`'s temperature does two jobs** — the value that makes the gather
    exact kills the address gradient. A fourth instance of the coupling that was
    fixed for `eq`; the same separation has not been applied here.
 
