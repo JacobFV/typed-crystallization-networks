@@ -66,7 +66,8 @@ class Crystallizer:
     rule and apply to every trial.
     """
     def __init__(self,model,optimizer,tolerance=.01,stability_window=3,entropy_limit=.5,selection="perturbation",
-                 eligibility="immediate",anneal="round",plateau_window=3,plateau_tolerance=1e-3,plateau_patience=12):
+                 eligibility="immediate",anneal="round",plateau_window=3,plateau_tolerance=1e-3,plateau_patience=12,
+                 close_block=True):
         if selection not in ("perturbation","entropy"):raise ValueError("unknown selection rule "+selection)
         if eligibility not in ("immediate","plateau"):raise ValueError("unknown eligibility rule "+eligibility)
         if anneal not in ("round","plateau","never"):raise ValueError("unknown anneal rule "+anneal)
@@ -77,6 +78,7 @@ class Crystallizer:
         self.eligibility=eligibility; self.anneal=anneal
         self.plateau_window=plateau_window; self.plateau_tolerance=plateau_tolerance
         self.plateau_patience=plateau_patience
+        self.close_block=close_block; self.block_events=[]
         self.history=[]; self.events=[]; self.selected={}; self.sweep_evaluations=0
         self.progress=[]; self.gate_evaluations=0; self.rounds_waited=0; self.gate_log=[]
     def sample_stability(self):
@@ -216,11 +218,64 @@ class Crystallizer:
             m.load_state_dict(weights); self.optimizer.load_state_dict(opt); m.frozen=frozen; m.trials=trials; m.pinned=pinned
             for p,flag in zip(m.parameters(),requires): p.requires_grad_(flag)
         event=FreezeEvent(name,accepted,before,after,reason); self.events.append(event); return event
+    def try_freeze_block(self,names,loss_fn,retrain_steps=20,conformance=None):
+        """One transactional trial that hardens a whole block of nodes at once.
+
+        The per-node viability guard rejects a freeze whose remaining trainable
+        region is severed from the task objective. That guard is correct per node
+        and incomplete over sets: a residual set can reach a state in which
+        freezing any single member disconnects the others, so every single-node
+        trial is refused forever and the run cannot close. Measured on `joint` at
+        40 episodes with the shipped crystallizer and no seasons machinery, seed 7
+        of 8 ends 9/13 frozen with a residual `{goal_relation, prediction,
+        relation, z}` refused 29 times for exactly that reason.
+
+        Hardening the block together is not a weakening of the guard. When the
+        block completes the program there is no remaining trainable region left to
+        disconnect, which is the condition the guard tests for. Degradation,
+        conformance and rollback are unchanged and apply to the block as a whole,
+        so a block that degrades is rolled back exactly as a node would be.
+
+        Section 5.1 of ARCHITECTURE already speaks of hardening "a candidate
+        node/block"; this is the block case.
+        """
+        m=self.model; objective=Objective.of(loss_fn); loss_fn=objective.total
+        names=[n for n in names if n not in m.frozen]
+        if not names: return None
+        weights=copy.deepcopy(m.state_dict()); opt=copy.deepcopy(self.optimizer.state_dict())
+        frozen=dict(m.frozen); trials=dict(m.trials); pinned=dict(m.pinned); requires=[p.requires_grad for p in m.parameters()]
+        before=float(loss_fn().detach())
+        accepted=False; reason="degradation"; after=float("inf")
+        try:
+            selections=m.selections()
+            for name in names: m.trials[name]=self.selected.get(name,selections[name])
+            for _ in range(retrain_steps):
+                self.optimizer.zero_grad(); loss=loss_fn()
+                if loss.requires_grad: loss.backward(); self.optimizer.step()
+            for name in names: m.freeze(name,self.selected.get(name,selections[name]))
+            after=float(loss_fn().detach())
+            if not torch.isfinite(torch.tensor(after)): reason="nonfinite loss"
+            elif after>before+self.tolerance: reason="degradation"
+            else:
+                active=[p for p in m.parameters() if p.requires_grad]
+                task=objective.task()
+                grads=torch.autograd.grad(task,active,allow_unused=True) if active and task.requires_grad else [None]*len(active)
+                if any(g is None for g in grads): reason="disconnected remaining region"
+                elif conformance is not None and len(m.frozen)==len(m.program.nodes) and not conformance(m.export()): reason="runtime conformance"
+                else: accepted=True; reason="validated"
+        except (ValueError,OverflowError,RuntimeError) as e: reason=f"invalid trial: {e}"
+        if not accepted:
+            m.load_state_dict(weights); self.optimizer.load_state_dict(opt); m.frozen=frozen; m.trials=trials; m.pinned=pinned
+            for p,flag in zip(m.parameters(),requires): p.requires_grad_(flag)
+        event=FreezeEvent("+".join(names),accepted,before,after,"block "+reason)
+        self.events.append(event); self.block_events.append(event); return event
     def run(self,loss_fn,rounds=12,retrain_steps=20,conformance=None):
         objective=Objective.of(loss_fn); self.objective=objective
         index_of={n.name:i for i,n in enumerate(self.model.program.nodes)}
         gated=self.eligibility=="plateau" or self.anneal=="plateau"
+        last_round=len(self.events)
         for _ in range(rounds):
+            last_round=len(self.events)
             self.sample_stability()
             # The gate reads the unregularized task loss once per round. Both the
             # eligibility rule and the anneal schedule can consume it; whichever
@@ -269,4 +324,15 @@ class Crystallizer:
                 # waits for the residual graph to stop improving around this one.
                 if accepted and self.eligibility=="plateau": break
             if len(self.model.frozen)==len(self.model.program.nodes): break
+        # The rounds are spent and nodes are still soft. Fire the block trial only
+        # on evidence of the pathology it fixes: the final round refused a freeze
+        # for "disconnected remaining region", which is the guard reporting a
+        # residual set whose members sever each other. A run that simply ran out
+        # of rounds, or one whose eligibility gate deliberately deferred every
+        # commitment, produces no such refusal and gets no trial -- the fix must
+        # not become a way to force a commitment the schedule declined to make.
+        stranded=any(e.reason=="disconnected remaining region" for e in self.events[last_round:])
+        if self.close_block and stranded and len(self.model.frozen)<len(self.model.program.nodes):
+            self.try_freeze_block([n.name for n in self.model.program.nodes if n.name not in self.model.frozen],
+                                  objective,retrain_steps,conformance)
         return self.events
