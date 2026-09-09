@@ -78,3 +78,31 @@ held-out, the renderer's own among them), the whole pattern sits behind a
 declared gradient boundary since `map`/`pair`/`insert` have no relaxation, and
 73% of apply time is `Value.of` re-encoding because `pair` replicates the
 observation per position.
+
+## Merge order, checked in advance
+
+Dry-run with `git merge-tree --write-tree`, no working tree touched:
+
+- `positional-reuse` against main: **clean**
+- `perturbation-selection` against main: **clean**
+- the two against each other: **clean**
+
+They overlap on `generators/logic/generator.py` and `tests/test_generators.py`
+only, and git resolves both without conflict. Either order works.
+
+Merge `perturbation-selection` first: it is the smaller behavioural change to
+the shipped path and its re-verification is the sharper tripwire (`tcn train
+--episodes 160` must still give 0.2488 -> 0.0022, 4/4 deterministic, 4/4
+frozen, with three disconnection deferrals rather than four). If that holds,
+merge `positional-reuse` and re-run the suite again.
+
+After both land, two things follow immediately and should not be forgotten:
+
+- The `legal_candidates` parameter fix changes the candidate space, so any
+  scaffold that enumerated candidates before the merge may now see more of
+  them. Re-run the shipped fixtures and confirm the numbers before trusting
+  any comparison that straddles the merge.
+- `research/discrete-perception` was measured against pre-merge main and was
+  explicitly told to supply `project`/`map`/`filter` candidates by hand. Its
+  numbers remain valid for what they measured; do not silently restate them as
+  post-merge results.
