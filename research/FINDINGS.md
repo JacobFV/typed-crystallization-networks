@@ -345,3 +345,26 @@ search" was substantially an artifact of these two faults. Its central finding �
 that the module was on the output path in 0 of 20 runs — is untouched and still
 needs an answer; what has changed is that the economics now admit a regime where
 reuse pays, and the search is fast enough to reach targets where it might.
+
+### Step 2 — the discrete reference now ships with every synthesis claim
+
+`tcn/search.py` enumerates the same candidate space `SoftProgram` relaxes, using
+only `Program.execute` over the declared node candidates: no separate encoding,
+no extra operators, no domain knowledge. It reports how much of the space it
+covered, and when it exhausts the space it certifies whether the solution is
+unique -- something a gradient run cannot establish. It applies to the discrete
+choice only, and names a program's trainable constants as outside its reach
+rather than silently searching a subspace.
+
+`tcn/cli.py:mixed` now runs it alongside training whenever the space is small
+enough, and records `space_size`, the baseline result, and whether the two
+methods agree.
+
+On the mixed scaffold (96 programs): enumeration solves it exhaustively in
+**3.0 ms** against the gradient path's 2,751 ms, certifies the solution unique,
+and selects the identical program. Track 8 measured 41 ms for this sweep; the
+validation memoization above accounts for the rest.
+
+Five tests in `tests/test_search.py` cover the uniqueness certificate, the
+budget cap, the stop-at-first tradeoff, continuous-parameter reporting, and
+illegal numeric domains being unusable candidates rather than errors.

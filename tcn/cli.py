@@ -7,11 +7,20 @@ import sys
 def write_json(path,data):
     p=Path(path);p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(data,indent=2,sort_keys=True,allow_nan=False))
 
-def mixed(out,steps=300):
+def mixed(out,steps=300,baseline_limit=1<<16):
     from examples.mixed import problem
     from .synthesis import fit
     from .runtime import save_program,export_executable,benchmark
+    from .search import enumerate_fit,space_size
     p,signals,examples=problem();model,report=fit(p,examples,signals,steps=steps,tolerance=.005)
+    # A synthesis number means little without the discrete reference beside it:
+    # enumeration searches the identical candidate space, and when it exhausts
+    # that space it also reports whether the solution is unique.
+    report['space_size']=space_size(p)
+    if report['space_size']<=baseline_limit:
+        found=enumerate_fit(p,examples,signals,tolerance=.005)
+        report['discrete_baseline']=found.to_dict()
+        report['agrees_with_enumeration']=(model.selections()==found.selections) if found.solved else None
     out=Path(out);out.mkdir(parents=True,exist_ok=True)
     if report['fully_frozen'] and report['exact_conformance']:
         exported=model.export();save_program(exported,out/'program.json');export_executable(exported,out/'program.pyz')
