@@ -1,0 +1,42 @@
+{
+ "bounds": {
+  "equality_3": {
+   "distinct_eval_keys": 7,
+   "distinct_train_keys": 7,
+   "eval_records": 12288,
+   "majority_baseline": 0.9815266927083334,
+   "oracle_accuracy": 1.0,
+   "oracle_advantage": 0.01847330729166663,
+   "train_records": 6144,
+   "transfer_accuracy": 1.0,
+   "transfer_advantage": 0.01847330729166663,
+   "unseen_key_fraction": 0.0
+  },
+  "raw_3x3": {
+   "distinct_eval_keys": 3837,
+   "distinct_train_keys": 2001,
+   "eval_records": 12288,
+   "majority_baseline": 0.9815266927083334,
+   "oracle_accuracy": 1.0,
+   "oracle_advantage": 0.01847330729166663,
+   "train_records": 6144,
+   "transfer_accuracy": 0.982421875,
+   "transfer_advantage": 0.0008951822916666297,
+   "unseen_key_fraction": 0.8120930989583334
+  }
+ },
+ "configuration": {
+  "horizon": 2,
+  "min_size": 4,
+  "nesting": 5,
+  "palette": 32,
+  "resolution": 32,
+  "widgets": 20
+ },
+ "plain_python_rule_on_heldout": {
+  "false_negatives": 0,
+  "false_positives": 0,
+  "positions": 12288,
+  "true_positives": 227
+ }
+}

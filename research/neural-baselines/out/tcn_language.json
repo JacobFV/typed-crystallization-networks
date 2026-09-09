@@ -1,0 +1,126 @@
+{
+ "artifact": "language-capability stage-B exported program",
+ "budget": {
+  "optimizer_steps": 0,
+  "programs_enumerated": 55871,
+  "search_seconds": 361.5955660060281,
+  "stage_a_supervised_positions": 44,
+  "train_distinct_strings": 12,
+  "train_episodes": 24
+ },
+ "latency": {
+  "cold_first_call_ms": 2.951328,
+  "warm": {
+   "min_ms": 2.759392,
+   "p50_ms": 2.819856,
+   "p95_ms": 2.862528,
+   "repetitions": 100,
+   "warmup": 20
+  }
+ },
+ "peak_rss_mb": 49.95703125,
+ "quality": {
+  "current_stream_test": {
+   "accuracy": 0.465,
+   "lengths": [
+    10,
+    12,
+    14,
+    16,
+    18,
+    20,
+    22
+   ],
+   "majority_constant": 0.515,
+   "n": 400,
+   "oracle_counting": 0.515,
+   "oracle_dyck": 1.0,
+   "per_length": {
+    "10": 0.5185185185185185,
+    "12": 0.5362318840579711,
+    "14": 0.46153846153846156,
+    "16": 0.46938775510204084,
+    "18": 0.38181818181818183,
+    "20": 0.4909090909090909,
+    "22": 0.37735849056603776
+   },
+   "positive_rate": 0.515,
+   "random": 0.5
+  },
+  "test": {
+   "accuracy": 0.9986187845303868,
+   "lengths": [
+    8,
+    10,
+    12,
+    14,
+    16
+   ],
+   "majority_constant": 0.5483425414364641,
+   "n": 724,
+   "oracle_counting": 1.0,
+   "oracle_dyck": 1.0,
+   "per_length": {
+    "8": 1.0,
+    "10": 1.0,
+    "12": 1.0,
+    "14": 1.0,
+    "16": 0.5
+   },
+   "positive_rate": 0.5483425414364641,
+   "random": 0.5
+  },
+  "train": {
+   "accuracy": 1.0,
+   "lengths": [
+    2,
+    4,
+    6
+   ],
+   "majority_constant": 0.625,
+   "n": 24,
+   "oracle_counting": 1.0,
+   "oracle_dyck": 1.0,
+   "per_length": {
+    "2": 1.0,
+    "4": 1.0,
+    "6": 1.0
+   },
+   "positive_rate": 0.625,
+   "random": 0.5
+  },
+  "val": {
+   "accuracy": 1.0,
+   "lengths": [
+    2,
+    4,
+    6
+   ],
+   "majority_constant": 0.5666666666666667,
+   "n": 120,
+   "oracle_counting": 1.0,
+   "oracle_dyck": 1.0,
+   "per_length": {
+    "2": 1.0,
+    "4": 1.0,
+    "6": 1.0
+   },
+   "positive_rate": 0.5666666666666667,
+   "random": 0.5
+  }
+ },
+ "rebuilt_from": "research/language-capability/stage_b.json",
+ "size": {
+  "description_bits": 4043552,
+  "distinct_operators": 9,
+  "estimated_operator_cost": 148.0,
+  "gzip_bits": 53072,
+  "gzip_bytes": 6634,
+  "json_bits": 4043552,
+  "json_bytes": 505444,
+  "module_count": 1,
+  "pruned_nodes": 84,
+  "total_static_nodes": 89,
+  "trainable_parameters": 0
+ }
+}

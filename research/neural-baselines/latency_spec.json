@@ -1,0 +1,12 @@
+[
+ {"arm": "language", "model": "gru_16", "extra": {"aux": false}},
+ {"arm": "language", "model": "mlp_32", "extra": {"aux": false}},
+ {"arm": "language", "model": "transformer_d16", "extra": {"aux": false}},
+ {"arm": "visual", "model": "cnn_w16_d5"},
+ {"arm": "visual", "model": "cnn_w32_d5", "repetitions": 50},
+ {"arm": "visual", "model": "cnn_w64_d5", "repetitions": 50},
+ {"arm": "computer", "model": "gru_h16", "extra": {"byte_mode": "reg"}},
+ {"arm": "computer", "model": "cnn_w32", "extra": {"byte_mode": "reg"}},
+ {"arm": "computer", "model": "mlp_absolute_w48", "extra": {"byte_mode": "reg"}},
+ {"arm": "computer", "model": "mlp_relative_hint", "extra": {"byte_mode": "reg"}}
+]

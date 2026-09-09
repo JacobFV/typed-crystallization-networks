@@ -1,0 +1,50 @@
+{
+ "arms": [],
+ "budget": {
+  "collect_seconds": 114.2946552259964,
+  "train_decision_points": 15,
+  "train_documents": 5,
+  "train_write_decisions": 5
+ },
+ "padding_check": {
+  "bytes_beyond_prefix_all_zero": true,
+  "max_terminal_length": 45,
+  "prefix_bytes_used": 256
+ },
+ "supervised_trivial_reference": {
+  "constant_byte_accuracy_train": 0.20000000298023224,
+  "constant_verb_accuracy": 0.3333333432674408,
+  "random_byte_accuracy": 0.00390625,
+  "random_verb_accuracy": 0.3333333333333333
+ },
+ "trivial_reference_closed_loop": [
+  {
+   "episodes": 10,
+   "label": "always write \"5\"",
+   "max_return": 2,
+   "mean_return": 0.3,
+   "solved": 0
+  },
+  {
+   "episodes": 10,
+   "label": "read then write the modal digit \"5\"",
+   "max_return": 2,
+   "mean_return": 0.2,
+   "solved": 1
+  },
+  {
+   "episodes": 10,
+   "label": "uniform random verb, random digit",
+   "max_return": 2,
+   "mean_return": 0.6,
+   "solved": 1
+  },
+  {
+   "episodes": 10,
+   "label": "always wait",
+   "max_return": 2,
+   "mean_return": 0.0,
+   "solved": 0
+  }
+ ]
+}
