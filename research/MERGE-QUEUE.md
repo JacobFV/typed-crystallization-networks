@@ -15,6 +15,14 @@ Check first: `ListAgents`, plus `ps -eo args | grep research/` for detached runs
 
 ## Waiting
 
+### `perturbation-selection` (90dd08a) — SUPERSEDED by `loss-gated-eligibility`
+
+`loss-gated-eligibility` (ec953bc) is built on this commit and contains it
+(`git merge-base --is-ancestor` confirms). Merge that branch instead; merging
+this one separately is redundant.
+
+Original entry retained below for its verification record.
+
 ### `perturbation-selection` (commit 90dd08a) — verified, blocked on quiet tree
 
 Replaces entropy+stability selection with the DARTS-PT removal rule, and adds
@@ -106,3 +114,33 @@ After both land, two things follow immediately and should not be forgotten:
   explicitly told to supply `project`/`map`/`filter` candidates by hand. Its
   numbers remain valid for what they measured; do not silently restate them as
   post-merge results.
+
+### `loss-gated-eligibility` (ec953bc) — verified, blocked on quiet tree
+
+Contains `perturbation-selection` and supersedes it. Adds `eligibility` and
+`anneal` rules to `Crystallizer`, both **defaulting to the pre-existing
+behaviour** (`eligibility="immediate"`, `anneal="round"`), verified by reading
+the constructor on the branch. Note the inherited `selection="perturbation"`
+default from 90dd08a IS a behavioural change; that belongs to the parent commit.
+
+Verified from the supervising session: contains 90dd08a, and
+`git merge-tree` shows it conflict-free against `positional-reuse`.
+
+Its verdict is the third independent confirmation that the scheduler does not
+beat plain argmax, and the agent killed its own apparent win: not-annealing
+conformed 48/48 against step-matched argmax's 42/48 (p = 0.0265), but that arm
+spends about twice argmax's forward passes, and a forward-matched argmax
+conforms 32/32. The gain did not survive the second compute axis.
+
+The mechanism it identified is the more general result and should survive into
+any future scheduler work: under the gate, perturbation and argmax both name
+the reference candidate 11/16 and agree on 9 of 16, whereas at the incumbent
+schedule it is 5/16 against 0/16. **The interval in which the perturbation
+measurement beats argmax is exactly the interval in which committing is a
+mistake.** For DARTS-PT-style selection to pay here, the freeze would have to
+be reversible.
+
+Also worth keeping: gating eligibility while leaving the temperature on the
+round clock is actively broken, because waiting rounds are counted by the
+anneal, so the temperature floors before the objective settles. The two clocks
+must come off together.
