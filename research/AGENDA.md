@@ -5,6 +5,28 @@ numbers. Negative results are results and stay in the record; see the standing
 rule in `docs/VALIDATION.md` that separates tested mechanics from demonstrated
 learning from unestablished capability.
 
+## CLOSED — do not re-dispatch these
+
+Two long-standing items were verified on 2026-09-09 to be **already implemented**,
+after a brief repeated one of them verbatim and an agent had to correct it. A
+priority item that a merged change already closed will otherwise be re-dispatched
+indefinitely.
+
+- **"Wire the MDL term into `synthesis.fit`, which has no cost term" (track 5
+  F3).** `fit` has accepted `mdl_weight` since §14 merged, at
+  `tcn/synthesis.py:32,131`, scaling ARCHITECTURE §8's `L_program_description`.
+  Beyond being done, §41 then measured it to be **useless on the artifacts we
+  have**: the description-minimal program is the bytecode-maximal one, and
+  `execution_cost` is constant across a family that differs by 48 bytecodes.
+- **"Prune dead nodes before export and module registration" (track 5 F4, the
+  32% overstatement).** Both sites prune today: `tcn/runtime.py:17` on
+  save/export and `tcn/operators.py:33` on `register_module`, each with the
+  reason in a comment.
+
+Also closed by measurement rather than by implementation: **loss-gated
+eligibility** (§7, §12, §37 — it is one of the four independent refutations of
+the progressive scheduler, not an open experiment).
+
 ## Standing observations that motivate the tracks
 
 `examples/joint.py` is the only successful joint experiment. In it:
