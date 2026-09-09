@@ -1745,3 +1745,56 @@ already recorded that it ties a 625-parameter MLP.
 This is the most useful negative in the record. The efficiency argument is
 currently unproven, the cause is identified precisely, and the fix is bounded
 engineering with measured speedups already in hand.
+
+## 37. Seasons: reversible crystallization does not rescue the scheduler either
+
+Branch `seasons` (`afb4191`), `research/seasons/RESULTS.md`. **Deliberately not
+merged** — see below.
+
+The proposal was well-motivated and answered a specific diagnosis. The
+loss-gated track concluded that "the interval in which the perturbation
+measurement beats argmax is exactly the interval in which committing is a
+mistake. For DARTS-PT-style selection to pay here, the freeze would have to be
+reversible." Seasons make it reversible: winters freeze and prune, summers
+release commitments, warm them and retrain. A population of four members carries
+Pareto selection on (probe loss, `description_cost()` bits), so no single weight
+has to be chosen between light and conforming — which is exactly the dilemma
+that took conformance from 19/24 to 2/24 in section 12.
+
+The thaw policy is careful: only choices *this scheduler* committed are ever
+released, never a declared prior; a commitment is released if the freeze raised
+the objective, otherwise the least decisive by the perturbation margin recorded
+at commit time. Four rules bound the cycle — season cap, one release per node,
+geometrically decaying release fraction, settled-on-reconfirmation — each
+asserted by a test.
+
+**It does not work.** Verified independently here from `results/joint-40.jsonl`:
+
+| arm | mean return |
+|---|---|
+| argmax with the population's summed budget | **3.781** |
+| step-matched argmax | **3.625** |
+| seasons | 2.938 |
+| shipped crystallizer | 2.531 |
+| argmax at the base budget | 2.094 |
+
+Seasons genuinely **repair** the incumbent (2.531 to 2.938, and on mixed 5/8 to
+8/8 and 7/8 to 8/8) and still lose decisively. Step-matched argmax reaches 8/8 on
+20-30% fewer forward passes and 3.625 against 2.594 on joint using **9.3x fewer
+environment episodes**. The population equals the same members with selection
+switched off, and loses to a single argmax run given its summed budget.
+
+**That is the fourth independent confirmation** — after the ablation, DARTS-PT
+selection, and loss-gated eligibility — that the crystallization scheduler does
+not earn its complexity, now including the reversible form the third one asked
+for. ARCHITECTURE section 5 should be revised to say so.
+
+**Not merged, deliberately.** The machinery is off by default and correct, but
+merging it would add surface area to a core file implementing a scheduler that
+four tracks now agree nobody should use. The branch is preserved for anyone who
+wants to re-test the idea.
+
+**One live hazard it found, latent in the shipped scheduler:** releasing late
+strands a node set that the per-node connectivity guard can never close — 1 of 8
+runs completes without a block trial, 7 of 8 with. That structure exists on main
+today, independent of seasons.
