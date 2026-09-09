@@ -132,6 +132,17 @@ reinforcement are optimized in the same update, along with value, entropy,
 complexity, and discreteness terms. Logged gradient cosine reports conflict on
 shared parameters; a weighted sum does not guarantee objective alignment.
 
+`TrainConfig.batch` sets how many episodes one optimizer step averages; gradient
+clipping and the reported gradient norm apply to that averaged update, and a batch
+always completes before a checkpoint. The default of one episode per step suits
+scaffolds whose learnable structure is a discrete operator choice, because
+categorical evidence accumulates across noisy single episodes. Scaffolds that must
+fit continuous readouts need averaging: the score-function term's per-episode
+gradient signal-to-noise ratio is well under one, so a single-episode update can be
+mostly noise and can saturate a policy before its representation carries the task.
+Averaging trades optimizer steps for update quality, so raise the episode budget
+with the batch.
+
 Checkpoint files store program/library, trainable/frozen flags, weights, optimizer,
 temperature, precision pressure, trial choices, configuration, history, and RNG.
 The scheduler's acceptance events are experiment reports, not resume state for a

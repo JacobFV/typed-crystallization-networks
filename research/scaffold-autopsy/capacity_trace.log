@@ -1,0 +1,110 @@
+/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-ade8c718cdf726aec/research/scaffold-autopsy/capacity.py:61: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  trace.append({'step': i, 'loss': float(loss), 'grad': gn})
+[
+ {
+  "step": 0,
+  "loss": 0.8094174861907959,
+  "grad": 2.4149913787841797
+ },
+ {
+  "step": 60,
+  "loss": 0.23184546828269958,
+  "grad": 0.04056040942668915
+ },
+ {
+  "step": 120,
+  "loss": 0.002384614897891879,
+  "grad": 0.029368922114372253
+ },
+ {
+  "step": 180,
+  "loss": 0.00012108807277400047,
+  "grad": 0.0015768478624522686
+ },
+ {
+  "step": 240,
+  "loss": 4.687306864070706e-05,
+  "grad": 0.0004443099314812571
+ },
+ {
+  "step": 300,
+  "loss": 2.3156842871685512e-05,
+  "grad": 0.0002460221585351974
+ },
+ {
+  "step": 360,
+  "loss": 1.321002946497174e-05,
+  "grad": 0.0013512980658560991
+ },
+ {
+  "step": 420,
+  "loss": 1.0836332876351662e-05,
+  "grad": 0.006676478311419487
+ },
+ {
+  "step": 480,
+  "loss": 5.2337472880026326e-06,
+  "grad": 0.0003382881113793701
+ },
+ {
+  "step": 540,
+  "loss": 3.815467152890051e-06,
+  "grad": 6.416488758986816e-05
+ },
+ {
+  "step": 600,
+  "loss": 2.8656754693656694e-06,
+  "grad": 4.887079194304533e-05
+ },
+ {
+  "step": 660,
+  "loss": 2.2073470518080285e-06,
+  "grad": 3.972682316089049e-05
+ },
+ {
+  "step": 720,
+  "loss": 0.00015005804016254842,
+  "grad": 0.045010682195425034
+ },
+ {
+  "step": 780,
+  "loss": 5.218151727603981e-06,
+  "grad": 0.006404591724276543
+ },
+ {
+  "step": 840,
+  "loss": 1.1440163234510692e-06,
+  "grad": 0.0003971707774326205
+ },
+ {
+  "step": 900,
+  "loss": 9.024048495120951e-07,
+  "grad": 2.776713517960161e-05
+ },
+ {
+  "step": 960,
+  "loss": 7.73224030581332e-07,
+  "grad": 1.9537066691555083e-05
+ },
+ {
+  "step": 1020,
+  "loss": 6.83039559135068e-07,
+  "grad": 1.5534144040429965e-05
+ },
+ {
+  "step": 1080,
+  "loss": 6.126692255747912e-07,
+  "grad": 1.3076997674943414e-05
+ },
+ {
+  "step": 1140,
+  "loss": 5.547175874198729e-07,
+  "grad": 1.1301235645078123e-05
+ },
+ {
+  "step": 1199,
+  "loss": 7.298166110558668e-06,
+  "grad": 0.008911410346627235
+ }
+]

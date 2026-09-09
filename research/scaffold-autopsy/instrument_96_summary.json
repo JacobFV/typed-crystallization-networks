@@ -1,0 +1,80 @@
+{
+  "arithmetic": {
+    "episodes": 96,
+    "mean_grad_norm": {
+      "prediction": 2.047111944295466,
+      "probe": 0.0,
+      "actor": 0.5733301906924074,
+      "value": 3.0910523350855024,
+      "entropy": 0.005628150287520839,
+      "mdl": 0.0,
+      "crystal": 0.0005311131217240472
+    },
+    "mean_cosine": {
+      "prediction|probe": 0.0,
+      "prediction|actor": -0.005844948289450258,
+      "prediction|value": -0.08418321260857435,
+      "prediction|entropy": 0.01274458717186159,
+      "prediction|mdl": 0.0,
+      "prediction|crystal": 0.0004528348300804434,
+      "probe|actor": 0.0,
+      "probe|value": 0.0,
+      "probe|entropy": 0.0,
+      "probe|mdl": 0.0,
+      "probe|crystal": 0.0,
+      "actor|value": 0.018065109984490846,
+      "actor|entropy": 0.07145956492361923,
+      "actor|mdl": 0.0,
+      "actor|crystal": -0.00014759479715091098,
+      "value|entropy": 0.004555626247868834,
+      "value|mdl": 0.0,
+      "value|crystal": -0.0002558566493746639,
+      "entropy|mdl": 0.0,
+      "entropy|crystal": 0.009331242456179703,
+      "mdl|crystal": 0.0
+    },
+    "mean_return": 2.0208333333333335,
+    "mean_logit_absmax": 1.932962356756131,
+    "mean_preclip_norm": 3.8187485759456954,
+    "fraction_clipped": 0.10416666666666667
+  },
+  "joint": {
+    "episodes": 96,
+    "mean_grad_norm": {
+      "prediction": 0.07284776909121622,
+      "probe": 0.07284776909121622,
+      "actor": 0.3165638881643342,
+      "value": 0.7493450944311917,
+      "entropy": 0.002948594079953182,
+      "mdl": 0.0,
+      "crystal": 0.0007011655331249737
+    },
+    "mean_cosine": {
+      "prediction|probe": 1.0000000074505806,
+      "prediction|actor": 0.10613972796636517,
+      "prediction|value": 0.0,
+      "prediction|entropy": -0.002421425153443124,
+      "prediction|mdl": 0.0,
+      "prediction|crystal": 0.08746493118815124,
+      "probe|actor": 0.10613972796636517,
+      "probe|value": 0.0,
+      "probe|entropy": -0.002421425153443124,
+      "probe|mdl": 0.0,
+      "probe|crystal": 0.08746493118815124,
+      "actor|value": 0.0,
+      "actor|entropy": 0.08333333271245162,
+      "actor|mdl": 0.0,
+      "actor|crystal": 0.02224325692804996,
+      "value|entropy": 0.0,
+      "value|mdl": 0.0,
+      "value|crystal": 0.0,
+      "entropy|mdl": 0.0,
+      "entropy|crystal": -0.0032690812998528904,
+      "mdl|crystal": 0.0
+    },
+    "mean_return": 2.1666666666666665,
+    "mean_logit_absmax": 0.5422468601415554,
+    "mean_preclip_norm": 0.8754935275452832,
+    "fraction_clipped": 0.0
+  }
+}
