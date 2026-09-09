@@ -1871,3 +1871,62 @@ unconditionally on runs whose eligibility gate had deliberately deferred every
 commitment; that failure is what narrowed the trigger. The shipped fixture
 reproduces at 0.24884 → 0.00223, fully frozen, 4.0 and 4.0 exact, with zero
 block events.
+
+## 39. Section 19's language result stands on its own stream, and three tracks silently inherited a distribution change
+
+Verified from the supervising session, prompted by the compiled-runtime track
+reporting that the language fixture scored 0.44 where `final_eval.json` records
+0.9986. Reproduction: `research/language-capability/reproduce/stream_check.py`,
+raw output in `reproduce/stream_check.json`.
+
+**The number reproduces exactly — on the stream it was measured on.** Rebuilding
+stage B from `stage_b.json`'s recorded selection and drawing episodes with
+`hardening='none'`:
+
+| | episodes | accuracy | majority baseline |
+|---|---|---|---|
+| pre-audit stream (`hardening='none'`) | **724** | **0.99862** | **0.5483** |
+| post-audit default (what the script draws today) | 1500 | 0.4733 | 0.5260 |
+
+The first row matches §19 to five decimal places, including the episode count and
+the baseline. §19 is not wrong.
+
+**The cause of the second row.** §24 re-drew `context_free_language` because it
+was exploitable — nearest-neighbour scored 1.000 on it and 71% of prompts
+repeated. The re-draw shifted string length from 2–16 to **10–22**. The
+language-capability track holds out *length*, taking 2/4/6 as training, so on
+today's default stream **its training split is empty** — 0 episodes — and
+`final_eval.py` dies with a `ZeroDivisionError` before it prints anything.
+
+The 0.4733 is therefore **not** a refutation of §19. It is a frozen program
+trained on lengths 2/4/6 being run on a stream that never produces them, which is
+an out-of-distribution transfer measurement nobody designed. What is true is that
+**the language capability has never been measured on the post-audit
+distribution**, and until it is, §19's claim must be quoted with its stream.
+
+**Three artifacts inherited this silently, which is the real defect:**
+
+1. `research/inference-cost/RESULTS.md` claimed `common.balanced` "agrees with
+   the program and the label on **12/12** held-out episodes" while that track's
+   own `out/inproc.json` records `language.all_agree: false`. Verified from the
+   raw file: episode 2 disagrees. It is **9/12**. Corrected in place.
+2. The same file recorded the mixed agreement as "max abs error **0.0**". A
+   float32 round-trip cannot be bit-identical to `math.sin`; the true discrepancy
+   is 1.5e-9 to 2.6e-8. Corrected in place.
+3. The compiled-runtime track rebuilt the module correctly — matching digest
+   `module:8063993bfeee7393683e47b3` and cost 5.0 — and hit the same wall.
+
+Neither correction changes any cost or latency figure: both arms ran the same
+program on the same inputs, and the ratios stand.
+
+**What to do.** `common.dataset` should pin `hardening` explicitly rather than
+inheriting the generator default, so the track states which stream it means. Then
+the capability should be re-measured on the post-audit stream and reported as its
+own number. Until that happens, do not quote §19 without saying which stream.
+
+**Method note.** This was found because a track reported a number that
+contradicted a recorded one and said so instead of routing around it. That is the
+fourth time an agent's disclosed anomaly has led to a real defect, and the
+seventh confident wrong conclusion caught by checking a headline against raw
+data rather than against a summary.
+

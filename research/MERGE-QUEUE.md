@@ -13,7 +13,52 @@ when the waiting agent's work provably does not touch the changed code.
 
 Check first: `ListAgents`, plus `ps -eo args | grep research/` for detached runs.
 
+## A process note that costs us a false failure every time
+
+`test_panel_interface.py::test_panel_episode_replays_and_restores` **fails in any
+git worktree** with `node_modules` symlinked in from the main checkout, on main's
+own code, deterministically, in about 5 seconds. It passes in the main checkout.
+Verified 2026-09-09 by running it in a detached worktree of `main` itself.
+
+The verification recipe above tells every agent to symlink `node_modules` and run
+the suite in a worktree, so every future branch verification will report this
+failure and have to re-derive that it is environmental. Either fix the test's
+environment sensitivity or exclude it from worktree runs with the reason
+recorded. Until then: **one failure in `test_panel_interface` from a worktree run
+is expected and is not the branch's fault.** Confirm by re-running it in the main
+checkout before spending time on it.
+
 ## Waiting
+
+### `compiled-runtime` (68db06a) — verified, blocked on quiet tree, and POSITIVE
+
+Adds `tcn/compile.py` (frozen `Program` + `Registry` → standalone stdlib Python),
+`tests/test_compile.py`, and `research/compiled-runtime/`.
+`research/compiled-runtime/RESULTS.md`.
+
+**Independently verified from the supervising session**, not taken on the agent's
+word:
+
+- **Pure addition confirmed.** `git diff --name-only main...HEAD -- tcn/` lists
+  only `tcn/compile.py`. `types.py`, `graph.py` and `operators.py` are untouched,
+  so the falsification stays clean.
+- **Equivalence re-run here.** `check.py` hard-asserts arm C against the
+  interpreter's decoded output before any timing; re-running `mixed` gives
+  `A==C exact` on all four cases.
+- **The generated code is what was asked for.** `v4 = _k0[2 * v1 + v2]`,
+  `v6 = _c1(v5 + v3)` — native values, straight-line SSA, **zero** `Value(`
+  constructions in the generated visual source, stdlib only, and every line
+  carries its typed node and operator in a comment and in `PROVENANCE`.
+- **Test suite: 313 passed, 1 failed — and the failure is not this branch.**
+  `test_panel_interface.py::test_panel_episode_replays_and_restores` fails
+  identically on **main's own code** in a detached worktree with symlinked
+  `node_modules`, and still fails with `tcn/compile.py` moved aside. See the
+  process note below; the agent's "314 passed" was optimistic by one.
+
+Blocked because `source_fingerprint()` hashes all of `tcn/`, so even a new file
+invalidates every recorded episode while the neural-baselines agent is measuring.
+Merge when that agent is done.
+
 
 ### `stranded-block-guard` (77b9804) — verified, blocked on quiet tree, and NEGATIVE
 

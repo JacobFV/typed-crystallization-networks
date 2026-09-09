@@ -1,0 +1,49 @@
+{
+ "stream": "post-audit default (what final_eval.py draws today)",
+ "n_train_lengths_246": 0,
+ "n_unseen": 1500,
+ "train_pool_lengths": [
+  10,
+  12,
+  14,
+  16,
+  18,
+  20,
+  22
+ ],
+ "unseen_accuracy": 0.47333333333333333,
+ "majority_baseline": 0.526,
+ "unseen_lengths": [
+  10,
+  12,
+  14,
+  16,
+  18,
+  20,
+  22
+ ]
+}
+{
+ "stream": "hardening='none' (pre-audit stream)",
+ "n_train_lengths_246": 24,
+ "n_unseen": 724,
+ "train_pool_lengths": [
+  2,
+  4,
+  6,
+  8,
+  10,
+  12,
+  14,
+  16
+ ],
+ "unseen_accuracy": 0.9986187845303868,
+ "majority_baseline": 0.5483425414364641,
+ "unseen_lengths": [
+  8,
+  10,
+  12,
+  14,
+  16
+ ]
+}
