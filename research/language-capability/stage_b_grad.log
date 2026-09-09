@@ -1,1 +1,30 @@
 0 {'symbols_sub': 's65', 'plus': 'v1', 'minus': 'v0', 'rule': ['eq', 'v0']} 0.292 0.408 0.452 {'symbols': 0.0, 'plus': 6.781151023460552e-05, 'minus': 0.00044300503213889897, 'answer': 0.025887763127684593} 45s
+1 {'symbols_sub': 's44', 'plus': 'v-2', 'minus': 'v2', 'rule': ['ge', 'v-1']} 0.625 0.567 0.55 {'symbols': 0.0, 'plus': 0.0007756359409540892, 'minus': 0.00713449576869607, 'answer': 0.025366641581058502} 57s
+2 {'symbols_sub': 's55', 'plus': 'v-1', 'minus': 'v0', 'rule': ['eq', 'v0']} 0.292 0.408 0.452 {'symbols': 0.0, 'plus': 2.4460034637741046e-06, 'minus': 5.4952055506873876e-05, 'answer': 0.02469584532082081} 59s
+3 {'symbols_sub': 's110', 'plus': 'v-2', 'minus': 'v2', 'rule': ['ge', 'v-1']} 0.0 0.0 0.273 {'symbols': 0.0, 'plus': 0.00027589566889218986, 'minus': 0.0025686484295874834, 'answer': 0.02533792518079281} 51s
+4 {'symbols_sub': 's13', 'plus': 'v-1', 'minus': 'v0', 'rule': ['eq', 'v0']} 0.292 0.408 0.452 {'symbols': 0.0, 'plus': 8.975045057013631e-05, 'minus': 0.0008053597994148731, 'answer': 0.02547403797507286} 41s
+5 {'symbols_sub': 's20', 'plus': 'v1', 'minus': 'v0', 'rule': ['eq', 'v0']} 0.292 0.408 0.452 {'symbols': 0.0, 'plus': 0.00017174280947074294, 'minus': 0.0015962637262418866, 'answer': 0.02491331286728382} 61s
+{
+ "space_size": 45375,
+ "steps": 300,
+ "seeds": 6,
+ "train_episodes": 24,
+ "exact_train_conformant": 0,
+ "mean_heldout_unseen": 0.43830570902394106,
+ "baselines": {
+  "heldout_seen_lengths": {
+   "n": 120,
+   "constant_yes": 0.5666666666666667,
+   "constant_no": 0.43333333333333335,
+   "majority_constant": 0.5666666666666667,
+   "random": 0.5
+  },
+  "heldout_unseen_lengths": {
+   "n": 724,
+   "constant_yes": 0.5483425414364641,
+   "constant_no": 0.4516574585635359,
+   "majority_constant": 0.5483425414364641,
+   "random": 0.5
+  }
+ }
+}

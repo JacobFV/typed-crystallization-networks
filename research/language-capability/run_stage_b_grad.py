@@ -19,6 +19,8 @@ def main():
     ap.add_argument('--seeds', type=int, default=6); ap.add_argument('--steps', type=int, default=300)
     ap.add_argument('--n-train', type=int, default=24); ap.add_argument('--lr', type=float, default=.05)
     ap.add_argument('--out', default=os.path.join(HERE, 'stage_b_grad.json'))
+    ap.add_argument('--tau-lt', type=float, default=0.)   # widen the `lt` surrogate
+    ap.add_argument('--tau-eq', type=float, default=0.)   # widen the answer-rule `eq`
     a = ap.parse_args()
     module, registry, _ = build_module()
     program, signals = scaffolds.stage_b(module, registry)
@@ -36,6 +38,8 @@ def main():
         model = SoftProgram(program, registry)
         with torch.no_grad():
             for p in model.choices: p.add_(torch.randn_like(p) * .01)
+        if a.tau_lt: model.temperatures.update({f'in{i}': a.tau_lt for i in range(16)})
+        if a.tau_eq: model.temperatures['answer'] = a.tau_eq
         opt = torch.optim.Adam(model.parameters(), lr=a.lr)
         t0 = time.perf_counter(); first_grads = None
         for step in range(a.steps):
@@ -65,6 +69,7 @@ def main():
         print(runs[-1]['seed'], runs[-1]['chosen'], round(tr_acc, 3), round(sn_acc, 3), round(un_acc, 3),
               first_grads, f"{runs[-1]['seconds']:.0f}s")
     report = {'space_size': space_size(program), 'steps': a.steps, 'seeds': a.seeds,
+              'tau_lt': a.tau_lt, 'tau_eq': a.tau_eq,
               'train_episodes': len(train_eps),
               'exact_train_conformant': sum(r['exact_train_accuracy'] == 1.0 for r in runs),
               'mean_heldout_unseen': sum(r['heldout_unseen_lengths'] for r in runs) / len(runs),

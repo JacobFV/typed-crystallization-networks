@@ -53,22 +53,24 @@ Five results, in the order they should change what the project does.
    and the collinearity test is then ordinary `mul`/`sub`/`abs`/`le`.  No
    operator was added and no type rule bent.
 
-4. **Enumeration settles this rung; the relaxed path's recorded failures were
-   invalid relaxations, and one real boundary survives the correction.**  The gradient arm is {{direct_grad}} on the 6,144-program space
-   and {{wide_grad}} on the 393,216-program one -- and **{{wide_grad_held}}
-   exact on held-out episodes**, so its one training success does not
-   generalise -- where enumeration exhausts both and returns a program with
-   held-out max error {{wide_val_err}}.  But **those gradient numbers were
-   measured on a surrogate that is exactly 0.0** at the operating distance:
-   `relaxed` computes `le` as `sigmoid(d/tau)` at `tau = 1`, which underflows in
-   float32 at a gap of {{le_zero}}, and this rung's gaps have median
-   {{gap_median}}.  Re-run with a live surrogate the arms are
-   {{sfix_operand}} and {{sfix_carrier}}, and the reason is now a *declared*
-   boundary rather than an accident: `shifted`, the neighbour offset, is
-   `grad = None` under every temperature policy because `pack` declares
-   `gradient="none"`, while `thr` goes from `None` to {{unfreeze_thr}} to
-   {{sfix_thr}} as the two accidents are removed.  Section 4 separates the three
-   mechanisms.
+4. **Enumeration settles this rung, and the reason the relaxed path does not is
+   now three measured mechanisms rather than one number.**  Every gradient arm
+   in section 3 was run on a surrogate that is **exactly 0.0** at the operating
+   distance: `relaxed` computes `le` as `sigmoid(d/tau)` at `tau = 1`, which
+   underflows in float32 at a gap of {{le_zero}}, and this rung's gaps have
+   median {{gap_median}} with {{gap_worst_fraction}} of records past it.  Those
+   `{{direct_grad}}` and `{{wide_grad}}` figures are therefore not evidence
+   about learnability.  Re-run with a live surrogate under three temperature
+   policies the arms are {{sfix_operand}}, {{sfix_carrier}} and
+   {{margin_grad}}, and the landscape measurement in section 4.4 explains why:
+   the **shipped** temperature puts the loss minimum on a *correct* threshold
+   with zero gradient, and every temperature large enough to restore the
+   gradient moves the minimum onto a *wrong* one -- at `tau = 2^bits` the whole
+   loss spread collapses to {{land_carrier_spread}}.  This rung's relaxed
+   landscape is a plateau with cliffs: enumeration walks it and gradient descent
+   cannot.  One boundary survives all of that and is genuine: `shifted`, the
+   neighbour offset, is `grad = None` under every policy because `pack` declares
+   `gradient="none"`.
 
 5. **A certificate about a family is not a certificate about a target, and the
    candidate pool is part of the family.**  The coarse eight-value threshold
@@ -731,28 +733,38 @@ digits -- a product of two bytes, a squared distance, a pixel count -- is
 invisible to the optimiser, and every gradient arm over such a comparison is a
 measurement of a dead relaxation rather than of learnability.
 
-Two scalings were measured (section 4.4): `tau = 2^bits` of the compared carrier,
-which is the rule that fixed the `eq` benchmark, and `tau = mean|operand|` over
-the batch.  Both take the threshold logit's gradient from {{unfreeze_thr}} to
-{{sfix_thr}}.
+**But the obvious scaling is the wrong one here, and section 4.4 measures that.**
+`tau = 2^bits` is 2^32 for these operands; it restores the derivative and
+flattens the loss to a spread of {{land_carrier_spread}}, moving the minimum onto
+a threshold that is not exact.  `tau = mean|operand|` does the same.  Only a
+temperature matched to the **decision margin** -- the spacing of the candidate
+constants at that node, about {{margin_width}} here -- keeps the minimum correct
+*and* the derivative alive.  So the fix is not "divide by the carrier"; it is
+"divide by something the caller can relate to the decision", and the honest
+version exposes it:
 
 ```python
+-def relaxed(registry,op,xs,temperature=1.):
++def relaxed(registry,op,xs,temperature=1.,scales=None):
+...
      if n in COMPARE:
 -        if n=="eq": return torch.exp(-((a-b)**2).sum(-1,keepdim=True)/temperature)
          d=b-a if n in {"lt","le"} else a-b
 -        return torch.sigmoid(d/temperature)
 +        # A fixed temperature makes a comparison blind past |a-b| ~ 11 for `eq`
-+        # and |d| ~ 89 for the orderings, in float32.  Scale by the carrier so
-+        # the surrogate is informative across the representable range; the exact
-+        # semantics are unchanged.
-+        tau=temperature*float(2**op.inputs[0].bits)
++        # and |d| ~ 89 for the orderings, in float32; a temperature scaled to the
++        # OPERAND range flattens the landscape instead. The informative scale is
++        # the decision margin, which only the caller knows, so it is passed in
++        # and defaults to the carrier width rather than to 1.
++        tau=temperature*float((scales or {}).get(op.name) or 2**op.inputs[0].bits)
 +        if n=="eq": return torch.exp(-((a-b)**2).sum(-1,keepdim=True)/tau)
 +        return torch.sigmoid(d/tau)
 ```
 
-Whatever the scaling, the requirement is that a gradient arm reports the
-surrogate's value at its operating distance; a `0/n` recorded next to a
-surrogate of 0.0 says nothing.
+Whatever the scaling, the requirement that does not depend on choosing it is:
+**a gradient arm must report the surrogate's value at its operating distance.**
+A `0/n` recorded next to a surrogate of 0.0 says nothing, and a `0/n` recorded
+next to a loss spread of {{land_carrier_spread}} says nothing either.
 
 ### E3.  `index`'s address relaxation is not sharp enough to read a pixel
 
@@ -766,10 +778,13 @@ same place.  Sharpening the temperature, or using a straight-through estimator
 on the argmax address as `relaxed` already does for `idiv`, would fix it; this
 track measured the sharpness rather than choosing between them.
 
-### Re-statement of the previous track's D2/D3/D6, all still unmerged
+### The previous track's D2 is merged; D3 and D6 are not
 
-This track needed all three again and implemented them locally: it reports the
-conforming count itself (D2), filters by a validation split and reports both
-counts (D3), and used `research/discrete-perception/incremental.py` for the
-393,216-program sweep (D6), which `enumerate_fit`'s own loop projects at
-{{wide_enum_proj}} s.
+`SearchResult` now carries `conforming`, and `enumerate_fit` takes `rank` --
+that is D2, and this track would have needed it.  D3 (a validation split as the
+tie-break) and D6 (walk the choice tree instead of re-executing per candidate)
+are still open, and this track needed both: it filters by validation itself
+(section 3.1 and 3.3, where {{wide_conforming}} conforming becomes
+{{wide_val}}), and it used `research/discrete-perception/incremental.py` for the
+{{wide_space}}-program sweep, which `enumerate_fit`'s own loop projects at
+{{wide_enum_proj}} s against {{wide_inc_seconds}} s.

@@ -1,0 +1,38 @@
+{
+  "L1_address_does_not_vary_the_task": {
+    "consequence": "held-out episode addresses hold out nothing about the task, so a generalization claim on this generator has to vary `configuration`, which `TrainConfig` fixes for a whole run",
+    "distinct_initial_terminals": 1,
+    "distinct_terminals_after_a_read": 1,
+    "indices": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "observed": [
+      "count = 7",
+      "count = 7"
+    ]
+  },
+  "L2_objective_not_consumable": {
+    "actor_view_objective": {
+      "content": "8",
+      "path": "/home/agent/task.txt"
+    },
+    "consequence": "goal-conditioned generalization over held-out objectives is not expressible: the actor cannot see which objective it is being scored against",
+    "objective_in_observations": false,
+    "observation_keys": [
+      "pixels",
+      "terminal"
+    ]
+  },
+  "L3_trainconfig_generator_configuration_is_per_run": {
+    "consequence": "the only thing `JointTrainer` can vary per episode is the objective, and the objective is invisible to the actor (L2), so the integrated trainer cannot present this generator with a distribution of tasks",
+    "field": "generator_config",
+    "objectives_vary_with_episode_index": true,
+    "type": "dict",
+    "used_as": "Host.create(..., configuration=c.generator_config|{'horizon':c.horizon})",
+    "varies_with_episode_index": false
+  },
+  "seconds": 14.701723632984795
+}

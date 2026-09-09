@@ -1,6 +1,6 @@
 """E5: horizon scaling, dense (the generator's own per-step reward) and terminal-only."""
 from run_arms import main
-def base(h, **kw): return dict(episodes=1000, horizon=h, lr=.04, w_actor=1., w_value=.5, w_entropy=.01, **kw)
+def base(h, **kw): return dict(dict(episodes=1000, horizon=h, lr=.04, w_actor=1., w_value=.5, w_entropy=.01), **kw)
 def probe_stage(h): return {'cfg': base(h, episodes=200, w_probe=1., w_actor=0., w_value=0., log_every=25)}
 def reward_stage(h, terminal): return {'freeze': True, 'reset_optimizer': True,
     'cfg': base(h, episodes=800, w_probe=0., terminal_reward_only=terminal,

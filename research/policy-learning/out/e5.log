@@ -1,11 +1,58 @@
-Traceback (most recent call last):
-  File "/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/e5_horizon.py", line 12, in <module>
-    ARMS[f'H{h}_staged_dense']      = {'policy_init':'zero','stages':[probe_stage(h),reward_stage(h,False)]}
-                                                                      ~~~~~~~~~~~^^^
-  File "/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/e5_horizon.py", line 4, in probe_stage
-    def probe_stage(h): return {'cfg': base(h, episodes=200, w_probe=1., w_actor=0., w_value=0., log_every=25)}
-                                       ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/e5_horizon.py", line 3, in base
-    def base(h, **kw): return dict(episodes=1000, horizon=h, lr=.04, w_actor=1., w_value=.5, w_entropy=.01, **kw)
-                              ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: dict() got multiple values for keyword argument 'episodes'
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:328: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  ent[node.name] = float(-(q * q.clamp_min(1e-12).log()).sum())
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:328: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  ent[node.name] = float(-(q * q.clamp_min(1e-12).log()).sum())
+H4_rewardonly_dense                    seed 0 eval 4.000 env_ep   1064 57.3s
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:328: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  ent[node.name] = float(-(q * q.clamp_min(1e-12).log()).sum())
+H4_rewardonly_dense                    seed 1 eval 4.000 env_ep   1064 59.5s
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:328: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  ent[node.name] = float(-(q * q.clamp_min(1e-12).log()).sum())
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:328: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  ent[node.name] = float(-(q * q.clamp_min(1e-12).log()).sum())
+/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/pl.py:328: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  ent[node.name] = float(-(q * q.clamp_min(1e-12).log()).sum())
+H4_rewardonly_dense                    seed 2 eval 4.000 env_ep   1064 69.9s
+H4_rewardonly_dense                    seed 3 eval 4.000 env_ep   1064 65.1s
+H4_rewardonly_terminal                 seed 0 eval 1.000 env_ep   1064 54.0s
+H4_rewardonly_terminal                 seed 1 eval 1.000 env_ep   1064 59.6s
+H4_rewardonly_terminal                 seed 2 eval 1.000 env_ep   1064 64.5s
+H4_rewardonly_terminal                 seed 3 eval 1.000 env_ep   1064 56.6s
+H4_staged_dense                        seed 0 eval 4.000 env_ep   1256 11.2s
+H4_staged_dense                        seed 1 eval 4.000 env_ep   1256 23.1s
+H4_staged_dense                        seed 2 eval 4.000 env_ep   1256 28.8s
+H4_staged_dense                        seed 3 eval 4.000 env_ep   1256 23.6s
+H4_staged_terminal                     seed 0 eval 1.000 env_ep   1256 34.5s
+H4_staged_terminal                     seed 1 eval 1.000 env_ep   1256 27.7s
+H4_staged_terminal                     seed 2 eval 1.000 env_ep   1256 25.6s
+H4_staged_terminal                     seed 3 eval 1.000 env_ep   1256 22.1s
+H4_staged_terminal_b32                 seed 0 eval 1.000 env_ep   1256 18.2s
+H4_staged_terminal_b32                 seed 1 eval 0.438 env_ep   1256 29.5s
+H4_staged_terminal_b32                 seed 2 eval 1.000 env_ep   1256 29.6s
+H4_staged_terminal_b32                 seed 3 eval 1.000 env_ep   1256 19.2s
+H8_rewardonly_dense                    seed 0 eval 8.000 env_ep   1064 119.4s
+H8_rewardonly_dense                    seed 1 eval 8.000 env_ep   1064 95.8s
+H8_rewardonly_dense                    seed 2 eval 8.000 env_ep   1064 108.1s
+H8_rewardonly_dense                    seed 3 eval 8.000 env_ep   1064 131.2s
+H8_rewardonly_terminal                 seed 0 eval 1.000 env_ep   1064 114.6s
+H8_rewardonly_terminal                 seed 1 eval 1.000 env_ep   1064 129.0s
+H8_rewardonly_terminal                 seed 2 eval 1.000 env_ep   1064 123.3s
+H8_rewardonly_terminal                 seed 3 eval 1.000 env_ep   1064 112.7s
+H8_staged_dense                        seed 0 eval 8.000 env_ep   1256 57.6s
+H8_staged_dense                        seed 1 eval 8.000 env_ep   1256 31.6s
+H8_staged_dense                        seed 2 eval 8.000 env_ep   1256 47.6s
+H8_staged_dense                        seed 3 eval 8.000 env_ep   1256 33.5s
+H8_staged_terminal                     seed 0 eval 1.000 env_ep   1256 37.6s
+H8_staged_terminal                     seed 1 eval 1.000 env_ep   1256 40.6s
+H8_staged_terminal                     seed 2 eval 1.000 env_ep   1256 36.9s
+H8_staged_terminal                     seed 3 eval 1.000 env_ep   1256 33.1s
+H8_staged_terminal_b32                 seed 0 eval 1.000 env_ep   1256 48.8s
+H8_staged_terminal_b32                 seed 1 eval 1.000 env_ep   1256 36.8s
+H8_staged_terminal_b32                 seed 2 eval 1.000 env_ep   1256 50.6s
+H8_staged_terminal_b32                 seed 3 eval 1.000 env_ep   1256 45.5s

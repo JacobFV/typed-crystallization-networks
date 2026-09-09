@@ -768,7 +768,7 @@ All arms leave `tcn/` untouched and replace `relaxed` at runtime in one process.
 | comparison nodes unfrozen, `tau = mean operand` | alive | 0.00584 | **no** | 0/4 | 0/4 |
 | comparison nodes unfrozen, `tau = 2^bits` (carrier) | alive | {{sfix_carrier_thr}} | **no** | {{sfix_carrier}} | {{sfix_carrier_held}} |
 | comparison nodes unfrozen, `tau = 32` (decision margin) | alive | None | yes | {{margin_grad}} | {{margin_grad_held}} |
-| `tau = mean operand`, **offset pinned** to the right neighbour | alive | None | no | {{pinned_grad}} | {{pinned_grad_held}} |
+| `tau = mean operand`, **offset pinned** to the right neighbour | alive | 0.00882 | no | 0/4 | 0/4 |
 | *every* deterministic node unfrozen, `tau = mean operand` | alive | 0.00892 | -- | 0/4 | 0/4 |
 | *every* deterministic node unfrozen, `tau = 2^bits` | alive | 7.26e-09 | -- | 0/4 | 0/4 |
 
@@ -964,28 +964,38 @@ digits -- a product of two bytes, a squared distance, a pixel count -- is
 invisible to the optimiser, and every gradient arm over such a comparison is a
 measurement of a dead relaxation rather than of learnability.
 
-Two scalings were measured (section 4.4): `tau = 2^bits` of the compared carrier,
-which is the rule that fixed the `eq` benchmark, and `tau = mean|operand|` over
-the batch.  Both take the threshold logit's gradient from 1.9e-22 to
-0.00584.
+**But the obvious scaling is the wrong one here, and section 4.4 measures that.**
+`tau = 2^bits` is 2^32 for these operands; it restores the derivative and
+flattens the loss to a spread of 5.96e-08, moving the minimum onto
+a threshold that is not exact.  `tau = mean|operand|` does the same.  Only a
+temperature matched to the **decision margin** -- the spacing of the candidate
+constants at that node, about 80 here -- keeps the minimum correct
+*and* the derivative alive.  So the fix is not "divide by the carrier"; it is
+"divide by something the caller can relate to the decision", and the honest
+version exposes it:
 
 ```python
+-def relaxed(registry,op,xs,temperature=1.):
++def relaxed(registry,op,xs,temperature=1.,scales=None):
+...
      if n in COMPARE:
 -        if n=="eq": return torch.exp(-((a-b)**2).sum(-1,keepdim=True)/temperature)
          d=b-a if n in {"lt","le"} else a-b
 -        return torch.sigmoid(d/temperature)
 +        # A fixed temperature makes a comparison blind past |a-b| ~ 11 for `eq`
-+        # and |d| ~ 89 for the orderings, in float32.  Scale by the carrier so
-+        # the surrogate is informative across the representable range; the exact
-+        # semantics are unchanged.
-+        tau=temperature*float(2**op.inputs[0].bits)
++        # and |d| ~ 89 for the orderings, in float32; a temperature scaled to the
++        # OPERAND range flattens the landscape instead. The informative scale is
++        # the decision margin, which only the caller knows, so it is passed in
++        # and defaults to the carrier width rather than to 1.
++        tau=temperature*float((scales or {}).get(op.name) or 2**op.inputs[0].bits)
 +        if n=="eq": return torch.exp(-((a-b)**2).sum(-1,keepdim=True)/tau)
 +        return torch.sigmoid(d/tau)
 ```
 
-Whatever the scaling, the requirement is that a gradient arm reports the
-surrogate's value at its operating distance; a `0/n` recorded next to a
-surrogate of 0.0 says nothing.
+Whatever the scaling, the requirement that does not depend on choosing it is:
+**a gradient arm must report the surrogate's value at its operating distance.**
+A `0/n` recorded next to a surrogate of 0.0 says nothing, and a `0/n` recorded
+next to a loss spread of 5.96e-08 says nothing either.
 
 ### E3.  `index`'s address relaxation is not sharp enough to read a pixel
 
@@ -999,10 +1009,13 @@ same place.  Sharpening the temperature, or using a straight-through estimator
 on the argmax address as `relaxed` already does for `idiv`, would fix it; this
 track measured the sharpness rather than choosing between them.
 
-### Re-statement of the previous track's D2/D3/D6, all still unmerged
+### The previous track's D2 is merged; D3 and D6 are not
 
-This track needed all three again and implemented them locally: it reports the
-conforming count itself (D2), filters by a validation split and reports both
-counts (D3), and used `research/discrete-perception/incremental.py` for the
-393,216-program sweep (D6), which `enumerate_fit`'s own loop projects at
-1217 s.
+`SearchResult` now carries `conforming`, and `enumerate_fit` takes `rank` --
+that is D2, and this track would have needed it.  D3 (a validation split as the
+tie-break) and D6 (walk the choice tree instead of re-executing per candidate)
+are still open, and this track needed both: it filters by validation itself
+(section 3.1 and 3.3, where 910 conforming becomes
+858), and it used `research/discrete-perception/incremental.py` for the
+393216-program sweep, which `enumerate_fit`'s own loop projects at
+1217 s against 196.1 s.

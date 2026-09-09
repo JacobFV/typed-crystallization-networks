@@ -97,9 +97,6 @@ def main():
         if verb=='wait': return T.wait_action()
         if verb=='read': return T.read_action()
         return T.act('write',path=path,text=str(rng.randrange(10)))
-    def oracle(tick,host,rng,path):
-        digit=int(T.document(*docs[0]).split('=')[1]) if False else None
-        return None
     report['B_baselines']=[
         scripted(T.TEST_DOCUMENTS,always_write('5'),label='always write "5"'),
         scripted(T.TEST_DOCUMENTS,read_then_constant('5'),label='read then write the modal digit "5"'),

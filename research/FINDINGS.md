@@ -886,3 +886,54 @@ differentiable whenever the operator declares a relaxation. It plausibly
 explains gradient-arm failures in several tracks, and it is the highest-priority
 core fix outstanding. The shipped `examples/` do not set `selected`, so their
 recorded numbers are unaffected.
+
+## 19. Language: a real task learned from raw bytes, and a certificate for the rest
+
+Full detail in `research/language-capability/RESULTS.md`. This is the first
+training ever run on the language generator.
+
+**What was learned.** On `context_free_language` ("is this string balanced?"),
+staged on the privileged `construction` latent, a typed program reaches **1.000
+on 724 held-out episodes of unseen lengths with 0% string overlap**, against a
+0.548 majority constant, 0.5 random, and a 0.648 best fitted-feature baseline
+whose training-perfect features collapse to the constant off-distribution.
+Trained only on lengths {2,4,6} — twelve distinct strings — it is exact at
+lengths 8 through 16 and at a nesting depth never seen.
+
+**The lexical unit was discovered, not given.** `role="byte"` gives the agent no
+notion of a symbol, so stage A learns `open(text,i) = eq(index(bytes, base+i), c)`
+with `c` searched over the whole 0-255 alphabet and `base` over 0-40.
+Enumeration exhausts 10,496 programs in 3.5 s with **conforming = 1 and
+uniqueness certified**: `base = 14`, byte 40, which is `(`.
+
+**What it is not, stated by the track itself.** The lesson is not context-free as
+sampled: negatives are single-character flips, which always break the bracket
+count, so counting and balancedness agree on 20,000 of 20,000 seeds. An
+off-distribution certificate confirms the learned program agrees with counting
+14/14 and with Dyck membership only 6/14 — it answers yes for `)(`. This
+demonstrates counting and agreement, **not recursion**.
+
+**Why the rest of the catalogue is out of reach, certified.** `answer` is
+determined by `text` in all 179 lessons but by `construction` in only 140, so
+dense staging is not uniformly available. And only **6 of 179 prompts are
+byte-predictable at a fixed offset** (22 at >= 0.75), because the grammar engine
+moves content with the vocabulary while `role="byte"` leaves no aggregation and
+no tuple-to-set conversion, hence no scan. The proposed fix is the `gates`-shaped
+one: a `set[(index, byte)]` second view of text.
+
+**Two core defects are now blocking rather than noted.** Gradient descent
+conforms in 0 of 44 runs on the identical spaces, and the cause is measured:
+`lt`'s surrogate gradient is **exactly 0.0 at delta >= 17** — verified
+independently here, 1.97e-01 at delta 1, 1.19e-07 at 16, exactly zero from 17 —
+while this task operates at delta ~48. Choice logits still had nonzero gradients
+throughout, so the signal was uninformative rather than absent.
+
+And the derived fix from section 16 **cannot be applied as-is**: scaling `eq`'s
+temperature by the carrier width also flattens that node's 256-way choice
+softmax, because `SoftProgram` uses one temperature for both. Gradients fall
+9e-2 to 2e-5 and every seed collapses. **Separating the surrogate temperature
+from the choice temperature is a prerequisite for the whole family** — it covers
+`eq`, `lt`/`le`/`gt`/`ge` and `index`, one cause behind three defects.
+
+**Staging is what made it reachable**: 3.5 s plus 363 s, against a projected
+50.7 days for the undecomposed 476M-program space.

@@ -1,0 +1,295 @@
+{
+ "space_size": 45375,
+ "evaluated": 45375,
+ "seconds": 362.90860972896917,
+ "conforming": 10,
+ "unique": false,
+ "train_episodes": 24,
+ "train_lengths": [
+  2,
+  4,
+  6
+ ],
+ "baselines": {
+  "heldout_seen_lengths": {
+   "n": 120,
+   "constant_yes": 0.5666666666666667,
+   "constant_no": 0.43333333333333335,
+   "majority_constant": 0.5666666666666667,
+   "random": 0.5
+  },
+  "heldout_unseen_lengths": {
+   "n": 724,
+   "constant_yes": 0.5483425414364641,
+   "constant_no": 0.4516574585635359,
+   "majority_constant": 0.5483425414364641,
+   "random": 0.5
+  }
+ },
+ "unseen_accuracy_distribution": {
+  "0.999": 6,
+  "1.0": 4
+ },
+ "programs": [
+  {
+   "selection": {
+    "symbols": 101,
+    "plus": 0,
+    "minus": 4,
+    "answer": 6
+   },
+   "chosen": {
+    "symbols_sub": "s101",
+    "plus": "v-2",
+    "minus": "v2",
+    "rule": [
+     "eq",
+     "v0"
+    ]
+   },
+   "heldout_seen_lengths": 1.0,
+   "heldout_unseen_lengths": 1.0,
+   "per_length": {
+    "8": 1.0,
+    "10": 1.0,
+    "12": 1.0,
+    "14": 1.0,
+    "16": 1.0
+   }
+  },
+  {
+   "selection": {
+    "symbols": 101,
+    "plus": 1,
+    "minus": 3,
+    "answer": 6
+   },
+   "chosen": {
+    "symbols_sub": "s101",
+    "plus": "v-1",
+    "minus": "v1",
+    "rule": [
+     "eq",
+     "v0"
+    ]
+   },
+   "heldout_seen_lengths": 1.0,
+   "heldout_unseen_lengths": 1.0,
+   "per_length": {
+    "8": 1.0,
+    "10": 1.0,
+    "12": 1.0,
+    "14": 1.0,
+    "16": 1.0
+   }
+  },
+  {
+   "selection": {
+    "symbols": 101,
+    "plus": 3,
+    "minus": 1,
+    "answer": 6
+   },
+   "chosen": {
+    "symbols_sub": "s101",
+    "plus": "v1",
+    "minus": "v-1",
+    "rule": [
+     "eq",
+     "v0"
+    ]
+   },
+   "heldout_seen_lengths": 1.0,
+   "heldout_unseen_lengths": 1.0,
+   "per_length": {
+    "8": 1.0,
+    "10": 1.0,
+    "12": 1.0,
+    "14": 1.0,
+    "16": 1.0
+   }
+  },
+  {
+   "selection": {
+    "symbols": 101,
+    "plus": 4,
+    "minus": 0,
+    "answer": 6
+   },
+   "chosen": {
+    "symbols_sub": "s101",
+    "plus": "v2",
+    "minus": "v-2",
+    "rule": [
+     "eq",
+     "v0"
+    ]
+   },
+   "heldout_seen_lengths": 1.0,
+   "heldout_unseen_lengths": 1.0,
+   "per_length": {
+    "8": 1.0,
+    "10": 1.0,
+    "12": 1.0,
+    "14": 1.0,
+    "16": 1.0
+   }
+  },
+  {
+   "selection": {
+    "symbols": 99,
+    "plus": 1,
+    "minus": 3,
+    "answer": 12
+   },
+   "chosen": {
+    "symbols_sub": "s99",
+    "plus": "v-1",
+    "minus": "v1",
+    "rule": [
+     "eq",
+     "v2"
+    ]
+   },
+   "heldout_seen_lengths": 1.0,
+   "heldout_unseen_lengths": 0.9986187845303868,
+   "per_length": {
+    "8": 1.0,
+    "10": 1.0,
+    "12": 1.0,
+    "14": 1.0,
+    "16": 0.5
+   }
+  },
+  {
+   "selection": {
+    "symbols": 99,
+    "plus": 3,
+    "minus": 1,
+    "answer": 0
+   },
+   "chosen": {
+    "symbols_sub": "s99",
+    "plus": "v1",
+    "minus": "v-1",
+    "rule": [
+     "eq",
+     "v-2"
+    ]
+   },
+   "heldout_seen_lengths": 1.0,
+   "heldout_unseen_lengths": 0.9986187845303868,
+   "per_length": {
+    "8": 1.0,
+    "10": 1.0,
+    "12": 1.0,
+    "14": 1.0,
+    "16": 0.5
+   }
+  },
+  {
+   "selection": {
+    "symbols": 100,
+    "plus": 0,
+    "minus": 4,
+    "answer": 12
+   },
+   "chosen": {
+    "symbols_sub": "s100",
+    "plus": "v-2",
+    "minus": "v2",
+    "rule": [
+     "eq",
+     "v2"
+    ]
+   },
+   "heldout_seen_lengths": 1.0,
+   "heldout_unseen_lengths": 0.9986187845303868,
+   "per_length": {
+    "8": 1.0,
+    "10": 1.0,
+    "12": 1.0,
+    "14": 1.0,
+    "16": 0.5
+   }
+  },
+  {
+   "selection": {
+    "symbols": 100,
+    "plus": 1,
+    "minus": 3,
+    "answer": 9
+   },
+   "chosen": {
+    "symbols_sub": "s100",
+    "plus": "v-1",
+    "minus": "v1",
+    "rule": [
+     "eq",
+     "v1"
+    ]
+   },
+   "heldout_seen_lengths": 1.0,
+   "heldout_unseen_lengths": 0.9986187845303868,
+   "per_length": {
+    "8": 1.0,
+    "10": 1.0,
+    "12": 1.0,
+    "14": 1.0,
+    "16": 0.5
+   }
+  },
+  {
+   "selection": {
+    "symbols": 100,
+    "plus": 3,
+    "minus": 1,
+    "answer": 3
+   },
+   "chosen": {
+    "symbols_sub": "s100",
+    "plus": "v1",
+    "minus": "v-1",
+    "rule": [
+     "eq",
+     "v-1"
+    ]
+   },
+   "heldout_seen_lengths": 1.0,
+   "heldout_unseen_lengths": 0.9986187845303868,
+   "per_length": {
+    "8": 1.0,
+    "10": 1.0,
+    "12": 1.0,
+    "14": 1.0,
+    "16": 0.5
+   }
+  },
+  {
+   "selection": {
+    "symbols": 100,
+    "plus": 4,
+    "minus": 0,
+    "answer": 0
+   },
+   "chosen": {
+    "symbols_sub": "s100",
+    "plus": "v2",
+    "minus": "v-2",
+    "rule": [
+     "eq",
+     "v-2"
+    ]
+   },
+   "heldout_seen_lengths": 1.0,
+   "heldout_unseen_lengths": 0.9986187845303868,
+   "per_length": {
+    "8": 1.0,
+    "10": 1.0,
+    "12": 1.0,
+    "14": 1.0,
+    "16": 0.5
+   }
+  }
+ ]
+}
