@@ -1,0 +1,131 @@
+{
+  "entries": [
+    {
+      "description_bits": 6048,
+      "digest": "ec516b3808ddef7e7d0e7d22",
+      "execution_cost": 2.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "earned",
+      "nodes": 2,
+      "operator": "module:ec516b3808ddef7e7d0e7d22",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "corpus_depth": "exact",
+        "max_holes": 4,
+        "max_nodes": 5,
+        "rank": 1,
+        "rule": "mine.propose",
+        "saving_bits": 3648,
+        "sites": [
+          "t1_maj_abc_xor_d:g2",
+          "t2_maj_abc_and_d:g2",
+          "t3_maj_bcd_or_a:g1",
+          "t3_maj_bcd_or_a:g4",
+          "t5_maj_abd_or_c:g2",
+          "t5_maj_abd_or_c:g4"
+        ],
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t5_maj_abd_or_c"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "c9204119dcbbdb63b3de914b3aefeeea8217bcb8788bb5f4c573d9c9ae67cfdc",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 6048,
+      "digest": "b22e2ef14a32a68f1224304f",
+      "execution_cost": 2.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "earned_runner_up",
+      "nodes": 2,
+      "operator": "module:b22e2ef14a32a68f1224304f",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "corpus_depth": "exact",
+        "max_holes": 4,
+        "max_nodes": 5,
+        "rank": 2,
+        "rule": "mine.propose",
+        "saving_bits": 416,
+        "sites": [
+          "t1_maj_abc_xor_d:g3",
+          "t2_maj_abc_and_d:g3",
+          "t3_maj_bcd_or_a:g3",
+          "t5_maj_abd_or_c:g3"
+        ],
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t5_maj_abd_or_c"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "c9204119dcbbdb63b3de914b3aefeeea8217bcb8788bb5f4c573d9c9ae67cfdc",
+      "stale": [],
+      "version": 1
+    }
+  ],
+  "format": "tcn.library/1"
+}

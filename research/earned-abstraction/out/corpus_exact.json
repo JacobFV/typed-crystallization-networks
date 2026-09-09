@@ -1,0 +1,1574 @@
+{
+  "programs": {
+    "t1_maj_abc_xor_d": {
+      "constants": [],
+      "format": "tcn.program/1",
+      "input_depths": [],
+      "inputs": [
+        [
+          "a",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "b",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "c",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "d",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "nodes": [
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "and",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "a",
+                "b"
+              ]
+            }
+          ],
+          "depth": 1,
+          "name": "g0",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "or",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "a",
+                "b"
+              ]
+            }
+          ],
+          "depth": 1,
+          "name": "g1",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "or",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "c",
+                "g0"
+              ]
+            }
+          ],
+          "depth": 2,
+          "name": "g2",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "and",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "g1",
+                "g2"
+              ]
+            }
+          ],
+          "depth": 3,
+          "name": "g3",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "xor",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "d",
+                "g3"
+              ]
+            }
+          ],
+          "depth": 4,
+          "name": "g4",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        }
+      ],
+      "outputs": [
+        [
+          "out",
+          "g4"
+        ]
+      ],
+      "state": [],
+      "trainable_constants": [],
+      "version": 1
+    },
+    "t2_maj_abc_and_d": {
+      "constants": [],
+      "format": "tcn.program/1",
+      "input_depths": [],
+      "inputs": [
+        [
+          "a",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "b",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "c",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "d",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "nodes": [
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "and",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "a",
+                "b"
+              ]
+            }
+          ],
+          "depth": 1,
+          "name": "g0",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "or",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "a",
+                "b"
+              ]
+            }
+          ],
+          "depth": 1,
+          "name": "g1",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "or",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "c",
+                "g0"
+              ]
+            }
+          ],
+          "depth": 2,
+          "name": "g2",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "and",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "d",
+                "g1"
+              ]
+            }
+          ],
+          "depth": 2,
+          "name": "g3",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "and",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "g2",
+                "g3"
+              ]
+            }
+          ],
+          "depth": 3,
+          "name": "g4",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        }
+      ],
+      "outputs": [
+        [
+          "out",
+          "g4"
+        ]
+      ],
+      "state": [],
+      "trainable_constants": [],
+      "version": 1
+    },
+    "t3_maj_bcd_or_a": {
+      "constants": [],
+      "format": "tcn.program/1",
+      "input_depths": [],
+      "inputs": [
+        [
+          "a",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "b",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "c",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "d",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "nodes": [
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "and",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "b",
+                "c"
+              ]
+            }
+          ],
+          "depth": 1,
+          "name": "g0",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "or",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "a",
+                "g0"
+              ]
+            }
+          ],
+          "depth": 2,
+          "name": "g1",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "or",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "b",
+                "c"
+              ]
+            }
+          ],
+          "depth": 1,
+          "name": "g2",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "and",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "d",
+                "g2"
+              ]
+            }
+          ],
+          "depth": 2,
+          "name": "g3",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "or",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "g1",
+                "g3"
+              ]
+            }
+          ],
+          "depth": 3,
+          "name": "g4",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        }
+      ],
+      "outputs": [
+        [
+          "out",
+          "g4"
+        ]
+      ],
+      "state": [],
+      "trainable_constants": [],
+      "version": 1
+    },
+    "t4_maj_acd_xor_b": {
+      "constants": [],
+      "format": "tcn.program/1",
+      "input_depths": [],
+      "inputs": [
+        [
+          "a",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "b",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "c",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "d",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "nodes": [
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "xor",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "a",
+                "b"
+              ]
+            }
+          ],
+          "depth": 1,
+          "name": "g0",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "xor",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "a",
+                "c"
+              ]
+            }
+          ],
+          "depth": 1,
+          "name": "g1",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "xor",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "a",
+                "d"
+              ]
+            }
+          ],
+          "depth": 1,
+          "name": "g2",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "and",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "g1",
+                "g2"
+              ]
+            }
+          ],
+          "depth": 2,
+          "name": "g3",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "xor",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "g0",
+                "g3"
+              ]
+            }
+          ],
+          "depth": 3,
+          "name": "g4",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        }
+      ],
+      "outputs": [
+        [
+          "out",
+          "g4"
+        ]
+      ],
+      "state": [],
+      "trainable_constants": [],
+      "version": 1
+    },
+    "t5_maj_abd_or_c": {
+      "constants": [],
+      "format": "tcn.program/1",
+      "input_depths": [],
+      "inputs": [
+        [
+          "a",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "b",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "c",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "d",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "nodes": [
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "and",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "a",
+                "b"
+              ]
+            }
+          ],
+          "depth": 1,
+          "name": "g0",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "or",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "a",
+                "b"
+              ]
+            }
+          ],
+          "depth": 1,
+          "name": "g1",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "or",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "c",
+                "g0"
+              ]
+            }
+          ],
+          "depth": 2,
+          "name": "g2",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "and",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "d",
+                "g1"
+              ]
+            }
+          ],
+          "depth": 2,
+          "name": "g3",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "or",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "g2",
+                "g3"
+              ]
+            }
+          ],
+          "depth": 3,
+          "name": "g4",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        }
+      ],
+      "outputs": [
+        [
+          "out",
+          "g4"
+        ]
+      ],
+      "state": [],
+      "trainable_constants": [],
+      "version": 1
+    },
+    "t6_maj_abc_xor_maj_bcd": {
+      "constants": [],
+      "format": "tcn.program/1",
+      "input_depths": [],
+      "inputs": [
+        [
+          "a",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "b",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "c",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "d",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "nodes": [
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "xor",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "a",
+                "d"
+              ]
+            }
+          ],
+          "depth": 1,
+          "name": "g0",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "xor",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "b",
+                "c"
+              ]
+            }
+          ],
+          "depth": 1,
+          "name": "g1",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "and",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "g0",
+                "g1"
+              ]
+            }
+          ],
+          "depth": 2,
+          "name": "g2",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        }
+      ],
+      "outputs": [
+        [
+          "out",
+          "g2"
+        ]
+      ],
+      "state": [],
+      "trainable_constants": [],
+      "version": 1
+    }
+  },
+  "report": [
+    {
+      "certificate": "minimum in basis; lengths [0, 1, 2, 3, 4] exhausted",
+      "description_bits": 12288,
+      "digest": "196f5907c6963a7201c63c4c",
+      "execution_cost": 5.0,
+      "exhausted_lengths": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "gates": [
+        [
+          "and",
+          0,
+          1
+        ],
+        [
+          "or",
+          0,
+          1
+        ],
+        [
+          "or",
+          2,
+          4
+        ],
+        [
+          "and",
+          5,
+          6
+        ],
+        [
+          "xor",
+          3,
+          7
+        ]
+      ],
+      "min_gates": 5,
+      "nodes": 5,
+      "nodes_expanded": [
+        {
+          "expanded": 0,
+          "length": 0
+        },
+        {
+          "expanded": 26,
+          "length": 1
+        },
+        {
+          "expanded": 912,
+          "length": 2
+        },
+        {
+          "expanded": 40416,
+          "length": 3
+        },
+        {
+          "expanded": 2307180,
+          "length": 4
+        },
+        {
+          "expanded": 1919207,
+          "length": 5
+        }
+      ],
+      "solved": true,
+      "task": "t1_maj_abc_xor_d",
+      "total_expanded": 4267741,
+      "verified_in_tcn": true,
+      "wall_seconds": 5.199183209973853
+    },
+    {
+      "certificate": "minimum in basis; lengths [0, 1, 2, 3, 4] exhausted",
+      "description_bits": 12288,
+      "digest": "63df64b27cce990a34c4b7a5",
+      "execution_cost": 5.0,
+      "exhausted_lengths": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "gates": [
+        [
+          "and",
+          0,
+          1
+        ],
+        [
+          "or",
+          0,
+          1
+        ],
+        [
+          "or",
+          2,
+          4
+        ],
+        [
+          "and",
+          3,
+          5
+        ],
+        [
+          "and",
+          6,
+          7
+        ]
+      ],
+      "min_gates": 5,
+      "nodes": 5,
+      "nodes_expanded": [
+        {
+          "expanded": 0,
+          "length": 0
+        },
+        {
+          "expanded": 26,
+          "length": 1
+        },
+        {
+          "expanded": 912,
+          "length": 2
+        },
+        {
+          "expanded": 40416,
+          "length": 3
+        },
+        {
+          "expanded": 2307180,
+          "length": 4
+        },
+        {
+          "expanded": 1918330,
+          "length": 5
+        }
+      ],
+      "solved": true,
+      "task": "t2_maj_abc_and_d",
+      "total_expanded": 4266864,
+      "verified_in_tcn": true,
+      "wall_seconds": 6.929229081026278
+    },
+    {
+      "certificate": "minimum in basis; lengths [0, 1, 2, 3, 4] exhausted",
+      "description_bits": 12280,
+      "digest": "a780b517c7fbdc7f157515ae",
+      "execution_cost": 5.0,
+      "exhausted_lengths": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "gates": [
+        [
+          "and",
+          1,
+          2
+        ],
+        [
+          "or",
+          0,
+          4
+        ],
+        [
+          "or",
+          1,
+          2
+        ],
+        [
+          "and",
+          3,
+          6
+        ],
+        [
+          "or",
+          5,
+          7
+        ]
+      ],
+      "min_gates": 5,
+      "nodes": 5,
+      "nodes_expanded": [
+        {
+          "expanded": 0,
+          "length": 0
+        },
+        {
+          "expanded": 26,
+          "length": 1
+        },
+        {
+          "expanded": 912,
+          "length": 2
+        },
+        {
+          "expanded": 40416,
+          "length": 3
+        },
+        {
+          "expanded": 2307180,
+          "length": 4
+        },
+        {
+          "expanded": 77341062,
+          "length": 5
+        }
+      ],
+      "solved": true,
+      "task": "t3_maj_bcd_or_a",
+      "total_expanded": 79689596,
+      "verified_in_tcn": true,
+      "wall_seconds": 96.99268798198318
+    },
+    {
+      "certificate": "minimum in basis; lengths [0, 1, 2, 3, 4] exhausted",
+      "description_bits": 12304,
+      "digest": "52a1da98d8ee03f958891718",
+      "execution_cost": 5.0,
+      "exhausted_lengths": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "gates": [
+        [
+          "xor",
+          0,
+          1
+        ],
+        [
+          "xor",
+          0,
+          2
+        ],
+        [
+          "xor",
+          0,
+          3
+        ],
+        [
+          "and",
+          5,
+          6
+        ],
+        [
+          "xor",
+          4,
+          7
+        ]
+      ],
+      "min_gates": 5,
+      "nodes": 5,
+      "nodes_expanded": [
+        {
+          "expanded": 0,
+          "length": 0
+        },
+        {
+          "expanded": 26,
+          "length": 1
+        },
+        {
+          "expanded": 912,
+          "length": 2
+        },
+        {
+          "expanded": 40416,
+          "length": 3
+        },
+        {
+          "expanded": 2307180,
+          "length": 4
+        },
+        {
+          "expanded": 15889523,
+          "length": 5
+        }
+      ],
+      "solved": true,
+      "task": "t4_maj_acd_xor_b",
+      "total_expanded": 18238057,
+      "verified_in_tcn": true,
+      "wall_seconds": 23.0164456780185
+    },
+    {
+      "certificate": "minimum in basis; lengths [0, 1, 2, 3, 4] exhausted",
+      "description_bits": 12280,
+      "digest": "f14d7ffe7833c1c200b18cd9",
+      "execution_cost": 5.0,
+      "exhausted_lengths": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "gates": [
+        [
+          "and",
+          0,
+          1
+        ],
+        [
+          "or",
+          0,
+          1
+        ],
+        [
+          "or",
+          2,
+          4
+        ],
+        [
+          "and",
+          3,
+          5
+        ],
+        [
+          "or",
+          6,
+          7
+        ]
+      ],
+      "min_gates": 5,
+      "nodes": 5,
+      "nodes_expanded": [
+        {
+          "expanded": 0,
+          "length": 0
+        },
+        {
+          "expanded": 26,
+          "length": 1
+        },
+        {
+          "expanded": 912,
+          "length": 2
+        },
+        {
+          "expanded": 40416,
+          "length": 3
+        },
+        {
+          "expanded": 2307180,
+          "length": 4
+        },
+        {
+          "expanded": 1918331,
+          "length": 5
+        }
+      ],
+      "solved": true,
+      "task": "t5_maj_abd_or_c",
+      "total_expanded": 4266865,
+      "verified_in_tcn": true,
+      "wall_seconds": 4.072341860970482
+    },
+    {
+      "certificate": "minimum in basis; lengths [0, 1, 2] exhausted",
+      "description_bits": 8240,
+      "digest": "f61462d30d30fa5c7fe83766",
+      "execution_cost": 3.0,
+      "exhausted_lengths": [
+        0,
+        1,
+        2
+      ],
+      "gates": [
+        [
+          "xor",
+          0,
+          3
+        ],
+        [
+          "xor",
+          1,
+          2
+        ],
+        [
+          "and",
+          4,
+          5
+        ]
+      ],
+      "min_gates": 3,
+      "nodes": 3,
+      "nodes_expanded": [
+        {
+          "expanded": 0,
+          "length": 0
+        },
+        {
+          "expanded": 26,
+          "length": 1
+        },
+        {
+          "expanded": 912,
+          "length": 2
+        },
+        {
+          "expanded": 14741,
+          "length": 3
+        }
+      ],
+      "solved": true,
+      "task": "t6_maj_abc_xor_maj_bcd",
+      "total_expanded": 15679,
+      "verified_in_tcn": true,
+      "wall_seconds": 0.020017504051793367
+    }
+  ],
+  "solver": "exhaustive straight-line search in the scaffold basis",
+  "wall_seconds": 99.09557388798567
+}

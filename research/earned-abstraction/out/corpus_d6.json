@@ -1,0 +1,317 @@
+{
+  "depth": 6,
+  "programs": {
+    "t6_maj_abc_xor_maj_bcd": {
+      "constants": [],
+      "format": "tcn.program/1",
+      "input_depths": [],
+      "inputs": [
+        [
+          "a",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "b",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "c",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "d",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "nodes": [
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "xor",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "a",
+                "d"
+              ]
+            }
+          ],
+          "depth": 2,
+          "name": "g1",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "xor",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "c",
+                "b"
+              ]
+            }
+          ],
+          "depth": 3,
+          "name": "g2",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  },
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "and",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "g1",
+                "g2"
+              ]
+            }
+          ],
+          "depth": 4,
+          "name": "g3",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        },
+        {
+          "candidates": [
+            {
+              "operator": {
+                "inputs": [
+                  {
+                    "kind": "bool"
+                  }
+                ],
+                "name": "identity",
+                "output": {
+                  "kind": "bool"
+                },
+                "parameters": {}
+              },
+              "sources": [
+                "g3"
+              ]
+            }
+          ],
+          "depth": 6,
+          "name": "g5",
+          "output": {
+            "kind": "bool"
+          },
+          "region": "core",
+          "selected": 0
+        }
+      ],
+      "outputs": [
+        [
+          "out",
+          "g5"
+        ]
+      ],
+      "state": [],
+      "trainable_constants": [],
+      "version": 2
+    }
+  },
+  "report": [
+    {
+      "description_bits": null,
+      "digest": null,
+      "first_step": null,
+      "nodes": null,
+      "seed": null,
+      "seeds_conformant": 0,
+      "seeds_run": 8,
+      "solved": false,
+      "steps_to_first": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "task": "t1_maj_abc_xor_d",
+      "wall_seconds": 842.6234460549895
+    },
+    {
+      "description_bits": null,
+      "digest": null,
+      "first_step": null,
+      "nodes": null,
+      "seed": null,
+      "seeds_conformant": 0,
+      "seeds_run": 8,
+      "solved": false,
+      "steps_to_first": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "task": "t2_maj_abc_and_d",
+      "wall_seconds": 892.5753676281311
+    },
+    {
+      "description_bits": null,
+      "digest": null,
+      "first_step": null,
+      "nodes": null,
+      "seed": null,
+      "seeds_conformant": 0,
+      "seeds_run": 8,
+      "solved": false,
+      "steps_to_first": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "task": "t3_maj_bcd_or_a",
+      "wall_seconds": 912.8209728070651
+    },
+    {
+      "description_bits": null,
+      "digest": null,
+      "first_step": null,
+      "nodes": null,
+      "seed": null,
+      "seeds_conformant": 0,
+      "seeds_run": 8,
+      "solved": false,
+      "steps_to_first": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "task": "t4_maj_acd_xor_b",
+      "wall_seconds": 886.2046699678758
+    },
+    {
+      "description_bits": null,
+      "digest": null,
+      "first_step": null,
+      "nodes": null,
+      "seed": null,
+      "seeds_conformant": 0,
+      "seeds_run": 8,
+      "solved": false,
+      "steps_to_first": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "task": "t5_maj_abd_or_c",
+      "wall_seconds": 816.4300539069809
+    },
+    {
+      "description_bits": 10128,
+      "digest": "1ff8e4b329aa07496ea278d9",
+      "first_step": 60,
+      "nodes": 4,
+      "seed": 2,
+      "seeds_conformant": 3,
+      "seeds_run": 8,
+      "solved": true,
+      "steps_to_first": [
+        null,
+        null,
+        60,
+        null,
+        null,
+        null,
+        60,
+        30
+      ],
+      "task": "t6_maj_abc_xor_maj_bcd",
+      "wall_seconds": 538.0678199110553
+    }
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "steps": 900,
+  "wall_seconds": 345.8811495900154
+}
