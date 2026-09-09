@@ -39,3 +39,42 @@ already reflected in its `docs/VALIDATION.md` edit.
 Note for a fresh worktree: the four `generators/computer` tests need
 `generators/computer/engine/node_modules`, which is gitignored. Symlink it from
 the main checkout to run the full suite.
+
+### `positional-reuse` — verified, blocked on quiet tree
+
+Refutes the positional-reuse blocker: one crystallized module applies at every
+position of an arbitrarily wide tuple with **three caller nodes**, independent of
+width and position count, using only operators already in the registry
+(`insert` to bridge into set-land, `pair` for the cartesian product with a
+constant set of positions, `map` with the module parameter). No operator, type,
+relaxation or loss term is added, and no ARCHITECTURE section 2 amendment is
+proposed.
+
+Also fixes a genuine search bug: `legal_candidates` resolved every candidate
+with empty parameters, so no parameterized operator could ever be proposed.
+
+**Independently verified from the supervising session, against main's operators
+rather than the branch:**
+
+- `legal_candidates` on main proposes **0** candidates for `project`, `map`,
+  `filter` and `join`, and 1 for `and`. `project` with empty parameters raises
+  `TypeError: operator signature mismatch`; with `index=0` it resolves. The
+  entire structural and recursive-abstraction family was outside the search
+  space, so positional reuse could only ever be hand-supplied, never discovered.
+- The three-node composition runs on **unmodified main**: a registered
+  `(index, wide) -> bool` module applied across an 8-wide observation by exactly
+  3 caller nodes. Confirmed the claim needs no core change to be *expressible* —
+  the branch's changes are what let search *find* it.
+- Confirmed the position tag is load-bearing: an untagged `set[BOOL]` output
+  collapses to `[False, True]`, losing per-position information, exactly as the
+  duplicate-free set semantics require.
+
+Blocked because it changes `tcn/graph.py` and `tcn/scaffold.py` while the
+perception-ladder and recursive-abstraction-retest agents measure against main.
+
+Its own reported caveats to preserve when landing: the geometry demonstration's
+supervision does not identify the program (1,584 of 32,000 candidates survive
+held-out, the renderer's own among them), the whole pattern sits behind a
+declared gradient boundary since `map`/`pair`/`insert` have no relaxation, and
+73% of apply time is `Value.of` re-encoding because `pair` replicates the
+observation per position.
