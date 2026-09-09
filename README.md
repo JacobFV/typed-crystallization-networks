@@ -112,12 +112,26 @@ Read it before building on the architecture. In short:
   persistent module library and curriculum artifact flow (section 25).
 - **Refuted.** The *progressive irreversible freezing schedule*, four times over,
   most recently in its reversible form (sections 7, 12, 37).
-- **Unproven, and the current priority.** The efficiency argument. The complete
-  inference path is measured at 146x to 90,400x slower than the same function in
-  plain Python, with **97.7%** attributed to decode/encode/validate marshalling
-  and **0.56%** to operator semantics plus the graph walk (section 36). No matched
-  neural baseline exists for the visual, language or computer artifacts, so
-  "cheaper than a model" is unmeasured for all three.
+- **Settled since, and it was the interpreter.** The complete inference path was
+  measured at 146x to 90,400x slower than plain Python, with **97.7%** in
+  decode/encode/validate marshalling against **0.56%** in operator semantics plus
+  the graph walk (section 36). Compiling a frozen program to straight-line stdlib
+  Python takes the visual parse from 103,487,972 element operations to **6,144**,
+  none of them internal, and flips attribution to 66.7% operator work
+  (section 42). What remains is program length, not representation: generated
+  Python is 3.1x / 7.1x / 27.6x hand-written, and the visual figure is 11.1x more
+  bytecodes at 2.25x each. Ranking the search by description does not fix it and
+  is certified not to (section 41).
+- **Measured, and mixed — read it before quoting a cost.** Matched neural
+  baselines now exist for all three artifacts (section 43). Typed wins *quality*
+  on all three: nine CNN arms score **0 exact parse trees** at every width and
+  budget against 20/20 rectangles and links from six screens; language 0.9986
+  against a best validation-selected 0.657; computer 10/10 against a computed
+  5/10 ceiling. But the CNN wins *execution* on the visual artifact by 300-556x
+  and *size* by 250x, and the computer artifact is a cost wash. The typed side
+  wins deployment footprint across the board: 24-60 MB stdlib-only against
+  ~270 MB to import torch. **"Cheaper than a model" is true on some axes and
+  false on others**, and which is which depends on the artifact.
 - **Where the differentiable path earns its place.** Enumeration settles both
   flagship results in milliseconds, so gradients currently pay only where search
   is coupled to an environment.
