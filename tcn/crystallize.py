@@ -177,7 +177,7 @@ class Crystallizer:
     def try_freeze(self,name,loss_fn,retrain_steps=20,conformance=None,index=None):
         m=self.model; objective=Objective.of(loss_fn); loss_fn=objective.total
         weights=copy.deepcopy(m.state_dict()); opt=copy.deepcopy(self.optimizer.state_dict())
-        frozen=dict(m.frozen); trials=dict(m.trials); requires=[p.requires_grad for p in m.parameters()]
+        frozen=dict(m.frozen); trials=dict(m.trials); pinned=dict(m.pinned); requires=[p.requires_grad for p in m.parameters()]
         before=float(loss_fn().detach())
         if index is None: index=m.selections()[name]
         accepted=False; reason="degradation"; after=float("inf")
@@ -213,7 +213,7 @@ class Crystallizer:
                 else: accepted=True; reason="validated"
         except (ValueError,OverflowError,RuntimeError) as e: reason=f"invalid trial: {e}"
         if not accepted:
-            m.load_state_dict(weights); self.optimizer.load_state_dict(opt); m.frozen=frozen; m.trials=trials
+            m.load_state_dict(weights); self.optimizer.load_state_dict(opt); m.frozen=frozen; m.trials=trials; m.pinned=pinned
             for p,flag in zip(m.parameters(),requires): p.requires_grad_(flag)
         event=FreezeEvent(name,accepted,before,after,reason); self.events.append(event); return event
     def run(self,loss_fn,rounds=12,retrain_steps=20,conformance=None):
@@ -236,6 +236,13 @@ class Crystallizer:
             if self.anneal=="round" or (self.anneal=="plateau" and open_gate):
                 for n in self.model.program.nodes:
                     if n.name not in self.model.frozen:
+                        # Choice concentration and surrogate sharpening are
+                        # separate controls, but the relaxation reads
+                        # `temperatures * surrogate_scale`, so this one schedule
+                        # still sharpens both proportionally -- exactly the
+                        # shipped behaviour. A caller that wants a wide surrogate
+                        # under a concentrating choice raises
+                        # `model.surrogate_scale` and leaves this alone.
                         self.model.temperatures[n.name]=max(.05,self.model.temperatures[n.name]*.8)
                         if n.output.kind=="int" and n.output.numeric:
                             self.model.quantization[n.name]=(n.output,min(1.,self.model.quantization.get(n.name,(n.output,0.))[1]+.1))
