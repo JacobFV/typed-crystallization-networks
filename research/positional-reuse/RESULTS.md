@@ -53,7 +53,7 @@ be unrecoverable. Tagged, the output is a *relation of indexed values*, which
 `ARCHITECTURE.md` section 1 already names as the way sequences are represented
 ("Sequences are indexed values plus length").
 
-Reference implementation: `poc_pair_map.py` (standalone, 40 lines) and
+Reference implementation: `poc_pair_map.py` (standalone, no repository helpers) and
 `tcn/scaffold.py:positional_scaffold`.
 
 ### What the composition does *not* give you
