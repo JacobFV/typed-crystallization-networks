@@ -1,0 +1,506 @@
+{
+  "gradient_fairness_sweep": [
+    {
+      "exact_conformance": false,
+      "fully_frozen": false,
+      "k_error": 0.039463686943054244,
+      "k_learned": 1.7394636869430542,
+      "loss": 0.00036177574656903744,
+      "lr": 0.05,
+      "seconds": 3.175184936961159,
+      "selections": {
+        "algebra": 0,
+        "analytic": 0,
+        "conversion": 0,
+        "logic": 6,
+        "scale": 0
+      },
+      "steps": 600
+    },
+    {
+      "exact_conformance": false,
+      "fully_frozen": false,
+      "k_error": 0.19298737049102788,
+      "k_learned": 1.8929873704910278,
+      "loss": 0.00859421119093895,
+      "lr": 0.01,
+      "seconds": 3.196772288007196,
+      "selections": {
+        "algebra": 0,
+        "analytic": 0,
+        "conversion": 0,
+        "logic": 6,
+        "scale": 0
+      },
+      "steps": 600
+    },
+    {
+      "exact_conformance": false,
+      "fully_frozen": false,
+      "k_error": 0.28836672306060795,
+      "k_learned": 1.988366723060608,
+      "loss": 0.01908916048705578,
+      "lr": 0.005,
+      "seconds": 3.2437700029695407,
+      "selections": {
+        "algebra": 0,
+        "analytic": 0,
+        "conversion": 0,
+        "logic": 6,
+        "scale": 0
+      },
+      "steps": 600
+    },
+    {
+      "exact_conformance": false,
+      "fully_frozen": false,
+      "k_error": 0.007319259643554732,
+      "k_learned": 1.7073192596435547,
+      "loss": 1.2458561286621261e-05,
+      "lr": 0.05,
+      "seconds": 5.256114051968325,
+      "selections": {
+        "algebra": 0,
+        "analytic": 0,
+        "conversion": 0,
+        "logic": 6,
+        "scale": 0
+      },
+      "steps": 2000
+    },
+    {
+      "exact_conformance": false,
+      "fully_frozen": false,
+      "k_error": 0.05854873657226567,
+      "k_learned": 1.7585487365722656,
+      "loss": 0.0007957362686283886,
+      "lr": 0.01,
+      "seconds": 7.750005586014595,
+      "selections": {
+        "algebra": 0,
+        "analytic": 0,
+        "conversion": 0,
+        "logic": 6,
+        "scale": 0
+      },
+      "steps": 2000
+    },
+    {
+      "exact_conformance": false,
+      "fully_frozen": false,
+      "k_error": 0.12755112648010258,
+      "k_learned": 1.8275511264801025,
+      "loss": 0.003765840083360672,
+      "lr": 0.005,
+      "seconds": 6.382690072990954,
+      "selections": {
+        "algebra": 0,
+        "analytic": 0,
+        "conversion": 0,
+        "logic": 6,
+        "scale": 0
+      },
+      "steps": 2000
+    },
+    {
+      "exact_conformance": true,
+      "fully_frozen": true,
+      "k_error": 0.00011200904846186965,
+      "k_learned": 1.699887990951538,
+      "loss": 2.9236337795168765e-09,
+      "lr": 0.05,
+      "seconds": 7.701685254985932,
+      "selections": {
+        "algebra": 0,
+        "analytic": 0,
+        "conversion": 0,
+        "logic": 6,
+        "scale": 0
+      },
+      "steps": 6000
+    },
+    {
+      "exact_conformance": false,
+      "fully_frozen": false,
+      "k_error": 0.005837011337280318,
+      "k_learned": 1.7058370113372803,
+      "loss": 7.923644261609297e-06,
+      "lr": 0.01,
+      "seconds": 25.71083798998734,
+      "selections": {
+        "algebra": 0,
+        "analytic": 0,
+        "conversion": 0,
+        "logic": 6,
+        "scale": 0
+      },
+      "steps": 6000
+    },
+    {
+      "exact_conformance": false,
+      "fully_frozen": false,
+      "k_error": 0.015561509132385298,
+      "k_learned": 1.7155615091323853,
+      "loss": 5.630088344332762e-05,
+      "lr": 0.005,
+      "seconds": 13.214000475010835,
+      "selections": {
+        "algebra": 0,
+        "analytic": 0,
+        "conversion": 0,
+        "logic": 6,
+        "scale": 0
+      },
+      "steps": 6000
+    }
+  ],
+  "machine": {
+    "platform": "Linux-6.17.0-1026-nvidia-aarch64-with-glibc2.39",
+    "processor": "aarch64",
+    "python": "3.13.15"
+  },
+  "results": [
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 0,
+        "op_applications": 905760,
+        "programs": 7548
+      },
+      "detail": {
+        "example_evaluations": 181152,
+        "k_error": 1.952123995785371e-08,
+        "k_true": 1.7,
+        "max_abs_error": 4.499380423794719e-08,
+        "solution": {
+          "algebra": "add",
+          "analytic": "sin",
+          "k": 1.70000001952124,
+          "table": 6
+        },
+        "space_size": 96,
+        "structures_tried": 37
+      },
+      "method": "hybrid_enumeration_plus_1d_fit",
+      "seconds": 0.28716984996572137,
+      "solved": true,
+      "task": "mixed_constants"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 0,
+        "op_applications": 2350080,
+        "programs": 19584
+      },
+      "detail": {
+        "example_evaluations": 470016,
+        "k_error": 1.952123995785371e-08,
+        "k_true": 1.7,
+        "max_abs_error": 4.499380423794719e-08,
+        "solution": {
+          "algebra": "add",
+          "analytic": "sin",
+          "k": 1.70000001952124,
+          "table": 6
+        },
+        "space_size": 96,
+        "structures_tried": 96
+      },
+      "method": "hybrid_enumeration_plus_1d_fit_full",
+      "seconds": 0.7258235900080763,
+      "solved": true,
+      "task": "mixed_constants"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 1700,
+        "op_applications": 3095064,
+        "programs": 161
+      },
+      "detail": {
+        "backward_passes": 1700,
+        "forward_passes": 2031,
+        "fully_frozen": false,
+        "k_error": 0.039463686943054244,
+        "k_learned": 1.7394636869430542,
+        "loss": 0.00036177574656903744,
+        "seed": 0,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6,
+          "scale": 0
+        },
+        "steps": 600
+      },
+      "method": "gradient_tcn",
+      "seconds": 9.34874587401282,
+      "solved": false,
+      "task": "mixed_constants"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 1700,
+        "op_applications": 3095064,
+        "programs": 161
+      },
+      "detail": {
+        "backward_passes": 1700,
+        "forward_passes": 2031,
+        "fully_frozen": false,
+        "k_error": 0.039463686943054244,
+        "k_learned": 1.7394636869430542,
+        "loss": 0.00036177574656903744,
+        "seed": 1,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6,
+          "scale": 0
+        },
+        "steps": 600
+      },
+      "method": "gradient_tcn",
+      "seconds": 3.080977138946764,
+      "solved": false,
+      "task": "mixed_constants"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 1700,
+        "op_applications": 3095064,
+        "programs": 161
+      },
+      "detail": {
+        "backward_passes": 1700,
+        "forward_passes": 2031,
+        "fully_frozen": false,
+        "k_error": 0.039463686943054244,
+        "k_learned": 1.7394636869430542,
+        "loss": 0.00036177574656903744,
+        "seed": 2,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6,
+          "scale": 0
+        },
+        "steps": 600
+      },
+      "method": "gradient_tcn",
+      "seconds": 3.992098122020252,
+      "solved": false,
+      "task": "mixed_constants"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 1700,
+        "op_applications": 3095064,
+        "programs": 161
+      },
+      "detail": {
+        "backward_passes": 1700,
+        "forward_passes": 2031,
+        "fully_frozen": false,
+        "k_error": 0.039463686943054244,
+        "k_learned": 1.7394636869430542,
+        "loss": 0.00036177574656903744,
+        "seed": 3,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6,
+          "scale": 0
+        },
+        "steps": 600
+      },
+      "method": "gradient_tcn",
+      "seconds": 3.1067876929882914,
+      "solved": false,
+      "task": "mixed_constants"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 1700,
+        "op_applications": 3095064,
+        "programs": 161
+      },
+      "detail": {
+        "backward_passes": 1700,
+        "forward_passes": 2031,
+        "fully_frozen": false,
+        "k_error": 0.039463686943054244,
+        "k_learned": 1.7394636869430542,
+        "loss": 0.00036177574656903744,
+        "seed": 4,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6,
+          "scale": 0
+        },
+        "steps": 600
+      },
+      "method": "gradient_tcn",
+      "seconds": 3.064426683005877,
+      "solved": false,
+      "task": "mixed_constants"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 1700,
+        "op_applications": 3095064,
+        "programs": 161
+      },
+      "detail": {
+        "backward_passes": 1700,
+        "forward_passes": 2031,
+        "fully_frozen": false,
+        "k_error": 0.039463686943054244,
+        "k_learned": 1.7394636869430542,
+        "loss": 0.00036177574656903744,
+        "seed": 5,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6,
+          "scale": 0
+        },
+        "steps": 600
+      },
+      "method": "gradient_tcn",
+      "seconds": 3.165760630974546,
+      "solved": false,
+      "task": "mixed_constants"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 1700,
+        "op_applications": 3095064,
+        "programs": 161
+      },
+      "detail": {
+        "backward_passes": 1700,
+        "forward_passes": 2031,
+        "fully_frozen": false,
+        "k_error": 0.039463686943054244,
+        "k_learned": 1.7394636869430542,
+        "loss": 0.00036177574656903744,
+        "seed": 6,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6,
+          "scale": 0
+        },
+        "steps": 600
+      },
+      "method": "gradient_tcn",
+      "seconds": 6.933789524016902,
+      "solved": false,
+      "task": "mixed_constants"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 1700,
+        "op_applications": 3095064,
+        "programs": 161
+      },
+      "detail": {
+        "backward_passes": 1700,
+        "forward_passes": 2031,
+        "fully_frozen": false,
+        "k_error": 0.039463686943054244,
+        "k_learned": 1.7394636869430542,
+        "loss": 0.00036177574656903744,
+        "seed": 7,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6,
+          "scale": 0
+        },
+        "steps": 600
+      },
+      "method": "gradient_tcn",
+      "seconds": 7.832869237987325,
+      "solved": false,
+      "task": "mixed_constants"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 1700,
+        "op_applications": 3095064,
+        "programs": 161
+      },
+      "detail": {
+        "backward_passes": 1700,
+        "forward_passes": 2031,
+        "fully_frozen": false,
+        "k_error": 0.039463686943054244,
+        "k_learned": 1.7394636869430542,
+        "loss": 0.00036177574656903744,
+        "seed": 8,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6,
+          "scale": 0
+        },
+        "steps": 600
+      },
+      "method": "gradient_tcn",
+      "seconds": 3.6853864369913936,
+      "solved": false,
+      "task": "mixed_constants"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 1700,
+        "op_applications": 3095064,
+        "programs": 161
+      },
+      "detail": {
+        "backward_passes": 1700,
+        "forward_passes": 2031,
+        "fully_frozen": false,
+        "k_error": 0.039463686943054244,
+        "k_learned": 1.7394636869430542,
+        "loss": 0.00036177574656903744,
+        "seed": 9,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6,
+          "scale": 0
+        },
+        "steps": 600
+      },
+      "method": "gradient_tcn",
+      "seconds": 3.1585912160226144,
+      "solved": false,
+      "task": "mixed_constants"
+    }
+  ]
+}

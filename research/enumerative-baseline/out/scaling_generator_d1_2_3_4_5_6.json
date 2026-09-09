@@ -1,0 +1,1370 @@
+{
+  "machine": {
+    "platform": "Linux-6.17.0-1026-nvidia-aarch64-with-glibc2.39",
+    "processor": "aarch64",
+    "python": "3.13.15"
+  },
+  "rows": [
+    {
+      "depth": 1,
+      "enumeration": {
+        "leaf_programs": 184,
+        "seconds": 5.748803960159421e-05,
+        "solved": true,
+        "timed_out": false,
+        "verified": true
+      },
+      "generator_gates": [
+        [
+          2,
+          3,
+          7
+        ]
+      ],
+      "gradient": {
+        "candidates_per_node": [
+          256
+        ],
+        "op_applications_per_seed": 6144000,
+        "runs": [
+          {
+            "candidates_per_node": [
+              256
+            ],
+            "final_mask": 4095,
+            "first_success_step": 40,
+            "hamming": 0,
+            "log2_space": 8.0,
+            "op_applications": 6144000,
+            "seconds": 59.83589537098305,
+            "solved": true,
+            "steps": 500
+          },
+          {
+            "candidates_per_node": [
+              256
+            ],
+            "final_mask": 4095,
+            "first_success_step": 35,
+            "hamming": 0,
+            "log2_space": 8.0,
+            "op_applications": 6144000,
+            "seconds": 33.23349190695444,
+            "solved": true,
+            "steps": 500
+          },
+          {
+            "candidates_per_node": [
+              256
+            ],
+            "final_mask": 4095,
+            "first_success_step": 30,
+            "hamming": 0,
+            "log2_space": 8.0,
+            "op_applications": 6144000,
+            "seconds": 42.33443463902222,
+            "solved": true,
+            "steps": 500
+          }
+        ],
+        "seconds_median": 42.33443463902222,
+        "seconds_total_all_seeds": 135.4038219169597,
+        "success_rate": 1.0
+      },
+      "log2_space": 8.0,
+      "random": {
+        "draws": 20,
+        "draws_allowed": 384000,
+        "seconds": 4.8031972255557775e-05,
+        "solved": true
+      },
+      "sat": {
+        "build_seconds": 0.0009838530095294118,
+        "clauses": 526,
+        "conflicts": 14,
+        "decisions": 25,
+        "program": [
+          [
+            7,
+            2,
+            3
+          ]
+        ],
+        "propagations": 87,
+        "seconds": 0.0016402199980802834,
+        "solve_seconds": 0.0006563669885508716,
+        "solved": true,
+        "unknown": false,
+        "variables": 28,
+        "verified": true
+      },
+      "solution_density": 0.008,
+      "space_size": 256,
+      "target_index": 0,
+      "target_mask": 4095,
+      "target_source": "generator"
+    },
+    {
+      "depth": 1,
+      "enumeration": {
+        "leaf_programs": 60,
+        "seconds": 1.423998037353158e-05,
+        "solved": true,
+        "timed_out": false,
+        "verified": true
+      },
+      "generator_gates": [
+        [
+          0,
+          3,
+          11
+        ]
+      ],
+      "gradient": {
+        "candidates_per_node": [
+          256
+        ],
+        "op_applications_per_seed": 6144000,
+        "runs": [
+          {
+            "candidates_per_node": [
+              256
+            ],
+            "final_mask": 65365,
+            "first_success_step": 0,
+            "hamming": 0,
+            "log2_space": 8.0,
+            "op_applications": 6144000,
+            "seconds": 41.905052407004405,
+            "solved": true,
+            "steps": 500
+          },
+          {
+            "candidates_per_node": [
+              256
+            ],
+            "final_mask": 65365,
+            "first_success_step": 45,
+            "hamming": 0,
+            "log2_space": 8.0,
+            "op_applications": 6144000,
+            "seconds": 26.995158629026264,
+            "solved": true,
+            "steps": 500
+          },
+          {
+            "candidates_per_node": [
+              256
+            ],
+            "final_mask": 65365,
+            "first_success_step": 50,
+            "hamming": 0,
+            "log2_space": 8.0,
+            "op_applications": 6144000,
+            "seconds": 28.526406307995785,
+            "solved": true,
+            "steps": 500
+          }
+        ],
+        "seconds_median": 28.526406307995785,
+        "seconds_total_all_seeds": 97.42661734402645,
+        "success_rate": 1.0
+      },
+      "log2_space": 8.0,
+      "random": {
+        "draws": 68,
+        "draws_allowed": 384000,
+        "seconds": 6.916804704815149e-05,
+        "solved": true
+      },
+      "sat": {
+        "build_seconds": 0.008905804948881269,
+        "clauses": 526,
+        "conflicts": 8,
+        "decisions": 22,
+        "program": [
+          [
+            13,
+            3,
+            0
+          ]
+        ],
+        "propagations": 68,
+        "seconds": 0.015371342946309596,
+        "solve_seconds": 0.006465537997428328,
+        "solved": true,
+        "unknown": false,
+        "variables": 28,
+        "verified": true
+      },
+      "solution_density": 0.00764,
+      "space_size": 256,
+      "target_index": 1,
+      "target_mask": 65365,
+      "target_source": "generator"
+    },
+    {
+      "depth": 2,
+      "enumeration": {
+        "leaf_programs": 9,
+        "seconds": 7.15197529643774e-06,
+        "solved": true,
+        "timed_out": false,
+        "verified": true
+      },
+      "generator_gates": [
+        [
+          1,
+          0,
+          9
+        ],
+        [
+          1,
+          0,
+          10
+        ]
+      ],
+      "gradient": {
+        "candidates_per_node": [
+          256,
+          400
+        ],
+        "op_applications_per_seed": 15744000,
+        "runs": [
+          {
+            "candidates_per_node": [
+              256,
+              400
+            ],
+            "final_mask": 43690,
+            "first_success_step": 20,
+            "hamming": 0,
+            "log2_space": 16.643856189774723,
+            "op_applications": 15744000,
+            "seconds": 84.24411946500186,
+            "solved": true,
+            "steps": 500
+          },
+          {
+            "candidates_per_node": [
+              256,
+              400
+            ],
+            "final_mask": 43690,
+            "first_success_step": 5,
+            "hamming": 0,
+            "log2_space": 16.643856189774723,
+            "op_applications": 15744000,
+            "seconds": 135.12443842703942,
+            "solved": true,
+            "steps": 500
+          },
+          {
+            "candidates_per_node": [
+              256,
+              400
+            ],
+            "final_mask": 43690,
+            "first_success_step": 20,
+            "hamming": 0,
+            "log2_space": 16.643856189774723,
+            "op_applications": 15744000,
+            "seconds": 80.35186265700031,
+            "solved": true,
+            "steps": 500
+          }
+        ],
+        "seconds_median": 84.24411946500186,
+        "seconds_total_all_seeds": 299.7204205490416,
+        "success_rate": 1.0
+      },
+      "log2_space": 16.643856189774723,
+      "random": {
+        "draws": 9,
+        "draws_allowed": 492000,
+        "seconds": 2.0527979359030724e-05,
+        "solved": true
+      },
+      "sat": {
+        "build_seconds": 0.008810301020275801,
+        "clauses": 1636,
+        "conflicts": 21,
+        "decisions": 67,
+        "program": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            8,
+            0,
+            0
+          ]
+        ],
+        "propagations": 207,
+        "seconds": 0.05366391898132861,
+        "solve_seconds": 0.044853617961052805,
+        "solved": true,
+        "unknown": false,
+        "variables": 58,
+        "verified": true
+      },
+      "solution_density": 0.03702,
+      "space_size": 102400,
+      "target_index": 0,
+      "target_mask": 43690,
+      "target_source": "generator"
+    },
+    {
+      "depth": 2,
+      "enumeration": {
+        "leaf_programs": 14712,
+        "seconds": 0.009235300007276237,
+        "solved": true,
+        "timed_out": false,
+        "verified": true
+      },
+      "generator_gates": [
+        [
+          3,
+          0,
+          8
+        ],
+        [
+          4,
+          2,
+          11
+        ]
+      ],
+      "gradient": {
+        "candidates_per_node": [
+          256,
+          400
+        ],
+        "op_applications_per_seed": 15744000,
+        "runs": [
+          {
+            "candidates_per_node": [
+              256,
+              400
+            ],
+            "final_mask": 62975,
+            "first_success_step": 85,
+            "hamming": 0,
+            "log2_space": 16.643856189774723,
+            "op_applications": 15744000,
+            "seconds": 65.90772640600335,
+            "solved": true,
+            "steps": 500
+          },
+          {
+            "candidates_per_node": [
+              256,
+              400
+            ],
+            "final_mask": 62975,
+            "first_success_step": 80,
+            "hamming": 0,
+            "log2_space": 16.643856189774723,
+            "op_applications": 15744000,
+            "seconds": 48.58045398100512,
+            "solved": true,
+            "steps": 500
+          },
+          {
+            "candidates_per_node": [
+              256,
+              400
+            ],
+            "final_mask": 61695,
+            "first_success_step": null,
+            "hamming": 2,
+            "log2_space": 16.643856189774723,
+            "op_applications": 15744000,
+            "seconds": 45.32320319197606,
+            "solved": false,
+            "steps": 500
+          }
+        ],
+        "seconds_median": 48.58045398100512,
+        "seconds_total_all_seeds": 159.81138357898453,
+        "success_rate": 0.6666666666666666
+      },
+      "log2_space": 16.643856189774723,
+      "random": {
+        "draws": 481,
+        "draws_allowed": 492000,
+        "seconds": 0.007526712957769632,
+        "solved": true
+      },
+      "sat": {
+        "build_seconds": 0.009077542985323817,
+        "clauses": 1636,
+        "conflicts": 48,
+        "decisions": 120,
+        "program": [
+          [
+            8,
+            3,
+            0
+          ],
+          [
+            13,
+            2,
+            4
+          ]
+        ],
+        "propagations": 515,
+        "seconds": 0.02189019398065284,
+        "solve_seconds": 0.012812650995329022,
+        "solved": true,
+        "unknown": false,
+        "variables": 58,
+        "verified": true
+      },
+      "solution_density": 0.00035,
+      "space_size": 102400,
+      "target_index": 1,
+      "target_mask": 62975,
+      "target_source": "generator"
+    },
+    {
+      "depth": 3,
+      "enumeration": {
+        "leaf_programs": 152,
+        "seconds": 4.8576039262115955e-05,
+        "solved": true,
+        "timed_out": false,
+        "verified": true
+      },
+      "generator_gates": [
+        [
+          2,
+          1,
+          6
+        ],
+        [
+          1,
+          1,
+          14
+        ],
+        [
+          3,
+          1,
+          7
+        ]
+      ],
+      "gradient": {
+        "candidates_per_node": [
+          256,
+          400,
+          576
+        ],
+        "op_applications_per_seed": 29568000,
+        "runs": [
+          {
+            "candidates_per_node": [
+              256,
+              400,
+              576
+            ],
+            "final_mask": 13311,
+            "first_success_step": 60,
+            "hamming": 0,
+            "log2_space": 25.81378119121704,
+            "op_applications": 29568000,
+            "seconds": 116.65178694896167,
+            "solved": true,
+            "steps": 500
+          },
+          {
+            "candidates_per_node": [
+              256,
+              400,
+              576
+            ],
+            "final_mask": 13311,
+            "first_success_step": 45,
+            "hamming": 0,
+            "log2_space": 25.81378119121704,
+            "op_applications": 29568000,
+            "seconds": 138.68781308701728,
+            "solved": true,
+            "steps": 500
+          },
+          {
+            "candidates_per_node": [
+              256,
+              400,
+              576
+            ],
+            "final_mask": 13311,
+            "first_success_step": 40,
+            "hamming": 0,
+            "log2_space": 25.81378119121704,
+            "op_applications": 29568000,
+            "seconds": 101.20805400499376,
+            "solved": true,
+            "steps": 500
+          }
+        ],
+        "seconds_median": 116.65178694896167,
+        "seconds_total_all_seeds": 356.5476540409727,
+        "success_rate": 1.0
+      },
+      "log2_space": 25.813781191217036,
+      "random": {
+        "draws": 41,
+        "draws_allowed": 616000,
+        "seconds": 0.00019667099695652723,
+        "solved": true
+      },
+      "sat": {
+        "build_seconds": 0.010050913959275931,
+        "clauses": 3588,
+        "conflicts": 51,
+        "decisions": 168,
+        "program": [
+          [
+            8,
+            3,
+            1
+          ],
+          [
+            7,
+            4,
+            1
+          ],
+          [
+            8,
+            5,
+            5
+          ]
+        ],
+        "propagations": 506,
+        "seconds": 0.01987638999707997,
+        "solve_seconds": 0.009825476037804037,
+        "solved": true,
+        "unknown": false,
+        "variables": 90,
+        "verified": true
+      },
+      "solution_density": 0.00587,
+      "space_size": 58982400,
+      "target_index": 0,
+      "target_mask": 13311,
+      "target_source": "generator"
+    },
+    {
+      "depth": 3,
+      "enumeration": {
+        "leaf_programs": 43,
+        "seconds": 1.7712009139358997e-05,
+        "solved": true,
+        "timed_out": false,
+        "verified": true
+      },
+      "generator_gates": [
+        [
+          0,
+          2,
+          11
+        ],
+        [
+          2,
+          3,
+          3
+        ],
+        [
+          2,
+          2,
+          10
+        ]
+      ],
+      "gradient": {
+        "candidates_per_node": [
+          256,
+          400,
+          576
+        ],
+        "op_applications_per_seed": 29568000,
+        "runs": [
+          {
+            "candidates_per_node": [
+              256,
+              400,
+              576
+            ],
+            "final_mask": 61680,
+            "first_success_step": 30,
+            "hamming": 0,
+            "log2_space": 25.81378119121704,
+            "op_applications": 29568000,
+            "seconds": 90.94309218798298,
+            "solved": true,
+            "steps": 500
+          },
+          {
+            "candidates_per_node": [
+              256,
+              400,
+              576
+            ],
+            "final_mask": 61680,
+            "first_success_step": 5,
+            "hamming": 0,
+            "log2_space": 25.81378119121704,
+            "op_applications": 29568000,
+            "seconds": 68.20601724105654,
+            "solved": true,
+            "steps": 500
+          },
+          {
+            "candidates_per_node": [
+              256,
+              400,
+              576
+            ],
+            "final_mask": 61680,
+            "first_success_step": 30,
+            "hamming": 0,
+            "log2_space": 25.81378119121704,
+            "op_applications": 29568000,
+            "seconds": 89.01035125600174,
+            "solved": true,
+            "steps": 500
+          }
+        ],
+        "seconds_median": 89.01035125600174,
+        "seconds_total_all_seeds": 248.15946068504127,
+        "success_rate": 1.0
+      },
+      "log2_space": 25.813781191217036,
+      "random": {
+        "draws": 25,
+        "draws_allowed": 616000,
+        "seconds": 0.00012404698645696044,
+        "solved": true
+      },
+      "sat": {
+        "build_seconds": 0.009617218980565667,
+        "clauses": 3588,
+        "conflicts": 41,
+        "decisions": 127,
+        "program": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            4,
+            2,
+            4
+          ],
+          [
+            8,
+            5,
+            5
+          ]
+        ],
+        "propagations": 396,
+        "seconds": 0.018448586983140558,
+        "solve_seconds": 0.00883136800257489,
+        "solved": true,
+        "unknown": false,
+        "variables": 90,
+        "verified": true
+      },
+      "solution_density": 0.03605,
+      "space_size": 58982400,
+      "target_index": 1,
+      "target_mask": 61680,
+      "target_source": "generator"
+    },
+    {
+      "depth": 4,
+      "enumeration": {
+        "leaf_programs": 10,
+        "seconds": 9.087962098419666e-06,
+        "solved": true,
+        "timed_out": false,
+        "verified": true
+      },
+      "generator_gates": [
+        [
+          0,
+          3,
+          4
+        ],
+        [
+          2,
+          2,
+          3
+        ],
+        [
+          1,
+          4,
+          10
+        ],
+        [
+          4,
+          6,
+          15
+        ]
+      ],
+      "gradient": {
+        "candidates_per_node": [
+          256,
+          400,
+          576,
+          784
+        ],
+        "op_applications_per_seed": 48384000,
+        "runs": [
+          {
+            "candidates_per_node": [
+              256,
+              400,
+              576,
+              784
+            ],
+            "final_mask": 65535,
+            "first_success_step": 25,
+            "hamming": 0,
+            "log2_space": 35.42849103533224,
+            "op_applications": 48384000,
+            "seconds": 169.77916566003114,
+            "solved": true,
+            "steps": 500
+          },
+          {
+            "candidates_per_node": [
+              256,
+              400,
+              576,
+              784
+            ],
+            "final_mask": 65535,
+            "first_success_step": 0,
+            "hamming": 0,
+            "log2_space": 35.42849103533224,
+            "op_applications": 48384000,
+            "seconds": 100.61827526800334,
+            "solved": true,
+            "steps": 500
+          },
+          {
+            "candidates_per_node": [
+              256,
+              400,
+              576,
+              784
+            ],
+            "final_mask": 65535,
+            "first_success_step": 0,
+            "hamming": 0,
+            "log2_space": 35.42849103533224,
+            "op_applications": 48384000,
+            "seconds": 77.93031445797533,
+            "solved": true,
+            "steps": 500
+          }
+        ],
+        "seconds_median": 100.61827526800334,
+        "seconds_total_all_seeds": 348.3277553860098,
+        "success_rate": 1.0
+      },
+      "log2_space": 35.42849103533224,
+      "random": {
+        "draws": 33,
+        "draws_allowed": 756000,
+        "seconds": 0.00020606303587555885,
+        "solved": true
+      },
+      "sat": {
+        "build_seconds": 0.019233052036724985,
+        "clauses": 6640,
+        "conflicts": 86,
+        "decisions": 276,
+        "program": [
+          [
+            0,
+            1,
+            3
+          ],
+          [
+            15,
+            0,
+            1
+          ],
+          [
+            8,
+            0,
+            0
+          ],
+          [
+            10,
+            4,
+            5
+          ]
+        ],
+        "propagations": 801,
+        "seconds": 0.037477805046364665,
+        "solve_seconds": 0.01824475300963968,
+        "solved": true,
+        "unknown": false,
+        "variables": 124,
+        "verified": true
+      },
+      "solution_density": 0.14264,
+      "space_size": 46242201600,
+      "target_index": 0,
+      "target_mask": 65535,
+      "target_source": "generator"
+    },
+    {
+      "depth": 4,
+      "enumeration": {
+        "leaf_programs": 43,
+        "seconds": 1.2687989510595798e-05,
+        "solved": true,
+        "timed_out": false,
+        "verified": true
+      },
+      "generator_gates": [
+        [
+          1,
+          2,
+          9
+        ],
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          5,
+          15
+        ],
+        [
+          2,
+          6,
+          13
+        ]
+      ],
+      "gradient": {
+        "candidates_per_node": [
+          256,
+          400,
+          576,
+          784
+        ],
+        "op_applications_per_seed": 48384000,
+        "runs": [
+          {
+            "candidates_per_node": [
+              256,
+              400,
+              576,
+              784
+            ],
+            "final_mask": 61680,
+            "first_success_step": 20,
+            "hamming": 0,
+            "log2_space": 35.42849103533224,
+            "op_applications": 48384000,
+            "seconds": 76.01083923800616,
+            "solved": true,
+            "steps": 500
+          },
+          {
+            "candidates_per_node": [
+              256,
+              400,
+              576,
+              784
+            ],
+            "final_mask": 61680,
+            "first_success_step": 0,
+            "hamming": 0,
+            "log2_space": 35.42849103533224,
+            "op_applications": 48384000,
+            "seconds": 111.64450321800541,
+            "solved": true,
+            "steps": 500
+          },
+          {
+            "candidates_per_node": [
+              256,
+              400,
+              576,
+              784
+            ],
+            "final_mask": 61680,
+            "first_success_step": 5,
+            "hamming": 0,
+            "log2_space": 35.42849103533224,
+            "op_applications": 48384000,
+            "seconds": 88.80818282801192,
+            "solved": true,
+            "steps": 500
+          }
+        ],
+        "seconds_median": 88.80818282801192,
+        "seconds_total_all_seeds": 276.4635252840235,
+        "success_rate": 1.0
+      },
+      "log2_space": 35.42849103533224,
+      "random": {
+        "draws": 28,
+        "draws_allowed": 756000,
+        "seconds": 9.63520142249763e-05,
+        "solved": true
+      },
+      "sat": {
+        "build_seconds": 0.008503532037138939,
+        "clauses": 6640,
+        "conflicts": 71,
+        "decisions": 226,
+        "program": [
+          [
+            0,
+            1,
+            3
+          ],
+          [
+            0,
+            4,
+            4
+          ],
+          [
+            4,
+            2,
+            5
+          ],
+          [
+            8,
+            6,
+            2
+          ]
+        ],
+        "propagations": 703,
+        "seconds": 0.015704765042755753,
+        "solve_seconds": 0.007201233005616814,
+        "solved": true,
+        "unknown": false,
+        "variables": 124,
+        "verified": true
+      },
+      "solution_density": 0.03449,
+      "space_size": 46242201600,
+      "target_index": 1,
+      "target_mask": 61680,
+      "target_source": "generator"
+    },
+    {
+      "depth": 5,
+      "enumeration": {
+        "leaf_programs": 54,
+        "seconds": 1.548795262351632e-05,
+        "solved": true,
+        "timed_out": false,
+        "verified": true
+      },
+      "generator_gates": [
+        [
+          0,
+          1,
+          9
+        ],
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          3,
+          4,
+          15
+        ],
+        [
+          0,
+          0,
+          7
+        ],
+        [
+          6,
+          3,
+          7
+        ]
+      ],
+      "gradient": {
+        "reason": "depth > gradient_max_depth=4",
+        "seconds_median": null,
+        "skipped": true,
+        "success_rate": null
+      },
+      "log2_space": 45.42849103533224,
+      "random": {
+        "draws": 82,
+        "draws_allowed": 912000,
+        "seconds": 0.0003437739796936512,
+        "solved": true
+      },
+      "sat": {
+        "build_seconds": 0.01660454401280731,
+        "clauses": 11050,
+        "conflicts": 150,
+        "decisions": 406,
+        "program": [
+          [
+            15,
+            2,
+            0
+          ],
+          [
+            4,
+            4,
+            0
+          ],
+          [
+            8,
+            5,
+            5
+          ],
+          [
+            4,
+            4,
+            3
+          ],
+          [
+            8,
+            4,
+            7
+          ]
+        ],
+        "propagations": 1314,
+        "seconds": 0.032728641002904624,
+        "solve_seconds": 0.016124096990097314,
+        "solved": true,
+        "unknown": false,
+        "variables": 160,
+        "verified": true
+      },
+      "solution_density": 0.03356,
+      "space_size": 47352014438400,
+      "target_index": 0,
+      "target_mask": 255,
+      "target_source": "generator"
+    },
+    {
+      "depth": 5,
+      "enumeration": {
+        "leaf_programs": 1,
+        "seconds": 4.959991201758385e-06,
+        "solved": true,
+        "timed_out": false,
+        "verified": true
+      },
+      "generator_gates": [
+        [
+          2,
+          1,
+          10
+        ],
+        [
+          3,
+          0,
+          3
+        ],
+        [
+          1,
+          3,
+          7
+        ],
+        [
+          5,
+          4,
+          3
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "gradient": {
+        "reason": "depth > gradient_max_depth=4",
+        "seconds_median": null,
+        "skipped": true,
+        "success_rate": null
+      },
+      "log2_space": 45.42849103533224,
+      "random": {
+        "draws": 5,
+        "draws_allowed": 912000,
+        "seconds": 2.420798409730196e-05,
+        "solved": true
+      },
+      "sat": {
+        "build_seconds": 0.015285236993804574,
+        "clauses": 11050,
+        "conflicts": 0,
+        "decisions": 70,
+        "program": [
+          [
+            0,
+            3,
+            3
+          ],
+          [
+            0,
+            4,
+            4
+          ],
+          [
+            0,
+            5,
+            5
+          ],
+          [
+            0,
+            6,
+            6
+          ],
+          [
+            0,
+            7,
+            7
+          ]
+        ],
+        "propagations": 160,
+        "seconds": 0.017485723947174847,
+        "solve_seconds": 0.002200486953370273,
+        "solved": true,
+        "unknown": false,
+        "variables": 160,
+        "verified": true
+      },
+      "solution_density": 0.15192,
+      "space_size": 47352014438400,
+      "target_index": 1,
+      "target_mask": 0,
+      "target_source": "generator"
+    },
+    {
+      "depth": 6,
+      "enumeration": {
+        "leaf_programs": 59,
+        "seconds": 1.582398544996977e-05,
+        "solved": true,
+        "timed_out": false,
+        "verified": true
+      },
+      "generator_gates": [
+        [
+          1,
+          2,
+          11
+        ],
+        [
+          2,
+          1,
+          13
+        ],
+        [
+          2,
+          5,
+          11
+        ],
+        [
+          4,
+          6,
+          15
+        ],
+        [
+          3,
+          6,
+          0
+        ],
+        [
+          3,
+          8,
+          4
+        ]
+      ],
+      "gradient": {
+        "reason": "depth > gradient_max_depth=4",
+        "seconds_median": null,
+        "skipped": true,
+        "success_rate": null
+      },
+      "log2_space": 55.76834103821687,
+      "random": {
+        "draws": 13,
+        "draws_allowed": 1084000,
+        "seconds": 6.785598816350102e-05,
+        "solved": true
+      },
+      "sat": {
+        "build_seconds": 0.02480699197622016,
+        "clauses": 17076,
+        "conflicts": 176,
+        "decisions": 558,
+        "program": [
+          [
+            12,
+            3,
+            1
+          ],
+          [
+            8,
+            4,
+            4
+          ],
+          [
+            8,
+            5,
+            5
+          ],
+          [
+            8,
+            0,
+            0
+          ],
+          [
+            0,
+            7,
+            7
+          ],
+          [
+            4,
+            5,
+            8
+          ]
+        ],
+        "propagations": 1612,
+        "seconds": 0.05022094096057117,
+        "solve_seconds": 0.02541394898435101,
+        "solved": true,
+        "unknown": false,
+        "variables": 198,
+        "verified": true
+      },
+      "solution_density": 0.03311,
+      "space_size": 61368210712166400,
+      "target_index": 0,
+      "target_mask": 65280,
+      "target_source": "generator"
+    },
+    {
+      "depth": 6,
+      "enumeration": {
+        "leaf_programs": 1,
+        "seconds": 5.664012860506773e-06,
+        "solved": true,
+        "timed_out": false,
+        "verified": true
+      },
+      "generator_gates": [
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          3,
+          14
+        ],
+        [
+          1,
+          3,
+          9
+        ],
+        [
+          5,
+          3,
+          8
+        ],
+        [
+          7,
+          6,
+          13
+        ],
+        [
+          1,
+          7,
+          0
+        ]
+      ],
+      "gradient": {
+        "reason": "depth > gradient_max_depth=4",
+        "seconds_median": null,
+        "skipped": true,
+        "success_rate": null
+      },
+      "log2_space": 55.76834103821687,
+      "random": {
+        "draws": 11,
+        "draws_allowed": 1084000,
+        "seconds": 5.8352015912532806e-05,
+        "solved": true
+      },
+      "sat": {
+        "build_seconds": 0.030220603046473116,
+        "clauses": 17076,
+        "conflicts": 0,
+        "decisions": 90,
+        "program": [
+          [
+            0,
+            3,
+            3
+          ],
+          [
+            0,
+            4,
+            4
+          ],
+          [
+            0,
+            5,
+            5
+          ],
+          [
+            0,
+            6,
+            6
+          ],
+          [
+            0,
+            7,
+            7
+          ],
+          [
+            0,
+            8,
+            8
+          ]
+        ],
+        "propagations": 198,
+        "seconds": 0.032868352020159364,
+        "solve_seconds": 0.002647748973686248,
+        "solved": true,
+        "unknown": false,
+        "variables": 198,
+        "verified": true
+      },
+      "solution_density": 0.15803,
+      "space_size": 61368210712166400,
+      "target_index": 1,
+      "target_mask": 0,
+      "target_source": "generator"
+    }
+  ],
+  "source": "generator"
+}

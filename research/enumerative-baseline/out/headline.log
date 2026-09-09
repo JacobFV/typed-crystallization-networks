@@ -1,0 +1,21 @@
+mixed gradient 0 done
+mixed gradient 1 done
+mixed gradient 2 done
+joint probe arms done
+joint env sweep done
+joint gradient 0 done
+joint gradient 1 done
+joint gradient 2 done
+/home/brandonin/Documents/typed-crystallization-networks/research/enumerative-baseline/out/headline.json
+mixed            exhaustive_enumeration                       solved=True        28.092 ms
+mixed            exhaustive_enumeration_full                  solved=True        64.235 ms
+mixed            gradient_tcn                                 solved=True      1221.341 ms
+mixed            gradient_tcn                                 solved=True       638.513 ms
+mixed            gradient_tcn                                 solved=True       342.882 ms
+joint            exhaustive_enumeration_probe                 solved=True         0.042 ms
+joint            exhaustive_enumeration_probe_full            solved=True         0.081 ms
+joint            exhaustive_enumeration_probe_tcn_runtime_full solved=True       142.676 ms
+joint            exhaustive_enumeration_env_full              solved=True      9436.696 ms
+joint            gradient_tcn                                 solved=True     10247.729 ms
+joint            gradient_tcn                                 solved=True     23740.174 ms
+joint            gradient_tcn                                 solved=True     33411.780 ms

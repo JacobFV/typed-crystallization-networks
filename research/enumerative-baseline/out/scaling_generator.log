@@ -1,0 +1,13 @@
+d=1 t=0 space=2^8.0 enum=OK 0.000s | sat=OK 0.002s (14 confl) | rand=OK 0.00s | dens=8.0e-03 | grad=1.00 42.33s
+d=1 t=1 space=2^8.0 enum=OK 0.000s | sat=OK 0.015s (8 confl) | rand=OK 0.00s | dens=7.6e-03 | grad=1.00 28.53s
+d=2 t=0 space=2^16.6 enum=OK 0.000s | sat=OK 0.054s (21 confl) | rand=OK 0.00s | dens=3.7e-02 | grad=1.00 84.24s
+d=2 t=1 space=2^16.6 enum=OK 0.009s | sat=OK 0.022s (48 confl) | rand=OK 0.01s | dens=3.5e-04 | grad=0.67 48.58s
+d=3 t=0 space=2^25.8 enum=OK 0.000s | sat=OK 0.020s (51 confl) | rand=OK 0.00s | dens=5.9e-03 | grad=1.00 116.65s
+d=3 t=1 space=2^25.8 enum=OK 0.000s | sat=OK 0.018s (41 confl) | rand=OK 0.00s | dens=3.6e-02 | grad=1.00 89.01s
+d=4 t=0 space=2^35.4 enum=OK 0.000s | sat=OK 0.037s (86 confl) | rand=OK 0.00s | dens=1.4e-01 | grad=1.00 100.62s
+d=4 t=1 space=2^35.4 enum=OK 0.000s | sat=OK 0.016s (71 confl) | rand=OK 0.00s | dens=3.4e-02 | grad=1.00 88.81s
+d=5 t=0 space=2^45.4 enum=OK 0.000s | sat=OK 0.033s (150 confl) | rand=OK 0.00s | dens=3.4e-02 | grad=skipped
+d=5 t=1 space=2^45.4 enum=OK 0.000s | sat=OK 0.017s (0 confl) | rand=OK 0.00s | dens=1.5e-01 | grad=skipped
+d=6 t=0 space=2^55.8 enum=OK 0.000s | sat=OK 0.050s (176 confl) | rand=OK 0.00s | dens=3.3e-02 | grad=skipped
+d=6 t=1 space=2^55.8 enum=OK 0.000s | sat=OK 0.033s (0 confl) | rand=OK 0.00s | dens=1.6e-01 | grad=skipped
+/home/brandonin/Documents/typed-crystallization-networks/research/enumerative-baseline/out/scaling_generator_d1_2_3_4_5_6.json

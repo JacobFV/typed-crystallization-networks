@@ -1,0 +1,9 @@
+d=3 t=0 space=2^25.8 enum=OK 0.528s | sat=OK 0.019s (226 confl) | rand=OK 0.04s | dens=2.0e-05 | grad=0.67 40.33s
+d=3 t=1 space=2^25.8 enum=OK 0.862s | sat=OK 0.024s (308 confl) | rand=OK 0.98s | dens=0.0e+00 | grad=0.33 40.90s
+d=4 t=0 space=2^35.4 enum=OK 1.210s | sat=OK 0.019s (109 confl) | rand=OK 2.33s | dens=0.0e+00 | grad=0.00 123.89s
+d=4 t=1 space=2^35.4 enum=OK 0.965s | sat=OK 0.029s (211 confl) | rand=OK 0.06s | dens=3.0e-05 | grad=0.33 111.51s
+d=5 t=0 space=2^45.4 enum=OK 2.196s | sat=OK 0.121s (205 confl) | rand=OK 0.88s | dens=0.0e+00 | grad=skipped
+d=5 t=1 space=2^45.4 enum=TIMEOUT 60.000s | sat=OK 0.471s (2867 confl) | rand=miss 3.86s | dens=0.0e+00 | grad=skipped
+d=6 t=0 space=2^55.8 enum=OK 5.901s | sat=OK 0.726s (4657 confl) | rand=OK 0.55s | dens=0.0e+00 | grad=skipped
+d=6 t=1 space=2^55.8 enum=OK 3.107s | sat=OK 0.771s (4745 confl) | rand=OK 0.45s | dens=2.0e-05 | grad=skipped
+/home/brandonin/Documents/typed-crystallization-networks/research/enumerative-baseline/out/scaling_hard_d3_4_5_6.json

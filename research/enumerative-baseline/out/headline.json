@@ -1,0 +1,341 @@
+{
+  "loadavg_after": [
+    85.92431640625,
+    70.41259765625,
+    53.08447265625
+  ],
+  "loadavg_before": [
+    72.423828125,
+    64.705078125,
+    49.8798828125
+  ],
+  "machine": {
+    "platform": "Linux-6.17.0-1026-nvidia-aarch64-with-glibc2.39",
+    "processor": "aarch64",
+    "python": "3.13.15"
+  },
+  "results": [
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 0,
+        "op_applications": 272,
+        "programs": 37
+      },
+      "detail": {
+        "combinations_tried": 37,
+        "examples": 16,
+        "nodes": 4,
+        "solutions": [
+          {
+            "algebra": 0,
+            "analytic": 0,
+            "conversion": 0,
+            "logic": 6
+          }
+        ],
+        "space_size": 96
+      },
+      "method": "exhaustive_enumeration",
+      "seconds": 0.028092177992220968,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 0,
+        "op_applications": 620,
+        "programs": 96
+      },
+      "detail": {
+        "combinations_tried": 96,
+        "examples": 16,
+        "nodes": 4,
+        "solutions": [
+          {
+            "algebra": 0,
+            "analytic": 0,
+            "conversion": 0,
+            "logic": 6
+          }
+        ],
+        "space_size": 96
+      },
+      "method": "exhaustive_enumeration_full",
+      "seconds": 0.06423480802914128,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 340,
+        "op_applications": 365728,
+        "programs": 80
+      },
+      "detail": {
+        "accepted_freezes": 4,
+        "autograd_grad_calls": 3,
+        "backward_passes": 340,
+        "exact_executions": 80,
+        "forward_passes": 353,
+        "freeze_events": 4,
+        "fully_frozen": true,
+        "loss": 1.0066399909192114e-06,
+        "seed": 0,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "steps": 300
+      },
+      "method": "gradient_tcn",
+      "seconds": 1.2213407279923558,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 340,
+        "op_applications": 365728,
+        "programs": 80
+      },
+      "detail": {
+        "accepted_freezes": 4,
+        "autograd_grad_calls": 3,
+        "backward_passes": 340,
+        "exact_executions": 80,
+        "forward_passes": 353,
+        "freeze_events": 4,
+        "fully_frozen": true,
+        "loss": 1.0066399909192114e-06,
+        "seed": 1,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "steps": 300
+      },
+      "method": "gradient_tcn",
+      "seconds": 0.6385133269941434,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 340,
+        "op_applications": 365728,
+        "programs": 80
+      },
+      "detail": {
+        "accepted_freezes": 4,
+        "autograd_grad_calls": 3,
+        "backward_passes": 340,
+        "exact_executions": 80,
+        "forward_passes": 353,
+        "freeze_events": 4,
+        "fully_frozen": true,
+        "loss": 1.0066399909192114e-06,
+        "seed": 2,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "steps": 300
+      },
+      "method": "gradient_tcn",
+      "seconds": 0.34288187097990885,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 0,
+        "op_applications": 306,
+        "programs": 103
+      },
+      "detail": {
+        "rows": 8,
+        "solutions": [
+          {
+            "goal_relation": 6,
+            "relation": 6
+          }
+        ],
+        "space_size": 256
+      },
+      "method": "exhaustive_enumeration_probe",
+      "seconds": 4.1584018617868423e-05,
+      "solved": true,
+      "task": "joint"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 0,
+        "op_applications": 738,
+        "programs": 256
+      },
+      "detail": {
+        "rows": 8,
+        "solutions": [
+          {
+            "goal_relation": 6,
+            "relation": 6
+          }
+        ],
+        "space_size": 256
+      },
+      "method": "exhaustive_enumeration_probe_full",
+      "seconds": 8.102401625365019e-05,
+      "solved": true,
+      "task": "joint"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 0,
+        "op_applications": 4797,
+        "programs": 256
+      },
+      "detail": {
+        "program_executions": 369,
+        "solutions": [
+          {
+            "goal_relation": 6,
+            "relation": 6
+          }
+        ],
+        "space_size": 256
+      },
+      "method": "exhaustive_enumeration_probe_tcn_runtime_full",
+      "seconds": 0.14267611200921237,
+      "solved": true,
+      "task": "joint"
+    },
+    {
+      "budget": {
+        "env_steps": 16384,
+        "gradient_steps": 0,
+        "op_applications": 425984,
+        "programs": 4096
+      },
+      "detail": {
+        "chosen": {
+          "goal_relation": 6,
+          "relation": 6
+        },
+        "chosen_is_reference": true,
+        "chosen_selection_return": 4.0,
+        "combinations_tried": 256,
+        "episodes_per_candidate": 16,
+        "held_out_episodes": 64,
+        "maximum_return": 4,
+        "perfect_examples": [
+          [
+            6,
+            6
+          ],
+          [
+            9,
+            9
+          ]
+        ],
+        "perfect_scoring_candidates": 2,
+        "space_size": 256
+      },
+      "method": "exhaustive_enumeration_env_full",
+      "seconds": 9.436696197022684,
+      "solved": true,
+      "task": "joint"
+    },
+    {
+      "budget": {
+        "env_steps": 704,
+        "gradient_steps": 160,
+        "op_applications": 101824,
+        "programs": 0
+      },
+      "detail": {
+        "backward_passes": 160,
+        "correct_selection": true,
+        "episodes": 160,
+        "evaluation_mean_return": 4.0,
+        "final_prediction_loss": 0.0022308224288281053,
+        "forward_passes": 1408,
+        "maximum_return": 4,
+        "seed": 0,
+        "selections": {
+          "goal_relation": 6,
+          "relation": 6
+        }
+      },
+      "method": "gradient_tcn",
+      "seconds": 10.247729410009924,
+      "solved": true,
+      "task": "joint"
+    },
+    {
+      "budget": {
+        "env_steps": 704,
+        "gradient_steps": 160,
+        "op_applications": 101824,
+        "programs": 0
+      },
+      "detail": {
+        "backward_passes": 160,
+        "correct_selection": true,
+        "episodes": 160,
+        "evaluation_mean_return": 4.0,
+        "final_prediction_loss": 0.0015232332953019068,
+        "forward_passes": 1408,
+        "maximum_return": 4,
+        "seed": 1,
+        "selections": {
+          "goal_relation": 6,
+          "relation": 6
+        }
+      },
+      "method": "gradient_tcn",
+      "seconds": 23.740173911035527,
+      "solved": true,
+      "task": "joint"
+    },
+    {
+      "budget": {
+        "env_steps": 704,
+        "gradient_steps": 160,
+        "op_applications": 101824,
+        "programs": 0
+      },
+      "detail": {
+        "backward_passes": 160,
+        "correct_selection": true,
+        "episodes": 160,
+        "evaluation_mean_return": 4.0,
+        "final_prediction_loss": 0.0007793677796144038,
+        "forward_passes": 1408,
+        "maximum_return": 4,
+        "seed": 2,
+        "selections": {
+          "goal_relation": 6,
+          "relation": 6
+        }
+      },
+      "method": "gradient_tcn",
+      "seconds": 33.41177962895017,
+      "solved": true,
+      "task": "joint"
+    }
+  ]
+}

@@ -35,6 +35,7 @@ crystallization.
 | 5 | Does crystallized-module reuse measurably help? | `research/recursive-abstraction/` |
 | 6 | How does TCN compare to a matched-information baseline? | `research/baselines/` |
 | 7 | What does the literature actually establish about DLGNs? | `research/literature/` |
+| 8 | Does differentiable search beat enumeration/SAT on the same space? | `research/enumerative-baseline/` |
 
 Track 1 is the load-bearing one. Progressive hardening with residual retraining
 and transactional rollback is the architecture's central mechanism. If argmax

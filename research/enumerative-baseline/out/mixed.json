@@ -1,0 +1,581 @@
+{
+  "machine": {
+    "platform": "Linux-6.17.0-1026-nvidia-aarch64-with-glibc2.39",
+    "processor": "aarch64",
+    "python": "3.13.15"
+  },
+  "results": [
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 0,
+        "op_applications": 272,
+        "programs": 37
+      },
+      "detail": {
+        "combinations_tried": 37,
+        "examples": 16,
+        "nodes": 4,
+        "solutions": [
+          {
+            "algebra": 0,
+            "analytic": 0,
+            "conversion": 0,
+            "logic": 6
+          }
+        ],
+        "space_size": 96
+      },
+      "method": "exhaustive_enumeration",
+      "seconds": 0.015250970027409494,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 0,
+        "op_applications": 620,
+        "programs": 96
+      },
+      "detail": {
+        "combinations_tried": 96,
+        "examples": 16,
+        "nodes": 4,
+        "solutions": [
+          {
+            "algebra": 0,
+            "analytic": 0,
+            "conversion": 0,
+            "logic": 6
+          }
+        ],
+        "space_size": 96
+      },
+      "method": "exhaustive_enumeration_full",
+      "seconds": 0.04082492698216811,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 0,
+        "op_applications": 632,
+        "programs": 91
+      },
+      "detail": {
+        "seed": 0,
+        "solution": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "space_size": 96
+      },
+      "method": "random_search",
+      "seconds": 0.20529745402745903,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 0,
+        "op_applications": 268,
+        "programs": 40
+      },
+      "detail": {
+        "seed": 1,
+        "solution": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "space_size": 96
+      },
+      "method": "random_search",
+      "seconds": 0.018124728987459093,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 0,
+        "op_applications": 136,
+        "programs": 19
+      },
+      "detail": {
+        "seed": 2,
+        "solution": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "space_size": 96
+      },
+      "method": "random_search",
+      "seconds": 0.014227466017473489,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 0,
+        "op_applications": 844,
+        "programs": 104
+      },
+      "detail": {
+        "seed": 3,
+        "solution": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "space_size": 96
+      },
+      "method": "random_search",
+      "seconds": 0.08150723099242896,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 0,
+        "op_applications": 232,
+        "programs": 39
+      },
+      "detail": {
+        "seed": 4,
+        "solution": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "space_size": 96
+      },
+      "method": "random_search",
+      "seconds": 0.012735946977045387,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 0,
+        "op_applications": 112,
+        "programs": 9
+      },
+      "detail": {
+        "seed": 5,
+        "solution": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "space_size": 96
+      },
+      "method": "random_search",
+      "seconds": 0.006247980985790491,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 0,
+        "op_applications": 1028,
+        "programs": 170
+      },
+      "detail": {
+        "seed": 6,
+        "solution": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "space_size": 96
+      },
+      "method": "random_search",
+      "seconds": 0.05776349699590355,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 0,
+        "op_applications": 652,
+        "programs": 120
+      },
+      "detail": {
+        "seed": 7,
+        "solution": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "space_size": 96
+      },
+      "method": "random_search",
+      "seconds": 0.03678729699458927,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 0,
+        "op_applications": 68,
+        "programs": 2
+      },
+      "detail": {
+        "seed": 8,
+        "solution": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "space_size": 96
+      },
+      "method": "random_search",
+      "seconds": 0.0038005589740350842,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 0,
+        "op_applications": 116,
+        "programs": 14
+      },
+      "detail": {
+        "seed": 9,
+        "solution": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "space_size": 96
+      },
+      "method": "random_search",
+      "seconds": 0.006518589972984046,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 340,
+        "op_applications": 365728,
+        "programs": 80
+      },
+      "detail": {
+        "accepted_freezes": 4,
+        "autograd_grad_calls": 3,
+        "backward_passes": 340,
+        "exact_executions": 80,
+        "forward_passes": 353,
+        "freeze_events": 4,
+        "fully_frozen": true,
+        "loss": 1.0066399909192114e-06,
+        "seed": 0,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "steps": 300
+      },
+      "method": "gradient_tcn",
+      "seconds": 2.5638305280008353,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 340,
+        "op_applications": 365728,
+        "programs": 80
+      },
+      "detail": {
+        "accepted_freezes": 4,
+        "autograd_grad_calls": 3,
+        "backward_passes": 340,
+        "exact_executions": 80,
+        "forward_passes": 353,
+        "freeze_events": 4,
+        "fully_frozen": true,
+        "loss": 1.0066399909192114e-06,
+        "seed": 1,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "steps": 300
+      },
+      "method": "gradient_tcn",
+      "seconds": 0.7121065310202539,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 340,
+        "op_applications": 365728,
+        "programs": 80
+      },
+      "detail": {
+        "accepted_freezes": 4,
+        "autograd_grad_calls": 3,
+        "backward_passes": 340,
+        "exact_executions": 80,
+        "forward_passes": 353,
+        "freeze_events": 4,
+        "fully_frozen": true,
+        "loss": 1.0066399909192114e-06,
+        "seed": 2,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "steps": 300
+      },
+      "method": "gradient_tcn",
+      "seconds": 1.7998230859520845,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 340,
+        "op_applications": 365728,
+        "programs": 80
+      },
+      "detail": {
+        "accepted_freezes": 4,
+        "autograd_grad_calls": 3,
+        "backward_passes": 340,
+        "exact_executions": 80,
+        "forward_passes": 353,
+        "freeze_events": 4,
+        "fully_frozen": true,
+        "loss": 1.0066399909192114e-06,
+        "seed": 3,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "steps": 300
+      },
+      "method": "gradient_tcn",
+      "seconds": 0.5283089720178396,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 340,
+        "op_applications": 365728,
+        "programs": 80
+      },
+      "detail": {
+        "accepted_freezes": 4,
+        "autograd_grad_calls": 3,
+        "backward_passes": 340,
+        "exact_executions": 80,
+        "forward_passes": 353,
+        "freeze_events": 4,
+        "fully_frozen": true,
+        "loss": 1.0066399909192114e-06,
+        "seed": 4,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "steps": 300
+      },
+      "method": "gradient_tcn",
+      "seconds": 0.35998782399110496,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 340,
+        "op_applications": 365728,
+        "programs": 80
+      },
+      "detail": {
+        "accepted_freezes": 4,
+        "autograd_grad_calls": 3,
+        "backward_passes": 340,
+        "exact_executions": 80,
+        "forward_passes": 353,
+        "freeze_events": 4,
+        "fully_frozen": true,
+        "loss": 1.0066399909192114e-06,
+        "seed": 5,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "steps": 300
+      },
+      "method": "gradient_tcn",
+      "seconds": 1.2484608590020798,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 340,
+        "op_applications": 365728,
+        "programs": 80
+      },
+      "detail": {
+        "accepted_freezes": 4,
+        "autograd_grad_calls": 3,
+        "backward_passes": 340,
+        "exact_executions": 80,
+        "forward_passes": 353,
+        "freeze_events": 4,
+        "fully_frozen": true,
+        "loss": 1.0066399909192114e-06,
+        "seed": 6,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "steps": 300
+      },
+      "method": "gradient_tcn",
+      "seconds": 1.908478943980299,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 340,
+        "op_applications": 365728,
+        "programs": 80
+      },
+      "detail": {
+        "accepted_freezes": 4,
+        "autograd_grad_calls": 3,
+        "backward_passes": 340,
+        "exact_executions": 80,
+        "forward_passes": 353,
+        "freeze_events": 4,
+        "fully_frozen": true,
+        "loss": 1.0066399909192114e-06,
+        "seed": 7,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "steps": 300
+      },
+      "method": "gradient_tcn",
+      "seconds": 1.8110573849990033,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 340,
+        "op_applications": 365728,
+        "programs": 80
+      },
+      "detail": {
+        "accepted_freezes": 4,
+        "autograd_grad_calls": 3,
+        "backward_passes": 340,
+        "exact_executions": 80,
+        "forward_passes": 353,
+        "freeze_events": 4,
+        "fully_frozen": true,
+        "loss": 1.0066399909192114e-06,
+        "seed": 8,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "steps": 300
+      },
+      "method": "gradient_tcn",
+      "seconds": 2.251759480976034,
+      "solved": true,
+      "task": "mixed"
+    },
+    {
+      "budget": {
+        "env_steps": 0,
+        "gradient_steps": 340,
+        "op_applications": 365728,
+        "programs": 80
+      },
+      "detail": {
+        "accepted_freezes": 4,
+        "autograd_grad_calls": 3,
+        "backward_passes": 340,
+        "exact_executions": 80,
+        "forward_passes": 353,
+        "freeze_events": 4,
+        "fully_frozen": true,
+        "loss": 1.0066399909192114e-06,
+        "seed": 9,
+        "selections": {
+          "algebra": 0,
+          "analytic": 0,
+          "conversion": 0,
+          "logic": 6
+        },
+        "steps": 300
+      },
+      "method": "gradient_tcn",
+      "seconds": 1.0255575200426392,
+      "solved": true,
+      "task": "mixed"
+    }
+  ]
+}
