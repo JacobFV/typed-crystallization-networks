@@ -69,12 +69,14 @@ These were believed and are now refuted. Do not reintroduce them.
    (1.0000 at 368 widgets, zero ties). That last one means **hierarchy assembly
    is well-posed once widgets exist** — the screenshot-to-hierarchy parse is
    two rungs away, not a research program. See `research/visual-ladder/`.
-2. **No task here poses credit assignment.** The `logic` generator's state is
-   constant and its reward per-step, so an episode is independent bandit draws;
-   everything holds to horizon 32 for that reason. A credit-assignment task with
-   a narrow typed action argument was in progress in
-   `research/credit-assignment/` — check whether it established that a myopic
-   policy loses, which is the property that matters.
+2. **Credit assignment is solved as a task and half-solved as a capability.**
+   `generators/computer` at `interface='panel'` poses it, proved by exact DP:
+   V*(6) = 1.0000 against a myopic 0.0625, detector run and cleared. Two things
+   solve it — model-based enumeration in 89 episodes, and reward-only REINFORCE
+   recovering the delayed sequence on 6/6 seeds. **What is not measured is the
+   action hierarchy**: reward-only fails to select the argument sub-action, and
+   the composite-action arm is written but never run
+   (`research/credit-assignment/run_macro.sh`). That is the first thing to run.
 3. **Composition is brittle at the interface.** A stage-1 module wrong at 1 of
    384 positions took stage 2 from a unique solution to zero conforming. Chains
    need exactness, not accuracy. This is the most important open risk in the
