@@ -76,6 +76,24 @@ So both branches are merge-ready and only the quiet-tree rule is holding them.
 
 ## Waiting
 
+### `research/earned-abstraction` (6d4bdde) — verified, research-only, SAFE TO MERGE ANY TIME
+
+Adds only `research/earned-abstraction/`. `tcn/` and `generators/` byte-identical
+to main, so the quiet-tree rule does not apply. Recorded as FINDINGS §44.
+
+**Independently verified here from raw JSON:** all five arms exhausted with
+certificate `complete`; arm 3 (hand-authored) finds **144** conforming in the same
+2,709,504-program space where arms 2, 4 and 4b find **0**, so the harness is
+sound and the negative is real. Arm 2 (earned) ties arm 4b (wrong, mined) to four
+decimals on both gradient scaffolds — criterion two firing exactly as
+pre-registered. The causal claim was re-derived rather than accepted: testing
+every intermediate truth table over **all ordered 3-subsets** of the inputs
+confirms a `MAJ3` body survives in **1 of 6** minimised programs while the mined
+`M` survives in **4 of 6**.
+
+Falsification criteria were committed in `PREREGISTRATION.md` before the arms ran.
+
+
 ### `neural-baselines` (92ca646) — verified, research-only, SAFE TO MERGE ANY TIME
 
 Adds only `research/neural-baselines/`. **`tcn/` and `generators/` are

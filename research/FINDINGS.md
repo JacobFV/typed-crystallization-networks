@@ -2121,3 +2121,66 @@ oracle scores **exactly the majority** (0.5150) while the Dyck oracle scores
 1.000. The re-draw severed counting from balancedness, and both sides transfer at
 chance. That is a stronger statement of §39's warning than §39 itself makes.
 
+## 44. The abstraction loop closes mechanically and fails at the selection, for a measured structural reason
+
+`research/earned-abstraction/RESULTS.md`, branch `research/earned-abstraction`
+(6d4bdde), **not merged**; `tcn/` and `generators/` untouched. This is the
+project owner's fifth priority — a *closed* recursive abstraction loop where the
+module is **earned in an earlier task** rather than hand-authored. Falsification
+criteria were written to `PREREGISTRATION.md` before the arms were run.
+Everything below was re-derived here from raw JSON.
+
+**The loop mechanism works.** A rule mined `M(x0,x1,x2) = x2 ∨ (x0 ∧ x1)` from
+six solved earlier tasks — 2 nodes, 6 disjoint sites across 4 tasks — published
+it to a real `tcn.library.Library` (manifest, module and fixture files on disk,
+content-addressed digest `ec516b38…`) and a later task inherited it under
+`policy="strict"`. Nothing here is simulated.
+
+**It does not pay, on all three pre-registered counts.** Every arm exhausted,
+every certificate `complete`, all on the same scaffold and space:
+
+| arm | conforming | space | gradient tight | gradient wide | median accuracy |
+|---|---|---|---|---|---|
+| 1 no library | 0 | 230,400 | 0/24 | 0/8 | 0.6250 |
+| **2 earned** | **0** | 2,709,504 | **0/24** | **0/8** | **0.7812** |
+| 3 hand-authored `MAJ3` | **144** | 2,709,504 | **18/24** | **8/8** | **1.0000** |
+| 4 wrong, authored | 0 | 2,709,504 | 0/24 | 0/8 | 0.6250 |
+| 4b wrong, mined | 0 | 2,709,504 | 0/24 | 0/8 | **0.7812** |
+
+Earned ties no-library, **ties both wrong-module controls**, and loses decisively
+to the hand-authored module. Note the exact tie that matters: arm 2 and arm 4b
+agree to four decimals on both scaffolds. The earned module *does* lift accuracy
+over no-library — and lifts it by precisely as much as a **wrong** module of the
+same size. That is criterion two firing exactly as written: any module of that
+size helps that much, so the *selection* contributed nothing.
+
+**The harness is sound, which is what makes this a real negative.** Arm 3 finds
+144 conforming programs in the same 2,709,504-program space that arms 2, 4 and 4b
+exhaust with zero. The later task is solvable there with the right module; the
+rule simply did not propose it.
+
+**The cause, verified independently here rather than taken on the agent's word.**
+Re-deriving every intermediate node's truth table from `out/corpus_exact.json`
+and testing against `MAJ3` and `M` over **all ordered 3-subsets of the 4 inputs**
+(the naive check using only `(a,b,c)` is unfair to tasks like `t3_maj_bcd`):
+
+- a `MAJ3` body survives in **1 of 6** solved programs;
+- an `M` body survives in **4 of 6**, matching the rule's own site count.
+
+So the rule mined exactly what recurs. **Exact minimisation is adversarial to
+abstraction mining:** each task's minimum-gate program factors differently, and
+`MAJ3` — the fragment that would have paid — is fused into its wrapper in five of
+six. The frequency statistics any such rule reads never see it. This is a
+property of minimised corpora, not of this particular rule, and it is the useful
+finding.
+
+**An unplanned second negative:** the shipped gradient path solves **1 of 6** of
+the earlier tasks at 3,000 steps, so the corpus this rule mines from had to be
+built by exhaustive search rather than by the system's own learning.
+
+**Verification record.** All five enumerations re-read from
+`out/enum_tight_arm*.json`: exhausted true, certificate `complete`, space sizes
+as tabled. Gradient conformance re-aggregated from `out/gradient_{tight,wide}.json`
+records. Library publication confirmed on disk. 287 tests pass with the one known
+environmental failure; fixture reproduces 0.248836 → 0.002231 at 4/4 frozen.
+
