@@ -48,7 +48,7 @@ much better evidenced one.
 | Recursive abstraction helps | **No measurable benefit** | Track 5: module on the output path in 0 of 20 runs, including 0 of 10 successes. 1.4x description bits, 1.7x latency; execution-cost crossover never occurs. |
 | Tiny description size | **Refuted** | Track 6: joint ships 68,768 bits to learn 8 bits of content, losing 2,150x to a 32-bit lookup table. `description_bits` measures JSON verbosity. |
 | Tiny inference cost | **Refuted as stated** | Track 6: the "four-operation program" runs 450x slower than those four operations in plain Python and no faster than a 625-parameter MLP. Interpreter overhead dominates the `cost = 4` proxy by ~2.5 orders of magnitude. |
-| 4/4 demonstrates structural generalization | **Refuted** | Track 4: the recorded scaffold measures 2.09/4 on unseen truth tables against a chance ceiling of 2.0, and cannot do better because one frozen program computes exactly one relation. |
+| 4/4 demonstrates structural generalization | **Refuted for the recorded scaffold; achieved by a corrected one** | Track 4, and step 4 on a verified-fair benchmark: the recorded scaffold measures 1.95-2.03 against a best constant of 2.13-2.56 and cannot do better, since one frozen program computes one relation. A table-conditioned scaffold reaches 3.38-4.00 on gate families never trained on, in both directions, with the interpreter candidate selected 8/8 seeds unprompted. See section 13. |
 | A generic scaffold cannot learn the joint task | **Refuted** | Track 2: the run was stopped before its transition (episodes ~750/800/2600). At 5120 episodes, 4.00/4 on both seeds tested. |
 
 ## 4. Instrumentation faults found
@@ -487,3 +487,37 @@ Two further findings worth keeping: arm C reached relaxed loss 0.002 in a space
 the relaxed-loss gap in section 4; and the remaining difficulty is binding
 dilution rather than the gradient boundary, since a module over program inputs
 receives exact 0/1 arguments and is therefore exact during soft search.
+
+
+## 13. Step 4 — structural generalization, on a benchmark that earns the claim
+
+Full detail in `research/nondegenerate-generalization/RESULTS.md`.
+
+Track 4's original pools were degenerate: its `AFFINE` training set contains all
+six tables whose output ignores an input. The replacement pools are disjoint,
+entirely non-degenerate and balanced, with an analytic ceiling of exactly 2.00/4
+verified by exhaustive search over all 16 gates and both objectives.
+
+**The recorded scaffold is at chance** (1.95-2.03 against a best constant of
+2.13-2.56) and structurally cannot exceed it. **The table-conditioned scaffold
+reaches 3.38-4.00 on gate families it never trained on**, in both directions and
+including when wiring varies, with the interpreter candidate **selected in 8/8
+seeds in every condition** — made legal, not supplied.
+
+That is the first structural-generalization result in this repository that its
+benchmark actually supports.
+
+**Enumeration solves it too.** The scaffold's own 272-program space, scored by
+return on eight training episodes, exhausts in 130 s and reaches 4.00 held-out —
+selecting the same interpreter candidate. Consistent with section 8: the
+gradient path's advantage on this family is not solution quality, and this
+comparison does not isolate the one advantage it does have, since a fair
+sample-efficiency test holds rollouts fixed rather than wall clock.
+
+**A discarded run worth recording.** The first execution reported `seen` and
+`unseen` identical to two decimals everywhere. That was a fault introduced with
+the pools: an explicit `table` was silently ignored when a pool was active, so
+both schedules drew from the same distribution and "unseen" was never unseen.
+Fixed with two regression tests; the invalid log is kept, since the identical
+columns are the diagnostic. This is the second time in this pass that a result
+too clean to be true turned out to be an instrumentation fault.

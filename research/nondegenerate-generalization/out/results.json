@@ -3,22 +3,22 @@
     "pool_a": {
       "always_false": {
         "max": 4.0,
-        "mean": 1.75,
+        "mean": 1.875,
         "min": 0.0,
         "n": 64,
-        "sd": 2.0,
-        "sem": 0.25
+        "sd": 2.011869540407391,
+        "sem": 0.2514836925509239
       },
       "always_true": {
         "max": 4.0,
-        "mean": 2.25,
+        "mean": 2.125,
         "min": 0.0,
         "n": 64,
-        "sd": 2.0,
-        "sem": 0.25
+        "sd": 2.011869540407391,
+        "sem": 0.2514836925509239
       },
-      "fraction_target_true": 0.5625,
-      "majority_constant": 2.25,
+      "fraction_target_true": 0.53125,
+      "majority_constant": 2.125,
       "uniform_random": {
         "max": 4.0,
         "mean": 2.15625,
@@ -31,36 +31,36 @@
     "pool_b": {
       "always_false": {
         "max": 4.0,
-        "mean": 1.75,
+        "mean": 2.5625,
         "min": 0.0,
         "n": 64,
-        "sd": 2.0,
-        "sem": 0.25
+        "sd": 1.9344413901856763,
+        "sem": 0.24180517377320954
       },
       "always_true": {
         "max": 4.0,
-        "mean": 2.25,
+        "mean": 1.4375,
         "min": 0.0,
         "n": 64,
-        "sd": 2.0,
-        "sem": 0.25
+        "sd": 1.9344413901856763,
+        "sem": 0.24180517377320954
       },
-      "fraction_target_true": 0.5625,
-      "majority_constant": 2.25,
+      "fraction_target_true": 0.359375,
+      "majority_constant": 2.5625,
       "uniform_random": {
         "max": 4.0,
-        "mean": 2.15625,
+        "mean": 1.90625,
         "min": 0.0,
         "n": 64,
-        "sd": 0.9464847243000456,
-        "sem": 0.1183105905375057
+        "sd": 0.9548331525488363,
+        "sem": 0.11935414406860453
       }
     }
   },
   "enumeration_lookup_ab": {
     "evaluated": 272,
     "heldout_return": 4.0,
-    "seconds": 288.4773377579986,
+    "seconds": 130.0942111859913,
     "selections": {
       "goal_relation": 6,
       "relation": 16
@@ -79,8 +79,8 @@
       {
         "interpreter_selected": true,
         "seed": 1,
-        "seen": 3.5,
-        "unseen": 3.5
+        "seen": 3.4375,
+        "unseen": 3.4375
       },
       {
         "interpreter_selected": true,
@@ -97,8 +97,8 @@
       {
         "interpreter_selected": true,
         "seed": 4,
-        "seen": 4.0,
-        "unseen": 4.0
+        "seen": 3.5625,
+        "unseen": 3.5
       },
       {
         "interpreter_selected": true,
@@ -109,14 +109,14 @@
       {
         "interpreter_selected": true,
         "seed": 6,
-        "seen": 3.0625,
-        "unseen": 3.0625
+        "seen": 3.3125,
+        "unseen": 3.4375
       },
       {
         "interpreter_selected": true,
         "seed": 7,
-        "seen": 3.8125,
-        "unseen": 3.8125
+        "seen": 3.5625,
+        "unseen": 3.5625
       }
     ]
   },
@@ -131,8 +131,8 @@
       {
         "interpreter_selected": true,
         "seed": 1,
-        "seen": 3.5,
-        "unseen": 3.5
+        "seen": 4.0,
+        "unseen": 4.0
       },
       {
         "interpreter_selected": true,
@@ -161,14 +161,14 @@
       {
         "interpreter_selected": true,
         "seed": 6,
-        "seen": 3.0625,
-        "unseen": 3.0625
+        "seen": 4.0,
+        "unseen": 4.0
       },
       {
         "interpreter_selected": true,
         "seed": 7,
-        "seen": 3.8125,
-        "unseen": 3.8125
+        "seen": 4.0,
+        "unseen": 4.0
       }
     ]
   },
@@ -177,50 +177,50 @@
       {
         "interpreter_selected": true,
         "seed": 0,
-        "seen": 3.9375,
-        "unseen": 3.9375
+        "seen": 3.875,
+        "unseen": 3.625
       },
       {
         "interpreter_selected": true,
         "seed": 1,
-        "seen": 2.875,
-        "unseen": 2.875
+        "seen": 3.1875,
+        "unseen": 2.8125
       },
       {
         "interpreter_selected": true,
         "seed": 2,
-        "seen": 3.5625,
-        "unseen": 3.5625
+        "seen": 2.8125,
+        "unseen": 2.75
       },
       {
         "interpreter_selected": true,
         "seed": 3,
-        "seen": 3.75,
+        "seen": 3.8125,
         "unseen": 3.75
       },
       {
         "interpreter_selected": true,
         "seed": 4,
-        "seen": 3.125,
-        "unseen": 3.125
+        "seen": 3.8125,
+        "unseen": 3.375
       },
       {
         "interpreter_selected": true,
         "seed": 5,
-        "seen": 3.875,
-        "unseen": 3.875
+        "seen": 3.5625,
+        "unseen": 3.9375
       },
       {
         "interpreter_selected": true,
         "seed": 6,
-        "seen": 3.875,
-        "unseen": 3.875
+        "seen": 3.0625,
+        "unseen": 3.125
       },
       {
         "interpreter_selected": true,
         "seed": 7,
-        "seen": 3.8125,
-        "unseen": 3.8125
+        "seen": 3.5625,
+        "unseen": 3.6875
       }
     ]
   },
@@ -229,14 +229,14 @@
       {
         "interpreter_selected": true,
         "seed": 0,
-        "seen": 3.9375,
-        "unseen": 3.9375
+        "seen": 3.6875,
+        "unseen": 3.8125
       },
       {
         "interpreter_selected": true,
         "seed": 1,
-        "seen": 2.875,
-        "unseen": 2.875
+        "seen": 2.8125,
+        "unseen": 3.1875
       },
       {
         "interpreter_selected": true,
@@ -253,26 +253,26 @@
       {
         "interpreter_selected": true,
         "seed": 4,
-        "seen": 3.125,
-        "unseen": 3.125
+        "seen": 2.875,
+        "unseen": 3.0
       },
       {
         "interpreter_selected": true,
         "seed": 5,
         "seen": 3.875,
-        "unseen": 3.875
+        "unseen": 3.75
       },
       {
         "interpreter_selected": true,
         "seed": 6,
-        "seen": 3.875,
-        "unseen": 3.875
+        "seen": 3.625,
+        "unseen": 3.75
       },
       {
         "interpreter_selected": true,
         "seed": 7,
-        "seen": 3.8125,
-        "unseen": 3.8125
+        "seen": 3.0,
+        "unseen": 3.4375
       }
     ]
   },
@@ -281,50 +281,50 @@
       {
         "interpreter_selected": null,
         "seed": 0,
-        "seen": 1.75,
-        "unseen": 1.75
+        "seen": 2.125,
+        "unseen": 1.4375
       },
       {
         "interpreter_selected": null,
         "seed": 1,
-        "seen": 2.1875,
-        "unseen": 2.1875
+        "seen": 2.125,
+        "unseen": 2.125
       },
       {
         "interpreter_selected": null,
         "seed": 2,
-        "seen": 1.9375,
-        "unseen": 1.9375
-      },
-      {
-        "interpreter_selected": null,
-        "seed": 3,
-        "seen": 1.875,
-        "unseen": 1.875
-      },
-      {
-        "interpreter_selected": null,
-        "seed": 4,
-        "seen": 2.0,
-        "unseen": 2.0
-      },
-      {
-        "interpreter_selected": null,
-        "seed": 5,
         "seen": 1.8125,
         "unseen": 1.8125
       },
       {
         "interpreter_selected": null,
+        "seed": 3,
+        "seen": 2.125,
+        "unseen": 2.3125
+      },
+      {
+        "interpreter_selected": null,
+        "seed": 4,
+        "seen": 2.125,
+        "unseen": 1.9375
+      },
+      {
+        "interpreter_selected": null,
+        "seed": 5,
+        "seen": 2.125,
+        "unseen": 1.875
+      },
+      {
+        "interpreter_selected": null,
         "seed": 6,
-        "seen": 1.625,
-        "unseen": 1.625
+        "seen": 1.75,
+        "unseen": 1.6875
       },
       {
         "interpreter_selected": null,
         "seed": 7,
-        "seen": 2.25,
-        "unseen": 2.25
+        "seen": 2.0625,
+        "unseen": 2.375
       }
     ]
   },
@@ -333,50 +333,50 @@
       {
         "interpreter_selected": null,
         "seed": 0,
-        "seen": 1.75,
-        "unseen": 1.75
-      },
-      {
-        "interpreter_selected": null,
-        "seed": 1,
-        "seen": 2.1875,
-        "unseen": 2.1875
-      },
-      {
-        "interpreter_selected": null,
-        "seed": 2,
-        "seen": 1.9375,
-        "unseen": 1.9375
-      },
-      {
-        "interpreter_selected": null,
-        "seed": 3,
-        "seen": 1.875,
+        "seen": 2.5625,
         "unseen": 1.875
       },
       {
         "interpreter_selected": null,
-        "seed": 4,
-        "seen": 2.0,
-        "unseen": 2.0
+        "seed": 1,
+        "seen": 2.125,
+        "unseen": 2.125
       },
       {
         "interpreter_selected": null,
-        "seed": 5,
+        "seed": 2,
         "seen": 1.8125,
         "unseen": 1.8125
       },
       {
         "interpreter_selected": null,
+        "seed": 3,
+        "seen": 2.3125,
+        "unseen": 2.125
+      },
+      {
+        "interpreter_selected": null,
+        "seed": 4,
+        "seen": 1.9375,
+        "unseen": 2.125
+      },
+      {
+        "interpreter_selected": null,
+        "seed": 5,
+        "seen": 1.875,
+        "unseen": 2.125
+      },
+      {
+        "interpreter_selected": null,
         "seed": 6,
-        "seen": 1.625,
-        "unseen": 1.625
+        "seen": 1.6875,
+        "unseen": 1.75
       },
       {
         "interpreter_selected": null,
         "seed": 7,
-        "seen": 2.25,
-        "unseen": 2.25
+        "seen": 1.625,
+        "unseen": 1.9375
       }
     ]
   }
