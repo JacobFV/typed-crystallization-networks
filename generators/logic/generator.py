@@ -39,10 +39,15 @@ class Implementation(Generator):
         for _ in range(count):
             a=0 if configuration.get('fixed_inputs') else rng.randrange(len(values))
             b=1 if configuration.get('fixed_inputs') else rng.randrange(len(values))
-            # The default branch keeps `configuration.get('table', rng.randrange(16))`
+            # An explicit `table` always wins: a pool restricts what is *drawn*, it
+            # does not override what the caller asked for. Ignoring it silently made
+            # a held-out-table experiment evaluate on the training distribution.
+            # The no-pool branch keeps `configuration.get('table', rng.randrange(16))`
             # verbatim: the argument is evaluated either way, so the stream advances
             # even when a fixed table is supplied. Recorded episodes depend on that.
-            table=int(configuration.get('table',rng.randrange(16))) if pool is None else int(pool[rng.randrange(len(pool))])
+            if pool is None: table=int(configuration.get('table',rng.randrange(16)))
+            elif 'table' in configuration: table=int(configuration['table'])
+            else: table=int(pool[rng.randrange(len(pool))])
             if not 0<=table<=15: raise ValueError('truth table must be 0..15')
             gates.append([a,b,table]);values.append(bool((table>>(2*int(values[a])+int(values[b])))&1))
         return bits,gates,values

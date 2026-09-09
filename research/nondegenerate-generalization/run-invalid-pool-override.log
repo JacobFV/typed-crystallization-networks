@@ -1,0 +1,88 @@
+== record_ab ==
+  record        ab seed 0: seen 1.75 unseen 1.75 interpreter=None
+  record        ab seed 1: seen 2.19 unseen 2.19 interpreter=None
+  record        ab seed 2: seen 1.94 unseen 1.94 interpreter=None
+  record        ab seed 3: seen 1.88 unseen 1.88 interpreter=None
+  record        ab seed 4: seen 2.00 unseen 2.00 interpreter=None
+  record        ab seed 5: seen 1.81 unseen 1.81 interpreter=None
+  record        ab seed 6: seen 1.62 unseen 1.62 interpreter=None
+  record        ab seed 7: seen 2.25 unseen 2.25 interpreter=None
+== record_ba ==
+  record        ba seed 0: seen 1.75 unseen 1.75 interpreter=None
+  record        ba seed 1: seen 2.19 unseen 2.19 interpreter=None
+  record        ba seed 2: seen 1.94 unseen 1.94 interpreter=None
+  record        ba seed 3: seen 1.88 unseen 1.88 interpreter=None
+  record        ba seed 4: seen 2.00 unseen 2.00 interpreter=None
+  record        ba seed 5: seen 1.81 unseen 1.81 interpreter=None
+  record        ba seed 6: seen 1.62 unseen 1.62 interpreter=None
+  record        ba seed 7: seen 2.25 unseen 2.25 interpreter=None
+== lookup_ab ==
+  lookup        ab seed 0: seen 4.00 unseen 4.00 interpreter=True
+  lookup        ab seed 1: seen 3.50 unseen 3.50 interpreter=True
+  lookup        ab seed 2: seen 4.00 unseen 4.00 interpreter=True
+  lookup        ab seed 3: seen 4.00 unseen 4.00 interpreter=True
+  lookup        ab seed 4: seen 4.00 unseen 4.00 interpreter=True
+  lookup        ab seed 5: seen 4.00 unseen 4.00 interpreter=True
+  lookup        ab seed 6: seen 3.06 unseen 3.06 interpreter=True
+  lookup        ab seed 7: seen 3.81 unseen 3.81 interpreter=True
+== lookup_ba ==
+  lookup        ba seed 0: seen 4.00 unseen 4.00 interpreter=True
+  lookup        ba seed 1: seen 3.50 unseen 3.50 interpreter=True
+  lookup        ba seed 2: seen 4.00 unseen 4.00 interpreter=True
+  lookup        ba seed 3: seen 4.00 unseen 4.00 interpreter=True
+  lookup        ba seed 4: seen 4.00 unseen 4.00 interpreter=True
+  lookup        ba seed 5: seen 4.00 unseen 4.00 interpreter=True
+  lookup        ba seed 6: seen 3.06 unseen 3.06 interpreter=True
+  lookup        ba seed 7: seen 3.81 unseen 3.81 interpreter=True
+== lookup_wired_ab ==
+  lookup_wired  ab seed 0: seen 3.94 unseen 3.94 interpreter=True
+  lookup_wired  ab seed 1: seen 2.88 unseen 2.88 interpreter=True
+  lookup_wired  ab seed 2: seen 3.56 unseen 3.56 interpreter=True
+  lookup_wired  ab seed 3: seen 3.75 unseen 3.75 interpreter=True
+  lookup_wired  ab seed 4: seen 3.12 unseen 3.12 interpreter=True
+  lookup_wired  ab seed 5: seen 3.88 unseen 3.88 interpreter=True
+  lookup_wired  ab seed 6: seen 3.88 unseen 3.88 interpreter=True
+  lookup_wired  ab seed 7: seen 3.81 unseen 3.81 interpreter=True
+== lookup_wired_ba ==
+  lookup_wired  ba seed 0: seen 3.94 unseen 3.94 interpreter=True
+  lookup_wired  ba seed 1: seen 2.88 unseen 2.88 interpreter=True
+  lookup_wired  ba seed 2: seen 3.56 unseen 3.56 interpreter=True
+  lookup_wired  ba seed 3: seen 3.75 unseen 3.75 interpreter=True
+  lookup_wired  ba seed 4: seen 3.12 unseen 3.12 interpreter=True
+  lookup_wired  ba seed 5: seen 3.88 unseen 3.88 interpreter=True
+  lookup_wired  ba seed 6: seen 3.88 unseen 3.88 interpreter=True
+  lookup_wired  ba seed 7: seen 3.81 unseen 3.81 interpreter=True
+baselines: {
+  "pool_a": {
+    "always_true": 2.25,
+    "always_false": 1.75,
+    "random": 2.15625,
+    "best_constant": 2.25
+  },
+  "pool_b": {
+    "always_true": 2.25,
+    "always_false": 1.75,
+    "random": 2.15625,
+    "best_constant": 2.25
+  }
+}
+== enumerating the lookup scaffold ==
+{
+  "space_size": 272,
+  "evaluated": 272,
+  "train_return": 4.0,
+  "heldout_return": 4.0,
+  "seconds": 288.4773377579986,
+  "selections": {
+    "relation": 16,
+    "goal_relation": 6
+  }
+}
+
+=== summary (mean over seeds, chance = 2.0/4) ===
+record_ab          seen 1.93  unseen 1.93  interpreter chosen 0/8
+record_ba          seen 1.93  unseen 1.93  interpreter chosen 0/8
+lookup_ab          seen 3.80  unseen 3.80  interpreter chosen 8/8
+lookup_ba          seen 3.80  unseen 3.80  interpreter chosen 8/8
+lookup_wired_ab    seen 3.60  unseen 3.60  interpreter chosen 8/8
+lookup_wired_ba    seen 3.60  unseen 3.60  interpreter chosen 8/8

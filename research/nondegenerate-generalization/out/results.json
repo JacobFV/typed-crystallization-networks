@@ -1,0 +1,383 @@
+{
+  "baselines": {
+    "pool_a": {
+      "always_false": {
+        "max": 4.0,
+        "mean": 1.75,
+        "min": 0.0,
+        "n": 64,
+        "sd": 2.0,
+        "sem": 0.25
+      },
+      "always_true": {
+        "max": 4.0,
+        "mean": 2.25,
+        "min": 0.0,
+        "n": 64,
+        "sd": 2.0,
+        "sem": 0.25
+      },
+      "fraction_target_true": 0.5625,
+      "majority_constant": 2.25,
+      "uniform_random": {
+        "max": 4.0,
+        "mean": 2.15625,
+        "min": 0.0,
+        "n": 64,
+        "sd": 0.9464847243000456,
+        "sem": 0.1183105905375057
+      }
+    },
+    "pool_b": {
+      "always_false": {
+        "max": 4.0,
+        "mean": 1.75,
+        "min": 0.0,
+        "n": 64,
+        "sd": 2.0,
+        "sem": 0.25
+      },
+      "always_true": {
+        "max": 4.0,
+        "mean": 2.25,
+        "min": 0.0,
+        "n": 64,
+        "sd": 2.0,
+        "sem": 0.25
+      },
+      "fraction_target_true": 0.5625,
+      "majority_constant": 2.25,
+      "uniform_random": {
+        "max": 4.0,
+        "mean": 2.15625,
+        "min": 0.0,
+        "n": 64,
+        "sd": 0.9464847243000456,
+        "sem": 0.1183105905375057
+      }
+    }
+  },
+  "enumeration_lookup_ab": {
+    "evaluated": 272,
+    "heldout_return": 4.0,
+    "seconds": 288.4773377579986,
+    "selections": {
+      "goal_relation": 6,
+      "relation": 16
+    },
+    "space_size": 272,
+    "train_return": 4.0
+  },
+  "lookup_ab": {
+    "rows": [
+      {
+        "interpreter_selected": true,
+        "seed": 0,
+        "seen": 4.0,
+        "unseen": 4.0
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 1,
+        "seen": 3.5,
+        "unseen": 3.5
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 2,
+        "seen": 4.0,
+        "unseen": 4.0
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 3,
+        "seen": 4.0,
+        "unseen": 4.0
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 4,
+        "seen": 4.0,
+        "unseen": 4.0
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 5,
+        "seen": 4.0,
+        "unseen": 4.0
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 6,
+        "seen": 3.0625,
+        "unseen": 3.0625
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 7,
+        "seen": 3.8125,
+        "unseen": 3.8125
+      }
+    ]
+  },
+  "lookup_ba": {
+    "rows": [
+      {
+        "interpreter_selected": true,
+        "seed": 0,
+        "seen": 4.0,
+        "unseen": 4.0
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 1,
+        "seen": 3.5,
+        "unseen": 3.5
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 2,
+        "seen": 4.0,
+        "unseen": 4.0
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 3,
+        "seen": 4.0,
+        "unseen": 4.0
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 4,
+        "seen": 4.0,
+        "unseen": 4.0
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 5,
+        "seen": 4.0,
+        "unseen": 4.0
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 6,
+        "seen": 3.0625,
+        "unseen": 3.0625
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 7,
+        "seen": 3.8125,
+        "unseen": 3.8125
+      }
+    ]
+  },
+  "lookup_wired_ab": {
+    "rows": [
+      {
+        "interpreter_selected": true,
+        "seed": 0,
+        "seen": 3.9375,
+        "unseen": 3.9375
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 1,
+        "seen": 2.875,
+        "unseen": 2.875
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 2,
+        "seen": 3.5625,
+        "unseen": 3.5625
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 3,
+        "seen": 3.75,
+        "unseen": 3.75
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 4,
+        "seen": 3.125,
+        "unseen": 3.125
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 5,
+        "seen": 3.875,
+        "unseen": 3.875
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 6,
+        "seen": 3.875,
+        "unseen": 3.875
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 7,
+        "seen": 3.8125,
+        "unseen": 3.8125
+      }
+    ]
+  },
+  "lookup_wired_ba": {
+    "rows": [
+      {
+        "interpreter_selected": true,
+        "seed": 0,
+        "seen": 3.9375,
+        "unseen": 3.9375
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 1,
+        "seen": 2.875,
+        "unseen": 2.875
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 2,
+        "seen": 3.5625,
+        "unseen": 3.5625
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 3,
+        "seen": 3.75,
+        "unseen": 3.75
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 4,
+        "seen": 3.125,
+        "unseen": 3.125
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 5,
+        "seen": 3.875,
+        "unseen": 3.875
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 6,
+        "seen": 3.875,
+        "unseen": 3.875
+      },
+      {
+        "interpreter_selected": true,
+        "seed": 7,
+        "seen": 3.8125,
+        "unseen": 3.8125
+      }
+    ]
+  },
+  "record_ab": {
+    "rows": [
+      {
+        "interpreter_selected": null,
+        "seed": 0,
+        "seen": 1.75,
+        "unseen": 1.75
+      },
+      {
+        "interpreter_selected": null,
+        "seed": 1,
+        "seen": 2.1875,
+        "unseen": 2.1875
+      },
+      {
+        "interpreter_selected": null,
+        "seed": 2,
+        "seen": 1.9375,
+        "unseen": 1.9375
+      },
+      {
+        "interpreter_selected": null,
+        "seed": 3,
+        "seen": 1.875,
+        "unseen": 1.875
+      },
+      {
+        "interpreter_selected": null,
+        "seed": 4,
+        "seen": 2.0,
+        "unseen": 2.0
+      },
+      {
+        "interpreter_selected": null,
+        "seed": 5,
+        "seen": 1.8125,
+        "unseen": 1.8125
+      },
+      {
+        "interpreter_selected": null,
+        "seed": 6,
+        "seen": 1.625,
+        "unseen": 1.625
+      },
+      {
+        "interpreter_selected": null,
+        "seed": 7,
+        "seen": 2.25,
+        "unseen": 2.25
+      }
+    ]
+  },
+  "record_ba": {
+    "rows": [
+      {
+        "interpreter_selected": null,
+        "seed": 0,
+        "seen": 1.75,
+        "unseen": 1.75
+      },
+      {
+        "interpreter_selected": null,
+        "seed": 1,
+        "seen": 2.1875,
+        "unseen": 2.1875
+      },
+      {
+        "interpreter_selected": null,
+        "seed": 2,
+        "seen": 1.9375,
+        "unseen": 1.9375
+      },
+      {
+        "interpreter_selected": null,
+        "seed": 3,
+        "seen": 1.875,
+        "unseen": 1.875
+      },
+      {
+        "interpreter_selected": null,
+        "seed": 4,
+        "seen": 2.0,
+        "unseen": 2.0
+      },
+      {
+        "interpreter_selected": null,
+        "seed": 5,
+        "seen": 1.8125,
+        "unseen": 1.8125
+      },
+      {
+        "interpreter_selected": null,
+        "seed": 6,
+        "seen": 1.625,
+        "unseen": 1.625
+      },
+      {
+        "interpreter_selected": null,
+        "seed": 7,
+        "seen": 2.25,
+        "unseen": 2.25
+      }
+    ]
+  }
+}

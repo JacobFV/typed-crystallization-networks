@@ -72,3 +72,25 @@ def test_paper_and_computer_share_embodied_action_contract():
     h.step((Action('key',target='computer',arguments=(('code',Value.of(integer(16,signed=False),13)),)),),dt=.01)
     assert h.state['computer']['result']['output']['exitCode']==0
     h.replay()
+
+
+def test_explicit_table_overrides_a_restricted_pool():
+    """A pool restricts what is drawn; it must not override an explicit request.
+
+    Ignoring the explicit table silently made a held-out-table experiment
+    evaluate on its own training distribution.
+    """
+    from tcn.generation import Host
+    for table in (1, 6, 13):
+        for pool in ({'nondegenerate': True}, {'tables': [4, 9, 11]}):
+            h = Host.create('logic', configuration={'depth': 2, 'inputs': 2, 'table': table} | pool)
+            assert [g[2] for g in h.state['gates']] == [table, table]
+
+def test_a_restricted_pool_only_draws_from_that_pool():
+    from tcn.generation import Host
+    from generators.logic.generator import NONDEGENERATE
+    drawn = set()
+    for index in range(40):
+        h = Host.create('logic', index=index, configuration={'depth': 3, 'inputs': 2, 'nondegenerate': True})
+        drawn.update(g[2] for g in h.state['gates'])
+    assert drawn and drawn <= set(NONDEGENERATE)
