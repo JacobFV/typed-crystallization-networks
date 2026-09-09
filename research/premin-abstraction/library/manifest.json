@@ -1,0 +1,299 @@
+{
+  "entries": [
+    {
+      "description_bits": 6048,
+      "digest": "ec516b3808ddef7e7d0e7d22",
+      "execution_cost": 2.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "trace",
+      "nodes": 2,
+      "operator": "module:ec516b3808ddef7e7d0e7d22",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "corpus": "C-trace",
+        "entries": 140,
+        "occurrences": 174,
+        "pick": "rank1",
+        "rank": 1,
+        "rule": "mine_multi.propose",
+        "saving_bits": 275136,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t4_maj_acd_xor_b",
+          "t5_maj_abd_or_c"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "c9204119dcbbdb63b3de914b3aefeeea8217bcb8788bb5f4c573d9c9ae67cfdc",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 6048,
+      "digest": "ec516b3808ddef7e7d0e7d22",
+      "execution_cost": 2.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "minall",
+      "nodes": 2,
+      "operator": "module:ec516b3808ddef7e7d0e7d22",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "corpus": "C-minall",
+        "entries": 75,
+        "occurrences": 89,
+        "pick": "rank1",
+        "rank": 1,
+        "rule": "mine_multi.propose",
+        "saving_bits": 137776,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t4_maj_acd_xor_b",
+          "t5_maj_abd_or_c"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "c9204119dcbbdb63b3de914b3aefeeea8217bcb8788bb5f4c573d9c9ae67cfdc",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 6048,
+      "digest": "ec516b3808ddef7e7d0e7d22",
+      "execution_cost": 2.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "plus1",
+      "nodes": 2,
+      "operator": "module:ec516b3808ddef7e7d0e7d22",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "corpus": "C-plus1",
+        "entries": 65,
+        "occurrences": 85,
+        "pick": "rank1",
+        "rank": 1,
+        "rule": "mine_multi.propose",
+        "saving_bits": 131312,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t4_maj_acd_xor_b",
+          "t5_maj_abd_or_c"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "c9204119dcbbdb63b3de914b3aefeeea8217bcb8788bb5f4c573d9c9ae67cfdc",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 8288,
+      "digest": "26f930da7b619fd563401a8c",
+      "execution_cost": 3.0,
+      "fixture_cases": 16,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x3",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "plus1one",
+      "nodes": 3,
+      "operator": "module:26f930da7b619fd563401a8c",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "corpus": "C-plus1-one",
+        "entries": 3,
+        "occurrences": 3,
+        "pick": "rank1",
+        "rank": 1,
+        "rule": "mine_multi.propose",
+        "saving_bits": 2080,
+        "tasks": [
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t5_maj_abd_or_c"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "c9204119dcbbdb63b3de914b3aefeeea8217bcb8788bb5f4c573d9c9ae67cfdc",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 10128,
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "execution_cost": 4.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "trace_maj3",
+      "nodes": 4,
+      "operator": "module:165bc290d9c82b70a8ea3cc2",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "corpus": "C-trace",
+        "entries": 16,
+        "occurrences": 16,
+        "pick": "maj3",
+        "rank": 18,
+        "rule": "mine_multi.propose",
+        "saving_bits": 80760,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t4_maj_acd_xor_b",
+          "t5_maj_abd_or_c"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "c9204119dcbbdb63b3de914b3aefeeea8217bcb8788bb5f4c573d9c9ae67cfdc",
+      "stale": [],
+      "version": 1
+    }
+  ],
+  "format": "tcn.library/1"
+}
