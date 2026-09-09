@@ -30,6 +30,38 @@ checkout before spending time on it.
 
 ## Waiting
 
+### `program-length` (8d0d710, from `compiled-runtime` 68db06a) — verified, NEGATIVE
+
+Forwards `rank` from `fit` to the discrete backends (`tcn/synthesis.py`), plus
+`research/program-length/`. Default behaviour unchanged.
+`research/program-length/RESULTS.md`, recorded as FINDINGS §41.
+
+**Independently verified here from raw JSON, not from the agent's summary:**
+
+- The **falsification holds**: in `out/language_family.json` the single
+  description-minimal program (4,043,552 bits) is the **bytecode-maximal** one
+  (41,465). Ranking by description picks the worst program to execute.
+- **`execution_cost` is 148.0 for all ten conforming programs**, which differ by
+  48 executed bytecodes. The modelled cost is constant across a family that
+  measurably differs — §8.1's point at its endpoint.
+- Span sweep certificates re-read: `none exists` at spans 4–29, `unique` at 30,
+  every space exhausted. 549 nodes vs 585 is a true minimum, and closes **3.1%**
+  of the visual gap with wall clock unmoved.
+- Boundary: all four artifacts report `identical_outputs`,
+  `boundary_values_identical` and `adversarial_identical` true; exception type,
+  message and position preserved on ten adversarial cases.
+- **Tests: 336 passed, 1 failed** with `node_modules` symlinked — the branch's
+  reported "13 failed" was entirely that missing symlink. The 1 is the known
+  worktree-only `test_panel_interface` failure documented below.
+
+Note this branch **depends on `compiled-runtime`** and must not be merged before
+it. Both are blocked while the neural-baselines agent measures against core.
+
+**Whether to merge at all is a judgement call.** The `rank` forwarding is a
+genuine bug fix with the default unchanged; the rest of the value is in the
+RESULTS, which is already on main via §41.
+
+
 ### `compiled-runtime` (68db06a) — verified, blocked on quiet tree, and POSITIVE
 
 Adds `tcn/compile.py` (frozen `Program` + `Registry` → standalone stdlib Python),

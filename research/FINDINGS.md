@@ -1971,3 +1971,82 @@ distinguished only by whether the value sits at the ceiling and whether sibling
 arms can differ at all. Preserving `run-invalid-pool-override.log` next to the
 valid one is what made this a two-minute check instead of a re-run.
 
+## 41. Shorter programs: a certified negative, and my own brief was wrong
+
+`research/program-length/RESULTS.md`, branch `program-length` (8d0d710) from
+`compiled-runtime` (68db06a), **not merged**. Everything below was re-verified
+from raw JSON in the supervising session, not taken from the agent's summary.
+
+**First, a correction to the standing task list.** The overnight priority list
+carried "wire the MDL term into `synthesis.fit`, which has no cost term" from
+track 5 F3, and I repeated it verbatim in the brief. **It is stale.** `fit` has
+accepted `mdl_weight` since §14 merged, scaling ARCHITECTURE §8's
+`L_program_description` at `tcn/synthesis.py:32,131`. The genuine gap was
+narrower — `fit` never forwarded `rank` to the discrete backends — and is fixed
+on the branch with the default unchanged. **A priority item that a merged section
+already closed will otherwise be re-dispatched indefinitely.**
+
+**Q1: preferring shorter programs buys nothing here, and it is certified rather
+than argued.** Five declared spaces exhausted: mixed 1/96 `unique`, visual S2
+1/25 `unique`, S0 2/256, S1 2/400, language 10/45,375. Verified from
+`out/language_family.json`, the only set whose members differ:
+
+| description bits | bytecodes | execution cost | nodes | unseen accuracy |
+|---|---|---|---|---|
+| **4,043,552** (minimal) | **41,465** (maximal) | 148.0 | 84 | 1.000 |
+| 4,043,560 | 41,417 (minimal) | 148.0 | 84 | 1.000 |
+| 4,043,568 | 41,441 | 148.0 | 84 | 1.000 |
+
+The single description-minimal program is the **bytecode-maximal** one. That is
+the falsification the brief named in advance — a cost term that shortens the
+description without reducing executed work — and it is reported rather than
+tuned away.
+
+Two further facts the branch's summary did not lead with, both visible in the
+same file and both worth more than the headline:
+
+- **`execution_cost` is 148.0 for every one of the ten.** It cannot discriminate
+  between programs whose executed bytecodes differ by 48. This is §8.1's point
+  reaching its endpoint: the modelled cost is not merely a poor latency
+  predictor, it is *constant* across a family that measurably differs.
+- **The description spread is 16 bits out of 4,043,552** — 0.0004%. There is
+  essentially no signal for an MDL term to act on, which is the more basic reason
+  ranking cannot help here.
+
+Quality cannot move either: all ten score **1.000** on 242 held-out
+unseen-length episodes against a **0.5661** majority. The track pinned
+`hardening='none'` explicitly and cites §39 for why, so the stream defect did not
+propagate into it.
+
+**Program length is a property of the scaffold, not of the selection.** Sweeping
+`rect_scaffold`'s span with every space exhausted certifies `none exists` at
+spans 4 through 29 and `unique` at 30 — so 549 scaffold nodes against the shipped
+585 is the true minimum, not a lucky find. Accuracy stays 1.000 at max error 0.0.
+Whole parse: 650,571 → 630,626 bytecodes against hand-written 58,859.
+
+**That closes 3.1% of the 27.6× gap, and wall clock does not move.** The
+compiled-runtime decomposition (11.1× more bytecodes × 2.25× per bytecode) is
+therefore not addressable by ranking within a fixed scaffold. Whatever the visual
+program computes in excess of the hand-written reference is structural.
+
+**Q2: the boundary is entirely required, and none of it needed a Python frame.**
+
+| artifact | widest port | before | after | ratio |
+|---|---|---|---|---|
+| computer | `terminal`, 4,097 | 0.57755 ms | 0.05155 ms | **11.20×** |
+| visual | `observation`, 3,072 | 0.36896 ms | 0.03176 ms | 11.62× |
+| language | `text`, 129 | 0.01608 ms | 0.00184 ms | 8.74× |
+
+The computer artifact's 547× asymmetry becomes **48.8×** around a 1.06 µs
+program. No check was removed: all four artifacts report
+`identical_outputs`, `boundary_values_identical` and `adversarial_identical`
+true, with exception **type, message and position** preserved against `Value.of`
+on ten adversarial cases (`fractional`, `above range`, `bool`, `non-finite`, …).
+It buys nothing on the JSON deployment path, which the track measured and states.
+
+**Verification of the test claim.** The branch reported "324 passed, 13 failed —
+the same 13 fail on the base commit". The 13 were **missing `node_modules`**: with
+it symlinked the branch gives **336 passed, 1 failed**, and the base commit gives
+313 passed, 1 failed, in both cases the known worktree-only
+`test_panel_interface` failure already documented in `research/MERGE-QUEUE.md`.
+
