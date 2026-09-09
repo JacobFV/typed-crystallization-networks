@@ -1,0 +1,166 @@
+{
+  "steps": 50,
+  "seeds": 6,
+  "runs": [
+    {
+      "seed": 0,
+      "trials": 4,
+      "rejected": 0,
+      "conformance_rejections": 0,
+      "frozen_at_end": [
+        "algebra",
+        "analytic",
+        "conversion",
+        "logic"
+      ],
+      "first_failures": []
+    },
+    {
+      "seed": 1,
+      "trials": 4,
+      "rejected": 0,
+      "conformance_rejections": 0,
+      "frozen_at_end": [
+        "algebra",
+        "analytic",
+        "conversion",
+        "logic"
+      ],
+      "first_failures": []
+    },
+    {
+      "seed": 2,
+      "trials": 84,
+      "rejected": 84,
+      "conformance_rejections": 84,
+      "frozen_at_end": [],
+      "first_failures": [
+        {
+          "node_under_trial": "analytic",
+          "previously_frozen": [],
+          "mismatched_signals": [
+            "analytic"
+          ],
+          "mismatch_on_trial_node": true,
+          "mismatch_on_previously_frozen": [],
+          "mismatch_only_on_untouched_soft_nodes": [],
+          "worst": {
+            "analytic": {
+              "abs_error": 0.8261523246765137,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": 0.800000011920929
+              },
+              "exact": [
+                1.7999999523162842
+              ],
+              "target": [
+                0.9738476276397705
+              ]
+            }
+          }
+        },
+        {
+          "node_under_trial": "algebra",
+          "previously_frozen": [],
+          "mismatched_signals": [
+            "analytic"
+          ],
+          "mismatch_on_trial_node": false,
+          "mismatch_on_previously_frozen": [],
+          "mismatch_only_on_untouched_soft_nodes": [
+            "analytic"
+          ],
+          "worst": {
+            "analytic": {
+              "abs_error": 0.8261523246765137,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": 0.800000011920929
+              },
+              "exact": [
+                1.7999999523162842
+              ],
+              "target": [
+                0.9738476276397705
+              ]
+            }
+          }
+        },
+        {
+          "node_under_trial": "conversion",
+          "previously_frozen": [],
+          "mismatched_signals": [
+            "analytic"
+          ],
+          "mismatch_on_trial_node": false,
+          "mismatch_on_previously_frozen": [],
+          "mismatch_only_on_untouched_soft_nodes": [
+            "analytic"
+          ],
+          "worst": {
+            "analytic": {
+              "abs_error": 0.8261523246765137,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": 0.800000011920929
+              },
+              "exact": [
+                1.7999999523162842
+              ],
+              "target": [
+                0.9738476276397705
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "trials": 4,
+      "rejected": 0,
+      "conformance_rejections": 0,
+      "frozen_at_end": [
+        "algebra",
+        "analytic",
+        "conversion",
+        "logic"
+      ],
+      "first_failures": []
+    },
+    {
+      "seed": 4,
+      "trials": 4,
+      "rejected": 0,
+      "conformance_rejections": 0,
+      "frozen_at_end": [
+        "algebra",
+        "analytic",
+        "conversion",
+        "logic"
+      ],
+      "first_failures": []
+    },
+    {
+      "seed": 5,
+      "trials": 4,
+      "rejected": 0,
+      "conformance_rejections": 0,
+      "frozen_at_end": [
+        "algebra",
+        "analytic",
+        "conversion",
+        "logic"
+      ],
+      "first_failures": []
+    }
+  ],
+  "mismatch_role_histogram": {
+    "mismatch on the node under trial only (legitimate rejection)": 22,
+    "mismatch ONLY on untouched still-soft nodes (checker artifact)": 62
+  }
+}

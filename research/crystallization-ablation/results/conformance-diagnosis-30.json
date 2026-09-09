@@ -1,0 +1,794 @@
+{
+  "steps": 30,
+  "seeds": 6,
+  "runs": [
+    {
+      "seed": 0,
+      "trials": 82,
+      "rejected": 82,
+      "conformance_rejections": 66,
+      "frozen_at_end": [],
+      "first_failures": [
+        {
+          "node_under_trial": "analytic",
+          "previously_frozen": [],
+          "mismatched_signals": [
+            "analytic"
+          ],
+          "mismatch_on_trial_node": true,
+          "mismatch_on_previously_frozen": [],
+          "mismatch_only_on_untouched_soft_nodes": [],
+          "worst": {
+            "analytic": {
+              "abs_error": 0.8261523246765137,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": 0.800000011920929
+              },
+              "exact": [
+                1.7999999523162842
+              ],
+              "target": [
+                0.9738476276397705
+              ]
+            }
+          }
+        },
+        {
+          "node_under_trial": "algebra",
+          "previously_frozen": [],
+          "mismatched_signals": [
+            "analytic"
+          ],
+          "mismatch_on_trial_node": false,
+          "mismatch_on_previously_frozen": [],
+          "mismatch_only_on_untouched_soft_nodes": [
+            "analytic"
+          ],
+          "worst": {
+            "analytic": {
+              "abs_error": 0.8261523246765137,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": 0.800000011920929
+              },
+              "exact": [
+                1.7999999523162842
+              ],
+              "target": [
+                0.9738476276397705
+              ]
+            }
+          }
+        },
+        {
+          "node_under_trial": "conversion",
+          "previously_frozen": [],
+          "mismatched_signals": [
+            "algebra",
+            "analytic",
+            "conversion",
+            "logic"
+          ],
+          "mismatch_on_trial_node": true,
+          "mismatch_on_previously_frozen": [],
+          "mismatch_only_on_untouched_soft_nodes": [
+            "algebra",
+            "analytic",
+            "logic"
+          ],
+          "worst": {
+            "logic": {
+              "abs_error": 1.0,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": -0.699999988079071
+              },
+              "exact": [
+                0.0
+              ],
+              "target": [
+                1.0
+              ]
+            },
+            "conversion": {
+              "abs_error": 1.0,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": -0.699999988079071
+              },
+              "exact": [
+                0.0
+              ],
+              "target": [
+                1.0
+              ]
+            },
+            "algebra": {
+              "abs_error": 1.0,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": -0.699999988079071
+              },
+              "exact": [
+                -0.699999988079071
+              ],
+              "target": [
+                0.30000001192092896
+              ]
+            },
+            "analytic": {
+              "abs_error": 0.9955202341079712,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": -0.699999988079071
+              },
+              "exact": [
+                -0.699999988079071
+              ],
+              "target": [
+                0.29552021622657776
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "trials": 81,
+      "rejected": 81,
+      "conformance_rejections": 66,
+      "frozen_at_end": [],
+      "first_failures": [
+        {
+          "node_under_trial": "algebra",
+          "previously_frozen": [],
+          "mismatched_signals": [
+            "analytic"
+          ],
+          "mismatch_on_trial_node": false,
+          "mismatch_on_previously_frozen": [],
+          "mismatch_only_on_untouched_soft_nodes": [
+            "analytic"
+          ],
+          "worst": {
+            "analytic": {
+              "abs_error": 0.8261523246765137,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": 0.800000011920929
+              },
+              "exact": [
+                1.7999999523162842
+              ],
+              "target": [
+                0.9738476276397705
+              ]
+            }
+          }
+        },
+        {
+          "node_under_trial": "analytic",
+          "previously_frozen": [],
+          "mismatched_signals": [
+            "analytic"
+          ],
+          "mismatch_on_trial_node": true,
+          "mismatch_on_previously_frozen": [],
+          "mismatch_only_on_untouched_soft_nodes": [],
+          "worst": {
+            "analytic": {
+              "abs_error": 0.8261523246765137,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": 0.800000011920929
+              },
+              "exact": [
+                1.7999999523162842
+              ],
+              "target": [
+                0.9738476276397705
+              ]
+            }
+          }
+        },
+        {
+          "node_under_trial": "conversion",
+          "previously_frozen": [],
+          "mismatched_signals": [
+            "algebra",
+            "analytic",
+            "conversion",
+            "logic"
+          ],
+          "mismatch_on_trial_node": true,
+          "mismatch_on_previously_frozen": [],
+          "mismatch_only_on_untouched_soft_nodes": [
+            "algebra",
+            "analytic",
+            "logic"
+          ],
+          "worst": {
+            "logic": {
+              "abs_error": 1.0,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": -0.699999988079071
+              },
+              "exact": [
+                0.0
+              ],
+              "target": [
+                1.0
+              ]
+            },
+            "conversion": {
+              "abs_error": 1.0,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": -0.699999988079071
+              },
+              "exact": [
+                0.0
+              ],
+              "target": [
+                1.0
+              ]
+            },
+            "algebra": {
+              "abs_error": 1.0,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": -0.699999988079071
+              },
+              "exact": [
+                -0.699999988079071
+              ],
+              "target": [
+                0.30000001192092896
+              ]
+            },
+            "analytic": {
+              "abs_error": 0.9955202341079712,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": -0.699999988079071
+              },
+              "exact": [
+                -0.699999988079071
+              ],
+              "target": [
+                0.29552021622657776
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "trials": 82,
+      "rejected": 82,
+      "conformance_rejections": 66,
+      "frozen_at_end": [],
+      "first_failures": [
+        {
+          "node_under_trial": "analytic",
+          "previously_frozen": [],
+          "mismatched_signals": [
+            "analytic"
+          ],
+          "mismatch_on_trial_node": true,
+          "mismatch_on_previously_frozen": [],
+          "mismatch_only_on_untouched_soft_nodes": [],
+          "worst": {
+            "analytic": {
+              "abs_error": 0.8261523246765137,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": 0.800000011920929
+              },
+              "exact": [
+                1.7999999523162842
+              ],
+              "target": [
+                0.9738476276397705
+              ]
+            }
+          }
+        },
+        {
+          "node_under_trial": "algebra",
+          "previously_frozen": [],
+          "mismatched_signals": [
+            "analytic"
+          ],
+          "mismatch_on_trial_node": false,
+          "mismatch_on_previously_frozen": [],
+          "mismatch_only_on_untouched_soft_nodes": [
+            "analytic"
+          ],
+          "worst": {
+            "analytic": {
+              "abs_error": 0.8261523246765137,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": 0.800000011920929
+              },
+              "exact": [
+                1.7999999523162842
+              ],
+              "target": [
+                0.9738476276397705
+              ]
+            }
+          }
+        },
+        {
+          "node_under_trial": "conversion",
+          "previously_frozen": [],
+          "mismatched_signals": [
+            "analytic"
+          ],
+          "mismatch_on_trial_node": false,
+          "mismatch_on_previously_frozen": [],
+          "mismatch_only_on_untouched_soft_nodes": [
+            "analytic"
+          ],
+          "worst": {
+            "analytic": {
+              "abs_error": 0.8261523246765137,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": 0.800000011920929
+              },
+              "exact": [
+                1.7999999523162842
+              ],
+              "target": [
+                0.9738476276397705
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "trials": 87,
+      "rejected": 87,
+      "conformance_rejections": 87,
+      "frozen_at_end": [],
+      "first_failures": [
+        {
+          "node_under_trial": "algebra",
+          "previously_frozen": [],
+          "mismatched_signals": [
+            "analytic"
+          ],
+          "mismatch_on_trial_node": false,
+          "mismatch_on_previously_frozen": [],
+          "mismatch_only_on_untouched_soft_nodes": [
+            "analytic"
+          ],
+          "worst": {
+            "analytic": {
+              "abs_error": 0.8261523246765137,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": 0.800000011920929
+              },
+              "exact": [
+                1.7999999523162842
+              ],
+              "target": [
+                0.9738476276397705
+              ]
+            }
+          }
+        },
+        {
+          "node_under_trial": "analytic",
+          "previously_frozen": [],
+          "mismatched_signals": [
+            "analytic"
+          ],
+          "mismatch_on_trial_node": true,
+          "mismatch_on_previously_frozen": [],
+          "mismatch_only_on_untouched_soft_nodes": [],
+          "worst": {
+            "analytic": {
+              "abs_error": 0.8261523246765137,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": 0.800000011920929
+              },
+              "exact": [
+                1.7999999523162842
+              ],
+              "target": [
+                0.9738476276397705
+              ]
+            }
+          }
+        },
+        {
+          "node_under_trial": "conversion",
+          "previously_frozen": [],
+          "mismatched_signals": [
+            "analytic"
+          ],
+          "mismatch_on_trial_node": false,
+          "mismatch_on_previously_frozen": [],
+          "mismatch_only_on_untouched_soft_nodes": [
+            "analytic"
+          ],
+          "worst": {
+            "analytic": {
+              "abs_error": 0.8261523246765137,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": 0.800000011920929
+              },
+              "exact": [
+                1.7999999523162842
+              ],
+              "target": [
+                0.9738476276397705
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "trials": 83,
+      "rejected": 83,
+      "conformance_rejections": 64,
+      "frozen_at_end": [],
+      "first_failures": [
+        {
+          "node_under_trial": "analytic",
+          "previously_frozen": [],
+          "mismatched_signals": [
+            "algebra",
+            "analytic",
+            "conversion",
+            "logic"
+          ],
+          "mismatch_on_trial_node": true,
+          "mismatch_on_previously_frozen": [],
+          "mismatch_only_on_untouched_soft_nodes": [
+            "algebra",
+            "conversion",
+            "logic"
+          ],
+          "worst": {
+            "logic": {
+              "abs_error": 1.0,
+              "inputs": {
+                "a": true,
+                "b": false,
+                "x": -0.699999988079071
+              },
+              "exact": [
+                0.0
+              ],
+              "target": [
+                1.0
+              ]
+            },
+            "conversion": {
+              "abs_error": 1.0,
+              "inputs": {
+                "a": true,
+                "b": false,
+                "x": -0.699999988079071
+              },
+              "exact": [
+                0.0
+              ],
+              "target": [
+                1.0
+              ]
+            },
+            "algebra": {
+              "abs_error": 1.0,
+              "inputs": {
+                "a": true,
+                "b": false,
+                "x": -0.699999988079071
+              },
+              "exact": [
+                -0.699999988079071
+              ],
+              "target": [
+                0.30000001192092896
+              ]
+            },
+            "analytic": {
+              "abs_error": 0.9955202341079712,
+              "inputs": {
+                "a": true,
+                "b": false,
+                "x": -0.699999988079071
+              },
+              "exact": [
+                -0.699999988079071
+              ],
+              "target": [
+                0.29552021622657776
+              ]
+            }
+          }
+        },
+        {
+          "node_under_trial": "algebra",
+          "previously_frozen": [],
+          "mismatched_signals": [
+            "algebra",
+            "analytic",
+            "conversion",
+            "logic"
+          ],
+          "mismatch_on_trial_node": true,
+          "mismatch_on_previously_frozen": [],
+          "mismatch_only_on_untouched_soft_nodes": [
+            "analytic",
+            "conversion",
+            "logic"
+          ],
+          "worst": {
+            "logic": {
+              "abs_error": 1.0,
+              "inputs": {
+                "a": true,
+                "b": false,
+                "x": -0.699999988079071
+              },
+              "exact": [
+                0.0
+              ],
+              "target": [
+                1.0
+              ]
+            },
+            "conversion": {
+              "abs_error": 1.0,
+              "inputs": {
+                "a": true,
+                "b": false,
+                "x": -0.699999988079071
+              },
+              "exact": [
+                0.0
+              ],
+              "target": [
+                1.0
+              ]
+            },
+            "algebra": {
+              "abs_error": 1.0,
+              "inputs": {
+                "a": true,
+                "b": false,
+                "x": -0.699999988079071
+              },
+              "exact": [
+                -0.699999988079071
+              ],
+              "target": [
+                0.30000001192092896
+              ]
+            },
+            "analytic": {
+              "abs_error": 0.9955202341079712,
+              "inputs": {
+                "a": true,
+                "b": false,
+                "x": -0.699999988079071
+              },
+              "exact": [
+                -0.699999988079071
+              ],
+              "target": [
+                0.29552021622657776
+              ]
+            }
+          }
+        },
+        {
+          "node_under_trial": "conversion",
+          "previously_frozen": [],
+          "mismatched_signals": [
+            "algebra",
+            "analytic",
+            "conversion",
+            "logic"
+          ],
+          "mismatch_on_trial_node": true,
+          "mismatch_on_previously_frozen": [],
+          "mismatch_only_on_untouched_soft_nodes": [
+            "algebra",
+            "analytic",
+            "logic"
+          ],
+          "worst": {
+            "logic": {
+              "abs_error": 1.0,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": -0.699999988079071
+              },
+              "exact": [
+                0.0
+              ],
+              "target": [
+                1.0
+              ]
+            },
+            "conversion": {
+              "abs_error": 1.0,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": -0.699999988079071
+              },
+              "exact": [
+                0.0
+              ],
+              "target": [
+                1.0
+              ]
+            },
+            "algebra": {
+              "abs_error": 1.0,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": -0.699999988079071
+              },
+              "exact": [
+                -0.699999988079071
+              ],
+              "target": [
+                0.30000001192092896
+              ]
+            },
+            "analytic": {
+              "abs_error": 0.9955202341079712,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": -0.699999988079071
+              },
+              "exact": [
+                -0.699999988079071
+              ],
+              "target": [
+                0.29552021622657776
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "seed": 5,
+      "trials": 86,
+      "rejected": 86,
+      "conformance_rejections": 66,
+      "frozen_at_end": [],
+      "first_failures": [
+        {
+          "node_under_trial": "analytic",
+          "previously_frozen": [],
+          "mismatched_signals": [
+            "analytic"
+          ],
+          "mismatch_on_trial_node": true,
+          "mismatch_on_previously_frozen": [],
+          "mismatch_only_on_untouched_soft_nodes": [],
+          "worst": {
+            "analytic": {
+              "abs_error": 0.8261523246765137,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": 0.800000011920929
+              },
+              "exact": [
+                1.7999999523162842
+              ],
+              "target": [
+                0.9738476276397705
+              ]
+            }
+          }
+        },
+        {
+          "node_under_trial": "algebra",
+          "previously_frozen": [],
+          "mismatched_signals": [
+            "analytic"
+          ],
+          "mismatch_on_trial_node": false,
+          "mismatch_on_previously_frozen": [],
+          "mismatch_only_on_untouched_soft_nodes": [
+            "analytic"
+          ],
+          "worst": {
+            "analytic": {
+              "abs_error": 0.8261523246765137,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": 0.800000011920929
+              },
+              "exact": [
+                1.7999999523162842
+              ],
+              "target": [
+                0.9738476276397705
+              ]
+            }
+          }
+        },
+        {
+          "node_under_trial": "conversion",
+          "previously_frozen": [],
+          "mismatched_signals": [
+            "analytic"
+          ],
+          "mismatch_on_trial_node": false,
+          "mismatch_on_previously_frozen": [],
+          "mismatch_only_on_untouched_soft_nodes": [
+            "analytic"
+          ],
+          "worst": {
+            "analytic": {
+              "abs_error": 0.8261523246765137,
+              "inputs": {
+                "a": false,
+                "b": true,
+                "x": 0.800000011920929
+              },
+              "exact": [
+                1.7999999523162842
+              ],
+              "target": [
+                0.9738476276397705
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "mismatch_role_histogram": {
+    "mismatch on the node under trial only (legitimate rejection)": 110,
+    "mismatch ONLY on untouched still-soft nodes (checker artifact)": 238,
+    "mismatch on the trial node AND on untouched soft nodes": 67
+  }
+}
