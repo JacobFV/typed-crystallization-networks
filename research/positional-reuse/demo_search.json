@@ -1,0 +1,45 @@
+{
+ "registered_modules": {
+  "renderer_background": "module:bef9629fa676a7ae5efb5fe5",
+  "wrong_blue_byte": "module:4d1a69bbd95bd6f9b99b5218",
+  "or_instead_of_and": "module:e80a37d8dd0078c50209ad7e",
+  "unnegated": "module:2801557a5743c351736e5026"
+ },
+ "proposed_map_candidates": 4,
+ "search": {
+  "solved": true,
+  "selections": {
+   "held": 0,
+   "records": 0,
+   "mapped": 0
+  },
+  "exact_max_error": 0.0,
+  "evaluated": 4,
+  "space_size": 4,
+  "exhausted": true,
+  "unique": false,
+  "seconds": 0.41852143697906286,
+  "continuous": []
+ },
+ "picked": "renderer_background",
+ "variants": {
+  "renderer_background": {
+   "train_max_error": 0.0,
+   "held_out_max_error": 0.0
+  },
+  "wrong_blue_byte": {
+   "train_max_error": 1.0,
+   "held_out_max_error": 1.0
+  },
+  "or_instead_of_and": {
+   "train_max_error": 0.0,
+   "held_out_max_error": 0.0
+  },
+  "unnegated": {
+   "train_max_error": 1.0,
+   "held_out_max_error": 1.0
+  }
+ },
+ "held_out_pixels": 640,
+ "held_out_max_error": 0.0
+}

@@ -1,0 +1,128 @@
+{
+ "configuration": {
+  "generator": "geometry",
+  "resolution": 8,
+  "objects": 6,
+  "camera_delta": [
+   -2.4,
+   -2.4,
+   -4.2
+  ],
+  "positions": 64,
+  "observation_width": 192,
+  "candidate_bytes": [
+   24,
+   30,
+   43,
+   99,
+   150
+  ],
+  "train_seeds": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "held_out_seeds": [
+   100,
+   101,
+   102,
+   103,
+   104,
+   105,
+   106,
+   107,
+   108,
+   109
+  ]
+ },
+ "train": {
+  "pixels": 512,
+  "foreground_fraction": 0.517578125
+ },
+ "enumeration": {
+  "space_size": 32000,
+  "conforming": 1952,
+  "seconds": 668.4738252140232,
+  "exhausted": true,
+  "first": {
+   "pos": 0,
+   "obs": 0,
+   "g_at": 0,
+   "b_at": 0,
+   "red": 0,
+   "green": 0,
+   "blue": 0,
+   "cmp_r": 0,
+   "cmp_g": 0,
+   "cmp_b": 2,
+   "rg": 0,
+   "foreground": 1,
+   "record": 0
+  }
+ },
+ "gradient": {
+  "exact_max_error": 0.0,
+  "exact_conformance": true,
+  "fully_frozen": true,
+  "relaxed_loss": 1.0068736173707293e-06,
+  "seconds": 1174.2479543089867,
+  "selections": {
+   "pos": 0,
+   "obs": 0,
+   "g_at": 0,
+   "b_at": 0,
+   "red": 0,
+   "green": 0,
+   "blue": 0,
+   "cmp_r": 4,
+   "cmp_g": 4,
+   "cmp_b": 2,
+   "rg": 8,
+   "foreground": 13,
+   "record": 0
+  }
+ },
+ "agreement_with_enumeration": false,
+ "module_source": "gradient",
+ "module_matches_renderer_test": false,
+ "identification": {
+  "conforming_train": 1952,
+  "conforming_held_out": 1584,
+  "space": 32000,
+  "renderer_test_survives": true,
+  "gradient_pick_survives": true
+ },
+ "held_out": {
+  "pixels": 640,
+  "foreground_fraction": 0.453125,
+  "max_error": 0.0,
+  "max_count_error": 0
+ },
+ "cost": {
+  "shared": {
+   "caller_nodes": 3,
+   "description_bits": 3656064,
+   "structural_symbols": 25,
+   "execution_cost": 834.0,
+   "seconds": 0.16353423399850725
+  },
+  "per_position": {
+   "caller_nodes": 129,
+   "description_bits": 53623400,
+   "structural_symbols": 213,
+   "execution_cost": 897.0,
+   "seconds": 0.06303887360263616
+  }
+ },
+ "module": {
+  "nodes": 13,
+  "description_bits": 1650736,
+  "execution_cost": 13.0,
+  "digest": "e3c911031cbfe1a813246264"
+ }
+}
