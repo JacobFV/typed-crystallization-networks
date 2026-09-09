@@ -1,0 +1,104 @@
+{
+ "stream": "context_free_language",
+ "positions": 22,
+ "scaffold": "stage_b_dyck",
+ "space_size": 680625,
+ "witness": {
+  "c": 101,
+  "plus": 1,
+  "minus": -1,
+  "total_ok": [
+   "eq",
+   0
+  ],
+  "min_ok": [
+   "ge",
+   0
+  ]
+ },
+ "enumeration_index": 571822,
+ "fraction_through_enumeration": 0.8401425160697888,
+ "train_max_error": 0.0,
+ "conforms_on_train": true,
+ "live_nodes": 138,
+ "description_bits": 5109384,
+ "execution_cost": 226.0,
+ "module_cost": 5.0,
+ "train": {
+  "accuracy": 1.0,
+  "per_length": {
+   "10": 1.0,
+   "12": 1.0,
+   "14": 1.0
+  },
+  "lengths": [
+   10,
+   12,
+   14
+  ],
+  "depths": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "n": 24,
+  "constant_yes": 0.5,
+  "constant_no": 0.5,
+  "majority_constant": 0.5,
+  "random": 0.5
+ },
+ "heldout_seen_lengths": {
+  "accuracy": 1.0,
+  "per_length": {
+   "10": 1.0,
+   "12": 1.0,
+   "14": 1.0
+  },
+  "lengths": [
+   10,
+   12,
+   14
+  ],
+  "depths": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "n": 120,
+  "constant_yes": 0.4666666666666667,
+  "constant_no": 0.5333333333333333,
+  "majority_constant": 0.5333333333333333,
+  "random": 0.5
+ },
+ "heldout_unseen_lengths": {
+  "accuracy": 1.0,
+  "per_length": {
+   "16": 1.0,
+   "18": 1.0,
+   "20": 1.0,
+   "22": 1.0
+  },
+  "lengths": [
+   16,
+   18,
+   20,
+   22
+  ],
+  "depths": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "n": 859,
+  "constant_yes": 0.5261932479627474,
+  "constant_no": 0.47380675203725264,
+  "majority_constant": 0.5261932479627474,
+  "random": 0.5
+ },
+ "batch_one_latency_ms": 3.9440282201394434,
+ "program_digest": "4d0ce927662af9fe54799de0",
+ "program_note": "full program dict omitted to keep the artifact small; the search-selected equivalent is in dyck_p22_c95-110.json"
+}
