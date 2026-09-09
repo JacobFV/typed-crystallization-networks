@@ -1,0 +1,158 @@
+[
+ {
+  "shared": {
+   "caller_nodes": 3,
+   "description_bits": 179776,
+   "structural_symbols": 17,
+   "execution_cost": 42.0,
+   "seconds": 0.001608209335245192
+  },
+  "per_position": {
+   "caller_nodes": 9,
+   "description_bits": 277568,
+   "structural_symbols": 25,
+   "execution_cost": 45.0,
+   "seconds": 0.0005566600011661649
+  },
+  "inlined": {
+   "caller_nodes": 21,
+   "description_bits": 217368,
+   "structural_symbols": 33,
+   "execution_cost": 21.0,
+   "seconds": 0.0012742263303759198
+  },
+  "module_nodes": 10,
+  "positions": 4,
+  "width": 6
+ },
+ {
+  "shared": {
+   "caller_nodes": 3,
+   "description_bits": 243808,
+   "structural_symbols": 17,
+   "execution_cost": 82.0,
+   "seconds": 0.008561398348926256
+  },
+  "per_position": {
+   "caller_nodes": 17,
+   "description_bits": 588384,
+   "structural_symbols": 37,
+   "execution_cost": 89.0,
+   "seconds": 0.0007016516756266356
+  },
+  "inlined": {
+   "caller_nodes": 41,
+   "description_bits": 514488,
+   "structural_symbols": 65,
+   "execution_cost": 41.0,
+   "seconds": 0.00021550866464773813
+  },
+  "module_nodes": 10,
+  "positions": 8,
+  "width": 10
+ },
+ {
+  "shared": {
+   "caller_nodes": 3,
+   "description_bits": 371976,
+   "structural_symbols": 17,
+   "execution_cost": 162.0,
+   "seconds": 0.0020742830044279494
+  },
+  "per_position": {
+   "caller_nodes": 33,
+   "description_bits": 1551344,
+   "structural_symbols": 61,
+   "execution_cost": 177.0,
+   "seconds": 0.003019064684243252
+  },
+  "inlined": {
+   "caller_nodes": 81,
+   "description_bits": 1365408,
+   "structural_symbols": 129,
+   "execution_cost": 81.0,
+   "seconds": 0.0005383879955237111
+  },
+  "module_nodes": 10,
+  "positions": 16,
+  "width": 18
+ },
+ {
+  "shared": {
+   "caller_nodes": 3,
+   "description_bits": 628232,
+   "structural_symbols": 17,
+   "execution_cost": 322.0,
+   "seconds": 0.006800202652812004
+  },
+  "per_position": {
+   "caller_nodes": 65,
+   "description_bits": 4841456,
+   "structural_symbols": 109,
+   "execution_cost": 353.0,
+   "seconds": 0.005529959996541341
+  },
+  "inlined": {
+   "caller_nodes": 161,
+   "description_bits": 4090784,
+   "structural_symbols": 257,
+   "execution_cost": 161.0,
+   "seconds": 0.001453292672522366
+  },
+  "module_nodes": 10,
+  "positions": 32,
+  "width": 34
+ },
+ {
+  "shared": {
+   "caller_nodes": 3,
+   "description_bits": 1140744,
+   "structural_symbols": 17,
+   "execution_cost": 642.0,
+   "seconds": 0.022548948996700346
+  },
+  "per_position": {
+   "caller_nodes": 129,
+   "description_bits": 16877552,
+   "structural_symbols": 205,
+   "execution_cost": 705.0,
+   "seconds": 0.01887483533937484
+  },
+  "inlined": {
+   "caller_nodes": 321,
+   "description_bits": 13633440,
+   "structural_symbols": 513,
+   "execution_cost": 321.0,
+   "seconds": 0.005229224994157751
+  },
+  "module_nodes": 10,
+  "positions": 64,
+  "width": 66
+ },
+ {
+  "shared": {
+   "caller_nodes": 3,
+   "description_bits": 2166048,
+   "structural_symbols": 17,
+   "execution_cost": 1282.0,
+   "seconds": 0.11122300567027803
+  },
+  "per_position": {
+   "caller_nodes": 257,
+   "description_bits": 62774800,
+   "structural_symbols": 397,
+   "execution_cost": 1409.0,
+   "seconds": 0.08771525901587059
+  },
+  "inlined": {
+   "caller_nodes": 641,
+   "description_bits": 49090648,
+   "structural_symbols": 1025,
+   "execution_cost": 641.0,
+   "seconds": 0.042607579341468714
+  },
+  "module_nodes": 10,
+  "positions": 128,
+  "width": 130
+ }
+]

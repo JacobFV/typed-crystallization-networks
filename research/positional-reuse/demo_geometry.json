@@ -1,0 +1,100 @@
+{
+ "configuration": {
+  "generator": "geometry",
+  "resolution": 8,
+  "objects": 6,
+  "camera_delta": [
+   -2.4,
+   -2.4,
+   -4.2
+  ],
+  "positions": 64,
+  "observation_width": 192,
+  "candidate_bytes": [
+   24,
+   30,
+   43,
+   99
+  ]
+ },
+ "enumeration": {
+  "solved": true,
+  "selections": {
+   "pos": 0,
+   "obs": 0,
+   "g_at": 0,
+   "b_at": 0,
+   "red": 0,
+   "green": 0,
+   "blue": 0,
+   "cmp_r": 0,
+   "cmp_g": 0,
+   "cmp_b": 0,
+   "rg": 1,
+   "foreground": 4,
+   "record": 0
+  },
+  "exact_max_error": 0.0,
+  "evaluated": 16384,
+  "space_size": 16384,
+  "exhausted": true,
+  "unique": false,
+  "seconds": 71.47195391799323,
+  "continuous": []
+ },
+ "gradient": {
+  "exact_max_error": 0.0,
+  "exact_conformance": true,
+  "fully_frozen": true,
+  "relaxed_loss": 1.0034239039669046e-06,
+  "seconds": 98.56352610402973,
+  "selections": {
+   "pos": 0,
+   "obs": 0,
+   "g_at": 0,
+   "b_at": 0,
+   "red": 0,
+   "green": 0,
+   "blue": 0,
+   "cmp_r": 0,
+   "cmp_g": 1,
+   "cmp_b": 1,
+   "rg": 7,
+   "foreground": 4,
+   "record": 0
+  }
+ },
+ "agreement_with_enumeration": false,
+ "held_out": {
+  "episodes": [
+   100,
+   101,
+   102,
+   103,
+   104,
+   105
+  ],
+  "pixels": 384,
+  "max_error": 0.0
+ },
+ "cost": {
+  "shared": {
+   "caller_nodes": 3,
+   "description_bits": 3654720,
+   "execution_cost": 834.0,
+   "seconds": 0.06326839299872518
+  },
+  "per_position": {
+   "caller_nodes": 129,
+   "description_bits": 53622056,
+   "execution_cost": 897.0,
+   "seconds": 0.05267566579859704
+  }
+ },
+ "module": {
+  "nodes": 13,
+  "description_bits": 1649392,
+  "execution_cost": 13.0,
+  "digest": "7b379278160cc1daabd46b01"
+ }
+}

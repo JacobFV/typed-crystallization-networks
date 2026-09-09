@@ -149,15 +149,43 @@ class Program:
             size+=definitions(self)
         return size
 
-def legal_candidates(registry,names,ports,output,arities=(1,2),limit=4096):
-    """Enumerate bounded legal wiring/operation choices; no learned coercions."""
+def operator_parameters(registry,name,types):
+    """Parameter settings that could make one operator signature legal.
+
+    Parameters are part of an operator's contract, so an enumerator that cannot
+    vary them cannot propose `project`, `map`, `filter` or `join` at all. That is
+    the family that expresses positional reuse -- one crystallized module applied
+    across many positions -- so leaving it unreachable makes recursive
+    abstraction hand-wired by construction rather than discovered. Settings are
+    derived from the bound input types and the registry, never from a domain.
+    """
+    if name=="project":
+        return [{"index":i} for i in range(len(types[0].items))] if len(types)==1 and types[0].kind=="tuple" else []
+    if name in {"map","filter"}:
+        return [{"module":m} for m in registry.modules] if len(types)==1 and types[0].kind=="set" else []
+    if name=="join":
+        if len(types)!=2 or any(t.kind!="set" for t in types): return []
+        a,b=(t.items[0] for t in types)
+        if a.kind!="tuple" or b.kind!="tuple": return []
+        return [{"left":i,"right":j} for i in range(len(a.items)) for j in range(len(b.items))]
+    return [{}]
+
+def legal_candidates(registry,names,ports,output,arities=(1,2),limit=4096,parameters=None):
+    """Enumerate bounded legal wiring/operation choices; no learned coercions.
+
+    `parameters` overrides the derived settings for a named operator, so a caller
+    can narrow an otherwise wide parametric family without changing the operator.
+    """
     out=[]; attempted=0
     for name in names:
         for arity in arities:
             for refs in itertools.product(ports,repeat=arity):
-                attempted+=1
-                if attempted>limit: raise ValueError("candidate enumeration budget exceeded")
-                try: op=registry.resolve(name,[ports[k] for k in refs],output)
-                except (TypeError,KeyError,ValueError): continue
-                out.append(Candidate(op,refs))
+                types=[ports[k] for k in refs]
+                settings=(parameters or {}).get(name) or operator_parameters(registry,name,types)
+                for p in settings:
+                    attempted+=1
+                    if attempted>limit: raise ValueError("candidate enumeration budget exceeded")
+                    try: op=registry.resolve(name,types,output,p)
+                    except (TypeError,KeyError,ValueError,IndexError): continue
+                    out.append(Candidate(op,refs))
     return tuple(out)
