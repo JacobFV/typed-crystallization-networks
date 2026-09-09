@@ -59,8 +59,20 @@ class Crystallizer:
                 active=[p for p in m.parameters() if p.requires_grad]
                 loss=loss_fn()
                 grads=torch.autograd.grad(loss,active,allow_unused=True) if active and loss.requires_grad else [None]*len(active)
+                # This tests reachability in the autograd graph, not the presence of
+                # learning signal: a discreteness or entropy regularizer keeps every
+                # logit connected, so a severed interior can still pass. Treating an
+                # all-zero gradient as disconnected was tried and reverted -- it also
+                # flags nodes whose choice has legitimately concentrated, which
+                # blocked the joint fixture from crystallizing at all (286 deferrals
+                # against 32). A correct guard needs the task objective separated
+                # from its regularizers; see research/FINDINGS.md section 4.
                 if any(g is None for g in grads): reason="disconnected remaining region"
-                elif conformance is not None and not conformance(m.export()): reason="runtime conformance"
+                # Exported conformance is a property of the whole program. While any
+                # node is still soft, export() argmaxes untrained nodes too, so a
+                # mismatch reports their state rather than this freeze's validity.
+                # Check it only once this freeze completes the program.
+                elif conformance is not None and len(m.frozen)==len(m.program.nodes) and not conformance(m.export()): reason="runtime conformance"
                 else: accepted=True; reason="validated"
         except (ValueError,OverflowError,RuntimeError) as e: reason=f"invalid trial: {e}"
         if not accepted:

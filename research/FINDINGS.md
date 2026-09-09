@@ -221,3 +221,120 @@ removed.
 5. Only then revisit crystallization, with perturbation-based selection
    (recommendation 1) and loss-gated annealing, on tasks large enough for the
    question to be meaningful.
+
+## 10. Fixes applied (2026-09-08, after the tracks reported)
+
+These are the first changes to `tcn/` and `generators/` since the initial commit.
+Each one was measured before and after; the numbers are reproducible with the
+scripts named. All 86 tests pass.
+
+### F-bench — `depth` is now a real difficulty axis
+
+`generators/logic` gains `inputs` (1-16), `nondegenerate` (restrict the table
+pool to the ten tables that depend on both arguments), `tables` (an explicit
+pool), and `min_relevant_inputs` with `max_attempts` (rejection-sample the
+circuit until its final value depends on at least that many inputs, measured by
+exact sensitivity). The default configuration is unchanged and was verified
+bit-identical to the previous sampler across 192 seed/config combinations, so
+recorded episodes and replays are unaffected.
+
+| depth | configuration | constant targets | 4-ary targets |
+|---|---|---|---|
+| 8 | default | 34.0% | 0.0% |
+| 8 | `nondegenerate` | 18.0% | 8.0% |
+| 8 | `min_relevant_inputs=4` | 0.0% | **100%** |
+
+High-arity targets are rare at shallow depth by construction — a function of all
+w inputs needs at least w-1 two-input gates — so the rejection sampler reports
+the best arity it reached rather than failing opaquely.
+
+### F-soft — the relaxed loss can no longer be mistaken for success
+
+`synthesis.fit` now reports `exact_max_error` (the largest disagreement between
+the exported program and the targets) alongside `relaxed_loss`, plus the
+`tolerance` they are judged against. On the mixed fixture these read 1.007e-06
+and 0.0 respectively: the relaxed number is nonzero while the exported program
+is exact, which is the disagreement in miniature.
+
+### Constant fitting — diagnosis corrected, then fixed
+
+Recommendation 10 proposed a learning-rate schedule. **That is the wrong fix and
+was measured worse**: on track 8's own failing case a cosine decay took the error
+from 3.9e-02 to 8.9e-02, and raising the constants' rate 2-20x was worse still.
+The constant converges monotonically but slowly (k = 1.739 at 600 steps, 1.707 at
+2000, 1.6999 at 6000), because its gradient is blurred by the candidate mixture
+rather than oscillating.
+
+The fix is to hold the selected structure hard and refine the continuous
+parameters alone, then restore the choices so crystallization proceeds normally
+(`polish`, default 200 steps). This is the discrete-structure/continuous-parameter
+split that track 8's own analysis recommends.
+
+| configuration | exact conformance | median exact error |
+|---|---|---|
+| 600 steps, no polish (as before) | **0/10** | 3.945e-02 |
+| 600 steps, polish 200 | **10/10** | 1.271e-04 |
+
+### F-conf — conformance is checked when it means something
+
+`SoftProgram.export()` argmaxes every node, so testing exported conformance
+mid-freeze reported the state of untrained nodes rather than the validity of the
+freeze. The check now applies only when a freeze completes the program.
+
+Measured on the mixed fixture with `polish=0`, against the previous
+`tcn/crystallize.py` run in the same process. The fixture is deterministic
+across seeds, so each row is one outcome rather than a distribution:
+
+| steps | before | after |
+|---|---|---|
+| 30 | 0/16 conform, 0% frozen, **1,264** rollbacks | 0/16 conform, **75%** frozen, **336** rollbacks |
+| 50 | 16/16, 100% frozen, 0 rollbacks | unchanged |
+| 100 | 16/16, 100% frozen, 0 rollbacks | unchanged |
+| 300 | 16/16, 100% frozen, 0 rollbacks | unchanged |
+
+So the fix removes about three quarters of the wasted freeze trials at the tight
+budget and lets hardening make partial progress, while changing nothing at
+budgets that already worked. It does **not** make the 30-step budget succeed:
+the mixed program is genuinely not learned in 30 steps (exact error 0.826), and
+track 1's 3/16 for arm A at that budget came from the 691 extra retraining steps
+its rollbacks bought, which is the confound track 1 itself identified.
+
+### The connectivity guard is still wrong — a fix was tried and reverted
+
+Track 1's finding stands: `grad is None` tests reachability in the autograd
+graph, not the presence of learning signal, and a discreteness or entropy
+regularizer keeps every logit reachable.
+
+Treating an all-zero gradient as disconnected was implemented and **reverted
+after measurement**. It also flags nodes whose choice has legitimately
+concentrated — entropy gradient vanishes at a one-hot distribution — so it
+blocked the joint fixture from crystallizing at all: 286 deferrals against 4,
+`fully_frozen` false, and no exported program, while prediction loss and return
+were unchanged. An apparent improvement on the mixed fixture at 30 steps
+(0/16 to 16/16) was not the guard working; it was the extra retraining the
+deferrals bought, the same confound as above.
+
+A correct guard needs the task objective separated from its regularizers at the
+viability probe, which means changing what callers pass to `Crystallizer.run`.
+That is a real interface change and is left open rather than guessed at.
+
+### F2/F1 — module calls are affordable, and abstraction can now pay
+
+`Program.execute` re-validated the program on every call, and a module operator
+executes a whole sub-program per batch row. Validation is now memoized on the
+immutable program instance. A single-output module also resolves to that
+output's type directly instead of a one-field product, removing the `project`
+node every call site was paying.
+
+| measurement | before | after |
+|---|---|---|
+| 5-node module call | 113.8 us (27.4x a primitive) | **16.4 us (4.0x)** |
+| execution cost vs inlining | 1.40-1.62x | **parity** |
+| description-size crossover (3-gate body) | 4 call sites | **2 call sites** |
+| 8-gate body at 8 call sites | never crosses over | **0.28x inlined** |
+
+Track 5's verdict that abstraction is "a net cost at every scale the system can
+search" was substantially an artifact of these two faults. Its central finding —
+that the module was on the output path in 0 of 20 runs — is untouched and still
+needs an answer; what has changed is that the economics now admit a regime where
+reuse pays, and the search is fast enough to reach targets where it might.

@@ -97,6 +97,25 @@ occlusion; simple mesh rendering; terminal computer affordances; CPU-tested
 training; per-event computer reconstruction; and platform-local numerical replay.
 No natural data has been used for the initial training experiments.
 
+## Corrections from the measurement pass
+
+`research/FINDINGS.md` records an eight-track measurement pass against this
+implementation and supersedes claims above it where the two disagree. The
+material corrections: progressive crystallization is inert at these budgets and
+an argmax of the trained soft graph reaches the same frozen program; the 4/4
+joint result holds out episode addresses on a single fixed Boolean function
+rather than generating structures, and measures at chance on unseen truth
+tables; the serialized description size measures JSON verbosity rather than
+learned content; the batch-one latency is dominated by interpreter overhead
+rather than the four-operation cost proxy; and exhaustive enumeration recovers
+the discrete content of both learned programs in milliseconds.
+
+Fixes applied after that pass are listed in section 10 of the same document.
+The numbers in this file were reproduced exactly on this host before and after
+those changes: the mixed fixture still crystallizes with exact conformance, and
+the joint fixture still reports 0.24884 to 0.00223, 4/4 deterministic return,
+four disconnection deferrals, and 4/4 from the exact frozen agent.
+
 Generated experiment artifacts are intentionally gitignored. Run the documented
 commands to recreate them. Source fingerprints pin replay/checkpoints to their
 code revision, so artifacts made before subsequent code changes should not be

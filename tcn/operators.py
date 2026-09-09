@@ -40,7 +40,12 @@ class Registry:
             require(name in self.modules, "unknown frozen module")
             m = self.modules[name]
             require(ts == tuple(t for _,t in m.inputs))
-            inferred = product(*(m.port_types()[v] for _,v in m.outputs))
+            # A single-output module yields that output's type directly. Wrapping it
+            # in a one-field product forced a `project` node at every call site,
+            # which made calling a module strictly costlier than inlining its body
+            # for any number of call sites. Multi-output modules still form a tuple.
+            outs = tuple(m.port_types()[v] for _,v in m.outputs)
+            inferred = outs[0] if len(outs) == 1 else product(*outs)
             grad = "none"; cost = m.execution_cost(self)
         elif name == "identity":
             require(len(ts) == 1); inferred = ts[0]
@@ -147,7 +152,8 @@ class Registry:
         n=op.name; p=dict(op.parameters); xs=[v.decoded for v in args]
         if n.startswith("module:"):
             m=self.modules[n]; out,_=m.run(dict(zip((k for k,_ in m.inputs),args)),registry=self)
-            return Value(op.output,tuple(v.raw for v in out.values()))
+            raw=tuple(v.raw for v in out.values())
+            return Value(op.output,raw[0] if len(raw)==1 else raw)
         if n=="pack":
             raw=0; offset=0
             for t,x in zip(args[0].type.items,args[0].raw):

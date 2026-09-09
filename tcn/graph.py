@@ -87,7 +87,14 @@ class Program:
             if types.get(s.source)!=s.type: raise TypeError("probe signature mismatch")
             if s.source in regions and regions[s.source] not in s.regions: raise ValueError("probe outside admissible region")
     def execute(self, inputs, state=None, registry=None, selections=None):
-        r=registry or Registry(); self.validate(r)
+        r=registry or Registry()
+        # A Program is immutable, so validity against a given registry cannot change
+        # once established. Module operators execute a whole sub-program per batch
+        # row, and re-validating that body every row dominated their cost; cache the
+        # result on the instance instead. Registering further modules cannot
+        # invalidate an already-checked program, since its own candidates are fixed.
+        if getattr(self,'_validated',None) is not r:
+            self.validate(r); object.__setattr__(self,'_validated',r)
         if set(inputs)!=set(dict(self.inputs)): raise ValueError("input port set mismatch")
         if any(inputs[k].type!=t for k,t in self.inputs): raise TypeError("input representation mismatch")
         values=dict(inputs)|dict(self.constants)

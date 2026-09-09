@@ -33,7 +33,11 @@ def test_recurrence_and_standalone_export(tmp_path):
 def test_frozen_module_reuse_and_integrity(tmp_path):
     p=xor_program().harden({'z':2});name=r.register_module(p)
     op=r.resolve(name,(BOOL,BOOL));q=Program(p.inputs,(Node('call',op.output,(Candidate(op,('a','b')),),selected=0),),(('result','call'),)).validate(r)
-    assert q.run({'a':Value.of(BOOL,True),'b':Value.of(BOOL,False)},registry=r)[0]['result'].decoded==(True,)
+    # A single-output module carries that output's type directly; only a module
+    # with several outputs forms a tuple. The former one-field product cost every
+    # call site a `project` node.
+    assert op.output==BOOL
+    assert q.run({'a':Value.of(BOOL,True),'b':Value.of(BOOL,False)},registry=r)[0]['result'].decoded is True
     model=SoftProgram(q,r);a=torch.tensor([1.],requires_grad=True);out,_=model({'a':a,'b':torch.tensor([0.])});assert not out['result'].requires_grad
     path=save_program(q,tmp_path/'module.json',r);restored,lib=load_program(path);assert restored==q
     assert q.description_bits(r)>q.description_bits()
