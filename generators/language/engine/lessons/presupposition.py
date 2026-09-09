@@ -24,7 +24,7 @@ def gen_presupposition(rng: random.Random, ctx):
     # With no other utterance in the episode the polarity word is a global
     # feature of the whole prompt, and reading it together with the query's
     # predicate name classifies 0.868 of episodes without locating anything.
-    n_extra = (ctx.at(1, 5, default=1) if ctx.hardens("presupposition")
+    n_extra = (ctx.at(2, 5, default=2) if ctx.hardens("presupposition")
                else ctx.at(0, 5, default=0))
     label = rng.choice(["asserted", "presupposed", "denied", "neither"])
     if label == "asserted":

@@ -1035,3 +1035,72 @@ loss minimum sits rather than only whether a gradient is nonzero.
 undetermined for the same reason, and the collinearity module transfers to both
 unchanged at held-out 1.000000 with no re-search — it is a property of the
 shared renderer rather than of one generator.
+
+## 22. CORRECTION: a policy CAN be learned from reward here
+
+Full detail in `research/policy-learning/RESULTS.md`. This retracts a claim I
+made repeatedly, including in the briefs of four other agents.
+
+**What I said:** pure REINFORCE fails at chance for the typed program *and* for a
+budget-matched MLP, so policy learning has never worked here and is the blocker
+to any closed-loop result.
+
+**What is true:** track 6 never ran REINFORCE on the typed program. Verified
+independently — `research/baselines/joint_baseline.py` imports only
+`tcn.generation` and `tcn.types`, never `SoftProgram` or `JointTrainer`, so its
+`reinforce` mode is a pure-PyTorch MLP. Only the MLP was measured at chance. The
+F-init finding stands; the inference I drew from it does not.
+
+With `examples/joint.py`'s hand-supplied policy constants zeroed and **all**
+supervision removed, plain REINFORCE on the typed program reaches **4.00/4 on
+8/8 seeds** over 64 held-out episodes, against always-false 2.13, always-true
+1.88, uniform 2.05 and an oracle 4.00. It needs 400 training episodes: chance at
+100, 7/8 at 200. A budget-matched MLP stays at chance across a 12-configuration
+grid at every budget to 4,000 episodes.
+
+**Environment episodes to reach 8/8 seeds at 4.00**, which is the ranking that
+matters:
+
+| approach | episodes |
+|---|---|
+| frozen exact model + enumeration, **no policy at all** | **27** (25 probe + 2 reward) |
+| staged: probe, crystallize, then reward | 100 |
+| pinned choices | 100 |
+| shipped fixture (hand-initialized decoder) | 160 |
+| reward only | 400 |
+| probe and reward simultaneously | 400 |
+| matched MLP | never |
+
+**The project lead's world-model-first hypothesis holds in its staged form and
+not its additive form.** Supervision *alongside* reward buys nothing — 400
+either way. *Sequencing* it buys 4x. Of the 9 bits of learned content, 8 are
+supervision-driven and 1, the readout sign, is reward-driven; neither stage
+alone beats chance. And the model-based arm — enumerate action sequences against
+a frozen exact world model, learning no policy — is the cheapest by an order of
+magnitude at 27 episodes.
+
+**The binding cause is the discrete-choice bottleneck, and three suspects are
+refuted.** Score-function variance, the value baseline and the relaxed readout
+are all indistinguishable from controls (an exact zero-variance estimator, no
+baseline, a state-dependent head, and a plain `nn.Linear` readout all behave the
+same). Pinning the choices raises actor SNR from 0.121 to 0.405 and cuts
+episodes-to-average from 177 to 6.3. Underneath it, verified here: **a uniform
+mixture over the complete 16-table `truth_*` family is the constant 0.5 with an
+exactly zero Jacobian** (measured: 0.5, gradient -3.7e-09), so at zero
+initialization the actor gradient to the choices is identically zero.
+
+**Horizon does not break, and that is the diagnostic.** Everything holds to
+horizon 32 under both dense and terminal-only reward — because the `logic`
+generator's state is constant, no action changes it, and reward is per-step. A
+horizon-4 episode is four independent draws of one 32-context bandit. **No result
+in this repository has ever measured credit assignment**, and none on this
+generator can. The `computer` generator at its keyboard interface is the sibling
+that poses it properly.
+
+Two corrections to track 2: batching was rejected at a fixed learning rate
+(batch 32 fails at .04 and succeeds 8/8 at .1), and "logits saturate to +/-2.5
+within 30 episodes" does not transfer — 0.39 at episode 30, with 0/8 seeds
+reaching 2.5 by 300.
+
+**A blocking defect for reproduction:** `TrainConfig`'s `> 0` weight checks make
+every arm in this report inexpressible in the shipped trainer.

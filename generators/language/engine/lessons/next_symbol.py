@@ -21,6 +21,9 @@ def gen_next_symbol(rng: random.Random, ctx):
             seq.append(table[seq[-1]])
         obs = Rec(sequence=Lst([Tok(s) for s in seq]), query=Ident("next"))
         return obs, alphabet, table[seq[-1]], {"transition_table": table}
+    # Four symbols give at most 4**4 * 4 = 1024 distinct worlds, so a lookup
+    # over training prompts scores 0.765 by memorising the lesson outright.
+    alphabet = list("abcdef")
     steps = rng.randint(*ctx.span((5, 9), (9, 18)))
     # An unconstrained table sends most chains into a fixed point within two
     # steps, so the answer equals the symbol at nearly every position and a
@@ -51,6 +54,7 @@ class NextSymbol(Lesson):
     teaches = "local statistical regularity"
     capabilities = ()
     axes = {'grammar_complexity': 1}
-    answers = ['a', 'b', 'c', 'd']
+    #: the default draw uses six symbols; ``hardening="none"`` uses the first four
+    answers = ['a', 'b', 'c', 'd', 'e', 'f']
 
     generate = staticmethod(gen_next_symbol)

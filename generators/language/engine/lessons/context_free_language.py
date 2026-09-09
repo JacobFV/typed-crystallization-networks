@@ -9,7 +9,7 @@ import random
 
 from .._structure import Ident, Rec, Str
 from ..lesson import Lesson
-from ..generators.base import _balanced, _is_balanced
+from ..generators.base import _balanced, _dyck, _is_balanced
 
 
 def _count_preserving_negative(rng: random.Random, s: str) -> str | None:
@@ -46,10 +46,11 @@ def gen_context_free(rng: random.Random, ctx):
     if ctx.hardens("context_free_language"):
         # Both classes are drawn from the same string first, so length and
         # bracket counts are identical in distribution across the two answers.
-        for _ in range(16):
-            base = _balanced(rng, depth)
-            if len(base) >= 4:
-                break
+        # ``_balanced`` emits so few distinct strings at a given depth that 71%
+        # of prompts recurred across seeds and a training-prompt lookup scored
+        # 0.917 on its own; the number of pairs is drawn independently of the
+        # depth, which widens the space and decorrelates length from depth.
+        base = _dyck(rng, depth, rng.randint(max(depth, 4), 8))
         if balanced:
             s = base
         else:

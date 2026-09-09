@@ -45,6 +45,28 @@ def _balanced(rng: random.Random, depth: int) -> str:
     return "(" + inner + ")" + ("()" if rng.random() < 0.4 else "")
 
 
+def _dyck(rng: random.Random, depth: int, pairs: int) -> str:
+    """A bracket string with exactly ``pairs`` pairs and maximum depth ``depth``.
+
+    Start from the spine ``"(" * depth + ")" * depth``, which pins the depth, and
+    drop the remaining pairs in at positions where the running depth is already
+    below the maximum, which cannot raise it.  Unlike :func:`_balanced` the space
+    grows with the length rather than staying at the four or five strings a
+    depth admits, and the deep region does not sit at a fixed offset.
+    """
+    s = "(" * depth + ")" * depth
+    for _ in range(max(0, pairs - depth)):
+        prefix, spots = 0, []
+        for i, c in enumerate(s):
+            if prefix < depth:
+                spots.append(i)
+            prefix += 1 if c == "(" else -1
+        spots.append(len(s))
+        i = rng.choice(spots)
+        s = s[:i] + "()" + s[i:]
+    return s
+
+
 def _is_balanced(s: str) -> bool:
     d = 0
     for c in s:

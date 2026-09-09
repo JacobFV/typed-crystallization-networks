@@ -9,29 +9,7 @@ import random
 
 from .._structure import Ident, Rec, Str
 from ..lesson import Lesson
-from ..generators.base import _balanced, _max_depth
-
-
-def _dyck(rng: random.Random, depth: int, pairs: int) -> str:
-    """A bracket string with exactly ``pairs`` pairs and maximum depth ``depth``.
-
-    Start from the spine ``"(" * depth + ")" * depth`` -- which pins the depth --
-    and drop the remaining pairs in at positions where the running depth is
-    already below the maximum, which cannot raise it.  The result is drawn from
-    a space that grows with the length rather than the four or five strings
-    ``_balanced`` can emit at a given depth.
-    """
-    s = "(" * depth + ")" * depth
-    for _ in range(max(0, pairs - depth)):
-        prefix, spots = 0, []
-        for i, c in enumerate(s):
-            if prefix < depth:
-                spots.append(i)
-            prefix += 1 if c == "(" else -1
-        spots.append(len(s))
-        i = rng.choice(spots)
-        s = s[:i] + "()" + s[i:]
-    return s
+from ..generators.base import _balanced, _dyck, _max_depth
 
 
 def gen_parse_depth(rng: random.Random, ctx):

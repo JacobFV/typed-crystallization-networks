@@ -15,6 +15,7 @@
 | `e5_horizon.py` | E5: horizon 4/8/16/32, dense and terminal-only |
 | `e6_mpc.py`, `e6b_plan1.py` | E6: model-predictive control against the crystallized program, no learned policy; and whether enumerating deeper action sequences buys anything |
 | `e7_budget.py` | E7: return against environment-episode budget |
+| `e9_saturation.py` | policy-logit magnitude after each of the first 300 episodes, against track 2's saturation claim |
 | `e8_mlp.py` | E8: a tuning grid for the neural baseline, so "the MLP never learns it" is not under-tuning |
 | `refs.py` | trivial references (always-false, always-true, uniform, oracle) at every horizon |
 | `aggregate.py` | turns raw JSON into the tables in `RESULTS.md` |

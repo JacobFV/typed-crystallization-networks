@@ -9,6 +9,7 @@ import random
 
 from .._structure import Ident, Lst, Rec, Tok
 from ..lesson import Lesson
+from ..generators.base import _dyck
 from ..generators.extra import _max_depth, _nest, _shuffled
 
 
@@ -23,13 +24,15 @@ def gen_nesting_depth_compare(rng: random.Random, ctx):
     if ctx.hardens("nesting_depth_compare"):
         # Independent padding does not equalize anything: the deeper string is
         # still the longer one on average, and "where does the word *right*
-        # start, as a fraction of the prompt" recovers that at 0.81.  Padding
-        # both to a common length with flat pairs -- which cannot change a
-        # maximum depth -- leaves the two strings identical in length and in
-        # bracket counts, so only the nesting separates them.
-        total = max(len(left), len(right)) + 2 * rng.randint(*ctx.span((0, 4), (2, 8)))
-        left += "()" * ((total - len(left)) // 2)
-        right += "()" * ((total - len(right)) // 2)
+        # start, as a fraction of the prompt" recovers that at 0.81.  Appending
+        # the padding also leaves the deep region at the front, so a single byte
+        # at a fixed offset reports the left string's depth.  Both sides are
+        # redrawn with the *same* number of pairs and the flat pairs scattered
+        # through the nesting, which makes the two strings identical in length
+        # and in bracket counts with no fixed offset carrying the depth.
+        pairs = rng.randint(*ctx.span((max(ld, rd) + 2, max(ld, rd) + 6),
+                                      (max(ld, rd) + 4, max(ld, rd) + 12)))
+        left, right = _dyck(rng, ld, pairs), _dyck(rng, rd, pairs)
     dl, dr = _max_depth(left), _max_depth(right)
     obs = Rec(left=Lst([Tok(c) for c in left]), right=Lst([Tok(c) for c in right]),
               query=Ident("deeper"))

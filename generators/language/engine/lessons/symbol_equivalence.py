@@ -30,9 +30,7 @@ def gen_symbol_equivalence(rng: random.Random, ctx):
         # so every colour present is named the same number of times.
         pool = sorted({o["color"] for o in objs})
         rng.shuffle(pool)
-        pool = pool[:3] if len(pool) >= 2 else pool
-        if denotes not in pool:
-            pool[rng.randrange(len(pool))] = denotes
+        pool = pool[:3]
         aliases = {}
         for c in pool:
             while True:
@@ -40,7 +38,12 @@ def gen_symbol_equivalence(rng: random.Random, ctx):
                 if a not in aliases:
                     aliases[a] = c
                     break
-        alias = next(a for a, c in aliases.items() if c == denotes)
+        # Deriving the query from a randomly chosen *object* makes the answer
+        # proportional to how many objects wear each colour, so "the colour
+        # named most often" is a real prior.  Choosing among the aliases makes
+        # every aliased colour equally likely.
+        alias = rng.choice(sorted(aliases))
+        denotes = aliases[alias]
         facts = _shuffled(rng, [Pred("means", Ident(a), Ident(c))
                                 for a, c in aliases.items()])
     obs = Rec(scene=Lst([Pred("obj", Ident(o["id"]), Ident(o["color"]), Ident(o["shape"]),

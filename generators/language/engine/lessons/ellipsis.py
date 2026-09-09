@@ -37,7 +37,7 @@ def gen_ellipsis(rng: random.Random, ctx):
     # the discourse instead of pinning it to the end, so what follows the gap is
     # a distractor and recency alone is wrong.
     at_end = not ctx.hardens("ellipsis")
-    cut = len(clauses) if at_end else rng.randint(0, len(clauses))
+    cut = len(clauses) if at_end else rng.randrange(len(clauses))
     before, after = clauses[:cut], clauses[cut:]
     clauses = before + [antecedent] + after
 

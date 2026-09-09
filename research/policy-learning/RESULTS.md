@@ -41,7 +41,7 @@ at horizon 4 and 32.00 at horizon 32 — 27 environment episodes in total**,
 15x fewer than reward-only REINFORCE's 400 and 6x fewer than the shipped
 fixture's 160.
 
-Three corrections to the record follow from this, and one warning:
+Four corrections to the record follow from this, and one warning:
 
 - **Track 6's "pure REINFORCE fails for the typed program as well as for the
   MLP" was never measured on the typed program.** `research/baselines/joint_baseline.py`
@@ -58,6 +58,13 @@ Three corrections to the record follow from this, and one warning:
   independent repetitions of one contextual bandit over 32 contexts. Nothing in
   this repository, including this track, has measured credit assignment over a
   horizon, and no result on this generator can.
+- **Track 2's "logits saturate to ±2.5 within 30 episodes" does not hold for the
+  typed scaffold.** Measured after every one of the first 300 episodes, 8 seeds:
+  `max|logit|` is 0.35-0.39 at episode 30 and 1.0-1.5 at episode 300, and no seed
+  of either the reward-only or the shipped arm reaches 2.5 inside 300 episodes.
+  It does saturate at ~3.0 by 2,000 episodes — after learning, not before. The
+  actor-SNR half of track 2's diagnosis reproduces; the saturation half was an
+  arithmetic-scaffold measurement and does not transfer.
 - **Track 2's rejection of episode batching was confounded by the learning
   rate.** At a fixed episode budget `batch=32, lr=.04` fails (2.28/4, 1/8 seeds);
   the same batch at `lr=.1` succeeds 8/8. Batching trades episodes for optimizer
@@ -227,15 +234,32 @@ mean ||g||` per weighted term against the trainable parameters, and
 | A7 MLP REINFORCE | 0.108 | 127 | — | — | 0.12 → — | — |
 
 Track 2 measured actor SNR 0.221 on the arithmetic scaffold and 0.238 on
-`examples/joint.py`, and logits saturating to ±2.5 within 30 episodes.
-**Both reproduce in direction and roughly in magnitude.** Actor SNR here is
-0.12-0.14 with the discrete search live (track 2's 0.238 was measured with the
-shipped constants *and* the `p[12]` bias, i.e. an easier starting point), and
-trained logits settle at |logit| ~3.0, p(action) 0.997 — saturated, as track 2
-described. What is new is the decomposition: **pinning the two discrete choices
-raises actor SNR 3.3x and cuts the episodes-to-average 28x, from 177 to 6.3.**
-The variance the actor term suffers from is mostly not action-sampling variance;
-it is the candidate mixture underneath it moving.
+`examples/joint.py`, and logits saturating to ±2.5 within ~30 episodes.
+**The SNR reproduces; the saturation timescale does not, and is refuted for this
+scaffold.** Actor SNR here is 0.12-0.14 with the discrete search live (track 2's
+0.238 was measured with the shipped constants *and* the `p[12]` bias, i.e. an
+easier starting point) and 0.62-0.86 once trained.
+
+Saturation was measured directly (`e9_saturation.py`: 8 seeds, `max|logit|` on a
+fixed held-out episode after every one of the first 300 training episodes):
+
+| training episodes | 0 | 10 | 20 | **30** | 50 | 100 | 200 | 299 | reach ±2.5 |
+|---|---|---|---|---|---|---|---|---|---|
+| reward only, constants at 0 | 0.06 | 0.26 | 0.34 | **0.39** | 0.51 | 0.45 | 0.85 | 1.01 | **0/8 seeds by 300** |
+| shipped fixture (probe + supplied constants) | 0.09 | 0.30 | 0.38 | **0.35** | 0.49 | 0.66 | 1.48 | 1.54 | **0/8 seeds by 300** |
+
+At episode 30 the logits are at 0.35-0.39, not 2.5, and no seed of either arm
+reaches 2.5 inside 300 episodes. By 2,000 episodes they do settle at ~3.0 with
+p(action) 0.997 — so this scaffold saturates *after* it has learned, not before.
+Track 2's ±2.5-in-30-episodes figure is an arithmetic-scaffold measurement (a
+linear readout on a randomly-initialised 8-unit hidden layer) and does not carry
+over to the typed readout, whose logits are `w·z + b` with `z ∈ [0,1]` and `w`
+starting at 0 or ±2.
+
+What is new is the decomposition: **pinning the two discrete choices raises actor
+SNR 3.3x and cuts the episodes-to-average 28x, from 177 to 6.3.** The variance
+the actor term suffers from is mostly not action-sampling variance; it is the
+candidate mixture underneath it moving.
 
 Note also `max|logit| at init = 0.00` for the arm with the *shipped* constants
 (A3). At `SoftProgram`'s zero initialisation the truth-table mixture makes

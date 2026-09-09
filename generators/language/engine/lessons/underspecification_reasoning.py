@@ -41,8 +41,13 @@ def gen_underspecification_reasoning(rng: random.Random, ctx):
         # compatibilities the instruction can never instantiate -- X has to be
         # a cube and no cube wears a box colour -- so they add lines without
         # adding admissible assignments.
-        for _ in range(rng.randint(1, 4)):
-            fits.append((rng.choice(box_cols), rng.choice(cube_cols)))
+        decoys = [(b, c) for b in box_cols for c in cube_cols]
+        rng.shuffle(decoys)
+        # The *number* of printed compatibilities is drawn independently of the
+        # answer, so counting the lines -- or matching character counts against
+        # a neighbour -- says nothing about how many instantiations are
+        # admissible.
+        fits += decoys[:max(0, rng.randint(5, 9) - k)]
     n = sum(1 for i in range(3) for j in range(3) if (cube_cols[i], box_cols[j]) in fits)
     assert n == k
 
