@@ -46,12 +46,13 @@ was not (FINDINGS F-bench), so every dial here is one whose effect is measured i
 
 Why the rendering is flat and sharp, and why that is a contract.
 
-`role="byte"` excludes a pixel from `Type.numeric`, so on current main the entire
-legal algebra over a raw pixel is `eq(byte, byte) -> bool`, `pack` (gradient
-`none`), `index`, and the structural operators; there is no conversion out of
-byte at all, and every arithmetic and ordering operator is signature-illegal.  So
-the only perception program that can exist over these pixels is Boolean and
-relational, and `eq` is the one predicate.  This generator is therefore rendered
+`role="byte"` is an *uncommitted* carrier and is excluded from `Type.numeric`, so
+the legal algebra over a raw pixel is `eq(byte, byte) -> bool`, `pack` (gradient
+`none`), `index`, and the structural operators; every arithmetic and ordering
+operator is signature-illegal until a program pays for an explicit `interpret`
+node committing the octet to a magnitude.  So the cheapest perception program
+that can exist over these pixels is Boolean and relational, and `eq` is the one
+predicate that needs no commitment.  This generator is therefore rendered
 so that `eq` is sufficient:
 
 * every widget is a filled axis-aligned rectangle at integer coordinates with one

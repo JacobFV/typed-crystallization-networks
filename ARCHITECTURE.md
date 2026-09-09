@@ -36,6 +36,30 @@ encoding. Continuous quantities use declared numeric encodings over the same
 carriers; analytic operators act on their decoded numeric meaning. There is no
 implicit reinterpretation of a category ID as a scalar measurement.
 
+A carrier's semantic role is therefore one of three classes, and the class, not
+the width, decides which operators apply. A **magnitude** is a scalar
+measurement: ordering, arithmetic, aggregation and mixtures denote. A **nominal**
+identifier is unordered: only equality denotes, averaging two of them denotes
+nothing, and a relaxation gives it a categorical rather than a scalar lift. An
+**uncommitted** carrier is a raw unit off a channel — a pixel channel, a text
+octet, a file octet, an audio sample — whose interpretation has not been
+declared. It is not a third kind of number; it is the absence of a declaration,
+and it is restricted to exactly what holds for either reading, which is equality,
+indexing and structure. A generator that knows its values are labels declares
+them nominal at the source, and no later operation may undo that.
+
+Committing an uncommitted carrier is an explicit graph operation with a declared
+conversion/error contract, in one direction only. The commitment preserves the
+carrier bit-for-bit — same width, encoding, unit, frame and bounds — and changes
+only the declared meaning, so its error is exactly zero and it is invertible in
+value though not in permission. What is forbidden is the *implicit*
+reinterpretation and the *reverse* one: there is no conversion from a nominal
+identifier to a magnitude at any width, and none from a magnitude back to an
+uncommitted carrier. A program that treats a pixel as an intensity therefore
+carries that claim visibly in its exported text, where it can be read off and
+falsified by the data, instead of smuggling it through a bit-level
+reinterpretation.
+
 Training may lift an encoding into continuous coordinates, bit probabilities,
 or categorical distributions. Each lift declares embedding, valid relaxation,
 mixing, and hard decoding. Set relaxations must respect permutation invariance
@@ -65,7 +89,20 @@ versioned contract, conformance cases, and a cost description.
 | Set/structure | membership, insert/remove, selection, pair/join, indexing/projection |
 | Temporal | delay, difference, accumulation |
 | Spectral | Fourier basis/transform, inverse transform |
-| Representation | encode/decode, quantize/dequantize, pack/unpack |
+| Representation | encode/decode, quantize/dequantize, pack/unpack, interpret |
+
+`interpret` is the section 1 commitment as an operator: one input, one declared
+output type, the same carrier and the same encoding, and only the `role` moves,
+from uncommitted to magnitude or to nominal. It is the sole exit from an
+uncommitted role and it has no inverse. Its gradient is not a free choice but a
+consequence of the relaxation each committed class already declares. Committing
+to a magnitude keeps the same single-scalar lift the uncommitted carrier had, so
+the relaxation is the identity, the derivative is one, and a gradient crosses the
+commitment. Committing to a nominal identifier moves to a categorical lift of a
+different width, and no derivative from a magnitude into unordered bits is valid,
+so that commitment is exact at an explicit gradient boundary. Both commitments
+are exact in the forward direction; only one of them is differentiable, and which
+one is decided by the semantics rather than by convenience.
 
 This is a small candidate inventory, not permission for opaque helpers. `map`
 and `filter` require an explicit subprogram; joins name their matching rule;

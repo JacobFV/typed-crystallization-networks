@@ -3,14 +3,14 @@ from __future__ import annotations
 from dataclasses import dataclass, replace
 import cmath
 import math
-from .types import Type, Value, BOOL, integer, product, setof, decode
+from .types import Type, Value, BOOL, integer, product, setof, decode, interpretable
 
 BINARY = {"add", "sub", "mul", "div", "pow", "mod", "idiv", "min", "max", "shl", "shr", "atan2"}
 UNARY = {"neg", "abs", "exp", "log", "sin", "cos", "sqrt"}
 COMPARE = {"eq", "lt", "le", "gt", "ge"}
 LOGIC = {"and", "or", "xor", "nand", "nor", "xnor"}
 STRUCTURAL = {"tuple", "project", "index", "member", "insert", "remove", "union", "intersection", "pair", "join", "map", "filter"}
-CONVERSIONS = {"encode", "decode", "quantize", "dequantize", "pack", "unpack"}
+CONVERSIONS = {"encode", "decode", "quantize", "dequantize", "pack", "unpack", "interpret"}
 
 @dataclass(frozen=True)
 class Operator:
@@ -137,7 +137,27 @@ class Registry:
         elif name in CONVERSIONS:
             require(len(ts)==1 and output is not None, "representation output must be explicit")
             inferred=output
-            if name in {"pack","unpack"}:
+            if name=="interpret":
+                # A declared semantic commitment, not a representation change: the
+                # carrier, encoding, unit, frame and bounds are all preserved and
+                # only `role` moves, from uncommitted to committed. Exact and
+                # bijective on the raw value, so the error contract is zero error
+                # in both directions; there is simply no operator back.
+                require(ts[0].kind=="int" and output.kind=="int", "interpretation applies to an integer carrier")
+                require(interpretable(ts[0].role, output.role),
+                        "interpretation only commits an uncommitted role to a declared one")
+                require(replace(ts[0], role=output.role)==output,
+                        "interpretation declares a role and preserves the carrier")
+                # The gradient follows from the relaxation contract already in
+                # `Type.flat`, it is not a separate choice. A magnitude flattens
+                # to the same single scalar the uncommitted byte does, so the
+                # relaxation is the identity and the derivative is 1. A nominal ID
+                # flattens to a bit vector of a different width, and there is no
+                # valid derivative from a magnitude into unordered bits: that is
+                # an explicit gradient boundary, exactly as ARCHITECTURE section 2
+                # requires of a candidate without a valid relaxation.
+                grad = "exact" if output.numeric else "none"
+            elif name in {"pack","unpack"}:
                 tup=ts[0] if name=="pack" else output
                 scalar=output if name=="pack" else ts[0]
                 require(tup.kind=="tuple" and all(t.kind in {"bool","int"} for t in tup.items))
@@ -171,6 +191,7 @@ class Registry:
                 out.append(bool(v) if t.kind=="bool" else v)
             return Value(op.output,tuple(out))
         if n=="identity": return args[0]
+        if n=="interpret": return Value(op.output,args[0].raw)
         if n=="not": y=not xs[0]
         elif n in LOGIC:
             a,b=xs; y={"and":a and b,"or":a or b,"xor":a!=b,"nand":not(a and b),"nor":not(a or b),"xnor":a==b}[n]
