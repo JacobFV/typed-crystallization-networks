@@ -21,6 +21,11 @@ Replaces entropy+stability selection with the DARTS-PT removal rule, and adds
 `Objective(total, task)` so the connectivity guard probes the unregularized task
 loss. 96 tests pass in its worktree.
 
+**Independently verified from the supervising session**, not taken on the agent's
+word: `96 passed in 360.92s` run against that worktree, with the gitignored
+`node_modules` symlinked in for the four computer tests and the symlink removed
+afterwards, leaving the worktree clean at 90dd08a.
+
 Blocked because it changes `tcn/crystallize.py`, `tcn/synthesis.py`, `tcn/cli.py`
 and `JointTrainer.episode`, while the perception-ladder and
 recursive-abstraction-retest agents are measuring against main's current core.
