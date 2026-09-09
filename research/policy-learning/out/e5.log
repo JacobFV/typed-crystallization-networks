@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/e5_horizon.py", line 12, in <module>
+    ARMS[f'H{h}_staged_dense']      = {'policy_init':'zero','stages':[probe_stage(h),reward_stage(h,False)]}
+                                                                      ~~~~~~~~~~~^^^
+  File "/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/e5_horizon.py", line 4, in probe_stage
+    def probe_stage(h): return {'cfg': base(h, episodes=200, w_probe=1., w_actor=0., w_value=0., log_every=25)}
+                                       ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brandonin/Documents/typed-crystallization-networks/research/policy-learning/e5_horizon.py", line 3, in base
+    def base(h, **kw): return dict(episodes=1000, horizon=h, lr=.04, w_actor=1., w_value=.5, w_entropy=.01, **kw)
+                              ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: dict() got multiple values for keyword argument 'episodes'

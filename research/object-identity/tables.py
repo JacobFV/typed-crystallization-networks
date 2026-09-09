@@ -70,6 +70,8 @@ def main():
     uf = load("unfreeze"); cg = load("choice_gradients"); le = load("le_surrogate")
     dc = load("discoverable"); rsh = load("rule_shapes")
     sf = load("surrogate_fix_coarse"); ff = load("surrogate_fix_fullunfreeze")
+    pf = load("surrogate_fix_pinned"); mf = load("surrogate_fix_margin")
+    lnd = load("landscape")
     v = {}
 
     perm = b["permutation_certificate"]; col = b["colour_certificate"]
@@ -309,6 +311,23 @@ def main():
         v[prefix + "_thr"] = "%.3g" % x["choice_gradients"]["choice_grad_l1"]["thr"]
     arm(sf, "operand", "sfix_operand"); arm(sf, "carrier", "sfix_carrier")
     arm(ff, "operand", "full_operand"); arm(ff, "carrier", "full_carrier")
+    arm(pf, "operand", "pinned_grad"); arm(mf, "fixed32", "margin_grad")
+    v["pinned_thr"] = v.pop("pinned_grad_thr", None)
+    v["margin_thr"] = v.pop("margin_grad_thr", None)
+    if lnd:
+        v["landscape_table"] = table(
+            ["comparison temperature", "argmin threshold", "is it exact?", "loss spread"],
+            [[k, x["argmin_threshold"], "**yes**" if x["argmin_is_exact"] else "**no**",
+              "%.3g" % x["loss_spread"]] for k, x in lnd["policies"].items()])
+        v["land_exact"] = str(lnd["exact_thresholds"])
+        c = lnd["policies"].get("carrier (2^bits)", {})
+        v["land_carrier_spread"] = "%.3g" % c.get("loss_spread", float("nan"))
+        v["land_carrier_argmin"] = c.get("argmin_threshold")
+        ex = lnd["exact_thresholds"]
+        v["margin_width"] = (max(ex) - min(ex)) if ex else "--"
+        import torch as _t
+        x = _t.tensor([192.0], requires_grad=True); y = _t.sigmoid(-x / 32.); y.backward()
+        v["land_32_deriv"] = "%.3g" % abs(float(x.grad))
     if sf and "operand" in sf:
         v["sfix_grads"] = json.dumps({k: x for k, x in
                                       sf["operand"]["choice_gradients"]["choice_grad_l1"].items()

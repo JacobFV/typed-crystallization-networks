@@ -1,0 +1,41 @@
+{
+ "arguments": {
+  "seeds": 4,
+  "width": 0,
+  "policies": "fixed32",
+  "pin_offset": false,
+  "tag": "surrogate_fix_margin"
+ },
+ "threshold_pool": 8,
+ "space_size": 6144,
+ "operating_gaps": {
+  "threshold_used": 192,
+  "rg_le": {
+   "median_gap": 192.0,
+   "mean_gap": 609.40625,
+   "max_gap": 9024,
+   "min_gap": 34,
+   "fraction_at_or_past_underflow": 0.96875,
+   "shipped_surrogate_at_median_gap": 0.0,
+   "shipped_derivative_at_median_gap": -0.0
+  },
+  "gb_le": {
+   "median_gap": 192.0,
+   "mean_gap": 1053.453125,
+   "max_gap": 21820,
+   "min_gap": 5,
+   "fraction_at_or_past_underflow": 0.9375,
+   "shipped_surrogate_at_median_gap": 0.0,
+   "shipped_derivative_at_median_gap": -0.0
+  },
+  "rb_le": {
+   "median_gap": 192.0,
+   "mean_gap": 990.828125,
+   "max_gap": 13980,
+   "min_gap": 53,
+   "fraction_at_or_past_underflow": 0.90625,
+   "shipped_surrogate_at_median_gap": 0.0,
+   "shipped_derivative_at_median_gap": -0.0
+  }
+ }
+}

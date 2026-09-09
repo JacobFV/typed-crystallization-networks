@@ -1,0 +1,324 @@
+{
+ "arguments": {
+  "train": 8,
+  "validation": 4,
+  "held": 8,
+  "per_image": 24,
+  "apply": 3,
+  "gradient_seeds": 4,
+  "steps": 200,
+  "lr": 0.15,
+  "free_limit": null,
+  "arms": "free",
+  "tag": "rung1_free"
+ },
+ "configuration": {
+  "resolution": 16,
+  "widgets": 12,
+  "nesting": 4,
+  "min_size": 4
+ },
+ "achieved_widgets_mean": 8.5,
+ "achieved_widgets_max": 10,
+ "observation_bytes": 768,
+ "positions_per_screen": 225,
+ "narrow_offsets": [
+  48,
+  6,
+  3,
+  9,
+  51
+ ],
+ "wide_offsets": 51,
+ "positive_fraction": 0.3697916666666667,
+ "free_operand_ablation": {
+  "name": "free-operands",
+  "free_operands": true,
+  "offsets": [
+   48,
+   6,
+   3,
+   9,
+   51
+  ],
+  "space_size": 81920,
+  "nodes": 19,
+  "train_records": 192,
+  "validation_records": 96,
+  "held_records": 192,
+  "conforming": {
+   "space_size": 81920,
+   "evaluated": 81920,
+   "exhausted": true,
+   "count": 2,
+   "unique": false,
+   "seconds": 472.43592086201534,
+   "node_evaluations": 298844160,
+   "distinct_functions": 1
+  },
+  "lexicographic_pick": {
+   "selections": {
+    "pos": 0,
+    "obs": 0,
+    "shifted": 2,
+    "here_g": 0,
+    "here_b": 0,
+    "there_g": 0,
+    "there_b": 0,
+    "here_r_v": 0,
+    "here_g_v": 0,
+    "here_b_v": 0,
+    "there_r_v": 0,
+    "there_g_v": 0,
+    "there_b_v": 0,
+    "cmp_r": 2,
+    "cmp_g": 2,
+    "cmp_b": 2,
+    "rg": 7,
+    "edge": 13,
+    "record": 0
+   },
+   "validation_max_error": 0.0,
+   "held_max_error": 0.0,
+   "held_accuracy": 1.0
+  },
+  "validation_filtered": {
+   "survivors": 2,
+   "unique": false,
+   "distinct_functions": 1,
+   "held_max_error": [
+    0.0,
+    0.0
+   ],
+   "held_accuracy": [
+    1.0,
+    1.0
+   ],
+   "selections": [
+    {
+     "pos": 0,
+     "obs": 0,
+     "shifted": 2,
+     "here_g": 0,
+     "here_b": 0,
+     "there_g": 0,
+     "there_b": 0,
+     "here_r_v": 0,
+     "here_g_v": 0,
+     "here_b_v": 0,
+     "there_r_v": 0,
+     "there_g_v": 0,
+     "there_b_v": 0,
+     "cmp_r": 2,
+     "cmp_g": 2,
+     "cmp_b": 2,
+     "rg": 7,
+     "edge": 13,
+     "record": 0
+    },
+    {
+     "pos": 0,
+     "obs": 0,
+     "shifted": 2,
+     "here_g": 0,
+     "here_b": 0,
+     "there_g": 0,
+     "there_b": 0,
+     "here_r_v": 0,
+     "here_g_v": 0,
+     "here_b_v": 0,
+     "there_r_v": 0,
+     "there_g_v": 0,
+     "there_b_v": 0,
+     "cmp_r": 2,
+     "cmp_g": 2,
+     "cmp_b": 2,
+     "rg": 8,
+     "edge": 7,
+     "record": 0
+    }
+   ]
+  },
+  "random_control": {
+   "draws": 400,
+   "hits": 0,
+   "density": 0.0,
+   "seconds": 2.8747955249855295
+  },
+  "gradient_noise": {
+   "init_noise": 0.5,
+   "rows": [
+    {
+     "seed": 0,
+     "ok": false,
+     "train_err": 1.0,
+     "relaxed_loss": 0.18281687796115875,
+     "selections": {
+      "pos": 0,
+      "obs": 0,
+      "shifted": 2,
+      "here_g": 0,
+      "here_b": 0,
+      "there_g": 0,
+      "there_b": 0,
+      "here_r_v": 0,
+      "here_g_v": 0,
+      "here_b_v": 0,
+      "there_r_v": 0,
+      "there_g_v": 0,
+      "there_b_v": 0,
+      "cmp_r": 2,
+      "cmp_g": 0,
+      "cmp_b": 2,
+      "rg": 3,
+      "edge": 13,
+      "record": 0
+     },
+     "seconds": 441.533567615028,
+     "held_err": 1.0,
+     "held_acc": 0.9895833333333334
+    },
+    {
+     "seed": 1,
+     "ok": false,
+     "train_err": 1.0,
+     "relaxed_loss": 0.5495206713676453,
+     "selections": {
+      "pos": 0,
+      "obs": 0,
+      "shifted": 3,
+      "here_g": 0,
+      "here_b": 0,
+      "there_g": 0,
+      "there_b": 0,
+      "here_r_v": 0,
+      "here_g_v": 0,
+      "here_b_v": 0,
+      "there_r_v": 0,
+      "there_g_v": 0,
+      "there_b_v": 0,
+      "cmp_r": 2,
+      "cmp_g": 0,
+      "cmp_b": 3,
+      "rg": 13,
+      "edge": 1,
+      "record": 0
+     },
+     "seconds": 397.7062235089834,
+     "held_err": 1.0,
+     "held_acc": 0.671875
+    },
+    {
+     "seed": 2,
+     "ok": false,
+     "train_err": 1.0,
+     "relaxed_loss": 0.43159911036491394,
+     "selections": {
+      "pos": 0,
+      "obs": 0,
+      "shifted": 0,
+      "here_g": 0,
+      "here_b": 0,
+      "there_g": 0,
+      "there_b": 0,
+      "here_r_v": 0,
+      "here_g_v": 0,
+      "here_b_v": 0,
+      "there_r_v": 0,
+      "there_g_v": 0,
+      "there_b_v": 0,
+      "cmp_r": 2,
+      "cmp_g": 2,
+      "cmp_b": 2,
+      "rg": 7,
+      "edge": 2,
+      "record": 0
+     },
+     "seconds": 615.2258520480245,
+     "held_err": 1.0,
+     "held_acc": 0.71875
+    },
+    {
+     "seed": 3,
+     "ok": false,
+     "train_err": 1.0,
+     "relaxed_loss": 0.27454739809036255,
+     "selections": {
+      "pos": 0,
+      "obs": 0,
+      "shifted": 1,
+      "here_g": 0,
+      "here_b": 0,
+      "there_g": 0,
+      "there_b": 0,
+      "here_r_v": 0,
+      "here_g_v": 0,
+      "here_b_v": 0,
+      "there_r_v": 0,
+      "there_g_v": 0,
+      "there_b_v": 0,
+      "cmp_r": 2,
+      "cmp_g": 2,
+      "cmp_b": 2,
+      "rg": 7,
+      "edge": 12,
+      "record": 0
+     },
+     "seconds": 883.506453318987,
+     "held_err": 1.0,
+     "held_acc": 0.9114583333333334
+    }
+   ],
+   "summary": {
+    "n": 4,
+    "successes": 0,
+    "held_exact": 0,
+    "median_seconds": 528.3797098315263,
+    "median_train_err": 1.0
+   }
+  },
+  "gradient_zero_init": {
+   "init_noise": 0.0,
+   "rows": [
+    {
+     "seed": 0,
+     "ok": false,
+     "train_err": 1.0,
+     "relaxed_loss": 0.6007104516029358,
+     "selections": {
+      "pos": 0,
+      "obs": 0,
+      "shifted": 0,
+      "here_g": 0,
+      "here_b": 0,
+      "there_g": 0,
+      "there_b": 0,
+      "here_r_v": 0,
+      "here_g_v": 0,
+      "here_b_v": 0,
+      "there_r_v": 0,
+      "there_g_v": 0,
+      "there_b_v": 0,
+      "cmp_r": 1,
+      "cmp_g": 3,
+      "cmp_b": 0,
+      "rg": 6,
+      "edge": 6,
+      "record": 0
+     },
+     "seconds": 530.0185259950231,
+     "held_err": 1.0,
+     "held_acc": 0.484375
+    }
+   ],
+   "summary": {
+    "n": 1,
+    "successes": 0,
+    "held_exact": 0,
+    "median_seconds": 530.0185259950231,
+    "median_train_err": 1.0
+   },
+   "note": "SoftProgram zero-initialises every choice logit, so this is one outcome, not a seed average"
+  }
+ }
+}

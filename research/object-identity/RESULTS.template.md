@@ -488,28 +488,66 @@ pass reads a blur of about five bytes rather than a pixel.  That is why section
 4.4 unfreezes only the three comparison nodes: it restores the gradient to `thr`
 while leaving the addressing exact.
 
-### 4.4 The corrected gradient arms
+### 4.4 A scaled surrogate buys a gradient and can cost the answer
 
-Two temperature policies, both leaving `tcn/` untouched and replacing `relaxed`
-at runtime in one process: the coordinator's **carrier** rule
-(`tau = 2^bits` of the compared type) and this track's **operand** rule
-(`tau = mean |operand|` over the batch).
+Before running anything, the landscape.  With every other choice pinned to a
+program that conforms exactly, and the three comparison nodes unfrozen so
+`relaxed` is actually used, the relaxed loss was evaluated at each candidate
+threshold under seven temperatures.  The question is whether the minimum sits on
+a threshold that is genuinely exact.
 
-| arm | surrogate at the median gap | `thr` gradient | conforming on train | exact on held-out |
-|---|---|---|---|---|
-| as shipped (section 3) | **0.0** | `None` | {{direct_grad}} | 0/4 |
-| deterministic nodes unfrozen, shipped surrogate | 0.0 | {{unfreeze_thr}} | {{unfreeze_grad}} | 0/4 |
-| comparison nodes unfrozen, `tau = mean operand` | alive | {{sfix_thr}} | {{sfix_operand}} | {{sfix_operand_held}} |
-| comparison nodes unfrozen, `tau = 2^bits` | alive | {{sfix_carrier_thr}} | {{sfix_carrier}} | {{sfix_carrier_held}} |
-| *every* deterministic node unfrozen, `tau = mean operand` | alive | {{full_operand_thr}} | {{full_operand}} | {{full_operand_held}} |
-| *every* deterministic node unfrozen, `tau = 2^bits` | alive | {{full_carrier_thr}} | {{full_carrier}} | {{full_carrier_held}} |
+{{landscape_table}}
+
+The thresholds exact on training in this grid are {{land_exact}}.
+
+**The shipped `tau = 1` puts its minimum on a correct threshold.**  Its gradient
+is exactly zero, but its *loss* is right: `sigmoid` underflowing to 0.0 or 1.0
+saturates to the correct hard answer, so the landscape is a plateau with cliffs
+rather than a misleading slope.  **Scaling the temperature up restores the
+gradient and moves the minimum onto a wrong threshold.**  At the carrier rule
+`tau = 2^bits` the loss spread collapses to {{land_carrier_spread}} -- the
+surrogate is so flat that every threshold looks the same -- and the minimum is at
+{{land_carrier_argmin}}, which is not exact.
+
+So the two failure modes are different and the fix for one is not the fix for the
+other:
+
+* **`eq` on bytes** (the perception ladder, and the coordinator's correction):
+  the operands and the decision margin are the same scale, `exp(-(a-b)^2/tau)`
+  underflows for the true *and* the false case alike, and the surrogate carries
+  no information at all.  Scaling by the carrier restores it.
+* **`le` on products of bytes** (this rung): the operands span 0..65,025 while
+  the decision margin is about {{margin_width}} wide, so the underflow saturates
+  to the *correct* value and the loss stays informative while the gradient dies.
+  Scaling by the carrier -- 2^32 here -- flattens a correct landscape into a wrong
+  one.
+
+What both cases actually want is a temperature matched to the **decision
+margin**, not to the operand range.  Here that is the spacing of the candidate
+constants, and `tau = 32` is the one policy measured that has *both* a correct
+minimum and a live derivative ({{land_32_deriv}} at the median gap).
+
+### 4.5 The corrected gradient arms
+
+All arms leave `tcn/` untouched and replace `relaxed` at runtime in one process.
+
+| arm | surrogate at the median gap | `thr` gradient | landscape minimum correct | conforming on train | exact on held-out |
+|---|---|---|---|---|---|
+| as shipped (section 3) | **0.0** | `None` | yes | {{direct_grad}} | 0/4 |
+| deterministic nodes unfrozen, shipped surrogate | 0.0 | {{unfreeze_thr}} | yes | {{unfreeze_grad}} | 0/4 |
+| comparison nodes unfrozen, `tau = mean operand` | alive | {{sfix_thr}} | **no** | {{sfix_operand}} | {{sfix_operand_held}} |
+| comparison nodes unfrozen, `tau = 2^bits` (carrier) | alive | {{sfix_carrier_thr}} | **no** | {{sfix_carrier}} | {{sfix_carrier_held}} |
+| comparison nodes unfrozen, `tau = 32` (decision margin) | alive | {{margin_thr}} | yes | {{margin_grad}} | {{margin_grad_held}} |
+| `tau = mean operand`, **offset pinned** to the right neighbour | alive | {{pinned_thr}} | no | {{pinned_grad}} | {{pinned_grad_held}} |
+| *every* deterministic node unfrozen, `tau = mean operand` | alive | {{full_operand_thr}} | -- | {{full_operand}} | {{full_operand_held}} |
+| *every* deterministic node unfrozen, `tau = 2^bits` | alive | {{full_carrier_thr}} | -- | {{full_carrier}} | {{full_carrier_held}} |
 
 {{sfix_conclusion}}
 
 Enumeration, on the same space and the same records, exhausts {{direct_space}}
 programs in {{direct_seconds}} s and {{wide_space}} in {{wide_inc_seconds}} s
 with a prefix-reusing walk, returning a program with held-out max error
-{{wide_val_err}} and a uniqueness report.
+{{wide_val_err}} and a conforming count.
 
 ### 4.5 What this says about the method boundary
 
@@ -522,8 +560,10 @@ honest statement after this track is:
 * a choice behind a **declared** `gradient="none"` operator -- here the offset,
   behind `pack` -- is outside the relaxed backend, and no surrogate fixes it;
 * a choice at a **surrogate comparison** is only as good as that surrogate's
-  dynamic range at the *operating distance*, which must be measured and
-  reported, not assumed;
+  dynamic range at the *operating distance*, which must be measured and reported,
+  not assumed -- and the temperature that restores the dynamic range must be
+  matched to the **decision margin**, because a temperature matched to the
+  operand range flattens the landscape instead (section 4.4);
 * a choice at a node the scaffold made deterministic is severed by
   `SoftProgram`, which is a bug (E1) and not a property of anything;
 * **space size predicts nothing.**  The 393,216-program space and the

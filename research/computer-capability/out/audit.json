@@ -1,0 +1,445 @@
+{
+  "A1_inventory": {
+    "action_schema_arguments": {
+      "command": {
+        "text": 513
+      },
+      "key": {
+        "code": 1
+      },
+      "read": {
+        "path": 129
+      },
+      "type": {
+        "text": 513
+      },
+      "wait": {},
+      "write": {
+        "path": 129,
+        "text": 513
+      }
+    },
+    "available_actions": [
+      "wait",
+      "command",
+      "type",
+      "key",
+      "read",
+      "write"
+    ],
+    "latents": {
+      "event_count": {
+        "width": 1
+      }
+    },
+    "objective_consumable_as_program_input": false,
+    "objective_visible_to_actor": false,
+    "observations": {
+      "pixels": {
+        "element_role": "byte",
+        "kind": "tuple",
+        "width": 18435
+      },
+      "terminal": {
+        "element_role": "byte",
+        "kind": "tuple",
+        "width": 4097
+      }
+    },
+    "probes": {
+      "state_counts": {
+        "value": [
+          4.0,
+          0.0,
+          2.0
+        ],
+        "width": 3
+      }
+    },
+    "reward_components": [
+      "goal"
+    ]
+  },
+  "A2_probe_information": {
+    "action_sequence": [
+      "read",
+      "write",
+      "wait"
+    ],
+    "distinct_documents": 8,
+    "distinct_latent_series": 1,
+    "distinct_probe_series": 1,
+    "distinct_terminal_series": 8,
+    "documents": [
+      "count = 0",
+      "count = 1",
+      "count = 2",
+      "count = 3",
+      "count = 7",
+      "total = 4",
+      "x = 9",
+      "count = 12"
+    ],
+    "latent_series_per_document": {
+      "count = 0": [
+        1,
+        2,
+        3,
+        3
+      ],
+      "count = 1": [
+        1,
+        2,
+        3,
+        3
+      ],
+      "count = 12": [
+        1,
+        2,
+        3,
+        3
+      ],
+      "count = 2": [
+        1,
+        2,
+        3,
+        3
+      ],
+      "count = 3": [
+        1,
+        2,
+        3,
+        3
+      ],
+      "count = 7": [
+        1,
+        2,
+        3,
+        3
+      ],
+      "total = 4": [
+        1,
+        2,
+        3,
+        3
+      ],
+      "x = 9": [
+        1,
+        2,
+        3,
+        3
+      ]
+    },
+    "probe_series_per_document": {
+      "count = 0": [
+        [
+          4.0,
+          0.0,
+          2.0
+        ],
+        [
+          4.0,
+          0.0,
+          2.0
+        ],
+        [
+          4.0,
+          0.0,
+          3.0
+        ],
+        [
+          4.0,
+          0.0,
+          3.0
+        ]
+      ],
+      "count = 1": [
+        [
+          4.0,
+          0.0,
+          2.0
+        ],
+        [
+          4.0,
+          0.0,
+          2.0
+        ],
+        [
+          4.0,
+          0.0,
+          3.0
+        ],
+        [
+          4.0,
+          0.0,
+          3.0
+        ]
+      ],
+      "count = 12": [
+        [
+          4.0,
+          0.0,
+          2.0
+        ],
+        [
+          4.0,
+          0.0,
+          2.0
+        ],
+        [
+          4.0,
+          0.0,
+          3.0
+        ],
+        [
+          4.0,
+          0.0,
+          3.0
+        ]
+      ],
+      "count = 2": [
+        [
+          4.0,
+          0.0,
+          2.0
+        ],
+        [
+          4.0,
+          0.0,
+          2.0
+        ],
+        [
+          4.0,
+          0.0,
+          3.0
+        ],
+        [
+          4.0,
+          0.0,
+          3.0
+        ]
+      ],
+      "count = 3": [
+        [
+          4.0,
+          0.0,
+          2.0
+        ],
+        [
+          4.0,
+          0.0,
+          2.0
+        ],
+        [
+          4.0,
+          0.0,
+          3.0
+        ],
+        [
+          4.0,
+          0.0,
+          3.0
+        ]
+      ],
+      "count = 7": [
+        [
+          4.0,
+          0.0,
+          2.0
+        ],
+        [
+          4.0,
+          0.0,
+          2.0
+        ],
+        [
+          4.0,
+          0.0,
+          3.0
+        ],
+        [
+          4.0,
+          0.0,
+          3.0
+        ]
+      ],
+      "total = 4": [
+        [
+          4.0,
+          0.0,
+          2.0
+        ],
+        [
+          4.0,
+          0.0,
+          2.0
+        ],
+        [
+          4.0,
+          0.0,
+          3.0
+        ],
+        [
+          4.0,
+          0.0,
+          3.0
+        ]
+      ],
+      "x = 9": [
+        [
+          4.0,
+          0.0,
+          2.0
+        ],
+        [
+          4.0,
+          0.0,
+          2.0
+        ],
+        [
+          4.0,
+          0.0,
+          3.0
+        ],
+        [
+          4.0,
+          0.0,
+          3.0
+        ]
+      ]
+    },
+    "reward_series_per_document": {
+      "count = 0": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "count = 1": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "count = 12": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "count = 2": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "count = 3": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "count = 7": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "total = 4": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "x = 9": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    "seconds": 119.83042380400002
+  },
+  "A3_eq_surrogate": {
+    "carrier": "int[8] role=byte",
+    "measurements": [
+      {
+        "a": 123,
+        "b": 99,
+        "distance": 24,
+        "pair": "terminal byte 0 at tick 0 vs tick 1",
+        "surrogate_tau_1": 7.020667798504735e-251,
+        "surrogate_tau_256": 0.10539922456186433
+      },
+      {
+        "a": 48,
+        "b": 57,
+        "distance": 9,
+        "pair": "digit '0' vs digit '9'",
+        "surrogate_tau_1": 6.639677199580735e-36,
+        "surrogate_tau_256": 0.7287633299194912
+      },
+      {
+        "a": 55,
+        "b": 56,
+        "distance": 1,
+        "pair": "digit '7' vs digit '8'",
+        "surrogate_tau_1": 0.36787944117144233,
+        "surrogate_tau_256": 0.9961013694701175
+      },
+      {
+        "a": 123,
+        "b": 99,
+        "distance": 24,
+        "pair": "'{' vs 'c' (JSON result vs file content)",
+        "surrogate_tau_1": 7.020667798504735e-251,
+        "surrogate_tau_256": 0.10539922456186433
+      },
+      {
+        "a": 127,
+        "b": 99,
+        "distance": 28,
+        "pair": "uniform byte mixture 127.5 vs 'c'",
+        "surrogate_tau_1": 0.0,
+        "surrogate_tau_256": 0.04677062238395898
+      }
+    ],
+    "shipped_tau": 1.0,
+    "zero_threshold_float32_distance": 11
+  },
+  "A4_reward_causality": {
+    "never_write": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "objective_on_existing_path": "ok",
+    "objective_on_nonexistent_path": "RuntimeError: computer transition failed: /home/brandonin/Documents/typed-crystallization-networks/generators/computer/engine/packages/kernel/src/vfs.ts:431",
+    "write_correct": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "write_without_reading": [
+      0.0,
+      1.0,
+      1.0
+    ],
+    "write_wrong": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "A5_cost": {
+    "episode_seconds_horizon_4": 13.31767590297386,
+    "initialize_seconds": 1.5785951959551312,
+    "node_subprocess_calls_per_step": "2 when the objective is set and the action changes state, 1 otherwise (advance re-executes the whole event log, then executes it again with an appended read for the reward)",
+    "step_seconds": [
+      1.961104700982105,
+      3.125875039026141,
+      2.7720750920125283,
+      3.880025874997955
+    ]
+  }
+}

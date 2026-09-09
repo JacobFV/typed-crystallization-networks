@@ -55,9 +55,11 @@ def scaled_relaxed(policy):
             a, b = xs
             if policy == "carrier":                     # the coordinator's rule
                 tau = float(2 ** op.inputs[0].bits)
-            elif policy == "operand":                   # this track's E2
+            elif policy == "operand":                   # scale by the operand magnitude
                 tau = float(max(1., torch.maximum(a.detach().abs(),
                                                   b.detach().abs()).mean()))
+            elif policy.startswith("fixed"):            # scale by the DECISION MARGIN
+                tau = float(policy[5:])
             else:
                 tau = temperature
             if op.name == "eq":
