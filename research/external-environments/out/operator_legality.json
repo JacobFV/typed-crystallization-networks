@@ -1,0 +1,2238 @@
+{
+ "escapes": {
+  "add(0.8, 0.7) on bounds=(-1,1)": "ValueError: value outside semantic bounds",
+  "add(0.8, 0.7) unbounded": 1.5,
+  "add(rate, plain)": {
+   "legal": false,
+   "reason": "TypeError: add: operator signature mismatch"
+  },
+  "div output equals the plain angle type": true,
+  "div(rate, rate) -> plain?": {
+   "gradient": "exact",
+   "legal": true,
+   "output": {
+    "bits": 32,
+    "encoding": {
+     "kind": "float",
+     "overflow": "error",
+     "scale": 1.0,
+     "signed": true
+    },
+    "frame": "joint",
+    "kind": "int"
+   }
+  },
+  "encode(rate) -> plain (unit change)": {
+   "legal": false,
+   "reason": "TypeError: encode: operator signature mismatch"
+  },
+  "mul output keeps bounds": [
+   -1.0,
+   1.0
+  ],
+  "mul(rate, rate) unit": "(rad/s)^2",
+  "quantize(rate) -> fixed with same unit": {
+   "gradient": "surrogate",
+   "legal": true,
+   "output": {
+    "bits": 16,
+    "encoding": {
+     "kind": "fixed",
+     "overflow": "error",
+     "scale": 4096,
+     "signed": true
+    },
+    "frame": "joint",
+    "kind": "int",
+    "unit": "rad/s"
+   }
+  }
+ },
+ "table": {
+  "fixed int[16] scale 4096": {
+   "numeric": true,
+   "operators": {
+    "abs": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "fixed",
+       "overflow": "error",
+       "scale": 4096,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "add": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "fixed",
+       "overflow": "error",
+       "scale": 4096,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "atan2": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "fixed",
+       "overflow": "error",
+       "scale": 4096,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "cos": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "fixed",
+       "overflow": "error",
+       "scale": 4096,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "count": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "integer",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": false
+      },
+      "kind": "int"
+     }
+    },
+    "div": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "fixed",
+       "overflow": "error",
+       "scale": 4096,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "eq": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "exp": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "fixed",
+       "overflow": "error",
+       "scale": 4096,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "ge": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "gt": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "idiv": {
+     "legal": false,
+     "reason": "TypeError: idiv: operator signature mismatch"
+    },
+    "le": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "log": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "fixed",
+       "overflow": "error",
+       "scale": 4096,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "lt": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "max": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "fixed",
+       "overflow": "error",
+       "scale": 4096,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "mean": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "fixed",
+       "overflow": "error",
+       "scale": 4096,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "min": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "fixed",
+       "overflow": "error",
+       "scale": 4096,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "mod": {
+     "legal": false,
+     "reason": "TypeError: mod: operator signature mismatch"
+    },
+    "mul": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "fixed",
+       "overflow": "error",
+       "scale": 4096,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "neg": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "fixed",
+       "overflow": "error",
+       "scale": 4096,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "pack": {
+     "gradient": "none",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "fixed",
+       "overflow": "error",
+       "scale": 4096,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "pow": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "fixed",
+       "overflow": "error",
+       "scale": 4096,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "reduce_max": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "fixed",
+       "overflow": "error",
+       "scale": 4096,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "sin": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "fixed",
+       "overflow": "error",
+       "scale": 4096,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "sqrt": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "fixed",
+       "overflow": "error",
+       "scale": 4096,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "sub": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "fixed",
+       "overflow": "error",
+       "scale": 4096,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "sum": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "fixed",
+       "overflow": "error",
+       "scale": 4096,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    }
+   },
+   "type": {
+    "bits": 16,
+    "encoding": {
+     "kind": "fixed",
+     "overflow": "error",
+     "scale": 4096,
+     "signed": true
+    },
+    "frame": "joint",
+    "kind": "int"
+   }
+  },
+  "float32 bounds=(-1,1)": {
+   "numeric": true,
+   "operators": {
+    "abs": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "bounds": [
+       -1.0,
+       1.0
+      ],
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "add": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "bounds": [
+       -1.0,
+       1.0
+      ],
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "atan2": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "bounds": [
+       -1.0,
+       1.0
+      ],
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "cos": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "bounds": [
+       -1.0,
+       1.0
+      ],
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "count": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "integer",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": false
+      },
+      "kind": "int"
+     }
+    },
+    "div": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "eq": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "exp": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "bounds": [
+       -1.0,
+       1.0
+      ],
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "ge": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "gt": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "idiv": {
+     "legal": false,
+     "reason": "TypeError: idiv: operator signature mismatch"
+    },
+    "le": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "log": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "bounds": [
+       -1.0,
+       1.0
+      ],
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "lt": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "max": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "bounds": [
+       -1.0,
+       1.0
+      ],
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "mean": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "bounds": [
+       -1.0,
+       1.0
+      ],
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "min": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "bounds": [
+       -1.0,
+       1.0
+      ],
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "mod": {
+     "legal": false,
+     "reason": "TypeError: mod: operator signature mismatch"
+    },
+    "mul": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "bounds": [
+       -1.0,
+       1.0
+      ],
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "neg": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "bounds": [
+       -1.0,
+       1.0
+      ],
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "pack": {
+     "gradient": "none",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "pow": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "bounds": [
+       -1.0,
+       1.0
+      ],
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "reduce_max": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "bounds": [
+       -1.0,
+       1.0
+      ],
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "sin": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "bounds": [
+       -1.0,
+       1.0
+      ],
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "sqrt": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "bounds": [
+       -1.0,
+       1.0
+      ],
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "sub": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "bounds": [
+       -1.0,
+       1.0
+      ],
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "sum": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "bounds": [
+       -1.0,
+       1.0
+      ],
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    }
+   },
+   "type": {
+    "bits": 32,
+    "bounds": [
+     -1.0,
+     1.0
+    ],
+    "encoding": {
+     "kind": "float",
+     "overflow": "error",
+     "scale": 1.0,
+     "signed": true
+    },
+    "frame": "joint",
+    "kind": "int"
+   }
+  },
+  "float32 plain (as shipped: orientation)": {
+   "numeric": true,
+   "operators": {
+    "abs": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "add": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "atan2": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "cos": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "count": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "integer",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": false
+      },
+      "kind": "int"
+     }
+    },
+    "div": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "eq": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "exp": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "ge": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "gt": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "idiv": {
+     "legal": false,
+     "reason": "TypeError: idiv: operator signature mismatch"
+    },
+    "le": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "log": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "lt": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "max": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "mean": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "min": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "mod": {
+     "legal": false,
+     "reason": "TypeError: mod: operator signature mismatch"
+    },
+    "mul": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "neg": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "pack": {
+     "gradient": "none",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "pow": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "reduce_max": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "sin": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "sqrt": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "sub": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "sum": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    }
+   },
+   "type": {
+    "bits": 32,
+    "encoding": {
+     "kind": "float",
+     "overflow": "error",
+     "scale": 1.0,
+     "signed": true
+    },
+    "frame": "joint",
+    "kind": "int"
+   }
+  },
+  "float32 unit=rad (the mistake)": {
+   "numeric": true,
+   "operators": {
+    "abs": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "rad"
+     }
+    },
+    "add": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "rad"
+     }
+    },
+    "atan2": {
+     "legal": false,
+     "reason": "TypeError: atan2: analytic argument must be dimensionless"
+    },
+    "cos": {
+     "legal": false,
+     "reason": "TypeError: cos: analytic argument must be dimensionless"
+    },
+    "count": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "integer",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": false
+      },
+      "kind": "int"
+     }
+    },
+    "div": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "eq": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "exp": {
+     "legal": false,
+     "reason": "TypeError: exp: analytic argument must be dimensionless"
+    },
+    "ge": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "gt": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "idiv": {
+     "legal": false,
+     "reason": "TypeError: idiv: operator signature mismatch"
+    },
+    "le": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "log": {
+     "legal": false,
+     "reason": "TypeError: log: analytic argument must be dimensionless"
+    },
+    "lt": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "max": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "rad"
+     }
+    },
+    "mean": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "rad"
+     }
+    },
+    "min": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "rad"
+     }
+    },
+    "mod": {
+     "legal": false,
+     "reason": "TypeError: mod: operator signature mismatch"
+    },
+    "mul": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "(rad)^2"
+     }
+    },
+    "neg": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "rad"
+     }
+    },
+    "pack": {
+     "gradient": "none",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "rad"
+     }
+    },
+    "pow": {
+     "legal": false,
+     "reason": "TypeError: pow: analytic argument must be dimensionless"
+    },
+    "reduce_max": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "rad"
+     }
+    },
+    "sin": {
+     "legal": false,
+     "reason": "TypeError: sin: analytic argument must be dimensionless"
+    },
+    "sqrt": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "sqrt(rad)"
+     }
+    },
+    "sub": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "rad"
+     }
+    },
+    "sum": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "rad"
+     }
+    }
+   },
+   "type": {
+    "bits": 32,
+    "encoding": {
+     "kind": "float",
+     "overflow": "error",
+     "scale": 1.0,
+     "signed": true
+    },
+    "frame": "joint",
+    "kind": "int",
+    "unit": "rad"
+   }
+  },
+  "float32 unit=rad/s (as shipped: rates)": {
+   "numeric": true,
+   "operators": {
+    "abs": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "rad/s"
+     }
+    },
+    "add": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "rad/s"
+     }
+    },
+    "atan2": {
+     "legal": false,
+     "reason": "TypeError: atan2: analytic argument must be dimensionless"
+    },
+    "cos": {
+     "legal": false,
+     "reason": "TypeError: cos: analytic argument must be dimensionless"
+    },
+    "count": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "integer",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": false
+      },
+      "kind": "int"
+     }
+    },
+    "div": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "eq": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "exp": {
+     "legal": false,
+     "reason": "TypeError: exp: analytic argument must be dimensionless"
+    },
+    "ge": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "gt": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "idiv": {
+     "legal": false,
+     "reason": "TypeError: idiv: operator signature mismatch"
+    },
+    "le": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "log": {
+     "legal": false,
+     "reason": "TypeError: log: analytic argument must be dimensionless"
+    },
+    "lt": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "max": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "rad/s"
+     }
+    },
+    "mean": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "rad/s"
+     }
+    },
+    "min": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "rad/s"
+     }
+    },
+    "mod": {
+     "legal": false,
+     "reason": "TypeError: mod: operator signature mismatch"
+    },
+    "mul": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "(rad/s)^2"
+     }
+    },
+    "neg": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "rad/s"
+     }
+    },
+    "pack": {
+     "gradient": "none",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "rad/s"
+     }
+    },
+    "pow": {
+     "legal": false,
+     "reason": "TypeError: pow: analytic argument must be dimensionless"
+    },
+    "reduce_max": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "rad/s"
+     }
+    },
+    "sin": {
+     "legal": false,
+     "reason": "TypeError: sin: analytic argument must be dimensionless"
+    },
+    "sqrt": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "sqrt(rad/s)"
+     }
+    },
+    "sub": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "rad/s"
+     }
+    },
+    "sum": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "float",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int",
+      "unit": "rad/s"
+     }
+    }
+   },
+   "type": {
+    "bits": 32,
+    "encoding": {
+     "kind": "float",
+     "overflow": "error",
+     "scale": 1.0,
+     "signed": true
+    },
+    "frame": "joint",
+    "kind": "int",
+    "unit": "rad/s"
+   }
+  },
+  "int[16] plain integer": {
+   "numeric": true,
+   "operators": {
+    "abs": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "integer",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "add": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "integer",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "atan2": {
+     "legal": false,
+     "reason": "TypeError: atan2: analytic operation requires an explicit numeric encoding"
+    },
+    "cos": {
+     "legal": false,
+     "reason": "TypeError: cos: analytic operation requires an explicit numeric encoding"
+    },
+    "count": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "integer",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": false
+      },
+      "kind": "int"
+     }
+    },
+    "div": {
+     "legal": false,
+     "reason": "TypeError: div: analytic operation requires an explicit numeric encoding"
+    },
+    "eq": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "exp": {
+     "legal": false,
+     "reason": "TypeError: exp: analytic operation requires an explicit numeric encoding"
+    },
+    "ge": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "gt": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "idiv": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "integer",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "le": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "log": {
+     "legal": false,
+     "reason": "TypeError: log: analytic operation requires an explicit numeric encoding"
+    },
+    "lt": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "max": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "integer",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "mean": {
+     "legal": false,
+     "reason": "TypeError: mean: operator signature mismatch"
+    },
+    "min": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "integer",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "mod": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "integer",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "mul": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "integer",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "neg": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "integer",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "pack": {
+     "gradient": "none",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "integer",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "pow": {
+     "legal": false,
+     "reason": "TypeError: pow: analytic operation requires an explicit numeric encoding"
+    },
+    "reduce_max": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "integer",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "sin": {
+     "legal": false,
+     "reason": "TypeError: sin: analytic operation requires an explicit numeric encoding"
+    },
+    "sqrt": {
+     "legal": false,
+     "reason": "TypeError: sqrt: analytic operation requires an explicit numeric encoding"
+    },
+    "sub": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "integer",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    },
+    "sum": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 16,
+      "encoding": {
+       "kind": "integer",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": true
+      },
+      "frame": "joint",
+      "kind": "int"
+     }
+    }
+   },
+   "type": {
+    "bits": 16,
+    "encoding": {
+     "kind": "integer",
+     "overflow": "error",
+     "scale": 1.0,
+     "signed": true
+    },
+    "frame": "joint",
+    "kind": "int"
+   }
+  },
+  "int[8] role=byte (pixels)": {
+   "numeric": false,
+   "operators": {
+    "abs": {
+     "legal": false,
+     "reason": "TypeError: abs: operator signature mismatch"
+    },
+    "add": {
+     "legal": false,
+     "reason": "TypeError: add: operator signature mismatch"
+    },
+    "atan2": {
+     "legal": false,
+     "reason": "TypeError: atan2: operator signature mismatch"
+    },
+    "cos": {
+     "legal": false,
+     "reason": "TypeError: cos: operator signature mismatch"
+    },
+    "count": {
+     "gradient": "exact",
+     "legal": true,
+     "output": {
+      "bits": 32,
+      "encoding": {
+       "kind": "integer",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": false
+      },
+      "kind": "int"
+     }
+    },
+    "div": {
+     "legal": false,
+     "reason": "TypeError: div: operator signature mismatch"
+    },
+    "eq": {
+     "gradient": "surrogate",
+     "legal": true,
+     "output": {
+      "kind": "bool"
+     }
+    },
+    "exp": {
+     "legal": false,
+     "reason": "TypeError: exp: operator signature mismatch"
+    },
+    "ge": {
+     "legal": false,
+     "reason": "TypeError: ge: operator signature mismatch"
+    },
+    "gt": {
+     "legal": false,
+     "reason": "TypeError: gt: operator signature mismatch"
+    },
+    "idiv": {
+     "legal": false,
+     "reason": "TypeError: idiv: operator signature mismatch"
+    },
+    "le": {
+     "legal": false,
+     "reason": "TypeError: le: operator signature mismatch"
+    },
+    "log": {
+     "legal": false,
+     "reason": "TypeError: log: operator signature mismatch"
+    },
+    "lt": {
+     "legal": false,
+     "reason": "TypeError: lt: operator signature mismatch"
+    },
+    "max": {
+     "legal": false,
+     "reason": "TypeError: max: operator signature mismatch"
+    },
+    "mean": {
+     "legal": false,
+     "reason": "TypeError: mean: operator signature mismatch"
+    },
+    "min": {
+     "legal": false,
+     "reason": "TypeError: min: operator signature mismatch"
+    },
+    "mod": {
+     "legal": false,
+     "reason": "TypeError: mod: operator signature mismatch"
+    },
+    "mul": {
+     "legal": false,
+     "reason": "TypeError: mul: operator signature mismatch"
+    },
+    "neg": {
+     "legal": false,
+     "reason": "TypeError: neg: operator signature mismatch"
+    },
+    "pack": {
+     "gradient": "none",
+     "legal": true,
+     "output": {
+      "bits": 8,
+      "encoding": {
+       "kind": "integer",
+       "overflow": "error",
+       "scale": 1.0,
+       "signed": false
+      },
+      "kind": "int",
+      "role": "byte"
+     }
+    },
+    "pow": {
+     "legal": false,
+     "reason": "TypeError: pow: operator signature mismatch"
+    },
+    "reduce_max": {
+     "legal": false,
+     "reason": "TypeError: reduce_max: operator signature mismatch"
+    },
+    "sin": {
+     "legal": false,
+     "reason": "TypeError: sin: operator signature mismatch"
+    },
+    "sqrt": {
+     "legal": false,
+     "reason": "TypeError: sqrt: operator signature mismatch"
+    },
+    "sub": {
+     "legal": false,
+     "reason": "TypeError: sub: operator signature mismatch"
+    },
+    "sum": {
+     "legal": false,
+     "reason": "TypeError: sum: operator signature mismatch"
+    }
+   },
+   "type": {
+    "bits": 8,
+    "encoding": {
+     "kind": "integer",
+     "overflow": "error",
+     "scale": 1.0,
+     "signed": false
+    },
+    "kind": "int",
+    "role": "byte"
+   }
+  }
+ }
+}

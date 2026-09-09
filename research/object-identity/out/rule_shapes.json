@@ -1,0 +1,54 @@
+{
+ "AND of all three (the shape the bound was derived for)": {
+  "train": {
+   "exact_interval": [
+    140,
+    230
+   ]
+  },
+  "validation": {
+   "exact_interval": [
+    144,
+    800
+   ]
+  },
+  "test": {
+   "exact_interval": [
+    155,
+    158
+   ]
+  },
+  "exact_on_all_three": [
+   155,
+   158
+  ],
+  "width": 4,
+  "coarse_pool_hits": []
+ },
+ "(rg OR gb) AND rb -- the program the wide search returned": {
+  "train": {
+   "exact_interval": [
+    135,
+    225
+   ]
+  },
+  "validation": {
+   "exact_interval": [
+    142,
+    533
+   ]
+  },
+  "test": {
+   "exact_interval": [
+    114,
+    152
+   ]
+  },
+  "exact_on_all_three": [
+   142,
+   152
+  ],
+  "width": 11,
+  "coarse_pool_hits": []
+ }
+}

@@ -1,0 +1,10 @@
+same-object records (positive fraction)                    448 train / 448 val / 448 held (75.9% positive)
+stage 1 conforming / accuracy at every position train / held 1952 / 1.000000 / 1.000000
+[staged] space                                             98304
+[staged] enumerate_fit solved/exhausted/unique/s           True/True/False/354.5
+[staged] conforming on train / also exact at every validation position 64 / 64 of 98304
+[staged] lexicographic: held-out max error / accuracy      1.0 / 0.995536
+[staged] validation_filtered: held-out max error / accuracy 1.0 / 0.995536
+[staged] choice logit |grad|_1                             {"shifted": null, "thr": null, "fg_agree": 0.008958783000707626, "coll": 0.010647241957485676, "same": 0.15293803811073303}
+  [staged] seed 0: ok=False train=1 (612.1s) 
+  [staged] seed 1: ok=False train=1 (675.2s) 

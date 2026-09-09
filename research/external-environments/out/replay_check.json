@@ -1,0 +1,45 @@
+{
+ "actor_cannot_see_latents": true,
+ "actor_cannot_see_probes": true,
+ "actor_sees": [
+  "angles",
+  "orientation",
+  "rates"
+ ],
+ "continuation_digest_matches": true,
+ "continuation_state_bit_identical": true,
+ "contract_overhead_fraction": 0.7656529895544351,
+ "cross_process_digest_matches": true,
+ "cross_process_state_bit_identical": true,
+ "different_seed_differs": true,
+ "goal_actually_changed": true,
+ "latent_channels": [
+  "physical_time",
+  "qpos",
+  "qvel"
+ ],
+ "max_state_difference_after_8_steps": 0.0,
+ "observation_quantization_error": 1.6107930900233214e-07,
+ "observation_relative_error": 2.568314630804754e-08,
+ "pendulum_upright_first_10": -0.6445783352479338,
+ "pendulum_upright_last_10": 0.013690692186355592,
+ "pendulum_upright_max": 0.9994289875030518,
+ "pose_invariant_to_supplied_goal": true,
+ "probe_channels": [
+  "kinetic_energy",
+  "potential_energy",
+  "site",
+  "upright"
+ ],
+ "qvel_float32_observation": -6.271790504455566,
+ "qvel_float64_latent": -6.271790343376257,
+ "replay_digest_matches": true,
+ "restore_digest_matches": true,
+ "same_address_identical": true,
+ "seconds_per_host_step": 0.0016813875900697894,
+ "seconds_per_raw_integration": 0.0003940281551331282,
+ "seconds_per_readout": 0.0003792065850575455,
+ "seconds_per_step_pendulum": 0.001642699670046568,
+ "seconds_per_step_reacher": 0.002014719069702551,
+ "single_stream_pose_would_move": true
+}

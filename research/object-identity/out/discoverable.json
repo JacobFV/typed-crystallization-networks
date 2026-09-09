@@ -1,0 +1,54 @@
+{
+ "module": "module:a6bcf0445f54c1bde38e6380",
+ "ports": {
+  "observation": "tuple",
+  "positions": "set",
+  "empty": "set"
+ },
+ "candidates_now": {
+  "insert": 1,
+  "intersection": 2,
+  "join": 36864,
+  "member": 1,
+  "pair": 4,
+  "project": 192,
+  "remove": 1,
+  "tuple": 12,
+  "union": 2
+ },
+ "candidates_with_empty_parameters": {
+  "insert": 1,
+  "intersection": 2,
+  "member": 1,
+  "pair": 4,
+  "remove": 1,
+  "tuple": 12,
+  "union": 2
+ },
+ "discovered_caller": {
+  "candidates_per_node": [
+   4,
+   2,
+   1
+  ],
+  "space_size": 8
+ },
+ "search": {
+  "solved": true,
+  "selections": {
+   "held": 0,
+   "records": 1,
+   "mapped": 0
+  },
+  "exact_max_error": 0.0,
+  "evaluated": 8,
+  "space_size": 8,
+  "exhausted": true,
+  "unique": true,
+  "seconds": 0.10150797001551837,
+  "continuous": [],
+  "wall": 0.11273491103202105
+ },
+ "merged_scaffold_agrees": true,
+ "merged_scaffold_nodes": 3
+}

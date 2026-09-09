@@ -1,0 +1,62 @@
+{
+ "4": {
+  "mean_return": {
+   "always_false": 2.125,
+   "always_true": 1.875,
+   "uniform": 2.046875,
+   "oracle": 4.0
+  },
+  "normalized": {
+   "always_false": 0.53125,
+   "always_true": 0.46875,
+   "uniform": 0.51171875,
+   "oracle": 1.0
+  },
+  "env_episodes_used": 256
+ },
+ "8": {
+  "mean_return": {
+   "always_false": 4.25,
+   "always_true": 3.75,
+   "uniform": 3.78125,
+   "oracle": 8.0
+  },
+  "normalized": {
+   "always_false": 0.53125,
+   "always_true": 0.46875,
+   "uniform": 0.47265625,
+   "oracle": 1.0
+  },
+  "env_episodes_used": 256
+ },
+ "16": {
+  "mean_return": {
+   "always_false": 8.5,
+   "always_true": 7.5,
+   "uniform": 7.59375,
+   "oracle": 16.0
+  },
+  "normalized": {
+   "always_false": 0.53125,
+   "always_true": 0.46875,
+   "uniform": 0.474609375,
+   "oracle": 1.0
+  },
+  "env_episodes_used": 256
+ },
+ "32": {
+  "mean_return": {
+   "always_false": 17.0,
+   "always_true": 15.0,
+   "uniform": 16.0625,
+   "oracle": 32.0
+  },
+  "normalized": {
+   "always_false": 0.53125,
+   "always_true": 0.46875,
+   "uniform": 0.501953125,
+   "oracle": 1.0
+  },
+  "env_episodes_used": 256
+ }
+}

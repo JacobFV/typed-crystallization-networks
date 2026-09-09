@@ -1,0 +1,29 @@
+same-object records (positive fraction)                    448 train / 448 val / 448 held (75.9% positive)
+[direct] space                                             6144
+[direct] enumerate_fit solved/exhausted/unique/s           True/True/False/8.0
+[direct] conforming on train / also exact at every validation position 10 / 10 of 6144
+[direct] lexicographic: held-out max error / accuracy      1.0 / 0.995536
+[direct] validation_filtered: held-out max error / accuracy 1.0 / 0.995536
+[direct] choice logit |grad|_1                             {"shifted": null, "thr": null, "m1": null, "same": null}
+  [direct] seed 0: ok=False train=1 (337.6s) 
+  [direct] seed 1: ok=False train=1 (320.7s) 
+  [direct] seed 2: ok=False train=1 (407.3s) 
+  [direct] seed 3: ok=False train=1 (350.8s) 
+[direct] gradient successes / held-out exact               0/4 / 0
+wrote /home/brandonin/Documents/typed-crystallization-networks/research/object-identity/out/rung4_segment.json
+[apply R=8] positions/caller nodes/max error/s             56 / 3 / 0.0 / 0.23
+Traceback (most recent call last):
+  File "/home/brandonin/Documents/typed-crystallization-networks/research/object-identity/rung4_segment.py", line 424, in <module>
+  File "/home/brandonin/Documents/typed-crystallization-networks/research/object-identity/rung4_segment.py", line 354, in main
+    applied = []
+    
+  File "/home/brandonin/Documents/typed-crystallization-networks/research/discrete-perception/common.py", line 157, in positional_caller
+    ops = [registry.resolve("map", (records.output,), None, {"module": m}) for m in module_names]
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brandonin/Documents/typed-crystallization-networks/tcn/operators.py", line 108, in resolve
+    require(tuple(t for _,t in m.inputs)==ts[0].items)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brandonin/Documents/typed-crystallization-networks/tcn/operators.py", line 38, in require
+    if not ok: raise TypeError(f"{name}: {message}")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: map: operator signature mismatch

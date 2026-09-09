@@ -1,0 +1,17 @@
+[wide] space                                               393216
+[wide] enumerate_fit capped: evaluated/solved/rate/projected exhaustive s 40000/True/323/1217
+[wide] stop-at-first: evaluated / s                        34579 / 65.06
+[wide] prefix-reusing exhaustive sweep: conforming / node evaluations / s 910 / 486291 / 196.1
+[wide] also exact at every validation position             858 of 910
+[wide] thresholds among survivors                          [142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153]...
+[wide] lexicographic: T / held max error / held accuracy   135 / 0.0 / 1.000000
+[wide] validation_filtered: T / held max error / held accuracy 142 / 0.0 / 1.000000
+[wide] conforming programs that are also exact on the held-out split 86 of 910
+[wide] choice logit |grad|_1                               {"shifted": null, "thr": null, "m1": 0.012470545247197151, "same": 0.14114171266555786}
+wrote /home/brandonin/Documents/typed-crystallization-networks/research/object-identity/out/wide_threshold.json
+  [wide] seed 0: ok=False train=1 (356.6s) 
+  [wide] seed 1: ok=False train=1 (350.4s) 
+  [wide] seed 2: ok=True train=0 (350.8s) 
+  [wide] seed 3: ok=False train=1 (342.9s) 
+[wide] gradient successes / held-out exact                 1/4 / 0
+wrote /home/brandonin/Documents/typed-crystallization-networks/research/object-identity/out/wide_threshold.json

@@ -1,0 +1,244 @@
+{
+ "baseline: 6 widgets, nesting 2, palette 32, R=16": {
+  "widgets_mean": 3.0,
+  "widgets_max": 3,
+  "tree_depth_max": 1,
+  "distinct_colours_mean": 3.0,
+  "observation_bytes": 768,
+  "positions_per_screen": 225,
+  "configuration": {},
+  "majority_baseline": 0.8511111111111112,
+  "oracle_ceiling": 1.0,
+  "rung1_space": 1280,
+  "rung1_conforming": 2,
+  "rung1_density": 0.0015625,
+  "rung1_seconds": 4.761355190014001
+ },
+ "widgets 2": {
+  "widgets_mean": 2.0,
+  "widgets_max": 2,
+  "tree_depth_max": 1,
+  "distinct_colours_mean": 2.0,
+  "observation_bytes": 768,
+  "positions_per_screen": 225,
+  "configuration": {
+   "widgets": 2
+  },
+  "majority_baseline": 0.9244444444444444,
+  "oracle_ceiling": 1.0,
+  "rung1_space": 1280,
+  "rung1_conforming": 12,
+  "rung1_density": 0.009375,
+  "rung1_seconds": 11.56221166002797
+ },
+ "widgets 12": {
+  "widgets_mean": 3.0,
+  "widgets_max": 3,
+  "tree_depth_max": 1,
+  "distinct_colours_mean": 3.0,
+  "observation_bytes": 768,
+  "positions_per_screen": 225,
+  "configuration": {
+   "widgets": 12
+  },
+  "majority_baseline": 0.8511111111111112,
+  "oracle_ceiling": 1.0,
+  "rung1_space": 1280,
+  "rung1_conforming": 2,
+  "rung1_density": 0.0015625,
+  "rung1_seconds": 4.697482083982322
+ },
+ "widgets 20, nesting 5, R=32": {
+  "widgets_mean": 12.0,
+  "widgets_max": 15,
+  "tree_depth_max": 3,
+  "distinct_colours_mean": 12.0,
+  "observation_bytes": 3072,
+  "positions_per_screen": 961,
+  "configuration": {
+   "widgets": 20,
+   "nesting": 5,
+   "resolution": 32
+  },
+  "majority_baseline": 0.7481789802289281,
+  "oracle_ceiling": 1.0,
+  "rung1_space": 1280,
+  "rung1_conforming": 4,
+  "rung1_density": 0.003125,
+  "rung1_seconds": 34.30877918598708
+ },
+ "nesting 1": {
+  "widgets_mean": 3.0,
+  "widgets_max": 3,
+  "tree_depth_max": 1,
+  "distinct_colours_mean": 3.0,
+  "observation_bytes": 768,
+  "positions_per_screen": 225,
+  "configuration": {
+   "widgets": 12,
+   "nesting": 1
+  },
+  "majority_baseline": 0.8511111111111112,
+  "oracle_ceiling": 1.0,
+  "rung1_space": 1280,
+  "rung1_conforming": 8,
+  "rung1_density": 0.00625,
+  "rung1_seconds": 6.704856395022944
+ },
+ "nesting 4": {
+  "widgets_mean": 3.0,
+  "widgets_max": 3,
+  "tree_depth_max": 1,
+  "distinct_colours_mean": 3.0,
+  "observation_bytes": 768,
+  "positions_per_screen": 225,
+  "configuration": {
+   "widgets": 12,
+   "nesting": 4
+  },
+  "majority_baseline": 0.8511111111111112,
+  "oracle_ceiling": 1.0,
+  "rung1_space": 1280,
+  "rung1_conforming": 2,
+  "rung1_density": 0.0015625,
+  "rung1_seconds": 4.832084663968999
+ },
+ "palette 4": {
+  "widgets_mean": 3.0,
+  "widgets_max": 3,
+  "tree_depth_max": 1,
+  "distinct_colours_mean": 2.0,
+  "observation_bytes": 768,
+  "positions_per_screen": 225,
+  "configuration": {
+   "palette": 4
+  },
+  "majority_baseline": 0.8511111111111112,
+  "oracle_ceiling": 0.9266666666666666,
+  "rung1_space": 1280,
+  "rung1_conforming": 0,
+  "rung1_density": 0.0,
+  "rung1_seconds": 3.8502670529996976
+ },
+ "palette 4, widgets 12": {
+  "widgets_mean": 3.0,
+  "widgets_max": 3,
+  "tree_depth_max": 1,
+  "distinct_colours_mean": 2.0,
+  "observation_bytes": 768,
+  "positions_per_screen": 225,
+  "configuration": {
+   "palette": 4,
+   "widgets": 12
+  },
+  "majority_baseline": 0.8511111111111112,
+  "oracle_ceiling": 0.9266666666666666,
+  "rung1_space": 1280,
+  "rung1_conforming": 0,
+  "rung1_density": 0.0,
+  "rung1_seconds": 3.7759496399667114
+ },
+ "palette 64": {
+  "widgets_mean": 3.0,
+  "widgets_max": 3,
+  "tree_depth_max": 1,
+  "distinct_colours_mean": 3.0,
+  "observation_bytes": 768,
+  "positions_per_screen": 225,
+  "configuration": {
+   "palette": 64
+  },
+  "majority_baseline": 0.8511111111111112,
+  "oracle_ceiling": 1.0,
+  "rung1_space": 1280,
+  "rung1_conforming": 8,
+  "rung1_density": 0.00625,
+  "rung1_seconds": 6.40721845801454
+ },
+ "resolution 32": {
+  "widgets_mean": 6.0,
+  "widgets_max": 6,
+  "tree_depth_max": 2,
+  "distinct_colours_mean": 6.0,
+  "observation_bytes": 3072,
+  "positions_per_screen": 961,
+  "configuration": {
+   "resolution": 32
+  },
+  "majority_baseline": 0.8472944849115505,
+  "oracle_ceiling": 1.0,
+  "rung1_space": 1280,
+  "rung1_conforming": 4,
+  "rung1_density": 0.003125,
+  "rung1_seconds": 36.71979126200313
+ },
+ "resolution 48": {
+  "widgets_mean": 6.0,
+  "widgets_max": 6,
+  "tree_depth_max": 2,
+  "distinct_colours_mean": 6.0,
+  "observation_bytes": 6912,
+  "positions_per_screen": 2209,
+  "configuration": {
+   "resolution": 48
+  },
+  "majority_baseline": 0.895767315527388,
+  "oracle_ceiling": 1.0,
+  "rung1_space": 1280,
+  "rung1_conforming": 2,
+  "rung1_density": 0.0015625,
+  "rung1_seconds": 77.53497557202354
+ },
+ "borders": {
+  "widgets_mean": 3.0,
+  "widgets_max": 3,
+  "tree_depth_max": 1,
+  "distinct_colours_mean": 4.0,
+  "observation_bytes": 768,
+  "positions_per_screen": 225,
+  "configuration": {
+   "borders": true
+  },
+  "majority_baseline": 0.8511111111111112,
+  "oracle_ceiling": 0.8777777777777778,
+  "rung1_space": 1280,
+  "rung1_conforming": 0,
+  "rung1_density": 0.0,
+  "rung1_seconds": 3.5320761369657703
+ },
+ "labels, R=32": {
+  "widgets_mean": 6.0,
+  "widgets_max": 6,
+  "tree_depth_max": 2,
+  "distinct_colours_mean": 6.75,
+  "observation_bytes": 3072,
+  "positions_per_screen": 961,
+  "configuration": {
+   "resolution": 32,
+   "labels": true
+  },
+  "majority_baseline": 0.8472944849115505,
+  "oracle_ceiling": 1.0,
+  "rung1_space": 1280,
+  "rung1_conforming": 0,
+  "rung1_density": 0.0,
+  "rung1_seconds": 25.29971893300535
+ },
+ "colour_mode=kind": {
+  "widgets_mean": 3.0,
+  "widgets_max": 3,
+  "tree_depth_max": 1,
+  "distinct_colours_mean": 2.625,
+  "observation_bytes": 768,
+  "positions_per_screen": 225,
+  "configuration": {
+   "colour_mode": "kind"
+  },
+  "majority_baseline": 0.8511111111111112,
+  "oracle_ceiling": 1.0,
+  "rung1_space": 1280,
+  "rung1_conforming": 16,
+  "rung1_density": 0.0125,
+  "rung1_seconds": 7.727981520991307
+ }
+}

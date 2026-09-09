@@ -1,0 +1,91 @@
+{
+ "train": {
+  "pairs": 448,
+  "majority_baseline": 0.7589285714285714,
+  "exact_interval_lo": 140,
+  "exact_interval_hi": 230,
+  "exact_interval_empty": false,
+  "best_T_on_this_split": 140,
+  "best_accuracy": 1.0,
+  "accuracy_at_T192": 1.0,
+  "errors_at_T192": 0,
+  "error_kinds": {},
+  "examples": []
+ },
+ "validation": {
+  "pairs": 448,
+  "majority_baseline": 0.7477678571428571,
+  "exact_interval_lo": 144,
+  "exact_interval_hi": 800,
+  "exact_interval_empty": false,
+  "best_T_on_this_split": 144,
+  "best_accuracy": 1.0,
+  "accuracy_at_T192": 1.0,
+  "errors_at_T192": 0,
+  "error_kinds": {},
+  "examples": []
+ },
+ "test": {
+  "pairs": 448,
+  "majority_baseline": 0.8013392857142857,
+  "exact_interval_lo": 155,
+  "exact_interval_hi": 158,
+  "exact_interval_empty": false,
+  "best_T_on_this_split": 156,
+  "best_accuracy": 1.0,
+  "accuracy_at_T192": 0.9955357142857143,
+  "errors_at_T192": 2,
+  "error_kinds": {
+   "object vs background, collinear": 2
+  },
+  "examples": [
+   {
+    "seed": 105,
+    "r": 3,
+    "c": 4,
+    "a": [
+     24,
+     30,
+     43
+    ],
+    "b": [
+     75,
+     93,
+     128
+    ],
+    "ia": -1,
+    "ib": 3,
+    "same": false,
+    "cross": [
+     18,
+     159,
+     153
+    ]
+   },
+   {
+    "seed": 105,
+    "r": 3,
+    "c": 6,
+    "a": [
+     75,
+     93,
+     128
+    ],
+    "b": [
+     24,
+     30,
+     43
+    ],
+    "ia": 3,
+    "ib": -1,
+    "same": false,
+    "cross": [
+     18,
+     159,
+     153
+    ]
+   }
+  ]
+ },
+ "seconds": 0.7068762750132009
+}

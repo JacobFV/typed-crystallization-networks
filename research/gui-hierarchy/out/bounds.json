@@ -1,0 +1,437 @@
+{
+ "train_seeds": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15
+ ],
+ "eval_seeds": [
+  100,
+  101,
+  102,
+  103,
+  104,
+  105,
+  106,
+  107,
+  108,
+  109,
+  110,
+  111,
+  112,
+  113,
+  114,
+  115
+ ],
+ "rung1_edge": {
+  "flat (default) | x": {
+   "train_records": 3600,
+   "eval_records": 3600,
+   "distinct_train_keys": 89,
+   "distinct_eval_keys": 89,
+   "unseen_key_fraction": 0.3947222222222222,
+   "majority_baseline": 0.8261111111111111,
+   "oracle_accuracy": 1.0,
+   "oracle_advantage": 0.17388888888888887,
+   "transfer_accuracy": 0.8333333333333334,
+   "transfer_advantage": 0.007222222222222241,
+   "configuration": {}
+  },
+  "flat (default) | y": {
+   "train_records": 3600,
+   "eval_records": 3600,
+   "distinct_train_keys": 89,
+   "distinct_eval_keys": 89,
+   "unseen_key_fraction": 0.40305555555555556,
+   "majority_baseline": 0.8094444444444444,
+   "oracle_accuracy": 1.0,
+   "oracle_advantage": 0.1905555555555556,
+   "transfer_accuracy": 0.825,
+   "transfer_advantage": 0.015555555555555545,
+   "configuration": {}
+  },
+  "borders | x": {
+   "train_records": 3600,
+   "eval_records": 3600,
+   "distinct_train_keys": 73,
+   "distinct_eval_keys": 74,
+   "unseen_key_fraction": 0.21083333333333334,
+   "majority_baseline": 0.8261111111111111,
+   "oracle_accuracy": 0.8483333333333334,
+   "oracle_advantage": 0.022222222222222254,
+   "transfer_accuracy": 0.7966666666666666,
+   "transfer_advantage": -0.029444444444444495,
+   "configuration": {
+    "borders": true
+   }
+  },
+  "borders | y": {
+   "train_records": 3600,
+   "eval_records": 3600,
+   "distinct_train_keys": 75,
+   "distinct_eval_keys": 74,
+   "unseen_key_fraction": 0.1763888888888889,
+   "majority_baseline": 0.8094444444444444,
+   "oracle_accuracy": 0.8422222222222222,
+   "oracle_advantage": 0.032777777777777795,
+   "transfer_accuracy": 0.8038888888888889,
+   "transfer_advantage": -0.005555555555555536,
+   "configuration": {
+    "borders": true
+   }
+  },
+  "labels | x": {
+   "train_records": 15376,
+   "eval_records": 15376,
+   "distinct_train_keys": 231,
+   "distinct_eval_keys": 226,
+   "unseen_key_fraction": 0.15751821019771073,
+   "majority_baseline": 0.8351977107180021,
+   "oracle_accuracy": 1.0,
+   "oracle_advantage": 0.16480228928199792,
+   "transfer_accuracy": 0.8593912591050988,
+   "transfer_advantage": 0.024193548387096753,
+   "configuration": {
+    "resolution": 32,
+    "labels": true
+   }
+  },
+  "labels | y": {
+   "train_records": 15376,
+   "eval_records": 15376,
+   "distinct_train_keys": 231,
+   "distinct_eval_keys": 226,
+   "unseen_key_fraction": 0.15998959417273673,
+   "majority_baseline": 0.8306451612903226,
+   "oracle_accuracy": 1.0,
+   "oracle_advantage": 0.16935483870967738,
+   "transfer_accuracy": 0.8537981269510926,
+   "transfer_advantage": 0.023152965660769964,
+   "configuration": {
+    "resolution": 32,
+    "labels": true
+   }
+  },
+  "borders+labels | x": {
+   "train_records": 15376,
+   "eval_records": 15376,
+   "distinct_train_keys": 94,
+   "distinct_eval_keys": 88,
+   "unseen_key_fraction": 0.0053329864724245574,
+   "majority_baseline": 0.8351977107180021,
+   "oracle_accuracy": 0.8636836628511967,
+   "oracle_advantage": 0.028485952133194603,
+   "transfer_accuracy": 0.8052809573361083,
+   "transfer_advantage": -0.029916753381893813,
+   "configuration": {
+    "resolution": 32,
+    "borders": true,
+    "labels": true
+   }
+  },
+  "borders+labels | y": {
+   "train_records": 15376,
+   "eval_records": 15376,
+   "distinct_train_keys": 97,
+   "distinct_eval_keys": 88,
+   "unseen_key_fraction": 0.0,
+   "majority_baseline": 0.8306451612903226,
+   "oracle_accuracy": 0.8566597294484911,
+   "oracle_advantage": 0.026014568158168494,
+   "transfer_accuracy": 0.8093132154006244,
+   "transfer_advantage": -0.021331945889698223,
+   "configuration": {
+    "resolution": 32,
+    "borders": true,
+    "labels": true
+   }
+  },
+  "palette 8, 6 widgets | x": {
+   "train_records": 3600,
+   "eval_records": 3600,
+   "distinct_train_keys": 48,
+   "distinct_eval_keys": 44,
+   "unseen_key_fraction": 0.06777777777777778,
+   "majority_baseline": 0.8261111111111111,
+   "oracle_accuracy": 1.0,
+   "oracle_advantage": 0.17388888888888887,
+   "transfer_accuracy": 0.9322222222222222,
+   "transfer_advantage": 0.10611111111111104,
+   "configuration": {
+    "palette": 8
+   }
+  },
+  "palette 8, 6 widgets | y": {
+   "train_records": 3600,
+   "eval_records": 3600,
+   "distinct_train_keys": 48,
+   "distinct_eval_keys": 44,
+   "unseen_key_fraction": 0.09222222222222222,
+   "majority_baseline": 0.8094444444444444,
+   "oracle_accuracy": 1.0,
+   "oracle_advantage": 0.1905555555555556,
+   "transfer_accuracy": 0.9077777777777778,
+   "transfer_advantage": 0.09833333333333338,
+   "configuration": {
+    "palette": 8
+   }
+  },
+  "palette 4, 12 widgets | x": {
+   "train_records": 15376,
+   "eval_records": 15376,
+   "distinct_train_keys": 14,
+   "distinct_eval_keys": 14,
+   "unseen_key_fraction": 0.0,
+   "majority_baseline": 0.7709417273673257,
+   "oracle_accuracy": 0.8963319458896982,
+   "oracle_advantage": 0.12539021852237253,
+   "transfer_accuracy": 0.8963319458896982,
+   "transfer_advantage": 0.12539021852237253,
+   "configuration": {
+    "palette": 4,
+    "widgets": 12,
+    "resolution": 32
+   }
+  },
+  "palette 4, 12 widgets | y": {
+   "train_records": 15376,
+   "eval_records": 15376,
+   "distinct_train_keys": 14,
+   "distinct_eval_keys": 14,
+   "unseen_key_fraction": 0.0,
+   "majority_baseline": 0.7624869927159209,
+   "oracle_accuracy": 0.890738813735692,
+   "oracle_advantage": 0.12825182101977106,
+   "transfer_accuracy": 0.890738813735692,
+   "transfer_advantage": 0.12825182101977106,
+   "configuration": {
+    "palette": 4,
+    "widgets": 12,
+    "resolution": 32
+   }
+  },
+  "colour_mode=kind | x": {
+   "train_records": 3600,
+   "eval_records": 3600,
+   "distinct_train_keys": 10,
+   "distinct_eval_keys": 10,
+   "unseen_key_fraction": 0.0,
+   "majority_baseline": 0.8261111111111111,
+   "oracle_accuracy": 1.0,
+   "oracle_advantage": 0.17388888888888887,
+   "transfer_accuracy": 1.0,
+   "transfer_advantage": 0.17388888888888887,
+   "configuration": {
+    "colour_mode": "kind"
+   }
+  },
+  "colour_mode=kind | y": {
+   "train_records": 3600,
+   "eval_records": 3600,
+   "distinct_train_keys": 10,
+   "distinct_eval_keys": 10,
+   "unseen_key_fraction": 0.0,
+   "majority_baseline": 0.8094444444444444,
+   "oracle_accuracy": 1.0,
+   "oracle_advantage": 0.1905555555555556,
+   "transfer_accuracy": 1.0,
+   "transfer_advantage": 0.1905555555555556,
+   "configuration": {
+    "colour_mode": "kind"
+   }
+  },
+  "12 widgets, nesting 4 | x": {
+   "train_records": 15376,
+   "eval_records": 15376,
+   "distinct_train_keys": 286,
+   "distinct_eval_keys": 297,
+   "unseen_key_fraction": 0.18834547346514047,
+   "majority_baseline": 0.7510405827263268,
+   "oracle_accuracy": 1.0,
+   "oracle_advantage": 0.2489594172736732,
+   "transfer_accuracy": 0.8116545265348595,
+   "transfer_advantage": 0.06061394380853269,
+   "configuration": {
+    "resolution": 32,
+    "widgets": 12,
+    "nesting": 4
+   }
+  },
+  "12 widgets, nesting 4 | y": {
+   "train_records": 15376,
+   "eval_records": 15376,
+   "distinct_train_keys": 286,
+   "distinct_eval_keys": 297,
+   "unseen_key_fraction": 0.18769510926118627,
+   "majority_baseline": 0.741675338189386,
+   "oracle_accuracy": 1.0,
+   "oracle_advantage": 0.258324661810614,
+   "transfer_accuracy": 0.8123048907388137,
+   "transfer_advantage": 0.07062955254942771,
+   "configuration": {
+    "resolution": 32,
+    "widgets": 12,
+    "nesting": 4
+   }
+  },
+  "resolution 32 | x": {
+   "train_records": 15376,
+   "eval_records": 15376,
+   "distinct_train_keys": 186,
+   "distinct_eval_keys": 175,
+   "unseen_key_fraction": 0.14060874089490114,
+   "majority_baseline": 0.8351977107180021,
+   "oracle_accuracy": 1.0,
+   "oracle_advantage": 0.16480228928199792,
+   "transfer_accuracy": 0.8593912591050988,
+   "transfer_advantage": 0.024193548387096753,
+   "configuration": {
+    "resolution": 32
+   }
+  },
+  "resolution 32 | y": {
+   "train_records": 15376,
+   "eval_records": 15376,
+   "distinct_train_keys": 186,
+   "distinct_eval_keys": 175,
+   "unseen_key_fraction": 0.1462018730489074,
+   "majority_baseline": 0.8306451612903226,
+   "oracle_accuracy": 1.0,
+   "oracle_advantage": 0.16935483870967738,
+   "transfer_accuracy": 0.8537981269510926,
+   "transfer_advantage": 0.023152965660769964,
+   "configuration": {
+    "resolution": 32
+   }
+  }
+ },
+ "rung2_glyph": {
+  "glyph box, raw bytes": {
+   "train_records": 70,
+   "eval_records": 80,
+   "distinct_train_keys": 58,
+   "distinct_eval_keys": 67,
+   "unseen_key_fraction": 0.85,
+   "majority_baseline": 0.0625,
+   "oracle_accuracy": 0.9625,
+   "oracle_advantage": 0.9,
+   "transfer_accuracy": 0.0875,
+   "transfer_advantage": 0.024999999999999994
+  },
+  "glyph box, ink-binarised": {
+   "train_records": 70,
+   "eval_records": 80,
+   "distinct_train_keys": 31,
+   "distinct_eval_keys": 30,
+   "unseen_key_fraction": 0.0125,
+   "majority_baseline": 0.0625,
+   "oracle_accuracy": 0.9625,
+   "oracle_advantage": 0.9,
+   "transfer_accuracy": 0.925,
+   "transfer_advantage": 0.8625
+  }
+ },
+ "rung3_kind": {
+  "colour_mode=random | fill colour": {
+   "train_records": 168,
+   "eval_records": 171,
+   "distinct_train_keys": 32,
+   "distinct_eval_keys": 31,
+   "unseen_key_fraction": 0.0,
+   "majority_baseline": 0.2982456140350877,
+   "oracle_accuracy": 0.4619883040935672,
+   "oracle_advantage": 0.16374269005847952,
+   "transfer_accuracy": 0.2046783625730994,
+   "transfer_advantage": -0.0935672514619883
+  },
+  "colour_mode=random | size (w,h)": {
+   "train_records": 168,
+   "eval_records": 171,
+   "distinct_train_keys": 99,
+   "distinct_eval_keys": 89,
+   "unseen_key_fraction": 0.30409356725146197,
+   "majority_baseline": 0.2982456140350877,
+   "oracle_accuracy": 0.847953216374269,
+   "oracle_advantage": 0.5497076023391814,
+   "transfer_accuracy": 0.5321637426900585,
+   "transfer_advantage": 0.2339181286549708
+  },
+  "colour_mode=random | fill + size": {
+   "train_records": 168,
+   "eval_records": 171,
+   "distinct_train_keys": 165,
+   "distinct_eval_keys": 164,
+   "unseen_key_fraction": 0.9298245614035088,
+   "majority_baseline": 0.2982456140350877,
+   "oracle_accuracy": 0.9941520467836257,
+   "oracle_advantage": 0.695906432748538,
+   "transfer_accuracy": 0.3508771929824561,
+   "transfer_advantage": 0.05263157894736842
+  },
+  "colour_mode=kind | fill colour": {
+   "train_records": 168,
+   "eval_records": 171,
+   "distinct_train_keys": 5,
+   "distinct_eval_keys": 5,
+   "unseen_key_fraction": 0.0,
+   "majority_baseline": 0.2982456140350877,
+   "oracle_accuracy": 1.0,
+   "oracle_advantage": 0.7017543859649122,
+   "transfer_accuracy": 1.0,
+   "transfer_advantage": 0.7017543859649122
+  },
+  "colour_mode=kind | size (w,h)": {
+   "train_records": 168,
+   "eval_records": 171,
+   "distinct_train_keys": 99,
+   "distinct_eval_keys": 89,
+   "unseen_key_fraction": 0.30409356725146197,
+   "majority_baseline": 0.2982456140350877,
+   "oracle_accuracy": 0.847953216374269,
+   "oracle_advantage": 0.5497076023391814,
+   "transfer_accuracy": 0.5321637426900585,
+   "transfer_advantage": 0.2339181286549708
+  },
+  "colour_mode=kind | fill + size": {
+   "train_records": 168,
+   "eval_records": 171,
+   "distinct_train_keys": 121,
+   "distinct_eval_keys": 113,
+   "unseen_key_fraction": 0.4853801169590643,
+   "majority_baseline": 0.2982456140350877,
+   "oracle_accuracy": 1.0,
+   "oracle_advantage": 0.7017543859649122,
+   "transfer_accuracy": 0.6081871345029239,
+   "transfer_advantage": 0.30994152046783624
+  }
+ },
+ "rung4_parent": {
+  "6 widgets, nesting 2": {
+   "widgets": 32,
+   "smallest_container_correct": 1.0,
+   "ties": 0
+  },
+  "12 widgets, nesting 4": {
+   "widgets": 155,
+   "smallest_container_correct": 1.0,
+   "ties": 0
+  },
+  "24 widgets, nesting 6": {
+   "widgets": 368,
+   "smallest_container_correct": 1.0,
+   "ties": 0
+  }
+ }
+}

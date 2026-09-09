@@ -1,0 +1,102 @@
+{
+ "rows": [
+  {
+   "gap": 0,
+   "sigmoid": 0.5,
+   "d_sigmoid": -0.25
+  },
+  {
+   "gap": 1,
+   "sigmoid": 0.2689414322376251,
+   "d_sigmoid": -0.1966119408607483
+  },
+  {
+   "gap": 2,
+   "sigmoid": 0.11920291930437088,
+   "d_sigmoid": -0.10499358177185059
+  },
+  {
+   "gap": 4,
+   "sigmoid": 0.01798621006309986,
+   "d_sigmoid": -0.01766270585358143
+  },
+  {
+   "gap": 8,
+   "sigmoid": 0.00033535013790242374,
+   "d_sigmoid": -0.0003352376807015389
+  },
+  {
+   "gap": 16,
+   "sigmoid": 1.1253515452835927e-07,
+   "d_sigmoid": -1.1253514031750456e-07
+  },
+  {
+   "gap": 32,
+   "sigmoid": 1.2664165777252073e-14,
+   "d_sigmoid": -1.2664165777252073e-14
+  },
+  {
+   "gap": 40,
+   "sigmoid": 4.24835413113866e-18,
+   "d_sigmoid": -4.24835413113866e-18
+  },
+  {
+   "gap": 60,
+   "sigmoid": 8.75651089272076e-27,
+   "d_sigmoid": -8.75651089272076e-27
+  },
+  {
+   "gap": 80,
+   "sigmoid": 1.8048513285848406e-35,
+   "d_sigmoid": -1.8048513285848406e-35
+  },
+  {
+   "gap": 88,
+   "sigmoid": 6.054601485195952e-39,
+   "d_sigmoid": -6.054601485195952e-39
+  },
+  {
+   "gap": 89,
+   "sigmoid": 0.0,
+   "d_sigmoid": -0.0
+  },
+  {
+   "gap": 90,
+   "sigmoid": 0.0,
+   "d_sigmoid": -0.0
+  },
+  {
+   "gap": 100,
+   "sigmoid": 0.0,
+   "d_sigmoid": -0.0
+  },
+  {
+   "gap": 128,
+   "sigmoid": 0.0,
+   "d_sigmoid": -0.0
+  },
+  {
+   "gap": 256,
+   "sigmoid": 0.0,
+   "d_sigmoid": -0.0
+  },
+  {
+   "gap": 1024,
+   "sigmoid": 0.0,
+   "d_sigmoid": -0.0
+  },
+  {
+   "gap": 4096,
+   "sigmoid": 0.0,
+   "d_sigmoid": -0.0
+  },
+  {
+   "gap": 65025,
+   "sigmoid": 0.0,
+   "d_sigmoid": -0.0
+  }
+ ],
+ "first_gap_with_zero_surrogate": 89,
+ "first_gap_with_zero_gradient": 89,
+ "note": "tau=1, float32, as tcn.learning.relaxed computes le/lt"
+}

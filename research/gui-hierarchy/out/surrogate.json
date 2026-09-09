@@ -1,0 +1,327 @@
+{
+ "screen": {
+  "resolution": 16,
+  "widgets": 12,
+  "nesting": 4,
+  "min_size": 4
+ },
+ "palette": {
+  "2": {
+   "colours": 8,
+   "separation": 210,
+   "surrogate_tau_1": 0.0,
+   "surrogate_tau_256": 0.0,
+   "slope_tau_1": 0.0,
+   "slope_tau_256": 0.0,
+   "live_at_tau_1": false,
+   "live_at_tau_256": false
+  },
+  "4": {
+   "colours": 64,
+   "separation": 70,
+   "surrogate_tau_1": 0.0,
+   "surrogate_tau_256": 4.867793723661862e-09,
+   "slope_tau_1": 0.0,
+   "slope_tau_256": 2.6620746926275807e-09,
+   "live_at_tau_1": false,
+   "live_at_tau_256": false
+  },
+  "8": {
+   "colours": 512,
+   "separation": 30,
+   "surrogate_tau_1": 0.0,
+   "surrogate_tau_256": 0.029729217290878296,
+   "slope_tau_1": 0.0,
+   "slope_tau_256": 0.006967785302549601,
+   "live_at_tau_1": false,
+   "live_at_tau_256": true
+  },
+  "16": {
+   "colours": 4096,
+   "separation": 14,
+   "surrogate_tau_1": 0.0,
+   "surrogate_tau_256": 0.46504318714141846,
+   "slope_tau_1": 0.0,
+   "slope_tau_256": 0.050864098593592644,
+   "live_at_tau_1": false,
+   "live_at_tau_256": true
+  },
+  "32": {
+   "colours": 32768,
+   "separation": 7,
+   "surrogate_tau_1": 5.242885696424093e-22,
+   "surrogate_tau_256": 0.8257970213890076,
+   "slope_tau_1": 7.34003997499373e-21,
+   "slope_tau_256": 0.04516077460721135,
+   "live_at_tau_1": false,
+   "live_at_tau_256": true
+  }
+ },
+ "operating_levels_4": {
+  "histogram": {
+   "0": 2136,
+   "70": 400,
+   "140": 126,
+   "210": 38
+  },
+  "fraction_zero": 0.7911111111111111,
+  "fraction_live_tau_1": 0.0,
+  "fraction_live_tau_256": 0.0,
+  "distinct_distances": [
+   0,
+   70,
+   140,
+   210
+  ]
+ },
+ "operating_levels_16": {
+  "histogram": {
+   "0": 2264,
+   "14": 208,
+   "28": 36,
+   "42": 72,
+   "56": 40,
+   "70": 12,
+   "98": 8,
+   "112": 24,
+   "126": 18,
+   "140": 18
+  },
+  "fraction_zero": 0.8385185185185186,
+  "fraction_live_tau_1": 0.0,
+  "fraction_live_tau_256": 0.13185185185185186,
+  "distinct_distances": [
+   0,
+   14,
+   28,
+   42,
+   56,
+   70,
+   98,
+   112,
+   126,
+   140
+  ]
+ },
+ "operating_levels_32": {
+  "histogram": {
+   "0": 2428,
+   "7": 4,
+   "13": 14,
+   "14": 10,
+   "21": 24,
+   "27": 4,
+   "34": 8,
+   "54": 24,
+   "61": 4,
+   "68": 10,
+   "75": 4,
+   "81": 28,
+   "88": 28,
+   "95": 8,
+   "109": 16,
+   "115": 24,
+   "122": 4,
+   "129": 20,
+   "136": 8,
+   "156": 8,
+   "169": 14,
+   "176": 8
+  },
+  "fraction_zero": 0.8992592592592593,
+  "fraction_live_tau_1": 0.0,
+  "fraction_live_tau_256": 0.03259259259259259,
+  "distinct_distances": [
+   0,
+   7,
+   13,
+   14,
+   21,
+   27,
+   34,
+   54,
+   61,
+   68,
+   75,
+   81,
+   88,
+   95,
+   109,
+   115,
+   122,
+   129,
+   136,
+   156,
+   169,
+   176
+  ]
+ },
+ "gradients_levels_4_narrow_preselected": {
+  "shifted": {
+   "candidates": 5,
+   "grad_is_none": true,
+   "grad_abs_max": 0.0,
+   "grad_norm": 0.0
+  },
+  "rg": {
+   "candidates": 16,
+   "grad_is_none": false,
+   "grad_abs_max": 5.093170329928398e-11,
+   "grad_norm": 1.3337050908113213e-10
+  },
+  "edge": {
+   "candidates": 16,
+   "grad_is_none": false,
+   "grad_abs_max": 0.02734375,
+   "grad_norm": 0.06572619825601578
+  },
+  "_loss": 0.6931471824645996
+ },
+ "gradients_levels_4_narrow_relaxed": {
+  "shifted": {
+   "candidates": 5,
+   "grad_is_none": false,
+   "grad_abs_max": 1.51223678024337e-09,
+   "grad_norm": 2.623806283352792e-09
+  },
+  "rg": {
+   "candidates": 16,
+   "grad_is_none": false,
+   "grad_abs_max": 3.637978807091713e-11,
+   "grad_norm": 1.0493535207434235e-10
+  },
+  "edge": {
+   "candidates": 16,
+   "grad_is_none": false,
+   "grad_abs_max": 0.02734375,
+   "grad_norm": 0.07374601811170578
+  },
+  "_loss": 0.6931471824645996
+ },
+ "gradients_levels_4_wide_preselected": {
+  "shifted": {
+   "candidates": 51,
+   "grad_is_none": true,
+   "grad_abs_max": 0.0,
+   "grad_norm": 0.0
+  },
+  "rg": {
+   "candidates": 16,
+   "grad_is_none": false,
+   "grad_abs_max": 6.548361852765083e-11,
+   "grad_norm": 1.671887767118463e-10
+  },
+  "edge": {
+   "candidates": 16,
+   "grad_is_none": false,
+   "grad_abs_max": 0.02734375,
+   "grad_norm": 0.06298638880252838
+  },
+  "_loss": 0.6931471824645996
+ },
+ "gradients_levels_4_wide_relaxed": {
+  "shifted": {
+   "candidates": 51,
+   "grad_is_none": false,
+   "grad_abs_max": 2.0907455766661087e-09,
+   "grad_norm": 8.791067429569921e-09
+  },
+  "rg": {
+   "candidates": 16,
+   "grad_is_none": false,
+   "grad_abs_max": 2.667897847086209e-11,
+   "grad_norm": 7.545954833210189e-11
+  },
+  "edge": {
+   "candidates": 16,
+   "grad_is_none": false,
+   "grad_abs_max": 0.02734375186264515,
+   "grad_norm": 0.06850723922252655
+  },
+  "_loss": 0.6931471824645996
+ },
+ "gradients_levels_16_narrow_preselected": {
+  "shifted": {
+   "candidates": 5,
+   "grad_is_none": true,
+   "grad_abs_max": 0.0,
+   "grad_norm": 0.0
+  },
+  "rg": {
+   "candidates": 16,
+   "grad_is_none": false,
+   "grad_abs_max": 7.275957614183426e-12,
+   "grad_norm": 2.9103830456733704e-11
+  },
+  "edge": {
+   "candidates": 16,
+   "grad_is_none": false,
+   "grad_abs_max": 0.02734375,
+   "grad_norm": 0.0755208358168602
+  },
+  "_loss": 0.6931471824645996
+ },
+ "gradients_levels_16_narrow_relaxed": {
+  "shifted": {
+   "candidates": 5,
+   "grad_is_none": false,
+   "grad_abs_max": 1.431290019837661e-08,
+   "grad_norm": 2.4833555656300632e-08
+  },
+  "rg": {
+   "candidates": 16,
+   "grad_is_none": false,
+   "grad_abs_max": 7.401013135677204e-11,
+   "grad_norm": 2.959513190070595e-10
+  },
+  "edge": {
+   "candidates": 16,
+   "grad_is_none": false,
+   "grad_abs_max": 0.02734375,
+   "grad_norm": 0.07547448575496674
+  },
+  "_loss": 0.6931471824645996
+ },
+ "gradients_levels_16_wide_preselected": {
+  "shifted": {
+   "candidates": 51,
+   "grad_is_none": true,
+   "grad_abs_max": 0.0,
+   "grad_norm": 0.0
+  },
+  "rg": {
+   "candidates": 16,
+   "grad_is_none": false,
+   "grad_abs_max": 2.1827872842550278e-11,
+   "grad_norm": 6.507814426237601e-11
+  },
+  "edge": {
+   "candidates": 16,
+   "grad_is_none": false,
+   "grad_abs_max": 0.02734375,
+   "grad_norm": 0.07202769070863724
+  },
+  "_loss": 0.6931471824645996
+ },
+ "gradients_levels_16_wide_relaxed": {
+  "shifted": {
+   "candidates": 51,
+   "grad_is_none": false,
+   "grad_abs_max": 1.2662083603842689e-09,
+   "grad_norm": 5.324074958679148e-09
+  },
+  "rg": {
+   "candidates": 16,
+   "grad_is_none": false,
+   "grad_abs_max": 5.4569682106375694e-12,
+   "grad_norm": 1.563093751655309e-11
+  },
+  "edge": {
+   "candidates": 16,
+   "grad_is_none": false,
+   "grad_abs_max": 0.027987129986286163,
+   "grad_norm": 0.07825497537851334
+  },
+  "_loss": 0.6931471824645996
+ }
+}
