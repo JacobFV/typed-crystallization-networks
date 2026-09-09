@@ -456,6 +456,10 @@ reported as suggestive only.
 * **Boolean domain, complete truth tables, supervised synthesis, argmax export.**
   No crystallization phase in the composite arms and no RL path, following the
   re-test's design so the `mdl_weight = 0` column stays comparable to it.
+* **Arms A and C were not re-run with the term.** Both are 0/8 and 0/24 at weight
+  zero, and enumeration certifies that arm A's 230 400-program space and arm C's
+  2 709 504-program space contain no solution at all, so a term that can only
+  reduce the success rate cannot change their outcome. Only arm B is swept.
 * **Sample sizes** are 8 seeds on the wide scaffold, 24 on the tight one, and 12
   per weight on acquisition. Only large effects are detectable, and the
   acquisition contrast in particular rests on single-digit counts.
