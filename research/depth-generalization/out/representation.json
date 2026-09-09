@@ -1,0 +1,82 @@
+{
+  "observation_widths": {
+    "1": {
+      "program_tuple_fields": 3,
+      "program_flat_width": 3,
+      "gates_capacity": 8,
+      "gates_flat_width": 40,
+      "gates_cardinality": 1,
+      "gates_type_digest": "{\"capacity\": 8, \"items\": [{\"items\": [{\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}, {\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}, {\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}, {\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}], \"kind\": \"tuple\"}], \"kind\": \"set\"}"
+    },
+    "2": {
+      "program_tuple_fields": 6,
+      "program_flat_width": 6,
+      "gates_capacity": 8,
+      "gates_flat_width": 40,
+      "gates_cardinality": 2,
+      "gates_type_digest": "{\"capacity\": 8, \"items\": [{\"items\": [{\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}, {\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}, {\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}, {\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}], \"kind\": \"tuple\"}], \"kind\": \"set\"}"
+    },
+    "3": {
+      "program_tuple_fields": 9,
+      "program_flat_width": 9,
+      "gates_capacity": 8,
+      "gates_flat_width": 40,
+      "gates_cardinality": 3,
+      "gates_type_digest": "{\"capacity\": 8, \"items\": [{\"items\": [{\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}, {\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}, {\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}, {\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}], \"kind\": \"tuple\"}], \"kind\": \"set\"}"
+    },
+    "4": {
+      "program_tuple_fields": 12,
+      "program_flat_width": 12,
+      "gates_capacity": 8,
+      "gates_flat_width": 40,
+      "gates_cardinality": 4,
+      "gates_type_digest": "{\"capacity\": 8, \"items\": [{\"items\": [{\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}, {\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}, {\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}, {\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}], \"kind\": \"tuple\"}], \"kind\": \"set\"}"
+    },
+    "6": {
+      "program_tuple_fields": 18,
+      "program_flat_width": 18,
+      "gates_capacity": 8,
+      "gates_flat_width": 40,
+      "gates_cardinality": 6,
+      "gates_type_digest": "{\"capacity\": 8, \"items\": [{\"items\": [{\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}, {\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}, {\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}, {\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}], \"kind\": \"tuple\"}], \"kind\": \"set\"}"
+    },
+    "8": {
+      "program_tuple_fields": 24,
+      "program_flat_width": 24,
+      "gates_capacity": 8,
+      "gates_flat_width": 40,
+      "gates_cardinality": 8,
+      "gates_type_digest": "{\"capacity\": 8, \"items\": [{\"items\": [{\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}, {\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}, {\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}, {\"bits\": 8, \"encoding\": {\"kind\": \"integer\", \"overflow\": \"error\", \"scale\": 1.0, \"signed\": false}, \"kind\": \"int\"}], \"kind\": \"tuple\"}], \"kind\": \"set\"}"
+    }
+  },
+  "gate_set": {
+    "one_type_at_every_depth": true,
+    "program_types_distinct": 6
+  },
+  "step4_lookup_scaffold": {
+    "1": {
+      "accepted": true,
+      "error": null
+    },
+    "2": {
+      "accepted": false,
+      "error": "ValueError: table-conditioned scaffold is typed for a single-gate program observation"
+    },
+    "3": {
+      "accepted": false,
+      "error": "ValueError: table-conditioned scaffold is typed for a single-gate program observation"
+    },
+    "4": {
+      "accepted": false,
+      "error": "ValueError: table-conditioned scaffold is typed for a single-gate program observation"
+    },
+    "6": {
+      "accepted": false,
+      "error": "ValueError: table-conditioned scaffold is typed for a single-gate program observation"
+    },
+    "8": {
+      "accepted": false,
+      "error": "ValueError: table-conditioned scaffold is typed for a single-gate program observation"
+    }
+  }
+}

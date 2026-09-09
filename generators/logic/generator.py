@@ -1,5 +1,33 @@
 from tcn.generation import Generator, BOOL, Value, Address, vector_value
-from tcn.types import product
+from tcn.types import product, setof, integer
+
+# The `program` observation is a `tuple` of `3 * depth` scalars, so its *type*
+# changes with depth and a fixed-width typed program cannot accept an episode of
+# unseen depth. A gate list is a sequence, and ARCHITECTURE.md section 1 already
+# says sequences are indexed values and relations are sets of tuples, so the same
+# state has a second typed view whose type does not depend on depth: the relation
+#
+#     {(i, wire_a, wire_b, table) : gate i}   as   set[(int8, int8, int8, int8)]
+#
+# with one fixed declared capacity. Cardinality varies with depth; the type does
+# not. This is an *additional* channel, emitted only when `gate_capacity` is
+# configured, so the default observation set and every recorded episode are
+# unchanged. Section 6 permits a generator to emit a different typed view of the
+# same state; it does not permit changing what an existing configuration records.
+GATE_FIELD = integer(8, signed=False)
+GATE_ELEMENT = product(GATE_FIELD, GATE_FIELD, GATE_FIELD, GATE_FIELD)
+
+def gate_set_type(capacity):
+    """Depth-independent type of the gate relation, for a declared capacity."""
+    return setof(GATE_ELEMENT, int(capacity))
+
+def gate_set_value(gates, capacity):
+    """`gates` as the relation {(index, wire_a, wire_b, table)}; lossless for d <= capacity."""
+    return Value.of(gate_set_type(capacity), tuple((i, int(a), int(b), int(t)) for i, (a, b, t) in enumerate(gates)))
+
+def gates_from_set(value):
+    """Inverse of `gate_set_value`: the index field restores the order exactly."""
+    return [[a, b, t] for _, a, b, t in sorted(value.decoded)]
 
 # A two-input table is degenerate when its output ignores at least one input:
 # the two constants, both projections, and both negated projections. Circuits
@@ -75,7 +103,20 @@ class Implementation(Generator):
                 # bare failure, since it is a property of the request.
                 raise ValueError(f'no sampled circuit reached min_relevant_inputs={minimum} in {attempts} draws at depth={count}, inputs={width}; best was {best}. Increase depth or max_attempts.')
         else: bits,gates,values=self.draw(rng,configuration,width,count)
-        return {'time':0.,'tick':0,'bits':bits,'gates':gates,'values':values,'horizon':configuration.get('horizon',8),'answer':False,'invert':bool(configuration.get('objective',{}).get('invert',False))}
+        state={'time':0.,'tick':0,'bits':bits,'gates':gates,'values':values,'horizon':configuration.get('horizon',8),'answer':False,'invert':bool(configuration.get('objective',{}).get('invert',False))}
+        # Recorded only when asked for, so an episode drawn without it keeps the
+        # state dict -- and therefore the snapshot -- it had before this channel
+        # existed. `capacity` is a property of the declared observation type and
+        # must not depend on the episode, which is the whole point: one program
+        # accepts every depth up to it.
+        capacity=configuration.get('gate_capacity')
+        if capacity is not None:
+            capacity=int(capacity)
+            if not 1<=capacity<=64: raise ValueError('gate_capacity must be 1..64')
+            if count>capacity: raise ValueError(f'depth={count} exceeds gate_capacity={capacity}')
+            if width+capacity>256: raise ValueError('wire index must fit the declared int[8] field')
+            state['gate_capacity']=capacity
+        return state
     def advance(self,state,actions,dt,rng):
         reward=0.
         for a in actions:
@@ -85,6 +126,7 @@ class Implementation(Generator):
     def observe(self,s):
         values=Value.of(product(*(BOOL for _ in s['values'])),tuple(s['values']))
         obs={'bits':Value.of(product(*(BOOL for _ in s['bits'])),tuple(s['bits'])),'program':vector_value([x for g in s['gates'] for x in g])}
+        if s.get('gate_capacity') is not None: obs['gates']=gate_set_value(s['gates'],s['gate_capacity'])
         obs['goal']=Value.of(BOOL,s['invert'])
         target=Value.of(BOOL,s['values'][-1]!=s['invert'])
         return obs,{'values':values},{'target':target,'gate':Value.of(BOOL,s['values'][-1])},{'agent_0':('wait','answer')}

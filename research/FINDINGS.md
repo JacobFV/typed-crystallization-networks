@@ -586,3 +586,60 @@ seeds in the free-offset arm. Fixed with a regression test. And enumeration
 re-executes whole programs; a prefix-reusing walk returns the identical
 conforming set 17.8x faster at R=8 and is flat in observation width where the
 current loop is linear.
+
+## 15. Depth generalization, achieved with no addition to the algebra
+
+Full detail in `research/depth-generalization/RESULTS.md`. Verified from the raw
+JSON by regenerating its tables, not from the summary.
+
+Track 4's blocker was representational: the `program` observation is `3 * depth`
+wide, so a fixed-width typed program cannot accept an episode of unseen depth.
+Confirmed here as an executable check — the step-4 scaffold accepts depth 1 and
+type-errors at 2, 3, 4, 6 and 8.
+
+**The fix is a second typed view of the same state, not a new primitive.**
+`generators/logic` gains a `gates` channel, emitted only when `gate_capacity` is
+configured: `set[(index, wire_a, wire_b, table)]` at a declared capacity. The
+index field is load-bearing, since two gates can be identical and a set is
+duplicate-free. Measured: `gates` is **width 40 at every depth** while `program`
+runs 3, 6, 9, 12, 18, 24. ARCHITECTURE section 1 already calls sequences indexed
+values and relations sets of tuples; this is that, and nothing else.
+
+**Sequential evaluation is expressible through `Program.state`.** `map` is
+parallel and carries no fold, but section 4's explicit recurrence is the fold:
+one gate per tick, dispatched with `insert`/`pair`/`filter`, wires read by `mux`
+over `index`/`member`, the result committed with `insert`. Verified exact
+against the generator's own wire values on 40 episodes at each of depths 1-8,
+settling at exactly tick d-1.
+
+**One fixed graph, trained at depths 1-2 only, on held-out episodes:**
+
+| scaffold | space | d1-d2 (seen) | d3 | d4 | d6 | d8 |
+|---|---|---|---|---|---|---|
+| record | 256 | 2.12 | 1.62 | 1.50 | 2.06 | 2.44 |
+| interpreter, no settle mux (ablation) | 1088 | 2.20 | 1.75 | 1.66 | 2.13 | 2.48 |
+| interpreter, wire choice free | 1088 | 3.69-3.77 | 3.66 | 3.70 | 3.66 | 3.69 |
+| **interpreter, wire lookup pinned** | 272 | **4.00** | **4.00** | **4.00** | **4.00** | **4.00** |
+| best constant | — | 2.12 | 2.38 | 2.50 | 2.06 | 2.44 |
+
+sd 0.00 across 8 seeds in the pinned row. Enumeration over the same 272-program
+space exhausts in 25 s, certifies the optimum **unique**, and picks the same
+program.
+
+Note the exported **exact** program scores 4.00 where the soft model scores
+3.20-3.31: hardening improves this program rather than degrading it, which is
+the relaxation gap of section 4 running in the useful direction for once.
+
+**Costs, all measured and all consistent with earlier findings.** A two-node
+`mux` settle gate is what makes it learnable; without it three nodes have
+`grad is None` under the task objective, and the 1.0e-5 seen under the
+regularized objective is the entropy term — section 3's guard defeat reproduced
+independently. Searching the wire binding rather than declaring it costs 2 of 8
+seeds, with binding gradients of 4.7e-08 and 3.1e-05 against 8.7e-03 for the
+operator choice: **the third independent instance of the address wall, now on a
+task with no images in it.** Depth is generalized up to a declared capacity, not
+unboundedly. `tcn/search.py` cannot score a recurrent program at all.
+
+The default observation stream was verified bit-identical over 192
+seed/config/split combinations, and independently here: the default observation
+set is still exactly `bits`, `goal`, `program`.
