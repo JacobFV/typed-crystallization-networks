@@ -67,5 +67,16 @@ TCN architecture will learn or transfer successfully.
 [Mastering Diverse Domains through World Models](https://arxiv.org/abs/2301.04104).
 
 The particular Mario demonstration mentioned in the brief was not identified
-in the initial search. It remains motivation supplied by the user rather than
-a verified result attributed to a specific implementation here.
+by literature search. The project lead reports it was posted to Twitter/X on
+2026-09-07, which is after this repository's search methods can reach: those
+queries covered indexed papers, GitHub, blogs, and author publication lists,
+none of which index a day-old social media post. The null finding recorded in
+`research/literature/RESULTS.md` should be read as "not present in indexed
+sources", not as "does not exist".
+
+Two things still need capturing when the source is to hand: the architecture
+and discretization method, and the training procedure. Both bear directly on
+whether this repository's substrate is the right one for sequential control.
+The nearest result that search did locate is Differentiable Weightless
+Controllers, which trains Boolean lookup-table circuits with SAC to
+competitive performance on four of five MuJoCo tasks.

@@ -1,5 +1,14 @@
 # Track 7 — What the literature actually establishes about DLGNs
 
+> **Correction (2026-09-08, after this report was written).** The project lead
+> reports the Mario demonstration was posted to Twitter/X on 2026-09-07. Every
+> search line below covered indexed sources — papers, GitHub, blogs, author
+> publication lists — none of which index a day-old social media post. Read the
+> null finding in section 1 as "not present in indexed sources as of this
+> search", not as "does not exist". The conflation candidates listed there are
+> retained as context, not as an explanation. The rest of this report, which
+> concerns DLGN capabilities, scaling limits and prior art, is unaffected.
+
 **Method.** Web search and direct source retrieval only, 2026-09-08. No experiments.
 Every claim below carries a URL. Evidence is tagged:
 
