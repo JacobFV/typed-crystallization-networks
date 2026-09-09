@@ -1,0 +1,182 @@
+{
+  "conversions": {
+    "decode  byte -> float32 intensity": null,
+    "decode  byte -> float32 plain": null,
+    "decode  intensity -> float32 intensity": "surrogate",
+    "dequantize byte -> float32 plain": null,
+    "encode  byte -> int[16] byte": "surrogate",
+    "encode  byte -> int[16] plain": null,
+    "interpret byte -> byte": null,
+    "interpret byte -> float32 intensity": null,
+    "interpret byte -> int[16] intensity": null,
+    "interpret byte -> int[8] category": "none",
+    "interpret byte -> int[8] intensity": "exact",
+    "interpret byte -> int[8] plain": null,
+    "interpret category -> intensity": null,
+    "interpret intensity -> category": null,
+    "pack    (byte,) -> int[8] plain": "none",
+    "quantize byte -> bool": null,
+    "unpack  int[8] plain -> (byte,)": "none"
+  },
+  "differentiable_exits_from_byte": [
+    "interpret byte -> int[8] intensity"
+  ],
+  "legal_counts": {
+    "byte (uncommitted)": 3,
+    "category (nominal)": 3,
+    "intensity (magnitude)": 21
+  },
+  "operator_legality": {
+    "abs": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": "exact"
+    },
+    "add": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": "exact"
+    },
+    "atan2": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": null
+    },
+    "cos": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": null
+    },
+    "div": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": null
+    },
+    "eq": {
+      "byte (uncommitted)": "surrogate",
+      "category (nominal)": "surrogate",
+      "intensity (magnitude)": "surrogate"
+    },
+    "exp": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": null
+    },
+    "ge": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": "surrogate"
+    },
+    "gt": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": "surrogate"
+    },
+    "idiv": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": "surrogate"
+    },
+    "index": {
+      "byte (uncommitted)": "surrogate",
+      "category (nominal)": "surrogate",
+      "intensity (magnitude)": "surrogate"
+    },
+    "le": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": "surrogate"
+    },
+    "log": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": null
+    },
+    "lt": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": "surrogate"
+    },
+    "max": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": "exact"
+    },
+    "mean": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": null
+    },
+    "min": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": "exact"
+    },
+    "mod": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": "surrogate"
+    },
+    "mul": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": "exact"
+    },
+    "neg": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": "exact"
+    },
+    "pow": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": null
+    },
+    "reduce_max": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": "exact"
+    },
+    "reduce_min": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": "exact"
+    },
+    "shl": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": "surrogate"
+    },
+    "shr": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": "surrogate"
+    },
+    "sin": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": null
+    },
+    "sqrt": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": null
+    },
+    "sub": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": "exact"
+    },
+    "sum": {
+      "byte (uncommitted)": null,
+      "category (nominal)": null,
+      "intensity (magnitude)": "exact"
+    },
+    "tuple": {
+      "byte (uncommitted)": "exact",
+      "category (nominal)": "exact",
+      "intensity (magnitude)": "exact"
+    }
+  },
+  "total_operators": 30
+}

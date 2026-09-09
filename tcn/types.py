@@ -6,6 +6,37 @@ import json
 import math
 import struct
 
+# --- role vocabulary -------------------------------------------------------
+# `role` is the semantic schema field that says what an integer carrier *means*.
+# Three classes, and the class decides which operators are legal:
+#
+#   uncommitted  a raw octet off a channel whose interpretation is not declared
+#                yet -- a pixel channel, a text octet, a file octet, an audio
+#                sample.  Neither a magnitude nor a label until a program says so.
+#   nominal      an unordered identifier.  Only equality is meaningful; averaging
+#                two of them denotes nothing, so they are excluded from `numeric`
+#                and `flat()` gives them a bit decomposition rather than a scalar.
+#   magnitude    a scalar measurement.  Ordering, arithmetic and mixtures are
+#                meaningful, so it is `numeric` and flattens to one scalar.
+#
+# The plain role "" is an undeclared magnitude and is already numeric everywhere.
+# `interpret` (see `tcn.operators`) is the one explicit graph operation that
+# commits an uncommitted carrier to one of the other two classes.  It never runs
+# the other way: turning a nominal ID into a magnitude is exactly the implicit
+# reinterpretation ARCHITECTURE section 1 forbids.
+UNCOMMITTED_ROLES = frozenset({"byte"})
+NOMINAL_ROLES = frozenset({"category", "symbol"})
+MAGNITUDE_ROLES = frozenset({"intensity"})
+COMMITTED_ROLES = NOMINAL_ROLES | MAGNITUDE_ROLES
+
+def interpretable(source, target):
+    """True where a declared `interpret` may commit an uncommitted carrier.
+
+    One direction only, and only out of an uncommitted role.  There is no
+    conversion from a nominal ID to a magnitude at any width or encoding.
+    """
+    return source in UNCOMMITTED_ROLES and target in COMMITTED_ROLES
+
 @dataclass(frozen=True)
 class Encoding:
     kind: str = "integer"
@@ -46,7 +77,7 @@ class Type:
             raise ValueError("invalid refinement bounds")
     @property
     def numeric(self):
-        return self.kind == "int" and self.role not in {"category", "symbol", "byte"}
+        return self.kind == "int" and self.role not in NOMINAL_ROLES | UNCOMMITTED_ROLES
     def to_dict(self):
         d={"kind":self.kind}
         if self.kind=="int":d.update(bits=self.bits,encoding=asdict(self.encoding))
@@ -76,7 +107,7 @@ class Type:
     @property
     def width(self):
         if self.kind in {"bool", "int"}:
-            return self.bits if self.kind=="int" and self.role in {"category","symbol"} else 1
+            return self.bits if self.kind=="int" and self.role in NOMINAL_ROLES else 1
         if self.kind == "tuple":
             return sum(t.width for t in self.items)
         return self.capacity*(1+self.items[0].width)
@@ -187,7 +218,7 @@ class Value:
     def flat(self):
         def f(t, raw):
             if t.kind in {"bool", "int"}:
-                if t.kind=="int" and t.role in {"category","symbol"}:return [float((raw>>i)&1) for i in range(t.bits)]
+                if t.kind=="int" and t.role in NOMINAL_ROLES:return [float((raw>>i)&1) for i in range(t.bits)]
                 return [float(decode(t, raw))]
             if t.kind == "tuple": return [v for a,b in zip(t.items,raw) for v in f(a,b)]
             ordered=sorted(raw,key=lambda v:json.dumps(canonical(v),sort_keys=True))
@@ -200,7 +231,7 @@ class Value:
         def f(t):
             if t.kind == "bool": return bool(next(it) >= .5)
             if t.kind == "int":
-                if t.role in {"category","symbol"}:
+                if t.role in NOMINAL_ROLES:
                     raw=sum(int(next(it)>=.5)<<i for i in range(t.bits))
                     return decode(t,raw)
                 x = float(next(it))

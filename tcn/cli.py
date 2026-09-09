@@ -324,8 +324,10 @@ def _demo_segmentation(out,quick):
             'recorded':{'gradient_seeds_exact':'12/12 at R=2 and R=4, held-out error 0.0',
                         'median_gradient_seconds':43.4,'enumeration_seconds':7.87},
             'note':'supervision is an equivalence class of the generator depth probe; the input '
-                   'is the raw byte tuple with role="byte", so only eq, index and pack are legal '
-                   'on it and no arithmetic on a pixel is expressible.'}
+                   'is the raw byte tuple with role="byte", so only eq, index, pack and the '
+                   'structural family are legal on it directly; arithmetic on a pixel requires '
+                   'an explicit `interpret` node committing the octet to a magnitude, and this '
+                   'program contains none.'}
     return _row('segmentation','background colour recovered from raw pixels over the full byte alphabet',
                 f"held-out max |err| {error} on 48 unseen episodes",
                 f"unique among {space_size(program):,} programs in {result.seconds:.1f} s; "

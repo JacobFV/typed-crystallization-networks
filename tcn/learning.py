@@ -89,6 +89,12 @@ def relaxed(registry,op,xs,temperature=1.):
         z=torch.view_as_complex(a.reshape(*a.shape[:-1],-1,2).contiguous())
         return torch.view_as_real(torch.fft.ifft(z,dim=-1)).flatten(-2)
     if n=="fourier_basis": return torch.cat((a.cos(),a.sin()),-1)
+    if n=="interpret":
+        # Only the magnitude commitment reaches here; the nominal one is
+        # `gradient="none"` and was returned exactly above. The uncommitted byte
+        # and the committed magnitude share one scalar relaxation carrier, so the
+        # declaration is the identity map with derivative 1.
+        return a
     if n in CONVERSIONS:
         if op.output.kind=="bool": return torch.sigmoid((a-p.get("threshold",.5))/temperature)
         return a

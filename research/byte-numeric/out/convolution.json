@@ -1,0 +1,1485 @@
+{
+  "apply": [
+    {
+      "caller_nodes": 3,
+      "max_error": 0.0,
+      "median_seconds": 0.0267690850305371,
+      "positions": 36,
+      "resolution": 8
+    },
+    {
+      "caller_nodes": 3,
+      "max_error": 0.0,
+      "median_seconds": 0.6206110890489072,
+      "positions": 196,
+      "resolution": 16
+    }
+  ],
+  "arguments": {
+    "apply": 3,
+    "apply_resolution": 16,
+    "enum_train": 3,
+    "grad_taus": [
+      1.0,
+      0.25,
+      0.05,
+      0.02
+    ],
+    "held": 6,
+    "index_tau": 0.02,
+    "lr": 0.25,
+    "resolution": 8,
+    "seeds": 4,
+    "steps": 600,
+    "tag": "convolution",
+    "train": 6
+  },
+  "arm_a": {
+    "baselines": {
+      "predict_train_mean_held_mse": 21682.398834019205,
+      "predict_zero_held_mse": 21805.12037037037
+    },
+    "exact_after_rounding": 4,
+    "nodes": 50,
+    "rows": [
+      {
+        "held_max_error": 0.9903488159179688,
+        "held_mse": 0.18695072419600686,
+        "learned_weights": {
+          "00": -1.0006197690963745,
+          "01": -0.0006808561738580465,
+          "02": 0.9994084239006042,
+          "10": -2.000619888305664,
+          "11": -0.0006929796654731035,
+          "12": 1.9993997812271118,
+          "20": -1.0006450414657593,
+          "21": -0.0006727142026647925,
+          "22": 0.9993856549263
+        },
+        "relaxed_loss": 0.17263711988925934,
+        "rounded_held_max_error": 0.0,
+        "rounded_is_reference": true,
+        "rounded_train_max_error": 0.0,
+        "rounded_weights": {
+          "00": -1,
+          "01": 0,
+          "02": 1,
+          "10": -2,
+          "11": 0,
+          "12": 2,
+          "20": -1,
+          "21": 0,
+          "22": 1
+        },
+        "seconds": 5.119878372992389,
+        "seed": 0,
+        "train_mse": 0.17263569063071532
+      },
+      {
+        "held_max_error": 36.97942352294922,
+        "held_mse": 260.6197280872811,
+        "learned_weights": {
+          "00": -1.0231815576553345,
+          "01": -0.024825196713209152,
+          "02": 0.9770265221595764,
+          "10": -2.0231781005859375,
+          "11": -0.02514634281396866,
+          "12": 1.9770041704177856,
+          "20": -1.0239962339401245,
+          "21": -0.024658355861902237,
+          "22": 0.9766296148300171
+        },
+        "relaxed_loss": 240.72056579589844,
+        "rounded_held_max_error": 0.0,
+        "rounded_is_reference": true,
+        "rounded_train_max_error": 0.0,
+        "rounded_weights": {
+          "00": -1,
+          "01": 0,
+          "02": 1,
+          "10": -2,
+          "11": 0,
+          "12": 2,
+          "20": -1,
+          "21": 0,
+          "22": 1
+        },
+        "seconds": 8.384473395999521,
+        "seed": 1,
+        "train_mse": 240.7206012397133
+      },
+      {
+        "held_max_error": 0.0040130615234375,
+        "held_mse": 3.107516960412517e-06,
+        "learned_weights": {
+          "00": -1.0000022649765015,
+          "01": -2.7034720915253274e-06,
+          "02": 0.9999973773956299,
+          "10": -2.00000262260437,
+          "11": -2.8615650080610067e-06,
+          "12": 1.999997615814209,
+          "20": -1.0000026226043701,
+          "21": -2.74825242740917e-06,
+          "22": 0.9999974370002747
+        },
+        "relaxed_loss": 2.871290917028091e-06,
+        "rounded_held_max_error": 0.0,
+        "rounded_is_reference": true,
+        "rounded_train_max_error": 0.0,
+        "rounded_weights": {
+          "00": -1,
+          "01": 0,
+          "02": 1,
+          "10": -2,
+          "11": 0,
+          "12": 2,
+          "20": -1,
+          "21": 0,
+          "22": 1
+        },
+        "seconds": 8.206821188039612,
+        "seed": 2,
+        "train_mse": 2.8650285514596865e-06
+      },
+      {
+        "held_max_error": 0.07653045654296875,
+        "held_mse": 0.0011140618410874084,
+        "learned_weights": {
+          "00": -1.0000449419021606,
+          "01": -5.237014920567162e-05,
+          "02": 0.9999518394470215,
+          "10": -2.0000462532043457,
+          "11": -5.427503492683172e-05,
+          "12": 1.999952793121338,
+          "20": -1.0000507831573486,
+          "21": -5.2225779654690996e-05,
+          "22": 0.9999529719352722
+        },
+        "relaxed_loss": 0.0010300242574885488,
+        "rounded_held_max_error": 0.0,
+        "rounded_is_reference": true,
+        "rounded_train_max_error": 0.0,
+        "rounded_weights": {
+          "00": -1,
+          "01": 0,
+          "02": 1,
+          "10": -2,
+          "11": 0,
+          "12": 2,
+          "20": -1,
+          "21": 0,
+          "22": 1
+        },
+        "seconds": 5.930152217042632,
+        "seed": 3,
+        "train_mse": 0.0010300839045713367
+      }
+    ],
+    "space_size": 1,
+    "trainable_constants": [
+      "w_00",
+      "w_01",
+      "w_02",
+      "w_10",
+      "w_11",
+      "w_12",
+      "w_20",
+      "w_21",
+      "w_22"
+    ]
+  },
+  "arm_b_interpret": {
+    "all_conforming": {
+      "conforming": [
+        {
+          "addr_a": 3,
+          "addr_b": 5,
+          "w_a": 0,
+          "w_b": 2
+        },
+        {
+          "addr_a": 5,
+          "addr_b": 3,
+          "w_a": 2,
+          "w_b": 0
+        }
+      ],
+      "count": 2,
+      "evaluated": 729,
+      "exhausted": true,
+      "seconds": 0.2653026040061377,
+      "space_size": 729,
+      "unique": false
+    },
+    "enumerate_fit": {
+      "conforming": 2,
+      "continuous": [],
+      "description_bits": 1494248,
+      "evaluated": 729,
+      "exact_max_error": 0.0,
+      "execution_cost": 17.0,
+      "exhausted": true,
+      "held_out_max_error": 0.0,
+      "ranked_by": "order",
+      "seconds": 0.27608520101057366,
+      "selections": {
+        "addr_a": 3,
+        "addr_b": 5,
+        "byte_a": 0,
+        "byte_b": 0,
+        "conv": 0,
+        "mag_a": 0,
+        "mag_b": 0,
+        "obs": 0,
+        "packed": 0,
+        "pos": 0,
+        "record": 0,
+        "term_a": 0,
+        "term_b": 0,
+        "w_a": 0,
+        "w_b": 2,
+        "x_a": 0,
+        "x_b": 0
+      },
+      "solved": true,
+      "space_size": 729,
+      "unique": false,
+      "wall": 0.27968995994888246
+    },
+    "gradient": {
+      "0.02": {
+        "address_logit_gradient_max": 9971.6845703125,
+        "address_logit_gradient_min": 1.5125462376036366e-17,
+        "address_logit_gradient_none": 0,
+        "init_noise": 0.5,
+        "rows": [
+          {
+            "choice_gradients": {
+              "addr_a": 1.3389650583267212,
+              "addr_b": 4.222542251291518e-14,
+              "w_a": 469.52557373046875,
+              "w_b": 148.10910034179688
+            },
+            "conforming": false,
+            "exact_max_error": 148.0,
+            "held_max_error": 130.0,
+            "seconds": 1.202071575971786,
+            "seed": 0,
+            "selections": {
+              "addr_a": 5,
+              "addr_b": 2,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "mag_a": 0,
+              "mag_b": 0,
+              "obs": 0,
+              "packed": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "w_a": 2,
+              "w_b": 0,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 9971.6845703125,
+              "addr_b": 0.03017566166818142,
+              "w_a": 462.5059814453125,
+              "w_b": 659.1227416992188
+            },
+            "conforming": false,
+            "exact_max_error": 148.0,
+            "held_max_error": 130.0,
+            "seconds": 1.219138782005757,
+            "seed": 1,
+            "selections": {
+              "addr_a": 3,
+              "addr_b": 6,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "mag_a": 0,
+              "mag_b": 0,
+              "obs": 0,
+              "packed": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "w_a": 1,
+              "w_b": 1,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 1.5125462376036366e-17,
+              "addr_b": 4.443775263127808e-13,
+              "w_a": 48.34130859375,
+              "w_b": 140.2434844970703
+            },
+            "conforming": false,
+            "exact_max_error": 148.0,
+            "held_max_error": 130.0,
+            "seconds": 1.3391228520195,
+            "seed": 2,
+            "selections": {
+              "addr_a": 0,
+              "addr_b": 6,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "mag_a": 0,
+              "mag_b": 0,
+              "obs": 0,
+              "packed": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "w_a": 1,
+              "w_b": 1,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 4.0483374164068664e-07,
+              "addr_b": 5.1960091695946176e-06,
+              "w_a": 351.51544189453125,
+              "w_b": 191.1581268310547
+            },
+            "conforming": false,
+            "exact_max_error": 148.0,
+            "held_max_error": 130.0,
+            "seconds": 1.2283363760216162,
+            "seed": 3,
+            "selections": {
+              "addr_a": 1,
+              "addr_b": 5,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "mag_a": 0,
+              "mag_b": 0,
+              "obs": 0,
+              "packed": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "w_a": 1,
+              "w_b": 1,
+              "x_a": 0,
+              "x_b": 0
+            }
+          }
+        ],
+        "successes": 0
+      },
+      "0.05": {
+        "address_logit_gradient_max": 6309.23583984375,
+        "address_logit_gradient_min": 6.505713099613786e-05,
+        "address_logit_gradient_none": 0,
+        "init_noise": 0.5,
+        "rows": [
+          {
+            "choice_gradients": {
+              "addr_a": 20.864416122436523,
+              "addr_b": 7.682116847718135e-05,
+              "w_a": 459.5155029296875,
+              "w_b": 132.76815795898438
+            },
+            "conforming": true,
+            "exact_max_error": 0.0,
+            "held_max_error": 0.0,
+            "seconds": 1.6294334720005281,
+            "seed": 0,
+            "selections": {
+              "addr_a": 5,
+              "addr_b": 3,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "mag_a": 0,
+              "mag_b": 0,
+              "obs": 0,
+              "packed": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "w_a": 2,
+              "w_b": 0,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 6309.23583984375,
+              "addr_b": 142.00692749023438,
+              "w_a": 541.4732666015625,
+              "w_b": 681.2999267578125
+            },
+            "conforming": false,
+            "exact_max_error": 148.0,
+            "held_max_error": 130.0,
+            "seconds": 1.4924755250103772,
+            "seed": 1,
+            "selections": {
+              "addr_a": 3,
+              "addr_b": 4,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "mag_a": 0,
+              "mag_b": 0,
+              "obs": 0,
+              "packed": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "w_a": 1,
+              "w_b": 1,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 6.505713099613786e-05,
+              "addr_b": 0.0023641090374439955,
+              "w_a": 48.34137725830078,
+              "w_b": 140.243408203125
+            },
+            "conforming": false,
+            "exact_max_error": 148.0,
+            "held_max_error": 130.0,
+            "seconds": 1.7134726570220664,
+            "seed": 2,
+            "selections": {
+              "addr_a": 0,
+              "addr_b": 1,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "mag_a": 0,
+              "mag_b": 0,
+              "obs": 0,
+              "packed": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "w_a": 1,
+              "w_b": 1,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 0.01975657232105732,
+              "addr_b": 0.8909553289413452,
+              "w_a": 351.2323303222656,
+              "w_b": 191.2745819091797
+            },
+            "conforming": false,
+            "exact_max_error": 148.0,
+            "held_max_error": 130.0,
+            "seconds": 1.259433337021619,
+            "seed": 3,
+            "selections": {
+              "addr_a": 7,
+              "addr_b": 5,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "mag_a": 0,
+              "mag_b": 0,
+              "obs": 0,
+              "packed": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "w_a": 1,
+              "w_b": 1,
+              "x_a": 0,
+              "x_b": 0
+            }
+          }
+        ],
+        "successes": 1
+      },
+      "0.25": {
+        "address_logit_gradient_max": 3481.990478515625,
+        "address_logit_gradient_min": 1.1338385343551636,
+        "address_logit_gradient_none": 0,
+        "init_noise": 0.5,
+        "rows": [
+          {
+            "choice_gradients": {
+              "addr_a": 34.937435150146484,
+              "addr_b": 2.803344249725342,
+              "w_a": 443.05914306640625,
+              "w_b": 96.35359954833984
+            },
+            "conforming": false,
+            "exact_max_error": 148.0,
+            "held_max_error": 130.0,
+            "seconds": 1.2448578330222517,
+            "seed": 0,
+            "selections": {
+              "addr_a": 5,
+              "addr_b": 2,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "mag_a": 0,
+              "mag_b": 0,
+              "obs": 0,
+              "packed": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "w_a": 2,
+              "w_b": 0,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 1620.0433349609375,
+              "addr_b": 3481.990478515625,
+              "w_a": 701.0209350585938,
+              "w_b": 837.5899658203125
+            },
+            "conforming": false,
+            "exact_max_error": 178.0,
+            "held_max_error": 160.0,
+            "seconds": 1.2795906919636764,
+            "seed": 1,
+            "selections": {
+              "addr_a": 3,
+              "addr_b": 3,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "mag_a": 0,
+              "mag_b": 0,
+              "obs": 0,
+              "packed": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "w_a": 0,
+              "w_b": 1,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 117.76709747314453,
+              "addr_b": 123.27787017822266,
+              "w_a": 64.2920913696289,
+              "w_b": 105.18310546875
+            },
+            "conforming": true,
+            "exact_max_error": 0.0,
+            "held_max_error": 0.0,
+            "seconds": 1.2440906360279769,
+            "seed": 2,
+            "selections": {
+              "addr_a": 5,
+              "addr_b": 3,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "mag_a": 0,
+              "mag_b": 0,
+              "obs": 0,
+              "packed": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "w_a": 2,
+              "w_b": 0,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 1.1338385343551636,
+              "addr_b": 108.26856231689453,
+              "w_a": 256.5783386230469,
+              "w_b": 275.17437744140625
+            },
+            "conforming": true,
+            "exact_max_error": 0.0,
+            "held_max_error": 0.0,
+            "seconds": 1.214927509019617,
+            "seed": 3,
+            "selections": {
+              "addr_a": 5,
+              "addr_b": 3,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "mag_a": 0,
+              "mag_b": 0,
+              "obs": 0,
+              "packed": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "w_a": 2,
+              "w_b": 0,
+              "x_a": 0,
+              "x_b": 0
+            }
+          }
+        ],
+        "successes": 2
+      },
+      "1.0": {
+        "address_logit_gradient_max": 1348.5130615234375,
+        "address_logit_gradient_min": 0.5240029692649841,
+        "address_logit_gradient_none": 0,
+        "init_noise": 0.5,
+        "rows": [
+          {
+            "choice_gradients": {
+              "addr_a": 61.44033432006836,
+              "addr_b": 10.846634864807129,
+              "w_a": 443.6023864746094,
+              "w_b": 151.09779357910156
+            },
+            "conforming": true,
+            "exact_max_error": 0.0,
+            "held_max_error": 0.0,
+            "seconds": 1.220162884972524,
+            "seed": 0,
+            "selections": {
+              "addr_a": 3,
+              "addr_b": 5,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "mag_a": 0,
+              "mag_b": 0,
+              "obs": 0,
+              "packed": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "w_a": 0,
+              "w_b": 2,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 467.0810546875,
+              "addr_b": 1348.5130615234375,
+              "w_a": 737.2711181640625,
+              "w_b": 975.3226928710938
+            },
+            "conforming": false,
+            "exact_max_error": 148.0,
+            "held_max_error": 130.0,
+            "seconds": 1.2153141140006483,
+            "seed": 1,
+            "selections": {
+              "addr_a": 3,
+              "addr_b": 3,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "mag_a": 0,
+              "mag_b": 0,
+              "obs": 0,
+              "packed": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "w_a": 0,
+              "w_b": 2,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 562.7266235351562,
+              "addr_b": 433.8277893066406,
+              "w_a": 305.3929443359375,
+              "w_b": 134.12191772460938
+            },
+            "conforming": true,
+            "exact_max_error": 0.0,
+            "held_max_error": 0.0,
+            "seconds": 1.2142123399535194,
+            "seed": 2,
+            "selections": {
+              "addr_a": 5,
+              "addr_b": 3,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "mag_a": 0,
+              "mag_b": 0,
+              "obs": 0,
+              "packed": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "w_a": 2,
+              "w_b": 0,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 0.5240029692649841,
+              "addr_b": 54.96546936035156,
+              "w_a": 145.6551055908203,
+              "w_b": 399.6846618652344
+            },
+            "conforming": true,
+            "exact_max_error": 0.0,
+            "held_max_error": 0.0,
+            "seconds": 1.2434708279906772,
+            "seed": 3,
+            "selections": {
+              "addr_a": 5,
+              "addr_b": 3,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "mag_a": 0,
+              "mag_b": 0,
+              "obs": 0,
+              "packed": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "w_a": 2,
+              "w_b": 0,
+              "x_a": 0,
+              "x_b": 0
+            }
+          }
+        ],
+        "successes": 3
+      }
+    },
+    "nodes": 17,
+    "space_size": 729
+  },
+  "arm_b_pack": {
+    "all_conforming": {
+      "conforming": [
+        {
+          "addr_a": 3,
+          "addr_b": 5,
+          "w_a": 0,
+          "w_b": 2
+        },
+        {
+          "addr_a": 5,
+          "addr_b": 3,
+          "w_a": 2,
+          "w_b": 0
+        }
+      ],
+      "count": 2,
+      "evaluated": 729,
+      "exhausted": true,
+      "seconds": 0.3155456330277957,
+      "space_size": 729,
+      "unique": false
+    },
+    "enumerate_fit": {
+      "conforming": 2,
+      "continuous": [],
+      "description_bits": 1498112,
+      "evaluated": 729,
+      "exact_max_error": 0.0,
+      "execution_cost": 19.0,
+      "exhausted": true,
+      "held_out_max_error": 0.0,
+      "ranked_by": "order",
+      "seconds": 0.2883629799471237,
+      "selections": {
+        "addr_a": 3,
+        "addr_b": 5,
+        "byte_a": 0,
+        "byte_b": 0,
+        "conv": 0,
+        "obs": 0,
+        "packed": 0,
+        "plain_a": 0,
+        "plain_b": 0,
+        "pos": 0,
+        "record": 0,
+        "term_a": 0,
+        "term_b": 0,
+        "tup_a": 0,
+        "tup_b": 0,
+        "w_a": 0,
+        "w_b": 2,
+        "x_a": 0,
+        "x_b": 0
+      },
+      "solved": true,
+      "space_size": 729,
+      "unique": false,
+      "wall": 0.2917507480015047
+    },
+    "gradient": {
+      "0.02": {
+        "address_logit_gradient_max": 0.0,
+        "address_logit_gradient_min": 0.0,
+        "address_logit_gradient_none": 0,
+        "init_noise": 0.5,
+        "rows": [
+          {
+            "choice_gradients": {
+              "addr_a": 0.0,
+              "addr_b": 0.0,
+              "w_a": 818.962158203125,
+              "w_b": 2112.323974609375
+            },
+            "conforming": false,
+            "exact_max_error": 148.0,
+            "held_max_error": 130.0,
+            "seconds": 1.6431009899824858,
+            "seed": 0,
+            "selections": {
+              "addr_a": 5,
+              "addr_b": 6,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "obs": 0,
+              "packed": 0,
+              "plain_a": 0,
+              "plain_b": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "tup_a": 0,
+              "tup_b": 0,
+              "w_a": 2,
+              "w_b": 0,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 0.0,
+              "addr_b": 0.0,
+              "w_a": 818.9425659179688,
+              "w_b": 599.492431640625
+            },
+            "conforming": false,
+            "exact_max_error": 178.0,
+            "held_max_error": 176.0,
+            "seconds": 1.967555915005505,
+            "seed": 1,
+            "selections": {
+              "addr_a": 5,
+              "addr_b": 1,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "obs": 0,
+              "packed": 0,
+              "plain_a": 0,
+              "plain_b": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "tup_a": 0,
+              "tup_b": 0,
+              "w_a": 2,
+              "w_b": 1,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 0.0,
+              "addr_b": 0.0,
+              "w_a": 293.4128723144531,
+              "w_b": 273.8061828613281
+            },
+            "conforming": false,
+            "exact_max_error": 148.0,
+            "held_max_error": 130.0,
+            "seconds": 2.2818308669957332,
+            "seed": 2,
+            "selections": {
+              "addr_a": 5,
+              "addr_b": 0,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "obs": 0,
+              "packed": 0,
+              "plain_a": 0,
+              "plain_b": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "tup_a": 0,
+              "tup_b": 0,
+              "w_a": 2,
+              "w_b": 0,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 0.0,
+              "addr_b": 0.0,
+              "w_a": 2163.121826171875,
+              "w_b": 972.4102783203125
+            },
+            "conforming": false,
+            "exact_max_error": 148.0,
+            "held_max_error": 130.0,
+            "seconds": 1.3976261910283938,
+            "seed": 3,
+            "selections": {
+              "addr_a": 1,
+              "addr_b": 4,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "obs": 0,
+              "packed": 0,
+              "plain_a": 0,
+              "plain_b": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "tup_a": 0,
+              "tup_b": 0,
+              "w_a": 1,
+              "w_b": 1,
+              "x_a": 0,
+              "x_b": 0
+            }
+          }
+        ],
+        "successes": 0
+      },
+      "0.05": {
+        "address_logit_gradient_max": 0.0,
+        "address_logit_gradient_min": 0.0,
+        "address_logit_gradient_none": 0,
+        "init_noise": 0.5,
+        "rows": [
+          {
+            "choice_gradients": {
+              "addr_a": 0.0,
+              "addr_b": 0.0,
+              "w_a": 753.167236328125,
+              "w_b": 2086.07861328125
+            },
+            "conforming": false,
+            "exact_max_error": 148.0,
+            "held_max_error": 130.0,
+            "seconds": 1.3753040499868803,
+            "seed": 0,
+            "selections": {
+              "addr_a": 5,
+              "addr_b": 6,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "obs": 0,
+              "packed": 0,
+              "plain_a": 0,
+              "plain_b": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "tup_a": 0,
+              "tup_b": 0,
+              "w_a": 2,
+              "w_b": 0,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 0.0,
+              "addr_b": 0.0,
+              "w_a": 800.2352905273438,
+              "w_b": 576.2144165039062
+            },
+            "conforming": false,
+            "exact_max_error": 178.0,
+            "held_max_error": 176.0,
+            "seconds": 1.708528393006418,
+            "seed": 1,
+            "selections": {
+              "addr_a": 5,
+              "addr_b": 1,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "obs": 0,
+              "packed": 0,
+              "plain_a": 0,
+              "plain_b": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "tup_a": 0,
+              "tup_b": 0,
+              "w_a": 2,
+              "w_b": 1,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 0.0,
+              "addr_b": 0.0,
+              "w_a": 293.4128723144531,
+              "w_b": 273.8061828613281
+            },
+            "conforming": false,
+            "exact_max_error": 148.0,
+            "held_max_error": 130.0,
+            "seconds": 2.4732365799718536,
+            "seed": 2,
+            "selections": {
+              "addr_a": 5,
+              "addr_b": 0,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "obs": 0,
+              "packed": 0,
+              "plain_a": 0,
+              "plain_b": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "tup_a": 0,
+              "tup_b": 0,
+              "w_a": 2,
+              "w_b": 0,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 0.0,
+              "addr_b": 0.0,
+              "w_a": 2176.09228515625,
+              "w_b": 1014.9473876953125
+            },
+            "conforming": false,
+            "exact_max_error": 148.0,
+            "held_max_error": 130.0,
+            "seconds": 1.4764206020045094,
+            "seed": 3,
+            "selections": {
+              "addr_a": 1,
+              "addr_b": 4,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "obs": 0,
+              "packed": 0,
+              "plain_a": 0,
+              "plain_b": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "tup_a": 0,
+              "tup_b": 0,
+              "w_a": 1,
+              "w_b": 1,
+              "x_a": 0,
+              "x_b": 0
+            }
+          }
+        ],
+        "successes": 0
+      },
+      "0.25": {
+        "address_logit_gradient_max": 0.0,
+        "address_logit_gradient_min": 0.0,
+        "address_logit_gradient_none": 0,
+        "init_noise": 0.5,
+        "rows": [
+          {
+            "choice_gradients": {
+              "addr_a": 0.0,
+              "addr_b": 0.0,
+              "w_a": 628.62646484375,
+              "w_b": 1970.7376708984375
+            },
+            "conforming": false,
+            "exact_max_error": 148.0,
+            "held_max_error": 130.0,
+            "seconds": 1.7901257870253175,
+            "seed": 0,
+            "selections": {
+              "addr_a": 5,
+              "addr_b": 6,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "obs": 0,
+              "packed": 0,
+              "plain_a": 0,
+              "plain_b": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "tup_a": 0,
+              "tup_b": 0,
+              "w_a": 2,
+              "w_b": 0,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 0.0,
+              "addr_b": 0.0,
+              "w_a": 923.3056640625,
+              "w_b": 554.1488647460938
+            },
+            "conforming": false,
+            "exact_max_error": 178.0,
+            "held_max_error": 176.0,
+            "seconds": 2.0721270719659515,
+            "seed": 1,
+            "selections": {
+              "addr_a": 5,
+              "addr_b": 1,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "obs": 0,
+              "packed": 0,
+              "plain_a": 0,
+              "plain_b": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "tup_a": 0,
+              "tup_b": 0,
+              "w_a": 2,
+              "w_b": 1,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 0.0,
+              "addr_b": 0.0,
+              "w_a": 296.6329650878906,
+              "w_b": 279.9489440917969
+            },
+            "conforming": false,
+            "exact_max_error": 148.0,
+            "held_max_error": 130.0,
+            "seconds": 1.7896758849965408,
+            "seed": 2,
+            "selections": {
+              "addr_a": 5,
+              "addr_b": 0,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "obs": 0,
+              "packed": 0,
+              "plain_a": 0,
+              "plain_b": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "tup_a": 0,
+              "tup_b": 0,
+              "w_a": 2,
+              "w_b": 0,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 0.0,
+              "addr_b": 0.0,
+              "w_a": 1753.8167724609375,
+              "w_b": 1017.2269287109375
+            },
+            "conforming": false,
+            "exact_max_error": 148.0,
+            "held_max_error": 130.0,
+            "seconds": 2.0863742229994386,
+            "seed": 3,
+            "selections": {
+              "addr_a": 1,
+              "addr_b": 4,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "obs": 0,
+              "packed": 0,
+              "plain_a": 0,
+              "plain_b": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "tup_a": 0,
+              "tup_b": 0,
+              "w_a": 1,
+              "w_b": 1,
+              "x_a": 0,
+              "x_b": 0
+            }
+          }
+        ],
+        "successes": 0
+      },
+      "1.0": {
+        "address_logit_gradient_max": 0.0,
+        "address_logit_gradient_min": 0.0,
+        "address_logit_gradient_none": 0,
+        "init_noise": 0.5,
+        "rows": [
+          {
+            "choice_gradients": {
+              "addr_a": 0.0,
+              "addr_b": 0.0,
+              "w_a": 626.5328979492188,
+              "w_b": 1403.567138671875
+            },
+            "conforming": false,
+            "exact_max_error": 148.0,
+            "held_max_error": 130.0,
+            "seconds": 1.6616612700163387,
+            "seed": 0,
+            "selections": {
+              "addr_a": 5,
+              "addr_b": 6,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "obs": 0,
+              "packed": 0,
+              "plain_a": 0,
+              "plain_b": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "tup_a": 0,
+              "tup_b": 0,
+              "w_a": 2,
+              "w_b": 0,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 0.0,
+              "addr_b": 0.0,
+              "w_a": 1011.9735717773438,
+              "w_b": 600.7640991210938
+            },
+            "conforming": false,
+            "exact_max_error": 178.0,
+            "held_max_error": 176.0,
+            "seconds": 1.9179909550002776,
+            "seed": 1,
+            "selections": {
+              "addr_a": 5,
+              "addr_b": 1,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "obs": 0,
+              "packed": 0,
+              "plain_a": 0,
+              "plain_b": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "tup_a": 0,
+              "tup_b": 0,
+              "w_a": 2,
+              "w_b": 1,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 0.0,
+              "addr_b": 0.0,
+              "w_a": 440.6512451171875,
+              "w_b": 336.07806396484375
+            },
+            "conforming": false,
+            "exact_max_error": 148.0,
+            "held_max_error": 130.0,
+            "seconds": 1.9729591389768757,
+            "seed": 2,
+            "selections": {
+              "addr_a": 5,
+              "addr_b": 0,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "obs": 0,
+              "packed": 0,
+              "plain_a": 0,
+              "plain_b": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "tup_a": 0,
+              "tup_b": 0,
+              "w_a": 2,
+              "w_b": 0,
+              "x_a": 0,
+              "x_b": 0
+            }
+          },
+          {
+            "choice_gradients": {
+              "addr_a": 0.0,
+              "addr_b": 0.0,
+              "w_a": 1253.474609375,
+              "w_b": 1025.7354736328125
+            },
+            "conforming": false,
+            "exact_max_error": 148.0,
+            "held_max_error": 130.0,
+            "seconds": 1.898155581962783,
+            "seed": 3,
+            "selections": {
+              "addr_a": 1,
+              "addr_b": 4,
+              "byte_a": 0,
+              "byte_b": 0,
+              "conv": 0,
+              "obs": 0,
+              "packed": 0,
+              "plain_a": 0,
+              "plain_b": 0,
+              "pos": 0,
+              "record": 0,
+              "term_a": 0,
+              "term_b": 0,
+              "tup_a": 0,
+              "tup_b": 0,
+              "w_a": 1,
+              "w_b": 1,
+              "x_a": 0,
+              "x_b": 0
+            }
+          }
+        ],
+        "successes": 0
+      }
+    },
+    "nodes": 19,
+    "space_size": 729
+  },
+  "derivative_target_train": {
+    "max": 109.0,
+    "mean": -5.37962962962963,
+    "min": -148.0,
+    "mse_about_mean": 996.4021776406037,
+    "mse_about_zero": 1025.3425925925926,
+    "n": 108
+  },
+  "gather_blur": {
+    "0.01": 0.0,
+    "0.05": 0.0,
+    "0.25": 2.2439041137695312,
+    "1.0": 28.07342529296875
+  },
+  "held_rows": 216,
+  "module": {
+    "description_bits": 3086264,
+    "execution_cost": 50.0,
+    "name": "module:862ed4003104a8d2ca4a8169"
+  },
+  "positions_per_image": 36,
+  "target_held": {
+    "max": 464.0,
+    "mean": -11.74074074074074,
+    "min": -520.0,
+    "mse_about_mean": 21667.27537722908,
+    "mse_about_zero": 21805.12037037037,
+    "n": 216
+  },
+  "target_train": {
+    "max": 522.0,
+    "mean": -15.62962962962963,
+    "min": -572.0,
+    "mse_about_mean": 18356.649862825787,
+    "mse_about_zero": 18600.935185185186,
+    "n": 216
+  },
+  "train_rows": 216
+}

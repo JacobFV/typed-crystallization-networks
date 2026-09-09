@@ -1,0 +1,156 @@
+{
+  "arguments": {
+    "budget": 32000,
+    "draws": 20000,
+    "grad_seeds": 4,
+    "grad_steps": 300,
+    "held": 8,
+    "per_image": 48,
+    "resolution": 8,
+    "tag": "cost",
+    "train": 8
+  },
+  "candidate_widths": {
+    "bytes + committed magnitude": {
+      "bool": 33,
+      "byte": 10,
+      "index int[16]": 16,
+      "magnitude int[8]": 52
+    },
+    "bytes only": {
+      "bool": 13,
+      "byte": 10,
+      "index int[16]": 16,
+      "magnitude int[8]": 2
+    }
+  },
+  "cost": {
+    "conforming_density_ratio": 0.29393753827311697,
+    "gradient_held_out_exact_delta": 0,
+    "gradient_success_delta": 0,
+    "held_out_exact_fraction_delta": 0.07000000000000006,
+    "projected_exhaustive_seconds_ratio": 152.18736997263736,
+    "space_ratio": 216.0
+  },
+  "foreground_fraction_train": 0.515625,
+  "held_rows": 512,
+  "shipped_(byte_only)": {
+    "conforming": 2608,
+    "conforming_density": 0.08165,
+    "conforming_density_prefix": 0.0815,
+    "evaluated": 32000,
+    "exhausted": true,
+    "gradient": {
+      "held_out_exact": 4,
+      "init_noise": 0.5,
+      "rows": [
+        {
+          "conforming": true,
+          "exact_max_error": 0.0,
+          "held_out_max_error": 0.0,
+          "seconds": 3.2826049310388044,
+          "seed": 0
+        },
+        {
+          "conforming": true,
+          "exact_max_error": 0.0,
+          "held_out_max_error": 0.0,
+          "seconds": 3.252316238998901,
+          "seed": 1
+        },
+        {
+          "conforming": true,
+          "exact_max_error": 0.0,
+          "held_out_max_error": 0.0,
+          "seconds": 1.7245609759702347,
+          "seed": 2
+        },
+        {
+          "conforming": true,
+          "exact_max_error": 0.0,
+          "held_out_max_error": 0.0,
+          "seconds": 1.8998823710135184,
+          "seed": 3
+        }
+      ],
+      "steps": 300,
+      "successes": 4
+    },
+    "held_out_checked": 200,
+    "held_out_exact_fraction": 0.84,
+    "held_out_max_error_first": 0.0,
+    "nodes": 8,
+    "programs_per_second": 1248.7082480967044,
+    "projected_conforming": 2612.8,
+    "projected_exhaustive_seconds": 25.62648244597949,
+    "random_draws": {
+      "density": 0.08165,
+      "draws": 20000,
+      "hits": 1633,
+      "seconds": 19.65285126597155
+    },
+    "seconds": 25.62648244597949,
+    "space_size": 32000,
+    "unique": false
+  },
+  "train_rows": 384,
+  "with_commitment": {
+    "conforming": 1344,
+    "conforming_density": 0.024,
+    "conforming_density_prefix": 0.042,
+    "evaluated": 32000,
+    "exhausted": false,
+    "gradient": {
+      "held_out_exact": 4,
+      "init_noise": 0.5,
+      "rows": [
+        {
+          "conforming": true,
+          "exact_max_error": 0.0,
+          "held_out_max_error": 0.0,
+          "seconds": 3.998493209015578,
+          "seed": 0
+        },
+        {
+          "conforming": true,
+          "exact_max_error": 0.0,
+          "held_out_max_error": 0.0,
+          "seconds": 3.904321809997782,
+          "seed": 1
+        },
+        {
+          "conforming": true,
+          "exact_max_error": 0.0,
+          "held_out_max_error": 0.0,
+          "seconds": 7.059466784994584,
+          "seed": 2
+        },
+        {
+          "conforming": true,
+          "exact_max_error": 0.0,
+          "held_out_max_error": 0.0,
+          "seconds": 2.3781272370251827,
+          "seed": 3
+        }
+      ],
+      "steps": 300,
+      "successes": 4
+    },
+    "held_out_checked": 200,
+    "held_out_exact_fraction": 0.91,
+    "held_out_max_error_first": 0.0,
+    "nodes": 11,
+    "programs_per_second": 1772.2954384281877,
+    "projected_conforming": 165888.0,
+    "projected_exhaustive_seconds": 3900.026965103578,
+    "random_draws": {
+      "density": 0.024,
+      "draws": 20000,
+      "hits": 480,
+      "seconds": 7.498035255994182
+    },
+    "seconds": 18.055680393998045,
+    "space_size": 6912000,
+    "unique": false
+  }
+}
