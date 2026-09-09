@@ -1,0 +1,34 @@
+{
+  "train_examples": 72,
+  "validation_examples": 48,
+  "held_examples": 72,
+  "space": 60,
+  "conforming": 3,
+  "distinct_wrappers_conforming": 2,
+  "rows": [
+    {
+      "wrapper": "inherited stage-2 edge",
+      "wrapper_index": 0,
+      "readout": "gt(total, 0)",
+      "readout_index": 0,
+      "validation_exact": true,
+      "held_out_exact": true
+    },
+    {
+      "wrapper": "inherited stage-2 edge",
+      "wrapper_index": 0,
+      "readout": "ge(total, 1)",
+      "readout_index": 5,
+      "validation_exact": true,
+      "held_out_exact": true
+    },
+    {
+      "wrapper": "distractor: offset 3, xnor",
+      "wrapper_index": 2,
+      "readout": "le(total, 3)",
+      "readout_index": 15,
+      "validation_exact": true,
+      "held_out_exact": true
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "arms": [
+    {
+      "arm": "stage3:inherits_stage2",
+      "budget": 16777216,
+      "conforming": 3,
+      "description_bits": 8948184,
+      "evaluated": 60,
+      "execution_cost": 180.0,
+      "exhausted": true,
+      "held_out_accuracy": 1.0,
+      "held_out_max_error": 0.0,
+      "majority_class_accuracy": 0.5555555555555556,
+      "nodes": 6,
+      "projected_exhaustive_seconds": 7.225499032996595,
+      "random_control": {
+        "density": 0.04,
+        "draws": 400,
+        "hits": 16
+      },
+      "seconds_per_program": 0.12042498388327658,
+      "selections": {
+        "held": 0,
+        "kept": 0,
+        "mapped": 0,
+        "records": 0,
+        "region": 0,
+        "total": 0
+      },
+      "solved": true,
+      "space_size": 60,
+      "unique": false,
+      "validated": 3,
+      "wall_seconds": 7.225499032996595
+    },
+    {
+      "arm": "stage3:inherits_stage1_only",
+      "budget": 16777216,
+      "conforming": 3,
+      "description_bits": 7132048,
+      "evaluated": 960,
+      "execution_cost": 160.0,
+      "exhausted": true,
+      "held_out_accuracy": 1.0,
+      "held_out_max_error": 0.0,
+      "majority_class_accuracy": 0.5555555555555556,
+      "nodes": 6,
+      "projected_exhaustive_seconds": 32.661022584012244,
+      "random_control": {
+        "density": 0.005,
+        "draws": 400,
+        "hits": 2
+      },
+      "seconds_per_program": 0.03402189852501276,
+      "selections": {
+        "held": 0,
+        "kept": 0,
+        "mapped": 6,
+        "records": 0,
+        "region": 0,
+        "total": 0
+      },
+      "solved": true,
+      "space_size": 960,
+      "unique": false,
+      "validated": 3,
+      "wall_seconds": 32.661022584012244
+    },
+    {
+      "arm": "stage3:no_library",
+      "expressible": false,
+      "projected_seconds": 33444887126.02854,
+      "reason": "map requires a registered module; an empty library admits no aggregate over positions, so the region predicate is not a program in this algebra",
+      "smallest_admitting_library": "one module drawn from stage 2's flat space",
+      "space_size": 983040000000,
+      "wrapper_space": 49152000000
+    }
+  ],
+  "held_examples": 72,
+  "held_out_accuracy": 1.0,
+  "held_out_max_error": 0.0,
+  "inherited_interface": {
+    "test": {
+      "accuracy": 1.0,
+      "exact": true,
+      "records": 384,
+      "wrong": 0
+    },
+    "train": {
+      "accuracy": 1.0,
+      "exact": true,
+      "records": 384,
+      "wrong": 0
+    },
+    "validation": {
+      "accuracy": 1.0,
+      "exact": true,
+      "records": 256,
+      "wrong": 0
+    }
+  },
+  "majority_class_accuracy": 0.5555555555555556,
+  "module_description_bits": 8948184,
+  "module_digest": "a90ca8dc2c03ee2189906056",
+  "module_execution_cost": 180.0,
+  "module_nodes": 6,
+  "module_requires": [
+    "module:aee77284361d6ca331fcc6f1",
+    "module:98ad064b85bcea03fefebb02"
+  ],
+  "module_selected": 1,
+  "published": [
+    "perception.tile_call@1",
+    "perception.keep_flag@1",
+    "perception.region@1"
+  ],
+  "resolution": 8,
+  "search_seconds": 7.225499032996595,
+  "seconds_ratio_stage1_only": 4.520244544336601,
+  "solved": 1,
+  "space_ratio_stage1_only": 16.0,
+  "space_size": 60,
+  "tile": 2,
+  "train_examples": 72
+}

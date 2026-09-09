@@ -1,0 +1,104 @@
+{
+  "arms": [
+    {
+      "arm": "stage2:inherits_stage1",
+      "budget": 16777216,
+      "conforming": 1,
+      "description_bits": 4282472,
+      "evaluated": 48,
+      "execution_cost": 35.0,
+      "exhausted": true,
+      "held_out_accuracy": 1.0,
+      "held_out_max_error": 0.0,
+      "majority_class_accuracy": 0.8020833333333334,
+      "nodes": 11,
+      "projected_exhaustive_seconds": 1.5237841199850664,
+      "random_control": {
+        "density": 0.01,
+        "draws": 400,
+        "hits": 4
+      },
+      "seconds_per_program": 0.03174550249968888,
+      "selections": {
+        "edge": 6,
+        "here": 0,
+        "here_flag": 0,
+        "here_rec": 0,
+        "obs": 0,
+        "pos": 0,
+        "record": 0,
+        "shifted": 0,
+        "there": 0,
+        "there_flag": 0,
+        "there_rec": 0
+      },
+      "solved": true,
+      "space_size": 48,
+      "unique": true,
+      "validated": 1,
+      "wall_seconds": 1.5237841199850664
+    },
+    {
+      "arm": "stage2:flat",
+      "budget": 20000,
+      "conforming": 0,
+      "description_bits": null,
+      "evaluated": 20000,
+      "execution_cost": null,
+      "exhausted": false,
+      "held_out_accuracy": 0.0,
+      "held_out_max_error": null,
+      "majority_class_accuracy": 0.8020833333333334,
+      "nodes": 25,
+      "projected_exhaustive_seconds": 37300780.55548668,
+      "seconds_per_program": 0.0007588863231503637,
+      "selections": null,
+      "solved": false,
+      "space_size": 49152000000,
+      "unique": null,
+      "validated": 0,
+      "wall_seconds": 15.177726463007275
+    }
+  ],
+  "flat_projected_seconds": 37300780.55548668,
+  "flat_space": 49152000000,
+  "held_examples": 288,
+  "held_out_accuracy": 1.0,
+  "held_out_max_error": 0.0,
+  "inherited_interface": {
+    "test": {
+      "accuracy": 1.0,
+      "exact": true,
+      "records": 384,
+      "wrong": 0
+    },
+    "train": {
+      "accuracy": 1.0,
+      "exact": true,
+      "records": 384,
+      "wrong": 0
+    },
+    "validation": {
+      "accuracy": 1.0,
+      "exact": true,
+      "records": 256,
+      "wrong": 0
+    }
+  },
+  "inherited_seconds": 1.5237841199850664,
+  "inherited_space": 48,
+  "module_description_bits": 4282472,
+  "module_digest": "2e0dd9d3148338788de07bae",
+  "module_execution_cost": 35.0,
+  "module_nodes": 11,
+  "module_requires": [
+    "module:91b7e8e8862c0ebf333d8bf6"
+  ],
+  "published": "perception.edge@1",
+  "resolution": 8,
+  "search_seconds": 1.5237841199850664,
+  "solved": 1,
+  "space_ratio": 1024000000.0,
+  "space_size": 48,
+  "train_examples": 288
+}

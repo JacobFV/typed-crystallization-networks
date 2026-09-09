@@ -1,0 +1,275 @@
+{
+  "crossover_edge": {
+    "body_nodes": 11,
+    "crossover_call_sites": 1,
+    "module": "perception.edge",
+    "rows": [
+      {
+        "abstracted_bits": 5290344,
+        "abstracted_cost": 37.0,
+        "abstracted_nodes": 3,
+        "abstraction_pays": true,
+        "call_sites": 1,
+        "inlined_bits": 5733232,
+        "inlined_cost": 37.0,
+        "inlined_nodes": 37
+      },
+      {
+        "abstracted_bits": 6100472,
+        "abstracted_cost": 75.0,
+        "abstracted_nodes": 7,
+        "abstraction_pays": true,
+        "call_sites": 2,
+        "inlined_bits": 11268728,
+        "inlined_cost": 75.0,
+        "inlined_nodes": 75
+      },
+      {
+        "abstracted_bits": 6910600,
+        "abstracted_cost": 113.0,
+        "abstracted_nodes": 11,
+        "abstraction_pays": true,
+        "call_sites": 3,
+        "inlined_bits": 16804224,
+        "inlined_cost": 113.0,
+        "inlined_nodes": 113
+      },
+      {
+        "abstracted_bits": 7720728,
+        "abstracted_cost": 151.0,
+        "abstracted_nodes": 15,
+        "abstraction_pays": true,
+        "call_sites": 4,
+        "inlined_bits": 22339720,
+        "inlined_cost": 151.0,
+        "inlined_nodes": 151
+      },
+      {
+        "abstracted_bits": 8530928,
+        "abstracted_cost": 189.0,
+        "abstracted_nodes": 19,
+        "abstraction_pays": true,
+        "call_sites": 5,
+        "inlined_bits": 27876184,
+        "inlined_cost": 189.0,
+        "inlined_nodes": 189
+      },
+      {
+        "abstracted_bits": 9341128,
+        "abstracted_cost": 227.0,
+        "abstracted_nodes": 23,
+        "abstraction_pays": true,
+        "call_sites": 6,
+        "inlined_bits": 33412648,
+        "inlined_cost": 227.0,
+        "inlined_nodes": 227
+      },
+      {
+        "abstracted_bits": 10151328,
+        "abstracted_cost": 265.0,
+        "abstracted_nodes": 27,
+        "abstraction_pays": true,
+        "call_sites": 7,
+        "inlined_bits": 38949112,
+        "inlined_cost": 265.0,
+        "inlined_nodes": 265
+      },
+      {
+        "abstracted_bits": 10961536,
+        "abstracted_cost": 303.0,
+        "abstracted_nodes": 31,
+        "abstraction_pays": true,
+        "call_sites": 8,
+        "inlined_bits": 44485576,
+        "inlined_cost": 303.0,
+        "inlined_nodes": 303
+      }
+    ]
+  },
+  "crossover_foreground": {
+    "body_nodes": 13,
+    "crossover_call_sites": 2,
+    "module": "perception.foreground",
+    "rows": [
+      {
+        "abstracted_bits": 2658584,
+        "abstracted_cost": 15.0,
+        "abstracted_nodes": 3,
+        "abstraction_pays": false,
+        "call_sites": 1,
+        "inlined_bits": 2254792,
+        "inlined_cost": 15.0,
+        "inlined_nodes": 15
+      },
+      {
+        "abstracted_bits": 3468712,
+        "abstracted_cost": 31.0,
+        "abstracted_nodes": 7,
+        "abstraction_pays": true,
+        "call_sites": 2,
+        "inlined_bits": 4311848,
+        "inlined_cost": 31.0,
+        "inlined_nodes": 31
+      },
+      {
+        "abstracted_bits": 4278840,
+        "abstracted_cost": 47.0,
+        "abstracted_nodes": 11,
+        "abstraction_pays": true,
+        "call_sites": 3,
+        "inlined_bits": 6368904,
+        "inlined_cost": 47.0,
+        "inlined_nodes": 47
+      },
+      {
+        "abstracted_bits": 5088968,
+        "abstracted_cost": 63.0,
+        "abstracted_nodes": 15,
+        "abstraction_pays": true,
+        "call_sites": 4,
+        "inlined_bits": 8425960,
+        "inlined_cost": 63.0,
+        "inlined_nodes": 63
+      },
+      {
+        "abstracted_bits": 5899168,
+        "abstracted_cost": 79.0,
+        "abstracted_nodes": 19,
+        "abstraction_pays": true,
+        "call_sites": 5,
+        "inlined_bits": 10483424,
+        "inlined_cost": 79.0,
+        "inlined_nodes": 79
+      },
+      {
+        "abstracted_bits": 6709368,
+        "abstracted_cost": 95.0,
+        "abstracted_nodes": 23,
+        "abstraction_pays": true,
+        "call_sites": 6,
+        "inlined_bits": 12540888,
+        "inlined_cost": 95.0,
+        "inlined_nodes": 95
+      },
+      {
+        "abstracted_bits": 7519568,
+        "abstracted_cost": 111.0,
+        "abstracted_nodes": 27,
+        "abstraction_pays": true,
+        "call_sites": 7,
+        "inlined_bits": 14598352,
+        "inlined_cost": 111.0,
+        "inlined_nodes": 111
+      },
+      {
+        "abstracted_bits": 8329776,
+        "abstracted_cost": 127.0,
+        "abstracted_nodes": 31,
+        "abstraction_pays": true,
+        "call_sites": 8,
+        "inlined_bits": 16655816,
+        "inlined_cost": 127.0,
+        "inlined_nodes": 127
+      }
+    ]
+  },
+  "library": "/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a3a0be9674146aa47/research/module-library/library",
+  "region": [
+    {
+      "agree_on_episodes": true,
+      "composed_description_bits": 8948184,
+      "composed_execution_cost": 180.0,
+      "composed_nodes": 6,
+      "composed_own_bits": 2034312,
+      "description_ratio": 0.28629212355791467,
+      "execution_ratio": 0.9836065573770492,
+      "flat_description_bits": 31255432,
+      "flat_execution_cost": 183.0,
+      "flat_nodes": 183,
+      "positions": 4,
+      "tile": "2x2"
+    },
+    {
+      "agree_on_episodes": true,
+      "composed_description_bits": 8948336,
+      "composed_execution_cost": 400.0,
+      "composed_nodes": 6,
+      "composed_own_bits": 2034464,
+      "description_ratio": 0.12769146607815499,
+      "execution_ratio": 0.9685230024213075,
+      "flat_description_bits": 70077792,
+      "flat_execution_cost": 413.0,
+      "flat_nodes": 413,
+      "positions": 9,
+      "tile": "3x3"
+    },
+    {
+      "agree_on_episodes": true,
+      "composed_description_bits": 8948640,
+      "composed_execution_cost": 708.0,
+      "composed_nodes": 6,
+      "composed_own_bits": 2034768,
+      "description_ratio": 0.07191727911996262,
+      "execution_ratio": 0.963265306122449,
+      "flat_description_bits": 124429624,
+      "flat_execution_cost": 735.0,
+      "flat_nodes": 735,
+      "positions": 16,
+      "tile": "4x4"
+    }
+  ],
+  "transitive_description": [
+    {
+      "callee_bits": 0,
+      "execution_cost": 13.0,
+      "module": "perception.foreground@1",
+      "nodes": 13,
+      "own_bits": 1650712,
+      "requires": [],
+      "transitive_bits": 1650712
+    },
+    {
+      "callee_bits": 1650712,
+      "execution_cost": 35.0,
+      "module": "perception.edge@1",
+      "nodes": 11,
+      "own_bits": 2631760,
+      "requires": [
+        "module:91b7e8e8862c0ebf333d8bf6"
+      ],
+      "transitive_bits": 4282472
+    },
+    {
+      "callee_bits": 4282472,
+      "execution_cost": 43.0,
+      "module": "perception.tile_call@1",
+      "nodes": 9,
+      "own_bits": 2625464,
+      "requires": [
+        "module:2e0dd9d3148338788de07bae"
+      ],
+      "transitive_bits": 6907936
+    },
+    {
+      "callee_bits": 0,
+      "execution_cost": 1.0,
+      "module": "perception.keep_flag@1",
+      "nodes": 1,
+      "own_bits": 5936,
+      "requires": [],
+      "transitive_bits": 5936
+    },
+    {
+      "callee_bits": 6913872,
+      "execution_cost": 180.0,
+      "module": "perception.region@1",
+      "nodes": 6,
+      "own_bits": 2034312,
+      "requires": [
+        "module:aee77284361d6ca331fcc6f1",
+        "module:98ad064b85bcea03fefebb02"
+      ],
+      "transitive_bits": 8948184
+    }
+  ]
+}

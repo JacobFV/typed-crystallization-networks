@@ -1,0 +1,62 @@
+{
+  "accuracy_every_position_held_out": 1.0,
+  "arms": [
+    {
+      "accuracy_every_position_held_out": 1.0,
+      "arm": "stage1",
+      "budget": 16777216,
+      "conforming": 1952,
+      "description_bits": 1650712,
+      "evaluated": 32000,
+      "execution_cost": 13.0,
+      "exhausted": true,
+      "held_out_accuracy": 1.0,
+      "held_out_max_error": 0.0,
+      "majority_class_accuracy": 0.5651041666666666,
+      "nodes": 13,
+      "projected_exhaustive_seconds": 522.5143471799674,
+      "random_control": {
+        "density": 0.07,
+        "draws": 400,
+        "hits": 28
+      },
+      "seconds_per_program": 0.016328573349373984,
+      "selections": {
+        "b_at": 0,
+        "blue": 0,
+        "cmp_b": 2,
+        "cmp_g": 0,
+        "cmp_r": 0,
+        "foreground": 1,
+        "g_at": 0,
+        "green": 0,
+        "obs": 0,
+        "pos": 0,
+        "record": 0,
+        "red": 0,
+        "rg": 0
+      },
+      "solved": true,
+      "space_size": 32000,
+      "unique": false,
+      "validated": 1520,
+      "validation_records": 512,
+      "wall_seconds": 522.5143471799674
+    }
+  ],
+  "conforming": 1952,
+  "held_examples": 384,
+  "held_out_accuracy": 1.0,
+  "held_out_max_error": 0.0,
+  "module_description_bits": 1650712,
+  "module_digest": "91b7e8e8862c0ebf333d8bf6",
+  "module_execution_cost": 13.0,
+  "module_nodes": 13,
+  "published": "perception.foreground@1",
+  "resolution": 8,
+  "search_seconds": 522.5143471799674,
+  "solved": 1,
+  "space_size": 32000,
+  "train_examples": 384,
+  "validated": 1520
+}
