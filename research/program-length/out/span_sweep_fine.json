@@ -1,0 +1,116 @@
+{
+ "height": 32,
+ "held_extents": {
+  "max_height": 30,
+  "max_width": 30
+ },
+ "held_records": 103,
+ "rows": [
+  {
+   "certificate": "none exists",
+   "conforming": 0,
+   "evaluated": 25,
+   "exhausted": true,
+   "scaffold_nodes": 531,
+   "seconds": 6.168962025025394,
+   "space_size": 25,
+   "span": 29,
+   "survivors": 0
+  },
+  {
+   "bytecodes_per_call": 14197,
+   "bytecodes_total": 56657,
+   "certificate": "unique",
+   "conforming": 1,
+   "description_bits": 243521968,
+   "evaluated": 25,
+   "execution_cost": 1361.0,
+   "exhausted": true,
+   "held_accuracy": 1.0,
+   "held_max_error": 0.0,
+   "nodes": 549,
+   "operators": 16,
+   "ranked_description_bits": 243521968,
+   "ranked_execution_cost": 1361.0,
+   "scaffold_nodes": 549,
+   "seconds": 34.89881628600415,
+   "source_bytes": 125081,
+   "space_size": 25,
+   "span": 30,
+   "steps_chosen": [
+    3,
+    96
+   ],
+   "survivors": 1,
+   "train_accuracy": 1.0
+  },
+  {
+   "bytecodes_per_call": 14692,
+   "bytecodes_total": 58634,
+   "certificate": "unique",
+   "conforming": 1,
+   "description_bits": 249943160,
+   "evaluated": 25,
+   "execution_cost": 1407.0,
+   "exhausted": true,
+   "held_accuracy": 1.0,
+   "held_max_error": 0.0,
+   "nodes": 567,
+   "operators": 16,
+   "ranked_description_bits": 249943160,
+   "ranked_execution_cost": 1407.0,
+   "scaffold_nodes": 567,
+   "seconds": 38.215498363017105,
+   "source_bytes": 128664,
+   "space_size": 25,
+   "span": 31,
+   "steps_chosen": [
+    3,
+    96
+   ],
+   "survivors": 1,
+   "train_accuracy": 1.0
+  },
+  {
+   "bytecodes_per_call": 15248,
+   "bytecodes_total": 60858,
+   "certificate": "unique",
+   "conforming": 1,
+   "description_bits": 256364352,
+   "evaluated": 25,
+   "execution_cost": 1453.0,
+   "exhausted": true,
+   "held_accuracy": 1.0,
+   "held_max_error": 0.0,
+   "nodes": 585,
+   "operators": 16,
+   "ranked_description_bits": 256364352,
+   "ranked_execution_cost": 1453.0,
+   "scaffold_nodes": 585,
+   "seconds": 37.00338311702944,
+   "source_bytes": 132257,
+   "space_size": 25,
+   "span": 32,
+   "steps_chosen": [
+    3,
+    96
+   ],
+   "survivors": 1,
+   "train_accuracy": 1.0
+  }
+ ],
+ "shipped_span": 32,
+ "spans": [
+  29,
+  30,
+  31,
+  32
+ ],
+ "train_extents": {
+  "max_height": 30,
+  "max_width": 30
+ },
+ "train_records": 111,
+ "validation_records": 54,
+ "width": 32
+}

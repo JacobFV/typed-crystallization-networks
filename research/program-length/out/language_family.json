@@ -1,0 +1,1409 @@
+{
+ "distinct_bytecodes": [
+  41417,
+  41441,
+  41465
+ ],
+ "distinct_description_bits": [
+  4043552,
+  4043560,
+  4043568
+ ],
+ "distinct_execution_cost": [
+  148.0
+ ],
+ "distinct_nodes": [
+  84
+ ],
+ "distinct_unseen_accuracy": [
+  1.0
+ ],
+ "enumeration": {
+  "count": 10,
+  "evaluated": 45375,
+  "exhausted": true,
+  "seconds": 218.57734051300213,
+  "space_size": 45375,
+  "unique": false
+ },
+ "module": "module:8063993bfeee7393683e47b3",
+ "module_matches_shipped": true,
+ "outputs_identical_across_conforming": true,
+ "rank_picks": {
+  "bytecodes": 6,
+  "cost": 0,
+  "description": 0,
+  "order": 0
+ },
+ "rows": [
+  {
+   "bytecodes": [
+    1729,
+    1728,
+    1730,
+    1724,
+    1730,
+    1727,
+    1724,
+    1724,
+    1725,
+    1733,
+    1724,
+    1730,
+    1731,
+    1728,
+    1726,
+    1732,
+    1729,
+    1723,
+    1723,
+    1727,
+    1725,
+    1732,
+    1734,
+    1727
+   ],
+   "bytecodes_total": 41465,
+   "description_bits": 4043552,
+   "execution_cost": 148.0,
+   "heldout_seen_lengths": {
+    "accuracy": 1.0,
+    "constant_no": 0.43333333333333335,
+    "constant_yes": 0.5666666666666667,
+    "majority_constant": 0.5666666666666667,
+    "n": 120,
+    "per_length": {
+     "2": 1.0,
+     "4": 1.0,
+     "6": 1.0
+    },
+    "random": 0.5
+   },
+   "heldout_unseen_lengths": {
+    "accuracy": 1.0,
+    "constant_no": 0.43388429752066116,
+    "constant_yes": 0.5661157024793388,
+    "majority_constant": 0.5661157024793388,
+    "n": 242,
+    "per_length": {
+     "8": 1.0,
+     "10": 1.0,
+     "12": 1.0,
+     "14": 1.0
+    },
+    "random": 0.5
+   },
+   "nodes": 84,
+   "operators": 8,
+   "outputs": [
+    false,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+    false,
+    false,
+    false,
+    true
+   ],
+   "ranked_description_bits": 4043552,
+   "ranked_execution_cost": 148.0,
+   "selections": {
+    "answer": 12,
+    "minus": 3,
+    "plus": 1,
+    "symbols": 99
+   },
+   "source_bytes": 24255,
+   "spelling": {
+    "answer": [
+     "eq",
+     [
+      "acc15",
+      "v2"
+     ]
+    ],
+    "minus": [
+     "identity",
+     [
+      "v1"
+     ]
+    ],
+    "plus": [
+     "identity",
+     [
+      "v-1"
+     ]
+    ],
+    "symbols": [
+     "sub",
+     [
+      "length",
+      "s99"
+     ]
+    ]
+   },
+   "train": {
+    "accuracy": 1.0,
+    "constant_no": 0.375,
+    "constant_yes": 0.625,
+    "majority_constant": 0.625,
+    "n": 24,
+    "per_length": {
+     "2": 1.0,
+     "4": 1.0,
+     "6": 1.0
+    },
+    "random": 0.5
+   }
+  },
+  {
+   "bytecodes": [
+    1729,
+    1728,
+    1730,
+    1724,
+    1730,
+    1727,
+    1724,
+    1724,
+    1725,
+    1733,
+    1724,
+    1730,
+    1731,
+    1728,
+    1726,
+    1732,
+    1729,
+    1723,
+    1723,
+    1727,
+    1725,
+    1732,
+    1734,
+    1727
+   ],
+   "bytecodes_total": 41465,
+   "description_bits": 4043560,
+   "execution_cost": 148.0,
+   "heldout_seen_lengths": {
+    "accuracy": 1.0,
+    "constant_no": 0.43333333333333335,
+    "constant_yes": 0.5666666666666667,
+    "majority_constant": 0.5666666666666667,
+    "n": 120,
+    "per_length": {
+     "2": 1.0,
+     "4": 1.0,
+     "6": 1.0
+    },
+    "random": 0.5
+   },
+   "heldout_unseen_lengths": {
+    "accuracy": 1.0,
+    "constant_no": 0.43388429752066116,
+    "constant_yes": 0.5661157024793388,
+    "majority_constant": 0.5661157024793388,
+    "n": 242,
+    "per_length": {
+     "8": 1.0,
+     "10": 1.0,
+     "12": 1.0,
+     "14": 1.0
+    },
+    "random": 0.5
+   },
+   "nodes": 84,
+   "operators": 8,
+   "outputs": [
+    false,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+    false,
+    false,
+    false,
+    true
+   ],
+   "ranked_description_bits": 4043560,
+   "ranked_execution_cost": 148.0,
+   "selections": {
+    "answer": 0,
+    "minus": 1,
+    "plus": 3,
+    "symbols": 99
+   },
+   "source_bytes": 24259,
+   "spelling": {
+    "answer": [
+     "eq",
+     [
+      "acc15",
+      "v-2"
+     ]
+    ],
+    "minus": [
+     "identity",
+     [
+      "v-1"
+     ]
+    ],
+    "plus": [
+     "identity",
+     [
+      "v1"
+     ]
+    ],
+    "symbols": [
+     "sub",
+     [
+      "length",
+      "s99"
+     ]
+    ]
+   },
+   "train": {
+    "accuracy": 1.0,
+    "constant_no": 0.375,
+    "constant_yes": 0.625,
+    "majority_constant": 0.625,
+    "n": 24,
+    "per_length": {
+     "2": 1.0,
+     "4": 1.0,
+     "6": 1.0
+    },
+    "random": 0.5
+   }
+  },
+  {
+   "bytecodes": [
+    1728,
+    1727,
+    1729,
+    1723,
+    1729,
+    1726,
+    1723,
+    1723,
+    1724,
+    1732,
+    1723,
+    1729,
+    1730,
+    1727,
+    1725,
+    1731,
+    1728,
+    1722,
+    1722,
+    1726,
+    1724,
+    1731,
+    1733,
+    1726
+   ],
+   "bytecodes_total": 41441,
+   "description_bits": 4043560,
+   "execution_cost": 148.0,
+   "heldout_seen_lengths": {
+    "accuracy": 1.0,
+    "constant_no": 0.43333333333333335,
+    "constant_yes": 0.5666666666666667,
+    "majority_constant": 0.5666666666666667,
+    "n": 120,
+    "per_length": {
+     "2": 1.0,
+     "4": 1.0,
+     "6": 1.0
+    },
+    "random": 0.5
+   },
+   "heldout_unseen_lengths": {
+    "accuracy": 1.0,
+    "constant_no": 0.43388429752066116,
+    "constant_yes": 0.5661157024793388,
+    "majority_constant": 0.5661157024793388,
+    "n": 242,
+    "per_length": {
+     "8": 1.0,
+     "10": 1.0,
+     "12": 1.0,
+     "14": 1.0
+    },
+    "random": 0.5
+   },
+   "nodes": 84,
+   "operators": 8,
+   "outputs": [
+    false,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+    false,
+    false,
+    false,
+    true
+   ],
+   "ranked_description_bits": 4043560,
+   "ranked_execution_cost": 148.0,
+   "selections": {
+    "answer": 12,
+    "minus": 4,
+    "plus": 0,
+    "symbols": 100
+   },
+   "source_bytes": 24258,
+   "spelling": {
+    "answer": [
+     "eq",
+     [
+      "acc15",
+      "v2"
+     ]
+    ],
+    "minus": [
+     "identity",
+     [
+      "v2"
+     ]
+    ],
+    "plus": [
+     "identity",
+     [
+      "v-2"
+     ]
+    ],
+    "symbols": [
+     "sub",
+     [
+      "length",
+      "s100"
+     ]
+    ]
+   },
+   "train": {
+    "accuracy": 1.0,
+    "constant_no": 0.375,
+    "constant_yes": 0.625,
+    "majority_constant": 0.625,
+    "n": 24,
+    "per_length": {
+     "2": 1.0,
+     "4": 1.0,
+     "6": 1.0
+    },
+    "random": 0.5
+   }
+  },
+  {
+   "bytecodes": [
+    1728,
+    1727,
+    1729,
+    1723,
+    1729,
+    1726,
+    1723,
+    1723,
+    1724,
+    1732,
+    1723,
+    1729,
+    1730,
+    1727,
+    1725,
+    1731,
+    1728,
+    1722,
+    1722,
+    1726,
+    1724,
+    1731,
+    1733,
+    1726
+   ],
+   "bytecodes_total": 41441,
+   "description_bits": 4043560,
+   "execution_cost": 148.0,
+   "heldout_seen_lengths": {
+    "accuracy": 1.0,
+    "constant_no": 0.43333333333333335,
+    "constant_yes": 0.5666666666666667,
+    "majority_constant": 0.5666666666666667,
+    "n": 120,
+    "per_length": {
+     "2": 1.0,
+     "4": 1.0,
+     "6": 1.0
+    },
+    "random": 0.5
+   },
+   "heldout_unseen_lengths": {
+    "accuracy": 1.0,
+    "constant_no": 0.43388429752066116,
+    "constant_yes": 0.5661157024793388,
+    "majority_constant": 0.5661157024793388,
+    "n": 242,
+    "per_length": {
+     "8": 1.0,
+     "10": 1.0,
+     "12": 1.0,
+     "14": 1.0
+    },
+    "random": 0.5
+   },
+   "nodes": 84,
+   "operators": 8,
+   "outputs": [
+    false,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+    false,
+    false,
+    false,
+    true
+   ],
+   "ranked_description_bits": 4043560,
+   "ranked_execution_cost": 148.0,
+   "selections": {
+    "answer": 9,
+    "minus": 3,
+    "plus": 1,
+    "symbols": 100
+   },
+   "source_bytes": 24258,
+   "spelling": {
+    "answer": [
+     "eq",
+     [
+      "acc15",
+      "v1"
+     ]
+    ],
+    "minus": [
+     "identity",
+     [
+      "v1"
+     ]
+    ],
+    "plus": [
+     "identity",
+     [
+      "v-1"
+     ]
+    ],
+    "symbols": [
+     "sub",
+     [
+      "length",
+      "s100"
+     ]
+    ]
+   },
+   "train": {
+    "accuracy": 1.0,
+    "constant_no": 0.375,
+    "constant_yes": 0.625,
+    "majority_constant": 0.625,
+    "n": 24,
+    "per_length": {
+     "2": 1.0,
+     "4": 1.0,
+     "6": 1.0
+    },
+    "random": 0.5
+   }
+  },
+  {
+   "bytecodes": [
+    1728,
+    1727,
+    1729,
+    1723,
+    1729,
+    1726,
+    1723,
+    1723,
+    1724,
+    1732,
+    1723,
+    1729,
+    1730,
+    1727,
+    1725,
+    1731,
+    1728,
+    1722,
+    1722,
+    1726,
+    1724,
+    1731,
+    1733,
+    1726
+   ],
+   "bytecodes_total": 41441,
+   "description_bits": 4043568,
+   "execution_cost": 148.0,
+   "heldout_seen_lengths": {
+    "accuracy": 1.0,
+    "constant_no": 0.43333333333333335,
+    "constant_yes": 0.5666666666666667,
+    "majority_constant": 0.5666666666666667,
+    "n": 120,
+    "per_length": {
+     "2": 1.0,
+     "4": 1.0,
+     "6": 1.0
+    },
+    "random": 0.5
+   },
+   "heldout_unseen_lengths": {
+    "accuracy": 1.0,
+    "constant_no": 0.43388429752066116,
+    "constant_yes": 0.5661157024793388,
+    "majority_constant": 0.5661157024793388,
+    "n": 242,
+    "per_length": {
+     "8": 1.0,
+     "10": 1.0,
+     "12": 1.0,
+     "14": 1.0
+    },
+    "random": 0.5
+   },
+   "nodes": 84,
+   "operators": 8,
+   "outputs": [
+    false,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+    false,
+    false,
+    false,
+    true
+   ],
+   "ranked_description_bits": 4043568,
+   "ranked_execution_cost": 148.0,
+   "selections": {
+    "answer": 3,
+    "minus": 1,
+    "plus": 3,
+    "symbols": 100
+   },
+   "source_bytes": 24262,
+   "spelling": {
+    "answer": [
+     "eq",
+     [
+      "acc15",
+      "v-1"
+     ]
+    ],
+    "minus": [
+     "identity",
+     [
+      "v-1"
+     ]
+    ],
+    "plus": [
+     "identity",
+     [
+      "v1"
+     ]
+    ],
+    "symbols": [
+     "sub",
+     [
+      "length",
+      "s100"
+     ]
+    ]
+   },
+   "train": {
+    "accuracy": 1.0,
+    "constant_no": 0.375,
+    "constant_yes": 0.625,
+    "majority_constant": 0.625,
+    "n": 24,
+    "per_length": {
+     "2": 1.0,
+     "4": 1.0,
+     "6": 1.0
+    },
+    "random": 0.5
+   }
+  },
+  {
+   "bytecodes": [
+    1728,
+    1727,
+    1729,
+    1723,
+    1729,
+    1726,
+    1723,
+    1723,
+    1724,
+    1732,
+    1723,
+    1729,
+    1730,
+    1727,
+    1725,
+    1731,
+    1728,
+    1722,
+    1722,
+    1726,
+    1724,
+    1731,
+    1733,
+    1726
+   ],
+   "bytecodes_total": 41441,
+   "description_bits": 4043568,
+   "execution_cost": 148.0,
+   "heldout_seen_lengths": {
+    "accuracy": 1.0,
+    "constant_no": 0.43333333333333335,
+    "constant_yes": 0.5666666666666667,
+    "majority_constant": 0.5666666666666667,
+    "n": 120,
+    "per_length": {
+     "2": 1.0,
+     "4": 1.0,
+     "6": 1.0
+    },
+    "random": 0.5
+   },
+   "heldout_unseen_lengths": {
+    "accuracy": 1.0,
+    "constant_no": 0.43388429752066116,
+    "constant_yes": 0.5661157024793388,
+    "majority_constant": 0.5661157024793388,
+    "n": 242,
+    "per_length": {
+     "8": 1.0,
+     "10": 1.0,
+     "12": 1.0,
+     "14": 1.0
+    },
+    "random": 0.5
+   },
+   "nodes": 84,
+   "operators": 8,
+   "outputs": [
+    false,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+    false,
+    false,
+    false,
+    true
+   ],
+   "ranked_description_bits": 4043568,
+   "ranked_execution_cost": 148.0,
+   "selections": {
+    "answer": 0,
+    "minus": 0,
+    "plus": 4,
+    "symbols": 100
+   },
+   "source_bytes": 24262,
+   "spelling": {
+    "answer": [
+     "eq",
+     [
+      "acc15",
+      "v-2"
+     ]
+    ],
+    "minus": [
+     "identity",
+     [
+      "v-2"
+     ]
+    ],
+    "plus": [
+     "identity",
+     [
+      "v2"
+     ]
+    ],
+    "symbols": [
+     "sub",
+     [
+      "length",
+      "s100"
+     ]
+    ]
+   },
+   "train": {
+    "accuracy": 1.0,
+    "constant_no": 0.375,
+    "constant_yes": 0.625,
+    "majority_constant": 0.625,
+    "n": 24,
+    "per_length": {
+     "2": 1.0,
+     "4": 1.0,
+     "6": 1.0
+    },
+    "random": 0.5
+   }
+  },
+  {
+   "bytecodes": [
+    1727,
+    1726,
+    1728,
+    1722,
+    1728,
+    1725,
+    1722,
+    1722,
+    1723,
+    1731,
+    1722,
+    1728,
+    1729,
+    1726,
+    1724,
+    1730,
+    1727,
+    1721,
+    1721,
+    1725,
+    1723,
+    1730,
+    1732,
+    1725
+   ],
+   "bytecodes_total": 41417,
+   "description_bits": 4043560,
+   "execution_cost": 148.0,
+   "heldout_seen_lengths": {
+    "accuracy": 1.0,
+    "constant_no": 0.43333333333333335,
+    "constant_yes": 0.5666666666666667,
+    "majority_constant": 0.5666666666666667,
+    "n": 120,
+    "per_length": {
+     "2": 1.0,
+     "4": 1.0,
+     "6": 1.0
+    },
+    "random": 0.5
+   },
+   "heldout_unseen_lengths": {
+    "accuracy": 1.0,
+    "constant_no": 0.43388429752066116,
+    "constant_yes": 0.5661157024793388,
+    "majority_constant": 0.5661157024793388,
+    "n": 242,
+    "per_length": {
+     "8": 1.0,
+     "10": 1.0,
+     "12": 1.0,
+     "14": 1.0
+    },
+    "random": 0.5
+   },
+   "nodes": 84,
+   "operators": 8,
+   "outputs": [
+    false,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+    false,
+    false,
+    false,
+    true
+   ],
+   "ranked_description_bits": 4043560,
+   "ranked_execution_cost": 148.0,
+   "selections": {
+    "answer": 6,
+    "minus": 4,
+    "plus": 0,
+    "symbols": 101
+   },
+   "source_bytes": 24258,
+   "spelling": {
+    "answer": [
+     "eq",
+     [
+      "acc15",
+      "v0"
+     ]
+    ],
+    "minus": [
+     "identity",
+     [
+      "v2"
+     ]
+    ],
+    "plus": [
+     "identity",
+     [
+      "v-2"
+     ]
+    ],
+    "symbols": [
+     "sub",
+     [
+      "length",
+      "s101"
+     ]
+    ]
+   },
+   "train": {
+    "accuracy": 1.0,
+    "constant_no": 0.375,
+    "constant_yes": 0.625,
+    "majority_constant": 0.625,
+    "n": 24,
+    "per_length": {
+     "2": 1.0,
+     "4": 1.0,
+     "6": 1.0
+    },
+    "random": 0.5
+   }
+  },
+  {
+   "bytecodes": [
+    1727,
+    1726,
+    1728,
+    1722,
+    1728,
+    1725,
+    1722,
+    1722,
+    1723,
+    1731,
+    1722,
+    1728,
+    1729,
+    1726,
+    1724,
+    1730,
+    1727,
+    1721,
+    1721,
+    1725,
+    1723,
+    1730,
+    1732,
+    1725
+   ],
+   "bytecodes_total": 41417,
+   "description_bits": 4043560,
+   "execution_cost": 148.0,
+   "heldout_seen_lengths": {
+    "accuracy": 1.0,
+    "constant_no": 0.43333333333333335,
+    "constant_yes": 0.5666666666666667,
+    "majority_constant": 0.5666666666666667,
+    "n": 120,
+    "per_length": {
+     "2": 1.0,
+     "4": 1.0,
+     "6": 1.0
+    },
+    "random": 0.5
+   },
+   "heldout_unseen_lengths": {
+    "accuracy": 1.0,
+    "constant_no": 0.43388429752066116,
+    "constant_yes": 0.5661157024793388,
+    "majority_constant": 0.5661157024793388,
+    "n": 242,
+    "per_length": {
+     "8": 1.0,
+     "10": 1.0,
+     "12": 1.0,
+     "14": 1.0
+    },
+    "random": 0.5
+   },
+   "nodes": 84,
+   "operators": 8,
+   "outputs": [
+    false,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+    false,
+    false,
+    false,
+    true
+   ],
+   "ranked_description_bits": 4043560,
+   "ranked_execution_cost": 148.0,
+   "selections": {
+    "answer": 6,
+    "minus": 3,
+    "plus": 1,
+    "symbols": 101
+   },
+   "source_bytes": 24258,
+   "spelling": {
+    "answer": [
+     "eq",
+     [
+      "acc15",
+      "v0"
+     ]
+    ],
+    "minus": [
+     "identity",
+     [
+      "v1"
+     ]
+    ],
+    "plus": [
+     "identity",
+     [
+      "v-1"
+     ]
+    ],
+    "symbols": [
+     "sub",
+     [
+      "length",
+      "s101"
+     ]
+    ]
+   },
+   "train": {
+    "accuracy": 1.0,
+    "constant_no": 0.375,
+    "constant_yes": 0.625,
+    "majority_constant": 0.625,
+    "n": 24,
+    "per_length": {
+     "2": 1.0,
+     "4": 1.0,
+     "6": 1.0
+    },
+    "random": 0.5
+   }
+  },
+  {
+   "bytecodes": [
+    1727,
+    1726,
+    1728,
+    1722,
+    1728,
+    1725,
+    1722,
+    1722,
+    1723,
+    1731,
+    1722,
+    1728,
+    1729,
+    1726,
+    1724,
+    1730,
+    1727,
+    1721,
+    1721,
+    1725,
+    1723,
+    1730,
+    1732,
+    1725
+   ],
+   "bytecodes_total": 41417,
+   "description_bits": 4043560,
+   "execution_cost": 148.0,
+   "heldout_seen_lengths": {
+    "accuracy": 1.0,
+    "constant_no": 0.43333333333333335,
+    "constant_yes": 0.5666666666666667,
+    "majority_constant": 0.5666666666666667,
+    "n": 120,
+    "per_length": {
+     "2": 1.0,
+     "4": 1.0,
+     "6": 1.0
+    },
+    "random": 0.5
+   },
+   "heldout_unseen_lengths": {
+    "accuracy": 1.0,
+    "constant_no": 0.43388429752066116,
+    "constant_yes": 0.5661157024793388,
+    "majority_constant": 0.5661157024793388,
+    "n": 242,
+    "per_length": {
+     "8": 1.0,
+     "10": 1.0,
+     "12": 1.0,
+     "14": 1.0
+    },
+    "random": 0.5
+   },
+   "nodes": 84,
+   "operators": 8,
+   "outputs": [
+    false,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+    false,
+    false,
+    false,
+    true
+   ],
+   "ranked_description_bits": 4043560,
+   "ranked_execution_cost": 148.0,
+   "selections": {
+    "answer": 6,
+    "minus": 1,
+    "plus": 3,
+    "symbols": 101
+   },
+   "source_bytes": 24258,
+   "spelling": {
+    "answer": [
+     "eq",
+     [
+      "acc15",
+      "v0"
+     ]
+    ],
+    "minus": [
+     "identity",
+     [
+      "v-1"
+     ]
+    ],
+    "plus": [
+     "identity",
+     [
+      "v1"
+     ]
+    ],
+    "symbols": [
+     "sub",
+     [
+      "length",
+      "s101"
+     ]
+    ]
+   },
+   "train": {
+    "accuracy": 1.0,
+    "constant_no": 0.375,
+    "constant_yes": 0.625,
+    "majority_constant": 0.625,
+    "n": 24,
+    "per_length": {
+     "2": 1.0,
+     "4": 1.0,
+     "6": 1.0
+    },
+    "random": 0.5
+   }
+  },
+  {
+   "bytecodes": [
+    1727,
+    1726,
+    1728,
+    1722,
+    1728,
+    1725,
+    1722,
+    1722,
+    1723,
+    1731,
+    1722,
+    1728,
+    1729,
+    1726,
+    1724,
+    1730,
+    1727,
+    1721,
+    1721,
+    1725,
+    1723,
+    1730,
+    1732,
+    1725
+   ],
+   "bytecodes_total": 41417,
+   "description_bits": 4043560,
+   "execution_cost": 148.0,
+   "heldout_seen_lengths": {
+    "accuracy": 1.0,
+    "constant_no": 0.43333333333333335,
+    "constant_yes": 0.5666666666666667,
+    "majority_constant": 0.5666666666666667,
+    "n": 120,
+    "per_length": {
+     "2": 1.0,
+     "4": 1.0,
+     "6": 1.0
+    },
+    "random": 0.5
+   },
+   "heldout_unseen_lengths": {
+    "accuracy": 1.0,
+    "constant_no": 0.43388429752066116,
+    "constant_yes": 0.5661157024793388,
+    "majority_constant": 0.5661157024793388,
+    "n": 242,
+    "per_length": {
+     "8": 1.0,
+     "10": 1.0,
+     "12": 1.0,
+     "14": 1.0
+    },
+    "random": 0.5
+   },
+   "nodes": 84,
+   "operators": 8,
+   "outputs": [
+    false,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+    false,
+    false,
+    false,
+    true
+   ],
+   "ranked_description_bits": 4043560,
+   "ranked_execution_cost": 148.0,
+   "selections": {
+    "answer": 6,
+    "minus": 0,
+    "plus": 4,
+    "symbols": 101
+   },
+   "source_bytes": 24258,
+   "spelling": {
+    "answer": [
+     "eq",
+     [
+      "acc15",
+      "v0"
+     ]
+    ],
+    "minus": [
+     "identity",
+     [
+      "v-2"
+     ]
+    ],
+    "plus": [
+     "identity",
+     [
+      "v2"
+     ]
+    ],
+    "symbols": [
+     "sub",
+     [
+      "length",
+      "s101"
+     ]
+    ]
+   },
+   "train": {
+    "accuracy": 1.0,
+    "constant_no": 0.375,
+    "constant_yes": 0.625,
+    "majority_constant": 0.625,
+    "n": 24,
+    "per_length": {
+     "2": 1.0,
+     "4": 1.0,
+     "6": 1.0
+    },
+    "random": 0.5
+   }
+  }
+ ],
+ "scaffold_nodes": 84,
+ "shipped_conforming": 10,
+ "shipped_description_bits": 4043552,
+ "shipped_execution_cost": 148.0,
+ "shipped_ranked_by": "order",
+ "space_size": 45375,
+ "stream": "hardening='none' (pre-audit; see FINDINGS section 39)",
+ "train_episodes": 24,
+ "unseen_episodes": 242
+}

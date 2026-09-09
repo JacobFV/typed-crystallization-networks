@@ -1,0 +1,132 @@
+{
+ "height": 32,
+ "held_extents": {
+  "max_height": 30,
+  "max_width": 30
+ },
+ "held_records": 103,
+ "rows": [
+  {
+   "certificate": "none exists",
+   "conforming": 0,
+   "evaluated": 25,
+   "exhausted": true,
+   "scaffold_nodes": 81,
+   "seconds": 1.642520516004879,
+   "space_size": 25,
+   "span": 4,
+   "survivors": 0
+  },
+  {
+   "certificate": "none exists",
+   "conforming": 0,
+   "evaluated": 25,
+   "exhausted": true,
+   "scaffold_nodes": 153,
+   "seconds": 2.5085608920198865,
+   "space_size": 25,
+   "span": 8,
+   "survivors": 0
+  },
+  {
+   "certificate": "none exists",
+   "conforming": 0,
+   "evaluated": 25,
+   "exhausted": true,
+   "scaffold_nodes": 225,
+   "seconds": 3.9560745430062525,
+   "space_size": 25,
+   "span": 12,
+   "survivors": 0
+  },
+  {
+   "certificate": "none exists",
+   "conforming": 0,
+   "evaluated": 25,
+   "exhausted": true,
+   "scaffold_nodes": 297,
+   "seconds": 4.318581864004955,
+   "space_size": 25,
+   "span": 16,
+   "survivors": 0
+  },
+  {
+   "certificate": "none exists",
+   "conforming": 0,
+   "evaluated": 25,
+   "exhausted": true,
+   "scaffold_nodes": 369,
+   "seconds": 4.865873771021143,
+   "space_size": 25,
+   "span": 20,
+   "survivors": 0
+  },
+  {
+   "certificate": "none exists",
+   "conforming": 0,
+   "evaluated": 25,
+   "exhausted": true,
+   "scaffold_nodes": 441,
+   "seconds": 4.901762827998027,
+   "space_size": 25,
+   "span": 24,
+   "survivors": 0
+  },
+  {
+   "certificate": "none exists",
+   "conforming": 0,
+   "evaluated": 25,
+   "exhausted": true,
+   "scaffold_nodes": 513,
+   "seconds": 5.932180594012607,
+   "space_size": 25,
+   "span": 28,
+   "survivors": 0
+  },
+  {
+   "bytecodes_per_call": 15248,
+   "bytecodes_total": 60858,
+   "certificate": "unique",
+   "conforming": 1,
+   "description_bits": 256364352,
+   "evaluated": 25,
+   "execution_cost": 1453.0,
+   "exhausted": true,
+   "held_accuracy": 1.0,
+   "held_max_error": 0.0,
+   "nodes": 585,
+   "operators": 16,
+   "ranked_description_bits": 256364352,
+   "ranked_execution_cost": 1453.0,
+   "scaffold_nodes": 585,
+   "seconds": 37.20114995696349,
+   "source_bytes": 132257,
+   "space_size": 25,
+   "span": 32,
+   "steps_chosen": [
+    3,
+    96
+   ],
+   "survivors": 1,
+   "train_accuracy": 1.0
+  }
+ ],
+ "shipped_span": 32,
+ "spans": [
+  4,
+  8,
+  12,
+  16,
+  20,
+  24,
+  28,
+  32
+ ],
+ "train_extents": {
+  "max_height": 30,
+  "max_width": 30
+ },
+ "train_records": 111,
+ "validation_records": 54,
+ "width": 32
+}

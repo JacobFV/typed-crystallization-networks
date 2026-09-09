@@ -1,0 +1,288 @@
+{
+ "arguments": {
+  "corner_per_image": 120,
+  "held": 6,
+  "pairs": 48,
+  "stages": "s0,s1",
+  "tag": "visual_family_s01",
+  "train": 6,
+  "validation": 3
+ },
+ "configuration": {
+  "horizon": 2,
+  "min_size": 4,
+  "nesting": 5,
+  "palette": 32,
+  "resolution": 32,
+  "widgets": 20
+ },
+ "height": 32,
+ "offsets": [
+  6,
+  99,
+  3,
+  96,
+  9
+ ],
+ "s0": {
+  "certificate": "exhausted",
+  "chosen_matches_artifact": true,
+  "conforming": 2,
+  "distinct_bytecodes": [
+   1456
+  ],
+  "distinct_description_bits": [
+   22262976
+  ],
+  "distinct_execution_cost": [
+   15.0
+  ],
+  "distinct_nodes": [
+   15
+  ],
+  "enumeration": {
+   "count": 2,
+   "evaluated": 256,
+   "exhausted": true,
+   "seconds": 8.80192449700553,
+   "space_size": 256,
+   "unique": false
+  },
+  "outputs_identical_across_survivors": true,
+  "rank_picks": {
+   "bytecodes": 0,
+   "cost": 0,
+   "description": 0,
+   "order": 0
+  },
+  "rows": [
+   {
+    "bytecodes": [
+     182,
+     182,
+     182,
+     182,
+     182,
+     182,
+     182,
+     182
+    ],
+    "bytecodes_total": 1456,
+    "description_bits": 22262976,
+    "execution_cost": 15.0,
+    "held_accuracy": 1.0,
+    "held_max_error": 0.0,
+    "nodes": 15,
+    "operators": 5,
+    "outputs": [
+     "{\"y\": true}",
+     "{\"y\": true}",
+     "{\"y\": true}",
+     "{\"y\": true}",
+     "{\"y\": false}",
+     "{\"y\": true}",
+     "{\"y\": false}",
+     "{\"y\": true}"
+    ],
+    "ranked_description_bits": 22262976,
+    "ranked_execution_cost": 15.0,
+    "selections": {
+     "a_b": 0,
+     "a_b_v": 0,
+     "a_g": 0,
+     "a_g_v": 0,
+     "a_r_v": 0,
+     "b_b": 0,
+     "b_b_v": 0,
+     "b_g": 0,
+     "b_g_v": 0,
+     "b_r_v": 0,
+     "cmp_b": 0,
+     "cmp_g": 0,
+     "cmp_r": 0,
+     "rg": 7,
+     "same": 2
+    },
+    "source_bytes": 14862
+   },
+   {
+    "bytecodes": [
+     182,
+     182,
+     182,
+     182,
+     182,
+     182,
+     182,
+     182
+    ],
+    "bytecodes_total": 1456,
+    "description_bits": 22262976,
+    "execution_cost": 15.0,
+    "held_accuracy": 1.0,
+    "held_max_error": 0.0,
+    "nodes": 15,
+    "operators": 4,
+    "outputs": [
+     "{\"y\": true}",
+     "{\"y\": true}",
+     "{\"y\": true}",
+     "{\"y\": true}",
+     "{\"y\": false}",
+     "{\"y\": true}",
+     "{\"y\": false}",
+     "{\"y\": true}"
+    ],
+    "ranked_description_bits": 22262976,
+    "ranked_execution_cost": 15.0,
+    "selections": {
+     "a_b": 0,
+     "a_b_v": 0,
+     "a_g": 0,
+     "a_g_v": 0,
+     "a_r_v": 0,
+     "b_b": 0,
+     "b_b_v": 0,
+     "b_g": 0,
+     "b_g_v": 0,
+     "b_r_v": 0,
+     "cmp_b": 0,
+     "cmp_g": 0,
+     "cmp_r": 0,
+     "rg": 8,
+     "same": 8
+    },
+    "source_bytes": 14833
+   }
+  ],
+  "scaffold_nodes": 15,
+  "seconds": 15.11625257099513,
+  "size_degenerate": true,
+  "space_size": 256,
+  "stage": "S0 same",
+  "survivors": 2
+ },
+ "s1": {
+  "certificate": "exhausted",
+  "chosen_matches_artifact": true,
+  "conforming": 2,
+  "distinct_bytecodes": [
+   2984
+  ],
+  "distinct_description_bits": [
+   44492816
+  ],
+  "distinct_execution_cost": [
+   35.0
+  ],
+  "distinct_nodes": [
+   7
+  ],
+  "enumeration": {
+   "count": 2,
+   "evaluated": 400,
+   "exhausted": true,
+   "seconds": 74.09564854000928,
+   "space_size": 400,
+   "unique": false
+  },
+  "outputs_identical_across_survivors": true,
+  "rank_picks": {
+   "bytecodes": 0,
+   "cost": 0,
+   "description": 0,
+   "order": 0
+  },
+  "rows": [
+   {
+    "bytecodes": [
+     373,
+     373,
+     373,
+     373,
+     373,
+     373,
+     373,
+     373
+    ],
+    "bytecodes_total": 2984,
+    "description_bits": 44492816,
+    "execution_cost": 35.0,
+    "held_accuracy": 1.0,
+    "held_max_error": 0.0,
+    "nodes": 7,
+    "operators": 4,
+    "outputs": [
+     "{\"y\": false}",
+     "{\"y\": false}",
+     "{\"y\": false}",
+     "{\"y\": false}",
+     "{\"y\": false}",
+     "{\"y\": false}",
+     "{\"y\": false}",
+     "{\"y\": false}"
+    ],
+    "ranked_description_bits": 44492816,
+    "ranked_execution_cost": 35.0,
+    "selections": {
+     "back_a": 2,
+     "back_b": 3,
+     "corner": 1,
+     "obs": 0,
+     "pos": 0,
+     "same_a": 0,
+     "same_b": 0
+    },
+    "source_bytes": 17499
+   },
+   {
+    "bytecodes": [
+     373,
+     373,
+     373,
+     373,
+     373,
+     373,
+     373,
+     373
+    ],
+    "bytecodes_total": 2984,
+    "description_bits": 44492816,
+    "execution_cost": 35.0,
+    "held_accuracy": 1.0,
+    "held_max_error": 0.0,
+    "nodes": 7,
+    "operators": 4,
+    "outputs": [
+     "{\"y\": false}",
+     "{\"y\": false}",
+     "{\"y\": false}",
+     "{\"y\": false}",
+     "{\"y\": false}",
+     "{\"y\": false}",
+     "{\"y\": false}",
+     "{\"y\": false}"
+    ],
+    "ranked_description_bits": 44492816,
+    "ranked_execution_cost": 35.0,
+    "selections": {
+     "back_a": 3,
+     "back_b": 2,
+     "corner": 1,
+     "obs": 0,
+     "pos": 0,
+     "same_a": 0,
+     "same_b": 0
+    },
+    "source_bytes": 17499
+   }
+  ],
+  "scaffold_nodes": 7,
+  "seconds": 123.74637595500099,
+  "size_degenerate": true,
+  "space_size": 400,
+  "stage": "S1 corner",
+  "survivors": 2
+ },
+ "width": 32
+}

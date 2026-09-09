@@ -259,3 +259,45 @@ def test_reported_cost_is_measured_after_pruning():
     bits, cost = program_cost(p, res.selections, r)
     assert res.description_bits == bits and res.execution_cost == cost
     assert cost == 1.0
+
+
+# --- the wiring that was missing: `fit` never passed `rank` to the backend ----
+
+def test_fit_reaches_the_ranking_the_discrete_backends_already_carried():
+    """`enumerate_fit` has had `rank` since it grew one; `fit` did not pass it.
+
+    Without this, every discrete run took the first conforming program in
+    enumeration order however large it was, and `mdl_weight` -- which only ever
+    reached the relaxation loop -- had nothing to act on. Measured in
+    `research/program-length/RESULTS.md` Q1.
+    """
+    for module_first in (True, False):
+        p, ex, sig, r = _equivalent_choice_problem(module_first)
+        _, unranked = fit(p, ex, sig, registry=r, tolerance=.005, mode='enumerate')
+        _, ranked = fit(p, ex, sig, registry=r, tolerance=.005, mode='enumerate',
+                        rank='description')
+        assert unranked['rank'] == 'order' and ranked['rank'] == 'description'
+        assert unranked['discrete_result']['ranked_by'] == 'order'
+        assert ranked['discrete_result']['ranked_by'] == 'description'
+        assert ranked['discrete_result']['conforming'] == 2
+        best = p.nodes[0].candidates[ranked['discrete_result']['selections']['y']].operator.name
+        assert best == 'and'
+        assert ranked['pruned_description_bits'] <= unranked['pruned_description_bits']
+        assert ranked['exact_conformance'] and unranked['exact_conformance']
+
+
+def test_fit_rejects_a_ranking_no_backend_can_honour():
+    p, ex, sig, r = _equivalent_choice_problem(True)
+    with pytest.raises(ValueError):
+        fit(p, ex, sig, registry=r, mode='enumerate', rank='smallest')
+    with pytest.raises(ValueError):
+        # the hybrid backend stops at the first conforming structure, so it
+        # never builds the set a ranking needs
+        fit(p, ex, sig, registry=r, mode='hybrid', rank='description')
+
+
+def test_ranking_defaults_to_order_so_nothing_shipped_moves():
+    p, ex, sig, r = _equivalent_choice_problem(True)
+    _, a = fit(p, ex, sig, registry=r, tolerance=.005, mode='enumerate')
+    _, b = fit(p, ex, sig, registry=r, tolerance=.005, mode='enumerate', rank='order')
+    assert a['discrete_result']['selections'] == b['discrete_result']['selections']
