@@ -29,9 +29,13 @@ precisely localised: §19's program is a *counting* program (accumulate ±1 per
 symbol, test the total against a constant), and the §24 re-draw made bracket
 counts identical across both classes. A scaffold that adds one thing the algebra
 already has — a running **minimum** of the prefix sum, using the existing `min`
-and `and` operators and no new domain operator — does contain an exact solution,
-and the same unmodified search finds it. **Stage A survives untouched**: lexical
-perception is exact and uniquely certified on the post-audit stream.
+and `and` operators and no new domain operator — does contain an exact solution:
+an exhibited member scores **1.000 on all 859 held-out episodes at unseen lengths
+16–22** against the same 0.5262 majority (§8). **Stage A survives untouched**:
+lexical perception is exact and uniquely certified on the post-audit stream.
+
+So the post-audit task is solvable in this family; the track's own stage-B
+scaffold cannot express the solution, and that gap is one accumulator wide.
 
 ---
 
@@ -47,10 +51,13 @@ pinned in every call.
 
 The counting oracle scores 0.4992 post-audit, which is exactly the positive rate:
 `#( == #)` holds for **every** string, so "counts match ⇒ balanced" is the
-constant `yes`. This reproduces §43's fact on an independent draw. Depths 1–4 are
-present at every length in both streams, and post-audit the hardened draw picks
-the pair count independently of the depth, so **length and depth are decorrelated
-post-audit** — a length holdout no longer holds out depth as it did pre-audit.
+constant `yes`. This reproduces §43's fact on an independent draw. Depths 1–4
+occur in both streams and in **every split of §2**: post-audit the hardened draw
+picks the pair count independently of the depth, so **length and depth are
+decorrelated post-audit** — a length holdout no longer holds out depth as it
+partly did pre-audit. That is a property of the re-draw, not of this split, and it
+means the length holdout post-audit is a holdout of *string identity and scale*
+rather than of nesting depth.
 
 Post-audit, `min_prefix` over the string is `0` (599), `-1` (407) or `-2` (194).
 Since counts always match, **balanced ⟺ min prefix ≥ 0** on this stream. That is
@@ -259,19 +266,119 @@ direct enumeration of the family's semantics (§5). The reason is structural: th
 scaffold's only accumulator is a **sum**, so every member is a function of a
 bracket **count** over one prefix, and the §24 re-draw made bracket counts
 identical in both classes by construction (`_count_preserving_negative` is a
-transposition, which preserves the multiset exactly). Post-audit,
+transposition, which preserves the multiset exactly; the generator's count-changing
+fallback fires only when 96 candidate transpositions all fail, and was observed
+**0 times in 1,200 episodes** — `counts_match_rate` is 1.000). Post-audit,
 `balanced ⟺ min prefix ≥ 0`, and a **minimum is not a sum**. This is an
 expressiveness limit of the scaffold. It is not a search failure: the search
 decided all 45,375 programs, none of them at a budget cut.
 
-**The typed algebra: yes, and the same search reaches it.** `dyck_scaffold.py`
+**The typed algebra: yes, and the unmodified search reaches it** (exhaustively
+inside a stated window; by an exhibited witness outside one). `dyck_scaffold.py`
 adds exactly one structure to `scaffolds.stage_b` — a second accumulator carrying
 the running minimum of the prefix sum — using `min` and `and`, operators already
 in `tcn/operators.py`. No new domain operator, no change to core. The answer is a
 conjunction of two readouts, and **both readouts are searched** over the same
 `{eq, ge, le} × {-2..2}` grid stage B uses; nothing is wired by hand.
 
-<!--DYCK-->
+#### The witness — existence, established
+
+`dyck_witness.py` → `dyck_witness.json`. The member is the textbook Dyck
+reduction: step `+1` on `'('` and `-1` on `')'` over exactly the string's own
+symbols (`c = 101`, i.e. `symbols = prompt_bytes − 101 = L`), accept iff the total
+is `0` **and** the running minimum never fell below `0`. Both readouts are drawn
+from the same `{eq, ge, le} × {-2..2}` grid stage B searches.
+
+| | value |
+|---|---|
+| max error on the 24 training episodes | **0.0** (conforms) |
+| **train** accuracy | **1.0000** (majority 0.5000) |
+| **held-out, seen lengths** (n = 120) | **1.0000** (majority 0.5333) |
+| **held-out, UNSEEN lengths 16/18/20/22** (n = 859) | **1.0000** (majority **0.5262**) |
+| per-length on unseen | 16: 1.000, 18: 1.000, 20: 1.000, 22: 1.000 |
+| live nodes / execution cost / description bits | 138 / 226.0 / 5,109,384 |
+| batch-one latency | 6.90 ms |
+
+Trained on lengths 10–14, perfect on 16–22 with **0% string overlap**. So the
+post-audit task **is** solvable by a program in this family, and the solution
+generalises across the held-out generating structure exactly as §19's did on the
+pre-audit stream. **Existence is established by exhibiting the program, which
+needs no search certificate.**
+
+#### The enumeration over the full Dyck space — bounded, and it carries NO certificate
+
+The full scaffold admits **680,625** programs (121 × 5 × 5 × 15 × 15). Measured
+rate (`dyck_rate.py` → `dyck_rate.json`, sampled uniformly from the same
+combination space, under the load present): **0.02213 s/program**, projecting
+**15,063 s ≈ 4.18 h**.
+
+The run was started and **stopped, unexhausted, at 2 h 14 m elapsed / 2 h 10 m CPU**
+(~7,840 s ≈ an estimated **52%** of the space). It therefore establishes
+**nothing**: not existence, not non-existence, no certificate. It is reported here
+as a bounded cost measurement and nothing more.
+
+The witness sits at enumeration index **571,822 of 680,625 — 84.0% of the way
+through** the mixed-radix order, which is why a run that reached ~52% had not yet
+found it. Reaching it by enumeration is therefore a **measured ~3.5 h** at this
+rate, not an open question: the search *can* reach it, it is simply expensive at
+the full `sub_range`.
+
+#### An exhausted enumeration over a stated window
+
+To get a certificate rather than a projection, the same unmodified
+`enumerate_fit` was run over the same scaffold with `sub_range` narrowed from 121
+values to the 15-value window `c ∈ [95, 110)`, which contains the witness. **This
+window was chosen to bound runtime, and the certificate below applies only inside
+it** — it is not evidence about the 106 values of `c` outside the window.
+
+`run_dyck.py --positions 22 --sub-lo 95 --sub-hi 110 --rank description` →
+`dyck_p22_c95-110.json`.
+
+| | value |
+|---|---|
+| nodes | 138 |
+| space size | **84,375** (15 × 5 × 5 × 15 × 15) |
+| evaluated | **84,375** |
+| exhausted | **true** |
+| conforming | **110** |
+| **certificate** | **`complete`** |
+| seconds | 1,265.8 |
+| node evaluations | 279,450,000 |
+
+Selected (ranked by description bits): `symbols = length − 101`, `plus = +1`,
+`minus = −1`, `total_ok = eq(acc21, 0)`, `min_ok = eq(lo21, 0)`,
+`answer = and(total_ok, min_ok)` — the Dyck reduction, recovered by the search
+rather than supplied. Description bits 4,970,296; execution cost 226.0; batch-one
+latency 7.04 ms.
+
+| readout | n | accuracy | majority constant | random | best fitted feature |
+|---|---|---|---|---|---|
+| train | 24 | **1.0000** | 0.5000 | 0.5 | 0.7917 |
+| held-out, seen lengths | 120 | **1.0000** | 0.5333 | 0.5 | 0.6000 |
+| held-out, **unseen** lengths 16/18/20/22 | **859** | **1.0000** | **0.5262** | 0.5 | 0.4738 |
+
+Per-length on the unseen split: 16: 1.000, 18: 1.000, 20: 1.000, 22: 1.000.
+
+Two honest notes. The conforming set is **110 programs, not one** — the search
+gets `complete`, never `unique`, because on this stream the running minimum is
+always ≤ 0, so `eq(lo, 0)` and `ge(lo, 0)` are the same function here, and
+several `(plus, minus)` scalings compose with the same readouts. And the
+certificate is scoped to `c ∈ [95, 110)`; it says nothing about the other 106
+values of the length constant.
+
+#### Verdict on the bounding question
+
+- **"No solution exists in this family"** is the right description of the
+  **stage-B scaffold** (§4, §5): certificate `complete`, 0 conforming, twice, by
+  two independent methods.
+- **"Search failed"** describes **neither** arm. The stage-B searches exhausted
+  their space. The full Dyck enumeration was *stopped*, which supports no claim
+  in either direction, and is reported as such.
+- The post-audit task **is solvable** in the typed algebra with `min` and `and`,
+  at **1.000** on 859 held-out episodes at unseen lengths against a 0.5262
+  majority, with an exhausted `complete` certificate inside a stated window and an
+  exhibited witness outside any window.
+
 
 ---
 
@@ -286,9 +393,15 @@ conjunction of two readouts, and **both readouts are searched** over the same
    re-drawn lesson its family provably contains no solution.
 3. **The lesson re-draw did what it was for.** Nearest-string lookup fell from
    1.000 to 0.4738; the counting shortcut fell from 1.000 to exactly the majority.
-4. **The gap is a scaffold gap, not a substrate gap**, and it is one operator
-   wide. That is a concrete, cheap thing to fix, and it is the useful half of a
-   negative result.
+4. **The gap is a scaffold gap, not a substrate gap**, and it is one accumulator
+   wide — a running `min` beside the running `add`, both already in
+   `tcn/operators.py`. That is a concrete, cheap thing to fix, and it is the
+   useful half of a negative result.
+5. **What is unresolved.** Whether the *full* 680,625-program Dyck space contains
+   conforming members outside `c ∈ [95, 110)` is not established either way; that
+   enumeration is a measured 4.18 h and was stopped at ~52%. It does not affect
+   any claim above, all of which rest on exhausted arms or on an exhibited
+   witness.
 
 ## Files
 
@@ -304,7 +417,10 @@ conjunction of two readouts, and **both readouts are searched** over the same
 | `baselines.py` / `baselines.json` | majority, random, fitted features, oracles |
 | `analysis.py` / `analysis.json` | §19 transfer, best-train members, full-string ceiling |
 | `control_preaudit.py` / `.json` | the pre-audit reproduction control |
-| `dyck_scaffold.py`, `run_dyck.py` / `dyck_p22.json` | the expressiveness bound |
+| `dyck_scaffold.py` | the +1 accumulator (`min`, `and`) that makes Dyck expressible |
+| `dyck_witness.py` / `dyck_witness.json` | the exhibited solution, scored on every split |
+| `dyck_rate.py` / `dyck_rate.json` | the measured rate that bounded the full enumeration |
+| `run_dyck.py` / `dyck_p22_c95-110.json` | the exhausted enumeration over the stated window |
 
 ## Reproduction
 
@@ -319,8 +435,15 @@ conjunction of two readouts, and **both readouts are searched** over the same
 .venv/bin/python research/language-post-audit/analysis.py
 .venv/bin/python research/language-post-audit/verify_best_member.py
 .venv/bin/python research/language-post-audit/control_preaudit.py
-.venv/bin/python research/language-post-audit/run_dyck.py --positions 22 --rank description
+.venv/bin/python research/language-post-audit/dyck_witness.py
+.venv/bin/python research/language-post-audit/dyck_rate.py
+.venv/bin/python research/language-post-audit/run_dyck.py --positions 22 --sub-lo 95 --sub-hi 110 --rank description
 ```
+
+The last line is the windowed enumeration (84,375 programs, ~31 min). The full
+`sub_range` — `run_dyck.py --positions 22 --rank description` — is 680,625
+programs and a measured **4.18 h**; it was started, stopped unexhausted, and is
+reported in §8 as a cost measurement carrying no certificate.
 
 ## Tests
 

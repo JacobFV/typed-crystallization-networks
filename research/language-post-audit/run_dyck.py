@@ -23,12 +23,20 @@ def main():
     ap.add_argument('--hardening', default=common.STREAM_POST_AUDIT)
     ap.add_argument('--n-train', type=int, default=24)
     ap.add_argument('--rank', default='order')
+    # The full sub_range (0..120) makes the space 680,625 programs, measured at
+    # 4.18 h (`dyck_rate.json`). These bound the run to a stated window so the
+    # enumeration can actually be exhausted and carry a certificate; the
+    # certificate then applies only inside the window, which RESULTS.md says.
+    ap.add_argument('--sub-lo', type=int, default=0)
+    ap.add_argument('--sub-hi', type=int, default=121)
     ap.add_argument('--out', default=None)
     a = ap.parse_args()
-    out_path = a.out or os.path.join(HERE, f'dyck_p{a.positions}.json')
+    suffix = '' if (a.sub_lo, a.sub_hi) == (0, 121) else f'_c{a.sub_lo}-{a.sub_hi}'
+    out_path = a.out or os.path.join(HERE, f'dyck_p{a.positions}{suffix}.json')
 
     module, registry, frozen = build_module()
-    program, signals = stage_b_dyck(module, registry, positions=a.positions)
+    program, signals = stage_b_dyck(module, registry, positions=a.positions,
+                                    sub_range=range(a.sub_lo, a.sub_hi))
     print(f'dyck scaffold [{a.hardening}] positions={a.positions} nodes {len(program.nodes)} '
           f'space {space_size(program)}', flush=True)
 
@@ -42,6 +50,7 @@ def main():
                                       if k != 'selections'}, indent=1), flush=True)
 
     report = {'stream': a.hardening, 'positions': a.positions, 'scaffold': 'stage_b_dyck',
+              'sub_range': [a.sub_lo, a.sub_hi],
               'module': module, 'module_cost': frozen.execution_cost(registry),
               'nodes': len(program.nodes), 'space_size': space_size(program),
               'train_episodes': len(train_eps),
