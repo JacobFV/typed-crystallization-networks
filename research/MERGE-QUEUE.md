@@ -28,6 +28,32 @@ recorded. Until then: **one failure in `test_panel_interface` from a worktree ru
 is expected and is not the branch's fault.** Confirm by re-running it in the main
 checkout before spending time on it.
 
+## Merge order and dry-run result (2026-09-09)
+
+Rehearsed in a scratch worktree so merge night is mechanical. **Order matters:
+`program-length` is built on `compiled-runtime` and must go second.**
+
+```
+git merge origin/compiled-runtime     # conflicts: research/FINDINGS.md
+git merge origin/program-length       # clean
+```
+
+**The one conflict, and its resolution.** Both `main` and `compiled-runtime`
+added a section numbered **38**. Keep main's §38–§41 as they are and renumber the
+branch's section to **§42 — "The inference cost was interpreter overhead, and
+compiling removes it"**. Nothing else conflicts; the second merge is clean.
+
+**Verified on the merged result**, with `node_modules` symlinked from the main
+checkout:
+
+- **336 passed, 1 failed** — the known worktree-only `test_panel_interface`
+  failure documented below, and nothing else.
+- Shipped fixture reproduces exactly: `python -m tcn train --episodes 160` gives
+  **0.248836 → 0.002231**, fully frozen, **4.0** evaluation return and **4.0**
+  from the exact frozen agent.
+
+So both branches are merge-ready and only the quiet-tree rule is holding them.
+
 ## Waiting
 
 ### `program-length` (8d0d710, from `compiled-runtime` 68db06a) — verified, NEGATIVE
