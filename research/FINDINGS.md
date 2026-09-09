@@ -643,3 +643,69 @@ unboundedly. `tcn/search.py` cannot score a recurrent program at all.
 The default observation stream was verified bit-identical over 192
 seed/config/split combinations, and independently here: the default observation
 set is still exactly `bits`, `goal`, `program`.
+
+## 16. CORRECTION: the address wall was misattributed
+
+Full detail in `research/address-wall/RESULTS.md`. This supersedes the framing in
+sections 11 and 14, which I stated three times and briefed several agents on.
+
+**What I recorded:** relaxing an input address is worse than chance (0.25 against
+a 0.29 chance rate) while relaxing a value at a fixed address is 208x better, so
+addresses must be computed and never relaxed.
+
+**What is actually true:** the failing arm never had an address-relaxation
+problem. It had a dead surrogate. `eq`'s relaxation is `exp(-(a-b)^2/tau)` at
+tau=1, which in float32 is **exactly 0.0** for `|a-b| >= 11`. The uniform mixture
+over 12 raw `geometry` bytes sits 25.6 from the constant it is compared against,
+where the surrogate reads 3.2e-31 — verified independently here as exactly 0.0.
+With the colours pinned so addresses are the only free choice, 16 of 16 address
+gradients are exactly zero. The recorded 0.25-against-0.29 figure came from
+`pointing.py` silently dropping those dead nodes and averaging the survivors.
+
+**The fix is one line and is derived, not tuned.** Scale the surrogate by the
+declared carrier width, tau = 2^bits, which for `int[8]` is 256. At the failing
+distance that lifts the surrogate from 0.0 to 7.7e-02.
+
+| `rung3:centre_free_address` | R=2, 576 programs | R=4, 9,216 programs |
+|---|---|---|
+| shipped | 0/12 exact, 0/12 addresses | 0/12 exact, 0/12 addresses |
+| with the surrogate scaled | **7/12 exact, 12/12 addresses** | **12/12 exact, 12/12 addresses** |
+
+**The stated explanation was falsified too.** The claim was that mixing unrelated
+values denotes nothing. The decisive control is a smooth array against the same
+array permuted — identical values, marginals and spectrum. Arrangement has **no
+effect** on the discrete route (11/12 and 12/12 either way) and a 7x effect only
+on `index` descent. A 36-cell sweep shows correlation makes the discrete pick
+*worse*, and mean spread is what destroys it — while the real `geometry` bytes
+have a mean-spread/sd ratio of only 0.24, so that mechanism is not the ladder's
+disease either.
+
+**Three separate mechanisms, now distinguished.** M1, a mean confound in the
+linear read, where the mean term beats the identifying covariance term 5,010 to
+0.166 at byte scale; the landscape is nevertheless convex with the reference as
+the unique global optimum, and Adam recovers in 35 of 36 sweep cells. M2, the
+surrogate saturation above. M3, `index` kernel locality — at tau=1 the kernel
+keeps only 0.564 of its mass on the addressed element, giving 5 to 25 local
+minima with basins 1.3 to 2.5 addresses wide.
+
+**What survives of the original finding.** Depth generalization measured wire
+binding gradients of 4.7e-08 and 3.1e-05 against 8.7e-03 for an operator choice,
+on a task with no images and no bytes, so `eq` saturation cannot explain it; that
+instance is plausibly M3. So relaxed addressing is harder than relaxed values and
+carries no uniqueness certificate, but it is **not** worse than chance and **not**
+fundamentally broken. The construction rule stands in a weakened form: compute
+addresses where you can, because it is cheaper and certifiable — but if you must
+relax one, check that the downstream relaxation is valid *at the mixture* before
+blaming the address.
+
+**A coupling worth fixing (D2), verified here.** `SoftProgram` uses one
+temperature per node for both the candidate softmax and the operator relaxation,
+so a surrogate cannot be widened without simultaneously flattening that node's
+choice distribution. Any fix along these lines needs them separated first.
+
+**Method note.** This is the fourth instrumentation fault to produce a confident
+wrong conclusion in this pass, and the second where the tell was a number that
+looked too clean. The others were a crystallizer "improvement" that was extra
+compute, a table pool that silently ignored an explicit config, and a
+lexicographic tie-break presented as a solution. In every case the fault was in
+the measurement, not the method under test.

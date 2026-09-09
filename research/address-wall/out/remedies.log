@@ -1,0 +1,49 @@
+== enumeration reference ==
+  T1_discrete_direct_bytelike      space=    16 solved=True unique=True 0.00s sel={'addr': 11}
+  T2_discrete_eq_meanspread        space=    16 solved=True unique=True 0.00s sel={'addr': 11, 'hit': 0}
+  T5_conjunction_two_addresses     space=   256 solved=True unique=True 0.08s sel={'a1': 11, 'a2': 4, 'h1': 0, 'h2': 0, 'y': 0}
+== remedies ==
+  T1_discrete_direct_bytelike      logit_noise_0       7/12        600 node evals
+  T1_discrete_direct_bytelike      logit_noise_0.5     6/12        600 node evals
+  T1_discrete_direct_bytelike      logit_noise_2       7/12        600 node evals
+  T1_discrete_direct_bytelike      choice_anneal      12/12        600 node evals
+  T1_discrete_direct_bytelike      straight_through    7/12        600 node evals
+  T1_discrete_direct_bytelike      sampled             7/12        600 node evals
+  T1_discrete_direct_bytelike      perturbation       12/12         16 node evals
+  T1_discrete_direct_bytelike      centred_values     12/12        600 node evals
+  T2_discrete_eq_meanspread        logit_noise_0       2/12       1200 node evals
+  T2_discrete_eq_meanspread        logit_noise_0.5     2/12       1200 node evals
+  T2_discrete_eq_meanspread        logit_noise_2       2/12       1200 node evals
+  T2_discrete_eq_meanspread        choice_anneal       2/12       1200 node evals
+  T2_discrete_eq_meanspread        straight_through    3/12       1200 node evals
+  T2_discrete_eq_meanspread        sampled             8/12       1200 node evals
+  T2_discrete_eq_meanspread        perturbation       12/12         16 node evals
+  T2_discrete_eq_meanspread        centred_values     12/12        600 node evals
+  T3_index_direct_bytelike         baseline            0/12        600 node evals
+  T3_index_direct_bytelike         index_init_centre   1/12        600 node evals
+  T3_index_direct_bytelike         index_init_random   2/12        600 node evals
+  T3_index_direct_bytelike         index_wide          0/12        600 node evals
+  T3_index_direct_bytelike         index_anneal        2/12        600 node evals
+  T3_index_direct_bytelike         straight_through    0/12        600 node evals
+  T3_index_direct_bytelike         sampled             0/12        600 node evals
+  T3_index_direct_bytelike         perturbation       12/12         16 node evals
+  T3_index_direct_bytelike         centred_values      0/12        600 node evals
+  T4_index_direct_iid              baseline            0/12        600 node evals
+  T4_index_direct_iid              index_init_centre   4/12        600 node evals
+  T4_index_direct_iid              index_init_random   6/12        600 node evals
+  T4_index_direct_iid              index_wide          1/12        600 node evals
+  T4_index_direct_iid              index_anneal       12/12        600 node evals
+  T4_index_direct_iid              straight_through    0/12        600 node evals
+  T4_index_direct_iid              sampled             1/12        600 node evals
+  T4_index_direct_iid              perturbation       12/12         16 node evals
+  T4_index_direct_iid              centred_values      0/12        600 node evals
+  T5_conjunction_two_addresses     logit_noise_0       1/12       3000 node evals
+  T5_conjunction_two_addresses     logit_noise_0.5     2/12       3000 node evals
+  T5_conjunction_two_addresses     logit_noise_2       1/12       3000 node evals
+  T5_conjunction_two_addresses     choice_anneal       0/12       3000 node evals
+  T5_conjunction_two_addresses     straight_through    0/12       3000 node evals
+  T5_conjunction_two_addresses     sampled             0/12       3000 node evals
+  T5_conjunction_two_addresses     perturbation        5/12         32 node evals
+  T5_conjunction_two_addresses     centred_values     12/12        600 node evals
+wrote /home/brandonin/Documents/typed-crystallization-networks/research/address-wall/out/remedies.json
+budget {'node_evals': 485280, 'seconds': 234.185}

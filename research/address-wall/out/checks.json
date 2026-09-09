@@ -1,0 +1,164 @@
+{
+ "warning_1_zero_init": {
+  "four_seeds_identical": true,
+  "all_zero": true,
+  "init": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ "warning_2_tuple_broadcast": {
+  "tuple": "RuntimeError('Tensors must have same number of dimensions: got 2 and 1')",
+  "add_shape": [
+   8,
+   1
+  ]
+ },
+ "warning_3_eq_underflow": {
+  "first_gap_with_exactly_zero_surrogate": 11,
+  "rows": [
+   {
+    "gap": 0,
+    "surrogate": 1.0
+   },
+   {
+    "gap": 1,
+    "surrogate": 0.3678794503211975
+   },
+   {
+    "gap": 2,
+    "surrogate": 0.018315639346837997
+   },
+   {
+    "gap": 3,
+    "surrogate": 0.00012340980174485594
+   },
+   {
+    "gap": 4,
+    "surrogate": 1.1253517584464134e-07
+   },
+   {
+    "gap": 5,
+    "surrogate": 1.3887943746404563e-11
+   },
+   {
+    "gap": 6,
+    "surrogate": 2.3195226989972605e-16
+   },
+   {
+    "gap": 7,
+    "surrogate": 5.242885696424093e-22
+   },
+   {
+    "gap": 8,
+    "surrogate": 1.6038109389511792e-28
+   },
+   {
+    "gap": 9,
+    "surrogate": 6.639676956165401e-36
+   },
+   {
+    "gap": 10,
+    "surrogate": 3.783505853677006e-44
+   },
+   {
+    "gap": 11,
+    "surrogate": 0.0
+   },
+   {
+    "gap": 12,
+    "surrogate": 0.0
+   },
+   {
+    "gap": 13,
+    "surrogate": 0.0
+   },
+   {
+    "gap": 14,
+    "surrogate": 0.0
+   },
+   {
+    "gap": 15,
+    "surrogate": 0.0
+   }
+  ]
+ },
+ "defect_4_index_not_exact_at_integers": {
+  "addresses": 16,
+  "reference": 8,
+  "shipped_temperature": 1.0,
+  "rows": [
+   {
+    "temperature": 1.0,
+    "weight_on_addressed_element": 0.5641312599182129,
+    "max_abs_error_vs_exact": 1.2322226762771606,
+    "mean_abs_error_vs_exact": 0.33244588971138
+   },
+   {
+    "temperature": 0.5,
+    "weight_on_addressed_element": 0.78657066822052,
+    "max_abs_error_vs_exact": 0.6214280128479004,
+    "mean_abs_error_vs_exact": 0.1650998592376709
+   },
+   {
+    "temperature": 0.25,
+    "weight_on_addressed_element": 0.9646629691123962,
+    "max_abs_error_vs_exact": 0.10305237770080566,
+    "mean_abs_error_vs_exact": 0.027359819039702415
+   },
+   {
+    "temperature": 0.145,
+    "weight_on_addressed_element": 0.9979815483093262,
+    "max_abs_error_vs_exact": 0.005886435508728027,
+    "mean_abs_error_vs_exact": 0.0015627893153578043
+   },
+   {
+    "temperature": 0.1,
+    "weight_on_addressed_element": 0.9999091625213623,
+    "max_abs_error_vs_exact": 0.00026488304138183594,
+    "mean_abs_error_vs_exact": 7.031801214907318e-05
+   },
+   {
+    "temperature": 0.05,
+    "weight_on_addressed_element": 1.0,
+    "max_abs_error_vs_exact": 7.450580596923828e-09,
+    "mean_abs_error_vs_exact": 3.019522409886122e-10
+   }
+  ]
+ },
+ "defect_5_one_temperature_two_jobs": {
+  "note": "raising the eq surrogate's temperature also flattens the same node's candidate distribution; they share one scalar",
+  "rows": [
+   {
+    "temperature": 1.0,
+    "choice_distribution": [
+     0.880797,
+     0.119203
+    ],
+    "eq_surrogate_at_gap_5": 0.0
+   },
+   {
+    "temperature": 100.0,
+    "choice_distribution": [
+     0.505,
+     0.495
+    ],
+    "eq_surrogate_at_gap_5": 0.77880079
+   },
+   {
+    "temperature": 10000.0,
+    "choice_distribution": [
+     0.50005,
+     0.49995
+    ],
+    "eq_surrogate_at_gap_5": 0.9975031
+   }
+  ]
+ }
+}

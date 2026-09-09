@@ -1,0 +1,79 @@
+== Part 1: a smooth array against the same array, positions permuted ==
+  smooth    neighbour-corr +0.945  gradient->reference 11/12  optimised->reference 12/12  index descent reaches 0.806
+  permuted  neighbour-corr +0.366  gradient->reference 11/12  optimised->reference 12/12  index descent reaches 0.117
+== Part 2: discrete route, correlation x mean spread ==
+  discrete corr= 0.0 spread=0.00 grad=1.000 final=1.000 index=0.000
+  discrete corr= 0.0 spread=0.25 grad=1.000 final=1.000 index=0.000
+  discrete corr= 0.0 spread=0.50 grad=1.000 final=1.000 index=0.000
+  discrete corr= 0.0 spread=1.00 grad=0.833 final=1.000 index=0.000
+  discrete corr= 0.0 spread=2.00 grad=0.417 final=1.000 index=0.000
+  discrete corr= 0.0 spread=4.00 grad=0.250 final=1.000 index=0.000
+  discrete corr= 0.5 spread=0.00 grad=1.000 final=1.000 index=0.000
+  discrete corr= 0.5 spread=0.25 grad=1.000 final=1.000 index=0.000
+  discrete corr= 0.5 spread=0.50 grad=1.000 final=1.000 index=0.000
+  discrete corr= 0.5 spread=1.00 grad=0.833 final=1.000 index=0.000
+  discrete corr= 0.5 spread=2.00 grad=0.417 final=1.000 index=0.000
+  discrete corr= 0.5 spread=4.00 grad=0.250 final=1.000 index=0.000
+  discrete corr= 1.0 spread=0.00 grad=1.000 final=1.000 index=0.000
+  discrete corr= 1.0 spread=0.25 grad=1.000 final=1.000 index=0.000
+  discrete corr= 1.0 spread=0.50 grad=1.000 final=1.000 index=0.000
+  discrete corr= 1.0 spread=1.00 grad=0.833 final=1.000 index=0.000
+  discrete corr= 1.0 spread=2.00 grad=0.333 final=1.000 index=0.000
+  discrete corr= 1.0 spread=4.00 grad=0.250 final=1.000 index=0.000
+  discrete corr= 2.0 spread=0.00 grad=1.000 final=1.000 index=0.000
+  discrete corr= 2.0 spread=0.25 grad=1.000 final=1.000 index=0.000
+  discrete corr= 2.0 spread=0.50 grad=0.917 final=1.000 index=0.000
+  discrete corr= 2.0 spread=1.00 grad=0.667 final=1.000 index=0.000
+  discrete corr= 2.0 spread=2.00 grad=0.167 final=1.000 index=0.000
+  discrete corr= 2.0 spread=4.00 grad=0.167 final=1.000 index=0.000
+  discrete corr= 4.0 spread=0.00 grad=0.417 final=1.000 index=0.000
+  discrete corr= 4.0 spread=0.25 grad=0.917 final=1.000 index=0.000
+  discrete corr= 4.0 spread=0.50 grad=0.833 final=1.000 index=0.000
+  discrete corr= 4.0 spread=1.00 grad=0.333 final=1.000 index=0.000
+  discrete corr= 4.0 spread=2.00 grad=0.167 final=1.000 index=0.000
+  discrete corr= 4.0 spread=4.00 grad=0.167 final=1.000 index=0.000
+  discrete corr= 8.0 spread=0.00 grad=0.000 final=1.000 index=0.000
+  discrete corr= 8.0 spread=0.25 grad=0.417 final=1.000 index=0.000
+  discrete corr= 8.0 spread=0.50 grad=0.333 final=1.000 index=0.000
+  discrete corr= 8.0 spread=1.00 grad=0.250 final=1.000 index=0.000
+  discrete corr= 8.0 spread=2.00 grad=0.167 final=1.000 index=0.000
+  discrete corr= 8.0 spread=4.00 grad=0.167 final=0.833 index=0.000
+== Part 3: index route, correlation x mean spread ==
+  index    corr= 0.0 spread=0.00 grad=0.000 final=0.000 index=0.365
+  index    corr= 0.0 spread=0.25 grad=0.000 final=0.000 index=0.333
+  index    corr= 0.0 spread=0.50 grad=0.000 final=0.000 index=0.323
+  index    corr= 0.0 spread=1.00 grad=0.000 final=0.000 index=0.312
+  index    corr= 0.0 spread=2.00 grad=0.000 final=0.000 index=0.260
+  index    corr= 0.0 spread=4.00 grad=0.000 final=0.000 index=0.167
+  index    corr= 0.5 spread=0.00 grad=0.000 final=0.000 index=0.427
+  index    corr= 0.5 spread=0.25 grad=0.000 final=0.000 index=0.365
+  index    corr= 0.5 spread=0.50 grad=0.000 final=0.000 index=0.333
+  index    corr= 0.5 spread=1.00 grad=0.000 final=0.000 index=0.312
+  index    corr= 0.5 spread=2.00 grad=0.000 final=0.000 index=0.260
+  index    corr= 0.5 spread=4.00 grad=0.000 final=0.000 index=0.167
+  index    corr= 1.0 spread=0.00 grad=0.000 final=0.000 index=0.521
+  index    corr= 1.0 spread=0.25 grad=0.000 final=0.000 index=0.521
+  index    corr= 1.0 spread=0.50 grad=0.000 final=0.000 index=0.438
+  index    corr= 1.0 spread=1.00 grad=0.000 final=0.000 index=0.333
+  index    corr= 1.0 spread=2.00 grad=0.000 final=0.000 index=0.208
+  index    corr= 1.0 spread=4.00 grad=0.000 final=0.000 index=0.167
+  index    corr= 2.0 spread=0.00 grad=0.000 final=0.000 index=0.656
+  index    corr= 2.0 spread=0.25 grad=0.000 final=0.000 index=0.635
+  index    corr= 2.0 spread=0.50 grad=0.000 final=0.000 index=0.521
+  index    corr= 2.0 spread=1.00 grad=0.000 final=0.000 index=0.354
+  index    corr= 2.0 spread=2.00 grad=0.000 final=0.000 index=0.198
+  index    corr= 2.0 spread=4.00 grad=0.000 final=0.000 index=0.167
+  index    corr= 4.0 spread=0.00 grad=0.000 final=0.000 index=0.927
+  index    corr= 4.0 spread=0.25 grad=0.000 final=0.000 index=0.781
+  index    corr= 4.0 spread=0.50 grad=0.000 final=0.000 index=0.438
+  index    corr= 4.0 spread=1.00 grad=0.000 final=0.000 index=0.250
+  index    corr= 4.0 spread=2.00 grad=0.000 final=0.000 index=0.167
+  index    corr= 4.0 spread=4.00 grad=0.000 final=0.000 index=0.125
+  index    corr= 8.0 spread=0.00 grad=0.000 final=0.000 index=1.000
+  index    corr= 8.0 spread=0.25 grad=0.000 final=0.000 index=0.500
+  index    corr= 8.0 spread=0.50 grad=0.000 final=0.000 index=0.240
+  index    corr= 8.0 spread=1.00 grad=0.000 final=0.000 index=0.167
+  index    corr= 8.0 spread=2.00 grad=0.000 final=0.000 index=0.156
+  index    corr= 8.0 spread=4.00 grad=0.000 final=0.000 index=0.125
+wrote /home/brandonin/Documents/typed-crystallization-networks/research/address-wall/out/explanation.json
+budget {'node_evals': 1435656, 'seconds': 236.249}

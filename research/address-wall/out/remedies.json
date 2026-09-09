@@ -1,0 +1,5700 @@
+{
+ "config": {
+  "N": 16,
+  "M": 64,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11
+  ],
+  "chance_one_address": 0.0625,
+  "chance_two_addresses": 0.00390625
+ },
+ "enumeration": {
+  "T1_discrete_direct_bytelike": {
+   "space": 16,
+   "solved": true,
+   "selections": {
+    "addr": 11
+   },
+   "exact_max_error": 0.0,
+   "evaluated": 16,
+   "space_size": 16,
+   "exhausted": true,
+   "unique": true,
+   "seconds": 0.0016569079598411918,
+   "continuous": []
+  },
+  "T2_discrete_eq_meanspread": {
+   "space": 16,
+   "solved": true,
+   "selections": {
+    "addr": 11,
+    "hit": 0
+   },
+   "exact_max_error": 0.0,
+   "evaluated": 16,
+   "space_size": 16,
+   "exhausted": true,
+   "unique": true,
+   "seconds": 0.0019846990471705794,
+   "continuous": []
+  },
+  "T3_index_direct_bytelike": {
+   "note": "continuous address; enumeration does not apply"
+  },
+  "T4_index_direct_iid": {
+   "note": "continuous address; enumeration does not apply"
+  },
+  "T5_conjunction_two_addresses": {
+   "space": 256,
+   "solved": true,
+   "selections": {
+    "a1": 11,
+    "a2": 4,
+    "h1": 0,
+    "h2": 0,
+    "y": 0
+   },
+   "exact_max_error": 0.0,
+   "evaluated": 256,
+   "space_size": 256,
+   "exhausted": true,
+   "unique": true,
+   "seconds": 0.07882520701969042,
+   "continuous": []
+  }
+ },
+ "remedies": [
+  {
+   "bench": "T1_discrete_direct_bytelike",
+   "remedy": "logit_noise_0",
+   "hits": 7,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "addr": 3
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 5
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 3
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 13
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 10
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T1_discrete_direct_bytelike",
+   "remedy": "logit_noise_0.5",
+   "hits": 6,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "addr": 15
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 5
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 1
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 13
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 2
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 3
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T1_discrete_direct_bytelike",
+   "remedy": "logit_noise_2",
+   "hits": 7,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "addr": 15
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 1
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 12
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 2
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 3
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T1_discrete_direct_bytelike",
+   "remedy": "choice_anneal",
+   "hits": 12,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T1_discrete_direct_bytelike",
+   "remedy": "straight_through",
+   "hits": 7,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "addr": 10
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 1
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 1
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 14
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 13
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T1_discrete_direct_bytelike",
+   "remedy": "sampled",
+   "hits": 7,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "addr": 15
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 5
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 13
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 2
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 13
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T1_discrete_direct_bytelike",
+   "remedy": "perturbation",
+   "hits": 12,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 16.0,
+   "rows": [
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    }
+   ]
+  },
+  {
+   "bench": "T1_discrete_direct_bytelike",
+   "remedy": "centred_values",
+   "hits": 12,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T2_discrete_eq_meanspread",
+   "remedy": "logit_noise_0",
+   "hits": 2,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 1200.0,
+   "rows": [
+    {
+     "selection": {
+      "addr": 3
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 6
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 4
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 14
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 6
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 9
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 7
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 13
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 5
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 6
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 1200
+    }
+   ]
+  },
+  {
+   "bench": "T2_discrete_eq_meanspread",
+   "remedy": "logit_noise_0.5",
+   "hits": 2,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 1200.0,
+   "rows": [
+    {
+     "selection": {
+      "addr": 3
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 6
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 4
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 14
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 6
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 9
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 7
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 13
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 5
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 6
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 1200
+    }
+   ]
+  },
+  {
+   "bench": "T2_discrete_eq_meanspread",
+   "remedy": "logit_noise_2",
+   "hits": 2,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 1200.0,
+   "rows": [
+    {
+     "selection": {
+      "addr": 6
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 6
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 4
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 14
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 15
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 9
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 15
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 1
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 5
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 6
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 1200
+    }
+   ]
+  },
+  {
+   "bench": "T2_discrete_eq_meanspread",
+   "remedy": "choice_anneal",
+   "hits": 2,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 1200.0,
+   "rows": [
+    {
+     "selection": {
+      "addr": 3
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 6
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 4
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 14
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 6
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 9
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 7
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 9
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 10
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 6
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 1200
+    }
+   ]
+  },
+  {
+   "bench": "T2_discrete_eq_meanspread",
+   "remedy": "straight_through",
+   "hits": 3,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 1200.0,
+   "rows": [
+    {
+     "selection": {
+      "addr": 4
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 7
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 7
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 15
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 7
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 2
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 13
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 2
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 2
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    }
+   ]
+  },
+  {
+   "bench": "T2_discrete_eq_meanspread",
+   "remedy": "sampled",
+   "hits": 8,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 1200.0,
+   "rows": [
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 7
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 7
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 15
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 1200
+    },
+    {
+     "selection": {
+      "addr": 15
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 1200
+    }
+   ]
+  },
+  {
+   "bench": "T2_discrete_eq_meanspread",
+   "remedy": "perturbation",
+   "hits": 12,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 16.0,
+   "rows": [
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "addr": 11
+     },
+     "reference": {
+      "addr": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    }
+   ]
+  },
+  {
+   "bench": "T2_discrete_eq_meanspread",
+   "remedy": "centred_values",
+   "hits": 0,
+   "n": 12,
+   "not_applicable": true,
+   "mean_node_evals": 0.0,
+   "rows": [
+    {
+     "selection": null,
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    },
+    {
+     "selection": null,
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    },
+    {
+     "selection": null,
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    },
+    {
+     "selection": null,
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    },
+    {
+     "selection": null,
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    },
+    {
+     "selection": null,
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    },
+    {
+     "selection": null,
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    },
+    {
+     "selection": null,
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    },
+    {
+     "selection": null,
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    },
+    {
+     "selection": null,
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    },
+    {
+     "selection": null,
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    },
+    {
+     "selection": null,
+     "reference": {
+      "addr": 11
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    }
+   ]
+  },
+  {
+   "bench": "T3_index_direct_bytelike",
+   "remedy": "baseline",
+   "hits": 0,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 3
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T3_index_direct_bytelike",
+   "remedy": "index_init_centre",
+   "hits": 1,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "b": 8
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 7
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 8
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 8
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 7
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 8
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 9
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 8
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 7
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 6
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 9
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T3_index_direct_bytelike",
+   "remedy": "index_init_random",
+   "hits": 2,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "b": 8
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 3
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 2
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 13
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 4
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 9
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T3_index_direct_bytelike",
+   "remedy": "index_wide",
+   "hits": 0,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 6
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 8
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 9
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 15
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 4
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 14
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 15
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T3_index_direct_bytelike",
+   "remedy": "index_anneal",
+   "hits": 2,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "b": 3
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 3
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 13
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 9
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 13
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 9
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 5
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 3
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T3_index_direct_bytelike",
+   "remedy": "straight_through",
+   "hits": 0,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T3_index_direct_bytelike",
+   "remedy": "sampled",
+   "hits": 0,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 3
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 6
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 3
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 12
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 7
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 6
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 3
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 4
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T3_index_direct_bytelike",
+   "remedy": "perturbation",
+   "hits": 12,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 16.0,
+   "rows": [
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    }
+   ]
+  },
+  {
+   "bench": "T3_index_direct_bytelike",
+   "remedy": "centred_values",
+   "hits": 0,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 2
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 2
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T4_index_direct_iid",
+   "remedy": "baseline",
+   "hits": 0,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 2
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 2
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T4_index_direct_iid",
+   "remedy": "index_init_centre",
+   "hits": 4,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 6
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 6
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 5
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 7
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 9
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 7
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 7
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 7
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T4_index_direct_iid",
+   "remedy": "index_init_random",
+   "hits": 6,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 2
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 9
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 2
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T4_index_direct_iid",
+   "remedy": "index_wide",
+   "hits": 1,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "b": 13
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 10
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 15
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 10
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 14
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 15
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 13
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 13
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 12
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 14
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 13
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T4_index_direct_iid",
+   "remedy": "index_anneal",
+   "hits": 12,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T4_index_direct_iid",
+   "remedy": "straight_through",
+   "hits": 0,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T4_index_direct_iid",
+   "remedy": "sampled",
+   "hits": 1,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "b": 5
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 4
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 4
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 3
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 7
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 2
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 5
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 2
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 2
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 3
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 8
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T4_index_direct_iid",
+   "remedy": "perturbation",
+   "hits": 12,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 16.0,
+   "rows": [
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    },
+    {
+     "selection": {
+      "b": 11
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": true,
+     "node_evals": 16
+    }
+   ]
+  },
+  {
+   "bench": "T4_index_direct_iid",
+   "remedy": "centred_values",
+   "hits": 0,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 600.0,
+   "rows": [
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 2
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 0
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 2
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    },
+    {
+     "selection": {
+      "b": 1
+     },
+     "reference": {
+      "b": 11
+     },
+     "hit": false,
+     "node_evals": 600
+    }
+   ]
+  },
+  {
+   "bench": "T5_conjunction_two_addresses",
+   "remedy": "logit_noise_0",
+   "hits": 1,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 3000.0,
+   "rows": [
+    {
+     "selection": {
+      "a1": 11,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": true,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 11,
+      "a2": 11
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 14,
+      "a2": 14
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 0,
+      "a2": 0
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 15,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 14,
+      "a2": 14
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 1,
+      "a2": 1
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 7,
+      "a2": 7
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 12,
+      "a2": 12
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 4,
+      "a2": 3
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 11,
+      "a2": 11
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 14,
+      "a2": 14
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    }
+   ]
+  },
+  {
+   "bench": "T5_conjunction_two_addresses",
+   "remedy": "logit_noise_0.5",
+   "hits": 2,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 3000.0,
+   "rows": [
+    {
+     "selection": {
+      "a1": 11,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": true,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 11,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": true,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 4,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 2,
+      "a2": 11
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 13,
+      "a2": 0
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 14,
+      "a2": 12
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 1,
+      "a2": 12
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 11,
+      "a2": 14
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 4,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 12,
+      "a2": 9
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 11,
+      "a2": 11
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 11,
+      "a2": 14
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    }
+   ]
+  },
+  {
+   "bench": "T5_conjunction_two_addresses",
+   "remedy": "logit_noise_2",
+   "hits": 1,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 3000.0,
+   "rows": [
+    {
+     "selection": {
+      "a1": 6,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 11,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": true,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 4,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 4,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 13,
+      "a2": 0
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 15,
+      "a2": 14
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 3,
+      "a2": 11
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 15,
+      "a2": 7
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 1,
+      "a2": 1
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 12,
+      "a2": 9
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 4,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 4,
+      "a2": 14
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    }
+   ]
+  },
+  {
+   "bench": "T5_conjunction_two_addresses",
+   "remedy": "choice_anneal",
+   "hits": 0,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 3000.0,
+   "rows": [
+    {
+     "selection": {
+      "a1": 8,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 11,
+      "a2": 11
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 4,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 8,
+      "a2": 0
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 15,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 14,
+      "a2": 12
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 1,
+      "a2": 12
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 12,
+      "a2": 7
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 4,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 4,
+      "a2": 3
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 11,
+      "a2": 11
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 3,
+      "a2": 14
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    }
+   ]
+  },
+  {
+   "bench": "T5_conjunction_two_addresses",
+   "remedy": "straight_through",
+   "hits": 0,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 3000.0,
+   "rows": [
+    {
+     "selection": {
+      "a1": 4,
+      "a2": 9
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 15,
+      "a2": 14
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 8,
+      "a2": 10
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 13,
+      "a2": 13
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 5,
+      "a2": 13
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 15,
+      "a2": 11
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 12,
+      "a2": 11
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 6,
+      "a2": 3
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 6,
+      "a2": 11
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 10,
+      "a2": 14
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 2,
+      "a2": 10
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 15,
+      "a2": 14
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    }
+   ]
+  },
+  {
+   "bench": "T5_conjunction_two_addresses",
+   "remedy": "sampled",
+   "hits": 0,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 3000.0,
+   "rows": [
+    {
+     "selection": {
+      "a1": 1,
+      "a2": 1
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 2,
+      "a2": 11
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 3,
+      "a2": 0
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 4,
+      "a2": 11
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 5,
+      "a2": 13
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 15,
+      "a2": 11
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 1,
+      "a2": 10
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 3,
+      "a2": 3
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 8,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 1,
+      "a2": 14
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 9,
+      "a2": 12
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    },
+    {
+     "selection": {
+      "a1": 15,
+      "a2": 15
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 3000
+    }
+   ]
+  },
+  {
+   "bench": "T5_conjunction_two_addresses",
+   "remedy": "perturbation",
+   "hits": 5,
+   "n": 12,
+   "not_applicable": false,
+   "mean_node_evals": 32.0,
+   "rows": [
+    {
+     "selection": {
+      "a1": 11,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": true,
+     "node_evals": 32
+    },
+    {
+     "selection": {
+      "a1": 11,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": true,
+     "node_evals": 32
+    },
+    {
+     "selection": {
+      "a1": 4,
+      "a2": 11
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 32
+    },
+    {
+     "selection": {
+      "a1": 11,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": true,
+     "node_evals": 32
+    },
+    {
+     "selection": {
+      "a1": 5,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 32
+    },
+    {
+     "selection": {
+      "a1": 14,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 32
+    },
+    {
+     "selection": {
+      "a1": 5,
+      "a2": 9
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 32
+    },
+    {
+     "selection": {
+      "a1": 7,
+      "a2": 11
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 32
+    },
+    {
+     "selection": {
+      "a1": 11,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": true,
+     "node_evals": 32
+    },
+    {
+     "selection": {
+      "a1": 9,
+      "a2": 8
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 32
+    },
+    {
+     "selection": {
+      "a1": 11,
+      "a2": 4
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": true,
+     "node_evals": 32
+    },
+    {
+     "selection": {
+      "a1": 4,
+      "a2": 11
+     },
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 32
+    }
+   ]
+  },
+  {
+   "bench": "T5_conjunction_two_addresses",
+   "remedy": "centred_values",
+   "hits": 0,
+   "n": 12,
+   "not_applicable": true,
+   "mean_node_evals": 0.0,
+   "rows": [
+    {
+     "selection": null,
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    },
+    {
+     "selection": null,
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    },
+    {
+     "selection": null,
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    },
+    {
+     "selection": null,
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    },
+    {
+     "selection": null,
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    },
+    {
+     "selection": null,
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    },
+    {
+     "selection": null,
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    },
+    {
+     "selection": null,
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    },
+    {
+     "selection": null,
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    },
+    {
+     "selection": null,
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    },
+    {
+     "selection": null,
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    },
+    {
+     "selection": null,
+     "reference": {
+      "a1": 11,
+      "a2": 4
+     },
+     "hit": false,
+     "node_evals": 0,
+     "not_applicable": true
+    }
+   ]
+  }
+ ],
+ "budget": {
+  "node_evals": 470880,
+  "seconds": 225.449
+ },
+ "wall_seconds": 225.45
+}

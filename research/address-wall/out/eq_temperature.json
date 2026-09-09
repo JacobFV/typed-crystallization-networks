@@ -1,0 +1,774 @@
+{
+ "space": 144,
+ "chance_two_addresses": 0.006944444444444444,
+ "reference": {
+  "a0": 6,
+  "a1": 7
+ },
+ "enumeration": {
+  "solved": true,
+  "selections": {
+   "bytes": 0,
+   "a0": 6,
+   "a1": 7,
+   "h0": 0,
+   "h1": 0,
+   "y": 0
+  },
+  "exact_max_error": 0.0,
+  "evaluated": 144,
+  "space_size": 144,
+  "exhausted": true,
+  "unique": true,
+  "seconds": 0.007446119037922472,
+  "continuous": []
+ },
+ "pointing": [
+  {
+   "tau": 1.0,
+   "scored": 0,
+   "dead": 16,
+   "picks_reference": 0.0,
+   "chance": 0.08333333333333333,
+   "picks": [],
+   "median_grad_abs_sum": 0.0
+  },
+  {
+   "tau": 10.0,
+   "scored": 16,
+   "dead": 0,
+   "picks_reference": 0.125,
+   "chance": 0.08333333333333333,
+   "picks": [
+    6,
+    3,
+    9,
+    0,
+    0,
+    3,
+    3,
+    3,
+    3,
+    9,
+    3,
+    0,
+    6,
+    0,
+    3,
+    6
+   ],
+   "median_grad_abs_sum": 3.074556827545166
+  },
+  {
+   "tau": 100.0,
+   "scored": 16,
+   "dead": 0,
+   "picks_reference": 0.25,
+   "chance": 0.08333333333333333,
+   "picks": [
+    6,
+    9,
+    9,
+    6,
+    9,
+    10,
+    7,
+    6,
+    6,
+    6,
+    6,
+    9,
+    6,
+    10,
+    7,
+    6
+   ],
+   "median_grad_abs_sum": 1.5053167343139648
+  },
+  {
+   "tau": 1000.0,
+   "scored": 16,
+   "dead": 0,
+   "picks_reference": 0.4375,
+   "chance": 0.08333333333333333,
+   "picks": [
+    6,
+    6,
+    6,
+    6,
+    6,
+    7,
+    7,
+    6,
+    6,
+    9,
+    6,
+    9,
+    6,
+    10,
+    7,
+    6
+   ],
+   "median_grad_abs_sum": 0.390450656414032
+  },
+  {
+   "tau": 10000.0,
+   "scored": 16,
+   "dead": 0,
+   "picks_reference": 0.4375,
+   "chance": 0.08333333333333333,
+   "picks": [
+    6,
+    8,
+    6,
+    8,
+    6,
+    7,
+    8,
+    8,
+    6,
+    8,
+    6,
+    8,
+    6,
+    6,
+    7,
+    8
+   ],
+   "median_grad_abs_sum": 0.11522244662046432
+  },
+  {
+   "tau": 100000.0,
+   "scored": 16,
+   "dead": 0,
+   "picks_reference": 0.375,
+   "chance": 0.08333333333333333,
+   "picks": [
+    6,
+    8,
+    6,
+    8,
+    8,
+    7,
+    8,
+    8,
+    6,
+    8,
+    6,
+    8,
+    6,
+    8,
+    7,
+    8
+   ],
+   "median_grad_abs_sum": 0.10184324532747269
+  },
+  {
+   "tau": 1000000.0,
+   "scored": 16,
+   "dead": 0,
+   "picks_reference": 0.375,
+   "chance": 0.08333333333333333,
+   "picks": [
+    6,
+    8,
+    6,
+    8,
+    8,
+    7,
+    8,
+    8,
+    6,
+    8,
+    6,
+    8,
+    6,
+    8,
+    7,
+    8
+   ],
+   "median_grad_abs_sum": 0.10060276091098785
+  }
+ ],
+ "synthesis": [
+  {
+   "arm": "fixed_tau_1",
+   "tau": 1.0,
+   "anneal_to": null,
+   "hits": 0,
+   "n": 12,
+   "held_out_max_error": null,
+   "rows": [
+    {
+     "seed": 0,
+     "a0": 10,
+     "a1": 3,
+     "hit": false
+    },
+    {
+     "seed": 1,
+     "a0": 11,
+     "a1": 4,
+     "hit": false
+    },
+    {
+     "seed": 2,
+     "a0": 7,
+     "a1": 3,
+     "hit": false
+    },
+    {
+     "seed": 3,
+     "a0": 0,
+     "a1": 7,
+     "hit": false
+    },
+    {
+     "seed": 4,
+     "a0": 6,
+     "a1": 0,
+     "hit": false
+    },
+    {
+     "seed": 5,
+     "a0": 10,
+     "a1": 10,
+     "hit": false
+    },
+    {
+     "seed": 6,
+     "a0": 4,
+     "a1": 2,
+     "hit": false
+    },
+    {
+     "seed": 7,
+     "a0": 6,
+     "a1": 8,
+     "hit": false
+    },
+    {
+     "seed": 8,
+     "a0": 8,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 9,
+     "a0": 4,
+     "a1": 11,
+     "hit": false
+    },
+    {
+     "seed": 10,
+     "a0": 2,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 11,
+     "a0": 8,
+     "a1": 8,
+     "hit": false
+    }
+   ]
+  },
+  {
+   "arm": "fixed_tau_100",
+   "tau": 100.0,
+   "anneal_to": null,
+   "hits": 4,
+   "n": 12,
+   "held_out_max_error": 0.0,
+   "rows": [
+    {
+     "seed": 0,
+     "a0": 6,
+     "a1": 10,
+     "hit": false
+    },
+    {
+     "seed": 1,
+     "a0": 9,
+     "a1": 7,
+     "hit": false
+    },
+    {
+     "seed": 2,
+     "a0": 9,
+     "a1": 10,
+     "hit": false
+    },
+    {
+     "seed": 3,
+     "a0": 9,
+     "a1": 7,
+     "hit": false
+    },
+    {
+     "seed": 4,
+     "a0": 6,
+     "a1": 9,
+     "hit": false
+    },
+    {
+     "seed": 5,
+     "a0": 6,
+     "a1": 10,
+     "hit": false
+    },
+    {
+     "seed": 6,
+     "a0": 6,
+     "a1": 7,
+     "hit": true
+    },
+    {
+     "seed": 7,
+     "a0": 6,
+     "a1": 10,
+     "hit": false
+    },
+    {
+     "seed": 8,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 9,
+     "a0": 6,
+     "a1": 7,
+     "hit": true
+    },
+    {
+     "seed": 10,
+     "a0": 6,
+     "a1": 7,
+     "hit": true
+    },
+    {
+     "seed": 11,
+     "a0": 6,
+     "a1": 7,
+     "hit": true
+    }
+   ]
+  },
+  {
+   "arm": "fixed_tau_1e4",
+   "tau": 10000.0,
+   "anneal_to": null,
+   "hits": 0,
+   "n": 12,
+   "held_out_max_error": null,
+   "rows": [
+    {
+     "seed": 0,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 1,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 2,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 3,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 4,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 5,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 6,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 7,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 8,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 9,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 10,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 11,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    }
+   ]
+  },
+  {
+   "arm": "fixed_tau_1e5",
+   "tau": 100000.0,
+   "anneal_to": null,
+   "hits": 0,
+   "n": 12,
+   "held_out_max_error": null,
+   "rows": [
+    {
+     "seed": 0,
+     "a0": 8,
+     "a1": 7,
+     "hit": false
+    },
+    {
+     "seed": 1,
+     "a0": 8,
+     "a1": 7,
+     "hit": false
+    },
+    {
+     "seed": 2,
+     "a0": 8,
+     "a1": 7,
+     "hit": false
+    },
+    {
+     "seed": 3,
+     "a0": 8,
+     "a1": 7,
+     "hit": false
+    },
+    {
+     "seed": 4,
+     "a0": 7,
+     "a1": 8,
+     "hit": false
+    },
+    {
+     "seed": 5,
+     "a0": 8,
+     "a1": 7,
+     "hit": false
+    },
+    {
+     "seed": 6,
+     "a0": 8,
+     "a1": 7,
+     "hit": false
+    },
+    {
+     "seed": 7,
+     "a0": 7,
+     "a1": 8,
+     "hit": false
+    },
+    {
+     "seed": 8,
+     "a0": 8,
+     "a1": 7,
+     "hit": false
+    },
+    {
+     "seed": 9,
+     "a0": 8,
+     "a1": 7,
+     "hit": false
+    },
+    {
+     "seed": 10,
+     "a0": 8,
+     "a1": 7,
+     "hit": false
+    },
+    {
+     "seed": 11,
+     "a0": 7,
+     "a1": 8,
+     "hit": false
+    }
+   ]
+  },
+  {
+   "arm": "anneal_1e5_to_1",
+   "tau": 100000.0,
+   "anneal_to": 1.0,
+   "hits": 0,
+   "n": 12,
+   "held_out_max_error": null,
+   "rows": [
+    {
+     "seed": 0,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 1,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 2,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 3,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 4,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 5,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 6,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 7,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 8,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 9,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 10,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 11,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    }
+   ]
+  },
+  {
+   "arm": "anneal_1e4_to_1",
+   "tau": 10000.0,
+   "anneal_to": 1.0,
+   "hits": 0,
+   "n": 12,
+   "held_out_max_error": null,
+   "rows": [
+    {
+     "seed": 0,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 1,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 2,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 3,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 4,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 5,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 6,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 7,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 8,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 9,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 10,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 11,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    }
+   ]
+  },
+  {
+   "arm": "anneal_1e6_to_1",
+   "tau": 1000000.0,
+   "anneal_to": 1.0,
+   "hits": 3,
+   "n": 12,
+   "held_out_max_error": 0.0,
+   "rows": [
+    {
+     "seed": 0,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 1,
+     "a0": 6,
+     "a1": 7,
+     "hit": true
+    },
+    {
+     "seed": 2,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 3,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 4,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 5,
+     "a0": 6,
+     "a1": 7,
+     "hit": true
+    },
+    {
+     "seed": 6,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 7,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 8,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 9,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    },
+    {
+     "seed": 10,
+     "a0": 6,
+     "a1": 7,
+     "hit": true
+    },
+    {
+     "seed": 11,
+     "a0": 6,
+     "a1": 6,
+     "hit": false
+    }
+   ]
+  }
+ ],
+ "budget": {
+  "node_evals": 403536,
+  "seconds": 54.056
+ },
+ "wall_seconds": 54.06
+}
