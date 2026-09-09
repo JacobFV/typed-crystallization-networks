@@ -16,6 +16,15 @@ def build(arm, seed=0):
     return prog, reg
 
 def one(spec):
+    try:
+        return _one(spec)
+    except Exception as e:
+        import traceback; traceback.print_exc()
+        return {'arm': spec[0], 'seed': spec[2], 'error': repr(e), 'eval': float('nan'),
+                'total_env_episodes': 0, 'env_steps': 0, 'wall_s': 0,
+                'choices': {'selections': {}}}
+
+def _one(spec):
     name, arm, seed = spec
     torch.set_num_threads(1)
     t0 = time.time()

@@ -343,6 +343,9 @@ def grad_snr(runner, n=64, start=0):
         rows, rets, _ = runner.rollout(start + k)
         actor, value, entropy, probe = runner.loss_terms(rows, rets)
         for name, term in (('actor', actor), ('value', value), ('probe', probe)):
+            if not term.requires_grad:
+                acc[name].append(torch.cat([torch.zeros_like(p).flatten() for p in runner.params]))
+                continue
             g = torch.autograd.grad(term, runner.params, retain_graph=True, allow_unused=True)
             acc[name].append(torch.cat([(x if x is not None else torch.zeros_like(p)).flatten()
                                         for x, p in zip(g, runner.params)]))

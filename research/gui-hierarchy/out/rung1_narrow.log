@@ -2,10 +2,10 @@ edge records (positive fraction)                               192 (37.0%)
 
 --- arm A: narrow offsets, channel correspondence supplied (H2, H3 in place) ---
 [narrow] space / nodes / records                               1280 / 19 / 192
-[narrow] enumerate_fit solved/exhausted/unique/evaluated/s     True / True / False / 1280 / 9.7
-[narrow] conforming / space / exhausted / s                    4 / 1280 / True / 8.8
+[narrow] enumerate_fit solved/exhausted/unique/evaluated/s     True / True / False / 1280 / 6.5
+[narrow] conforming / space / exhausted / s                    4 / 1280 / True / 6.5
 [narrow] lexicographic pick held-out max error / accuracy      1.0 / 0.984375
 [narrow] conforming selections / distinct functions            4 / 2
 [narrow] validation-filtered survivors / distinct functions / held-out errors 2 / 1 / [0.0, 0.0]
 [narrow] random-draw solution density                          0.0050
-  [narrow] seed 0: ok=False train=1 held=1.0 (348.6s) 
+  [narrow] seed 0: ok=True train=0 held=1.0 (261.9s) 

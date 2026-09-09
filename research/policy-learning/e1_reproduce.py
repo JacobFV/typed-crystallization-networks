@@ -11,6 +11,8 @@ ARMS = {
  'A0_shipped_oracleinit_probe':   {'policy_init':'oracle','cfg':cfg(w_probe=1.,choice_bias12=True,episodes=160)},
  'A0b_shipped_2000ep':            {'policy_init':'oracle','cfg':cfg(w_probe=1.,choice_bias12=True)},
  'A1_rewardonly_zeroinit':        {'policy_init':'zero','cfg':cfg(),'snr_at_init':True,'snr_after':True},
+ 'A1c_rewardonly_zeroinit_bias12':{'policy_init':'zero','cfg':cfg(choice_bias12=True),'snr_at_init':True,'snr_after':True},
+ 'A1d_rewardonly_zeroinit_choicenoise':{'policy_init':'zero','cfg':cfg(choice_noise=.5),'snr_at_init':True,'snr_after':True},
  'A2_rewardonly_noiseinit':       {'policy_init':'noise','cfg':cfg(choice_noise=.1),'snr_at_init':True,'snr_after':True},
  'A3_rewardonly_oracleconstinit': {'policy_init':'oracle','cfg':cfg(),'snr_at_init':True,'snr_after':True},
  'A4_rewardonly_choiceonly':      {'policy_init':'oracle','cfg':cfg(train_constants=False),'snr_at_init':True},

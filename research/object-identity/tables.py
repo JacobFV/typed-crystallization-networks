@@ -69,6 +69,7 @@ def main():
     wd = load("wide_threshold"); rs = load("residual"); w3 = load("world3d")
     uf = load("unfreeze"); cg = load("choice_gradients"); le = load("le_surrogate")
     dc = load("discoverable"); rsh = load("rule_shapes")
+    sf = load("surrogate_fix_coarse"); ff = load("surrogate_fix_fullunfreeze")
     v = {}
 
     perm = b["permutation_certificate"]; col = b["colour_certificate"]
@@ -278,6 +279,64 @@ def main():
         v["disc_seconds"] = f(dc["search"]["seconds"], 2)
         v["disc_agrees"] = "yes" if dc["merged_scaffold_agrees"] else "NO"
         v["disc_nodes"] = dc["merged_scaffold_nodes"]
+
+    src = sf or ff
+    if src:
+        g = src["operating_gaps"]
+        v["gap_table"] = table(
+            ["`le` node", "median gap", "mean gap", "min", "max",
+             "fraction at or past underflow", "shipped surrogate there",
+             "shipped derivative there"],
+            [[k, f(x["median_gap"], 0), f(x["mean_gap"], 0), x["min_gap"], x["max_gap"],
+              f(x["fraction_at_or_past_underflow"], 3),
+              "%.3g" % x["shipped_surrogate_at_median_gap"],
+              "%.3g" % x["shipped_derivative_at_median_gap"]]
+             for k, x in g.items() if isinstance(x, dict)])
+        a = src.get("address_sharpness") or (ff or {}).get("address_sharpness")
+        if a:
+            v["addr_true"] = f(a["weight_on_true_address"], 3)
+            v["addr_nb"] = f(a["weight_on_each_immediate_neighbour"], 3)
+            v["addr_pm2"] = f(a["weight_within_plus_minus_2"], 4)
+    def arm(d, key, prefix):
+        if not d or key not in d:
+            return
+        x = d[key]
+        v[prefix] = f"{x['summary']['successes']}/{len(x['rows'])}"
+        v[prefix + "_held"] = f"{x['held_exact']}/{len(x['rows'])}"
+        v[prefix + "_thr"] = "%.3g" % x["choice_gradients"]["choice_grad_l1"]["thr"]
+    arm(sf, "operand", "sfix_operand"); arm(sf, "carrier", "sfix_carrier")
+    arm(ff, "operand", "full_operand"); arm(ff, "carrier", "full_carrier")
+    if sf and "operand" in sf:
+        v["sfix_grads"] = json.dumps({k: x for k, x in
+                                      sf["operand"]["choice_gradients"]["choice_grad_l1"].items()
+                                      if k in ("shifted", "thr", "m1", "same")})
+        v["sfix_thr"] = v.get("sfix_operand_thr")
+        best = max((sf[k]["summary"]["successes"] for k in ("operand", "carrier") if k in sf),
+                   default=0)
+        n = len(sf["operand"]["rows"])
+        heldbest = max((sf[k]["held_exact"] for k in ("operand", "carrier") if k in sf), default=0)
+        if heldbest:
+            v["sfix_conclusion"] = (
+                "**With a live surrogate the relaxed path does reach this rung**: the best "
+                f"corrected arm is {heldbest}/{n} exact on held-out episodes, against 0/4 for "
+                "every arm run with the shipped surrogate.  The recorded failures in section 3 "
+                "were invalid relaxations.")
+        elif best:
+            v["sfix_conclusion"] = (
+                f"**A live surrogate is necessary and not sufficient here.**  The best corrected "
+                f"arm reaches {best}/{n} conforming on training and {heldbest}/{n} exact on "
+                "held-out, against 0/4 with the shipped surrogate -- so scaling the temperature "
+                "does change the outcome, and the remaining gap is the offset, which is behind "
+                "`pack`'s declared `gradient=\"none\"` and cannot be relaxed at all.")
+        else:
+            v["sfix_conclusion"] = (
+                "**A live surrogate is necessary and not sufficient here.**  Every corrected arm "
+                f"is still 0/{n}, and the reason is in the row above it: `shifted` remains "
+                "`grad = None` under every temperature policy, because `pack` declares "
+                "`gradient=\"none\"`.  The relaxed path can now see the threshold and the two "
+                "combinators and still cannot see which neighbour to read, so it cannot settle "
+                "this rung.  That is a statement about a declared boundary, which is what the "
+                "corrected measurement is for -- it is no longer a statement about an underflow.")
 
     template = (HERE / "RESULTS.template.md").read_text()
     missing = sorted(set(re.findall(r"\{\{(\w+)\}\}", template)) - set(v))

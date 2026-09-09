@@ -410,12 +410,14 @@ closes D4, and it is the first measurement in either track where the caller is
 
 ---
 
-## 4. Gradient versus enumeration on this rung
+## 4. Gradient versus enumeration, and what a zero gradient is evidence of
 
-Enumeration wins every arm, and the logit probe says why with no ambiguity.
-**The probe itself needed fixing first**: `SoftProgram.choices` has one entry per
-node, free or not, so zipping it against only the free nodes silently
-misreports.  Corrected:
+### 4.1 The probe needed fixing before anything could be read off it
+
+`SoftProgram.choices` has one entry per node, free or not, so zipping it against
+only the free nodes silently misreports every entry.  The first version of this
+measurement did that and reported `None` for all four choices.  Corrected, and
+this is the table the rest of the section is about:
 
 | scaffold | choice logit L1 gradient (`None` = unreachable in autograd) |
 |---|---|
@@ -423,52 +425,100 @@ misreports.  Corrected:
 | rung 4 collinearity, as built | {{unfreeze_built}} |
 | rung 4 collinearity, deterministic nodes unfrozen | {{unfreeze_free}} |
 | rung 4, wide pool, as built | {{wide_grads}} |
+| rung 4, comparison nodes unfrozen **and** the `le` surrogate scaled | {{sfix_grads}} |
 
-Three distinct mechanisms, each measured:
+### 4.2 The shipped `le` surrogate is exactly 0.0 at this rung's operating distance
 
-1. **`pack` declares `gradient="none"`**, and `relaxed` routes such an operator
-   through `exact_tensor`, which detaches.  Everything computed from a pixel's
-   arithmetic value is a constant of the parameters, so the **offset** choice --
-   which is upstream of `pack` through `index` -- is unreachable.  `shifted` has
-   `grad = None` in every variant.  This is the rung-3.5 finding again.
-2. **`SoftProgram.forward` treats every node with `selected is not None` as
-   frozen** and evaluates it with `exact_tensor(...).detach()`.  `Builder.add`
-   and `tcn.scaffold` set `selected = 0` on every single-candidate node, so
-   every deterministic node in any hand-written scaffold detaches, whatever its
-   operator's declared gradient class.  That is what severs the **threshold**:
-   `le` is a `surrogate` operator and `thr` feeds it directly, yet `thr` has
-   `grad = None` as built.  Restoring `selected = None` on those nodes -- the
-   identical search space, {{unfreeze_space}} programs either way -- makes
-   `thr` reachable.
-3. **It does not help, because the `le` surrogate underflows.**  Unfrozen,
-   `thr`'s gradient is **{{unfreeze_thr}}**.  `relaxed` computes `le` as
-   `sigmoid((b-a)/tau)` at `tau = 1`; in float32 both the value and its
-   derivative reach **exactly 0.0 at a gap of {{le_zero}}**:
+`relaxed` computes `lt`/`le`/`gt`/`ge` as `torch.sigmoid(d/temperature)` with
+`temperature = 1`.  In float32 both the value and its derivative are **exactly
+0.0 at `|d| >= {{le_zero}}`**:
 
 {{le_table}}
 
-   The cross products this rung compares span 0..65,025, so the gap is
-   essentially always three orders of magnitude past the underflow point.  The
-   gradient arm is {{unfreeze_grad}} with the nodes unfrozen, unchanged from
-   {{direct_grad}} as built.
+And the operands here are products of two bytes.  Measured at the three `le`
+nodes over the training records, with the threshold at the middle of the coarse
+pool:
+
+{{gap_table}}
+
+**The surrogate's value and its derivative are exactly 0.0 at the median
+operating gap at all three nodes**, and essentially every record is past the
+underflow point.  So the `0/4` and `1/4` gradient arms recorded in section 3 are
+not evidence about whether this rung is learnable by relaxation; they are
+evidence that the relaxation was invalid there.  They are reported as such and
+section 4.4 is the arm that means something.
 
 This is the same fault the perception ladder found in `eq`
-(`exp(-(a-b)^2/tau)` reaching 0.0 at `|a-b| >= 11`), now in `le`, and it
-generalises the method boundary the previous track drew:
+(`exp(-(a-b)^2/tau)` reaching exactly 0.0 at `|a-b| >= 11`, which made that
+track's address-relaxation benchmark a measurement of dead gradients rather than
+misdirected ones), reproduced in the other comparison operator and at three
+orders of magnitude larger operands.
 
-* a choice behind a `gradient="none"` operator: **only the discrete backend**;
-* a choice at a `surrogate` comparison whose operands are **wide integers**:
-  also only the discrete backend, because the surrogate has no dynamic range;
-* a choice among constants at a fixed input whose operands are **small**: the
-  relaxed path, as the previous track measured on the 256-value byte alphabet.
+### 4.3 Three mechanisms sever the gradient here, and they are not the same kind
 
-The previous track's clean gradient win was on `eq` over bytes, where operands
-differ by at most 255 and the surrogate is alive over part of that range.  Move
-the same shape of choice to a product of two bytes and it dies.  **Space size
-does not predict which backend wins; operand magnitude and the declared gradient
-class do.**
+| choice | severed by | kind | still severed with a live surrogate? |
+|---|---|---|---|
+| `shifted` (the neighbour offset) | `pack` declares `gradient="none"`, so `relaxed` routes it through `exact_tensor`, which detaches | **declared** | **yes** -- `grad = None` in every variant measured |
+| `thr` (the threshold) | `SoftProgram` treats every node with `selected is not None` as frozen and detaches it, and `Builder`/`tcn.scaffold` set `selected = 0` on every *deterministic* node | **implementation** | no -- unfreezing makes it reachable at {{unfreeze_thr}} |
+| `thr`, again | the `le` surrogate underflows | **numerical** | no -- scaling takes it to {{sfix_thr}} |
 
----
+The distinction matters and it is the correction's real content.  A choice
+behind a *declared* `gradient="none"` boundary is genuinely outside the relaxed
+backend, and the offset is such a choice: `pack` is the only route from a
+`role="byte"` pixel to arithmetic and it declares no gradient, so relaxation
+cannot see which neighbour the module reads however the surrogate is scaled.
+A choice that is dead because a surrogate underflowed, or because a
+single-candidate node was detached, is not outside anything.
+
+There is a fourth invalidity in the same neighbourhood, found while separating
+the other three.  Unfreezing *every* deterministic node also relaxes `index`,
+whose relaxation is `softmax(-(address - arange(n))^2 / tau)` at `tau = 1`.  Over
+a 192-byte observation that puts only **{{addr_true}}** of its weight on the true
+address and **{{addr_nb}}** on each immediate neighbour, so the relaxed forward
+pass reads a blur of about five bytes rather than a pixel.  That is why section
+4.4 unfreezes only the three comparison nodes: it restores the gradient to `thr`
+while leaving the addressing exact.
+
+### 4.4 The corrected gradient arms
+
+Two temperature policies, both leaving `tcn/` untouched and replacing `relaxed`
+at runtime in one process: the coordinator's **carrier** rule
+(`tau = 2^bits` of the compared type) and this track's **operand** rule
+(`tau = mean |operand|` over the batch).
+
+| arm | surrogate at the median gap | `thr` gradient | conforming on train | exact on held-out |
+|---|---|---|---|---|
+| as shipped (section 3) | **0.0** | `None` | {{direct_grad}} | 0/4 |
+| deterministic nodes unfrozen, shipped surrogate | 0.0 | {{unfreeze_thr}} | {{unfreeze_grad}} | 0/4 |
+| comparison nodes unfrozen, `tau = mean operand` | alive | {{sfix_thr}} | {{sfix_operand}} | {{sfix_operand_held}} |
+| comparison nodes unfrozen, `tau = 2^bits` | alive | {{sfix_carrier_thr}} | {{sfix_carrier}} | {{sfix_carrier_held}} |
+| *every* deterministic node unfrozen, `tau = mean operand` | alive | {{full_operand_thr}} | {{full_operand}} | {{full_operand_held}} |
+| *every* deterministic node unfrozen, `tau = 2^bits` | alive | {{full_carrier_thr}} | {{full_carrier}} | {{full_carrier_held}} |
+
+{{sfix_conclusion}}
+
+Enumeration, on the same space and the same records, exhausts {{direct_space}}
+programs in {{direct_seconds}} s and {{wide_space}} in {{wide_inc_seconds}} s
+with a prefix-reusing walk, returning a program with held-out max error
+{{wide_val_err}} and a uniqueness report.
+
+### 4.5 What this says about the method boundary
+
+The previous track drew the boundary as "constants at a fixed input: relaxation;
+behind `gradient="none"`: enumeration".  Two of the three failures here were not
+on that boundary at all -- they were an implementation detail and a numerical
+underflow -- and only the offset is genuinely behind a declared boundary.  The
+honest statement after this track is:
+
+* a choice behind a **declared** `gradient="none"` operator -- here the offset,
+  behind `pack` -- is outside the relaxed backend, and no surrogate fixes it;
+* a choice at a **surrogate comparison** is only as good as that surrogate's
+  dynamic range at the *operating distance*, which must be measured and
+  reported, not assumed;
+* a choice at a node the scaffold made deterministic is severed by
+  `SoftProgram`, which is a bug (E1) and not a property of anything;
+* **space size predicts nothing.**  The 393,216-program space and the
+  6,144-program space behave identically here.
 
 ## 5. Is a different generator's segmentation probe determined?
 

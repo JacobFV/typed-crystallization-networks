@@ -12,13 +12,13 @@ import random
 
 import pytest
 
-from tcn.generation import Action, Host, TimedValue
+from tcn.generation import Action, Host
 from tcn.operators import Registry
 from tcn.policy import sample_exact
-from tcn.types import BOOL, Value, integer, product
+from tcn.types import BOOL, Value, integer
 from generators.control import physics
 from generators.control.generator import (
-    DISTURBANCE, LAT_RATE, OBS_ANGLE, OBS_LENGTH, OBS_RATE, Implementation, schema_for, torque_type, wrap,
+    DISTURBANCE, OBS_ANGLE, OBS_LENGTH, OBS_RATE, schema_for, torque_type, wrap,
 )
 
 TASKS = ("pendulum", "reacher")
@@ -185,7 +185,7 @@ def test_declared_encodings_admit_the_arithmetic_the_task_needs():
         registry.resolve("encode", (OBS_LENGTH,), OBS_ANGLE)
 
 
-def test_a_byte_roled_observation_would_lose_the_arithmetic(monkeypatch):
+def test_a_byte_roled_observation_would_lose_the_arithmetic():
     """The trap this generator avoids, stated as an executable contrast."""
     registry = Registry()
     pixel = integer(8, signed=False, role="byte")
@@ -201,10 +201,10 @@ def test_privileged_channels_carry_more_precision_than_observations(task):
     host = Host.create("control", seed=6, configuration={"task": task, "horizon": 6})
     host.step((sample(task),), dt=0.05)
     record = host.records[-1]
-    assert record.latent_states["qvel"].type.bits == 64
+    def leaves(t):
+        return [t] if t.kind in {"bool", "int"} else [x for item in t.items for x in leaves(item)]
+    assert all(leaf.bits == 64 for leaf in leaves(record.latent_states["qvel"].type))
     for value in record.observations.values():
-        def leaves(t):
-            return [t] if t.kind in {"bool", "int"} else [x for item in t.items for x in leaves(item)]
         assert all(leaf.bits == 32 for leaf in leaves(value.value.type))
     exact = record.latent_states["qvel"].decoded
     exact = exact if task == "pendulum" else exact[0]

@@ -131,6 +131,18 @@ def main():
     report["pendulum_upright_last_10"] = sum(uprights[-10:]) / 10
     report["pendulum_upright_max"] = max(uprights)
 
+    # 9b. The range a fixed-point observation encoding would have to cover.
+    peak = 0.0
+    probe = Host.create("control", seed=2, configuration={"task": "pendulum", "horizon": 200,
+                                                          "start": {"qpos": [0.0], "qvel": [0.0]}})
+    while not probe.records[-1].done:
+        rate = probe.records[-1].latent_states["qvel"].decoded
+        probe.step((torque(2.0 if rate >= 0 else -2.0),), dt=0.05)
+        peak = max(peak, abs(probe.records[-1].latent_states["qvel"].decoded))
+    report["peak_abs_qvel_during_swing_up"] = peak
+    report["fixed16_scale4096_range"] = 2 ** 15 / 4096
+    report["fixed16_would_overflow"] = peak > 2 ** 15 / 4096
+
     # 10. Where that 2 ms goes: raw integration against the whole typed step.
     from generators.control import physics
     h = Host.create("control", seed=1, configuration={"task": "pendulum", "horizon": 500})

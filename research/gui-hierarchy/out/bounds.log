@@ -1,0 +1,58 @@
+
+--- R1: widget edge from a two-pixel neighbourhood ---
+flat (default) | x                                             majority 0.8261  oracle 1.0000 (+0.1739)  transfer 0.8333 (+0.0072)  unseen 0.395
+flat (default) | y                                             majority 0.8094  oracle 1.0000 (+0.1906)  transfer 0.8250 (+0.0156)  unseen 0.403
+borders | x                                                    majority 0.8261  oracle 0.8483 (+0.0222)  transfer 0.7967 (+-0.0294)  unseen 0.211
+borders | y                                                    majority 0.8094  oracle 0.8422 (+0.0328)  transfer 0.8039 (+-0.0056)  unseen 0.176
+labels | x                                                     majority 0.8352  oracle 1.0000 (+0.1648)  transfer 0.8594 (+0.0242)  unseen 0.158
+labels | y                                                     majority 0.8306  oracle 1.0000 (+0.1694)  transfer 0.8538 (+0.0232)  unseen 0.160
+borders+labels | x                                             majority 0.8352  oracle 0.8637 (+0.0285)  transfer 0.8053 (+-0.0299)  unseen 0.005
+borders+labels | y                                             majority 0.8306  oracle 0.8567 (+0.0260)  transfer 0.8093 (+-0.0213)  unseen 0.000
+palette 8, 6 widgets | x                                       majority 0.8261  oracle 1.0000 (+0.1739)  transfer 0.9322 (+0.1061)  unseen 0.068
+palette 8, 6 widgets | y                                       majority 0.8094  oracle 1.0000 (+0.1906)  transfer 0.9078 (+0.0983)  unseen 0.092
+palette 4, 12 widgets | x                                      majority 0.7709  oracle 0.8963 (+0.1254)  transfer 0.8963 (+0.1254)  unseen 0.000
+palette 4, 12 widgets | y                                      majority 0.7625  oracle 0.8907 (+0.1283)  transfer 0.8907 (+0.1283)  unseen 0.000
+colour_mode=kind | x                                           majority 0.8261  oracle 1.0000 (+0.1739)  transfer 1.0000 (+0.1739)  unseen 0.000
+colour_mode=kind | y                                           majority 0.8094  oracle 1.0000 (+0.1906)  transfer 1.0000 (+0.1906)  unseen 0.000
+12 widgets, nesting 4 | x                                      majority 0.7510  oracle 1.0000 (+0.2490)  transfer 0.8117 (+0.0606)  unseen 0.188
+12 widgets, nesting 4 | y                                      majority 0.7417  oracle 1.0000 (+0.2583)  transfer 0.8123 (+0.0706)  unseen 0.188
+resolution 32 | x                                              majority 0.8352  oracle 1.0000 (+0.1648)  transfer 0.8594 (+0.0242)  unseen 0.141
+resolution 32 | y                                              majority 0.8306  oracle 1.0000 (+0.1694)  transfer 0.8538 (+0.0232)  unseen 0.146
+
+--- R1b: the same target from the eq-pattern the algebra can express ---
+flat (default) | x                                             majority 0.8261  oracle 1.0000 (+0.1739)  transfer 1.0000 (+0.1739)  unseen 0.000
+flat (default) | y                                             majority 0.8094  oracle 1.0000 (+0.1906)  transfer 1.0000 (+0.1906)  unseen 0.000
+borders | x                                                    majority 0.8261  oracle 0.8261 (+0.0000)  transfer 0.8261 (+0.0000)  unseen 0.000
+borders | y                                                    majority 0.8094  oracle 0.8094 (+0.0000)  transfer 0.8094 (+0.0000)  unseen 0.000
+labels | x                                                     majority 0.8352  oracle 0.9441 (+0.1089)  transfer 0.9406 (+0.1054)  unseen 0.000
+labels | y                                                     majority 0.8306  oracle 0.9501 (+0.1194)  transfer 0.9501 (+0.1194)  unseen 0.000
+borders+labels | x                                             majority 0.8352  oracle 0.8352 (+0.0000)  transfer 0.8352 (+0.0000)  unseen 0.000
+borders+labels | y                                             majority 0.8306  oracle 0.8306 (+0.0000)  transfer 0.8306 (+0.0000)  unseen 0.000
+palette 8, 6 widgets | x                                       majority 0.8261  oracle 1.0000 (+0.1739)  transfer 1.0000 (+0.1739)  unseen 0.000
+palette 8, 6 widgets | y                                       majority 0.8094  oracle 1.0000 (+0.1906)  transfer 1.0000 (+0.1906)  unseen 0.000
+palette 4, 12 widgets | x                                      majority 0.7709  oracle 0.8963 (+0.1254)  transfer 0.8963 (+0.1254)  unseen 0.000
+palette 4, 12 widgets | y                                      majority 0.7625  oracle 0.8907 (+0.1283)  transfer 0.8907 (+0.1283)  unseen 0.000
+colour_mode=kind | x                                           majority 0.8261  oracle 1.0000 (+0.1739)  transfer 1.0000 (+0.1739)  unseen 0.000
+colour_mode=kind | y                                           majority 0.8094  oracle 1.0000 (+0.1906)  transfer 1.0000 (+0.1906)  unseen 0.000
+12 widgets, nesting 4 | x                                      majority 0.7510  oracle 1.0000 (+0.2490)  transfer 1.0000 (+0.2490)  unseen 0.000
+12 widgets, nesting 4 | y                                      majority 0.7417  oracle 1.0000 (+0.2583)  transfer 1.0000 (+0.2583)  unseen 0.000
+resolution 32 | x                                              majority 0.8352  oracle 1.0000 (+0.1648)  transfer 1.0000 (+0.1648)  unseen 0.000
+resolution 32 | y                                              majority 0.8306  oracle 1.0000 (+0.1694)  transfer 1.0000 (+0.1694)  unseen 0.000
+
+--- R2: glyph from its bounding box ---
+glyph box, raw bytes                                           majority 0.0625  oracle 0.9625 (+0.9000)  transfer 0.0875 (+0.0250)  unseen 0.850
+glyph box, ink-binarised                                       majority 0.0625  oracle 0.9625 (+0.9000)  transfer 0.9250 (+0.8625)  unseen 0.013
+
+--- R3: widget kind from rendered appearance ---
+colour_mode=random | fill colour                               majority 0.2982  oracle 0.4620 (+0.1637)  transfer 0.2047 (+-0.0936)
+colour_mode=random | size (w,h)                                majority 0.2982  oracle 0.8480 (+0.5497)  transfer 0.5322 (+0.2339)
+colour_mode=random | fill + size                               majority 0.2982  oracle 0.9942 (+0.6959)  transfer 0.3509 (+0.0526)
+colour_mode=kind | fill colour                                 majority 0.2982  oracle 1.0000 (+0.7018)  transfer 1.0000 (+0.7018)
+colour_mode=kind | size (w,h)                                  majority 0.2982  oracle 0.8480 (+0.5497)  transfer 0.5322 (+0.2339)
+colour_mode=kind | fill + size                                 majority 0.2982  oracle 1.0000 (+0.7018)  transfer 0.6082 (+0.3099)
+
+--- R4: parent from geometry ---
+parent from geometry | 6 widgets, nesting 2                    32/32 = 1.0000  ties 0
+parent from geometry | 12 widgets, nesting 4                   155/155 = 1.0000  ties 0
+parent from geometry | 24 widgets, nesting 6                   368/368 = 1.0000  ties 0
+wrote /home/brandonin/Documents/typed-crystallization-networks/research/gui-hierarchy/out/bounds.json

@@ -1,0 +1,19 @@
+[gap] rg_le: median / fraction past underflow / shipped surrogate there 192.0 / 0.969 / 0
+[gap] gb_le: median / fraction past underflow / shipped surrogate there 192.0 / 0.938 / 0
+[gap] rb_le: median / fraction past underflow / shipped surrogate there 192.0 / 0.906 / 0
+wrote /home/brandonin/Documents/typed-crystallization-networks/research/object-identity/out/surrogate_fix_coarse.json
+[operand] choice logit |grad|_1                            {"pos": null, "obs": null, "shifted": null, "thr": 0.0089192446321249, "a_g_at": null, "a_b_at": null, "a_r_byte": null, "a_r_tup": null, "a_r_u8": 0.0, "a_r": 0.0, "a_g_byte": null, "a_g_tup": null, "a_g_u8": 0.0, "a_g": 0.0, "a_bl_byte": null, "a_bl_tup": null, "a_bl_u8": 0.0, "a_bl": 0.0, "b_g_at": null, "b_b_at": null, "b_r_byte": null, "b_r_tup": null, "b_r_u8": 0.0, "b_r": 0.0, "b_g_byte": null, "b_g_tup": null, "b_g_u8": 0.0, "b_g": 0.0, "b_bl_byte": null, "b_bl_tup": null, "b_bl_u8": 0.0, "b_bl": 0.0, "rg_p": 0.0, "rg_q": 0.0, "rg_d": 0.0, "rg_a": 0.0, "rg_le": 0.0, "gb_p": 0.0, "gb_q": 0.0, "gb_d": 0.0, "gb_a": 0.0, "gb_le": 0.0, "rb_p": 0.0, "rb_q": 0.0, "rb_d": 0.0, "rb_a": 0.0, "rb_le": 0.0, "m1": 0.007936467416584492, "same": 0.14622245728969574, "record": null}
+  [operand] seed 0: ok=False train=1 (10.8s) 
+  [operand] seed 1: ok=False train=1 (11.3s) 
+  [operand] seed 2: ok=False train=1 (10.9s) 
+  [operand] seed 3: ok=False train=1 (10.8s) 
+[operand] gradient successes / held-out exact              0/4 / 0
+wrote /home/brandonin/Documents/typed-crystallization-networks/research/object-identity/out/surrogate_fix_coarse.json
+[carrier] choice logit |grad|_1                            {"pos": null, "obs": null, "shifted": null, "thr": 7.256746314965312e-09, "a_g_at": null, "a_b_at": null, "a_r_byte": null, "a_r_tup": null, "a_r_u8": 0.0, "a_r": 0.0, "a_g_byte": null, "a_g_tup": null, "a_g_u8": 0.0, "a_g": 0.0, "a_bl_byte": null, "a_bl_tup": null, "a_bl_u8": 0.0, "a_bl": 0.0, "b_g_at": null, "b_b_at": null, "b_r_byte": null, "b_r_tup": null, "b_r_u8": 0.0, "b_r": 0.0, "b_g_byte": null, "b_g_tup": null, "b_g_u8": 0.0, "b_g": 0.0, "b_bl_byte": null, "b_bl_tup": null, "b_bl_u8": 0.0, "b_bl": 0.0, "rg_p": 0.0, "rg_q": 0.0, "rg_d": 0.0, "rg_a": 0.0, "rg_le": 0.0, "gb_p": 0.0, "gb_q": 0.0, "gb_d": 0.0, "gb_a": 0.0, "gb_le": 0.0, "rb_p": 0.0, "rb_q": 0.0, "rb_d": 0.0, "rb_a": 0.0, "rb_le": 0.0, "m1": 0.007320873439311981, "same": 0.1364956796169281, "record": null}
+  [carrier] seed 0: ok=False train=1 (10.5s) 
+  [carrier] seed 1: ok=False train=1 (10.5s) 
+  [carrier] seed 2: ok=False train=1 (11.0s) 
+  [carrier] seed 3: ok=False train=1 (10.6s) 
+[carrier] gradient successes / held-out exact              0/4 / 0
+wrote /home/brandonin/Documents/typed-crystallization-networks/research/object-identity/out/surrogate_fix_coarse.json
+wrote /home/brandonin/Documents/typed-crystallization-networks/research/object-identity/out/surrogate_fix_coarse.json

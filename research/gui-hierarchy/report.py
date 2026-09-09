@@ -101,8 +101,18 @@ def arm_rows(data, key, label):
              f(noise.get("median_seconds"), 1)]]
 
 
+def rung1_data():
+    """One file if the arms ran together, otherwise merge the per-arm files."""
+    merged = load("rung1") or {}
+    for arm in ("narrow", "wide", "free"):
+        part = load(f"rung1_{arm}")
+        if part:
+            merged = {**part, **merged} if arm == "narrow" else {**merged, **part}
+    return merged or None
+
+
 def rung1():
-    data = load("rung1")
+    data = rung1_data()
     if not data:
         return
     print("### Rung one, three arms over the same target\n")
@@ -142,7 +152,7 @@ def rung1():
 
 
 def selections():
-    data = load("rung1")
+    data = rung1_data()
     if not data:
         return
     print("### What each arm selected\n")
@@ -160,9 +170,63 @@ def selections():
           rows)
 
 
+def surrogate():
+    data = load("surrogate")
+    if not data:
+        return
+    print("### `eq`'s training surrogate against the palette it has to compare\n")
+    table(["palette_levels", "colours", "channel separation", "value at tau=1", "slope at tau=1",
+           "value at tau=256", "slope at tau=256"],
+          [[k, v["colours"], v["separation"], f"{v['surrogate_tau_1']:.2e}",
+            f"{v['slope_tau_1']:.2e}", f"{v['surrogate_tau_256']:.2e}",
+            f"{v['slope_tau_256']:.2e}"]
+           for k, v in data["palette"].items()])
+    print("### Distances actually compared at the rung-1 operating point\n")
+    table(["palette_levels", "fraction equal", "fraction with live slope, tau=1",
+           "fraction with live slope, tau=256", "distinct distances"],
+          [[k.split("_")[-1], f(v["fraction_zero"]), f(v["fraction_live_tau_1"]),
+            f(v["fraction_live_tau_256"]), str(v["distinct_distances"][:8])]
+           for k, v in data.items() if k.startswith("operating_levels_")])
+    print("### Gradient reaching each choice node, one backward pass at initialisation\n")
+    rows = []
+    for key, value in data.items():
+        if not key.startswith("gradients_"):
+            continue
+        _, _, levels, pool, mode = key.split("_")
+        for node, entry in value.items():
+            if node.startswith("_"):
+                continue
+            rows.append([f"levels {levels}", pool, mode, node, entry["candidates"],
+                         "None" if entry["grad_is_none"] else f"{entry['grad_abs_max']:.2e}"])
+    table(["palette", "offset pool", "single-candidate nodes", "choice node", "candidates",
+           "max abs gradient"], rows)
+
+
+def render():
+    template = (OUT.parent / "RESULTS.template.md").read_text()
+    import io, contextlib
+    out = []
+    for line in template.splitlines():
+        marker = line.strip()
+        if marker.startswith("<!-- TABLE:") and marker.endswith("-->"):
+            name = marker[len("<!-- TABLE:"):-3].strip()
+            buffer = io.StringIO()
+            with contextlib.redirect_stdout(buffer):
+                {"bounds": bounds, "dial": dial, "rung1": rung1, "selections": selections,
+                 "surrogate": surrogate}[name]()
+            out.append(buffer.getvalue().rstrip())
+        else:
+            out.append(line)
+    (OUT.parent / "RESULTS.md").write_text("\n".join(out) + "\n")
+    print("wrote", OUT.parent / "RESULTS.md")
+
+
 if __name__ == "__main__":
     which = sys.argv[1] if len(sys.argv) > 1 else "all"
+    if which == "render":
+        render()
+        raise SystemExit
     for name, fn in (("bounds", bounds), ("dial", dial), ("rung1", rung1),
-                     ("selections", selections)):
+                     ("selections", selections), ("surrogate", surrogate)):
         if which in ("all", name):
             fn()

@@ -709,3 +709,72 @@ looked too clean. The others were a crystallizer "improvement" that was extra
 compute, a table pool that silently ignored an explicit config, and a
 lexicographic tie-break presented as a solution. In every case the fault was in
 the measurement, not the method under test.
+
+## 17. External environments fit the contract, at a stated cost
+
+Full detail in `research/external-environments/RESULTS.md`. `generators/control/`
+adds MuJoCo pendulum swing-up and reacher as ordinary siblings, with locally
+owned physics rather than an import from `world_3d`.
+
+**Replay is verified, not assumed**, three ways: `Host.replay()` from recorded
+inputs; snapshot, restore and continue with the raw MuJoCo integration vector
+compared element-by-element over ten steps at varying `dt`; and the strongest,
+a save reloaded in a **fresh interpreter**, continued, and compared
+byte-for-byte at `max |delta| = 0.0`. Named streams are separated, with the
+counterfactual measured — one shared stream moves the initial pose when the goal
+draw changes. `data.time` is advanced only by the host's `dt`; no host clock is
+read. The task is genuinely under-actuated: a scripted energy-pumping controller
+reaches upright 0.9994 where the zero-torque arm never exceeds -0.99.
+
+**What it costs.** The typing is authored, not derived: gym gives
+`Box(low, high, shape, dtype)`, and every unit, frame, encoding and bound was
+written by hand, where a wrong one is silently wrong. **77% of a step is contract
+rather than physics** — 0.394 ms of MuJoCo inside a 1.68 ms typed step. And the
+contract is only as strong as the engine: MuJoCo works because
+`mjSTATE_INTEGRATION` exists, while Box2D through gym does not serialize and no
+wrapper fixes that.
+
+**Encoding decisions, interrogated against `Registry.resolve` rather than
+assumed.** `role="byte"` admits only `eq` and `pack` — the section 14 trap,
+avoided deliberately. Angles are declared dimensionless because radians are, and
+because `unit="rad"` would make `sin`/`cos` type-illegal. Rates carry
+`unit="rad/s"`, which correctly kills `sin(velocity)`, at the cost that no
+conversion operator can change a unit, so the only legal exit is
+`div(rate, rate)`. `floating(32)` over `fixed(16, 4096)` because swing-up reaches
+|qvel| = 40.49 rad/s against fixed-point's +/-8.0, which would raise
+`OverflowError` inside the observation channel mid-rollout. Bounds live on the
+action type, where `policy.numeric_bounds` consumes them, and not on
+observations, where a refinement would make `add` partial at execution.
+
+**NES is specified, not built.** `stable-retro`'s libretro core rather than
+`nes-py`, because `get_state`/`set_state` serialize CPU, PPU, APU and mapper
+while `nes-py`'s single-slot backup cannot express an arbitrary snapshot. One
+savestate at episode start plus recorded inputs. `dt` counted in frames at
+60.0988 Hz, with non-integral `dt` rejected rather than rounded. Framebuffer as
+the only observation; nametable, attributes and scroll as latents; and **OAM as
+a probe**, `set[(index, tile, x, y, attributes)]` at capacity 64, the index field
+load-bearing exactly as in the `gates` channel of section 15. ROMs user-supplied
+by path and digest-checked, never distributed.
+
+The reason NES suits this substrate is measured rather than aesthetic: flat
+palettized colour with no anti-aliasing is the regime where `eq` is informative,
+and OAM supplies exactly the object *names* that the object-identity work found
+structurally unrecoverable from `geometry`'s renderer.
+
+**Provenance, flagged for an explicit decision.** The synthetic line was already
+crossed for *mechanism* before this track — `world_3d` imports `mujoco`,
+`computer` shells out to Node. What `control` adds is an environment whose
+external mechanism is the point, and NES is a further tier again: a fixed
+third-party artifact that cannot be regenerated, held out by construction, or
+redistributed. The report proposes a three-tier provenance grading with exact
+replacement text for `AGENTS.md` line 42 and `ARCHITECTURE.md` sections 6 and 9.
+**Those two documents were not edited**; this is the project lead's call.
+
+**Fingerprint granularity, verified here.** `source_fingerprint()` hashes all of
+`tcn/` and `generators/`, so any change to either invalidates every recorded
+episode. Confirmed directly: all three `artifacts/system/*/episode.json.gz`
+now fail `Host.restore` with "episode source revision mismatch". This is the
+documented intent — `docs/VALIDATION.md` says fingerprints pin replay to their
+code revision so stale artifacts are not silently resumed — and tonight's core
+commits are what invalidated them. The finding is that the granularity is coarse:
+adding a generator invalidates episodes from every other generator.

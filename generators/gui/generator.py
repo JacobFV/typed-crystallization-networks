@@ -78,8 +78,8 @@ from __future__ import annotations
 
 from tcn.generation import Generator, Value, image_value, vector_value
 from tcn.types import product, setof, integer
-from .render import (KINDS, PALETTE, PRESSABLE, assign_colours, assign_kinds, assign_labels,
-                     layout, palette_colours, render)
+from .render import (KINDS, PRESSABLE, assign_colours, assign_kinds, assign_labels, layout,
+                     palette_colours, render)
 
 FIELD = integer(8, signed=False)
 ELEMENT = product(FIELD, FIELD, FIELD, FIELD, FIELD, FIELD, FIELD)

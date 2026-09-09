@@ -1,0 +1,7 @@
+[gap] rg_le: median / fraction past underflow / shipped surrogate there 192.0 / 0.969 / 0
+[gap] gb_le: median / fraction past underflow / shipped surrogate there 192.0 / 0.938 / 0
+[gap] rb_le: median / fraction past underflow / shipped surrogate there 192.0 / 0.906 / 0
+wrote /home/brandonin/Documents/typed-crystallization-networks/research/object-identity/out/surrogate_fix_coarse.json
+relaxed `index`: weight on the true address                {"count": 192, "tau": 1.0, "weight_on_true_address": 0.5641312599182129, "weight_on_each_immediate_neighbour": 0.20753230154514313, "weight_within_plus_minus_2": 0.9998607039451599}
+[operand] choice logit |grad|_1                            {"shifted": null, "thr": 0.005835290066897869, "rg_le": 0.0, "gb_le": 0.0, "rb_le": 0.0, "m1": 0.008797964081168175, "same": 0.1539536416530609}
+  [operand] seed 0: ok=False train=1 (365.6s) 

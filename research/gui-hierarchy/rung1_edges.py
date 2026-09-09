@@ -24,6 +24,10 @@ structure in the sense of ARCHITECTURE section 4, and every item is ablated in
       as frozen and evaluates detached -- severing the gradient to every choice
       upstream of one.  ABLATED by `relax_single=True`, which leaves them relaxed
       at no change to the discrete space.
+  H6  candidate declaration order.  Zero-initialised logits make candidate 0 the
+      argmax, so the correct offset and the correct operand binding are placed at
+      index 2 of their pools rather than index 0.  Not ablated -- it is the
+      removal of a hand-initialisation, not the addition of one.
   H4  choice-logit initialisation noise for the gradient arm.  `SoftProgram`
       zero-initialises every logit, so a seed alone changes nothing; noise breaks
       the symmetry without supplying an answer.  ABLATED by `init_noise=0`,
@@ -79,8 +83,15 @@ def induced_function(program, selections, offsets):
 
 
 def narrow_offsets(width):
-    """Five plausible spatial steps in bytes; 3 (one pixel right) is the target."""
-    return (3, 6, 9, 3 * width, 3 * width + 3)
+    """Five plausible spatial steps in bytes; 3 (one pixel right) is the target.
+
+    The correct offset is deliberately NOT first.  `SoftProgram` zero-initialises
+    every choice logit, so `argmax` at initialisation is candidate 0 -- listing
+    the answer first would hand it to any run that never moves that logit, and
+    `enumerate_fit`'s lexicographic tie-break would prefer it too.  Declaration
+    order is an initialisation, and this one is arranged not to be a helpful one.
+    """
+    return (3 * width, 6, 3, 9, 3 * width + 3)
 
 
 def wide_offsets(width):
@@ -112,9 +123,15 @@ def scaffold(registry, ep, offsets, free=False, relax_single=False):
         b.add(f"{tag}_g_v", "index", ["obs", f"{tag}_g"])
         b.add(f"{tag}_b_v", "index", ["obs", f"{tag}_b"])
     for channel in ("r", "g", "b"):
-        options = [("eq", (f"here_{channel}_v", f"there_{channel}_v"), None)]
+        neighbour = ("eq", (f"here_{channel}_v", f"there_{channel}_v"), None)
         if free:
-            options += [("eq", (f"here_{channel}_v", f"byte_{v}"), None) for v in POOL]
+            # Same rule as the offset pool: the correct binding is not candidate 0.
+            options = [("eq", (f"here_{channel}_v", f"byte_{POOL[0]}"), None),
+                       ("eq", (f"here_{channel}_v", f"byte_{POOL[1]}"), None),
+                       neighbour,
+                       ("eq", (f"here_{channel}_v", f"byte_{POOL[2]}"), None)]
+        else:
+            options = [neighbour]
         b.choice(f"cmp_{channel}", options)
     b.choice("rg", [(f"truth_{t}", ("cmp_r", "cmp_g"), None) for t in range(16)])
     b.choice("edge", [(f"truth_{t}", ("rg", "cmp_b"), None) for t in range(16)])
@@ -307,6 +324,7 @@ def main():
     ap.add_argument("--steps", type=int, default=200)
     ap.add_argument("--lr", type=float, default=.15)
     ap.add_argument("--free-limit", type=int, default=None)
+    ap.add_argument("--arms", default="narrow,wide,free")
     ap.add_argument("--tag", default="rung1")
     args = ap.parse_args()
 
@@ -332,11 +350,15 @@ def main():
     report("edge records (positive fraction)",
            f"{len(train)} ({result['positive_fraction']:.1%})")
 
-    print("\n--- arm A: narrow offsets, channel correspondence supplied (H2, H3 in place) ---")
-    result["narrow"], program, conforming = arm(
-        registry, "narrow", probe, offsets, False, train, validation, held, tolerance,
-        args.gradient_seeds, args.steps, args.lr)
-    dump(args.tag, result)
+    arms = tuple(a.strip() for a in args.arms.split(",") if a.strip())
+    conforming = None
+
+    if "narrow" in arms:
+        print("\n--- arm A: narrow offsets, channel correspondence supplied (H2, H3 in place) ---")
+        result["narrow"], program, conforming = arm(
+            registry, "narrow", probe, offsets, False, train, validation, held, tolerance,
+            args.gradient_seeds, args.steps, args.lr)
+        dump(args.tag, result)
 
     if conforming:
         survivors = [s for s in conforming
@@ -357,17 +379,19 @@ def main():
                f"{result['stage_c']['conforming']} / {result['stage_c']['unique']}")
         dump(args.tag, result)
 
-    print("\n--- ablation H2: the offset pool is not hand-restricted ---")
-    result["wide_offsets_ablation"], _, _ = arm(
-        registry, "wide-offsets", probe, wide_offsets(probe["width"]), False, train, validation,
-        held, tolerance, args.gradient_seeds, args.steps, args.lr)
-    dump(args.tag, result)
+    if "wide" in arms:
+        print("\n--- ablation H2: the offset pool is not hand-restricted ---")
+        result["wide_offsets_ablation"], _, _ = arm(
+            registry, "wide-offsets", probe, wide_offsets(probe["width"]), False, train,
+            validation, held, tolerance, args.gradient_seeds, args.steps, args.lr)
+        dump(args.tag, result)
 
-    print("\n--- ablation H3: the channel correspondence is searched, not supplied ---")
-    result["free_operand_ablation"], _, _ = arm(
-        registry, "free-operands", probe, offsets, True, train, validation, held, tolerance,
-        args.gradient_seeds, args.steps, args.lr, conform_limit=args.free_limit)
-    dump(args.tag, result)
+    if "free" in arms:
+        print("\n--- ablation H3: the channel correspondence is searched, not supplied ---")
+        result["free_operand_ablation"], _, _ = arm(
+            registry, "free-operands", probe, offsets, True, train, validation, held, tolerance,
+            args.gradient_seeds, args.steps, args.lr, conform_limit=args.free_limit)
+        dump(args.tag, result)
 
 
 if __name__ == "__main__":

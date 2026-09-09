@@ -31,11 +31,30 @@ from tcn.operators import Registry
 from tcn.search import space_size
 
 
-def unfreeze(program):
-    """Same program, same space; deterministic nodes no longer marked selected."""
-    nodes = tuple(dataclasses.replace(n, selected=None) if len(n.candidates) == 1 else n
+def unfreeze(program, only=None):
+    """Same program, same space; deterministic nodes no longer marked selected.
+
+    `only` restricts the change to named nodes.  That matters: unfreezing
+    *every* deterministic node also relaxes `index`, whose relaxation is a
+    softmax over addresses that puts only 0.564 of its weight on the true one
+    (`address_sharpness` below), so the relaxed forward pass reads a blur of
+    about five bytes instead of a pixel.  Restoring the gradient at the
+    comparison nodes alone keeps addressing exact.
+    """
+    nodes = tuple(dataclasses.replace(n, selected=None)
+                  if len(n.candidates) == 1 and (only is None or n.name in only) else n
                   for n in program.nodes)
     return dataclasses.replace(program, nodes=nodes)
+
+
+def address_sharpness(count=192, tau=1.):
+    """Weight `relaxed`'s `index` puts on the true address, and on its neighbours."""
+    import torch
+    b = torch.tensor(50.)
+    w = torch.softmax(-(b - torch.arange(count)) ** 2 / tau, dim=-1)
+    return {"count": count, "tau": tau, "weight_on_true_address": float(w[50]),
+            "weight_on_each_immediate_neighbour": float(w[49]),
+            "weight_within_plus_minus_2": float(w[48:53].sum())}
 
 
 def main():
