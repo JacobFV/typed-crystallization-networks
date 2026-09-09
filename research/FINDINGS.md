@@ -1930,3 +1930,44 @@ fourth time an agent's disclosed anomaly has led to a real defect, and the
 seventh confident wrong conclusion caught by checking a headline against raw
 data rather than against a summary.
 
+## 40. Spot-check: step 4's `lookup_ba` 4.00/4.00 is saturation, not the pool bug
+
+`research/nondegenerate-generalization/run.log`. Checked from the supervising
+session because the summary row reads
+
+    lookup_ba          seen 4.00  unseen 4.00  interpreter chosen 8/8
+
+and `seen` identical to `unseen` at two decimals is the exact signature of the
+generator defect recorded in §4 — a table pool that silently ignored an explicit
+`table` config, so a held-out run evaluated on its own training distribution.
+All eight seeds of that arm are exactly 4.00/4.00, which is precisely the shape
+that should not be believed on sight.
+
+**It is legitimate.** Three independent checks, none of them the agent's word:
+
+1. **4.00 is the ceiling.** `pools.ceiling()` scales return to a maximum of 4, so
+   4.00 is perfect play and cannot be exceeded. No row anywhere in the 54-row log
+   exceeds it.
+2. **The pool override is live.** Sibling arms on the same harness produce
+   *differing* seen/unseen at non-ceiling values — `lookup ab` seed 4 is
+   3.56/3.50, seed 6 is 3.31/3.44, `lookup_wired ab` seed 4 is 3.81/3.38. Under
+   the defect every arm was pinned identical; the preserved
+   `run-invalid-pool-override.log` shows exactly that, every seed at 1.75/1.75,
+   2.19/2.19, 1.94/1.94 and so on with no arm ever differing.
+3. **The pools are disjoint and the baseline is beside it.** `POOL_A = (1,2,13,14)`
+   and `POOL_B = (4,6,9,11)` share no table. Exhaustive search over all 16 fixed
+   gates gives a constant-gate ceiling of **2.0** on both pools. The `record`
+   arms score 2.03/1.95 and 1.99/1.98 — at the constant baseline, interpreter
+   chosen 0/8, correctly reported as no generalization. The `lookup` arms score
+   3.73/3.74 and 4.00/4.00, **double the constant ceiling**, interpreter chosen
+   8/8.
+
+So `lookup_ba` is perfect play on a disjoint held-out table pool at twice the
+best input-independent gate. The result stands.
+
+**Why this is worth a section.** The tell that caught the original defect —
+`seen` equal to `unseen` — also occurs whenever a task saturates, and the two are
+distinguished only by whether the value sits at the ceiling and whether sibling
+arms can differ at all. Preserving `run-invalid-pool-override.log` next to the
+valid one is what made this a two-minute check instead of a re-run.
+
