@@ -1,0 +1,114 @@
+{
+ "stream": "context_free_language",
+ "train_lengths": [
+  10,
+  12,
+  14
+ ],
+ "heldout_lengths": [
+  16,
+  18,
+  20,
+  22
+ ],
+ "train": {
+  "n": 24,
+  "positive_rate": 0.5,
+  "majority_constant": 0.5,
+  "random": 0.5,
+  "lengths": [
+   10,
+   12,
+   14
+  ],
+  "depths": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "counting_oracle": 0.5,
+  "dyck_oracle": 1.0,
+  "training_string_lookup": 1.0,
+  "fitted_from": {
+   "constant": 0.5,
+   "length": 0.5833333333333334,
+   "first_symbol": 0.5,
+   "last_symbol": 0.5,
+   "first_and_last": 0.5,
+   "bigram_multiset": 0.7916666666666666,
+   "open_count_and_length": 0.5833333333333334
+  },
+  "best_fitted_feature": [
+   "bigram_multiset",
+   0.7916666666666666
+  ]
+ },
+ "heldout_seen_lengths": {
+  "n": 120,
+  "positive_rate": 0.4666666666666667,
+  "majority_constant": 0.5333333333333333,
+  "random": 0.5,
+  "lengths": [
+   10,
+   12,
+   14
+  ],
+  "depths": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "counting_oracle": 0.4666666666666667,
+  "dyck_oracle": 1.0,
+  "training_string_lookup": 0.6416666666666667,
+  "fitted_from": {
+   "constant": 0.5333333333333333,
+   "length": 0.45,
+   "first_symbol": 0.5333333333333333,
+   "last_symbol": 0.5333333333333333,
+   "first_and_last": 0.5333333333333333,
+   "bigram_multiset": 0.6,
+   "open_count_and_length": 0.45
+  },
+  "best_fitted_feature": [
+   "bigram_multiset",
+   0.6
+  ]
+ },
+ "heldout_unseen_lengths": {
+  "n": 859,
+  "positive_rate": 0.5261932479627474,
+  "majority_constant": 0.5261932479627474,
+  "random": 0.5,
+  "lengths": [
+   16,
+   18,
+   20,
+   22
+  ],
+  "depths": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "counting_oracle": 0.5261932479627474,
+  "dyck_oracle": 1.0,
+  "training_string_lookup": 0.47380675203725264,
+  "fitted_from": {
+   "constant": 0.47380675203725264,
+   "length": 0.47380675203725264,
+   "first_symbol": 0.47380675203725264,
+   "last_symbol": 0.47380675203725264,
+   "first_and_last": 0.47380675203725264,
+   "bigram_multiset": 0.47380675203725264,
+   "open_count_and_length": 0.47380675203725264
+  },
+  "best_fitted_feature": [
+   "constant",
+   0.47380675203725264
+  ]
+ }
+}
