@@ -2,11 +2,15 @@
 
 Research track `visual-ladder`, continuing `research/gui-hierarchy` directly.
 
-**STATUS: rung three is now run.**  Section 1 is the earlier session's bounds and
-is unchanged; every number in it is **inherited** from `out/bounds.json`.
-Sections 2, 3 and 3.1 are **newly measured** in this session from
-`out/rung3.json` and `out/rung3_parse.json`, and every table there is marked
-NEW.  Rung two was not attempted and no number for it is claimed.
+**STATUS: rung three is run, re-keyed and rooted; rung two is run.**  Section 1
+is the first session's bounds and is unchanged; every number in it is
+**inherited** from `out/bounds.json`.  Sections 2, 3 and 3.1 are from the second
+session and are unchanged, measured from `out/rung3.json` and
+`out/rung3_parse.json`.  **Sections 6, 7 and 8 are newly measured in this third
+session** from `out/rekey.json`, `out/root_rule.json`, `out/rung3_root.json` and
+`out/rung2.json`; every table in them is marked NEW.  Where a third-session
+number supersedes an earlier one the earlier one is kept beside it rather than
+edited away.
 
 Produced with
 `/home/brandonin/Documents/typed-crystallization-networks/.venv/bin/python`.
@@ -17,20 +21,41 @@ No generator extension was needed or made.
 
 ## 0. Verdict, stated plainly
 
-**A screenshot is parsed into a widget hierarchy.**  On 12 held-out flat screens
-the four-node caller returns **215 rectangles for 215 non-root widgets, every one
-exactly right, on every screen, with no spurious rectangle**, and **173 of 215
-parent links correct (0.805)** against a `parent = root` baseline of **0.140**.
-Three of the 12 screens are recovered as an *exactly* correct tree.
+**A screenshot is parsed into a complete widget hierarchy, exactly, on every
+held-out screen.**  On 12 held-out flat screens the four-node caller returns
+**227 rectangles for all 227 widgets, roots included, every one exactly right,
+with no spurious rectangle**, and **227 of 227 parent links correct (1.000)**
+against a `parent = root` baseline of **0.132**.  **All 12 of the 12 screens are
+recovered as an exactly correct tree** (section 7.3).
 
-**Two concessions, in the headline sentence and not in a footnote.**  (i) The
-comparison is on **rectangles, not ids** — a permutation of the generator's
-widget list leaves the raster bit-identical, so no program over the screen can
-produce the generator's numbering, and `score_tree` matches a predicted widget to
-the probe by its `(x, y, w, h)`.  (ii) The **root is supplied**, as "the widget
-whose rectangle is the whole screen": the corner predicate reads a left and an
-upper neighbour, so position (0,0) is outside the position set by construction
-(H6), and 12 of the 227 widgets in the probe are therefore never predicted.
+That is up from the second session's 215/215 rectangles, 173/215 links (0.805)
+and 3/12 exact trees, and the two changes that closed the gap are separable and
+separately measured.  **Re-keying the parent lookup on the widget's own top-left
+corner instead of on its fill colour** takes the links from 173/215 to
+**215/215** with *no change to the learned program* (section 6) — the 42 wrong
+links were all and only colour collisions, and the corner key is injective.
+**Lifting H6** with an in-bounds mask built from the searched offset adds the
+root at 12/12 (section 7).
+
+**One concession stands and one is withdrawn.**  The comparison is still on
+**rectangles, not ids** — a permutation of the generator's widget list leaves the
+raster bit-identical, so no program over the screen can produce the generator's
+numbering, and the scorer matches a predicted widget to the probe by its
+`(x, y, w, h)`.  That is `research/object-identity`'s certificate and it cannot
+be withdrawn.  The **root is no longer supplied**: it is found by the same corner
+predicate at the same 1,024 positions as every other widget and identified as the
+root by the program's own output, `parent_key == own_key`.
+
+**Rung two is run and does not reach a rung-three-shaped result** (section 8).
+Both its searches exhaust and both carry a certificate, but **neither is
+unique**: `ink` is conforming at 64 of 256 and denotes 22 distinct functions,
+because the three "channel is zero" tests agree at every one of 16,384 measured
+pixels; and the character-key anchor is conforming at 3 of 5, because an 8x8
+window shifted one pixel still contains the whole glyph.  The best anchor is the
+widget text origin `3W + 3`, at 1.000 on 80 balanced held-out pairs against a
+0.500 baseline — but that sample contains no `i`/`j` or `f`/`l` pair, and over
+all 8,385 held-out pairs the key scores **0.9957** with every error on exactly
+those two known classes.
 
 **All three searches exhausted and all three carry a certificate.**  S0 256/256,
 S1 400/400, S2 25/25 — the last returning **exactly one** conforming program,
@@ -48,12 +73,12 @@ variant is kept as a reported negative control (0 conforming of 256, exhausted).
 The third named risk — `sum` over 31 `int[16]` terms against `overflow='error'`
 — did **not** materialise.
 
-**What is still missing.**  The parent link is resolved through the widget's
-*colour* key, and colour collisions are exactly where it fails: on the 3 of 12
-screens where the predicted keys are distinct the links are **46/46**; on the 9
-where two widgets share a fill colour they are **127/169**.  That is an
-information limit of the two-pixel parent route at this palette, not a search
-failure, and section 5 says what to do about it.
+**What is still missing.**  Sections 2 and 3 below are the second session's
+record and are left unedited; their "still missing" paragraph — the colour key —
+is answered by section 6 and the reader should read the two together.  What
+remains open after this session is listed in section 9: rung two is not unique
+at either stage and has no assembly, `induced` is still unwritten for S1/S1' and
+S2/S2', and rung two and rung three still cannot share a screen.
 
 ---
 
@@ -395,8 +420,11 @@ Everything new is under `research/visual-ladder/`:
 | `common.py` | unchanged this session |
 | `bounds.py` -> `out/bounds.json` | unchanged this session; section 1 is inherited from it |
 | `rung3_widgets.py` -> `out/rung3.json` | **run**; three fixes (2.1) and one added negative control |
-| `parse_report.py` -> `out/rung3_parse.json` | **new**, **run**; re-runs S3 from the frozen selections in `out/rung3.json` on 12 held-out screens with the baselines beside it, so section 3 is regenerated rather than transcribed |
-| rung two script | still **does not exist** |
+| `parse_report.py` -> `out/rung3_parse.json` | **run** (second session); re-runs S3 from the frozen selections in `out/rung3.json` on 12 held-out screens with the baselines beside it, so section 3 is regenerated rather than transcribed |
+| `rekey.py` -> `out/rekey.json`, `out/rekey_rows.json` | **new**, **run** (third session); runs the parse once, caches the rows, and scores the colour and position resolution rules against the same rows (section 6) |
+| `root_rule.py` -> `out/root_rule.json` | **new**, **run**; the clamped corner rule checked at every pixel of every screen (section 7.1) |
+| `rung3_root.py` -> `out/rung3_root.json` | **new**, **run**; S1' and S2' re-searched with the in-bounds mask and the clamp, the position set widened to every pixel, and the parse re-run with the root produced (section 7.2) |
+| `rung2.py` -> `out/rung2.json` | **new**, **run**; the widget-anchored bound re-measured and the two rung-two searches (section 8) |
 | `report.py` | still **does not exist**; sections 2 and 3 are transcribed from the two JSONs by hand and section 1 from `bounds.json` |
 
 **Nothing outside `research/visual-ladder/` was changed.**  `tcn/` is untouched
@@ -407,7 +435,13 @@ core change is proposed.
 
 ---
 
-## 5. What to do next, in priority order
+## 5. What to do next — SUPERSEDED, kept as the second session's record
+
+Items 1 and 2 are **done**, in sections 6 and 7; item 4 is **run**, in section 8.
+The list is left unedited so the predictions can be read against the outcomes.
+Section 9 is the current one.
+
+The second session's list, verbatim:
 
 1. **Break the parent-key collision.**  The parent is currently identified by the
    parent pixel's *colour*, which is ambiguous at `palette 32` and costs all 42
@@ -445,3 +479,310 @@ screens and 215 widgets.  The exactness statements are exact **on these samples*
 and are not proofs about the generator.  Timings are single-run wall clock on a
 shared host and are upper bounds; `node_evaluations` is the load-independent
 cost.
+
+---
+
+## 6. The colour key was the ceiling — re-keyed on position, NEW
+
+`rekey.py` -> `out/rekey.json`, with the raw predicted rows cached in
+`out/rekey_rows.json`.  12 held-out screens, seeds 200-211, split `test`.
+
+### 6.1 What changed, and what did not
+
+**Nothing in the learned program changed.**  The rectangle module already emits
+`(x, y, w, h, own_key, parent_key)` and fields 0 and 1 *are* the widget's
+top-left corner: an exact key, injective by construction (a child is inset by
+`margin`, so two widgets cannot share a corner), and one the parse already
+produces.  What changed is the resolution step in the scorer:
+
+| rule | how a `parent` is resolved |
+|---|---|
+| colour (previous) | the parsed widget whose fill colour equals `parent_key` |
+| **position (new)** | the **smallest parsed rectangle containing the parent pixel** `(x - 1, y)`, whose address the widget's own corner determines |
+
+Both are bookkeeping over the parse's *own* output; neither reads the probe.  The
+parse was run once and both rules scored against the same cached rows, so the
+colour row below reproduces section 3 exactly and the difference is the rule and
+nothing else.
+
+### 6.2 The measurement — NEW
+
+| resolution rule | rects predicted | screens rect-exact | parent links | trees exact | key collisions |
+|---|---|---|---|---|---|
+| colour (previous, reproduced) | 215 / 215 | 12 / 12 | 173 / 215 = **0.805** | 3 / 12 | 25 colour |
+| **position (new)** | 215 / 215 | 12 / 12 | **215 / 215 = 1.000** | **12 / 12** | **0** corner |
+| baseline `parent = root` | 0 | 0 | 30 / 215 = **0.140** | 0 | — |
+| baseline empty parse | 0 | 0 | — | 0 | — |
+
+Split by whether the *colour* key collides on the screen, on the same rows:
+
+| screens | colour rule | position rule |
+|---|---|---|
+| 3 collision-free (seeds 202, 205, 209) | 46 / 46 = 1.000, 3 trees exact | 46 / 46 = 1.000, 3 trees exact |
+| 9 colliding (25 collisions) | 127 / 169 = 0.751, 0 trees exact | **169 / 169 = 1.000, 9 trees exact** |
+
+**All 42 previously wrong links are gone and none is replaced by a new one.**
+The corner key is injective on every screen: 215 rows, 215 distinct corners, 0
+collisions, against 25 colour collisions on the identical rows.  Section 3's
+claim that the ceiling was a property of the key rather than of the program is
+therefore confirmed by removing the key and leaving the program alone.
+
+**`palette` was not raised.**  Not as a fix and not as a diagnostic: the
+collision rate is a dial on the benchmark, and moving it would have made the
+symptom rare without touching the cause.  No number in this section comes from a
+changed screen configuration; `FLAT` is `palette 32` throughout, exactly as in
+sections 2 and 3.
+
+---
+
+## 7. The root, recovered as a program — NEW
+
+H6 excluded position (0, 0) by construction: the corner predicate reads a left
+and an upper neighbour, so the root was outside the position set and was supplied
+to the scorer as "the widget whose rectangle is the whole screen".  **The root is
+recoverable.**  The repair is checked first as a rule and then searched as a
+program.
+
+### 7.1 The rule, checked at every instance — NEW
+
+`root_rule.py` -> `out/root_rule.json`.  The rule is the drafted one: an
+**off-screen neighbour counts as different**, so `(0, 0)` is a corner.  Every
+pixel of every screen is tested, not a sample.
+
+| split | screens | positions tested | tp | fp | fn | extent exact | root extent exact | non-root widgets touching an edge |
+|---|---|---|---|---|---|---|---|---|
+| held-out, seeds 200-211 | 12 | 12,288 | **227** | **0** | **0** | 227 / 227 | **12 / 12** | 0 |
+| train, seeds 0-5 | 6 | 6,144 | **117** | **0** | **0** | 117 / 117 | 6 / 6 | 0 |
+
+Two facts make it work and both are measured rather than asserted.  The extent
+rule already holds at the origin — row 0 and column 0 are the root's own top row
+and left column, which `layout`'s `margin` inset never covers, so the contiguous
+run is the full screen: 12 of 12 roots exact.  And **no non-root widget touches
+an edge** on any of the 18 screens, so relaxing H6 adds the root and adds nothing
+else: `fp` is 0 over 18,432 positions.
+
+### 7.2 The program — NEW
+
+`rung3_root.py` -> `out/rung3_root.json`.  S0 is reused frozen from
+`out/rung3.json` and is unchanged by any of this.  What is **added**, and it is
+added structure (H1), so it is declared rather than buried:
+
+* **S1'** masks each `same` call with an in-bounds test built from the *searched*
+  offset and not from a supplied one — the neighbour exists (`pos >= off`, the
+  address clamped by `max` so it cannot fall below the origin) and did not wrap
+  into the previous row (`col(pos - off) <= col(pos)`, `col = mod 3W`).  The
+  masked signal reads "there is a neighbour there **and** it is the same colour",
+  so an off-screen neighbour reads as different.  The offset pool, the pair of
+  offsets and the 16-entry truth table are searched exactly as in S1: **the space
+  is still 400**.
+* **S2'** clamps its parent pixel the same way, `left = max(pos, 3) - 3`.  At the
+  origin that reads the widget's *own* pixel, so **`parent_key == own_key` is the
+  program's own root marker** — the widget with no containing rectangle — rather
+  than a scorer convention.  The step pool and the space (25) are unchanged.
+* the position set is **every pixel, 1,024 rather than 961**, and the supervision
+  includes the root, so nothing about it is special-cased downstream.
+* `corner_examples_all` samples 120 positions per image and then **forces the
+  origin in**, because the root is one position in 1,024 and a stage never shown
+  the case it was added for is not a test of it.  Declared, not hidden.
+
+Both searches, on 6 training / 3 validation / 6 held-out episodes, `enumerate_prefix`
+through `common.sweep` with `all_conforming` walking the conforming set a second
+time as a cross-check (the two agree on the count in both arms):
+
+| stage | space | evaluated | exhausted | conforming | certificate | validation survivors | held-out max error | random control | sweep s | node evals |
+|---|---|---|---|---|---|---|---|---|---|---|
+| S1' `corner(rec)` masked | 400 | 400 | yes | **2** | complete | 2 | **0.0** | 2/400 | 61.4 | 200,692 |
+| S2' `rect(rec)` clamped | 25 | 25 | yes | **1** | **unique** | 1 | **0.0** | 3/50 | 527.3 | 1,694,889 |
+
+S1's space is **unchanged at 400** and its two conforming programs are again the
+literal swapped pair — `{back_a: 2, back_b: 3, corner: 1}` and
+`{back_a: 3, back_b: 2, corner: 1}`, truth table 1 being `NOT same_a AND NOT
+same_b` — so the mask costs no search and changes no answer.  **The offsets are
+still discovered, not supplied**: `[3, 96]` for S1' and `[3, 96]` for S2', at
+indices 2 and 3 of the pool `(6, 99, 3, 96, 9)`.  S2' is again unique outright, 1
+of 25.  Supervision densities: S1' positions are **2.34%** positive (726 training
+records over 6 images, one of which is forced), S2' has 117 training records
+against S2's 111 — the six added records are the six training roots.
+
+### 7.3 The parse with the root produced — NEW
+
+`rung3_root.py` S3', 12 held-out screens, seeds 200-211, split `test`, 1,024
+positions per screen (961 before), 16.3-29.5 s per screen:
+
+| quantity | program | baseline |
+|---|---|---|
+| widgets in the probe, roots included | 227 | — |
+| rectangles predicted | **227** | 0 (empty parse) |
+| screens with the rectangle set exactly right | **12 / 12** | 0 |
+| roots predicted | **12 / 12** | 0 (previously supplied) |
+| parent links correct | **227 / 227 = 1.000** | `parent = root`: 30 / 227 = **0.132** |
+| screens with an exactly correct tree | **12 / 12** | 0 |
+| corner-key collisions | **0** | — |
+
+**Verdict on H6: the root is recoverable as a program, and is now recovered.**  It
+is not supplied and not special-cased: it is produced by the same corner
+predicate at the same 1,024 positions as every other widget, its rectangle comes
+from the same extent module, and it is *identified* as the root by the program's
+own output — `parent_key == own_key`, equivalently "no parsed rectangle contains
+its parent pixel".  The price is one in-bounds mask and one clamp, both built
+from the searched offset rather than supplied, and neither enlarges a search
+space.  **One of the two headline concessions is therefore withdrawn.**  The
+other — rectangle-not-id comparison — stands and cannot be withdrawn: it is
+`research/object-identity`'s permutation certificate, not a gap in this work.
+
+---
+
+## 8. Rung two, staged on rung three's corner — NEW
+
+`rung2.py` -> `out/rung2.json`.  Screen `TEXT` with `label_length=1`
+(`resolution 64, widgets 24, nesting 6, min_size 6, palette 48, labels,
+label_size 8`).  The staging is the one section 1.2 forced: a local ink window
+does **not** determine the glyph's own anchor (0.982 ceiling, inherited), so the
+window is anchored at the **widget's** text origin `(rect.x + 1, rect.y + 1)`,
+which rung three produces exactly.  `label_length=1` because section 1.1
+measured that a wider window reaches into the next character of the same label
+and makes the key label-specific rather than character-specific.
+
+### 8.1 The bound, re-measured at this anchor and window — NEW
+
+12 train and 12 held-out episodes, one record per labelled widget, 8x8 ink window
+at the widget's text origin.  260 train and 260 held-out records, 36 codes.
+
+| target | majority | oracle | transfer | unseen keys |
+|---|---|---|---|---|
+| glyph code from the widget-anchored 8x8 ink window | 0.0462 | **0.9462** | 0.8846 | 0.038 |
+
+The earlier session's inherited row for the same screen and window was
+oracle 0.9417 / transfer 0.9417 / unseen 0.000; this is a fresh, larger sample
+and it agrees on the oracle to within 0.005 while transferring lower, because
+these records are one glyph per *widget* rather than one per glyph and 3.8% of
+held-out keys are unseen.  **Both agree on the ceiling and on why it is there.**
+
+**The structural collisions reproduce exactly and are the ceiling.** The pattern
+classes that carry two codes are `('f', 'l')` and `('i', 'j')` — and no others —
+which is the same pair of collisions section 1.1 reported from a different
+sample.  Two characters that put the same bits on the screen cannot be separated
+by any program over the screen at any context size, so this is a certificate of
+what the raster does not carry, not a search failure.
+
+### 8.2 T0 — `ink(a, obs)`: exhausted, and **not identified** — NEW
+
+`ink(a, obs) -> bool` from two searched 16-entry truth tables over
+`eq(r, 0)`, `eq(g, 0)`, `eq(b, 0)`; 4 training / 4 validation / 4 held-out
+episodes, 160 records each, balanced ink/non-ink.
+
+| stage | space | evaluated | exhausted | conforming | distinct functions | certificate | survivors | held-out max error | random control | sweep s |
+|---|---|---|---|---|---|---|---|---|---|---|
+| T0 `ink(a, obs)` | 256 | 256 | yes | **64** | **22** | complete | 64 | **0.0** | 99/400 = 0.2475 | 0.9 |
+
+**This is a weak result and it is reported as one.**  64 of 256 programs conform
+and they denote **22 distinct Boolean functions**, so the search identifies the
+ink predicate only up to a 22-way ambiguity, and a quarter of random draws
+conform.  The reason is measurable and was measured: on 16,384 pixels of 4
+training screens the three indicators `r == 0`, `g == 0`, `b == 0` **agree at
+every pixel** (1.000000) — no palette colour has a single zero channel, only ink
+has any — so the scaffold's three inputs are one input in disguise and six of the
+eight rows of the combined truth table are never exercised.  `ink` is therefore
+correct on everything this screen can present and under-determined as a function.
+Any of the 22 works downstream; the lexicographic pick is used.
+
+### 8.3 T1 — `same_character(a, b)`, the anchor searched — NEW
+
+`eq` on two packed 64-bit ink keys, each an 8x8 window at `pos + anchor` where
+`anchor` is searched over the same five-offset pool and the answer `3W + 3 = 195`
+is at index 1.  Pairs are pooled **across** episodes — each record carries its own
+observation — because section 1.3's claim is that the packed window is an
+*episode-independent* character key.  80 balanced training pairs from 12 training
+screens, 80 balanced held-out pairs from 12 held-out screens, 50.0% positive.
+
+| anchor (bytes) | what it is | train accuracy | held-out accuracy |
+|---|---|---|---|
+| 6 | `(x+2, y)` | 0.9500 | 0.9625 |
+| **195 = 3W+3** | **`(x+1, y+1)`, the widget's text origin** | **1.0000** | **1.0000** |
+| 3 | `(x+1, y)` | 1.0000 | 1.0000 |
+| 192 = 3W | `(x, y+1)` | 1.0000 | 1.0000 |
+| 9 | `(x+3, y)` | 0.9250 | 0.9250 |
+| baseline `always different` | — | 0.5000 | 0.5000 |
+
+| stage | space | evaluated | exhausted | conforming | certificate | best held-out | baseline |
+|---|---|---|---|---|---|---|---|
+| T1 `same_character` | 5 | 5 | yes | **3** | complete, **not unique** | **1.0000** | 0.5000 |
+
+**Two honest qualifications, and they matter more than the 1.0000.**
+
+*The anchor is not identified.*  Three of five candidates conform.  An 8x8 window
+is larger than the 8-pixel glyph box, so shifting the anchor by one pixel in `x`
+or in `y` still contains the whole glyph and yields the same partition; only the
+two-and three-pixel shifts break it.  A search that returns 3 of 5 has not
+located the text origin, it has located a neighbourhood of it, and saying so is
+the result.
+
+*The sample does not exercise the ceiling.*  The 80 held-out pairs contain **no**
+`i`/`j` and **no** `f`/`l` pair, so 1.0000 is 1.0000 on pairs the raster can
+separate.  Exhaustively over **all** 8,385 held-out pairs the same key scores
+**0.9957**, and every one of the 36 errors is a false positive on exactly the two
+known classes — 24 on `('f', 'l')` and 12 on `('i', 'j')`.  Against the honest
+baseline for that unbalanced pool, `always different` at 0.9741, the key's
+advantage is 0.0216.  On the 7,381 training pairs the key scores 0.9916 with 62
+errors, of which 52 are the same two false-positive classes and **10 are false
+negatives on `('i', 'i')`** — two widgets labelled with the same character whose
+widget-anchored windows differ.  That last number is new and is the one place the
+widget-anchored key is not merely capped but actually wrong on a case it should
+get right; it does not appear in the held-out pool and it is not explained here.
+
+### 8.4 How far rung two got
+
+Far enough to state the shape and not far enough to claim the rung.  The bound is
+re-measured at the anchor rung three can supply (oracle 0.9462, transfer 0.8846,
+majority 0.0462) and the structural collisions reproduce exactly as `('f', 'l')`
+and `('i', 'j')`.  Two searches ran, both exhausted, both carry a certificate,
+and **neither is unique**: T0 at 64 conforming / 22 distinct functions and T1 at
+3 of 5.  There is no assembly for rung two — no caller node runs the character
+key over a whole screen — so rung two has a measured relation and not a parse.
+
+---
+
+## 9. What to do next, in priority order — current
+
+1. **Make T1's anchor identified.**  3 of 5 conform because an 8x8 window is
+   bigger than the glyph.  Either shrink the window to the glyph box (7x7 already
+   collides more, section 1.1) or widen the offset pool so a one-pixel shift is
+   distinguishable, and re-run.  Until then rung two's anchor is a neighbourhood,
+   not a point.
+2. **Explain the 10 `('i', 'i')` false negatives** in the training pair pool
+   (section 8.3).  Two widgets carrying the same character whose widget-anchored
+   windows differ is the one measured case where the key is wrong rather than
+   capped, and nothing here says why.  Suspect a widget narrower than the window,
+   which would clip the glyph — checkable in one pass.
+3. **Give rung two an assembly.**  There is no caller node running the character
+   key over a screen, so rung two has a relation and not a parse.  The natural
+   shape is the rung-three `filter`/`map` with S1's corners as the position set.
+4. **Measure the corner-plus-not-ink predicate** on a labelled screen, so rung two
+   and rung three can share one.  Unchanged from the second session and still
+   unrun; section 1.4 measures that `labels` costs the corner rule 16 false
+   positives on the flat screen and 984 on the text screen.
+5. **Write an `induced` for S1/S1' and S2/S2'** so the distinct-function count is
+   measured rather than argued.  Section 7.2's "one predicate, two spellings" is
+   still read off the selections.  T0 shows why this matters: writing `induced`
+   for it turned "64 conforming" into "22 distinct functions", which is a
+   materially different claim.
+6. **Add `report.py`.**  Five JSONs now exist and every table in sections 6, 7 and
+   8 is one function away from being generated rather than transcribed.
+7. Do **not** run a gradient arm.  Every search in sections 6-8 exhausted; where a
+   search failed to identify its answer (T0, T1) the cause is measured to be the
+   *supervision*, not the optimiser, and an optimiser would only re-find one of
+   the conforming programs the enumeration already has in hand.
+
+**Limitations, third session.**  Sections 6 and 7 are 12 held-out screens and 227
+widgets of one `FLAT` configuration; section 7.1's rule check is exhaustive over
+those screens' 12,288 positions, but exhaustive on a sample is still a sample and
+is not a proof about the generator.  Section 7.2's searches are 6 training / 3
+validation / 6 held-out episodes.  Section 8's bound is 12 + 12 episodes and 260
+records; its searches are 4 + 4 + 4 episodes (T0) and 12 + 12 episodes with 80 +
+80 pairs (T1), and the T1 pair sample provably does not contain the cases that
+define the ceiling.  Timings in sections 7 and 8 were taken with two runs sharing
+the host and are upper bounds by a wider margin than usual; `node_evaluations` is
+the load-independent cost.  No screen configuration was changed to improve any
+number: `FLAT` is `palette 32` and `TEXT` is `palette 48, label_size 8`
+throughout, and `label_length=1` is set for the reason section 1.1 measured, not
+to make a number better.

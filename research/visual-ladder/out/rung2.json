@@ -1,0 +1,338 @@
+{
+ "anchor_answer_index": 1,
+ "arguments": {
+  "bound_held": 12,
+  "bound_train": 12,
+  "held": 4,
+  "ink_per_image": 40,
+  "pairs": 80,
+  "tag": "rung2",
+  "train": 4
+ },
+ "code_bound": {
+  "colliding_characters": [
+   [
+    "f",
+    "l"
+   ],
+   [
+    "i",
+    "j"
+   ]
+  ],
+  "colliding_code_sets": [
+   [
+    5,
+    11
+   ],
+   [
+    8,
+    9
+   ]
+  ],
+  "colliding_patterns": 2,
+  "distinct_eval_keys": 33,
+  "distinct_patterns": 35,
+  "distinct_train_keys": 33,
+  "eval_records": 130,
+  "held_glyph_widgets": 130,
+  "majority_baseline": 0.046153846153846156,
+  "oracle_accuracy": 0.9461538461538461,
+  "oracle_advantage": 0.8999999999999999,
+  "train_glyph_widgets": 122,
+  "train_records": 122,
+  "transfer_accuracy": 0.8846153846153846,
+  "transfer_advantage": 0.8384615384615384,
+  "unseen_key_fraction": 0.038461538461538464
+ },
+ "configuration": {
+  "glyph_capacity": 64,
+  "hierarchy_capacity": 32,
+  "horizon": 2,
+  "label_length": 1,
+  "label_size": 8,
+  "labels": true,
+  "min_size": 6,
+  "nesting": 6,
+  "palette": 48,
+  "resolution": 64,
+  "widgets": 24
+ },
+ "offset_pool": [
+  6,
+  195,
+  3,
+  192,
+  9
+ ],
+ "relation_bound": {
+  "always_different_baseline": 0.9741204531902207,
+  "held_pairs": 8385,
+  "key_equality_accuracy": 0.995706618962433,
+  "positive_fraction": 0.02587954680977937
+ },
+ "t0": {
+  "chosen": {
+   "ab": 0,
+   "ag": 0,
+   "b0": 0,
+   "bv": 0,
+   "g0": 0,
+   "gv": 0,
+   "ink": 2,
+   "r0": 0,
+   "rg": 0,
+   "rv": 0
+  },
+  "conforming": {
+   "count": 64,
+   "distinct_functions": 22,
+   "evaluated": 256,
+   "exhausted": true,
+   "seconds": 61.67744026298169,
+   "space_size": 256,
+   "unique": false
+  },
+  "held_records": 160,
+  "lexicographic_pick": {
+   "held_accuracy": 1.0,
+   "held_max_error": 0.0,
+   "selections": {
+    "ab": 0,
+    "ag": 0,
+    "b0": 0,
+    "bv": 0,
+    "g0": 0,
+    "gv": 0,
+    "ink": 2,
+    "r0": 0,
+    "rg": 0,
+    "rv": 0
+   },
+   "validation_max_error": 0.0
+  },
+  "name": "T0 ink",
+  "nodes": 10,
+  "random_control": {
+   "density": 0.2475,
+   "draws": 400,
+   "hits": 99
+  },
+  "search": {
+   "beam": null,
+   "best_return": null,
+   "certificate": "complete",
+   "conforming": 64,
+   "continuous": [],
+   "description_bits": 50771144,
+   "discarded": 0,
+   "episodes": 0,
+   "evaluated": 256,
+   "exact_max_error": 0.0,
+   "execution_cost": 10.0,
+   "exhausted": true,
+   "mode": "prefix",
+   "node_evaluations": 14336,
+   "ranked_by": "order",
+   "seconds": 0.9256949110422283,
+   "selections": {
+    "ab": 0,
+    "ag": 0,
+    "b0": 0,
+    "bv": 0,
+    "g0": 0,
+    "gv": 0,
+    "ink": 2,
+    "r0": 0,
+    "rg": 0,
+    "rv": 0
+   },
+   "settle_window": 0,
+   "solved": true,
+   "space_size": 256,
+   "steps": 0,
+   "threshold": null,
+   "ticks": 0,
+   "unique": false,
+   "wall": 1.2094495150377043
+  },
+  "space_size": 256,
+  "train_records": 160,
+  "validation_filtered": {
+   "distinct_functions": 22,
+   "held_accuracy": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "held_max_error": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "selections": [
+    {
+     "ab": 0,
+     "ag": 0,
+     "b0": 0,
+     "bv": 0,
+     "g0": 0,
+     "gv": 0,
+     "ink": 2,
+     "r0": 0,
+     "rg": 0,
+     "rv": 0
+    },
+    {
+     "ab": 0,
+     "ag": 0,
+     "b0": 0,
+     "bv": 0,
+     "g0": 0,
+     "gv": 0,
+     "ink": 6,
+     "r0": 0,
+     "rg": 0,
+     "rv": 0
+    },
+    {
+     "ab": 0,
+     "ag": 0,
+     "b0": 0,
+     "bv": 0,
+     "g0": 0,
+     "gv": 0,
+     "ink": 10,
+     "r0": 0,
+     "rg": 0,
+     "rv": 0
+    },
+    {
+     "ab": 0,
+     "ag": 0,
+     "b0": 0,
+     "bv": 0,
+     "g0": 0,
+     "gv": 0,
+     "ink": 14,
+     "r0": 0,
+     "rg": 0,
+     "rv": 0
+    },
+    {
+     "ab": 0,
+     "ag": 0,
+     "b0": 0,
+     "bv": 0,
+     "g0": 0,
+     "gv": 0,
+     "ink": 2,
+     "r0": 0,
+     "rg": 1,
+     "rv": 0
+    },
+    {
+     "ab": 0,
+     "ag": 0,
+     "b0": 0,
+     "bv": 0,
+     "g0": 0,
+     "gv": 0,
+     "ink": 3,
+     "r0": 0,
+     "rg": 1,
+     "rv": 0
+    },
+    {
+     "ab": 0,
+     "ag": 0,
+     "b0": 0,
+     "bv": 0,
+     "g0": 0,
+     "gv": 0,
+     "ink": 10,
+     "r0": 0,
+     "rg": 1,
+     "rv": 0
+    },
+    {
+     "ab": 0,
+     "ag": 0,
+     "b0": 0,
+     "bv": 0,
+     "g0": 0,
+     "gv": 0,
+     "ink": 11,
+     "r0": 0,
+     "rg": 1,
+     "rv": 0
+    }
+   ],
+   "survivors": 64,
+   "unique": false
+  },
+  "validation_records": 160
+ },
+ "t1": {
+  "always_different_baseline": 0.5,
+  "best_by_train": {
+   "anchor_bytes": 195,
+   "held_accuracy": 1.0,
+   "train_accuracy": 1.0
+  },
+  "candidates": [
+   {
+    "anchor_bytes": 6,
+    "held_accuracy": 0.9625,
+    "train_accuracy": 0.95
+   },
+   {
+    "anchor_bytes": 195,
+    "held_accuracy": 1.0,
+    "train_accuracy": 1.0
+   },
+   {
+    "anchor_bytes": 3,
+    "held_accuracy": 1.0,
+    "train_accuracy": 1.0
+   },
+   {
+    "anchor_bytes": 192,
+    "held_accuracy": 1.0,
+    "train_accuracy": 1.0
+   },
+   {
+    "anchor_bytes": 9,
+    "held_accuracy": 0.925,
+    "train_accuracy": 0.925
+   }
+  ],
+  "conforming": {
+   "count": 3,
+   "evaluated": 5,
+   "exhausted": true,
+   "seconds": 244.0517755789915,
+   "space_size": 5,
+   "unique": false
+  },
+  "held_records": 80,
+  "nodes": 394,
+  "space_size": 5,
+  "train_records": 80
+ },
+ "t1_positive_fraction": 0.5125,
+ "window": [
+  8,
+  8
+ ]
+}

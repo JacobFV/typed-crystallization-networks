@@ -1595,3 +1595,40 @@ wherever the key is unique, and the ceiling is a property of the key rather than
 of the program.
 
 Still missing: the root, an induced variant for S1 and S2, and all of rung two.
+
+## 33. The parse is complete: a screenshot to an exact hierarchy
+
+`research/visual-ladder/RESULTS.md` sections 6-9. Verified by recomputing from
+`out/rung3_root.json` here: **12 of 12 held-out screens with every rectangle
+exact, 227 of 227 parent links correct, 12 of 12 trees exactly correct, zero key
+collisions.** Both concessions of section 32 are gone.
+
+**The colour ceiling was a key, not a limit, and the fix needed no new program.**
+The rectangle module already emits `(x, y)`, so re-keying the parent lookup on
+position rather than fill colour is a different resolution rule over the *same
+cached rows*: colour 173/215 (0.805) becomes position 215/215 (1.000) with 12 of
+12 exact trees, corner-key collisions 0 against colour's 25. The palette was not
+raised, not even as a diagnostic — that would have tuned the benchmark instead
+of fixing the method.
+
+**The root is recoverable as a program, not supplied.** A clamped corner rule
+gives 227 true positives, 0 false positives and 0 false negatives over 12,288
+held-out positions; S1' exhausts 400/400 with 2 conforming and S2' 25/25 unique.
+The program marks its own root by `parent_key == own_key`, which is a property of
+the parse rather than an annotation. Parse over 1,024 positions per screen:
+227/227 rectangles, 12/12 roots, 227/227 links, 12/12 trees, against a
+parent-is-root baseline of 0.132.
+
+**Rung two ran and is not clean, reported as such.** The structural bound
+reproduces (oracle 0.9462, collisions exactly `f`/`l` and `i`/`j`). T0 exhausts
+256/256 but returns **64 conforming across 22 distinct functions** — the three
+zero-channel tests agree at all 16,384 pixels, so the supervision does not
+separate them. T1 exhausts 5/5 with **3 conforming, not unique**. The best anchor
+is the widget text origin at 1.000 on 80 balanced held-out pairs against a 0.500
+baseline, but that sample contains no colliding pair; over all 8,385 held-out
+pairs it is 0.9957 with all 36 errors on the two known collision classes. One
+unexplained observation is recorded rather than smoothed over: 10 `('i','i')`
+false negatives in training.
+
+So the visual line now reaches an exact hierarchy from raw pixels, and stops at
+character identity, where the ceiling is structural and measured.
