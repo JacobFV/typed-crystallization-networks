@@ -1,0 +1,43 @@
+{
+  "freeze_events": [
+    {
+      "node": "logic",
+      "accepted": true,
+      "before": 7.201214884844376e-06,
+      "after": 1.1685257277349592e-06,
+      "reason": "validated"
+    },
+    {
+      "node": "analytic",
+      "accepted": true,
+      "before": 1.1685257277349592e-06,
+      "after": 1.1617845530054183e-06,
+      "reason": "validated"
+    },
+    {
+      "node": "algebra",
+      "accepted": true,
+      "before": 1.1617845530054183e-06,
+      "after": 1.0066399909192114e-06,
+      "reason": "validated"
+    },
+    {
+      "node": "conversion",
+      "accepted": true,
+      "before": 1.0066399909192114e-06,
+      "after": 1.0066399909192114e-06,
+      "reason": "validated"
+    }
+  ],
+  "fully_frozen": true,
+  "loss": 1.0066399909192114e-06,
+  "exact_conformance": true,
+  "benchmark": {
+    "scope": "exact model, typed input through typed output, batch one",
+    "repetitions": 100,
+    "p50_ms": 0.050712,
+    "p95_ms": 0.05952,
+    "description_bits": 17728,
+    "estimated_operator_cost": 4.0
+  }
+}

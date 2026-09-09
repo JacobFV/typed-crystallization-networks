@@ -1,0 +1,3272 @@
+{
+  "config": {
+    "seeds": 8,
+    "steps": 300,
+    "out": "e2_results.json"
+  },
+  "module_stage": [
+    {
+      "seed": 0,
+      "attempts": 1,
+      "acquisition_steps": 171,
+      "crystallization": {
+        "events": [
+          {
+            "node": "g1",
+            "accepted": true,
+            "before": 0.030941948294639587,
+            "after": 0.005634582135826349,
+            "reason": "validated"
+          },
+          {
+            "node": "g2",
+            "accepted": true,
+            "before": 0.005634582135826349,
+            "after": 0.0011857475619763136,
+            "reason": "validated"
+          },
+          {
+            "node": "g0",
+            "accepted": true,
+            "before": 0.0011857475619763136,
+            "after": 0.0003977213054895401,
+            "reason": "validated"
+          },
+          {
+            "node": "g3",
+            "accepted": true,
+            "before": 0.0003977213054895401,
+            "after": 0.00011264393833698705,
+            "reason": "validated"
+          },
+          {
+            "node": "g4",
+            "accepted": true,
+            "before": 2.2965454263612628e-05,
+            "after": 1.0066399909192114e-06,
+            "reason": "validated"
+          }
+        ],
+        "accepted": 5,
+        "rejected_disconnected": 0,
+        "fully_frozen": true,
+        "wall_seconds": 0.7690308199962601
+      },
+      "digest": "ac2c29066cdd77dc7d89805d",
+      "description_bits": 12088,
+      "execution_cost": 5.0
+    },
+    {
+      "seed": 1,
+      "attempts": 1,
+      "acquisition_steps": 106,
+      "crystallization": {
+        "events": [
+          {
+            "node": "g0",
+            "accepted": true,
+            "before": 0.05644025653600693,
+            "after": 0.020832933485507965,
+            "reason": "validated"
+          },
+          {
+            "node": "g2",
+            "accepted": true,
+            "before": 0.020832933485507965,
+            "after": 0.0035995428916066885,
+            "reason": "validated"
+          },
+          {
+            "node": "g1",
+            "accepted": true,
+            "before": 0.0035995428916066885,
+            "after": 0.0010556074557825923,
+            "reason": "validated"
+          },
+          {
+            "node": "g3",
+            "accepted": true,
+            "before": 0.0002611123491078615,
+            "after": 6.492151442216709e-05,
+            "reason": "validated"
+          },
+          {
+            "node": "g4",
+            "accepted": true,
+            "before": 6.492151442216709e-05,
+            "after": 1.0066399909192114e-06,
+            "reason": "validated"
+          }
+        ],
+        "accepted": 5,
+        "rejected_disconnected": 0,
+        "fully_frozen": true,
+        "wall_seconds": 0.3509079209761694
+      },
+      "digest": "7054fc52df652457e68b0011",
+      "description_bits": 12096,
+      "execution_cost": 5.0
+    },
+    {
+      "seed": 2,
+      "attempts": 3,
+      "acquisition_steps": 1316,
+      "crystallization": {
+        "events": [
+          {
+            "node": "g2",
+            "accepted": true,
+            "before": 0.035982709378004074,
+            "after": 0.006426314823329449,
+            "reason": "validated"
+          },
+          {
+            "node": "g0",
+            "accepted": true,
+            "before": 0.006426314823329449,
+            "after": 0.0014101107371971011,
+            "reason": "validated"
+          },
+          {
+            "node": "g1",
+            "accepted": true,
+            "before": 0.0014101107371971011,
+            "after": 0.0005164197064004838,
+            "reason": "validated"
+          },
+          {
+            "node": "g3",
+            "accepted": true,
+            "before": 0.0005164197064004838,
+            "after": 0.00024272453447338194,
+            "reason": "validated"
+          },
+          {
+            "node": "g4",
+            "accepted": true,
+            "before": 3.595268935896456e-05,
+            "after": 1.0066399909192114e-06,
+            "reason": "validated"
+          }
+        ],
+        "accepted": 5,
+        "rejected_disconnected": 0,
+        "fully_frozen": true,
+        "wall_seconds": 1.5133865760290064
+      },
+      "digest": "069c0425763aac67154d4db1",
+      "description_bits": 12088,
+      "execution_cost": 5.0
+    },
+    {
+      "seed": 3,
+      "attempts": 2,
+      "acquisition_steps": 701,
+      "crystallization": {
+        "events": [
+          {
+            "node": "g3",
+            "accepted": true,
+            "before": 0.07747438549995422,
+            "after": 0.015317254699766636,
+            "reason": "validated"
+          },
+          {
+            "node": "g0",
+            "accepted": true,
+            "before": 0.015317254699766636,
+            "after": 0.003465699264779687,
+            "reason": "validated"
+          },
+          {
+            "node": "g2",
+            "accepted": true,
+            "before": 0.003465699264779687,
+            "after": 0.0011796769686043262,
+            "reason": "validated"
+          },
+          {
+            "node": "g4",
+            "accepted": false,
+            "before": 0.00025144414394162595,
+            "after": 1.0066399909192114e-06,
+            "reason": "disconnected remaining region"
+          },
+          {
+            "node": "g1",
+            "accepted": true,
+            "before": 0.00025144414394162595,
+            "after": 3.5939825465902686e-05,
+            "reason": "validated"
+          },
+          {
+            "node": "g4",
+            "accepted": true,
+            "before": 3.7142197015782585e-06,
+            "after": 1.0066399909192114e-06,
+            "reason": "validated"
+          }
+        ],
+        "accepted": 5,
+        "rejected_disconnected": 1,
+        "fully_frozen": true,
+        "wall_seconds": 1.3620476949727163
+      },
+      "digest": "19964ce524d3cf73ddc73bf6",
+      "description_bits": 12088,
+      "execution_cost": 5.0
+    },
+    {
+      "seed": 4,
+      "attempts": 1,
+      "acquisition_steps": 131,
+      "crystallization": {
+        "events": [
+          {
+            "node": "g2",
+            "accepted": false,
+            "before": 0.027996240183711052,
+            "after": 0.022672109305858612,
+            "reason": "runtime conformance"
+          },
+          {
+            "node": "g0",
+            "accepted": true,
+            "before": 0.027996240183711052,
+            "after": 0.01607684977352619,
+            "reason": "validated"
+          },
+          {
+            "node": "g3",
+            "accepted": true,
+            "before": 0.01607684977352619,
+            "after": 0.004159196279942989,
+            "reason": "validated"
+          },
+          {
+            "node": "g2",
+            "accepted": true,
+            "before": 0.0019432413391768932,
+            "after": 0.0003205802058801055,
+            "reason": "validated"
+          },
+          {
+            "node": "g4",
+            "accepted": false,
+            "before": 0.0003205802058801055,
+            "after": 1.0066399909192114e-06,
+            "reason": "disconnected remaining region"
+          },
+          {
+            "node": "g4",
+            "accepted": false,
+            "before": 7.124575495254248e-05,
+            "after": 1.0066399909192114e-06,
+            "reason": "disconnected remaining region"
+          },
+          {
+            "node": "g1",
+            "accepted": true,
+            "before": 7.124575495254248e-05,
+            "after": 1.7875339835882187e-05,
+            "reason": "validated"
+          },
+          {
+            "node": "g4",
+            "accepted": true,
+            "before": 2.556367235229118e-06,
+            "after": 1.0066399909192114e-06,
+            "reason": "validated"
+          }
+        ],
+        "accepted": 5,
+        "rejected_disconnected": 2,
+        "fully_frozen": true,
+        "wall_seconds": 0.9369846849585883
+      },
+      "digest": "9da9a2bfccddfc5aea1de1e5",
+      "description_bits": 12088,
+      "execution_cost": 5.0
+    },
+    {
+      "seed": 5,
+      "attempts": 2,
+      "acquisition_steps": 696,
+      "crystallization": {
+        "events": [
+          {
+            "node": "g2",
+            "accepted": true,
+            "before": 0.07299414277076721,
+            "after": 0.024355046451091766,
+            "reason": "validated"
+          },
+          {
+            "node": "g0",
+            "accepted": true,
+            "before": 0.024355046451091766,
+            "after": 0.005437389947474003,
+            "reason": "validated"
+          },
+          {
+            "node": "g1",
+            "accepted": true,
+            "before": 0.005437389947474003,
+            "after": 0.0014660181477665901,
+            "reason": "validated"
+          },
+          {
+            "node": "g3",
+            "accepted": true,
+            "before": 0.0003821671998593956,
+            "after": 7.862575876060873e-05,
+            "reason": "validated"
+          }
+        ],
+        "accepted": 4,
+        "rejected_disconnected": 0,
+        "fully_frozen": false,
+        "wall_seconds": 0.20823096198728308
+      },
+      "digest": "7065a3887654833a1fdfa548",
+      "description_bits": 12088,
+      "execution_cost": 5.0
+    },
+    {
+      "seed": 6,
+      "attempts": 3,
+      "acquisition_steps": 1336,
+      "crystallization": {
+        "events": [
+          {
+            "node": "g0",
+            "accepted": true,
+            "before": 0.03831358253955841,
+            "after": 0.008268296718597412,
+            "reason": "validated"
+          },
+          {
+            "node": "g1",
+            "accepted": true,
+            "before": 0.008268296718597412,
+            "after": 0.001706574228592217,
+            "reason": "validated"
+          },
+          {
+            "node": "g3",
+            "accepted": true,
+            "before": 0.001706574228592217,
+            "after": 0.0004271476645953953,
+            "reason": "validated"
+          },
+          {
+            "node": "g2",
+            "accepted": true,
+            "before": 0.0004271476645953953,
+            "after": 0.00018936637206934392,
+            "reason": "validated"
+          },
+          {
+            "node": "g4",
+            "accepted": true,
+            "before": 4.339271617936902e-05,
+            "after": 1.0066399909192114e-06,
+            "reason": "validated"
+          }
+        ],
+        "accepted": 5,
+        "rejected_disconnected": 0,
+        "fully_frozen": true,
+        "wall_seconds": 0.24914659996284172
+      },
+      "digest": "04f683da3e20d1e0d7dd5816",
+      "description_bits": 12096,
+      "execution_cost": 5.0
+    },
+    {
+      "seed": 7,
+      "attempts": 4,
+      "acquisition_steps": 1901,
+      "crystallization": {
+        "events": [
+          {
+            "node": "g0",
+            "accepted": true,
+            "before": 0.03277470916509628,
+            "after": 0.007723356131464243,
+            "reason": "validated"
+          },
+          {
+            "node": "g1",
+            "accepted": true,
+            "before": 0.007723356131464243,
+            "after": 0.001448797876946628,
+            "reason": "validated"
+          },
+          {
+            "node": "g2",
+            "accepted": true,
+            "before": 0.001448797876946628,
+            "after": 0.000487914658151567,
+            "reason": "validated"
+          },
+          {
+            "node": "g3",
+            "accepted": true,
+            "before": 0.00010116849443875253,
+            "after": 4.213847569189966e-05,
+            "reason": "validated"
+          },
+          {
+            "node": "g4",
+            "accepted": true,
+            "before": 4.213847569189966e-05,
+            "after": 1.0066399909192114e-06,
+            "reason": "validated"
+          }
+        ],
+        "accepted": 5,
+        "rejected_disconnected": 0,
+        "fully_frozen": true,
+        "wall_seconds": 0.5071359709836543
+      },
+      "digest": "b45bb8cb4a7d123b5045b501",
+      "description_bits": 12088,
+      "execution_cost": 5.0
+    }
+  ],
+  "runs": [
+    {
+      "first_conformant_step": null,
+      "steps_run": 300,
+      "final_loss": 0.0005976922693662345,
+      "final_conformant": false,
+      "wall_seconds": 66.31918280897662,
+      "seconds_per_step": 0.22106394269658874,
+      "curve": [
+        {
+          "step": 0,
+          "loss": 0.6532983183860779,
+          "conformant": false
+        },
+        {
+          "step": 10,
+          "loss": 0.5692424774169922,
+          "conformant": false
+        },
+        {
+          "step": 20,
+          "loss": 0.5219367146492004,
+          "conformant": false
+        },
+        {
+          "step": 30,
+          "loss": 0.462199866771698,
+          "conformant": false
+        },
+        {
+          "step": 40,
+          "loss": 0.3656790852546692,
+          "conformant": false
+        },
+        {
+          "step": 50,
+          "loss": 0.24882476031780243,
+          "conformant": false
+        },
+        {
+          "step": 60,
+          "loss": 0.14917689561843872,
+          "conformant": false
+        },
+        {
+          "step": 70,
+          "loss": 0.08594601601362228,
+          "conformant": false
+        },
+        {
+          "step": 80,
+          "loss": 0.05195801705121994,
+          "conformant": false
+        },
+        {
+          "step": 90,
+          "loss": 0.03517216071486473,
+          "conformant": false
+        },
+        {
+          "step": 100,
+          "loss": 0.026707395911216736,
+          "conformant": false
+        },
+        {
+          "step": 110,
+          "loss": 0.022150490432977676,
+          "conformant": false
+        },
+        {
+          "step": 120,
+          "loss": 0.01945040002465248,
+          "conformant": false
+        },
+        {
+          "step": 130,
+          "loss": 0.017553389072418213,
+          "conformant": false
+        },
+        {
+          "step": 140,
+          "loss": 0.015956807881593704,
+          "conformant": false
+        },
+        {
+          "step": 150,
+          "loss": 0.014656796120107174,
+          "conformant": false
+        },
+        {
+          "step": 160,
+          "loss": 0.01357854250818491,
+          "conformant": false
+        },
+        {
+          "step": 170,
+          "loss": 0.012403261847794056,
+          "conformant": false
+        },
+        {
+          "step": 180,
+          "loss": 0.010948949493467808,
+          "conformant": false
+        },
+        {
+          "step": 190,
+          "loss": 0.009521838277578354,
+          "conformant": false
+        },
+        {
+          "step": 200,
+          "loss": 0.008084945380687714,
+          "conformant": false
+        },
+        {
+          "step": 210,
+          "loss": 0.006857691332697868,
+          "conformant": false
+        },
+        {
+          "step": 220,
+          "loss": 0.0061717708595097065,
+          "conformant": false
+        },
+        {
+          "step": 230,
+          "loss": 0.005804218351840973,
+          "conformant": false
+        },
+        {
+          "step": 240,
+          "loss": 0.005542184226214886,
+          "conformant": false
+        },
+        {
+          "step": 250,
+          "loss": 0.005281604826450348,
+          "conformant": false
+        },
+        {
+          "step": 260,
+          "loss": 0.004948651418089867,
+          "conformant": false
+        },
+        {
+          "step": 270,
+          "loss": 0.004472666420042515,
+          "conformant": false
+        },
+        {
+          "step": 280,
+          "loss": 0.003833645023405552,
+          "conformant": false
+        },
+        {
+          "step": 290,
+          "loss": 0.003175670513883233,
+          "conformant": false
+        },
+        {
+          "step": 299,
+          "loss": 0.002733473666012287,
+          "conformant": false
+        }
+      ],
+      "arm": "A",
+      "seed": 0,
+      "scaffold_nodes": 13,
+      "scaffold_candidates": 2330,
+      "final_description_bits": 29160,
+      "final_description_bits_no_registry": 29160,
+      "final_execution_cost": 13.0,
+      "used_module": false,
+      "selections": {
+        "call1": {
+          "operator": "tuple",
+          "sources": [
+            "d"
+          ]
+        },
+        "p1": {
+          "operator": "xor",
+          "sources": [
+            "d",
+            "a"
+          ]
+        },
+        "call2": {
+          "operator": "tuple",
+          "sources": [
+            "b"
+          ]
+        },
+        "p2": {
+          "operator": "and",
+          "sources": [
+            "p1",
+            "p1"
+          ]
+        },
+        "w0": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "p1"
+          ]
+        },
+        "w1": {
+          "operator": "and",
+          "sources": [
+            "w0",
+            "p1"
+          ]
+        },
+        "w2": {
+          "operator": "and",
+          "sources": [
+            "w1",
+            "p1"
+          ]
+        },
+        "w3": {
+          "operator": "and",
+          "sources": [
+            "w0",
+            "w1"
+          ]
+        },
+        "w4": {
+          "operator": "and",
+          "sources": [
+            "w0",
+            "w2"
+          ]
+        },
+        "w5": {
+          "operator": "and",
+          "sources": [
+            "w2",
+            "w2"
+          ]
+        },
+        "w6": {
+          "operator": "identity",
+          "sources": [
+            "w5"
+          ]
+        },
+        "w7": {
+          "operator": "and",
+          "sources": [
+            "w4",
+            "w2"
+          ]
+        },
+        "y": {
+          "operator": "and",
+          "sources": [
+            "w3",
+            "w5"
+          ]
+        }
+      },
+      "total_wall_seconds": 66.81044429895701
+    },
+    {
+      "first_conformant_step": null,
+      "steps_run": 300,
+      "final_loss": 0.0008272957056760788,
+      "final_conformant": false,
+      "wall_seconds": 221.29621367203072,
+      "seconds_per_step": 0.7376540455734357,
+      "curve": [
+        {
+          "step": 0,
+          "loss": 0.6581845283508301,
+          "conformant": false
+        },
+        {
+          "step": 10,
+          "loss": 0.5719910860061646,
+          "conformant": false
+        },
+        {
+          "step": 20,
+          "loss": 0.527716338634491,
+          "conformant": false
+        },
+        {
+          "step": 30,
+          "loss": 0.4757561981678009,
+          "conformant": false
+        },
+        {
+          "step": 40,
+          "loss": 0.38276582956314087,
+          "conformant": false
+        },
+        {
+          "step": 50,
+          "loss": 0.2605232298374176,
+          "conformant": false
+        },
+        {
+          "step": 60,
+          "loss": 0.15562404692173004,
+          "conformant": false
+        },
+        {
+          "step": 70,
+          "loss": 0.09105687588453293,
+          "conformant": false
+        },
+        {
+          "step": 80,
+          "loss": 0.05428517609834671,
+          "conformant": false
+        },
+        {
+          "step": 90,
+          "loss": 0.03550327941775322,
+          "conformant": false
+        },
+        {
+          "step": 100,
+          "loss": 0.026554055511951447,
+          "conformant": false
+        },
+        {
+          "step": 110,
+          "loss": 0.021894332021474838,
+          "conformant": false
+        },
+        {
+          "step": 120,
+          "loss": 0.01895071566104889,
+          "conformant": false
+        },
+        {
+          "step": 130,
+          "loss": 0.016771141439676285,
+          "conformant": false
+        },
+        {
+          "step": 140,
+          "loss": 0.014860525727272034,
+          "conformant": false
+        },
+        {
+          "step": 150,
+          "loss": 0.012852199375629425,
+          "conformant": false
+        },
+        {
+          "step": 160,
+          "loss": 0.010715565644204617,
+          "conformant": false
+        },
+        {
+          "step": 170,
+          "loss": 0.008902216330170631,
+          "conformant": false
+        },
+        {
+          "step": 180,
+          "loss": 0.007741633802652359,
+          "conformant": false
+        },
+        {
+          "step": 190,
+          "loss": 0.007050854153931141,
+          "conformant": false
+        },
+        {
+          "step": 200,
+          "loss": 0.006601791828870773,
+          "conformant": false
+        },
+        {
+          "step": 210,
+          "loss": 0.006270179059356451,
+          "conformant": false
+        },
+        {
+          "step": 220,
+          "loss": 0.00598949147388339,
+          "conformant": false
+        },
+        {
+          "step": 230,
+          "loss": 0.005717781372368336,
+          "conformant": false
+        },
+        {
+          "step": 240,
+          "loss": 0.005417524836957455,
+          "conformant": false
+        },
+        {
+          "step": 250,
+          "loss": 0.005048603750765324,
+          "conformant": false
+        },
+        {
+          "step": 260,
+          "loss": 0.004578630905598402,
+          "conformant": false
+        },
+        {
+          "step": 270,
+          "loss": 0.0040265824645757675,
+          "conformant": false
+        },
+        {
+          "step": 280,
+          "loss": 0.0034930037800222635,
+          "conformant": false
+        },
+        {
+          "step": 290,
+          "loss": 0.003076014807447791,
+          "conformant": false
+        },
+        {
+          "step": 299,
+          "loss": 0.00281669944524765,
+          "conformant": false
+        }
+      ],
+      "arm": "B",
+      "seed": 0,
+      "scaffold_nodes": 13,
+      "scaffold_candidates": 2458,
+      "final_description_bits": 42248,
+      "final_description_bits_no_registry": 30160,
+      "final_execution_cost": 21.0,
+      "used_module": true,
+      "selections": {
+        "call1": {
+          "operator": "module:ac2c290",
+          "sources": [
+            "d",
+            "a",
+            "b"
+          ]
+        },
+        "p1": {
+          "operator": "xor",
+          "sources": [
+            "c",
+            "b"
+          ]
+        },
+        "call2": {
+          "operator": "module:ac2c290",
+          "sources": [
+            "b",
+            "a",
+            "d"
+          ]
+        },
+        "p2": {
+          "operator": "and",
+          "sources": [
+            "p1",
+            "p1"
+          ]
+        },
+        "w0": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "p1"
+          ]
+        },
+        "w1": {
+          "operator": "and",
+          "sources": [
+            "w0",
+            "p1"
+          ]
+        },
+        "w2": {
+          "operator": "and",
+          "sources": [
+            "p1",
+            "w0"
+          ]
+        },
+        "w3": {
+          "operator": "and",
+          "sources": [
+            "w2",
+            "p2"
+          ]
+        },
+        "w4": {
+          "operator": "and",
+          "sources": [
+            "w0",
+            "w2"
+          ]
+        },
+        "w5": {
+          "operator": "and",
+          "sources": [
+            "w3",
+            "w0"
+          ]
+        },
+        "w6": {
+          "operator": "identity",
+          "sources": [
+            "w5"
+          ]
+        },
+        "w7": {
+          "operator": "identity",
+          "sources": [
+            "w4"
+          ]
+        },
+        "y": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "w6"
+          ]
+        }
+      },
+      "total_wall_seconds": 221.8327548369998
+    },
+    {
+      "first_conformant_step": 40,
+      "steps_run": 41,
+      "final_loss": 0.39323318004608154,
+      "final_conformant": true,
+      "wall_seconds": 10.295182376983576,
+      "seconds_per_step": 0.25110200919472137,
+      "curve": [
+        {
+          "step": 0,
+          "loss": 0.6546893119812012,
+          "conformant": false
+        },
+        {
+          "step": 10,
+          "loss": 0.5740329027175903,
+          "conformant": false
+        },
+        {
+          "step": 20,
+          "loss": 0.5355463027954102,
+          "conformant": false
+        },
+        {
+          "step": 30,
+          "loss": 0.49520570039749146,
+          "conformant": false
+        },
+        {
+          "step": 40,
+          "loss": 0.412198007106781,
+          "conformant": true
+        }
+      ],
+      "arm": "A",
+      "seed": 1,
+      "scaffold_nodes": 13,
+      "scaffold_candidates": 2330,
+      "final_description_bits": 28920,
+      "final_description_bits_no_registry": 28920,
+      "final_execution_cost": 13.0,
+      "used_module": false,
+      "selections": {
+        "call1": {
+          "operator": "tuple",
+          "sources": [
+            "d"
+          ]
+        },
+        "p1": {
+          "operator": "xor",
+          "sources": [
+            "b",
+            "c"
+          ]
+        },
+        "call2": {
+          "operator": "tuple",
+          "sources": [
+            "a"
+          ]
+        },
+        "p2": {
+          "operator": "xor",
+          "sources": [
+            "a",
+            "d"
+          ]
+        },
+        "w0": {
+          "operator": "identity",
+          "sources": [
+            "p1"
+          ]
+        },
+        "w1": {
+          "operator": "or",
+          "sources": [
+            "d",
+            "a"
+          ]
+        },
+        "w2": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "p1"
+          ]
+        },
+        "w3": {
+          "operator": "xor",
+          "sources": [
+            "b",
+            "c"
+          ]
+        },
+        "w4": {
+          "operator": "xor",
+          "sources": [
+            "a",
+            "d"
+          ]
+        },
+        "w5": {
+          "operator": "and",
+          "sources": [
+            "w0",
+            "w0"
+          ]
+        },
+        "w6": {
+          "operator": "xor",
+          "sources": [
+            "d",
+            "a"
+          ]
+        },
+        "w7": {
+          "operator": "identity",
+          "sources": [
+            "w4"
+          ]
+        },
+        "y": {
+          "operator": "and",
+          "sources": [
+            "w3",
+            "w7"
+          ]
+        }
+      },
+      "total_wall_seconds": 10.506822463998105
+    },
+    {
+      "first_conformant_step": 90,
+      "steps_run": 91,
+      "final_loss": 0.031915947794914246,
+      "final_conformant": true,
+      "wall_seconds": 47.74958105798578,
+      "seconds_per_step": 0.5247206709668767,
+      "curve": [
+        {
+          "step": 0,
+          "loss": 0.6578517556190491,
+          "conformant": false
+        },
+        {
+          "step": 10,
+          "loss": 0.5742257237434387,
+          "conformant": false
+        },
+        {
+          "step": 20,
+          "loss": 0.5311768054962158,
+          "conformant": false
+        },
+        {
+          "step": 30,
+          "loss": 0.48154520988464355,
+          "conformant": false
+        },
+        {
+          "step": 40,
+          "loss": 0.38673192262649536,
+          "conformant": false
+        },
+        {
+          "step": 50,
+          "loss": 0.2633465528488159,
+          "conformant": false
+        },
+        {
+          "step": 60,
+          "loss": 0.1662253439426422,
+          "conformant": false
+        },
+        {
+          "step": 70,
+          "loss": 0.10438070446252823,
+          "conformant": false
+        },
+        {
+          "step": 80,
+          "loss": 0.06483663618564606,
+          "conformant": false
+        },
+        {
+          "step": 90,
+          "loss": 0.042560745030641556,
+          "conformant": true
+        }
+      ],
+      "arm": "B",
+      "seed": 1,
+      "scaffold_nodes": 13,
+      "scaffold_candidates": 2458,
+      "final_description_bits": 42544,
+      "final_description_bits_no_registry": 30448,
+      "final_execution_cost": 21.0,
+      "used_module": true,
+      "selections": {
+        "call1": {
+          "operator": "module:7054fc5",
+          "sources": [
+            "b",
+            "d",
+            "a"
+          ]
+        },
+        "p1": {
+          "operator": "xor",
+          "sources": [
+            "c",
+            "b"
+          ]
+        },
+        "call2": {
+          "operator": "module:7054fc5",
+          "sources": [
+            "a",
+            "d",
+            "b"
+          ]
+        },
+        "p2": {
+          "operator": "xor",
+          "sources": [
+            "d",
+            "a"
+          ]
+        },
+        "w0": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "p1"
+          ]
+        },
+        "w1": {
+          "operator": "and",
+          "sources": [
+            "p1",
+            "p2"
+          ]
+        },
+        "w2": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "w0"
+          ]
+        },
+        "w3": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "w2"
+          ]
+        },
+        "w4": {
+          "operator": "and",
+          "sources": [
+            "w3",
+            "p2"
+          ]
+        },
+        "w5": {
+          "operator": "and",
+          "sources": [
+            "w1",
+            "w3"
+          ]
+        },
+        "w6": {
+          "operator": "and",
+          "sources": [
+            "w1",
+            "w1"
+          ]
+        },
+        "w7": {
+          "operator": "and",
+          "sources": [
+            "w3",
+            "w4"
+          ]
+        },
+        "y": {
+          "operator": "and",
+          "sources": [
+            "w7",
+            "p2"
+          ]
+        }
+      },
+      "total_wall_seconds": 48.39974478102522
+    },
+    {
+      "first_conformant_step": null,
+      "steps_run": 300,
+      "final_loss": 0.0006604419322684407,
+      "final_conformant": false,
+      "wall_seconds": 91.8408268490457,
+      "seconds_per_step": 0.306136089496819,
+      "curve": [
+        {
+          "step": 0,
+          "loss": 0.6628106832504272,
+          "conformant": false
+        },
+        {
+          "step": 10,
+          "loss": 0.576416552066803,
+          "conformant": false
+        },
+        {
+          "step": 20,
+          "loss": 0.5327281355857849,
+          "conformant": false
+        },
+        {
+          "step": 30,
+          "loss": 0.48094114661216736,
+          "conformant": false
+        },
+        {
+          "step": 40,
+          "loss": 0.38443154096603394,
+          "conformant": false
+        },
+        {
+          "step": 50,
+          "loss": 0.2592407464981079,
+          "conformant": false
+        },
+        {
+          "step": 60,
+          "loss": 0.154648557305336,
+          "conformant": false
+        },
+        {
+          "step": 70,
+          "loss": 0.09219017624855042,
+          "conformant": false
+        },
+        {
+          "step": 80,
+          "loss": 0.056391533464193344,
+          "conformant": false
+        },
+        {
+          "step": 90,
+          "loss": 0.037946563214063644,
+          "conformant": false
+        },
+        {
+          "step": 100,
+          "loss": 0.028607483953237534,
+          "conformant": false
+        },
+        {
+          "step": 110,
+          "loss": 0.023509619757533073,
+          "conformant": false
+        },
+        {
+          "step": 120,
+          "loss": 0.020400675013661385,
+          "conformant": false
+        },
+        {
+          "step": 130,
+          "loss": 0.018027175217866898,
+          "conformant": false
+        },
+        {
+          "step": 140,
+          "loss": 0.015833307057619095,
+          "conformant": false
+        },
+        {
+          "step": 150,
+          "loss": 0.013801435008645058,
+          "conformant": false
+        },
+        {
+          "step": 160,
+          "loss": 0.011879789642989635,
+          "conformant": false
+        },
+        {
+          "step": 170,
+          "loss": 0.01018892414867878,
+          "conformant": false
+        },
+        {
+          "step": 180,
+          "loss": 0.00883328914642334,
+          "conformant": false
+        },
+        {
+          "step": 190,
+          "loss": 0.007800006307661533,
+          "conformant": false
+        },
+        {
+          "step": 200,
+          "loss": 0.006996536161750555,
+          "conformant": false
+        },
+        {
+          "step": 210,
+          "loss": 0.006354230456054211,
+          "conformant": false
+        },
+        {
+          "step": 220,
+          "loss": 0.005767520517110825,
+          "conformant": false
+        },
+        {
+          "step": 230,
+          "loss": 0.005192979238927364,
+          "conformant": false
+        },
+        {
+          "step": 240,
+          "loss": 0.004573424346745014,
+          "conformant": false
+        },
+        {
+          "step": 250,
+          "loss": 0.003920405171811581,
+          "conformant": false
+        },
+        {
+          "step": 260,
+          "loss": 0.003364125033840537,
+          "conformant": false
+        },
+        {
+          "step": 270,
+          "loss": 0.002992071211338043,
+          "conformant": false
+        },
+        {
+          "step": 280,
+          "loss": 0.0027718942146748304,
+          "conformant": false
+        },
+        {
+          "step": 290,
+          "loss": 0.0026432781014591455,
+          "conformant": false
+        },
+        {
+          "step": 299,
+          "loss": 0.0025698684621602297,
+          "conformant": false
+        }
+      ],
+      "arm": "A",
+      "seed": 2,
+      "scaffold_nodes": 13,
+      "scaffold_candidates": 2330,
+      "final_description_bits": 29008,
+      "final_description_bits_no_registry": 29008,
+      "final_execution_cost": 13.0,
+      "used_module": false,
+      "selections": {
+        "call1": {
+          "operator": "tuple",
+          "sources": [
+            "c"
+          ]
+        },
+        "p1": {
+          "operator": "xor",
+          "sources": [
+            "d",
+            "a"
+          ]
+        },
+        "call2": {
+          "operator": "tuple",
+          "sources": [
+            "c"
+          ]
+        },
+        "p2": {
+          "operator": "and",
+          "sources": [
+            "p1",
+            "p1"
+          ]
+        },
+        "w0": {
+          "operator": "and",
+          "sources": [
+            "p1",
+            "p1"
+          ]
+        },
+        "w1": {
+          "operator": "and",
+          "sources": [
+            "p1",
+            "p2"
+          ]
+        },
+        "w2": {
+          "operator": "and",
+          "sources": [
+            "w1",
+            "p1"
+          ]
+        },
+        "w3": {
+          "operator": "and",
+          "sources": [
+            "w2",
+            "w0"
+          ]
+        },
+        "w4": {
+          "operator": "and",
+          "sources": [
+            "w3",
+            "w2"
+          ]
+        },
+        "w5": {
+          "operator": "identity",
+          "sources": [
+            "w4"
+          ]
+        },
+        "w6": {
+          "operator": "and",
+          "sources": [
+            "w4",
+            "w2"
+          ]
+        },
+        "w7": {
+          "operator": "identity",
+          "sources": [
+            "w5"
+          ]
+        },
+        "y": {
+          "operator": "and",
+          "sources": [
+            "w3",
+            "w3"
+          ]
+        }
+      },
+      "total_wall_seconds": 92.30465925700264
+    },
+    {
+      "first_conformant_step": 90,
+      "steps_run": 91,
+      "final_loss": 0.025011546909809113,
+      "final_conformant": true,
+      "wall_seconds": 69.73477887100307,
+      "seconds_per_step": 0.766316251329704,
+      "curve": [
+        {
+          "step": 0,
+          "loss": 0.6545137166976929,
+          "conformant": false
+        },
+        {
+          "step": 10,
+          "loss": 0.5772299766540527,
+          "conformant": false
+        },
+        {
+          "step": 20,
+          "loss": 0.5409183502197266,
+          "conformant": false
+        },
+        {
+          "step": 30,
+          "loss": 0.505153477191925,
+          "conformant": false
+        },
+        {
+          "step": 40,
+          "loss": 0.4320582151412964,
+          "conformant": false
+        },
+        {
+          "step": 50,
+          "loss": 0.28948819637298584,
+          "conformant": false
+        },
+        {
+          "step": 60,
+          "loss": 0.15912432968616486,
+          "conformant": false
+        },
+        {
+          "step": 70,
+          "loss": 0.08754217624664307,
+          "conformant": false
+        },
+        {
+          "step": 80,
+          "loss": 0.05219104886054993,
+          "conformant": false
+        },
+        {
+          "step": 90,
+          "loss": 0.035061467438936234,
+          "conformant": true
+        }
+      ],
+      "arm": "B",
+      "seed": 2,
+      "scaffold_nodes": 13,
+      "scaffold_candidates": 2458,
+      "final_description_bits": 42536,
+      "final_description_bits_no_registry": 30448,
+      "final_execution_cost": 21.0,
+      "used_module": true,
+      "selections": {
+        "call1": {
+          "operator": "module:069c042",
+          "sources": [
+            "b",
+            "c",
+            "d"
+          ]
+        },
+        "p1": {
+          "operator": "xor",
+          "sources": [
+            "a",
+            "d"
+          ]
+        },
+        "call2": {
+          "operator": "module:069c042",
+          "sources": [
+            "c",
+            "b",
+            "d"
+          ]
+        },
+        "p2": {
+          "operator": "and",
+          "sources": [
+            "p1",
+            "p1"
+          ]
+        },
+        "w0": {
+          "operator": "xor",
+          "sources": [
+            "b",
+            "c"
+          ]
+        },
+        "w1": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "w0"
+          ]
+        },
+        "w2": {
+          "operator": "and",
+          "sources": [
+            "p1",
+            "p1"
+          ]
+        },
+        "w3": {
+          "operator": "and",
+          "sources": [
+            "w2",
+            "w0"
+          ]
+        },
+        "w4": {
+          "operator": "and",
+          "sources": [
+            "w3",
+            "p2"
+          ]
+        },
+        "w5": {
+          "operator": "and",
+          "sources": [
+            "w3",
+            "w3"
+          ]
+        },
+        "w6": {
+          "operator": "and",
+          "sources": [
+            "w3",
+            "w2"
+          ]
+        },
+        "w7": {
+          "operator": "and",
+          "sources": [
+            "w4",
+            "w2"
+          ]
+        },
+        "y": {
+          "operator": "and",
+          "sources": [
+            "w4",
+            "p2"
+          ]
+        }
+      },
+      "total_wall_seconds": 70.09924946696265
+    },
+    {
+      "first_conformant_step": 30,
+      "steps_run": 31,
+      "final_loss": 0.47310003638267517,
+      "final_conformant": true,
+      "wall_seconds": 2.756826808967162,
+      "seconds_per_step": 0.08892989706345683,
+      "curve": [
+        {
+          "step": 0,
+          "loss": 0.65141361951828,
+          "conformant": false
+        },
+        {
+          "step": 10,
+          "loss": 0.571864902973175,
+          "conformant": false
+        },
+        {
+          "step": 20,
+          "loss": 0.5312823057174683,
+          "conformant": false
+        },
+        {
+          "step": 30,
+          "loss": 0.48495182394981384,
+          "conformant": true
+        }
+      ],
+      "arm": "A",
+      "seed": 3,
+      "scaffold_nodes": 13,
+      "scaffold_candidates": 2330,
+      "final_description_bits": 28952,
+      "final_description_bits_no_registry": 28952,
+      "final_execution_cost": 13.0,
+      "used_module": false,
+      "selections": {
+        "call1": {
+          "operator": "tuple",
+          "sources": [
+            "c"
+          ]
+        },
+        "p1": {
+          "operator": "xor",
+          "sources": [
+            "d",
+            "a"
+          ]
+        },
+        "call2": {
+          "operator": "tuple",
+          "sources": [
+            "d"
+          ]
+        },
+        "p2": {
+          "operator": "xor",
+          "sources": [
+            "a",
+            "d"
+          ]
+        },
+        "w0": {
+          "operator": "and",
+          "sources": [
+            "p1",
+            "p2"
+          ]
+        },
+        "w1": {
+          "operator": "identity",
+          "sources": [
+            "p2"
+          ]
+        },
+        "w2": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "w1"
+          ]
+        },
+        "w3": {
+          "operator": "and",
+          "sources": [
+            "w2",
+            "p2"
+          ]
+        },
+        "w4": {
+          "operator": "or",
+          "sources": [
+            "c",
+            "b"
+          ]
+        },
+        "w5": {
+          "operator": "xor",
+          "sources": [
+            "b",
+            "c"
+          ]
+        },
+        "w6": {
+          "operator": "identity",
+          "sources": [
+            "w3"
+          ]
+        },
+        "w7": {
+          "operator": "and",
+          "sources": [
+            "w5",
+            "w3"
+          ]
+        },
+        "y": {
+          "operator": "and",
+          "sources": [
+            "w7",
+            "w7"
+          ]
+        }
+      },
+      "total_wall_seconds": 2.8843915960169397
+    },
+    {
+      "first_conformant_step": 70,
+      "steps_run": 71,
+      "final_loss": 0.07646968960762024,
+      "final_conformant": true,
+      "wall_seconds": 30.285700007982086,
+      "seconds_per_step": 0.4265591550420012,
+      "curve": [
+        {
+          "step": 0,
+          "loss": 0.6481902003288269,
+          "conformant": false
+        },
+        {
+          "step": 10,
+          "loss": 0.5686559677124023,
+          "conformant": false
+        },
+        {
+          "step": 20,
+          "loss": 0.5277596712112427,
+          "conformant": false
+        },
+        {
+          "step": 30,
+          "loss": 0.4802412688732147,
+          "conformant": false
+        },
+        {
+          "step": 40,
+          "loss": 0.3898845911026001,
+          "conformant": false
+        },
+        {
+          "step": 50,
+          "loss": 0.26195868849754333,
+          "conformant": false
+        },
+        {
+          "step": 60,
+          "loss": 0.15604156255722046,
+          "conformant": false
+        },
+        {
+          "step": 70,
+          "loss": 0.08929280936717987,
+          "conformant": true
+        }
+      ],
+      "arm": "B",
+      "seed": 3,
+      "scaffold_nodes": 13,
+      "scaffold_candidates": 2458,
+      "final_description_bits": 42536,
+      "final_description_bits_no_registry": 30448,
+      "final_execution_cost": 21.0,
+      "used_module": true,
+      "selections": {
+        "call1": {
+          "operator": "module:19964ce",
+          "sources": [
+            "c",
+            "d",
+            "b"
+          ]
+        },
+        "p1": {
+          "operator": "xor",
+          "sources": [
+            "d",
+            "a"
+          ]
+        },
+        "call2": {
+          "operator": "module:19964ce",
+          "sources": [
+            "b",
+            "a",
+            "d"
+          ]
+        },
+        "p2": {
+          "operator": "and",
+          "sources": [
+            "p1",
+            "p1"
+          ]
+        },
+        "w0": {
+          "operator": "xor",
+          "sources": [
+            "b",
+            "c"
+          ]
+        },
+        "w1": {
+          "operator": "and",
+          "sources": [
+            "p1",
+            "p1"
+          ]
+        },
+        "w2": {
+          "operator": "and",
+          "sources": [
+            "p1",
+            "w1"
+          ]
+        },
+        "w3": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "p2"
+          ]
+        },
+        "w4": {
+          "operator": "and",
+          "sources": [
+            "w1",
+            "w0"
+          ]
+        },
+        "w5": {
+          "operator": "and",
+          "sources": [
+            "w4",
+            "w0"
+          ]
+        },
+        "w6": {
+          "operator": "and",
+          "sources": [
+            "w4",
+            "w1"
+          ]
+        },
+        "w7": {
+          "operator": "and",
+          "sources": [
+            "w2",
+            "w5"
+          ]
+        },
+        "y": {
+          "operator": "and",
+          "sources": [
+            "w6",
+            "p1"
+          ]
+        }
+      },
+      "total_wall_seconds": 30.568774788000155
+    },
+    {
+      "first_conformant_step": 80,
+      "steps_run": 81,
+      "final_loss": 0.05187901481986046,
+      "final_conformant": true,
+      "wall_seconds": 14.33808652299922,
+      "seconds_per_step": 0.1770134138641879,
+      "curve": [
+        {
+          "step": 0,
+          "loss": 0.6624288558959961,
+          "conformant": false
+        },
+        {
+          "step": 10,
+          "loss": 0.5773829221725464,
+          "conformant": false
+        },
+        {
+          "step": 20,
+          "loss": 0.5388076901435852,
+          "conformant": false
+        },
+        {
+          "step": 30,
+          "loss": 0.4992455542087555,
+          "conformant": false
+        },
+        {
+          "step": 40,
+          "loss": 0.4222703278064728,
+          "conformant": false
+        },
+        {
+          "step": 50,
+          "loss": 0.2872936427593231,
+          "conformant": false
+        },
+        {
+          "step": 60,
+          "loss": 0.1730487197637558,
+          "conformant": false
+        },
+        {
+          "step": 70,
+          "loss": 0.10501285642385483,
+          "conformant": false
+        },
+        {
+          "step": 80,
+          "loss": 0.06304394453763962,
+          "conformant": true
+        }
+      ],
+      "arm": "A",
+      "seed": 4,
+      "scaffold_nodes": 13,
+      "scaffold_candidates": 2330,
+      "final_description_bits": 29280,
+      "final_description_bits_no_registry": 29280,
+      "final_execution_cost": 13.0,
+      "used_module": false,
+      "selections": {
+        "call1": {
+          "operator": "tuple",
+          "sources": [
+            "d"
+          ]
+        },
+        "p1": {
+          "operator": "xor",
+          "sources": [
+            "a",
+            "d"
+          ]
+        },
+        "call2": {
+          "operator": "tuple",
+          "sources": [
+            "c"
+          ]
+        },
+        "p2": {
+          "operator": "and",
+          "sources": [
+            "p1",
+            "p1"
+          ]
+        },
+        "w0": {
+          "operator": "xor",
+          "sources": [
+            "b",
+            "c"
+          ]
+        },
+        "w1": {
+          "operator": "and",
+          "sources": [
+            "p1",
+            "p1"
+          ]
+        },
+        "w2": {
+          "operator": "and",
+          "sources": [
+            "p1",
+            "p1"
+          ]
+        },
+        "w3": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "p1"
+          ]
+        },
+        "w4": {
+          "operator": "and",
+          "sources": [
+            "w1",
+            "w1"
+          ]
+        },
+        "w5": {
+          "operator": "and",
+          "sources": [
+            "w0",
+            "w2"
+          ]
+        },
+        "w6": {
+          "operator": "and",
+          "sources": [
+            "w2",
+            "w1"
+          ]
+        },
+        "w7": {
+          "operator": "xor",
+          "sources": [
+            "d",
+            "a"
+          ]
+        },
+        "y": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "w5"
+          ]
+        }
+      },
+      "total_wall_seconds": 14.430494788044598
+    },
+    {
+      "first_conformant_step": 70,
+      "steps_run": 71,
+      "final_loss": 0.07995009422302246,
+      "final_conformant": true,
+      "wall_seconds": 36.36638759000925,
+      "seconds_per_step": 0.5122026421128064,
+      "curve": [
+        {
+          "step": 0,
+          "loss": 0.6536260843276978,
+          "conformant": false
+        },
+        {
+          "step": 10,
+          "loss": 0.57114577293396,
+          "conformant": false
+        },
+        {
+          "step": 20,
+          "loss": 0.5287992358207703,
+          "conformant": false
+        },
+        {
+          "step": 30,
+          "loss": 0.4783669710159302,
+          "conformant": false
+        },
+        {
+          "step": 40,
+          "loss": 0.38232743740081787,
+          "conformant": false
+        },
+        {
+          "step": 50,
+          "loss": 0.25265541672706604,
+          "conformant": false
+        },
+        {
+          "step": 60,
+          "loss": 0.1531405746936798,
+          "conformant": false
+        },
+        {
+          "step": 70,
+          "loss": 0.09262973070144653,
+          "conformant": true
+        }
+      ],
+      "arm": "B",
+      "seed": 4,
+      "scaffold_nodes": 13,
+      "scaffold_candidates": 2458,
+      "final_description_bits": 42520,
+      "final_description_bits_no_registry": 30432,
+      "final_execution_cost": 21.0,
+      "used_module": true,
+      "selections": {
+        "call1": {
+          "operator": "module:9da9a2b",
+          "sources": [
+            "c",
+            "d",
+            "b"
+          ]
+        },
+        "p1": {
+          "operator": "xor",
+          "sources": [
+            "b",
+            "c"
+          ]
+        },
+        "call2": {
+          "operator": "module:9da9a2b",
+          "sources": [
+            "d",
+            "b",
+            "a"
+          ]
+        },
+        "p2": {
+          "operator": "xor",
+          "sources": [
+            "a",
+            "d"
+          ]
+        },
+        "w0": {
+          "operator": "xor",
+          "sources": [
+            "d",
+            "a"
+          ]
+        },
+        "w1": {
+          "operator": "and",
+          "sources": [
+            "w0",
+            "w0"
+          ]
+        },
+        "w2": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "p1"
+          ]
+        },
+        "w3": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "p2"
+          ]
+        },
+        "w4": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "w1"
+          ]
+        },
+        "w5": {
+          "operator": "and",
+          "sources": [
+            "w4",
+            "w0"
+          ]
+        },
+        "w6": {
+          "operator": "and",
+          "sources": [
+            "w1",
+            "w1"
+          ]
+        },
+        "w7": {
+          "operator": "and",
+          "sources": [
+            "w3",
+            "w2"
+          ]
+        },
+        "y": {
+          "operator": "and",
+          "sources": [
+            "w7",
+            "p2"
+          ]
+        }
+      },
+      "total_wall_seconds": 37.03022095101187
+    },
+    {
+      "first_conformant_step": null,
+      "steps_run": 300,
+      "final_loss": 0.0005672858096659184,
+      "final_conformant": false,
+      "wall_seconds": 53.76091984298546,
+      "seconds_per_step": 0.17920306614328485,
+      "curve": [
+        {
+          "step": 0,
+          "loss": 0.6587092876434326,
+          "conformant": false
+        },
+        {
+          "step": 10,
+          "loss": 0.5760459899902344,
+          "conformant": false
+        },
+        {
+          "step": 20,
+          "loss": 0.5360140204429626,
+          "conformant": false
+        },
+        {
+          "step": 30,
+          "loss": 0.49388158321380615,
+          "conformant": false
+        },
+        {
+          "step": 40,
+          "loss": 0.4110109806060791,
+          "conformant": false
+        },
+        {
+          "step": 50,
+          "loss": 0.27637791633605957,
+          "conformant": false
+        },
+        {
+          "step": 60,
+          "loss": 0.15817543864250183,
+          "conformant": false
+        },
+        {
+          "step": 70,
+          "loss": 0.09018167108297348,
+          "conformant": false
+        },
+        {
+          "step": 80,
+          "loss": 0.05444462597370148,
+          "conformant": false
+        },
+        {
+          "step": 90,
+          "loss": 0.036254726350307465,
+          "conformant": false
+        },
+        {
+          "step": 100,
+          "loss": 0.027096103876829147,
+          "conformant": false
+        },
+        {
+          "step": 110,
+          "loss": 0.022289998829364777,
+          "conformant": false
+        },
+        {
+          "step": 120,
+          "loss": 0.019544869661331177,
+          "conformant": false
+        },
+        {
+          "step": 130,
+          "loss": 0.017766308039426804,
+          "conformant": false
+        },
+        {
+          "step": 140,
+          "loss": 0.016415808349847794,
+          "conformant": false
+        },
+        {
+          "step": 150,
+          "loss": 0.015180984511971474,
+          "conformant": false
+        },
+        {
+          "step": 160,
+          "loss": 0.013825371861457825,
+          "conformant": false
+        },
+        {
+          "step": 170,
+          "loss": 0.012312076985836029,
+          "conformant": false
+        },
+        {
+          "step": 180,
+          "loss": 0.01061134785413742,
+          "conformant": false
+        },
+        {
+          "step": 190,
+          "loss": 0.008819593116641045,
+          "conformant": false
+        },
+        {
+          "step": 200,
+          "loss": 0.0074317483231425285,
+          "conformant": false
+        },
+        {
+          "step": 210,
+          "loss": 0.00661677960306406,
+          "conformant": false
+        },
+        {
+          "step": 220,
+          "loss": 0.006184964440762997,
+          "conformant": false
+        },
+        {
+          "step": 230,
+          "loss": 0.0059339869767427444,
+          "conformant": false
+        },
+        {
+          "step": 240,
+          "loss": 0.00576628465205431,
+          "conformant": false
+        },
+        {
+          "step": 250,
+          "loss": 0.005631325766444206,
+          "conformant": false
+        },
+        {
+          "step": 260,
+          "loss": 0.005496910307556391,
+          "conformant": false
+        },
+        {
+          "step": 270,
+          "loss": 0.005314643029123545,
+          "conformant": false
+        },
+        {
+          "step": 280,
+          "loss": 0.004975032992660999,
+          "conformant": false
+        },
+        {
+          "step": 290,
+          "loss": 0.0042585767805576324,
+          "conformant": false
+        },
+        {
+          "step": 299,
+          "loss": 0.003299667267128825,
+          "conformant": false
+        }
+      ],
+      "arm": "A",
+      "seed": 5,
+      "scaffold_nodes": 13,
+      "scaffold_candidates": 2330,
+      "final_description_bits": 29312,
+      "final_description_bits_no_registry": 29312,
+      "final_execution_cost": 13.0,
+      "used_module": false,
+      "selections": {
+        "call1": {
+          "operator": "tuple",
+          "sources": [
+            "d"
+          ]
+        },
+        "p1": {
+          "operator": "xor",
+          "sources": [
+            "d",
+            "a"
+          ]
+        },
+        "call2": {
+          "operator": "tuple",
+          "sources": [
+            "c"
+          ]
+        },
+        "p2": {
+          "operator": "and",
+          "sources": [
+            "p1",
+            "p1"
+          ]
+        },
+        "w0": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "p1"
+          ]
+        },
+        "w1": {
+          "operator": "and",
+          "sources": [
+            "p1",
+            "w0"
+          ]
+        },
+        "w2": {
+          "operator": "and",
+          "sources": [
+            "p1",
+            "w1"
+          ]
+        },
+        "w3": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "w2"
+          ]
+        },
+        "w4": {
+          "operator": "and",
+          "sources": [
+            "w3",
+            "w0"
+          ]
+        },
+        "w5": {
+          "operator": "and",
+          "sources": [
+            "w0",
+            "w4"
+          ]
+        },
+        "w6": {
+          "operator": "and",
+          "sources": [
+            "w1",
+            "w4"
+          ]
+        },
+        "w7": {
+          "operator": "and",
+          "sources": [
+            "w2",
+            "w3"
+          ]
+        },
+        "y": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "w7"
+          ]
+        }
+      },
+      "total_wall_seconds": 53.849546328012366
+    },
+    {
+      "first_conformant_step": 30,
+      "steps_run": 31,
+      "final_loss": 0.46088501811027527,
+      "final_conformant": true,
+      "wall_seconds": 12.436422366008628,
+      "seconds_per_step": 0.4011749150325364,
+      "curve": [
+        {
+          "step": 0,
+          "loss": 0.6498767137527466,
+          "conformant": false
+        },
+        {
+          "step": 10,
+          "loss": 0.5691272616386414,
+          "conformant": false
+        },
+        {
+          "step": 20,
+          "loss": 0.5279784202575684,
+          "conformant": false
+        },
+        {
+          "step": 30,
+          "loss": 0.47443121671676636,
+          "conformant": true
+        }
+      ],
+      "arm": "B",
+      "seed": 5,
+      "scaffold_nodes": 13,
+      "scaffold_candidates": 2458,
+      "final_description_bits": 42152,
+      "final_description_bits_no_registry": 30064,
+      "final_execution_cost": 21.0,
+      "used_module": true,
+      "selections": {
+        "call1": {
+          "operator": "module:7065a38",
+          "sources": [
+            "b",
+            "c",
+            "d"
+          ]
+        },
+        "p1": {
+          "operator": "xor",
+          "sources": [
+            "a",
+            "d"
+          ]
+        },
+        "call2": {
+          "operator": "module:7065a38",
+          "sources": [
+            "d",
+            "b",
+            "a"
+          ]
+        },
+        "p2": {
+          "operator": "xor",
+          "sources": [
+            "b",
+            "c"
+          ]
+        },
+        "w0": {
+          "operator": "xor",
+          "sources": [
+            "b",
+            "c"
+          ]
+        },
+        "w1": {
+          "operator": "or",
+          "sources": [
+            "a",
+            "d"
+          ]
+        },
+        "w2": {
+          "operator": "and",
+          "sources": [
+            "w1",
+            "p1"
+          ]
+        },
+        "w3": {
+          "operator": "xor",
+          "sources": [
+            "a",
+            "d"
+          ]
+        },
+        "w4": {
+          "operator": "identity",
+          "sources": [
+            "p2"
+          ]
+        },
+        "w5": {
+          "operator": "identity",
+          "sources": [
+            "w3"
+          ]
+        },
+        "w6": {
+          "operator": "and",
+          "sources": [
+            "w2",
+            "w3"
+          ]
+        },
+        "w7": {
+          "operator": "or",
+          "sources": [
+            "a",
+            "d"
+          ]
+        },
+        "y": {
+          "operator": "and",
+          "sources": [
+            "p1",
+            "w4"
+          ]
+        }
+      },
+      "total_wall_seconds": 12.71313748502871
+    },
+    {
+      "first_conformant_step": 50,
+      "steps_run": 51,
+      "final_loss": 0.2259233444929123,
+      "final_conformant": true,
+      "wall_seconds": 7.971031320048496,
+      "seconds_per_step": 0.15629473176565678,
+      "curve": [
+        {
+          "step": 0,
+          "loss": 0.6493605375289917,
+          "conformant": false
+        },
+        {
+          "step": 10,
+          "loss": 0.5657294392585754,
+          "conformant": false
+        },
+        {
+          "step": 20,
+          "loss": 0.5208235383033752,
+          "conformant": false
+        },
+        {
+          "step": 30,
+          "loss": 0.4623396694660187,
+          "conformant": false
+        },
+        {
+          "step": 40,
+          "loss": 0.3606584370136261,
+          "conformant": false
+        },
+        {
+          "step": 50,
+          "loss": 0.24338293075561523,
+          "conformant": true
+        }
+      ],
+      "arm": "A",
+      "seed": 6,
+      "scaffold_nodes": 13,
+      "scaffold_candidates": 2330,
+      "final_description_bits": 28960,
+      "final_description_bits_no_registry": 28960,
+      "final_execution_cost": 13.0,
+      "used_module": false,
+      "selections": {
+        "call1": {
+          "operator": "tuple",
+          "sources": [
+            "d"
+          ]
+        },
+        "p1": {
+          "operator": "xor",
+          "sources": [
+            "c",
+            "b"
+          ]
+        },
+        "call2": {
+          "operator": "tuple",
+          "sources": [
+            "a"
+          ]
+        },
+        "p2": {
+          "operator": "xor",
+          "sources": [
+            "c",
+            "b"
+          ]
+        },
+        "w0": {
+          "operator": "xor",
+          "sources": [
+            "a",
+            "d"
+          ]
+        },
+        "w1": {
+          "operator": "xor",
+          "sources": [
+            "a",
+            "d"
+          ]
+        },
+        "w2": {
+          "operator": "identity",
+          "sources": [
+            "w0"
+          ]
+        },
+        "w3": {
+          "operator": "and",
+          "sources": [
+            "w0",
+            "w0"
+          ]
+        },
+        "w4": {
+          "operator": "and",
+          "sources": [
+            "w3",
+            "w0"
+          ]
+        },
+        "w5": {
+          "operator": "and",
+          "sources": [
+            "w1",
+            "w0"
+          ]
+        },
+        "w6": {
+          "operator": "and",
+          "sources": [
+            "w2",
+            "w3"
+          ]
+        },
+        "w7": {
+          "operator": "identity",
+          "sources": [
+            "w5"
+          ]
+        },
+        "y": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "w3"
+          ]
+        }
+      },
+      "total_wall_seconds": 8.076334813027643
+    },
+    {
+      "first_conformant_step": 70,
+      "steps_run": 71,
+      "final_loss": 0.09046630561351776,
+      "final_conformant": true,
+      "wall_seconds": 36.422079391020816,
+      "seconds_per_step": 0.5129870336763496,
+      "curve": [
+        {
+          "step": 0,
+          "loss": 0.6507734060287476,
+          "conformant": false
+        },
+        {
+          "step": 10,
+          "loss": 0.5720266103744507,
+          "conformant": false
+        },
+        {
+          "step": 20,
+          "loss": 0.5364153981208801,
+          "conformant": false
+        },
+        {
+          "step": 30,
+          "loss": 0.49922823905944824,
+          "conformant": false
+        },
+        {
+          "step": 40,
+          "loss": 0.4305683970451355,
+          "conformant": false
+        },
+        {
+          "step": 50,
+          "loss": 0.30981844663619995,
+          "conformant": false
+        },
+        {
+          "step": 60,
+          "loss": 0.1860581785440445,
+          "conformant": false
+        },
+        {
+          "step": 70,
+          "loss": 0.10427868366241455,
+          "conformant": true
+        }
+      ],
+      "arm": "B",
+      "seed": 6,
+      "scaffold_nodes": 13,
+      "scaffold_candidates": 2458,
+      "final_description_bits": 42240,
+      "final_description_bits_no_registry": 30144,
+      "final_execution_cost": 21.0,
+      "used_module": true,
+      "selections": {
+        "call1": {
+          "operator": "module:04f683d",
+          "sources": [
+            "a",
+            "b",
+            "c"
+          ]
+        },
+        "p1": {
+          "operator": "xor",
+          "sources": [
+            "a",
+            "d"
+          ]
+        },
+        "call2": {
+          "operator": "module:04f683d",
+          "sources": [
+            "d",
+            "b",
+            "a"
+          ]
+        },
+        "p2": {
+          "operator": "and",
+          "sources": [
+            "p1",
+            "p1"
+          ]
+        },
+        "w0": {
+          "operator": "xor",
+          "sources": [
+            "c",
+            "b"
+          ]
+        },
+        "w1": {
+          "operator": "and",
+          "sources": [
+            "p1",
+            "p1"
+          ]
+        },
+        "w2": {
+          "operator": "identity",
+          "sources": [
+            "w0"
+          ]
+        },
+        "w3": {
+          "operator": "and",
+          "sources": [
+            "w2",
+            "p1"
+          ]
+        },
+        "w4": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "w2"
+          ]
+        },
+        "w5": {
+          "operator": "and",
+          "sources": [
+            "w0",
+            "w1"
+          ]
+        },
+        "w6": {
+          "operator": "and",
+          "sources": [
+            "w1",
+            "w2"
+          ]
+        },
+        "w7": {
+          "operator": "identity",
+          "sources": [
+            "w5"
+          ]
+        },
+        "y": {
+          "operator": "and",
+          "sources": [
+            "w7",
+            "p2"
+          ]
+        }
+      },
+      "total_wall_seconds": 37.452210225048475
+    },
+    {
+      "first_conformant_step": 70,
+      "steps_run": 71,
+      "final_loss": 0.07445783168077469,
+      "final_conformant": true,
+      "wall_seconds": 19.528231133008376,
+      "seconds_per_step": 0.2750455089156109,
+      "curve": [
+        {
+          "step": 0,
+          "loss": 0.640883207321167,
+          "conformant": false
+        },
+        {
+          "step": 10,
+          "loss": 0.5658151507377625,
+          "conformant": false
+        },
+        {
+          "step": 20,
+          "loss": 0.5270239114761353,
+          "conformant": false
+        },
+        {
+          "step": 30,
+          "loss": 0.47748860716819763,
+          "conformant": false
+        },
+        {
+          "step": 40,
+          "loss": 0.37844783067703247,
+          "conformant": false
+        },
+        {
+          "step": 50,
+          "loss": 0.24685519933700562,
+          "conformant": false
+        },
+        {
+          "step": 60,
+          "loss": 0.14529454708099365,
+          "conformant": false
+        },
+        {
+          "step": 70,
+          "loss": 0.08638430386781693,
+          "conformant": true
+        }
+      ],
+      "arm": "A",
+      "seed": 7,
+      "scaffold_nodes": 13,
+      "scaffold_candidates": 2330,
+      "final_description_bits": 28992,
+      "final_description_bits_no_registry": 28992,
+      "final_execution_cost": 13.0,
+      "used_module": false,
+      "selections": {
+        "call1": {
+          "operator": "tuple",
+          "sources": [
+            "a"
+          ]
+        },
+        "p1": {
+          "operator": "xor",
+          "sources": [
+            "a",
+            "d"
+          ]
+        },
+        "call2": {
+          "operator": "tuple",
+          "sources": [
+            "a"
+          ]
+        },
+        "p2": {
+          "operator": "xor",
+          "sources": [
+            "b",
+            "c"
+          ]
+        },
+        "w0": {
+          "operator": "identity",
+          "sources": [
+            "p1"
+          ]
+        },
+        "w1": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "w0"
+          ]
+        },
+        "w2": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "w1"
+          ]
+        },
+        "w3": {
+          "operator": "and",
+          "sources": [
+            "w2",
+            "p2"
+          ]
+        },
+        "w4": {
+          "operator": "and",
+          "sources": [
+            "w0",
+            "w2"
+          ]
+        },
+        "w5": {
+          "operator": "and",
+          "sources": [
+            "w2",
+            "w0"
+          ]
+        },
+        "w6": {
+          "operator": "identity",
+          "sources": [
+            "w5"
+          ]
+        },
+        "w7": {
+          "operator": "and",
+          "sources": [
+            "w5",
+            "w2"
+          ]
+        },
+        "y": {
+          "operator": "and",
+          "sources": [
+            "w3",
+            "p1"
+          ]
+        }
+      },
+      "total_wall_seconds": 19.74277227401035
+    },
+    {
+      "first_conformant_step": 70,
+      "steps_run": 71,
+      "final_loss": 0.09119266271591187,
+      "final_conformant": true,
+      "wall_seconds": 37.01551911898423,
+      "seconds_per_step": 0.5213453397040032,
+      "curve": [
+        {
+          "step": 0,
+          "loss": 0.6485779881477356,
+          "conformant": false
+        },
+        {
+          "step": 10,
+          "loss": 0.5707621574401855,
+          "conformant": false
+        },
+        {
+          "step": 20,
+          "loss": 0.5329124927520752,
+          "conformant": false
+        },
+        {
+          "step": 30,
+          "loss": 0.48951423168182373,
+          "conformant": false
+        },
+        {
+          "step": 40,
+          "loss": 0.40728309750556946,
+          "conformant": false
+        },
+        {
+          "step": 50,
+          "loss": 0.28080230951309204,
+          "conformant": false
+        },
+        {
+          "step": 60,
+          "loss": 0.1730436235666275,
+          "conformant": false
+        },
+        {
+          "step": 70,
+          "loss": 0.10412149131298065,
+          "conformant": true
+        }
+      ],
+      "arm": "B",
+      "seed": 7,
+      "scaffold_nodes": 13,
+      "scaffold_candidates": 2458,
+      "final_description_bits": 42064,
+      "final_description_bits_no_registry": 29976,
+      "final_execution_cost": 21.0,
+      "used_module": true,
+      "selections": {
+        "call1": {
+          "operator": "module:b45bb8c",
+          "sources": [
+            "a",
+            "d",
+            "c"
+          ]
+        },
+        "p1": {
+          "operator": "xor",
+          "sources": [
+            "b",
+            "c"
+          ]
+        },
+        "call2": {
+          "operator": "module:b45bb8c",
+          "sources": [
+            "b",
+            "d",
+            "c"
+          ]
+        },
+        "p2": {
+          "operator": "xor",
+          "sources": [
+            "a",
+            "d"
+          ]
+        },
+        "w0": {
+          "operator": "identity",
+          "sources": [
+            "p2"
+          ]
+        },
+        "w1": {
+          "operator": "identity",
+          "sources": [
+            "p2"
+          ]
+        },
+        "w2": {
+          "operator": "xor",
+          "sources": [
+            "c",
+            "b"
+          ]
+        },
+        "w3": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "w2"
+          ]
+        },
+        "w4": {
+          "operator": "identity",
+          "sources": [
+            "w3"
+          ]
+        },
+        "w5": {
+          "operator": "and",
+          "sources": [
+            "w0",
+            "w2"
+          ]
+        },
+        "w6": {
+          "operator": "and",
+          "sources": [
+            "w4",
+            "w2"
+          ]
+        },
+        "w7": {
+          "operator": "and",
+          "sources": [
+            "w4",
+            "w2"
+          ]
+        },
+        "y": {
+          "operator": "and",
+          "sources": [
+            "p2",
+            "w3"
+          ]
+        }
+      },
+      "total_wall_seconds": 37.62941372097703
+    }
+  ]
+}

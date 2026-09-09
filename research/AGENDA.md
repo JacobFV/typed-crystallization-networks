@@ -39,3 +39,22 @@ crystallization.
 Track 1 is the load-bearing one. Progressive hardening with residual retraining
 and transactional rollback is the architecture's central mechanism. If argmax
 rounding at the end of training matches it, the mechanism is unnecessary.
+
+## Track 5 result (2026-09-08)
+
+Answered in `research/recursive-abstraction/RESULTS.md`. **No measurable
+benefit.** Two matched experiments (half adder -> full adder; MAJ3 -> sliding
+majority), 8-12 seeds per arm, one shared scaffold whose only difference is
+whether the crystallized module is offered as a candidate:
+
+- E1 3/12 flat vs 2/12 with module (Fisher p = 1.00); E2 5/8 vs 7/8 (p = 0.57).
+- In 0 of 20 arm-B runs was the module on the output path of the discovered
+  program, including 0 of 10 successes.
+- The sec. 4 accounting claim is correctly implemented (definition once, call
+  sites each, cost per use, transitive) but the abstracted program is 1.4x
+  larger, 1.4-1.6x costlier and 1.7x slower at batch one; description-size
+  crossover needs 4 call sites and execution cost never crosses over.
+- Proposed core changes in the report: F1 collapse unit-arity module output
+  types, F2 memoize `Program.validate` (module candidates are 16-98x costlier
+  than primitives), F3 wire the MDL term into `synthesis.fit`, F4 prune dead
+  nodes before export/registration.

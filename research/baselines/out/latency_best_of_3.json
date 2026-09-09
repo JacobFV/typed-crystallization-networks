@@ -1,0 +1,83 @@
+{
+  "mixed/tcn_frozen_program": {
+    "p50_ms_best_of_3": 0.058752,
+    "p95_ms_best_of_3": 0.065696,
+    "p50_all": [
+      0.0603,
+      0.05875,
+      0.06204
+    ]
+  },
+  "mixed/mlp_answer_torch": {
+    "p50_ms_best_of_3": 0.0513925,
+    "p95_ms_best_of_3": 0.070672,
+    "p50_all": [
+      0.25306,
+      0.28435,
+      0.05139
+    ]
+  },
+  "mixed/mlp_signals_torch": {
+    "p50_ms_best_of_3": 0.0638325,
+    "p95_ms_best_of_3": 0.074544,
+    "p50_all": [
+      0.06383,
+      0.31638,
+      0.32203
+    ]
+  },
+  "mixed/python_oracle": {
+    "p50_ms_best_of_3": 0.000128,
+    "p95_ms_best_of_3": 0.000144,
+    "p50_all": [
+      0.00013,
+      0.00022,
+      0.00024
+    ]
+  },
+  "joint/tcn_frozen_program": {
+    "p50_ms_best_of_3": 0.24713649999999998,
+    "p95_ms_best_of_3": 1.241026,
+    "p50_all": [
+      0.24714,
+      0.48315,
+      0.47987
+    ]
+  },
+  "joint/mlp_matched_w8_d2_torch": {
+    "p50_ms_best_of_3": 0.037767999999999996,
+    "p95_ms_best_of_3": 0.047296,
+    "p50_all": [
+      0.03777,
+      0.03794,
+      0.2473
+    ]
+  },
+  "joint/mlp_matched_w32_d2_torch": {
+    "p50_ms_best_of_3": 0.040768,
+    "p95_ms_best_of_3": 0.050416,
+    "p50_all": [
+      0.04089,
+      0.25862,
+      0.04077
+    ]
+  },
+  "joint/lookup_table_32bit": {
+    "p50_ms_best_of_3": 0.000448,
+    "p95_ms_best_of_3": 0.000512,
+    "p50_all": [
+      0.00045,
+      0.00045,
+      0.00083
+    ]
+  },
+  "joint/python_oracle": {
+    "p50_ms_best_of_3": 0.000112,
+    "p95_ms_best_of_3": 0.00016,
+    "p50_all": [
+      0.00013,
+      0.00011,
+      0.00021
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "mixed/tcn_frozen_program": {
+    "scope": "exact model, batch one, warmed",
+    "repetitions": 100,
+    "p50_ms": 0.060296,
+    "p95_ms": 0.074464
+  },
+  "mixed/mlp_answer_torch": {
+    "scope": "torch MLP, batch one, warmed",
+    "repetitions": 100,
+    "p50_ms": 0.253064,
+    "p95_ms": 3.336309
+  },
+  "mixed/mlp_signals_torch": {
+    "scope": "torch MLP, batch one, warmed",
+    "repetitions": 100,
+    "p50_ms": 0.0638325,
+    "p95_ms": 0.074544
+  },
+  "mixed/python_oracle": {
+    "scope": "python oracle, batch one, warmed",
+    "repetitions": 100,
+    "p50_ms": 0.000128,
+    "p95_ms": 0.000144
+  },
+  "joint/tcn_frozen_program": {
+    "scope": "exact model, batch one, warmed",
+    "repetitions": 100,
+    "p50_ms": 0.24713649999999998,
+    "p95_ms": 3.276486
+  },
+  "joint/mlp_matched_w8_d2_torch": {
+    "scope": "torch MLP, batch one, warmed",
+    "repetitions": 100,
+    "p50_ms": 0.037767999999999996,
+    "p95_ms": 0.047296
+  },
+  "joint/mlp_matched_w32_d2_torch": {
+    "scope": "torch MLP, batch one, warmed",
+    "repetitions": 100,
+    "p50_ms": 0.040888,
+    "p95_ms": 0.050416
+  },
+  "joint/lookup_table_32bit": {
+    "scope": "32-entry lookup, batch one, warmed",
+    "repetitions": 100,
+    "p50_ms": 0.000448,
+    "p95_ms": 0.000512
+  },
+  "joint/python_oracle": {
+    "scope": "python oracle, batch one, warmed",
+    "repetitions": 100,
+    "p50_ms": 0.000128,
+    "p95_ms": 0.00016
+  }
+}

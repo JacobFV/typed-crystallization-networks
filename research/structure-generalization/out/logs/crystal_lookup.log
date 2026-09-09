@@ -1,0 +1,26 @@
+lookup seed 0 frozen=True train_tables_affine=4.000 heldout_tables_nonaffine=4.000
+lookup seed 1 frozen=True train_tables_affine=4.000 heldout_tables_nonaffine=4.000
+lookup seed 2 frozen=True train_tables_affine=4.000 heldout_tables_nonaffine=4.000
+lookup seed 3 frozen=True train_tables_affine=4.000 heldout_tables_nonaffine=4.000
+lookup seed 4 frozen=True train_tables_affine=4.000 heldout_tables_nonaffine=4.000
+lookup seed 5 frozen=True train_tables_affine=4.000 heldout_tables_nonaffine=4.000
+lookup seed 6 frozen=True train_tables_affine=4.000 heldout_tables_nonaffine=4.000
+lookup seed 7 frozen=True train_tables_affine=4.000 heldout_tables_nonaffine=4.000
+{
+  "train_tables_affine": {
+    "mean": 4.0,
+    "sd": 0.0,
+    "sem": 0.0,
+    "n": 8,
+    "min": 4.0,
+    "max": 4.0
+  },
+  "heldout_tables_nonaffine": {
+    "mean": 4.0,
+    "sd": 0.0,
+    "sem": 0.0,
+    "n": 8,
+    "min": 4.0,
+    "max": 4.0
+  }
+}

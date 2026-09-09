@@ -1,0 +1,108 @@
+{
+  "mixed/tcn_frozen_program": {
+    "scope": "exact model, typed input through typed output, batch one",
+    "repetitions": 100,
+    "p50_ms": 0.060192,
+    "p95_ms": 0.095008,
+    "description_bits": 17728
+  },
+  "mixed/mlp_answer_torch": {
+    "scope": "torch MLP forward, batch one, no_grad",
+    "repetitions": 100,
+    "p50_ms": 0.25044,
+    "p95_ms": 3.333096
+  },
+  "mixed/mlp_answer_numpy": {
+    "scope": "numpy-exported MLP, batch one",
+    "repetitions": 100,
+    "p50_ms": 0.00776,
+    "p95_ms": 0.008544
+  },
+  "mixed/mlp_signals_torch": {
+    "scope": "torch MLP forward, batch one, no_grad",
+    "repetitions": 100,
+    "p50_ms": 0.30646450000000003,
+    "p95_ms": 7.517296
+  },
+  "mixed/mlp_signals_numpy": {
+    "scope": "numpy-exported MLP, batch one",
+    "repetitions": 100,
+    "p50_ms": 0.0081045,
+    "p95_ms": 0.008336
+  },
+  "mixed/python_oracle": {
+    "scope": "hand-written Python oracle, batch one",
+    "repetitions": 100,
+    "p50_ms": 0.000208,
+    "p95_ms": 0.000384,
+    "params": 0
+  },
+  "joint/tcn_frozen_program": {
+    "scope": "exact model, typed input through typed output, batch one",
+    "repetitions": 100,
+    "p50_ms": 0.47236900000000004,
+    "p95_ms": 9.931461,
+    "description_bits": 68768
+  },
+  "joint/mlp_reinforce_torch": {
+    "scope": "torch policy+value forward, batch one, no_grad",
+    "repetitions": 100,
+    "p50_ms": 0.07411999999999999,
+    "p95_ms": 0.081152
+  },
+  "joint/mlp_reinforce_numpy": {
+    "scope": "numpy-exported MLP, batch one",
+    "repetitions": 100,
+    "p50_ms": 0.004336,
+    "p95_ms": 0.005088
+  },
+  "joint/mlp_aux_torch": {
+    "scope": "torch policy+value forward, batch one, no_grad",
+    "repetitions": 100,
+    "p50_ms": 0.4514725,
+    "p95_ms": 4.662874
+  },
+  "joint/mlp_aux_numpy": {
+    "scope": "numpy-exported MLP, batch one",
+    "repetitions": 100,
+    "p50_ms": 0.010576,
+    "p95_ms": 0.01112
+  },
+  "joint/mlp_matched_w8_d2_torch": {
+    "scope": "torch MLP forward, batch one, no_grad",
+    "repetitions": 100,
+    "p50_ms": 0.038127999999999995,
+    "p95_ms": 0.049136
+  },
+  "joint/mlp_matched_w8_d2_numpy": {
+    "scope": "numpy-exported MLP, batch one",
+    "repetitions": 100,
+    "p50_ms": 0.002592,
+    "p95_ms": 0.00288
+  },
+  "joint/mlp_matched_w32_d2_torch": {
+    "scope": "torch MLP forward, batch one, no_grad",
+    "repetitions": 100,
+    "p50_ms": 0.0535845,
+    "p95_ms": 0.269712
+  },
+  "joint/mlp_matched_w32_d2_numpy": {
+    "scope": "numpy-exported MLP, batch one",
+    "repetitions": 100,
+    "p50_ms": 0.002672,
+    "p95_ms": 0.003552
+  },
+  "joint/lookup_table_32bit": {
+    "scope": "32-entry lookup, batch one",
+    "repetitions": 100,
+    "p50_ms": 0.000432,
+    "p95_ms": 0.000512,
+    "description_bits": 32
+  },
+  "joint/python_oracle": {
+    "scope": "hand-written Python oracle, batch one",
+    "repetitions": 100,
+    "p50_ms": 0.000112,
+    "p95_ms": 0.00016
+  }
+}

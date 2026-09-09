@@ -1,0 +1,52 @@
+[module] seed=0 ok=True steps=6 digest=ebfdebfbe63fe640194669aa
+[module] seed=1 ok=True steps=21 digest=ad640112eab13ff78cafa9cf
+[module] seed=2 ok=True steps=51 digest=5f960fd19d3162b2028f8654
+[module] seed=3 ok=True steps=31 digest=7f808ffce92dbffe7aeaba8e
+[module] seed=4 ok=True steps=36 digest=b3c01cdd7b63e94474eaa8fb
+[module] seed=5 ok=True steps=31 digest=9f10c19ddd2d3d0e535b2277
+[module] seed=6 ok=True steps=41 digest=49bc9274f0a745fcc64426a8
+[module] seed=7 ok=True steps=56 digest=3b9317a1c405973bc771e97c
+[module] seed=8 ok=True steps=21 digest=11b3c25a51ec80a4a52c832a
+[module] seed=9 ok=True steps=26 digest=9be38c27c0df44908f7b0f91
+[module] seed=10 ok=True steps=36 digest=5f960fd19d3162b2028f8654
+[module] seed=11 ok=True steps=31 digest=6447af61f3d2bd15094d0113
+[A] seed=0 conf=True first_step=140 loss=0.1242 bits=24336 cost=10.0 t=48.2s
+[B] seed=0 conf=False first_step=None loss=0.1399 bits=24320 cost=10.0 t=157.9s
+[A] seed=1 conf=False first_step=None loss=0.1469 bits=24304 cost=10.0 t=146.4s
+[B] seed=1 conf=False first_step=None loss=0.1395 bits=24320 cost=10.0 t=155.8s
+[A] seed=2 conf=False first_step=None loss=0.1423 bits=24320 cost=10.0 t=152.7s
+[B] seed=2 conf=False first_step=None loss=0.0739 bits=24328 cost=10.0 t=102.4s
+[A] seed=3 conf=True first_step=130 loss=0.0854 bits=24320 cost=10.0 t=20.1s
+[B] seed=3 conf=False first_step=None loss=0.0751 bits=24184 cost=10.0 t=123.6s
+[A] seed=4 conf=False first_step=None loss=0.1394 bits=24272 cost=10.0 t=93.3s
+[B] seed=4 conf=False first_step=None loss=0.1463 bits=24320 cost=10.0 t=99.7s
+[A] seed=5 conf=False first_step=None loss=0.1467 bits=24152 cost=10.0 t=77.3s
+[B] seed=5 conf=False first_step=None loss=0.1548 bits=24168 cost=10.0 t=116.7s
+[A] seed=6 conf=True first_step=180 loss=0.0860 bits=24304 cost=10.0 t=53.5s
+[B] seed=6 conf=True first_step=100 loss=0.1826 bits=24352 cost=10.0 t=25.0s
+[A] seed=7 conf=False first_step=None loss=0.1399 bits=24288 cost=10.0 t=52.1s
+[B] seed=7 conf=False first_step=None loss=0.1397 bits=24312 cost=10.0 t=74.8s
+[A] seed=8 conf=False first_step=None loss=0.1479 bits=24192 cost=10.0 t=53.4s
+[B] seed=8 conf=False first_step=None loss=0.1546 bits=24160 cost=10.0 t=90.7s
+[A] seed=9 conf=False first_step=None loss=0.0750 bits=24304 cost=10.0 t=67.0s
+[B] seed=9 conf=True first_step=230 loss=0.0291 bits=24352 cost=10.0 t=72.7s
+[A] seed=10 conf=False first_step=None loss=0.1550 bits=24288 cost=10.0 t=83.4s
+[B] seed=10 conf=False first_step=None loss=0.1466 bits=24280 cost=10.0 t=137.1s
+[A] seed=11 conf=False first_step=None loss=0.0750 bits=24320 cost=10.0 t=118.0s
+[B] seed=11 conf=False first_step=None loss=0.0748 bits=32360 cost=12.0 t=157.4s
+
+arm A: n=12 success=3/12
+  steps to conformance: median=140 mean=150.0 min=130 max=180
+  final loss median=0.1397
+  description bits median=24304.0
+  execution cost median=10.0
+  candidates in scaffold=1169
+  sec/step median=0.1511
+
+arm B: n=12 success=2/12
+  steps to conformance: median=165.0 mean=165.0 min=100 max=230
+  final loss median=0.1398
+  description bits median=24320.0
+  execution cost median=10.0
+  candidates in scaffold=1203
+  sec/step median=0.1702

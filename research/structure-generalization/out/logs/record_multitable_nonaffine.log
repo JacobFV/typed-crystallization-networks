@@ -1,0 +1,26 @@
+record_multitable_nonaffine seed 0: train_tables_nonaffine=1.750  heldout_tables_affine=1.875
+record_multitable_nonaffine seed 1: train_tables_nonaffine=1.812  heldout_tables_affine=1.750
+record_multitable_nonaffine seed 2: train_tables_nonaffine=1.562  heldout_tables_affine=1.875
+record_multitable_nonaffine seed 3: train_tables_nonaffine=2.062  heldout_tables_affine=1.750
+record_multitable_nonaffine seed 4: train_tables_nonaffine=1.875  heldout_tables_affine=2.188
+record_multitable_nonaffine seed 5: train_tables_nonaffine=1.875  heldout_tables_affine=1.750
+record_multitable_nonaffine seed 6: train_tables_nonaffine=2.000  heldout_tables_affine=1.688
+record_multitable_nonaffine seed 7: train_tables_nonaffine=1.875  heldout_tables_affine=2.125
+{
+  "train_tables_nonaffine": {
+    "mean": 1.8515625,
+    "sd": 0.15286512203807082,
+    "sem": 0.05404598220001451,
+    "n": 8,
+    "min": 1.5625,
+    "max": 2.0625
+  },
+  "heldout_tables_affine": {
+    "mean": 1.875,
+    "sd": 0.18600595228571123,
+    "sem": 0.0657630351011439,
+    "n": 8,
+    "min": 1.6875,
+    "max": 2.1875
+  }
+}

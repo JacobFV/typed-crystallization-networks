@@ -1,0 +1,112 @@
+{
+  "e1_full_adder": {
+    "min_gates": 5,
+    "program": [
+      [
+        "and",
+        0,
+        1
+      ],
+      [
+        "xor",
+        0,
+        1
+      ],
+      [
+        "and",
+        2,
+        4
+      ],
+      [
+        "xor",
+        2,
+        4
+      ],
+      [
+        "or",
+        3,
+        5
+      ]
+    ]
+  },
+  "e1_half_adder_module": {
+    "min_gates": 2,
+    "program": [
+      [
+        "and",
+        0,
+        1
+      ],
+      [
+        "xor",
+        0,
+        1
+      ]
+    ]
+  },
+  "e2_sliding_majority": {
+    "min_gates": 3,
+    "program": [
+      [
+        "xor",
+        0,
+        3
+      ],
+      [
+        "xor",
+        1,
+        2
+      ],
+      [
+        "and",
+        4,
+        5
+      ]
+    ]
+  },
+  "e2_maj3_module": {
+    "min_gates": 4,
+    "program": [
+      [
+        "and",
+        0,
+        1
+      ],
+      [
+        "or",
+        0,
+        1
+      ],
+      [
+        "or",
+        2,
+        3
+      ],
+      [
+        "and",
+        4,
+        5
+      ]
+    ]
+  },
+  "e2_alt_shared_pair": {
+    "min_gates": 3,
+    "program": [
+      [
+        "xor",
+        0,
+        1
+      ],
+      [
+        "xor",
+        2,
+        3
+      ],
+      [
+        "and",
+        4,
+        5
+      ]
+    ]
+  }
+}

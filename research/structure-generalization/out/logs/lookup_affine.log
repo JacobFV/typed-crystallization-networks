@@ -1,0 +1,26 @@
+lookup_affine seed 0: train_tables_affine=4.000  heldout_tables_nonaffine=4.000
+lookup_affine seed 1: train_tables_affine=3.500  heldout_tables_nonaffine=3.438
+lookup_affine seed 2: train_tables_affine=4.000  heldout_tables_nonaffine=4.000
+lookup_affine seed 3: train_tables_affine=3.812  heldout_tables_nonaffine=3.312
+lookup_affine seed 4: train_tables_affine=3.688  heldout_tables_nonaffine=3.312
+lookup_affine seed 5: train_tables_affine=4.000  heldout_tables_nonaffine=3.875
+lookup_affine seed 6: train_tables_affine=3.438  heldout_tables_nonaffine=3.500
+lookup_affine seed 7: train_tables_affine=4.000  heldout_tables_nonaffine=4.000
+{
+  "train_tables_affine": {
+    "mean": 3.8046875,
+    "sd": 0.2372590412999501,
+    "sem": 0.08388373850050693,
+    "n": 8,
+    "min": 3.4375,
+    "max": 4.0
+  },
+  "heldout_tables_nonaffine": {
+    "mean": 3.6796875,
+    "sd": 0.3177022345238204,
+    "sem": 0.11232470221495613,
+    "n": 8,
+    "min": 3.3125,
+    "max": 4.0
+  }
+}

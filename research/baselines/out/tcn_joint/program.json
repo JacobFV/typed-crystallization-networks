@@ -1,0 +1,898 @@
+{
+  "digest": "b725b92d9e485e66eb12c05e",
+  "format": "tcn.artifact/1",
+  "modules": [],
+  "program": {
+    "constants": [
+      [
+        "w0",
+        {
+          "raw": 3224826617,
+          "type": {
+            "bits": 32,
+            "encoding": {
+              "kind": "float",
+              "overflow": "error",
+              "scale": 1.0,
+              "signed": true
+            },
+            "kind": "int"
+          }
+        }
+      ],
+      [
+        "w1",
+        {
+          "raw": 1077366355,
+          "type": {
+            "bits": 32,
+            "encoding": {
+              "kind": "float",
+              "overflow": "error",
+              "scale": 1.0,
+              "signed": true
+            },
+            "kind": "int"
+          }
+        }
+      ],
+      [
+        "bias0",
+        {
+          "raw": 1065743740,
+          "type": {
+            "bits": 32,
+            "encoding": {
+              "kind": "float",
+              "overflow": "error",
+              "scale": 1.0,
+              "signed": true
+            },
+            "kind": "int"
+          }
+        }
+      ],
+      [
+        "bias1",
+        {
+          "raw": 3213238257,
+          "type": {
+            "bits": 32,
+            "encoding": {
+              "kind": "float",
+              "overflow": "error",
+              "scale": 1.0,
+              "signed": true
+            },
+            "kind": "int"
+          }
+        }
+      ],
+      [
+        "baseline",
+        {
+          "raw": 1074573632,
+          "type": {
+            "bits": 32,
+            "encoding": {
+              "kind": "float",
+              "overflow": "error",
+              "scale": 1.0,
+              "signed": true
+            },
+            "kind": "int"
+          }
+        }
+      ]
+    ],
+    "format": "tcn.program/1",
+    "input_depths": [],
+    "inputs": [
+      [
+        "bits",
+        {
+          "items": [
+            {
+              "kind": "bool"
+            },
+            {
+              "kind": "bool"
+            },
+            {
+              "kind": "bool"
+            },
+            {
+              "kind": "bool"
+            }
+          ],
+          "kind": "tuple"
+        }
+      ],
+      [
+        "goal",
+        {
+          "kind": "bool"
+        }
+      ],
+      [
+        "action",
+        {
+          "items": [
+            {
+              "bits": 32,
+              "encoding": {
+                "kind": "float",
+                "overflow": "error",
+                "scale": 1.0,
+                "signed": true
+              },
+              "kind": "int"
+            },
+            {
+              "bits": 32,
+              "encoding": {
+                "kind": "float",
+                "overflow": "error",
+                "scale": 1.0,
+                "signed": true
+              },
+              "kind": "int"
+            }
+          ],
+          "kind": "tuple"
+        }
+      ],
+      [
+        "dt",
+        {
+          "bits": 32,
+          "encoding": {
+            "kind": "float",
+            "overflow": "error",
+            "scale": 1.0,
+            "signed": true
+          },
+          "kind": "int"
+        }
+      ]
+    ],
+    "nodes": [
+      {
+        "candidates": [
+          {
+            "operator": {
+              "inputs": [
+                {
+                  "items": [
+                    {
+                      "kind": "bool"
+                    },
+                    {
+                      "kind": "bool"
+                    },
+                    {
+                      "kind": "bool"
+                    },
+                    {
+                      "kind": "bool"
+                    }
+                  ],
+                  "kind": "tuple"
+                }
+              ],
+              "name": "project",
+              "output": {
+                "kind": "bool"
+              },
+              "parameters": {
+                "index": 0
+              }
+            },
+            "sources": [
+              "bits"
+            ]
+          }
+        ],
+        "depth": 1,
+        "name": "bit_0",
+        "output": {
+          "kind": "bool"
+        },
+        "region": "observation",
+        "selected": 0
+      },
+      {
+        "candidates": [
+          {
+            "operator": {
+              "inputs": [
+                {
+                  "items": [
+                    {
+                      "kind": "bool"
+                    },
+                    {
+                      "kind": "bool"
+                    },
+                    {
+                      "kind": "bool"
+                    },
+                    {
+                      "kind": "bool"
+                    }
+                  ],
+                  "kind": "tuple"
+                }
+              ],
+              "name": "project",
+              "output": {
+                "kind": "bool"
+              },
+              "parameters": {
+                "index": 1
+              }
+            },
+            "sources": [
+              "bits"
+            ]
+          }
+        ],
+        "depth": 1,
+        "name": "bit_1",
+        "output": {
+          "kind": "bool"
+        },
+        "region": "observation",
+        "selected": 0
+      },
+      {
+        "candidates": [
+          {
+            "operator": {
+              "inputs": [
+                {
+                  "kind": "bool"
+                },
+                {
+                  "kind": "bool"
+                }
+              ],
+              "name": "truth_6",
+              "output": {
+                "kind": "bool"
+              },
+              "parameters": {}
+            },
+            "sources": [
+              "bit_0",
+              "bit_1"
+            ]
+          }
+        ],
+        "depth": 2,
+        "name": "relation",
+        "output": {
+          "kind": "bool"
+        },
+        "region": "latent",
+        "selected": 0
+      },
+      {
+        "candidates": [
+          {
+            "operator": {
+              "inputs": [
+                {
+                  "kind": "bool"
+                },
+                {
+                  "kind": "bool"
+                }
+              ],
+              "name": "truth_6",
+              "output": {
+                "kind": "bool"
+              },
+              "parameters": {}
+            },
+            "sources": [
+              "relation",
+              "goal"
+            ]
+          }
+        ],
+        "depth": 3,
+        "name": "goal_relation",
+        "output": {
+          "kind": "bool"
+        },
+        "region": "latent",
+        "selected": 0
+      },
+      {
+        "candidates": [
+          {
+            "operator": {
+              "inputs": [
+                {
+                  "kind": "bool"
+                }
+              ],
+              "name": "encode",
+              "output": {
+                "bits": 32,
+                "encoding": {
+                  "kind": "float",
+                  "overflow": "error",
+                  "scale": 1.0,
+                  "signed": true
+                },
+                "kind": "int"
+              },
+              "parameters": {}
+            },
+            "sources": [
+              "goal_relation"
+            ]
+          }
+        ],
+        "depth": 4,
+        "name": "z",
+        "output": {
+          "bits": 32,
+          "encoding": {
+            "kind": "float",
+            "overflow": "error",
+            "scale": 1.0,
+            "signed": true
+          },
+          "kind": "int"
+        },
+        "region": "encoding",
+        "selected": 0
+      },
+      {
+        "candidates": [
+          {
+            "operator": {
+              "inputs": [
+                {
+                  "kind": "bool"
+                }
+              ],
+              "name": "encode",
+              "output": {
+                "bits": 32,
+                "encoding": {
+                  "kind": "float",
+                  "overflow": "error",
+                  "scale": 1.0,
+                  "signed": true
+                },
+                "kind": "int"
+              },
+              "parameters": {}
+            },
+            "sources": [
+              "relation"
+            ]
+          }
+        ],
+        "depth": 4,
+        "name": "world",
+        "output": {
+          "bits": 32,
+          "encoding": {
+            "kind": "float",
+            "overflow": "error",
+            "scale": 1.0,
+            "signed": true
+          },
+          "kind": "int"
+        },
+        "region": "encoding",
+        "selected": 0
+      },
+      {
+        "candidates": [
+          {
+            "operator": {
+              "inputs": [
+                {
+                  "bits": 32,
+                  "encoding": {
+                    "kind": "float",
+                    "overflow": "error",
+                    "scale": 1.0,
+                    "signed": true
+                  },
+                  "kind": "int"
+                },
+                {
+                  "bits": 32,
+                  "encoding": {
+                    "kind": "float",
+                    "overflow": "error",
+                    "scale": 1.0,
+                    "signed": true
+                  },
+                  "kind": "int"
+                }
+              ],
+              "name": "mul",
+              "output": {
+                "bits": 32,
+                "encoding": {
+                  "kind": "float",
+                  "overflow": "error",
+                  "scale": 1.0,
+                  "signed": true
+                },
+                "kind": "int"
+              },
+              "parameters": {}
+            },
+            "sources": [
+              "z",
+              "w0"
+            ]
+          }
+        ],
+        "depth": 5,
+        "name": "mul0",
+        "output": {
+          "bits": 32,
+          "encoding": {
+            "kind": "float",
+            "overflow": "error",
+            "scale": 1.0,
+            "signed": true
+          },
+          "kind": "int"
+        },
+        "region": "policy",
+        "selected": 0
+      },
+      {
+        "candidates": [
+          {
+            "operator": {
+              "inputs": [
+                {
+                  "bits": 32,
+                  "encoding": {
+                    "kind": "float",
+                    "overflow": "error",
+                    "scale": 1.0,
+                    "signed": true
+                  },
+                  "kind": "int"
+                },
+                {
+                  "bits": 32,
+                  "encoding": {
+                    "kind": "float",
+                    "overflow": "error",
+                    "scale": 1.0,
+                    "signed": true
+                  },
+                  "kind": "int"
+                }
+              ],
+              "name": "add",
+              "output": {
+                "bits": 32,
+                "encoding": {
+                  "kind": "float",
+                  "overflow": "error",
+                  "scale": 1.0,
+                  "signed": true
+                },
+                "kind": "int"
+              },
+              "parameters": {}
+            },
+            "sources": [
+              "mul0",
+              "bias0"
+            ]
+          }
+        ],
+        "depth": 6,
+        "name": "logit0",
+        "output": {
+          "bits": 32,
+          "encoding": {
+            "kind": "float",
+            "overflow": "error",
+            "scale": 1.0,
+            "signed": true
+          },
+          "kind": "int"
+        },
+        "region": "policy",
+        "selected": 0
+      },
+      {
+        "candidates": [
+          {
+            "operator": {
+              "inputs": [
+                {
+                  "bits": 32,
+                  "encoding": {
+                    "kind": "float",
+                    "overflow": "error",
+                    "scale": 1.0,
+                    "signed": true
+                  },
+                  "kind": "int"
+                },
+                {
+                  "bits": 32,
+                  "encoding": {
+                    "kind": "float",
+                    "overflow": "error",
+                    "scale": 1.0,
+                    "signed": true
+                  },
+                  "kind": "int"
+                }
+              ],
+              "name": "mul",
+              "output": {
+                "bits": 32,
+                "encoding": {
+                  "kind": "float",
+                  "overflow": "error",
+                  "scale": 1.0,
+                  "signed": true
+                },
+                "kind": "int"
+              },
+              "parameters": {}
+            },
+            "sources": [
+              "z",
+              "w1"
+            ]
+          }
+        ],
+        "depth": 5,
+        "name": "mul1",
+        "output": {
+          "bits": 32,
+          "encoding": {
+            "kind": "float",
+            "overflow": "error",
+            "scale": 1.0,
+            "signed": true
+          },
+          "kind": "int"
+        },
+        "region": "policy",
+        "selected": 0
+      },
+      {
+        "candidates": [
+          {
+            "operator": {
+              "inputs": [
+                {
+                  "bits": 32,
+                  "encoding": {
+                    "kind": "float",
+                    "overflow": "error",
+                    "scale": 1.0,
+                    "signed": true
+                  },
+                  "kind": "int"
+                },
+                {
+                  "bits": 32,
+                  "encoding": {
+                    "kind": "float",
+                    "overflow": "error",
+                    "scale": 1.0,
+                    "signed": true
+                  },
+                  "kind": "int"
+                }
+              ],
+              "name": "add",
+              "output": {
+                "bits": 32,
+                "encoding": {
+                  "kind": "float",
+                  "overflow": "error",
+                  "scale": 1.0,
+                  "signed": true
+                },
+                "kind": "int"
+              },
+              "parameters": {}
+            },
+            "sources": [
+              "mul1",
+              "bias1"
+            ]
+          }
+        ],
+        "depth": 6,
+        "name": "logit1",
+        "output": {
+          "bits": 32,
+          "encoding": {
+            "kind": "float",
+            "overflow": "error",
+            "scale": 1.0,
+            "signed": true
+          },
+          "kind": "int"
+        },
+        "region": "policy",
+        "selected": 0
+      },
+      {
+        "candidates": [
+          {
+            "operator": {
+              "inputs": [
+                {
+                  "bits": 32,
+                  "encoding": {
+                    "kind": "float",
+                    "overflow": "error",
+                    "scale": 1.0,
+                    "signed": true
+                  },
+                  "kind": "int"
+                },
+                {
+                  "bits": 32,
+                  "encoding": {
+                    "kind": "float",
+                    "overflow": "error",
+                    "scale": 1.0,
+                    "signed": true
+                  },
+                  "kind": "int"
+                }
+              ],
+              "name": "tuple",
+              "output": {
+                "items": [
+                  {
+                    "bits": 32,
+                    "encoding": {
+                      "kind": "float",
+                      "overflow": "error",
+                      "scale": 1.0,
+                      "signed": true
+                    },
+                    "kind": "int"
+                  },
+                  {
+                    "bits": 32,
+                    "encoding": {
+                      "kind": "float",
+                      "overflow": "error",
+                      "scale": 1.0,
+                      "signed": true
+                    },
+                    "kind": "int"
+                  }
+                ],
+                "kind": "tuple"
+              },
+              "parameters": {}
+            },
+            "sources": [
+              "logit0",
+              "logit1"
+            ]
+          }
+        ],
+        "depth": 7,
+        "name": "policy",
+        "output": {
+          "items": [
+            {
+              "bits": 32,
+              "encoding": {
+                "kind": "float",
+                "overflow": "error",
+                "scale": 1.0,
+                "signed": true
+              },
+              "kind": "int"
+            },
+            {
+              "bits": 32,
+              "encoding": {
+                "kind": "float",
+                "overflow": "error",
+                "scale": 1.0,
+                "signed": true
+              },
+              "kind": "int"
+            }
+          ],
+          "kind": "tuple"
+        },
+        "region": "policy",
+        "selected": 0
+      },
+      {
+        "candidates": [
+          {
+            "operator": {
+              "inputs": [
+                {
+                  "bits": 32,
+                  "encoding": {
+                    "kind": "float",
+                    "overflow": "error",
+                    "scale": 1.0,
+                    "signed": true
+                  },
+                  "kind": "int"
+                },
+                {
+                  "bits": 32,
+                  "encoding": {
+                    "kind": "float",
+                    "overflow": "error",
+                    "scale": 1.0,
+                    "signed": true
+                  },
+                  "kind": "int"
+                }
+              ],
+              "name": "tuple",
+              "output": {
+                "items": [
+                  {
+                    "bits": 32,
+                    "encoding": {
+                      "kind": "float",
+                      "overflow": "error",
+                      "scale": 1.0,
+                      "signed": true
+                    },
+                    "kind": "int"
+                  },
+                  {
+                    "bits": 32,
+                    "encoding": {
+                      "kind": "float",
+                      "overflow": "error",
+                      "scale": 1.0,
+                      "signed": true
+                    },
+                    "kind": "int"
+                  }
+                ],
+                "kind": "tuple"
+              },
+              "parameters": {}
+            },
+            "sources": [
+              "z",
+              "world"
+            ]
+          }
+        ],
+        "depth": 5,
+        "name": "prediction",
+        "output": {
+          "items": [
+            {
+              "bits": 32,
+              "encoding": {
+                "kind": "float",
+                "overflow": "error",
+                "scale": 1.0,
+                "signed": true
+              },
+              "kind": "int"
+            },
+            {
+              "bits": 32,
+              "encoding": {
+                "kind": "float",
+                "overflow": "error",
+                "scale": 1.0,
+                "signed": true
+              },
+              "kind": "int"
+            }
+          ],
+          "kind": "tuple"
+        },
+        "region": "prediction",
+        "selected": 0
+      },
+      {
+        "candidates": [
+          {
+            "operator": {
+              "inputs": [
+                {
+                  "bits": 32,
+                  "encoding": {
+                    "kind": "float",
+                    "overflow": "error",
+                    "scale": 1.0,
+                    "signed": true
+                  },
+                  "kind": "int"
+                }
+              ],
+              "name": "tuple",
+              "output": {
+                "items": [
+                  {
+                    "bits": 32,
+                    "encoding": {
+                      "kind": "float",
+                      "overflow": "error",
+                      "scale": 1.0,
+                      "signed": true
+                    },
+                    "kind": "int"
+                  }
+                ],
+                "kind": "tuple"
+              },
+              "parameters": {}
+            },
+            "sources": [
+              "baseline"
+            ]
+          }
+        ],
+        "depth": 1,
+        "name": "value",
+        "output": {
+          "items": [
+            {
+              "bits": 32,
+              "encoding": {
+                "kind": "float",
+                "overflow": "error",
+                "scale": 1.0,
+                "signed": true
+              },
+              "kind": "int"
+            }
+          ],
+          "kind": "tuple"
+        },
+        "region": "value",
+        "selected": 0
+      }
+    ],
+    "outputs": [
+      [
+        "policy",
+        "policy"
+      ],
+      [
+        "prediction",
+        "prediction"
+      ],
+      [
+        "probe",
+        "prediction"
+      ],
+      [
+        "value",
+        "value"
+      ]
+    ],
+    "state": [],
+    "trainable_constants": [],
+    "version": 2
+  }
+}

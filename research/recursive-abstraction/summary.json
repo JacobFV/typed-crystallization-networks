@@ -1,0 +1,128 @@
+{
+  "e1": [
+    {
+      "arm": "A flat",
+      "n": 12,
+      "success": "3/12",
+      "steps_median": 140,
+      "steps_range": "130-180",
+      "loss_median": 0.1397,
+      "loss_median_failures": 0.1423,
+      "candidates": 1169,
+      "sec_per_step": 0.1511,
+      "bits_median": 24304.0,
+      "cost_median": 10.0,
+      "budget": 250,
+      "post_freeze_success": "3/12",
+      "freeze_attempts_median": 54.0,
+      "freezes_accepted_median": 0.0,
+      "fully_frozen": "2/12",
+      "freeze_reasons": {
+        "validated": 29,
+        "runtime conformance": 465,
+        "degradation": 34
+      },
+      "module_anywhere_in_argmax": 0,
+      "module_on_output_path": 0,
+      "module_on_output_path_when_successful": 0
+    },
+    {
+      "arm": "B module",
+      "n": 12,
+      "success": "2/12",
+      "steps_median": 165.0,
+      "steps_range": "100-230",
+      "loss_median": 0.1398,
+      "loss_median_failures": 0.1398,
+      "candidates": 1203,
+      "sec_per_step": 0.1702,
+      "bits_median": 24320.0,
+      "cost_median": 10.0,
+      "budget": 250,
+      "post_freeze_success": "2/12",
+      "freeze_attempts_median": 55.0,
+      "freezes_accepted_median": 0.0,
+      "fully_frozen": "2/12",
+      "freeze_reasons": {
+        "runtime conformance": 509,
+        "degradation": 55,
+        "validated": 20,
+        "disconnected remaining region": 1
+      },
+      "module_anywhere_in_argmax": 1,
+      "module_on_output_path": 0,
+      "module_on_output_path_when_successful": 0
+    },
+    {
+      "arm": "C useless module",
+      "n": 8,
+      "success": "1/8",
+      "steps_median": 110,
+      "steps_range": "110-110",
+      "loss_median": 0.1391,
+      "loss_median_failures": 0.1394,
+      "candidates": 1203,
+      "sec_per_step": 0.231,
+      "bits_median": 32552.0,
+      "cost_median": 14.0,
+      "budget": 250,
+      "module_anywhere_in_argmax": 8,
+      "module_on_output_path": 2,
+      "module_on_output_path_when_successful": 1
+    }
+  ],
+  "e1_module_stage": {
+    "n": 12,
+    "success": 12,
+    "steps_median": 31.0,
+    "steps_range": "6-56",
+    "bits_median": 7912.0,
+    "cost_median": 3.0,
+    "distinct_digests": 11
+  },
+  "e2": [
+    {
+      "arm": "A flat",
+      "n": 8,
+      "success": "5/8",
+      "steps_median": 50,
+      "steps_range": "30-80",
+      "loss_median": 0.0632,
+      "loss_median_failures": 0.0006,
+      "candidates": 2330,
+      "sec_per_step": 0.2001,
+      "bits_median": 29000.0,
+      "cost_median": 13.0,
+      "budget": 300,
+      "module_anywhere_in_argmax": 0,
+      "module_on_output_path": 0,
+      "module_on_output_path_when_successful": 0
+    },
+    {
+      "arm": "B module",
+      "n": 8,
+      "success": "7/8",
+      "steps_median": 70,
+      "steps_range": "30-90",
+      "loss_median": 0.0782,
+      "loss_median_failures": 0.0008,
+      "candidates": 2458,
+      "sec_per_step": 0.5172,
+      "bits_median": 42384.0,
+      "cost_median": 21.0,
+      "budget": 300,
+      "module_anywhere_in_argmax": 8,
+      "module_on_output_path": 0,
+      "module_on_output_path_when_successful": 0
+    }
+  ],
+  "e2_module_stage": {
+    "n": 8,
+    "success": 8,
+    "attempts_median": 2.0,
+    "acquisition_steps_median": 698.5,
+    "acquisition_steps_range": "106-1901",
+    "bits_median": 12088.0,
+    "cost_median": 5.0
+  }
+}

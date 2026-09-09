@@ -1,0 +1,35 @@
+{
+  "G1_module_output_detached": {
+    "module_gradient_declaration": "none",
+    "module_output_requires_grad": false,
+    "primitive_output_requires_grad": true
+  },
+  "G3_arguments_hard_thresholded": {
+    "outputs": {
+      "0.49,0.51": [
+        1.0,
+        0.0
+      ],
+      "0.51,0.51": [
+        0.0,
+        1.0
+      ],
+      "0.99,0.01": [
+        1.0,
+        0.0
+      ]
+    },
+    "note": "Value.unflat maps bool fields with `next(it) >= .5`; the module is a step function of its soft arguments"
+  },
+  "G2_upstream_starvation": {
+    "grad_abs_sum_u_when_mixture": 0.055555559694767,
+    "grad_abs_sum_call_when_mixture": 0.020833313465118408,
+    "loss_requires_grad_after_freezing_call_to_module": false,
+    "grads_after_freezing": null,
+    "note": "freezing the only consumer onto a module leaves the upstream node with no gradient path; Crystallizer.try_freeze detects this as 'disconnected remaining region' and rolls back"
+  },
+  "G4_choice_weight_still_learnable": {
+    "grad_on_call_node_logits": 0.020833313465118408,
+    "note": "the mixture weight over a frozen candidate receives gradient even though the candidate's output does not"
+  }
+}

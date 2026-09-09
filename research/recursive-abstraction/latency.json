@@ -1,0 +1,44 @@
+{
+  "e1_armA_flat": {
+    "scope": "exact model, typed input through typed output, batch one",
+    "repetitions": 200,
+    "p50_ms": 0.1085845,
+    "p95_ms": 0.113232,
+    "description_bits": 23864,
+    "estimated_operator_cost": 10.0
+  },
+  "e1_armB_module": {
+    "scope": "exact model, typed input through typed output, batch one",
+    "repetitions": 200,
+    "p50_ms": 0.189913,
+    "p95_ms": 0.196433,
+    "description_bits": 33536,
+    "estimated_operator_cost": 14.0
+  },
+  "e2_armA_flat": {
+    "scope": "exact model, typed input through typed output, batch one",
+    "repetitions": 200,
+    "p50_ms": 0.136305,
+    "p95_ms": 0.140385,
+    "description_bits": 28928,
+    "estimated_operator_cost": 13.0
+  },
+  "e2_armB_module": {
+    "scope": "exact model, typed input through typed output, batch one",
+    "repetitions": 200,
+    "p50_ms": 0.236065,
+    "p95_ms": 0.249345,
+    "description_bits": 41672,
+    "estimated_operator_cost": 21.0
+  },
+  "e1_armB_module_vs_flat": {
+    "p50_ratio": 1.748988115246651,
+    "bits_ratio": 1.4052966811934295,
+    "cost_ratio": 1.4
+  },
+  "e2_armB_module_vs_flat": {
+    "p50_ratio": 1.731888045192766,
+    "bits_ratio": 1.4405420353982301,
+    "cost_ratio": 1.6153846153846154
+  }
+}

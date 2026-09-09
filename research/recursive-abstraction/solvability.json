@@ -1,0 +1,50 @@
+{
+  "e1_armA_flat": {
+    "conformant": true,
+    "constrained_choices": 7,
+    "nodes": 10,
+    "description_bits": 23864,
+    "execution_cost": 10.0,
+    "pruned_nodes": 7,
+    "pruned_description_bits": 16320,
+    "pruned_description_bits_no_library": 16320,
+    "pruned_execution_cost": 7.0
+  },
+  "e1_armB_module": {
+    "conformant": true,
+    "constrained_choices": 8,
+    "module_bits": 7912,
+    "module_cost": 3.0,
+    "nodes": 10,
+    "description_bits": 33536,
+    "execution_cost": 14.0,
+    "pruned_nodes": 9,
+    "pruned_description_bits": 31656,
+    "pruned_description_bits_no_library": 23744,
+    "pruned_execution_cost": 13.0
+  },
+  "e2_armA_flat": {
+    "conformant": true,
+    "constrained_choices": 11,
+    "nodes": 13,
+    "description_bits": 28928,
+    "execution_cost": 13.0,
+    "pruned_nodes": 11,
+    "pruned_description_bits": 24208,
+    "pruned_description_bits_no_library": 24208,
+    "pruned_execution_cost": 11.0
+  },
+  "e2_armB_module": {
+    "conformant": true,
+    "constrained_choices": 5,
+    "module_bits": 12088,
+    "module_cost": 5.0,
+    "nodes": 13,
+    "description_bits": 41672,
+    "execution_cost": 21.0,
+    "pruned_nodes": 5,
+    "pruned_description_bits": 26592,
+    "pruned_description_bits_no_library": 14504,
+    "pruned_execution_cost": 13.0
+  }
+}

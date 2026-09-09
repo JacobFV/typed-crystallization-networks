@@ -1,0 +1,38 @@
+[maj] seed=0 ok=True attempts=1 steps=171 bits=12088 cost=5.0
+[maj] seed=1 ok=True attempts=1 steps=106 bits=12096 cost=5.0
+[maj] seed=2 ok=True attempts=3 steps=1316 bits=12088 cost=5.0
+[maj] seed=3 ok=True attempts=2 steps=701 bits=12088 cost=5.0
+[maj] seed=4 ok=True attempts=1 steps=131 bits=12088 cost=5.0
+[maj] seed=5 ok=True attempts=2 steps=696 bits=12088 cost=5.0
+[maj] seed=6 ok=True attempts=3 steps=1336 bits=12096 cost=5.0
+[maj] seed=7 ok=True attempts=4 steps=1901 bits=12088 cost=5.0
+[A] seed=0 conf=False first=None loss=0.0006 cands=2330 bits=29160 cost=13.0 used_module=False t=67s
+[B] seed=0 conf=False first=None loss=0.0008 cands=2458 bits=42248 cost=21.0 used_module=True t=222s
+[A] seed=1 conf=True first=40 loss=0.3932 cands=2330 bits=28920 cost=13.0 used_module=False t=11s
+[B] seed=1 conf=True first=90 loss=0.0319 cands=2458 bits=42544 cost=21.0 used_module=True t=48s
+[A] seed=2 conf=False first=None loss=0.0007 cands=2330 bits=29008 cost=13.0 used_module=False t=92s
+[B] seed=2 conf=True first=90 loss=0.0250 cands=2458 bits=42536 cost=21.0 used_module=True t=70s
+[A] seed=3 conf=True first=30 loss=0.4731 cands=2330 bits=28952 cost=13.0 used_module=False t=3s
+[B] seed=3 conf=True first=70 loss=0.0765 cands=2458 bits=42536 cost=21.0 used_module=True t=31s
+[A] seed=4 conf=True first=80 loss=0.0519 cands=2330 bits=29280 cost=13.0 used_module=False t=14s
+[B] seed=4 conf=True first=70 loss=0.0800 cands=2458 bits=42520 cost=21.0 used_module=True t=37s
+[A] seed=5 conf=False first=None loss=0.0006 cands=2330 bits=29312 cost=13.0 used_module=False t=54s
+[B] seed=5 conf=True first=30 loss=0.4609 cands=2458 bits=42152 cost=21.0 used_module=True t=13s
+[A] seed=6 conf=True first=50 loss=0.2259 cands=2330 bits=28960 cost=13.0 used_module=False t=8s
+[B] seed=6 conf=True first=70 loss=0.0905 cands=2458 bits=42240 cost=21.0 used_module=True t=37s
+[A] seed=7 conf=True first=70 loss=0.0745 cands=2330 bits=28992 cost=13.0 used_module=False t=20s
+[B] seed=7 conf=True first=70 loss=0.0912 cands=2458 bits=42064 cost=21.0 used_module=True t=38s
+
+arm A: success 5/8
+  steps median=50 min=30 max=80
+  final loss median=0.0632
+  bits median=29000.0
+  cost median=13.0
+  sec/step median=0.200
+
+arm B: success 7/8
+  steps median=70 min=30 max=90
+  final loss median=0.0782
+  bits median=42384.0
+  cost median=21.0
+  sec/step median=0.517

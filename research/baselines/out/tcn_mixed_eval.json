@@ -1,0 +1,27 @@
+{
+  "train": {
+    "maxabs": 1.7273854346910866e-08,
+    "rmse": 9.228174759412743e-09
+  },
+  "interp": {
+    "maxabs": 6.19454615380377e-08,
+    "rmse": 1.8038862892136048e-08
+  },
+  "extrap": {
+    "maxabs": 9.978283008194033e-08,
+    "rmse": 3.064025368644914e-08
+  },
+  "repo_test_points_maxabs": 2.6353140447632484e-08,
+  "all_ab_at_repo_test_points": {
+    "maxabs": 2.6353140447632484e-08,
+    "rmse": 1.6731279457995945e-08
+  },
+  "benchmark": {
+    "scope": "exact model, typed input through typed output, batch one",
+    "repetitions": 100,
+    "p50_ms": 0.0577595,
+    "p95_ms": 0.067664,
+    "description_bits": 17728,
+    "estimated_operator_cost": 4.0
+  }
+}

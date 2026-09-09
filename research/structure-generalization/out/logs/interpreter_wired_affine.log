@@ -1,0 +1,26 @@
+interpreter_wired_affine seed 0: train_tables_affine_wired=3.625  heldout_tables_nonaffine_wired=3.812
+interpreter_wired_affine seed 1: train_tables_affine_wired=2.750  heldout_tables_nonaffine_wired=2.438
+interpreter_wired_affine seed 2: train_tables_affine_wired=3.375  heldout_tables_nonaffine_wired=3.688
+interpreter_wired_affine seed 3: train_tables_affine_wired=3.375  heldout_tables_nonaffine_wired=3.625
+interpreter_wired_affine seed 4: train_tables_affine_wired=3.625  heldout_tables_nonaffine_wired=3.438
+interpreter_wired_affine seed 5: train_tables_affine_wired=3.500  heldout_tables_nonaffine_wired=3.625
+interpreter_wired_affine seed 6: train_tables_affine_wired=3.438  heldout_tables_nonaffine_wired=3.062
+interpreter_wired_affine seed 7: train_tables_affine_wired=3.250  heldout_tables_nonaffine_wired=3.000
+{
+  "train_tables_affine_wired": {
+    "mean": 3.3671875,
+    "sd": 0.2803806007019744,
+    "sem": 0.09912951203476188,
+    "n": 8,
+    "min": 2.75,
+    "max": 3.625
+  },
+  "heldout_tables_nonaffine_wired": {
+    "mean": 3.3359375,
+    "sd": 0.46643774944481375,
+    "sem": 0.16491064781690978,
+    "n": 8,
+    "min": 2.4375,
+    "max": 3.8125
+  }
+}

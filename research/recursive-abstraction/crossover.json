@@ -1,0 +1,105 @@
+{
+  "module_definition_bits": 10048,
+  "module_execution_cost": 4.0,
+  "rows": [
+    {
+      "call_sites": 1,
+      "module_bits": 17152,
+      "flat_bits": 10168,
+      "module_bits_no_library": 7104,
+      "module_cost": 5.0,
+      "flat_cost": 4.0
+    },
+    {
+      "call_sites": 2,
+      "module_bits": 22424,
+      "flat_bits": 18504,
+      "module_bits_no_library": 12376,
+      "module_cost": 10.0,
+      "flat_cost": 8.0
+    },
+    {
+      "call_sites": 3,
+      "module_bits": 27696,
+      "flat_bits": 26840,
+      "module_bits_no_library": 17648,
+      "module_cost": 15.0,
+      "flat_cost": 12.0
+    },
+    {
+      "call_sites": 4,
+      "module_bits": 32968,
+      "flat_bits": 35176,
+      "module_bits_no_library": 22920,
+      "module_cost": 20.0,
+      "flat_cost": 16.0
+    },
+    {
+      "call_sites": 5,
+      "module_bits": 38240,
+      "flat_bits": 43512,
+      "module_bits_no_library": 28192,
+      "module_cost": 25.0,
+      "flat_cost": 20.0
+    },
+    {
+      "call_sites": 6,
+      "module_bits": 43512,
+      "flat_bits": 51848,
+      "module_bits_no_library": 33464,
+      "module_cost": 30.0,
+      "flat_cost": 24.0
+    },
+    {
+      "call_sites": 7,
+      "module_bits": 48784,
+      "flat_bits": 60184,
+      "module_bits_no_library": 38736,
+      "module_cost": 35.0,
+      "flat_cost": 28.0
+    },
+    {
+      "call_sites": 8,
+      "module_bits": 54056,
+      "flat_bits": 68520,
+      "module_bits_no_library": 44008,
+      "module_cost": 40.0,
+      "flat_cost": 32.0
+    },
+    {
+      "call_sites": 9,
+      "module_bits": 59328,
+      "flat_bits": 76856,
+      "module_bits_no_library": 49280,
+      "module_cost": 45.0,
+      "flat_cost": 36.0
+    },
+    {
+      "call_sites": 10,
+      "module_bits": 64600,
+      "flat_bits": 85192,
+      "module_bits_no_library": 54552,
+      "module_cost": 50.0,
+      "flat_cost": 40.0
+    },
+    {
+      "call_sites": 11,
+      "module_bits": 69912,
+      "flat_bits": 93600,
+      "module_bits_no_library": 59864,
+      "module_cost": 55.0,
+      "flat_cost": 44.0
+    },
+    {
+      "call_sites": 12,
+      "module_bits": 75224,
+      "flat_bits": 102008,
+      "module_bits_no_library": 65176,
+      "module_cost": 60.0,
+      "flat_cost": 48.0
+    }
+  ],
+  "description_bits_crossover_call_sites": 4,
+  "execution_cost_crossover_call_sites": null,
+  "note": "execution cost never crosses over: a call is charged exactly the module's internal cost, and the module form additionally pays one projection node per call site"
+}

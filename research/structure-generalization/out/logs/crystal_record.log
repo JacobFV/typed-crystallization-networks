@@ -1,0 +1,26 @@
+record seed 0 frozen=True train_tables_affine=2.250 heldout_tables_nonaffine=2.125
+record seed 1 frozen=True train_tables_affine=1.750 heldout_tables_nonaffine=1.812
+record seed 2 frozen=True train_tables_affine=1.688 heldout_tables_nonaffine=2.000
+record seed 3 frozen=False 
+record seed 4 frozen=True train_tables_affine=1.812 heldout_tables_nonaffine=2.125
+record seed 5 frozen=False 
+record seed 6 frozen=True train_tables_affine=1.812 heldout_tables_nonaffine=2.125
+record seed 7 frozen=True train_tables_affine=2.125 heldout_tables_nonaffine=1.875
+{
+  "train_tables_affine": {
+    "mean": 1.90625,
+    "sd": 0.2262120133856732,
+    "sem": 0.0923506677470896,
+    "n": 6,
+    "min": 1.6875,
+    "max": 2.25
+  },
+  "heldout_tables_nonaffine": {
+    "mean": 2.0104166666666665,
+    "sd": 0.1392876220870565,
+    "sem": 0.05686393359981743,
+    "n": 6,
+    "min": 1.8125,
+    "max": 2.125
+  }
+}

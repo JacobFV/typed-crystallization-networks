@@ -1,0 +1,236 @@
+{
+  "digest": "d332eb48f8f56b181d47975b",
+  "format": "tcn.artifact/1",
+  "modules": [],
+  "program": {
+    "constants": [],
+    "format": "tcn.program/1",
+    "input_depths": [
+      [
+        "x",
+        2
+      ]
+    ],
+    "inputs": [
+      [
+        "a",
+        {
+          "kind": "bool"
+        }
+      ],
+      [
+        "b",
+        {
+          "kind": "bool"
+        }
+      ],
+      [
+        "x",
+        {
+          "bits": 32,
+          "encoding": {
+            "kind": "float",
+            "overflow": "error",
+            "scale": 1.0,
+            "signed": true
+          },
+          "kind": "int"
+        }
+      ]
+    ],
+    "nodes": [
+      {
+        "candidates": [
+          {
+            "operator": {
+              "inputs": [
+                {
+                  "kind": "bool"
+                },
+                {
+                  "kind": "bool"
+                }
+              ],
+              "name": "truth_6",
+              "output": {
+                "kind": "bool"
+              },
+              "parameters": {}
+            },
+            "sources": [
+              "a",
+              "b"
+            ]
+          }
+        ],
+        "depth": 1,
+        "name": "logic",
+        "output": {
+          "kind": "bool"
+        },
+        "region": "logic",
+        "selected": 0
+      },
+      {
+        "candidates": [
+          {
+            "operator": {
+              "inputs": [
+                {
+                  "kind": "bool"
+                }
+              ],
+              "name": "encode",
+              "output": {
+                "bits": 32,
+                "encoding": {
+                  "kind": "float",
+                  "overflow": "error",
+                  "scale": 1.0,
+                  "signed": true
+                },
+                "kind": "int"
+              },
+              "parameters": {}
+            },
+            "sources": [
+              "logic"
+            ]
+          }
+        ],
+        "depth": 2,
+        "name": "conversion",
+        "output": {
+          "bits": 32,
+          "encoding": {
+            "kind": "float",
+            "overflow": "error",
+            "scale": 1.0,
+            "signed": true
+          },
+          "kind": "int"
+        },
+        "region": "encoding",
+        "selected": 0
+      },
+      {
+        "candidates": [
+          {
+            "operator": {
+              "inputs": [
+                {
+                  "bits": 32,
+                  "encoding": {
+                    "kind": "float",
+                    "overflow": "error",
+                    "scale": 1.0,
+                    "signed": true
+                  },
+                  "kind": "int"
+                },
+                {
+                  "bits": 32,
+                  "encoding": {
+                    "kind": "float",
+                    "overflow": "error",
+                    "scale": 1.0,
+                    "signed": true
+                  },
+                  "kind": "int"
+                }
+              ],
+              "name": "add",
+              "output": {
+                "bits": 32,
+                "encoding": {
+                  "kind": "float",
+                  "overflow": "error",
+                  "scale": 1.0,
+                  "signed": true
+                },
+                "kind": "int"
+              },
+              "parameters": {}
+            },
+            "sources": [
+              "conversion",
+              "x"
+            ]
+          }
+        ],
+        "depth": 3,
+        "name": "algebra",
+        "output": {
+          "bits": 32,
+          "encoding": {
+            "kind": "float",
+            "overflow": "error",
+            "scale": 1.0,
+            "signed": true
+          },
+          "kind": "int"
+        },
+        "region": "algebra",
+        "selected": 0
+      },
+      {
+        "candidates": [
+          {
+            "operator": {
+              "inputs": [
+                {
+                  "bits": 32,
+                  "encoding": {
+                    "kind": "float",
+                    "overflow": "error",
+                    "scale": 1.0,
+                    "signed": true
+                  },
+                  "kind": "int"
+                }
+              ],
+              "name": "sin",
+              "output": {
+                "bits": 32,
+                "encoding": {
+                  "kind": "float",
+                  "overflow": "error",
+                  "scale": 1.0,
+                  "signed": true
+                },
+                "kind": "int"
+              },
+              "parameters": {}
+            },
+            "sources": [
+              "algebra"
+            ]
+          }
+        ],
+        "depth": 4,
+        "name": "analytic",
+        "output": {
+          "bits": 32,
+          "encoding": {
+            "kind": "float",
+            "overflow": "error",
+            "scale": 1.0,
+            "signed": true
+          },
+          "kind": "int"
+        },
+        "region": "readout",
+        "selected": 0
+      }
+    ],
+    "outputs": [
+      [
+        "answer",
+        "analytic"
+      ]
+    ],
+    "state": [],
+    "trainable_constants": [],
+    "version": 2
+  }
+}

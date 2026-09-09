@@ -1,0 +1,110 @@
+{
+  "benchmark": {
+    "description_bits": 17728,
+    "estimated_operator_cost": 4.0,
+    "p50_ms": 0.050712,
+    "p95_ms": 0.05952,
+    "repetitions": 100,
+    "scope": "exact model, typed input through typed output, batch one"
+  },
+  "exact_conformance": true,
+  "freeze_events": [
+    {
+      "accepted": true,
+      "after": 1.1685257277349592e-06,
+      "before": 7.201214884844376e-06,
+      "node": "logic",
+      "reason": "validated"
+    },
+    {
+      "accepted": true,
+      "after": 1.1617845530054183e-06,
+      "before": 1.1685257277349592e-06,
+      "node": "analytic",
+      "reason": "validated"
+    },
+    {
+      "accepted": true,
+      "after": 1.0066399909192114e-06,
+      "before": 1.1617845530054183e-06,
+      "node": "algebra",
+      "reason": "validated"
+    },
+    {
+      "accepted": true,
+      "after": 1.0066399909192114e-06,
+      "before": 1.0066399909192114e-06,
+      "node": "conversion",
+      "reason": "validated"
+    }
+  ],
+  "fully_frozen": true,
+  "loss": 1.0066399909192114e-06,
+  "training": [
+    {
+      "entropy": 4.56107759475708,
+      "loss": 1.6848690509796143,
+      "step": 0
+    },
+    {
+      "entropy": 3.2440264225006104,
+      "loss": 0.5790526270866394,
+      "step": 25
+    },
+    {
+      "entropy": 2.686044454574585,
+      "loss": 0.27766478061676025,
+      "step": 50
+    },
+    {
+      "entropy": 1.3249800205230713,
+      "loss": 0.07430381327867508,
+      "step": 75
+    },
+    {
+      "entropy": 0.8130850195884705,
+      "loss": 0.029984230175614357,
+      "step": 100
+    },
+    {
+      "entropy": 0.6282074451446533,
+      "loss": 0.01891029067337513,
+      "step": 125
+    },
+    {
+      "entropy": 0.5247557759284973,
+      "loss": 0.013902642764151096,
+      "step": 150
+    },
+    {
+      "entropy": 0.45380842685699463,
+      "loss": 0.010923922061920166,
+      "step": 175
+    },
+    {
+      "entropy": 0.4007764756679535,
+      "loss": 0.008927308954298496,
+      "step": 200
+    },
+    {
+      "entropy": 0.3591681718826294,
+      "loss": 0.007496936712414026,
+      "step": 225
+    },
+    {
+      "entropy": 0.3254247009754181,
+      "loss": 0.006425409112125635,
+      "step": 250
+    },
+    {
+      "entropy": 0.29737865924835205,
+      "loss": 0.0055955639109015465,
+      "step": 275
+    },
+    {
+      "entropy": 0.27449989318847656,
+      "loss": 0.004959803074598312,
+      "step": 299
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "call_site_scaling": [
+    {
+      "call_sites": 1,
+      "bits_with_registry": 10712,
+      "bits_without_registry": 4808,
+      "module_definition_bits": 5904,
+      "exec_cost": 2.0,
+      "flat_bits": 8616,
+      "flat_exec_cost": 3.0
+    },
+    {
+      "call_sites": 2,
+      "bits_with_registry": 13888,
+      "bits_without_registry": 7984,
+      "module_definition_bits": 5904,
+      "exec_cost": 4.0,
+      "flat_bits": 15600,
+      "flat_exec_cost": 6.0
+    },
+    {
+      "call_sites": 4,
+      "bits_with_registry": 20240,
+      "bits_without_registry": 14336,
+      "module_definition_bits": 5904,
+      "exec_cost": 8.0,
+      "flat_bits": 29568,
+      "flat_exec_cost": 12.0
+    },
+    {
+      "call_sites": 8,
+      "bits_with_registry": 32944,
+      "bits_without_registry": 27040,
+      "module_definition_bits": 5904,
+      "exec_cost": 16.0,
+      "flat_bits": 57504,
+      "flat_exec_cost": 24.0
+    }
+  ],
+  "A1_definition_counted_once": {
+    "definition_bits": 5904,
+    "per_call_site_increment": [
+      3176,
+      3176.0,
+      3176.0
+    ],
+    "increment_is_constant": true,
+    "increment_much_smaller_than_definition": true,
+    "bits_without_registry_excludes_definition": true
+  },
+  "A2_execution_cost_per_use": {
+    "costs": {
+      "1": 2.0,
+      "2": 4.0,
+      "4": 8.0,
+      "8": 16.0
+    },
+    "module_unit_cost": 2.0,
+    "linear_in_call_sites": true
+  },
+  "A3_transitive": {
+    "inner_definition_bits": 3376,
+    "middle_definition_bits": 13264,
+    "middle_bits_with_registry": 16640,
+    "top_bits_no_registry": 4464,
+    "top_bits_with_registry": 21104,
+    "top_minus_own": 16640,
+    "expected_if_transitive": 16640,
+    "transitive_description": true,
+    "inner_exec_cost": 1.0,
+    "middle_exec_cost": 5.0,
+    "top_exec_cost": 5.0,
+    "transitive_cost": true
+  },
+  "A4_shared_across_levels": {
+    "library_bits_charged": 10640,
+    "wrapper_definition_bits": 4736,
+    "inner_definition_bits": 5904,
+    "expected_once_each": 10640,
+    "counted_once_each": true
+  },
+  "A5_offered_but_unselected": {
+    "selected_index": 0,
+    "selected_operator": "tuple",
+    "library_bits_charged": 5904,
+    "module_definition_bits": 5904,
+    "note": "description_bits scans all candidates, so merely offering a module in the search space already charges its definition",
+    "exec_cost_of_selected_tuple": 1.0
+  },
+  "M1_single_output_module_call_type": {
+    "module_declared_output": {
+      "kind": "bool"
+    },
+    "call_node_output": {
+      "kind": "tuple",
+      "items": [
+        {
+          "kind": "bool"
+        }
+      ]
+    },
+    "is_bool": false,
+    "note": "a call always yields product(*outputs); a 1-output module is not a drop-in BOOL candidate"
+  },
+  "M2_candidate_evaluation_cost": {
+    "batch": 32,
+    "primitive_xor_seconds": 5.210544914007187e-05,
+    "module_call_seconds": 0.08841552605153993,
+    "slowdown": 1696.857574605257,
+    "note": "module candidates have gradient='none' -> exact_tensor -> per-row Python execution with full Program.validate on every row"
+  }
+}

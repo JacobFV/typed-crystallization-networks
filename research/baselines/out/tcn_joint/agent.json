@@ -1,0 +1,78 @@
+{
+  "action_bindings": [],
+  "action_templates": [
+    {
+      "actor": "agent_0",
+      "arguments": {
+        "value": {
+          "raw": false,
+          "type": {
+            "kind": "bool"
+          }
+        }
+      },
+      "target": "",
+      "verb": "answer"
+    },
+    {
+      "actor": "agent_0",
+      "arguments": {
+        "value": {
+          "raw": true,
+          "type": {
+            "kind": "bool"
+          }
+        }
+      },
+      "target": "",
+      "verb": "answer"
+    }
+  ],
+  "crystal_weight": 0.001,
+  "discount": 0.95,
+  "dt": 1.0,
+  "entropy_weight": 0.01,
+  "episodes": 160,
+  "generator": "logic",
+  "generator_config": {
+    "depth": 1,
+    "fixed_inputs": true,
+    "table": 6
+  },
+  "horizon": 4,
+  "lr": 0.04,
+  "mdl_weight": 0.0,
+  "objectives": [
+    {
+      "invert": false
+    },
+    {
+      "invert": true
+    }
+  ],
+  "observations": [
+    "bits",
+    "goal"
+  ],
+  "policy_weight": 1.0,
+  "prediction_weight": 1.0,
+  "probe_weight": 1.0,
+  "seed": 0,
+  "targets": [
+    {
+      "channel": "probes",
+      "horizon": 1,
+      "key": "target",
+      "loss": "mse",
+      "scale": 1.0
+    },
+    {
+      "channel": "probes",
+      "horizon": 1,
+      "key": "gate",
+      "loss": "mse",
+      "scale": 1.0
+    }
+  ],
+  "value_weight": 0.5
+}

@@ -1,0 +1,66 @@
+{
+  "affine_set": [
+    0,
+    3,
+    5,
+    6,
+    9,
+    10,
+    12,
+    15
+  ],
+  "nonaffine_set": [
+    1,
+    2,
+    4,
+    7,
+    8,
+    11,
+    13,
+    14
+  ],
+  "affine": {
+    "best_fixed_table": 0,
+    "best_accuracy": 0.5,
+    "max_return_horizon4": 2.0,
+    "fraction_true_per_input": [
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ]
+  },
+  "nonaffine": {
+    "best_fixed_table": 0,
+    "best_accuracy": 0.5,
+    "max_return_horizon4": 2.0,
+    "fraction_true_per_input": [
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ]
+  },
+  "all16": {
+    "best_fixed_table": 0,
+    "best_accuracy": 0.5,
+    "max_return_horizon4": 2.0,
+    "fraction_true_per_input": [
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ]
+  },
+  "single_table_6_xor": {
+    "best_fixed_table": 6,
+    "best_accuracy": 1.0,
+    "max_return_horizon4": 4.0,
+    "fraction_true_per_input": [
+      0.0,
+      1.0,
+      1.0,
+      0.0
+    ]
+  }
+}
