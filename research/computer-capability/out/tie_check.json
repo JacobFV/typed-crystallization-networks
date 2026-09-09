@@ -1,0 +1,33 @@
+{
+  "conforming_address_candidates_with_the_chosen_shift": [
+    {
+      "index": 9,
+      "operator": "sub",
+      "sources": [
+        "length",
+        "k0"
+      ]
+    }
+  ],
+  "conforming_shift_candidates_with_the_chosen_address": [
+    {
+      "index": 7,
+      "operator": "add",
+      "sources": [
+        "value",
+        "u1"
+      ],
+      "test_max_error": 0.0
+    },
+    {
+      "index": 15,
+      "operator": "add",
+      "sources": [
+        "u1",
+        "value"
+      ],
+      "test_max_error": 0.0
+    }
+  ],
+  "note": "the two conforming programs differ only by the commutation of `add`; the address is unique in the space"
+}

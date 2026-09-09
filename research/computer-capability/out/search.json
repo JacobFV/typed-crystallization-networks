@@ -1,0 +1,216 @@
+{
+  "policy": {
+    "candidate_counts": {
+      "brand": 8,
+      "ppos": 56
+    },
+    "enumeration": {
+      "conforming": 21,
+      "continuous": [],
+      "description_bits": 21226744,
+      "evaluated": 448,
+      "exact_max_error": 0.0,
+      "execution_cost": 9.0,
+      "exhausted": true,
+      "ranked_by": "description",
+      "seconds": 26.271462197008077,
+      "selected_candidates": {
+        "brand": {
+          "operator": "eq",
+          "sources": [
+            "pbyte",
+            "b0"
+          ]
+        },
+        "ppos": {
+          "operator": "identity",
+          "sources": [
+            "q0"
+          ]
+        }
+      },
+      "selections": {
+        "brand": 0,
+        "data": 0,
+        "inner": 0,
+        "length": 0,
+        "pbyte": 0,
+        "policy": 0,
+        "ppos": 1,
+        "previous_write": 0,
+        "visible": 0,
+        "wrote": 0
+      },
+      "solution_density": 0.046875,
+      "solved": true,
+      "space_size": 448,
+      "test_accuracy": 1.0,
+      "test_max_error": 0.0,
+      "train_accuracy": 1.0,
+      "unique": false
+    },
+    "enumeration_seconds": 28.454569848952815,
+    "gradient": {
+      "failed": "ValueError: value outside semantic bounds"
+    },
+    "gradient_seconds": 233.5475437680143,
+    "initial_gradients": {
+      "choice_gradient_max_abs": {
+        "brand": 0.0013987019192427397,
+        "ppos": 0.039793457835912704
+      },
+      "loss": 0.2319280058145523,
+      "relaxed_node_values": {
+        "brand": [
+          0.006684,
+          0.012651,
+          0.006684,
+          0.006684,
+          0.0,
+          0.006684
+        ],
+        "pbyte": [
+          100.711319,
+          49.513454,
+          100.711319,
+          100.711319,
+          57.347088,
+          100.711319
+        ]
+      }
+    },
+    "name": "policy",
+    "random_baseline": {
+      "conforming": 20,
+      "draws": 400,
+      "rate": 0.05
+    },
+    "space_size": 448,
+    "test_examples": 30,
+    "train_examples": 15
+  },
+  "policy_constant_baseline": {
+    "best_constant_test_accuracy": 0.3333333333333333,
+    "best_constant_train_accuracy": 0.3333333333333333,
+    "train_label_counts": {
+      "0": 5,
+      "1": 5,
+      "2": 5
+    }
+  },
+  "transform": {
+    "candidate_counts": {
+      "pos": 136,
+      "shift": 55
+    },
+    "enumeration": {
+      "conforming": 2,
+      "continuous": [],
+      "description_bits": 26352368,
+      "evaluated": 7480,
+      "exact_max_error": 0.0,
+      "execution_cost": 7.0,
+      "exhausted": true,
+      "ranked_by": "description",
+      "seconds": 168.4508910109871,
+      "selected_candidates": {
+        "pos": {
+          "operator": "sub",
+          "sources": [
+            "length",
+            "k0"
+          ]
+        },
+        "shift": {
+          "operator": "add",
+          "sources": [
+            "value",
+            "u1"
+          ]
+        }
+      },
+      "selections": {
+        "byte": 0,
+        "data": 0,
+        "length": 0,
+        "pos": 9,
+        "shift": 7,
+        "unpacked": 0,
+        "value": 0
+      },
+      "solution_density": 0.00026737967914438503,
+      "solved": true,
+      "space_size": 7480,
+      "test_accuracy": 1.0,
+      "test_max_error": 0.0,
+      "train_accuracy": 1.0,
+      "unique": false
+    },
+    "enumeration_seconds": 168.88462578196777,
+    "gradient": {
+      "agrees_with_enumeration": false,
+      "exact_conformance": false,
+      "exact_max_error": 52.0,
+      "fully_frozen": false,
+      "relaxed_loss": 2015.5999755859375,
+      "selections": {
+        "byte": 0,
+        "data": 0,
+        "length": 0,
+        "pos": 0,
+        "shift": 9,
+        "unpacked": 0,
+        "value": 0
+      },
+      "test_accuracy": 0.0,
+      "tolerance": 0.001,
+      "train_accuracy": 0.0
+    },
+    "gradient_seconds": 209.96958912705304,
+    "initial_gradients": {
+      "choice_gradient_max_abs": {
+        "pos": null,
+        "shift": 34.87593078613281
+      },
+      "loss": 2361.52783203125,
+      "relaxed_node_values": {
+        "byte": [
+          1e-06,
+          0.000774,
+          0.096366,
+          21.938694,
+          42.285931
+        ],
+        "shift": [
+          1.2,
+          1.2,
+          1.2,
+          5.599999,
+          9.6
+        ],
+        "value": [
+          0.0,
+          0.0,
+          0.0,
+          22.0,
+          42.0
+        ]
+      }
+    },
+    "name": "transform",
+    "random_baseline": {
+      "conforming": 0,
+      "draws": 400,
+      "rate": 0.0
+    },
+    "space_size": 7480,
+    "test_examples": 10,
+    "train_examples": 5
+  },
+  "transform_constant_baseline": {
+    "best_constant_test_accuracy": 0.2,
+    "best_constant_train_accuracy": 0.2,
+    "distinct_test_targets": 9,
+    "distinct_train_targets": 5
+  }
+}

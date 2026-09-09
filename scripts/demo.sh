@@ -2,7 +2,7 @@
 # Run every capability this repository can actually demonstrate, on the current
 # tree, and print each number next to the reference it has to beat.
 #
-#   scripts/demo.sh                    the quick pass, roughly four minutes
+#   scripts/demo.sh                    the quick pass, about five minutes idle
 #   scripts/demo.sh --full             larger seeds and wider inputs
 #   scripts/demo.sh --only depth       one demonstration
 #   scripts/demo.sh --list             the names

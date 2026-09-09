@@ -58,7 +58,18 @@ LOG_STD=-5.
 def constant(name,type_,value): return (name,Value.of(type_,value))
 
 def _node(name,output,candidates,region,depth):
-    return Node(name,output,tuple(candidates),region,depth,0 if len(candidates)==1 else None)
+    """Every node is left unselected, including the single-candidate plumbing.
+
+    `SoftProgram.__init__` treats `selected is not None` as *frozen*, and
+    `SoftProgram.forward` computes a frozen node with `exact_tensor(...).detach()`.
+    Pinning a one-candidate plumbing node therefore severs the autograd graph at
+    that node, and every choice upstream of it receives no gradient at all -- the
+    relaxed loss comes back with no `grad_fn` and `backward()` raises. Left
+    unselected, a one-candidate node is a one-way softmax, which is the identity,
+    and the relaxation is unchanged. `enumerate_fit` is unaffected either way: it
+    supplies a selection for every node and the space size is multiplied by one.
+    """
+    return Node(name,output,tuple(candidates),region,depth,None)
 
 def address_candidates(registry,ports,names=('identity','sub','add')):
     return legal_candidates(registry,names,ports,LEN,arities=(1,2))
@@ -134,8 +145,13 @@ def agent_program(registry,transform,policy,transform_selection,policy_selection
     The `action.2.text` port is the executed-action input `tcn/policy.py:action_inputs`
     requires for every binding. Nothing reads it; it is part of the declared interface.
     """
-    hardened_t=transform.harden(transform_selection)
-    hardened_p=policy.harden(policy_selection)
+    def complete(program,selection):
+        # The transform search runs on the encoder-free program, so the declared
+        # encoder nodes carry no searched selection. They have one candidate each;
+        # give them index 0 so the composed program is fully crystallized.
+        return {n.name:selection.get(n.name,0) for n in program.nodes}
+    hardened_t=transform.harden(complete(transform,transform_selection))
+    hardened_p=policy.harden(complete(policy,policy_selection))
     shared={'length','data'}
     nodes=list(hardened_t.nodes)+[n for n in hardened_p.nodes if n.name not in shared]
     constants=list(hardened_t.constants)+[c for c in hardened_p.constants if c[0] not in dict(hardened_t.constants)]

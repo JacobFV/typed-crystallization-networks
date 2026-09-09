@@ -401,12 +401,13 @@ land under `artifacts/demo/`.
 | **structural generalization** | 3.38–4.00 on gate families never trained on; interpreter candidate selected 8/8 unprompted | best constant 2.13–2.56; the recorded scaffold measures 1.95–2.03 and cannot exceed 2.00 |
 | **depth generalization** | 4.00 at depths 3, 4, 6 and 8 from one graph trained at depths 1–2 | best constant 2.06–2.50 per depth; 272-program space, optimum unique |
 | **recursive abstraction** | module on the output path in 27/27 successes | flat arm and distractor arm both 0; the 230,400-program flat space is exhausted with no solution; 144 of 144 solutions use the module |
-| **positional reuse** | one frozen module at 2,304 positions of a 6,912-value observation, 3 caller nodes | 17 structural symbols shared against 3N+13 per-position and 8N+1 inlined, at 0.93× execution cost |
+| **positional reuse** | one frozen module at 1,024 positions of a 3,072-value observation with 3 caller nodes (2,304 over 6,912 values under `--full`) | 17 structural symbols shared against 3N+13 per-position and 8N+1 inlined, at 0.93× execution cost |
 | **segmentation from raw pixels** | held-out max error 0.0 on 48 unseen episodes, background colour recovered over the full 0–255 alphabet | unique among 65,536 programs; constant predictor 0.854 |
 | **two-position edge detector** | held-out max error 0.0, accuracy 1.000, offset searched | unique among 48 staged programs; undecomposed 4.9e10 programs, 7.6 years projected; constant predictor 0.844 |
+| **a language task from raw prompt bytes** | the lexical unit discovered over the full 0–255 alphabet, unique among 10,496 programs; the grammaticality rule 1.000 at string lengths never trained on | majority constant 0.548, best fitted feature 0.648, random 0.500; gradient descent conforms 0 of 44 runs on the identical spaces |
 | **external simulator replay** | replay, snapshot/restore and cross-process reload all bit-identical, max \|Δ\| 0.0 | a scripted energy-pumping controller reaches upright 0.9994 where the zero-torque arm never exceeds −0.99 |
 
-Two further results with no demo, because they are certificates rather than runs:
+Three further results with no demo, because they are certificates rather than runs:
 
 - **Dense hierarchical supervision makes hard synthesis tractable.** Free-wiring
   synthesis goes from 19–38% to 88–94% at 2,120 candidates per node, flat at
@@ -415,6 +416,19 @@ Two further results with no demo, because they are certificates rather than runs
   it is identical to output-only supervision, because `probe_loss`'s elementwise
   BCE already is the mean of the per-element losses.
   (`research/search-scaling/RESULTS.md`, `research/perception-ladder/RESULTS.md`.)
+- **The same staged perception result reproduces on a second domain.**
+  `generators/gui` is a new peer generator that renders a widget tree to raw
+  pixels and emits it as `set[(id, parent, kind, x, y, w, h)]` at a declared
+  capacity — invariant from 2 widgets to 24 and nesting 1 to 6, the same shape as
+  `logic`'s `gates` channel. Rung one exhausts spaces of 1,280, 13,056 and 81,920
+  programs, each returning exactly one distinct Boolean function at held-out max
+  error 0.0, against a majority baseline of 0.6700 and a uniform random program
+  conforming 0 times in 400 draws; the selected program is registered and applied
+  at every position by three caller nodes. Two recoverability ceilings came back
+  negative *before* any search — with borders drawn the two-pixel equality bound
+  is exactly the majority baseline, advantage 0.0000 — and the search returns 0
+  conforming programs at exactly those settings.
+  (`research/gui-hierarchy/RESULTS.md`.)
 - **The per-pixel perception wall above segmentation is informational, not
   algorithmic.** For `object_ids` and `depth` the best possible per-pixel
   predictor — an RGB lookup table, an upper bound on the whole family — fits
@@ -455,22 +469,61 @@ the scaffold, produced the near-chance number.**
 **Policy learning from reward, restated.** An earlier version of this file, and
 of `research/FINDINGS.md`, recorded that pure policy-gradient learning fails at
 chance for the typed program and for a matched neural baseline. The second half
-holds; the first does not, and the correction is recent enough that it has no
-`RESULTS.md` yet. Measured in `research/policy-learning/out/e1.json` (8 seeds per
-arm): reward-only REINFORCE on the typed joint program with a zero-initialized
-policy readout reaches **4.00/4 on 8/8 seeds** at 2,000 training episodes (2,256
-environment episodes), while a matched 32-hidden MLP on the same raw observations
-stays at **2.023** (chance ≈ 2.0) over 2,160 environment episodes. Three
-qualifications, all measured: the typed arm selects the *reference* program only
-2/8 times, landing on one of the other reward-optimal assignments otherwise; the
-mechanism is that with zero-initialized policy constants the actor gradient with
-respect to the choice logits is **exactly zero**, and even with oracle constants
-and 256 averaged episodes it never ranks `goal_relation`'s optimum above chance,
-while the probe gradient identifies `relation` from 8 averaged episodes
-(`out/e2_direction.json`); and the cheapest reliable route measured anywhere is
-staging — 50 probe episodes then 50 reward episodes, **356 environment episodes**
-to 4.00 on 8/8 with the reference program 8/8 (`out/e4b.json`). This is a 256-way
-discrete choice on a horizon-4 task; nothing larger has been learned from reward.
+holds; the first does not. The correction is recent enough that the track has a
+`README.md` file index and **no `RESULTS.md`**, so what follows cites its raw
+JSON directly. References on the same 256 test episodes
+(`research/policy-learning/out/refs.json`): always-False **2.125**, always-True
+1.875, uniform **2.047**, oracle **4.000**.
+
+Reward-only REINFORCE on the typed joint program with a zero-initialized policy
+readout reaches **4.000 on 8/8 seeds**, and the budget curve puts saturation at
+**400 training episodes / 464 environment episodes** — against the shipped run's
+331, which additionally has a pre-solved decoder and dense privileged probes
+(`out/e1.json` arm `A1_rewardonly_zeroinit`, `out/e7.log`). Staging is cheaper
+again: 50 probe episodes then 50 reward episodes is **356 environment episodes**
+to 4.000 on 8/8 with the reference program 8/8 (`out/e4b.log`). A matched
+32-hidden MLP under REINFORCE on the same raw observations sits at **1.977–2.063
+at every budget up to 2,000** training episodes — below always-False — 4.3× past
+the point the typed program has solved it (`out/e7.log`).
+
+Four qualifications, all measured, and each of them limits the result more than
+the headline does. **Terminal-only reward fails at every horizon tested**: dense
+per-step reward solves horizons 4, 8 and 16 outright (4.000/4, 8.000/8,
+16.000/16) while terminal-only gives 1.000, 1.000 and 0.859 (`out/e5.log`, still
+running). **Advantage normalization destroys it**: three arms that add it land at
+2.008 on 0/8 seeds, below always-False, and more episodes do not repair them;
+batch 32 alone also breaks it unless the learning rate is raised tenfold
+(`out/e3.log`, 19 arms × 8 seeds). **Reward does not identify the program**: it
+admits four optimal assignments of the 256 and the typed arm selects the
+reference one in only 2/8 seeds (`out/space.json`). And the mechanism is that at
+zero initialization the actor gradient with respect to the choice logits has
+**norm exactly 0.0** at every averaging level from 1 to 256 episodes, with a
+uniform 16-way truth-table mixture shown to have an exactly zero Jacobian
+independently; even with oracle constants and 256 averaged episodes the actor
+direction never ranks `goal_relation`'s optimum above chance, while the probe
+gradient identifies `relation` from 8 averaged episodes (`out/e2_direction.json`,
+`out/cancellation.json`). This remains a 256-way discrete choice on a horizon-4
+task with dense reward; nothing larger and nothing sparser has been learned from
+reward. `out/e1.json`'s exact-policy-gradient arms return 0.000 on every seed
+where `out/e3.log`'s return 4.000 on 8/8, and nothing reconciles that, so cite
+neither.
+
+**One language lesson has now been learned end to end, and the same run bounds
+the rest of the catalogue.** `research/language-capability/RESULTS.md`: a typed
+program discovers its own lexical unit from raw prompt bytes — which byte opens a
+bracket, over the full 0–255 alphabet, and where the symbol field starts — unique
+among 10,496 programs, exhausted in 3.5 s, held-out position error 0.0 at lengths
+never trained on. Staged on that frozen module, a grammaticality rule reaches
+**1.000** on 724 held-out episodes at unseen string lengths, against a majority
+constant of 0.548, a best-fitted-feature baseline of 0.648 and random 0.500;
+gradient descent on the identical spaces conforms **0 of 44 runs**. Three limits
+are certified alongside it: the lesson does not exercise a stack as sampled (its
+negatives always break the bracket count, 20,000 of 20,000 seeds, and the
+exported program agrees with `#( == #)` 1.000 and with Dyck membership 0.429);
+only **6 of 179** lessons have prompts byte-predictable at a fixed offset; and
+`construction` fails to determine `answer` in **39 of 179**, so dense staging is
+structurally unavailable for those. Reproduce with
+`scripts/demo.sh --only language`.
 
 The current system curriculum samples and checks replay of image, language,
 computer, and physical generators. Those stages do **not** mean the agent has
@@ -510,11 +563,25 @@ No natural data has been used for the initial training experiments.
   choices at a fixed address — 6/6 seeds exact over a 4.3e9-program alphabet where
   brute force projects to 107 days — and loses where the choice sits behind a
   declared `gradient="none"` boundary.
+- **A gradient arm must report its surrogate's value at its own operating
+  distance.** A `0/n` printed next to a surrogate of exactly 0.0 says nothing
+  about the method under test, and a `0/n` next to a loss spread of 5.96e-08 says
+  nothing either. `eq` is exactly 0.0 past |a−b| ≥ 11, `lt` past 17, and `index`
+  keeps 0.5641 of its kernel mass on the byte it was asked for — all at the
+  shipped temperature of 1 against carriers whose declared range is 2⁸ or 2³².
+- **Staging is the cheapest capability multiplier measured here.** Freezing a
+  learned module and searching a second scaffold that calls it took the edge
+  detector from 4.9e10 programs to 48, and the language task from a projected
+  50.7 days to 3.5 s plus 363 s. Report the undecomposed space alongside the
+  staged one, so the saving is visible rather than assumed.
 
 Generated experiment artifacts are intentionally gitignored. Run the documented
 commands to recreate them. Source fingerprints pin replay/checkpoints to their
 code revision, so artifacts made before subsequent code changes should not be
 silently resumed as though generated by the current implementation — and as of
 2026-09-09 **all eleven** `artifacts/system/*/episode.json.gz` fail to reload for
-exactly that reason. `research/FINDINGS.md` remains the consolidated measurement
+exactly that reason. The granularity is coarse enough to be a hazard rather than
+a safeguard: the fingerprint hashes all of `tcn/` and `generators/` together, so
+adding one generator invalidates episodes recorded from every other, and it moved
+three times during a single working session. `research/FINDINGS.md` remains the consolidated measurement
 record and supersedes this file wherever the two disagree.

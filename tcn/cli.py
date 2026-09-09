@@ -71,7 +71,8 @@ def joint(out,episodes=160):
 # than quoted. Several tracks each define a top-level `common` module, so the
 # module cache and `sys.path` are reset between demos instead of shared.
 # ---------------------------------------------------------------------------
-DEMOS=('synthesis','joint','structure','depth','abstraction','positional','segmentation','edge','control')
+DEMOS=('synthesis','joint','structure','depth','abstraction','positional','segmentation','edge',
+       'control','language')
 
 def _root(): return Path(__file__).resolve().parents[1]
 
@@ -539,9 +540,82 @@ def _demo_positional(out,quick):
                 ok,time.perf_counter()-start,'research/positional-reuse/RESULTS.md',
                 'tcn demo --only positional',detail)
 
+# The stage-B program a validation split selects from the ten that conform on
+# training episodes. Enumerating that 45,375-program space costs 363 s, and
+# declaration order returns a different member that fails at the longest unseen
+# length; the demo re-derives stage A, and applies this recorded selection.
+_LANGUAGE_RULE={'symbols':101,'plus':0,'minus':4,'answer':6}
+
+def _demo_language(out,quick):
+    """A language task learned from raw prompt bytes, lexical unit and all."""
+    import time
+    _track('language-capability')
+    import common as L,scaffolds,baselines as B
+    from run_stage_a import examples as position_examples
+    from run_stage_b import accuracy,baselines as label_baselines,build_module
+    from .search import enumerate_fit,evaluate,space_size
+    start=time.perf_counter()
+    seeds=300 if quick else 900
+    pool=L.dataset(seeds,seed0=0,split='train')
+    train=[e for e in pool if e['length'] in (2,4,6)][:12 if quick else 24]
+    tests=L.dataset(500 if quick else 1500,seed0=100000,split='test')
+    unseen=[e for e in tests if e['length'] not in (2,4,6)]
+    # Stage A: the agent is given no tokenizer, so it searches for its own
+    # lexical unit -- which byte denotes an opening bracket, over the whole
+    # 0-255 alphabet, and where the symbol field starts.
+    lexical,registry,signals=scaffolds.stage_a()
+    found=enumerate_fit(lexical,position_examples(train),signals,registry,tolerance=1e-6,max_programs=1<<20)
+    positions=evaluate(lexical,found.selections,position_examples(unseen[:40]),signals,registry)
+    # Stage B: that module is frozen and called at each of 16 positions; the
+    # grammaticality rule over the recovered symbol sequence is what is scored.
+    module,rule_registry,_=build_module()
+    scaffold,_=scaffolds.stage_b(module,rule_registry)
+    program=scaffold.harden(_LANGUAGE_RULE).pruned()
+    score,per_length=accuracy(program,{n.name:0 for n in program.nodes},rule_registry,unseen)
+    constant=label_baselines(unseen)['majority_constant']
+    fitted={name:B.fit_predict(train,unseen,feature) for name,feature in B.FEATURES.items()}
+    best=max(fitted.values())
+    ok=bool(found.solved and found.exhausted and found.unique and positions==0.
+            and found.selections['base']==14 and found.selections['open']==40
+            and score>=.99 and score>best+.3)
+    detail={'stage_a':{'space_size':space_size(lexical),'evaluated':found.evaluated,
+                       'exhausted':found.exhausted,'unique':found.unique,
+                       'seconds':found.seconds,'selections':found.selections,
+                       'held_out_position_max_error':positions,
+                       'reading':'base 14, open byte 40 = ASCII "(" -- searched, not supplied'},
+            'stage_b':{'space_size':space_size(scaffold),'selection':_LANGUAGE_RULE,
+                       'held_out_unseen_length_accuracy':score,'per_length':per_length,
+                       'episodes':len(unseen),'majority_constant':constant,
+                       'best_fitted_feature':best,'fitted_features':fitted},
+            'recorded':{'stage_b_enumeration':'45,375 programs in 363 s, 10 conforming, not unique',
+                        'gradient_on_the_same_spaces':'0 of 44 runs conform',
+                        'undecomposed_space':41*256*121*5*5*15},
+            'caveats':['The lesson named context_free_language does not exercise a stack as '
+                       'sampled: its negatives always break the bracket count, so #( == #) and '
+                       'balanced agree on 20,000 of 20,000 seeds. What was learned is counting '
+                       'over a recovered symbol sequence, not recursion.',
+                       'Only 6 of 179 lessons have prompts byte-predictable at a fixed offset, '
+                       'which bounds this method to a small corner of the catalogue.',
+                       'construction fails to determine answer in 39 of 179 lessons, so dense '
+                       'staging is not uniformly available.',
+                       'Ten of 45,375 programs conform on training episodes; declaration order '
+                       'returns one that fails at length 16. Requiring exactness on a validation '
+                       'split containing an unseen length is what separates them.',
+                       'Accuracy is 1.000 up to the scaffold\'s declared 16-position capacity and '
+                       'chance beyond it. Depth is generalized up to a declared capacity.']}
+    return _row('language','a lexical unit and a grammaticality rule learned from raw prompt bytes',
+                f"stage A unique among {space_size(lexical):,} (base 14, open byte 40), held-out "
+                f"position error {positions}; stage B {score:.3f} on {len(unseen)} episodes at "
+                f"lengths never trained on",
+                f"majority constant {constant:.3f}, best fitted feature {best:.3f}, random 0.500; "
+                f"gradient descent on the same spaces conforms 0 of 44 runs",
+                ok,time.perf_counter()-start,'research/language-capability/RESULTS.md',
+                'tcn demo --only language',detail)
+
 _DEMO_RUNNERS={'synthesis':_demo_synthesis,'joint':_demo_joint,'structure':_demo_structure,
                'depth':_demo_depth,'abstraction':_demo_abstraction,'positional':_demo_positional,
-               'segmentation':_demo_segmentation,'edge':_demo_edge,'control':_demo_control}
+               'segmentation':_demo_segmentation,'edge':_demo_edge,'control':_demo_control,
+               'language':_demo_language}
 
 def _demo_table(rows):
     header=('demo','measured','baseline','verdict')

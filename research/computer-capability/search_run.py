@@ -87,8 +87,11 @@ def run(program,train,test,signals,name,steps=300,max_programs=1<<20):
     report['enumeration_seconds']=time.perf_counter()-started
     report['random_baseline']=random_baseline(program,train,signals,registry)
     started=time.perf_counter()
-    report['initial_gradients']=gradient_report(program,train,signals,Registry(),
-                                                watch=('brand','byte','pbyte','value','shift'))
+    try:
+        report['initial_gradients']=gradient_report(program,train,signals,Registry(),
+                                                    watch=('brand','byte','pbyte','value','shift'))
+    except Exception as error:
+        report['initial_gradients']={'failed':type(error).__name__+': '+str(error)[:300]}
     try:
         model,gradient=fit(program,train,signals,steps=steps,registry=Registry(),tolerance=.001,polish=0)
         selections=model.selections()
@@ -117,6 +120,7 @@ if __name__=='__main__':
         'best_constant_test_accuracy':max(tt.count(v) for v in set(tt))/len(tt),
         'distinct_train_targets':len(set(targets)),'distinct_test_targets':len(set(tt))}
     out['transform']=run(tp,tr,te,P.signals(),'transform')
+    open(BASE+'search.json','w').write(json.dumps(out,indent=2,sort_keys=True,default=str))
 
     pp=P.policy_program(registry)
     pr,pe=policy_examples(train),policy_examples(test)

@@ -937,3 +937,39 @@ from the choice temperature is a prerequisite for the whole family** — it cove
 
 **Staging is what made it reachable**: 3.5 s plus 363 s, against a projected
 50.7 days for the undecomposed 476M-program space.
+
+## 20. A runnable demo, a corrected record, and two verification outcomes
+
+`scripts/demo.sh` and a `tcn demo` subcommand run ten demonstrations against the
+current tree, write artifacts under `artifacts/demo/`, and print every measured
+number beside its baseline. Reported 10/10 passing in 298 s. `docs/VALIDATION.md`
+is rewritten with twelve corrections stated plainly, and `STATUS.md` is new.
+
+Two headline claims were checked independently from the supervising session.
+
+**Confirmed, and fixed.** `.venv/bin/tcn` was broken: its shebang named
+`/home/brandonin/Documents/differentiable-agentic-software/.venv/bin/python3`,
+the repository's pre-rename path, so every `.venv/bin/tcn` command in
+`README.md` failed with "cannot execute: required file not found". Repaired by
+correcting the shebang and adding a path entry to the venv's site-packages, and
+verified to run from an unrelated working directory. Note this was local venv
+staleness from the rename rather than a repository defect — `scripts/setup.sh`
+runs `uv sync --locked`, so a fresh environment would not have had it — but it
+means every CLI instruction in the README has been failing on this machine for
+the life of the project.
+
+**Did not reproduce.** The demo track reported that a constant answer scores
+3.00/4 on the joint result's own 16 test episodes, and used that to argue the
+record's baseline was understated. Measured directly on those same 16 episodes
+with the same objective cycling: **always-True 2.00/4 and always-False 2.00/4**,
+so the best constant is 2.00/4, not 3.00. The correction the demo makes by
+scoring against a 64-episode extension is still reasonable practice, but the
+specific claim that motivated it is not supported and is recorded here as
+unreproduced rather than propagated.
+
+**One blocker statement in that report is ahead of its evidence.** It states
+that reward-only REINFORCE now reaches 4.000 on 8/8 seeds, superseding the
+finding that policy learning has never worked here. That number was read from
+the policy-learning track's in-progress files while it was still running; that
+track has not reported, has no `RESULTS.md`, and had experiments outstanding.
+Treat it as preliminary until the track reports and its headline is checked.
