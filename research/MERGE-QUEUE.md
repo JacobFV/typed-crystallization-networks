@@ -147,3 +147,29 @@ Also worth keeping: gating eligibility while leaving the temperature on the
 round clock is actively broken, because waiting rounds are counted by the
 anneal, so the temperature floors before the objective settles. The two clocks
 must come off together.
+
+### `abstraction-preference` — verified, CONFLICTS, merge by hand
+
+Adds `SoftProgram.description_cost()` (expected description bits of the pruned
+hardened program under the choice distribution, equal to
+`export().pruned().description_bits()` at any one-hot), wires it into
+`synthesis.fit(mdl_weight=)` and `TrainConfig.description_weight`, both off by
+default; deduplicates `exact_tensor` rows; prunes dead nodes at
+`register_module` and `save_program`; and adds
+`enumerate_fit(rank='order'|'description'|'cost')` with a `conforming` count.
+
+**`git merge-tree` shows two conflicts against current main**, unlike the other
+branches: `tcn/training.py` and `research/FINDINGS.md`. It was cut before the
+positional-reuse and loss-gated merges landed, so it does not contain them.
+Merge by hand, keeping both sides: main has the merged `Objective(total, task)`
+signature and the gate rules in `training.py`, the branch adds
+`description_weight`.
+
+Verified from the supervising session: `complexity()` charges a module call its
+whole body cost and counts dead nodes, so the branch's correction to the
+re-test's "20.43 for both" is right and is now recorded in FINDINGS section 12.
+
+Report its trade honestly when landing: the description term takes the tight
+scaffold from 19/24 to 2/24 conformance (p = 1.1e-6), because the pressure is
+"make fewer nodes live", which is aligned on an over-provisioned scaffold and
+opposed on an exactly-sized one. Defaults are off precisely because of that.

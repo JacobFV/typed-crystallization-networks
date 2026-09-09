@@ -481,9 +481,14 @@ re-test's R1 proposes evaluating each distinct row once, measured at 7.45x on
 its arm B with bit-identical output.
 
 **What still does not pay is preference, not capability.** F3 remains unfixed
-and F1 made it decisive: `SoftProgram.complexity()` is cost-weighted, and cost
-is now at exact parity, so it measures 20.43 for both routes and could not
-prefer abstraction even if enabled. Description bits differ (19,496 vs 20,800)
+and F1 made it decisive. *Corrected by the abstraction-preference track and
+verified here:* the re-test's "20.43 for both" is `complexity()` evaluated at
+the **diffuse mixture**, not at the discrete selections. At one-hot it charges
+each node its selected candidate's cost, a module call is charged its whole
+body cost, and dead scaffold nodes are charged too -- measured directly, a
+2-node flat scaffold reads 2.0 while a single call to a 5-node module reads
+5.0. So enabling the only MDL term the repo had would have taught the search to
+**avoid** modules, which is worse than the neutrality originally recorded. Description bits differ (19,496 vs 20,800)
 but have no differentiable surrogate, and `enumerate_fit` ranks by declaration
 order rather than cost. One arm-B success calls the module three times where two
 would do, and is accepted because it conforms.
