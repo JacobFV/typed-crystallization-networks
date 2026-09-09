@@ -1,0 +1,45 @@
+[
+  {
+    "arm": "arm1_none",
+    "description_bits": 20784,
+    "execution_cost": 9.0,
+    "lower_bound_nodes": 7,
+    "nodes": 9,
+    "note": "flat lower bound >= 7 by gate elimination over B2 (retest min_program.py)",
+    "verified": true
+  },
+  {
+    "arm": "arm2_earned",
+    "description_bits": 23600,
+    "execution_cost": 9.0,
+    "module": "module:ec516b3808ddef7e7d0e7d22",
+    "nodes": 7,
+    "verified": true
+  },
+  {
+    "arm": "arm3_authored",
+    "description_bits": 19464,
+    "execution_cost": 9.0,
+    "module": "module:8ceedf7b792a7116514f90ab",
+    "nodes": 3,
+    "verified": true
+  },
+  {
+    "arm": "arm4b_wrong_mined",
+    "description_bits": 23600,
+    "execution_cost": 9.0,
+    "module": "module:b22e2ef14a32a68f1224304f",
+    "nodes": 7,
+    "verified": true
+  },
+  {
+    "arm": "arm4_wrong_authored",
+    "description_bits": 20784,
+    "execution_cost": 9.0,
+    "module": "module:dc59f82e89cd0ad1797ef375",
+    "module_used": false,
+    "nodes": 9,
+    "note": "the flat route; the module contributes nothing, and no route of <= 3 nodes exists (3-node space exhausted, 0 conforming)",
+    "verified": true
+  }
+]
