@@ -181,7 +181,8 @@ def legal_candidates(registry,names,ports,output,arities=(1,2),limit=4096,parame
         for arity in arities:
             for refs in itertools.product(ports,repeat=arity):
                 types=[ports[k] for k in refs]
-                settings=(parameters or {}).get(name) or operator_parameters(registry,name,types)
+                given=parameters or {}
+                settings=given[name] if name in given else operator_parameters(registry,name,types)
                 for p in settings:
                     attempted+=1
                     if attempted>limit: raise ValueError("candidate enumeration budget exceeded")

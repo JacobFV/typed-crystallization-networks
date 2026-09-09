@@ -30,6 +30,7 @@ an ordinary `project` node inside the graph.
 """
 from __future__ import annotations
 
+import itertools
 import json
 import pathlib
 import sys
@@ -44,7 +45,7 @@ from shared import IDX, Builder, per_position_program, shared_map_program
 from tcn.generation import SCALAR, Action, Host
 from tcn.graph import Candidate, Node, Signal
 from tcn.operators import Registry
-from tcn.search import enumerate_fit
+from tcn.search import SearchResult, evaluate
 from tcn.synthesis import fit
 from tcn.types import BOOL, Value, integer, product, setof
 
@@ -67,7 +68,7 @@ CANDIDATE_BYTES = (24, 30, 43, 99, 150)
 TRUE_PICK = (0, 1, 2)          # indices of 24, 30, 43
 TRUE_TRUTH = (8, 7)            # and, then nand -> not(r==24 and g==30 and b==43)
 
-TRAIN_SEEDS = tuple(range(4))
+TRAIN_SEEDS = tuple(range(8))
 HELD_SEEDS = tuple(range(100, 110))
 
 
@@ -181,11 +182,27 @@ def main():
         space *= len(n.candidates)
     report("stage A search space", space)
 
-    # Discrete reference over exactly the same candidate space.
-    search = enumerate_fit(scaffold, train, signals, r, tolerance=1e-6, stop_at_first=False)
-    report("enumerate_fit  solved / unique / seconds",
-           f"{search.solved} / {search.unique} / {search.seconds:.1f}")
-    results["enumeration"] = search.to_dict()
+    # Discrete reference over exactly the same candidate space. This is
+    # `enumerate_fit`'s own loop, reusing its `evaluate`, but it keeps every
+    # conforming program rather than the first, because how *identified* the
+    # target is by this supervision is itself a measurement.
+    names = [n.name for n in scaffold.nodes]
+    counts = [range(len(n.candidates)) for n in scaffold.nodes]
+    started = time.perf_counter()
+    conforming = []
+    for combination in itertools.product(*counts):
+        selections = dict(zip(names, combination))
+        error = evaluate(scaffold, selections, train, signals, r, 1e-6)
+        if error is not None and error <= 1e-6:
+            conforming.append(selections)
+    enum_seconds = time.perf_counter() - started
+    report("exhaustive search  conforming / space / seconds",
+           f"{len(conforming)} / {space} / {enum_seconds:.1f}")
+    results["enumeration"] = {"space_size": space, "conforming": len(conforming),
+                              "seconds": enum_seconds, "exhausted": True,
+                              "first": conforming[0] if conforming else None}
+    search = SearchResult(bool(conforming), conforming[0] if conforming else None, 0.,
+                          space, space, True, len(conforming) == 1, enum_seconds)
 
     started = time.perf_counter()
     model, info = fit(scaffold, train, signals, steps=400, lr=.15, freeze=True, registry=r,
@@ -249,6 +266,27 @@ def main():
     report("stage B held-out pixels (foreground fraction)",
            f"{held_pixels}  ({held_fg/held_pixels:.1%})")
     report("stage B held-out max error over the dense probe", max(errors))
+
+    # How identified is the target by this supervision? Conforming programs are
+    # re-checked on the held-out pixels, and the renderer's own test is looked
+    # for by name among them.
+    held_examples = pixel_examples(HELD_SEEDS, split="test")
+    survivors = [s for s in conforming
+                 if (lambda e: e is not None and e <= 1e-6)(
+                     evaluate(scaffold, s, held_examples, signals, r, 1e-6))]
+    true_selections = dict(search.selections or {})
+    for nm, pick in zip(("cmp_r", "cmp_g", "cmp_b"), TRUE_PICK):
+        true_selections[nm] = pick
+    for nm, t in zip(("rg", "foreground"), TRUE_TRUTH):
+        true_selections[nm] = t
+    report("programs conforming on train / also on held-out / of space",
+           f"{len(conforming)} / {len(survivors)} / {space}")
+    report("renderer's own test survives held-out", true_selections in survivors)
+    results["identification"] = {"conforming_train": len(conforming),
+                                 "conforming_held_out": len(survivors),
+                                 "space": space,
+                                 "renderer_test_survives": true_selections in survivors,
+                                 "gradient_pick_survives": model.selections() in survivors}
     report("stage C held-out max foreground-count error", max(count_errors))
     results["held_out"] = {"pixels": held_pixels, "foreground_fraction": held_fg / held_pixels,
                            "max_error": max(errors), "max_count_error": max(count_errors)}

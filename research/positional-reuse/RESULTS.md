@@ -15,6 +15,16 @@ positional reuse needs. It needs a set of **positions**, which is an ordinary
 constant, and one bridge from the tuple into set-land, which `insert` supplies
 in one node. `pair` then does the rest.
 
+| headline | measurement |
+|---|---|
+| caller size | **3 nodes**, independent of positions and width |
+| description, 128 positions | **17 structural symbols** vs 397 per-position, 1,025 inlined |
+| description crossover | **2 positions** against per-position calls |
+| execution cost | `N x body + 2` — charged per use, 0.93x the per-position program |
+| end to end on `geometry` | shared module learned from the dense probe, **0.0 max error** over 640 held-out pixels |
+| widest input that works | **27,648 values over 9,216 positions**; `focus_pixels` scale (18,723) applies in 621 s |
+| added to the core | no operator, no type; one enumerator generalization and one scaffold helper |
+
 Everything below was measured on this worktree with the repository `.venv`.
 
 ---
@@ -73,6 +83,31 @@ Three limits, all measured, none of them semantic gaps:
 3. **`pair` replicates the observation N times.** The record set holds N·W
    values. This is the cost wall, quantified in section 5.
 
+### The sharpest objection, and the answer to it
+
+*Is the constant set of positions smuggled-in domain knowledge — a window
+handed to the agent, which section 2 forbids?*
+
+No, and the distinction is worth stating precisely because it is the one thing
+that could invalidate the result. The constant is a set of plain integers with a
+declared `int[n]` encoding. It asserts only that the program is allowed to look
+at those positions — the same kind of statement `arithmetic_scaffold` makes when
+it declares how many hidden terms exist, and the same kind section 4 authorises
+("The supplied coarse structure defines admissible regions, predecessor pools,
+capacities, and boundary placements"). The agent still has to learn to consume
+it: nothing tells the module that a position indexes an observation, that
+offsets 0/1/2 are colour channels, or that adjacent indices are adjacent pixels.
+The module has to select `index` against that position, choose its own offsets,
+and choose what to compute — and in section 3 below it does, from a 32,000
+program space. What is *not* present anywhere is a window, a patch, a channel
+split, a neighbourhood, or a stride as an operator or as a preprocessed input.
+
+Two honest caveats. First, the position set is structural and cannot be learned:
+constants are trainable only when numeric and scalar, so which positions exist is
+declared, never discovered. Second, the observation reaches the module whole, so
+what the module reads is entirely its own choice — a stronger position than a
+windowing operator would give it, not a weaker one.
+
 ### Compositions that were tried and rejected
 
 | Attempt | Outcome |
@@ -128,6 +163,19 @@ other, so the description-size saving is not bought with execution.
 Measured wall time follows the cost proxy: shared and per-position are within
 noise of each other, inlining is roughly 4x faster, at every size.
 
+The three columns fit exactly:
+
+```text
+shared        17          (3 caller nodes + 2 constants + a 12-symbol module body)
+per_position  3N + 13     (2N + 1 nodes, N constants, the same body)
+inlined       8N + 1      (5 nodes and 3 constants per position, no body to share)
+```
+
+so the **description crossover against per-position calls is N = 2**, and against
+inlining N = 1. That matches the 2-call-site crossover the recent single-output
+module fix produced for a 3-gate body, and it now holds for *any* number of
+positions rather than being eaten back as N grows.
+
 ---
 
 ## 3. End-to-end demonstration on `generators/geometry`
@@ -140,10 +188,13 @@ preprocessed.
 
 **Supervision.** The agent sees only `pixels`. The dense probe `object_ids`
 supplies a per-pixel label; the predicate used is `object_ids >= 0`.
-`inspect_geometry.py` and `inspect_geometry2.py` verify over 2,048 pixels that
-this predicate is *exactly* determined by the pixel value (0 disagreements with
-the renderer's background colour), so an exact program exists and a
-non-conforming result cannot be excused as label noise.
+`inspect_geometry.py` and `inspect_geometry2.py` verify that this predicate is
+*exactly* determined by the pixel value: **0 disagreements** with the renderer's
+background colour over 768 pixels at the default camera and over every one of 18
+resolution/object/camera configurations swept (512 to 2,048 pixels each). So an
+exact program exists, and a non-conforming result cannot be excused as label
+noise. The chosen configuration is 51.8% foreground, so a constant predicate
+scores nothing.
 
 **Type discipline.** `image_value` gives pixel bytes the semantic role `"byte"`,
 which makes `Type.numeric` false, so the type system already forbids arithmetic
@@ -157,23 +208,65 @@ which of five bytes to compare against, and chooses both combining gates from al
 examples are (episode, position) pairs — every pixel of every training episode
 is one example, which is the dense probe doing the work.
 
-<!--RESULTS-STAGE-A-->
+| stage A, 512 training pixels (51.8% foreground) | result |
+|---|---|
+| discrete space | 32,000 programs |
+| exhaustive search, all 32,000 evaluated | 1,952 conform exactly, 668 s |
+| `synthesis.fit` (400 steps, freeze on) | `exact_max_error` **0.0**, `fully_frozen` true, 1,174 s |
+| gradient and enumeration pick the same program | no |
+
+Both methods reach an exactly conforming program and the gradient path
+crystallizes it fully. They pick *different* programs, and the reason is a
+property of the task worth stating plainly rather than hiding: **1,952 of the
+32,000 programs fit all 512 training pixels exactly, and 1,584 of those still fit
+all 640 held-out pixels.** The renderer's own three-channel test is among the
+survivors, and so is the gradient's pick, but the supervision does not identify
+it — at this scene density a foreground pixel almost never shares any single
+background channel value, so `blue != 43` alone already separates the classes.
+Enumeration's first solution is exactly that one-comparison program.
+
+That is a limitation of this dense probe on this generator configuration, not of
+positional reuse. It is reported because a "we learned the right program" claim
+here would be false, while the claim this track actually needs — *a shared
+sub-program was learned from dense per-pixel supervision, crystallized, and
+applied at every position* — is unaffected, and is checked against the
+renderer's own test as a reference module in stage B.
 
 **Stage B — apply it everywhere.** The exported module is frozen, registered, and
 applied at all 64 positions by `positional_scaffold`, with **3 caller nodes**.
 The result is compared against the whole dense probe of held-out episodes at
 once, re-encoded as an indexed set.
 
-<!--RESULTS-STAGE-B-->
+| stage B | result |
+|---|---|
+| caller nodes | **3**, for 64 positions |
+| held-out episodes | 10, 640 pixels, 45.3% foreground |
+| max error against the dense probe | **0.0** |
+| the renderer's own test, mapped the same way | asserted equal to the probe on every held-out episode |
+
+The comparison is against the *whole* dense probe at once, re-encoded as an
+indexed set — every pixel of every held-out episode, not a sampled readout. A
+constant predicate would score 0.453, not 0.0.
 
 **Stage C — composition after the map.** `filter` (with a one-node module that
 projects the flag) followed by `count` reduces the same result set to a
-foreground-pixel count, showing the pattern composes and that an aggregate
-readout needs no set-to-tuple conversion.
+foreground-pixel count. Max error against the true count on all 10 held-out
+episodes: **0**. The pattern composes, and an aggregate readout needs no
+set-to-tuple conversion.
 
-**Stage D — cost.**
+**Stage D — cost, on the real task.**
 
-<!--RESULTS-STAGE-D-->
+| | caller nodes | structural symbols | description bits | execution cost | ms/apply |
+|---|---:|---:|---:|---:|---:|
+| shared (`hold / pair / map`) | **3** | **25** | 3,656,064 | 834 | 163 |
+| per-position (same module, 64 call sites) | 129 | 213 | 53,623,400 | 897 | 63 |
+
+**8.5x fewer structural symbols and 14.7x fewer description bits, at 0.93x the
+execution cost.** The per-position program is faster in wall time here (63 ms
+against 163 ms) even though its charged cost is higher, because `pair` builds and
+revalidates the 64 x 192 record set while the per-position calls build 64 small
+records — the representational overhead analysed in section 5, not a difference
+in the work done.
 
 ### Search discovers the shared module, it is not handed over
 
@@ -245,7 +338,7 @@ proposing an unregistered one; the enumeration budget still bounding parametric
 families; and `positional_scaffold` matching the hand-wired pattern, offering a
 choice of modules, and refusing illegal configurations.
 
-Full suite: **93 passed, 4 failed**. The four failures are all
+Full suite: **96 passed, 4 failed**. The four failures are all
 `generators/computer`, which shells out to `node --import tsx` and fails with
 `ERR_MODULE_NOT_FOUND` because `generators/computer/engine/node_modules` is
 gitignored and absent in a fresh worktree. They fail identically before any
@@ -260,7 +353,12 @@ byte semantics, walking out to and past the shipped observation widths.
 `geometry` ships `pixels` at 3,075 wide with 1,024 pixels; `embodied_world`
 ships `focus_pixels` at 18,435.
 
-| resolution | width W | positions N | module search (`enumerate_fit`) | soft forward, 48 examples | exact apply, all N positions |
+The scaffold searched here is the same shape as the demonstration's but with four
+candidate bytes rather than five, so the space is 4³ x 16² = **16,384 programs**,
+and `enumerate_fit` runs with `stop_at_first=True` — a first-solution search over
+the whole space, not an exhaustive sweep. It solved at every width.
+
+| resolution | width W | positions N | module search (`enumerate_fit`, first solution) | soft forward, 48 examples | exact apply, all N positions |
 |---:|---:|---:|---:|---:|---:|
 | 2 | 12 | 4 | 0.01 s | 0.51 s | 0.00 s |
 | 4 | 48 | 16 | 0.03 s | 0.01 s | 0.01 s |
@@ -272,21 +370,32 @@ ships `focus_pixels` at 18,435.
 | 32 | **3,072** | **1,024** | 1.25 s | 2.90 s | 26.2 s |
 | 48 | 6,912 | 2,304 | 1.63 s | 2.13 s | 113 s |
 | 64 | 12,288 | 4,096 | 4.77 s | 6.16 s | 232 s |
+| 79 | **18,723** | **6,241** | 10.7 s | 16.8 s | 621 s |
+| 96 | 27,648 | 9,216 | 10.3 s | 13.4 s | 2,479 s |
 
-<!--RESULTS-WIDE-->
+Every row is exact: the applied program reproduces the per-position labels at
+every one of the N positions. The walk stopped at resolution 96 because the apply
+exceeded its 900 s budget, not because anything failed.
+
+Widths 3,072 and 18,723 are marked because they bracket what the generators
+actually ship: `geometry`'s `pixels` is 3,075 wide over 1,024 pixels, and
+`embodied_world`'s `focus_pixels` is 18,435. **Both are inside the range that
+works.**
 
 Three different walls, and they are far apart:
 
 * **Learning the shared sub-program scales essentially for free.** The module
   sees one `(position, observation)` record per example, so its search is O(W)
-  per example and *independent of N*. Exhaustive enumeration over the 32,000
-  program space solves it in **1.25 s at the full geometry resolution**
-  (W = 3,072) and 4.8 s at W = 12,288, and the relaxed forward pass is a few
-  seconds. This is the part that has to converge, and it does, at every width
-  tested.
+  per example and *independent of N*. Enumeration over the 16,384 program space
+  solves it in **1.25 s at the full geometry resolution**
+  (W = 3,072), 10.7 s at the `focus_pixels` width (W = 18,723), and 10.3 s at
+  W = 27,648; the relaxed forward pass over 48 examples stays under 17 s
+  throughout. This is the part that has to converge, and it converged at every
+  width tested — there is no width in this range at which the search degrades.
 * **Applying the frozen program at every position is the slow part**, and it is
-  slow for an avoidable reason. `profile_apply.py` at W = 768 / N = 256 shows
-  73% of the time in `types.encode`, `types.decode` and `types.validate_raw`,
+  slow for an avoidable reason. `profile_apply.py` at W = 768 / N = 256 spends
+  2.65 s of 3.61 s (**73%**) inside `Value.of` — that is `types.encode` plus
+  `types.validate_raw` — with `types.decode` accounting for most of the rest,
   against a small remainder in the 256 module runs that do the work. `pair`
   attaches the whole observation to every position, and every stage then decodes,
   re-encodes and revalidates all N·W values. The cost is representational
@@ -299,11 +408,15 @@ Three different walls, and they are far apart:
   the choice cannot be settled discretely — and per `FINDINGS.md` section 8 it
   usually can.
 
-**Answer to "largest input width that works": the full shipped `geometry`
-observation.** Width 3,072 with 1,024 positions learns the shared module in
-1.25 s and applies it exactly at every pixel in 26 s. Width 12,288 with 4,096
-positions still works at 232 s per apply. The limit is wall time on the apply
-path, not convergence: the search does not degrade at any width measured.
+**Answer to "largest input width that works": 27,648 values over 9,216
+positions, which is past every observation the generators ship.** The practical
+recommendation is width **18,723 over 6,241 positions** — the `focus_pixels`
+scale — where the shared sub-program is learned in 10.7 s and applied exactly at
+every position in 621 s; at the `geometry` scale of 3,072 over 1,024 the same
+figures are 1.25 s and 26 s. The limit is wall time on the *apply* path, not
+convergence. The search itself does not degrade at any width measured, which is
+the part of the question that matters: the wide observation never enters the
+learning problem, only one position of it at a time does.
 
 The obvious lever, not pulled here because it is an implementation optimisation
 and not the question asked: `Registry.exact` decodes both operands of `pair`,
