@@ -1,0 +1,28 @@
+eq at tau=1 first has an exactly-zero gradient at |a-b| = 11
+  shipped forward unchanged on mixed              True
+  shipped forward unchanged on mixed_constant     True
+  shipped forward unchanged on joint_offline      True
+  shipped forward unchanged on rung3_R2           True
+  shipped forward unchanged on noisy_2flip        True
+  shipped forward unchanged on gradient_boundary  True
+  mixed              scaled=False reachable=0.875 dead=[] blind=['logic'] dead_candidates=2 live_constants=[]
+  mixed              scaled=True  reachable=0.875 dead=[] blind=['logic'] dead_candidates=2 live_constants=[]
+  rung3_R2           scaled=False reachable=0.25 dead=[] blind=['hit_eq0', 'hit_eq1'] dead_candidates=2 live_constants=[]
+  rung3_R2           scaled=True  reachable=1 dead=[] blind=[] dead_candidates=0 live_constants=[]
+  rung3_R4           scaled=False reachable=0.25 dead=[] blind=['hit_eq0', 'hit_eq1'] dead_candidates=2 live_constants=[]
+  rung3_R4           scaled=True  reachable=1 dead=[] blind=[] dead_candidates=0 live_constants=[]
+  rung3_bytes        scaled=False reachable=0.02887 dead=[] blind=['hit_eq0', 'hit_eq1'] dead_candidates=425 live_constants=[]
+  rung3_bytes        scaled=True  reachable=0.3365 dead=[] blind=['hit_eq0', 'hit_eq1'] dead_candidates=215 live_constants=[]
+  gradient_boundary  scaled=False reachable=1 dead=['byte'] blind=[] dead_candidates=1 live_constants=[]
+  gradient_boundary  scaled=True  reachable=1 dead=['byte'] blind=[] dead_candidates=1 live_constants=[]
+  boundary_wide      scaled=False reachable=1 dead=['byte', 'tail'] blind=[] dead_candidates=1 live_constants=[]
+  boundary_wide      scaled=True  reachable=1 dead=['byte', 'tail'] blind=[] dead_candidates=1 live_constants=[]
+  joint_offline      scaled=False reachable=0.7656 dead=[] blind=['relation', 'goal_relation'] dead_candidates=4 live_constants=[]
+  joint_offline      scaled=True  reachable=0.7656 dead=[] blind=['relation', 'goal_relation'] dead_candidates=4 live_constants=[]
+  noisy_2flip        scaled=False reachable=0.6699 dead=[] blind=['g0', 'g1', 'g2'] dead_candidates=6 live_constants=[]
+  noisy_2flip        scaled=True  reachable=0.6699 dead=[] blind=['g0', 'g1', 'g2'] dead_candidates=6 live_constants=[]
+  wide_logic         scaled=False reachable=1 dead=[] blind=[] dead_candidates=0 live_constants=[]
+  wide_logic         scaled=True  reachable=1 dead=[] blind=[] dead_candidates=0 live_constants=[]
+  mixed_constant     scaled=False reachable=0.875 dead=[] blind=['logic'] dead_candidates=2 live_constants=['k']
+  mixed_constant     scaled=True  reachable=0.875 dead=[] blind=['logic'] dead_candidates=2 live_constants=['k']
+wrote /home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-afc0484c7c0dc4724/research/search-selection/out/liveness.json
