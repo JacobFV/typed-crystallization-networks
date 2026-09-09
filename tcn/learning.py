@@ -393,6 +393,34 @@ class SoftProgram(nn.Module):
         for key,param in self.constants.items():
             users=[n.name for n in self.program.nodes if any(key in c.sources for c in n.candidates)]
             if users and all(u in self.frozen for u in users): param.requires_grad_(False)
+    def thaw(self,name):
+        """Release a crystallized choice back to trainable. The inverse of `freeze`.
+
+        ARCHITECTURE section 5 as shipped commits monotonically: a frozen node is
+        an exact detached boundary for the rest of the run, and the only reversal
+        is the transactional rollback of a *rejected* trial. Seasons make an
+        *accepted* commitment reversible too, which is what this exposes. It is
+        deliberately not the inverse of every kind of settled choice: a declared
+        `Node.selected` is a hand-supplied prior rather than something this run
+        committed, so releasing one is refused. The logits are left exactly as
+        they were -- freezing never wrote to them -- so the released node returns
+        to the distribution it carried, and it is the caller's temperature reset
+        that re-diffuses it.
+
+        Nothing shipped calls this: `Crystallizer` reaches it only with
+        `seasons > 0`, which is off by default.
+        """
+        i=next(i for i,n in enumerate(self.program.nodes) if n.name==name)
+        node=self.program.nodes[i]
+        if node.selected is not None: raise ValueError("a declared selection is a prior, not a commitment: "+name)
+        if name not in self.frozen: raise ValueError("not frozen: "+name)
+        self.frozen.pop(name); self.pinned.pop(name,None); self.trials.pop(name,None)
+        self.choices[i].requires_grad_(True)
+        # `freeze` locks a trainable constant once every node reading it is
+        # frozen; releasing one of those readers puts the constant back in play.
+        for key,param in self.constants.items():
+            if any(key in c.sources for c in node.candidates): param.requires_grad_(True)
+        return i
     def probe_loss(self,trace,targets,signals):
         self.program.validate_signals(signals); total=torch.tensor(0.,device=next(iter(trace.values())).device)
         for s in signals:

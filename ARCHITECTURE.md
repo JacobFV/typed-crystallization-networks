@@ -195,11 +195,57 @@ freezing. Outside-in freezing must never silently disconnect all learning signal
 to the interior. Frozen blocks can supply forward values and targets to later
 training without becoming differentiable again.
 
+Commitment need not be monotone. The loop above freezes and never releases: the
+only reversal is the transactional rollback of a *rejected* trial, so an accepted
+freeze is final for the rest of the run. A scheduler may instead run in
+**seasons**, alternating *winters* -- rounds 1-6 above, which freeze and may
+additionally commit dead nodes for free -- with *summers*, which release some
+already-accepted commitments back to trainable, reset those nodes' temperature
+and precision pressure to their warm values, and retrain the whole soft graph.
+The frozen fraction is then not monotone and carries no fixed ceiling: it rises
+through a winter and falls at each summer. A release is the exact inverse of a
+freeze, restoring the choice logit's gradient and the node's relaxed value path;
+it is not an inverse of a *declared* selection, which is a hand-supplied prior
+rather than a commitment the run made, and never thaws.
+
+A seasonal scheduler must state its thaw policy and must be shown to terminate.
+The policy names which commitments are released and on what evidence -- a
+recorded per-node measurement, not a clock. Termination is a property of the
+policy, not of the budget: a release limit per node, a decaying release fraction,
+and marking as settled any node that re-freezes onto the candidate it was
+released from are each sufficient, and an empty release set ends the run. A
+seasonal run always ends in a winter.
+
+Releasing late can strand a residual set in which freezing any single member
+disconnects the others, so the per-node connectivity guard refuses all of them
+and the program cannot close. A block trial -- hardening the whole residual set
+in one transaction -- is the remedy, and is not a weakening of the guard: when
+the block completes the program there is no remaining trainable region for it to
+protect. Degradation tolerance, conformance and rollback apply to the block
+exactly as to a node.
+
+Nothing requires one program per problem. A scheduler may carry a **population**
+of candidate programs over the same scaffold and select among them, provided the
+selection rule is stated. Where the two pressures are performance and program
+size, a non-dominated rule -- keep every candidate that no other beats on both
+the objective and the description cost -- is preferred to a scalarized one,
+because a single description-cost weight is aligned with the target on an
+over-provisioned scaffold and opposed to it on an exactly-sized one, and a
+population does not have to choose between them. A population's compute is the
+sum over its members and must be reported that way; its baseline is best-of-P
+independent restarts at the same total, not a single run.
+
+Seasons, pruning, block closing and populations are all **off by default**, and
+that default is a measurement rather than caution: at equalized optimizer steps
+none of them beat freezing every node at its argmax after training, on either
+shipped fixture at any budget tested. See `research/seasons/RESULTS.md`.
+
 Discrete program selection does not require one-bit numeric values. Fixed
 floating or scaled-integer arithmetic can remain in the export. All learned
 choices/parameters eventually freeze; evolving episode memory and explicit
 runtime randomness remain live. Temperature, thresholds, stability windows,
-block size, and precision are experiment configuration, not settled constants.
+block size, precision, season length, thaw policy, population size and selection
+rule are experiment configuration, not settled constants.
 
 ## 6. Homogeneous generator interface
 
