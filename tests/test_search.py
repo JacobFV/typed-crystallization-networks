@@ -3,7 +3,7 @@ import pytest
 from examples.mixed import problem
 from tcn.search import enumerate_fit, space_size, evaluate
 from tcn.operators import Registry
-from tcn.types import BOOL, Value, floating
+from tcn.types import BOOL, Value, floating, integer, product
 from tcn.graph import Program, Node, Candidate, Signal
 
 def test_enumeration_solves_the_mixed_scaffold_and_certifies_uniqueness():
@@ -43,4 +43,19 @@ def test_an_illegal_numeric_domain_is_unusable_rather_than_an_error():
     bad = [{'inputs': {'x': Value.of(F, -1.)}, 'targets': {'y': Value.of(F, 0.)}}]
     assert evaluate(p, {'y': 0}, bad, signals, r) is None
     found = enumerate_fit(p, bad, signals, registry=r)
+    assert not found.solved and found.exhausted
+
+
+def test_an_out_of_range_address_is_unusable_rather_than_fatal():
+    """A window operator at an image border addresses past the end; that is one
+    unusable candidate, not a failed search."""
+    r = Registry(); IDX = integer(8, signed=False)
+    W = product(BOOL, BOOL, BOOL)
+    nodes = (Node('v', BOOL, (Candidate(r.resolve('index', (W, IDX)), ('w', 'i')),), 'core', 1),)
+    p = Program((('w', W), ('i', IDX)), nodes, (('out', 'v'),))
+    signals = (Signal('v', 'v', ('core',), BOOL, 'bce'),)
+    off = [{'inputs': {'w': Value.of(W, (True, False, True)), 'i': Value.of(IDX, 7)},
+            'targets': {'v': Value.of(BOOL, True)}}]
+    assert evaluate(p, {'v': 0}, off, signals, r) is None
+    found = enumerate_fit(p, off, signals, registry=r)
     assert not found.solved and found.exhausted

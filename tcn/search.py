@@ -50,7 +50,11 @@ def evaluate(program, selections, examples, signals, registry, tolerance=None):
     for example in examples:
         try:
             _, _, trace = program.execute(example['inputs'], registry=registry, selections=selections)
-        except (ValueError, TypeError, OverflowError, ZeroDivisionError, ArithmeticError):
+        except (ValueError, TypeError, OverflowError, ZeroDivisionError, ArithmeticError, IndexError):
+            # IndexError belongs here too: an address that runs off the end of a
+            # tuple is the normal case for a window operator at an image border,
+            # and is a property of that candidate. Without it one such candidate
+            # aborted the whole sweep.
             return None
         for signal in signals:
             a = trace[signal.source].flat(); b = example['targets'][signal.target].flat()
