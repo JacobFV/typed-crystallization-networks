@@ -49,9 +49,18 @@ def gen_language_culture(rng: random.Random, ctx):
             # the log" reads off at 0.755.  Any generation is as computable as
             # the last one, and which word had won by then is not a property of
             # how often the word is printed.
-            options = [(g, m) for g in range(1, generations + 1)
-                       for m in meanings if history[g - 1][m] != origin[m]]
-            asked, target = options[rng.randrange(len(options))]
+            by_word: dict[str, list[tuple[int, str]]] = {}
+            for g in range(1, generations + 1):
+                for m in meanings:
+                    by_word.setdefault(history[g - 1][m], []).append((g, m))
+            # Drawing the question uniformly over meanings makes the answer the
+            # word that spread furthest, and "the option that occurs most often
+            # in the log" is then right 0.76 of the time.  Choosing the word
+            # first and the question second makes every surviving word equally
+            # likely, so how often a word was heard says nothing.
+            words = sorted(by_word)
+            picks = by_word[words[rng.randrange(len(words))]]
+            asked, target = picks[rng.randrange(len(picks))]
             lex = history[asked - 1]
         # The surviving word is almost always the last one printed in the
         # transmission log, so "copy the token at a fixed offset from the end"
@@ -69,7 +78,7 @@ def gen_language_culture(rng: random.Random, ctx):
                 {"generations": generations, "meaning": target,
                  "founder_lexicon": dict(origin), "final_lexicon": dict(lex),
                  "distinct_words_left": len(set(lex.values())),
-                 **({"asked": asked} if asked != generations else {})})
+                 **({"asked": asked} if ctx.hardens("language_culture") else {})})
     raise RuntimeError("language_culture: no admissible world")
 
 

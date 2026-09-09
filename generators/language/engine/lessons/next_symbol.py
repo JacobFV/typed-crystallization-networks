@@ -40,7 +40,15 @@ def gen_next_symbol(rng: random.Random, ctx):
     # question: the last symbol is not its own successor, the chain visits at
     # least three symbols, and the transition being asked about is *shown* --
     # without which the answer is not determined by the observation at all.
-    want = rng.choice([2, 3, 4, 5])
+    # The answer is the symbol ``c`` places back, where ``c`` is the length of
+    # the cycle the chain is in.  Leaving ``c`` at whatever a random table gives
+    # makes it 2 almost always, and a fixed-offset copy answers 0.61.  Drawing
+    # it uniformly -- from the lengths the sequence is actually long enough to
+    # display twice -- leaves no offset better than one in four.
+    # 2 is excluded because every even offset then also lands on the answer:
+    # ``seq[-4]`` is right whenever the cycle is 2 *or* 4, which is why a fixed
+    # offset still scored 0.50 with the cycle merely varying.
+    want = rng.choice([c for c in (3, 4, 5) if c < steps] or [3])
     table, seq = {}, []
     for _ in range(600):
         table = {a: rng.choice(alphabet) for a in alphabet}

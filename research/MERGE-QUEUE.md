@@ -209,3 +209,31 @@ Report its trade honestly when landing: the description term takes the tight
 scaffold from 19/24 to 2/24 conformance (p = 1.1e-6), because the pressure is
 "make fewer nodes live", which is aligned on an over-provisioned scaffold and
 opposed on an exactly-sized one. Defaults are off precisely because of that.
+
+### `worktree-agent-afc0484c7c0dc4724` (6178867) — verified, held
+
+Automatic search-mode selection. Adds `tcn/select.py` (`liveness`,
+`enumeration_cost`, `hybrid_cost`, `select_backend`, `hybrid_fit`), a
+`mode="auto"` on `synthesis.fit` and `tcn synthesize --mode`, both defaulting to
+the shipped path. Reported: agrees with what the tracks measured on 11 of 11
+decisions and 10 of 11 end to end, 197 tests passing, `examples/mixed.py`
+unchanged at relaxed 1.0066e-06 / exact 0.0.
+
+**It also implements Defect 2 independently**: `SoftProgram.surrogate_scale`
+multiplies the temperature only on the relaxation path, so a surrogate widens
+without flattening the node's choice distribution, with the carrier scaling as
+an opt-in `carrier_temperature` in `relaxed`. The core-gradient-fixes track has
+been told to adopt this rather than write a second mechanism.
+
+Held because `tcn/` changes cannot land while the lesson-audit track is running
+experiments against the main checkout, and because the core-gradient-fixes
+branch will touch the same files. **Merge that branch's Defect 1 fix together
+with this one**, not separately.
+
+Verified from the supervising session: its claim that the shipped scaffolds are
+partly unreachable by relaxation is correct and now measured directly —
+`truth_0` and `truth_15` are constant functions whose input gradient is
+identically zero, giving a reachable fraction of exactly **0.875** of the
+16-table family. So one eighth of every truth-table node in every shipped
+scaffold has always been invisible to gradient descent, while enumeration
+searches it normally.

@@ -65,7 +65,7 @@ def gen_context_free(rng: random.Random, ctx):
         # of prompts recurred across seeds and a training-prompt lookup scored
         # 0.917 on its own; the number of pairs is drawn independently of the
         # depth, which widens the space and decorrelates length from depth.
-        base = _dyck(rng, depth, rng.randint(max(depth, 4), 8))
+        base = _dyck(rng, depth, rng.randint(max(depth, 5), 11))
         if balanced:
             s = base
         else:
