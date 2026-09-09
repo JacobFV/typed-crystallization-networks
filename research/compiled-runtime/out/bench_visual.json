@@ -1,0 +1,142 @@
+{
+ "arms": {
+  "A": {
+   "boundary_decode_ms": 0.02224,
+   "boundary_encode_ms": 1.792335,
+   "complete_ms": 17255.952301999998,
+   "peak_alloc_mb": 48.387296,
+   "program_min_ms": 16504.823075,
+   "program_ms": 17254.137727
+  },
+  "B": {
+   "boundary_decode_ms": 0.00048,
+   "boundary_encode_ms": 1.064175,
+   "complete_ms": 4666.488198,
+   "peak_alloc_mb": 49.086512,
+   "program_min_ms": 4653.458564,
+   "program_ms": 4665.423543
+  },
+  "C": {
+   "boundary_decode_ms": 0.0,
+   "boundary_encode_ms": 0.4327040000000002,
+   "complete_ms": 5.569229,
+   "peak_alloc_mb": 0.120744,
+   "program_min_ms": 5.121486,
+   "program_ms": 5.136525
+  },
+  "D": {
+   "boundary_decode_ms": 0.0,
+   "boundary_encode_ms": 0.0,
+   "complete_ms": 0.186112,
+   "peak_alloc_mb": 0.0068,
+   "program_min_ms": 0.184944,
+   "program_ms": 0.186112
+  }
+ },
+ "artifact": "visual",
+ "build_seconds": 3.133228368998971,
+ "bytes": {
+  "A_artifact_json": 123384155,
+  "A_artifact_json_gzip": 586925,
+  "A_interpreter_source": 38575,
+  "C_generated_python": 171074,
+  "C_generated_python_gzip": 21069,
+  "D_hand_written_source": 1303
+ },
+ "cases": 3,
+ "compile_seconds": 0.4659217339940369,
+ "compiler": {
+  "boundary_encoders": 2,
+  "emitted_per_scope": {
+   "module:117c596cccfb573f606e8d7f": 7,
+   "module:b409b71ea0e41d77abb7cb9c": 15,
+   "module:c79e712699a5aa1716f3f65c": 521,
+   "run": 4
+  },
+  "module_function": {
+   "module:117c596cccfb573f606e8d7f": "_m0",
+   "module:b409b71ea0e41d77abb7cb9c": "_m1",
+   "module:c79e712699a5aa1716f3f65c": "_m2"
+  },
+  "modules_emitted": 3,
+  "nodes_emitted": 547,
+  "nodes_folded": 64,
+  "nodes_pruned_dead": 0,
+  "scalar_canonicalisations": 266,
+  "source_bytes": 171074,
+  "source_lines": 1530,
+  "structural_canonicalisations_elided": 89,
+  "type_table_entries": 12,
+  "widest_static_type": 2954114
+ },
+ "equivalence": {
+  "B_identical_to_A": true,
+  "C_identical_to_A": true,
+  "D_agreement": [
+   {
+    "discrepancy": null,
+    "identical": true
+   },
+   {
+    "discrepancy": null,
+    "identical": true
+   },
+   {
+    "discrepancy": null,
+    "identical": true
+   }
+  ],
+  "D_identical_to_A": true
+ },
+ "peak_rss_mb_process": 655.265625,
+ "ratios": {
+  "A_over_B_program": 3.698300393945605,
+  "A_over_C_program": 3359.107125342523,
+  "A_over_D_complete": 92718.10684963892,
+  "A_over_D_program": 92708.35694098179,
+  "B_over_D_program": 25067.82766828576,
+  "C_over_D_complete": 29.92407260144429,
+  "C_over_D_program": 27.599106989339752
+ },
+ "repeats": 3,
+ "structure": {
+  "caller_nodes": 4,
+  "distinct_operators": 24,
+  "modules": 3,
+  "total_static_nodes": 611,
+  "widest_declared_value_elements": 2954114
+ },
+ "type_identity_live": {
+  "distinct_canonical_types": 13,
+  "distinct_type_objects": 20
+ },
+ "what": "32x32 RGB screenshot -> set of widget rectangles with parent keys",
+ "work": {
+  "encode_decode_validate_calls": {
+   "A": {
+    "decode": 85272004,
+    "encode": 9106415,
+    "total": 103487972,
+    "validate_raw": 9109553
+   },
+   "B": {
+    "decode": 9106453,
+    "encode": 9106415,
+    "total": 18212868,
+    "validate_raw": 0
+   },
+   "C": {
+    "boundary": 6144,
+    "internal": 0,
+    "total": 6144
+   }
+  },
+  "module_calls_C": {
+   "_m0": 961,
+   "_m1": 3100,
+   "_m2": 19
+  },
+  "operator_applications_A": 64346,
+  "operator_applications_C": 63130
+ }
+}
