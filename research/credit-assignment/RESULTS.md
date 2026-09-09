@@ -15,11 +15,15 @@ number.
 The checkout is shared with several agents and ran at load 50-85 on 20 cores
 throughout, which is why wall-clock figures are noisy; episode counts are not.
 
-> **STATUS: substantially complete, with three gaps, all named.** The session ended and
-> killed (a) the `staged_enum` arm's three seeds mid-run, (b) `macro.py`'s
-> composite-action arm, which is written and smoke-tested but never run, and (c) a
-> re-run of the baselines at n = 192. Section 10 lists the exact commands. **Everything
-> else below is measured**, and every number in it comes from a file in `out/`: the
+> **STATUS: substantially complete, with two gaps, both named.** The session ended and
+> killed (a) the `staged_enum` arm's three seeds mid-run and (b) a re-run of the
+> baselines at n = 192. Section 10 lists the exact commands.
+>
+> **UPDATE 2026-09-09, a later session: the composite-action arm has now been run.**
+> `bash research/credit-assignment/run_macro.sh`, six seed-runs, results in section 8.1
+> and in `out/macro_*.json`; that subsection and the two paragraphs marked **NEW** in
+> section 0 are the only newly measured numbers in this report. Everything
+> else below is measured as it stands, and every number in it comes from a file in `out/`: the
 > exact analysis, the 384-combination equivalence check, the 64-combination session
 > check, the n = 48 baselines, the perception enumeration, the model-based arm, and
 > seven learning arms over 24 seed-runs.
@@ -69,10 +73,20 @@ optimum **1.00 / 1 on 64 / 64 held-out episodes in 89 environment episodes**. It
 again the cheapest arm by an order of magnitude, exactly as in
 `research/policy-learning/RESULTS.md`.
 
-**Not established, and it is the one thing left undone.** The composite-action arm --
-does reward alone pick `sweep` over `stare` when the choice is between two crystallized
-modules rather than inside a 12-candidate arithmetic pool -- is written, smoke-tested and
-unrun. Section 8 states the prediction it tests.
+**NEW -- the composite action closes that gap, and the hierarchy claim is now measured.**
+Offered the same sub-action as one of **two crystallized modules** -- `sweep` and the
+wrong sibling `stare` -- instead of inside the 12-candidate arithmetic pool, reward-only
+learning **picks `sweep` on 4 / 4 seeds** and reaches **0.9648 deterministic (3 / 4 seeds
+at exactly 1.0000, 64/64 held-out episodes)** in 400 training episodes, against
+**0.2396** for the same arm searching the 12-candidate pool, **0.2969** for the
+`stare`-only control forced onto the wrong module, a myopic reference of **0.0208
+measured / 0.0625 exact**, constant policies and uniform random at **0.0000**, and an
+exact oracle at **1.0000**. The selection is learned rather than an initial tie: the
+argmax at `next_slot` sits on `stare` through episode 200 on two of the four seeds and
+switches to `sweep` by 300, with the training reward rate rising as it switches. So the
+12-candidate arithmetic pool was the obstacle, and the abstraction boundary -- a frozen
+module chosen by an ordinary candidate softmax -- is what made the sub-action
+discoverable from delayed reward alone. Section 8.1.
 
 ---
 
@@ -601,13 +615,16 @@ Environment episodes to reach the stated return on 64 held-out episodes, counted
 |---|---|---|
 | **frozen exact model + enumeration, no policy at all** | **89** | **1.0000 (64/64)** |
 | reward only, sweeping sub-action supplied | ~290 (200 training + evaluation) | **1.0000 (3/3 seeds)** |
-| reward only, sub-action searched | 856 | 0.2396 deterministic / 0.5938 sampling |
+| **reward only, sub-action chosen between two crystallized modules** (section 8.1, **new**) | **528** | **0.9648 (3/4 seeds at 1.0000)** |
+| reward only, sub-action searched in the 12-candidate arithmetic pool | 856 | 0.2396 deterministic / 0.5938 sampling |
 | reward only, gamma = 0 | 856 | 0.0664 |
 | supervision only, no reward term | 524 | 0.0000 |
 
 The ranking reproduces `research/policy-learning/RESULTS.md`'s: the model-based route is
-cheapest by an order of magnitude, and it is the only one that reaches the exact optimum
-without being handed the sub-action.
+cheapest by an order of magnitude, and it is still the only route to the exact optimum on
+every seed. The composite-action arm is the cheapest *learned* route that gets there
+without being handed the sub-action -- 528 episodes against 856 for a worse result -- and
+it is the row that turns section 1's level 1 from an argument into a measurement.
 
 ---
 
@@ -640,24 +657,64 @@ every call site -- and the wrong sub-action is **952 bits cheaper** than the rig
 So `L_program_description` prefers no macro at all, and among macros it prefers the
 useless one. Nothing but the delayed reward can separate them.
 
-**NOT MEASURED -- the session ended before this arm ran.** `macro.py` is written,
-smoke-tested end to end (`out/macro_sweep_stare_s90.json`, a 10-episode run that builds
-both modules, registers them, trains and evaluates without error), and wired into
-`run_macro.sh`, but the four `sweep+stare` seeds and the two `stare`-only controls at
-400 episodes had not completed. Run:
+### 8.1 Measured. The composite action closes the gap.
 
-```sh
-bash research/credit-assignment/run_macro.sh
-.venv/bin/python research/credit-assignment/aggregate.py
-```
+**NEW -- run 2026-09-09 in a later session by `bash research/credit-assignment/run_macro.sh`;
+everything above this subsection is inherited from the original study.** Four
+`sweep+stare` seeds and two `stare`-only controls, 400 training episodes each, the same
+`Cfg` as `reward` (lr .05, gamma .95, entropy .02, value baseline), evaluated on the same
+64 held-out episodes at indices 10000+. 528 environment episodes per seed (400 training +
+128 evaluation, both eval modes), counted by `panel.Counter`. About 4 minutes wall clock
+for all six concurrently, not the 25 estimated.
 
-The prediction it tests, stated in advance so it can be wrong: `reward` selects a
-constant slot out of the 12-candidate arithmetic pool (measured, 6/6 seeds) but reaches
-1.0000 when the sweep is the only candidate (measured, 3/3 seeds), so the question is
-whether reducing the choice to *two crystallized modules* -- one right, one wrong -- is
-enough for reward alone to pick the right one. If it is, the hierarchy is what made the
-sub-action discoverable. If it is not, the 12-candidate pool was not the obstacle and
-the report should say so.
+The prediction, stated in advance in the original report: `reward` selects a constant slot
+out of the 12-candidate arithmetic pool (6/6 seeds) but reaches 1.0000 when the sweep is
+the only candidate (3/3 seeds), so the question was whether reducing the choice to *two
+crystallized modules* -- one right, one wrong -- is enough for reward alone to pick the
+right one. **It is.**
+
+| arm | seeds | eval (deterministic) | sd | eval (stochastic) | chose `sweep` | seeds at 1.0000 | env episodes |
+|---|---|---|---|---|---|---|---|
+| **`sweep+stare` (the composite-action arm)** | 4 | **0.9648** | 0.061 | 0.6250 | **4 / 4** | **3 / 4** | 528 |
+| `stare` only (wrong module forced, control) | 2 | 0.2969 | 0.016 | 0.4219 | 0/2 | 0/2 | 528 |
+| `reward` (12-candidate arithmetic pool) | 6 | 0.2396 | 0.058 | 0.5938 | 0/6 | 0/6 | 856 |
+| `reward_sweep_given` (sub-action supplied) | 3 | 1.0000 | 0.000 | 0.6927 | -- | 3/3 | ~290 |
+| **baselines** | | `always_wait` 0.0000, `look_only` 0.0000, `uniform_random` 0.0000, `commit_now` (myopic) **0.0208** measured / **0.0625** exact, `neutral_typed` 0.0833, `fixed_slot_plan` 0.2500, `oracle` **1.0000** | | | | | |
+| **exact ceilings** (section 6) | | sweeping **1.0000**, i.i.d. slots 0.7141, constant slot **0.3333** | | | | | |
+
+Per seed, deterministic: **1.0000 (64/64), 1.0000 (64/64), 1.0000 (64/64), 0.8594 (55/64)**.
+The `stare`-only control: 0.3125 and 0.2812, i.e. it sits on the exact constant-slot
+ceiling of 0.3333 and cannot do better, which is what makes the library's wrong member a
+real control rather than a decoration.
+
+**The selection is learned, not an argmax tie.** `SoftProgram` zero-initialises choice
+logits, so at episode 0 both modules are at 0.5 and the relaxed `next_slot` is
+`slot + 0.5` -- a nonsense slot, which is why a tie cannot score. The logged argmax at
+`next_slot` moves during training: seeds 0 and 2 hold `stare` through episode 200 and
+switch to `sweep` by 300; seed 1 switches by 200; seed 3 is on `sweep` by 100. The
+training reward rate rises with the switch (seed 0: 0.12, 0.23, 0.64, 0.76 at episodes
+100/200/300/400), which is the delayed reward doing the separating.
+
+Every seed also recovers the three-situation verb map `look -> dial -> commit`, as
+`reward` did (argmax logits: `idle` -> look, `found` -> dial, `dialled` -> commit,
+4/4 seeds).
+
+**What this establishes.** The 12-candidate arithmetic pool *was* the obstacle. The
+delayed reward is strong enough to separate two crystallized modules but not strong
+enough to find the sweep inside a 12-way arithmetic search, at this budget. The
+level-1 claim of section 1 is therefore measured rather than argued: a sub-program
+crystallized into a frozen module and offered as one candidate at one node is
+selected by reward alone, against a wrong sibling, and against a
+`Program.description_bits` prior that prefers the wrong sibling by 952 bits and
+prefers no module at all by a further 8,128.
+
+**One qualification, stated because the numbers say it.** Stochastic evaluation reads
+**0.6250**, *below* the deterministic 0.9648, and on the three seeds at 1.0000 it reads
+0.53, 0.52 and 0.64. The policy keeps a wide slot sampler alongside the sweep, and
+sampling perturbs the sweep it has just learned. That is the reverse of `reward`, whose
+stochastic number (0.5938) was the *higher* one because random slot search was its whole
+strategy. The composite-action arm is better where it matters -- the deterministic
+policy, which is what `tcn/agent.py` deploys -- by 0.9648 against 0.2396.
 
 ---
 
@@ -723,13 +780,14 @@ modular type will hit this.
 
 ## 10. What is not done, in priority order
 
-1. **Run the composite-action arm.** `bash research/credit-assignment/run_macro.sh`
-   (about 25 minutes at 6 concurrent processes), then
-   `.venv/bin/python research/credit-assignment/aggregate.py`. This is the experiment
-   that decides whether the *hierarchy* -- section 1's level 1 -- is what makes the
-   sub-action discoverable, and it is the only claim in section 1 that is currently an
-   argument rather than a measurement. `out/macro_sweep_stare_s90.json` proves the
-   machinery runs.
+1. ~~**Run the composite-action arm.**~~ **DONE, 2026-09-09**, by
+   `bash research/credit-assignment/run_macro.sh` (about 4 minutes at 6 concurrent
+   processes on a quiet machine, not the 25 estimated) and
+   `.venv/bin/python research/credit-assignment/aggregate.py`. Results in section 8.1:
+   4/4 seeds select `sweep`, 0.9648 deterministic. Section 1's level-1 claim is now a
+   measurement. What is *not* done here is seed count -- four `sweep+stare` seeds and
+   two controls -- and a budget sweep; 400 episodes was the figure the original run
+   script chose.
 2. **Collect the `staged_enum` arm.** Three seeds were in flight when the session ended
    and produced nothing; re-run
    `.venv/bin/python research/credit-assignment/arms.py staged_enum <seed> 600` for
@@ -794,6 +852,11 @@ included -- against a pre-change copy of the generator.
 * **The machine was shared.** Load ran 50-95 on 20 cores for the whole study, so every
   wall-clock number is an upper bound and the per-episode costs in section 2.2 are
   measured, not budgeted.
+* **The composite-action arm has four seeds and one budget.** 400 episodes, four
+  `sweep+stare` seeds and two `stare` controls, all newly measured (section 8.1); one of
+  the four reads 0.8594 rather than 1.0000. The comparison it is read against, `reward`
+  at 0.2396, ran at 600 episodes rather than 400, so the composite arm wins on a
+  *smaller* budget -- but the two are not budget-matched, and no budget sweep was run.
 * **Seeds.** The two headline arms have 6 and 4 seeds and the ablations have 3; the
   policy-learning track used 8. The reduction is a compute decision under the load
   above, and the seed-level numbers are in `out/arm_*.json` rather than only their

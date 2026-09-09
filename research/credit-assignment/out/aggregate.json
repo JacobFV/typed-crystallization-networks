@@ -430,7 +430,51 @@
       "400": 1.0
     }
   },
-  "macros": [],
+  "macros": [
+    {
+      "library": "stare",
+      "seeds": 2,
+      "episodes": 400,
+      "eval": 0.2969,
+      "sd": 0.0156,
+      "selected": [
+        "stare",
+        "stare"
+      ],
+      "chose_sweep": 0,
+      "env_episodes": 528,
+      "costs": null
+    },
+    {
+      "library": "sweep+stare",
+      "seeds": 4,
+      "episodes": 400,
+      "eval": 0.9648,
+      "sd": 0.0609,
+      "selected": [
+        "sweep",
+        "sweep",
+        "sweep",
+        "sweep"
+      ],
+      "chose_sweep": 4,
+      "env_episodes": 528,
+      "costs": {
+        "sweep": {
+          "description_bits": 29931832,
+          "execution_cost": 46.0
+        },
+        "stare": {
+          "description_bits": 29930880,
+          "execution_cost": 46.0
+        },
+        "inlined_sweep": {
+          "description_bits": 29923704,
+          "execution_cost": 46.0
+        }
+      }
+    }
+  ],
   "analysis": {
     "values": [
       {

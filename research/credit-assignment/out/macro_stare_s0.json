@@ -1,0 +1,104 @@
+{
+  "library": [
+    "stare"
+  ],
+  "seed": 0,
+  "episodes": 400,
+  "final": {
+    "mean": 0.28125,
+    "solved": 18,
+    "n": 64,
+    "stochastic": false,
+    "modal_trace": [
+      "look",
+      "look",
+      "look",
+      "look",
+      "look",
+      "look"
+    ]
+  },
+  "final_stochastic": {
+    "mean": 0.46875,
+    "solved": 30,
+    "n": 64,
+    "stochastic": true,
+    "modal_trace": [
+      "look",
+      "look",
+      "look",
+      "look",
+      "look",
+      "look"
+    ]
+  },
+  "selected": "stare",
+  "logits": {
+    "idle": [
+      -0.434,
+      3.789,
+      -1.746,
+      -2.232
+    ],
+    "found": [
+      -0.737,
+      -1.972,
+      2.741,
+      -2.064
+    ],
+    "dialled": [
+      -1.833,
+      -2.115,
+      -1.105,
+      2.629
+    ]
+  },
+  "history": [
+    {
+      "episode": 100,
+      "grad_norm": 0.20769450068473816,
+      "train_return": 0.11,
+      "reward_rate": 0.11,
+      "selection": {},
+      "actor": -0.26780107617378235,
+      "value": 0.03782966360449791,
+      "entropy": 1.6745208501815796,
+      "probe": 5.166666507720947
+    },
+    {
+      "episode": 200,
+      "grad_norm": 0.3403060734272003,
+      "train_return": 0.22,
+      "reward_rate": 0.22,
+      "selection": {},
+      "actor": -0.33573684096336365,
+      "value": 0.11354028433561325,
+      "entropy": 2.024312734603882,
+      "probe": 8.0
+    },
+    {
+      "episode": 300,
+      "grad_norm": 0.5040504336357117,
+      "train_return": 0.47,
+      "reward_rate": 0.47,
+      "selection": {},
+      "actor": -0.3865453004837036,
+      "value": 0.2512779235839844,
+      "entropy": -0.0019606153946369886,
+      "probe": 0.3333333432674408
+    },
+    {
+      "episode": 400,
+      "grad_norm": 0.549997091293335,
+      "train_return": 0.5,
+      "reward_rate": 0.5,
+      "selection": {},
+      "actor": -0.2755986750125885,
+      "value": 0.300859272480011,
+      "entropy": 0.678793728351593,
+      "probe": 4.5
+    }
+  ],
+  "environment_episodes": 528,
+  "seconds": 257.5728505679872
+}

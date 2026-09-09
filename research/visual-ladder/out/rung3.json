@@ -1,0 +1,504 @@
+{
+ "achieved_widgets_mean": 19.5,
+ "arguments": {
+  "corner_per_image": 120,
+  "free": true,
+  "held": 6,
+  "pairs": 48,
+  "parse": 6,
+  "tag": "rung3",
+  "train": 6,
+  "validation": 3
+ },
+ "configuration": {
+  "horizon": 2,
+  "min_size": 4,
+  "nesting": 5,
+  "palette": 32,
+  "resolution": 32,
+  "widgets": 20
+ },
+ "interior_positions": 961,
+ "observation_bytes": 3072,
+ "offset_pool": [
+  6,
+  99,
+  3,
+  96,
+  9
+ ],
+ "s0": {
+  "chosen": {
+   "a_b": 0,
+   "a_b_v": 0,
+   "a_g": 0,
+   "a_g_v": 0,
+   "a_r_v": 0,
+   "b_b": 0,
+   "b_b_v": 0,
+   "b_g": 0,
+   "b_g_v": 0,
+   "b_r_v": 0,
+   "cmp_b": 0,
+   "cmp_g": 0,
+   "cmp_r": 0,
+   "rg": 7,
+   "same": 2
+  },
+  "conforming": {
+   "count": 2,
+   "distinct_functions": 1,
+   "evaluated": 256,
+   "exhausted": true,
+   "seconds": 4.081658115959726,
+   "space_size": 256,
+   "unique": false
+  },
+  "held_records": 288,
+  "lexicographic_pick": {
+   "held_accuracy": 1.0,
+   "held_max_error": 0.0,
+   "selections": {
+    "a_b": 0,
+    "a_b_v": 0,
+    "a_g": 0,
+    "a_g_v": 0,
+    "a_r_v": 0,
+    "b_b": 0,
+    "b_b_v": 0,
+    "b_g": 0,
+    "b_g_v": 0,
+    "b_r_v": 0,
+    "cmp_b": 0,
+    "cmp_g": 0,
+    "cmp_r": 0,
+    "rg": 7,
+    "same": 2
+   },
+   "validation_max_error": 0.0
+  },
+  "module": "module:b409b71ea0e41d77abb7cb9c",
+  "name": "S0 same",
+  "nodes": 15,
+  "random_control": {
+   "density": 0.005,
+   "draws": 400,
+   "hits": 2
+  },
+  "search": {
+   "beam": null,
+   "best_return": null,
+   "certificate": "complete",
+   "conforming": 2,
+   "continuous": [],
+   "description_bits": 22262976,
+   "discarded": 0,
+   "episodes": 0,
+   "evaluated": 256,
+   "exact_max_error": 0.0,
+   "execution_cost": 15.0,
+   "exhausted": true,
+   "mode": "prefix",
+   "node_evaluations": 10064,
+   "ranked_by": "order",
+   "seconds": 0.7250815650331788,
+   "selections": {
+    "a_b": 0,
+    "a_b_v": 0,
+    "a_g": 0,
+    "a_g_v": 0,
+    "a_r_v": 0,
+    "b_b": 0,
+    "b_b_v": 0,
+    "b_g": 0,
+    "b_g_v": 0,
+    "b_r_v": 0,
+    "cmp_b": 0,
+    "cmp_g": 0,
+    "cmp_r": 0,
+    "rg": 7,
+    "same": 2
+   },
+   "settle_window": 0,
+   "solved": true,
+   "space_size": 256,
+   "steps": 0,
+   "threshold": null,
+   "ticks": 0,
+   "unique": false,
+   "wall": 0.7899501990177669
+  },
+  "space_size": 256,
+  "train_records": 288,
+  "validation_filtered": {
+   "distinct_functions": 1,
+   "held_accuracy": [
+    1.0,
+    1.0
+   ],
+   "held_max_error": [
+    0.0,
+    0.0
+   ],
+   "selections": [
+    {
+     "a_b": 0,
+     "a_b_v": 0,
+     "a_g": 0,
+     "a_g_v": 0,
+     "a_r_v": 0,
+     "b_b": 0,
+     "b_b_v": 0,
+     "b_g": 0,
+     "b_g_v": 0,
+     "b_r_v": 0,
+     "cmp_b": 0,
+     "cmp_g": 0,
+     "cmp_r": 0,
+     "rg": 7,
+     "same": 2
+    },
+    {
+     "a_b": 0,
+     "a_b_v": 0,
+     "a_g": 0,
+     "a_g_v": 0,
+     "a_r_v": 0,
+     "b_b": 0,
+     "b_b_v": 0,
+     "b_g": 0,
+     "b_g_v": 0,
+     "b_r_v": 0,
+     "cmp_b": 0,
+     "cmp_g": 0,
+     "cmp_r": 0,
+     "rg": 8,
+     "same": 8
+    }
+   ],
+   "survivors": 2,
+   "unique": false
+  },
+  "validation_records": 144
+ },
+ "s0_arbitrary": {
+  "conforming": {
+   "count": 0,
+   "evaluated": 256,
+   "exhausted": true,
+   "seconds": 1.8839797360124066,
+   "space_size": 256,
+   "unique": false
+  },
+  "held_records": 288,
+  "name": "S0 arbitrary",
+  "nodes": 15,
+  "random_control": {
+   "density": 0.0,
+   "draws": 400,
+   "hits": 0
+  },
+  "search": {
+   "beam": null,
+   "best_return": null,
+   "certificate": "complete",
+   "conforming": 0,
+   "continuous": [],
+   "description_bits": null,
+   "discarded": 0,
+   "episodes": 0,
+   "evaluated": 256,
+   "exact_max_error": 0.0,
+   "execution_cost": null,
+   "exhausted": true,
+   "mode": "prefix",
+   "node_evaluations": 9120,
+   "ranked_by": "order",
+   "seconds": 0.6681826559943147,
+   "selections": null,
+   "settle_window": 0,
+   "solved": false,
+   "space_size": 256,
+   "steps": 0,
+   "threshold": null,
+   "ticks": 0,
+   "unique": false,
+   "wall": 0.732498174009379
+  },
+  "space_size": 256,
+  "train_records": 288,
+  "validation_records": 288
+ },
+ "s0_arbitrary_positive_fraction": 0.3541666666666667,
+ "s0_free": {
+  "chosen": {
+   "a_b": 0,
+   "a_b_v": 0,
+   "a_g": 0,
+   "a_g_v": 0,
+   "a_r_v": 0,
+   "b_b": 0,
+   "b_b_v": 0,
+   "b_g": 0,
+   "b_g_v": 0,
+   "b_r_v": 0,
+   "cmp_b": 2,
+   "cmp_g": 2,
+   "cmp_r": 2,
+   "rg": 7,
+   "same": 2
+  },
+  "conforming": {
+   "count": 2,
+   "distinct_functions": 1,
+   "evaluated": 16384,
+   "exhausted": true,
+   "seconds": 91.09272070799489,
+   "space_size": 16384,
+   "unique": false
+  },
+  "held_records": 288,
+  "lexicographic_pick": {
+   "held_accuracy": 1.0,
+   "held_max_error": 0.0,
+   "selections": {
+    "a_b": 0,
+    "a_b_v": 0,
+    "a_g": 0,
+    "a_g_v": 0,
+    "a_r_v": 0,
+    "b_b": 0,
+    "b_b_v": 0,
+    "b_g": 0,
+    "b_g_v": 0,
+    "b_r_v": 0,
+    "cmp_b": 2,
+    "cmp_g": 2,
+    "cmp_r": 2,
+    "rg": 7,
+    "same": 2
+   },
+   "validation_max_error": 0.0
+  },
+  "name": "S0 free",
+  "nodes": 15,
+  "random_control": {
+   "density": 0.0,
+   "draws": 400,
+   "hits": 0
+  },
+  "search": {
+   "beam": null,
+   "best_return": null,
+   "certificate": "complete",
+   "conforming": 2,
+   "continuous": [],
+   "description_bits": 22266920,
+   "discarded": 0,
+   "episodes": 0,
+   "evaluated": 16384,
+   "exact_max_error": 0.0,
+   "execution_cost": 15.0,
+   "exhausted": true,
+   "mode": "prefix",
+   "node_evaluations": 361862,
+   "ranked_by": "order",
+   "seconds": 1.1897138510248624,
+   "selections": {
+    "a_b": 0,
+    "a_b_v": 0,
+    "a_g": 0,
+    "a_g_v": 0,
+    "a_r_v": 0,
+    "b_b": 0,
+    "b_b_v": 0,
+    "b_g": 0,
+    "b_g_v": 0,
+    "b_r_v": 0,
+    "cmp_b": 2,
+    "cmp_g": 2,
+    "cmp_r": 2,
+    "rg": 7,
+    "same": 2
+   },
+   "settle_window": 0,
+   "solved": true,
+   "space_size": 16384,
+   "steps": 0,
+   "threshold": null,
+   "ticks": 0,
+   "unique": false,
+   "wall": 1.2540728080202825
+  },
+  "space_size": 16384,
+  "train_records": 288,
+  "validation_filtered": {
+   "distinct_functions": 1,
+   "held_accuracy": [
+    1.0,
+    1.0
+   ],
+   "held_max_error": [
+    0.0,
+    0.0
+   ],
+   "selections": [
+    {
+     "a_b": 0,
+     "a_b_v": 0,
+     "a_g": 0,
+     "a_g_v": 0,
+     "a_r_v": 0,
+     "b_b": 0,
+     "b_b_v": 0,
+     "b_g": 0,
+     "b_g_v": 0,
+     "b_r_v": 0,
+     "cmp_b": 2,
+     "cmp_g": 2,
+     "cmp_r": 2,
+     "rg": 7,
+     "same": 2
+    },
+    {
+     "a_b": 0,
+     "a_b_v": 0,
+     "a_g": 0,
+     "a_g_v": 0,
+     "a_r_v": 0,
+     "b_b": 0,
+     "b_b_v": 0,
+     "b_g": 0,
+     "b_g_v": 0,
+     "b_r_v": 0,
+     "cmp_b": 2,
+     "cmp_g": 2,
+     "cmp_r": 2,
+     "rg": 8,
+     "same": 8
+    }
+   ],
+   "survivors": 2,
+   "unique": false
+  },
+  "validation_records": 144
+ },
+ "s0_positive_fraction": 0.6423611111111112,
+ "s1": {
+  "chosen": {
+   "back_a": 2,
+   "back_b": 3,
+   "corner": 1,
+   "obs": 0,
+   "pos": 0,
+   "same_a": 0,
+   "same_b": 0
+  },
+  "conforming": {
+   "count": 2,
+   "evaluated": 400,
+   "exhausted": true,
+   "seconds": 45.38254085095832,
+   "space_size": 400,
+   "unique": false
+  },
+  "held_records": 720,
+  "lexicographic_pick": {
+   "held_accuracy": 1.0,
+   "held_max_error": 0.0,
+   "selections": {
+    "back_a": 2,
+    "back_b": 3,
+    "corner": 1,
+    "obs": 0,
+    "pos": 0,
+    "same_a": 0,
+    "same_b": 0
+   },
+   "validation_max_error": 0.0
+  },
+  "module": "module:117c596cccfb573f606e8d7f",
+  "name": "S1 corner",
+  "nodes": 7,
+  "offsets_chosen": [
+   3,
+   96
+  ],
+  "random_control": {
+   "density": 0.0025,
+   "draws": 400,
+   "hits": 1
+  },
+  "search": {
+   "beam": null,
+   "best_return": null,
+   "certificate": "complete",
+   "conforming": 2,
+   "continuous": [],
+   "description_bits": 44492816,
+   "discarded": 0,
+   "episodes": 0,
+   "evaluated": 400,
+   "exact_max_error": 0.0,
+   "execution_cost": 35.0,
+   "exhausted": true,
+   "mode": "prefix",
+   "node_evaluations": 64866,
+   "ranked_by": "order",
+   "seconds": 97.63812171702739,
+   "selections": {
+    "back_a": 2,
+    "back_b": 3,
+    "corner": 1,
+    "obs": 0,
+    "pos": 0,
+    "same_a": 0,
+    "same_b": 0
+   },
+   "settle_window": 0,
+   "solved": true,
+   "space_size": 400,
+   "steps": 0,
+   "threshold": null,
+   "ticks": 0,
+   "unique": false,
+   "wall": 97.68708684603916
+  },
+  "space_size": 400,
+  "train_records": 720,
+  "validation_filtered": {
+   "held_accuracy": [
+    1.0,
+    1.0
+   ],
+   "held_max_error": [
+    0.0,
+    0.0
+   ],
+   "selections": [
+    {
+     "back_a": 2,
+     "back_b": 3,
+     "corner": 1,
+     "obs": 0,
+     "pos": 0,
+     "same_a": 0,
+     "same_b": 0
+    },
+    {
+     "back_a": 3,
+     "back_b": 2,
+     "corner": 1,
+     "obs": 0,
+     "pos": 0,
+     "same_a": 0,
+     "same_b": 0
+    }
+   ],
+   "survivors": 2,
+   "unique": false
+  },
+  "validation_records": 360
+ },
+ "s1_positive_fraction": 0.019444444444444445
+}

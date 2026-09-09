@@ -106,13 +106,23 @@ def same_scaffold(registry, width, height, free=False):
     return b.program((("y", "same"),))
 
 
-def same_examples(seeds, split, per_image, seed=0, **configuration):
-    """Pairs drawn from the whole raster, labelled by the `owner` probe.
+def same_examples(seeds, split, per_image, seed=0, arbitrary=False, **configuration):
+    """Four-neighbour pairs, labelled by the `owner` probe.
 
-    Not just neighbours: a same-colour predicate is a predicate about two
-    arbitrary addresses, and supervising it at arbitrary pairs is what makes the
-    conforming set a single function rather than the two-spelling tie
-    `research/gui-hierarchy` reported.
+    MEASURED CORRECTION to the draft.  The draft drew *arbitrary* address pairs,
+    on the argument that a same-colour predicate is a predicate about two
+    arbitrary addresses and that denser supervision would break the two-spelling
+    tie `research/gui-hierarchy` reported.  Run, that space returns **0
+    conforming programs out of 256, exhausted** -- and the reason is the same one
+    that broke S2's extent: fill colour is not injective per widget at
+    `palette 32` (`bounds.json`, `colour_injective` = 1 of 12 episodes).  Over
+    48,000 arbitrary pairs on 12 flat episodes, `owner(a) == owner(b)` disagrees
+    with "same colour" on **1.41%** of them, so no colour predicate can reproduce
+    the label and the target is not a function of the context at all.  Over
+    46,528 four-neighbour pairs on the same episodes the disagreement is
+    **0.00%**, which is the same fact `bounds.json`'s `corner_colour` states as
+    226/0/0.  `arbitrary=True` reproduces the draft's unsatisfiable variant, and
+    it is reported beside the neighbour arm rather than dropped.
     """
     import random
     rng = random.Random(seed)
@@ -121,10 +131,21 @@ def same_examples(seeds, split, per_image, seed=0, **configuration):
         ep = episode(s, split, **configuration)
         BT = bytes_type(ep["width"], ep["height"])
         raw = Value.of(BT, ep["pixels"]).raw
-        owner, n = ep["probes"]["owner"], ep["width"] * ep["height"]
-        for _ in range(per_image):
+        owner = ep["probes"]["owner"]
+        w, h = ep["width"], ep["height"]
+        n = w * h
+        drawn = 0
+        while drawn < per_image:
             i = rng.randrange(n)
-            j = i + 1 if rng.random() < .5 and i + 1 < n else rng.randrange(n)
+            if arbitrary:
+                j = i + 1 if rng.random() < .5 and i + 1 < n else rng.randrange(n)
+            else:
+                x, y = i % w, i // w
+                dx, dy = rng.choice(((1, 0), (-1, 0), (0, 1), (0, -1)))
+                if not (0 <= x + dx < w and 0 <= y + dy < h):
+                    continue
+                j = (y + dy) * w + (x + dx)
+            drawn += 1
             rows.append({"inputs": {"a": Value.of(IDX, 3 * i), "b": Value.of(IDX, 3 * j),
                                     "obs": Value(BT, raw)},
                          "targets": {"same": Value.of(BOOL, owner[i] == owner[j])}})
@@ -236,7 +257,7 @@ def rect_scaffold(registry, width, height, module, offsets, span=None):
     b.choice("step_h", [("identity", (f"off{k}",), None, None) for k in offsets])
     for tag, step, coordinate, limit in (("w", "step_w", "x", "width"),
                                          ("h", "step_h", "y", "height")):
-        terms = []
+        terms, run = [], None
         for k in range(1, span):
             b.add(f"{tag}d{k}", "mul", [step, f"k{k}"])
             b.add(f"{tag}a{k}", "add", ["pos", f"{tag}d{k}"])
@@ -245,7 +266,20 @@ def rect_scaffold(registry, width, height, module, offsets, span=None):
             b.add(f"{tag}i{k}", "add", [coordinate, f"k{k}"])
             b.add(f"{tag}m{k}", "lt", [f"{tag}i{k}", limit])
             b.add(f"{tag}t{k}", "and", [f"{tag}s{k}", f"{tag}m{k}"])
-            terms.append(b.add(f"{tag}e{k}", "encode", [f"{tag}t{k}"], out=IDX))
+            # A prefix conjunction, not a bare mask.  H5 as drafted summed the
+            # masked same-colour bits over the whole row, on the claim that no
+            # other pixel of that row carries the widget's colour.  That claim is
+            # false and `bounds.py` already contained the refutation it did not
+            # consult: `colour_injective` is 1 of 12 episodes on the flat screen
+            # (192 distinct colours over 226 widgets), so a far-away sibling in
+            # the same row is counted and the extent overshoots.  Conjoining each
+            # term with every earlier one makes the sum the length of the
+            # *contiguous* run, which is the rule `extent_rule` actually checked
+            # at 226/226.  Still a fixed-depth feedforward graph; no accumulator
+            # and no recurrence.
+            run = (f"{tag}t{k}" if run is None
+                   else b.add(f"{tag}r{k}", "and", [run, f"{tag}t{k}"]))
+            terms.append(b.add(f"{tag}e{k}", "encode", [run], out=IDX))
         b.add(f"{tag}_tuple", "tuple", terms)
         b.add(f"{tag}_count", "sum", [f"{tag}_tuple"])
         b.add(f"{tag}_extent", "add", [f"{tag}_count", "one"])
@@ -358,7 +392,10 @@ def score_tree(predicted, ep):
             links_right += 1
         else:
             links_wrong += 1
-    return {"widgets_in_probe": len(truth), "non_root": len(non_root),
+    keys = [row[4] for row in predicted]
+    colliding = len(keys) - len(set(keys))
+    return {"key_collisions": colliding,
+            "widgets_in_probe": len(truth), "non_root": len(non_root),
             "rects_predicted": len(got_rects), "rects_true": len(want_rects),
             "rects_exact": got_rects == want_rects,
             "rects_missing": sorted(want_rects - got_rects),
@@ -449,7 +486,18 @@ def main():
     program = same_scaffold(registry, W, H)
     result["s0"], conforming = stage("S0 same", program, tr, va, he, same_signals(), registry,
                                      tolerance, induced=lambda s: induced_same(s, False))
+    if "chosen" not in result["s0"]:
+        raise SystemExit("S0 has no conforming program; the stages above it cannot be staged.")
     same_module = registry.register_module(program.harden(result["s0"]["chosen"]))
+
+    print("\n--- S0 negative control: the draft's arbitrary-pair supervision ---")
+    atr = same_examples(range(args.train), "train", args.pairs, seed=1, arbitrary=True,
+                        **configuration)
+    result["s0_arbitrary_positive_fraction"] = (
+        sum(e["targets"]["same"].decoded for e in atr) / len(atr))
+    result["s0_arbitrary"], _ = stage("S0 arbitrary", same_scaffold(registry, W, H), atr, atr,
+                                      atr, same_signals(), registry, tolerance,
+                                      induced=lambda s: induced_same(s, False))
     result["s0"]["module"] = same_module
     dump(args.tag, result)
 

@@ -1,0 +1,104 @@
+{
+  "library": [
+    "stare"
+  ],
+  "seed": 1,
+  "episodes": 400,
+  "final": {
+    "mean": 0.3125,
+    "solved": 20,
+    "n": 64,
+    "stochastic": false,
+    "modal_trace": [
+      "look",
+      "look",
+      "look",
+      "look",
+      "look",
+      "look"
+    ]
+  },
+  "final_stochastic": {
+    "mean": 0.375,
+    "solved": 24,
+    "n": 64,
+    "stochastic": true,
+    "modal_trace": [
+      "look",
+      "look",
+      "look",
+      "look",
+      "look",
+      "look"
+    ]
+  },
+  "selected": "stare",
+  "logits": {
+    "idle": [
+      -0.553,
+      2.661,
+      -1.288,
+      -1.685
+    ],
+    "found": [
+      -1.292,
+      -1.308,
+      3.713,
+      -2.771
+    ],
+    "dialled": [
+      -1.079,
+      -2.335,
+      -0.301,
+      1.626
+    ]
+  },
+  "history": [
+    {
+      "episode": 100,
+      "grad_norm": 0.18902890384197235,
+      "train_return": 0.1,
+      "reward_rate": 0.1,
+      "selection": {},
+      "actor": -0.08278191834688187,
+      "value": 0.02581764943897724,
+      "entropy": -0.5012183785438538,
+      "probe": 32.0
+    },
+    {
+      "episode": 200,
+      "grad_norm": 0.43198931217193604,
+      "train_return": 0.21,
+      "reward_rate": 0.21,
+      "selection": {},
+      "actor": -0.9053253531455994,
+      "value": 0.1346193104982376,
+      "entropy": -0.8188408017158508,
+      "probe": 0.5
+    },
+    {
+      "episode": 300,
+      "grad_norm": 0.6052465438842773,
+      "train_return": 0.31,
+      "reward_rate": 0.31,
+      "selection": {},
+      "actor": -0.36363473534584045,
+      "value": 0.34356603026390076,
+      "entropy": 0.35562172532081604,
+      "probe": 11.0
+    },
+    {
+      "episode": 400,
+      "grad_norm": 0.5251191258430481,
+      "train_return": 0.43,
+      "reward_rate": 0.43,
+      "selection": {},
+      "actor": 1.0806328058242798,
+      "value": 0.2560940682888031,
+      "entropy": 2.0548717975616455,
+      "probe": 7.166666507720947
+    }
+  ],
+  "environment_episodes": 528,
+  "seconds": 253.1240496400278
+}

@@ -26,8 +26,9 @@ on every default configuration (`equivalence.py`, `session_equivalence.py`).
 | `aggregate.py` | regenerates every table in `RESULTS.md` from `out/*.json` |
 | `generator_before.py` | the pre-change copy of `generators/computer/generator.py`, for `equivalence.py` |
 
-**Status:** `RESULTS.md` is written from measured data with two gaps named in its
-section 10 -- the `staged_enum` seeds and the whole of `macro.py`. Start there.
+**Status:** `RESULTS.md` is written from measured data. The composite-action arm
+(`macro.py`) was run on 2026-09-09 and is reported in section 8.1; one gap remains in
+section 10, the `staged_enum` seeds (plus the n = 192 baseline re-run). Start there.
 
 Reproduce, in order:
 

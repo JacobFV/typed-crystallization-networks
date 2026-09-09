@@ -1516,3 +1516,41 @@ declaring an observation type that does not fix the width. Neither is
 implemented. This sits alongside the interface-exactness fragility of section
 27 — a stage-1 module wrong at 1 of 384 positions took stage 2 from a unique
 solution to zero conforming — as the two known limits on chaining.
+
+## 31. The composite action closes the hierarchy gap
+
+Section 29 left one claim unmeasured: reward-only learning solves the *delay* but
+does not select the argument sub-action, widening its slot sampler instead
+(0.594 sampling, 0.240 deterministic). Offering a crystallized module as a
+**composite action** — recursive abstraction applied to actions rather than
+perception — closes it.
+
+Six runs, 400 episodes and 528 environment episodes each, about four minutes:
+
+| arm | deterministic eval | chose `sweep` |
+|---|---|---|
+| **`sweep+stare`, composite action offered** | **0.9648** (sd 0.061; 3 of 4 seeds at 1.0000, 64/64) | **4/4** |
+| `stare`-only control | 0.2969 | 0/2 |
+| reward only, 12-candidate pool (section 29) | 0.2396 | 0/6 |
+| reward only, sub-action supplied (the ceiling) | 1.0000 | — |
+
+Baselines: `always_wait`, `look_only` and `uniform_random` all 0.0000; myopic
+`commit_now` 0.0208 measured against 0.0625 exact; `neutral_typed` 0.0833;
+`fixed_slot_plan` 0.2500; oracle 1.0000. Exact ceilings: sweeping 1.0000,
+i.i.d. 0.7141, constant slot 0.3333 — **and the control sits on that constant-slot
+ceiling at 0.2969**, which is what makes the contrast a real effect rather than
+a lucky argmax.
+
+It is also not a tie broken at the end: two seeds hold `stare` through episode
+200 and switch by 300, with the reward rate rising as they switch. Stochastic
+evaluation is lower at 0.6250, because the wide slot sampler perturbs the
+learned sweep — reported, not hidden.
+
+**A verification note worth keeping.** Recomputing the summary from every
+artifact gave 0.7719 over five seeds rather than 0.9648 over four, because a
+fifth file scored 0.0000. That file is `macro_sweep_stare_s90`, a **10-episode**
+run against the others' 400, excluded by a pre-existing `seed >= 90` filter for
+short-budget runs that the report documents. The exclusion is legitimate and the
+four-seed figure stands; recording the check because a headline that improves
+when a zero is dropped is exactly the shape that has been wrong before in this
+pass, and this time it was not.

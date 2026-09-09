@@ -1,0 +1,109 @@
+{
+  "library": [
+    "sweep",
+    "stare"
+  ],
+  "seed": 3,
+  "episodes": 400,
+  "final": {
+    "mean": 1.0,
+    "solved": 64,
+    "n": 64,
+    "stochastic": false,
+    "modal_trace": [
+      "look",
+      "look",
+      "dial",
+      "commit"
+    ]
+  },
+  "final_stochastic": {
+    "mean": 0.640625,
+    "solved": 41,
+    "n": 64,
+    "stochastic": true,
+    "modal_trace": [
+      "look",
+      "look",
+      "dial",
+      "commit"
+    ]
+  },
+  "selected": "sweep",
+  "logits": {
+    "idle": [
+      -0.475,
+      3.344,
+      -0.811,
+      -1.373
+    ],
+    "found": [
+      -0.933,
+      -1.596,
+      3.18,
+      -2.966
+    ],
+    "dialled": [
+      -1.486,
+      -1.58,
+      -1.686,
+      2.579
+    ]
+  },
+  "history": [
+    {
+      "episode": 100,
+      "grad_norm": 0.01703193411231041,
+      "train_return": 0.11,
+      "reward_rate": 0.11,
+      "selection": {
+        "next_slot": "sweep"
+      },
+      "actor": -0.015522129833698273,
+      "value": 0.0002362508821533993,
+      "entropy": 0.11941405385732651,
+      "probe": 0.5
+    },
+    {
+      "episode": 200,
+      "grad_norm": 0.779527485370636,
+      "train_return": 0.26,
+      "reward_rate": 0.26,
+      "selection": {
+        "next_slot": "sweep"
+      },
+      "actor": 0.09009125083684921,
+      "value": 0.5063027143478394,
+      "entropy": 0.6813257932662964,
+      "probe": 5.375
+    },
+    {
+      "episode": 300,
+      "grad_norm": 0.42852750420570374,
+      "train_return": 0.28,
+      "reward_rate": 0.28,
+      "selection": {
+        "next_slot": "sweep"
+      },
+      "actor": -0.24666756391525269,
+      "value": 0.1814456731081009,
+      "entropy": -0.06875520944595337,
+      "probe": 1.0
+    },
+    {
+      "episode": 400,
+      "grad_norm": 0.6633967757225037,
+      "train_return": 0.54,
+      "reward_rate": 0.54,
+      "selection": {
+        "next_slot": "sweep"
+      },
+      "actor": -0.5936980843544006,
+      "value": 0.422522634267807,
+      "entropy": 1.6015843152999878,
+      "probe": 6.25
+    }
+  ],
+  "environment_episodes": 528,
+  "seconds": 234.60429335501976
+}

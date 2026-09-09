@@ -58,6 +58,13 @@
 | `reward_percept` | 0.000 | 0.000 | 0.115 | 0.083 |
 | `reward_sweep_given` | 0.073 | 0.094 | 1.000 | 1.000 |
 
+### composite actions
+
+| module library | seeds | eval | sd | chose `sweep` | env episodes |
+|---|---|---|---|---|---|
+| `stare` | 2 | **0.2969** | 0.016 | 0/2 | 528 |
+| `sweep+stare` | 4 | **0.9648** | 0.061 | 4/4 | 528 |
+
 ### what each arm selected
 
 * `flat`: next_slot ['identity(action.1.slot)', 'add(one_slot,one_slot)', 'add(action.1.slot,action.1.slot)'], log sigma(slot) [1.256, 2.234, 1.87], argmax verb per situation [{'idle': 'dial', 'found': 'wait', 'dialled': 'wait'}, {'idle': 'commit', 'found': 'wait', 'dialled': 'wait'}, {'idle': 'dial', 'found': 'wait', 'dialled': 'wait'}]
