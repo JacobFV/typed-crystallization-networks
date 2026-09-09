@@ -33,6 +33,16 @@ def gen_underspecification_reasoning(rng: random.Random, ctx):
     spare = [c for c in COLORS if c not in cube_cols and c not in box_cols]
     for c in spare:
         fits.append((c, rng.choice(box_cols)))
+    if ctx.hardens("underspecification_reasoning"):
+        # ``spare`` is empty whenever the three cube colours and the three box
+        # colours exhaust the palette, which is always, so the number of
+        # printed ``fits`` lines *is* the answer and a decision stump over
+        # character counts reads it straight off.  Reversed pairs are
+        # compatibilities the instruction can never instantiate -- X has to be
+        # a cube and no cube wears a box colour -- so they add lines without
+        # adding admissible assignments.
+        for _ in range(rng.randint(1, 4)):
+            fits.append((rng.choice(box_cols), rng.choice(cube_cols)))
     n = sum(1 for i in range(3) for j in range(3) if (cube_cols[i], box_cols[j]) in fits)
     assert n == k
 

@@ -1,0 +1,218 @@
+{
+  "agrees_with_harness_labelled_run": true,
+  "audit": [
+    {
+      "derived_target_byte": 52,
+      "document": "n = 3",
+      "goal_reached_after": true,
+      "probe_content_after": "4",
+      "probe_content_before": "n = 3",
+      "state_counts_after": [
+        4.0,
+        0.0,
+        3.0
+      ],
+      "state_counts_before": [
+        4.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "derived_target_byte": 54,
+      "document": "ab = 5",
+      "goal_reached_after": true,
+      "probe_content_after": "6",
+      "probe_content_before": "ab = 5",
+      "state_counts_after": [
+        4.0,
+        0.0,
+        3.0
+      ],
+      "state_counts_before": [
+        4.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "derived_target_byte": 49,
+      "document": "cnt = 0",
+      "goal_reached_after": true,
+      "probe_content_after": "1",
+      "probe_content_before": "cnt = 0",
+      "state_counts_after": [
+        4.0,
+        0.0,
+        3.0
+      ],
+      "state_counts_before": [
+        4.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "derived_target_byte": 55,
+      "document": "total = 6",
+      "goal_reached_after": true,
+      "probe_content_after": "7",
+      "probe_content_before": "total = 6",
+      "state_counts_after": [
+        4.0,
+        0.0,
+        3.0
+      ],
+      "state_counts_before": [
+        4.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "derived_target_byte": 51,
+      "document": "counter = 2",
+      "goal_reached_after": true,
+      "probe_content_after": "3",
+      "probe_content_before": "counter = 2",
+      "state_counts_after": [
+        4.0,
+        0.0,
+        3.0
+      ],
+      "state_counts_before": [
+        4.0,
+        0.0,
+        2.0
+      ]
+    }
+  ],
+  "enumeration": {
+    "conforming": 2,
+    "continuous": [],
+    "description_bits": 26352368,
+    "evaluated": 7480,
+    "exact_max_error": 0.0,
+    "execution_cost": 7.0,
+    "exhausted": true,
+    "ranked_by": "description",
+    "seconds": 29.40967492404161,
+    "selections": {
+      "byte": 0,
+      "data": 0,
+      "length": 0,
+      "pos": 9,
+      "shift": 7,
+      "unpacked": 0,
+      "value": 0
+    },
+    "solved": true,
+    "space_size": 7480,
+    "unique": false
+  },
+  "harness_selections": {
+    "byte": 0,
+    "data": 0,
+    "length": 0,
+    "pos": 9,
+    "shift": 7,
+    "unpacked": 0,
+    "value": 0
+  },
+  "probe_labelled_examples": 5,
+  "seconds": 55.60579583700746,
+  "space_size": 7480,
+  "state_counts_as_a_target": {
+    "conclusion": "state_counts takes one value across every document, so no target derived from it can depend on the file the agent must read",
+    "distinct_probe_content_series": 5,
+    "distinct_series_over_5_documents": 1
+  },
+  "test_accuracy": 1.0,
+  "test_audit": [
+    {
+      "derived_target_byte": 56,
+      "document": "k = 7",
+      "goal_reached_after": true,
+      "probe_content_after": "8",
+      "probe_content_before": "k = 7",
+      "state_counts_after": [
+        4.0,
+        0.0,
+        3.0
+      ],
+      "state_counts_before": [
+        4.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "derived_target_byte": 50,
+      "document": "xy = 1",
+      "goal_reached_after": true,
+      "probe_content_after": "2",
+      "probe_content_before": "xy = 1",
+      "state_counts_after": [
+        4.0,
+        0.0,
+        3.0
+      ],
+      "state_counts_before": [
+        4.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "derived_target_byte": 57,
+      "document": "idx = 8",
+      "goal_reached_after": true,
+      "probe_content_after": "9",
+      "probe_content_before": "idx = 8",
+      "state_counts_after": [
+        4.0,
+        0.0,
+        3.0
+      ],
+      "state_counts_before": [
+        4.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "derived_target_byte": 53,
+      "document": "amount = 4",
+      "goal_reached_after": true,
+      "probe_content_after": "5",
+      "probe_content_before": "amount = 4",
+      "state_counts_after": [
+        4.0,
+        0.0,
+        3.0
+      ],
+      "state_counts_before": [
+        4.0,
+        0.0,
+        2.0
+      ]
+    },
+    {
+      "derived_target_byte": 49,
+      "document": "accumulator = 0",
+      "goal_reached_after": true,
+      "probe_content_after": "1",
+      "probe_content_before": "accumulator = 0",
+      "state_counts_after": [
+        4.0,
+        0.0,
+        3.0
+      ],
+      "state_counts_before": [
+        4.0,
+        0.0,
+        2.0
+      ]
+    }
+  ]
+}

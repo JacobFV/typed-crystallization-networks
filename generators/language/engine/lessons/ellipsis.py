@@ -30,11 +30,20 @@ def gen_ellipsis(rng: random.Random, ctx):
     clauses = [(subs[2 + i], verbs[1 + i], objs[1 + i]) for i in range(d)]
     rng.shuffle(clauses)
     antecedent = (subs[0], verbs[0], objs[0])
-    clauses.append(antecedent)
+    # Appending the antecedent last makes it the most recently mentioned verb
+    # and object in the whole discourse, so "take the last option that occurs"
+    # answers every episode without resolving anything.  Ellipsis still binds to
+    # the immediately preceding clause; the hardened draw moves that *pair* into
+    # the discourse instead of pinning it to the end, so what follows the gap is
+    # a distractor and recency alone is wrong.
+    at_end = not ctx.hardens("ellipsis")
+    cut = len(clauses) if at_end else rng.randint(0, len(clauses))
+    before, after = clauses[:cut], clauses[cut:]
+    clauses = before + [antecedent] + after
 
     lines = [Pred("clause", Num(i), Ident(s), Ident(v), Ident(o))
-             for i, (s, v, o) in enumerate(clauses)]
-    i = len(clauses)
+             for i, (s, v, o) in enumerate(before + [antecedent])]
+    i = len(lines)
     if mode == "gapping":
         lines.append(Pred("gap", Num(i), Ident(subs[1]), Ident(objs[d + 1])))
         query = Pred("verb_of", Ident(subs[1]))
@@ -44,6 +53,8 @@ def gen_ellipsis(rng: random.Random, ctx):
         query = Pred("object_of", Ident(subs[1]))
         vocab, answer = _shuffled(rng, OBJECTS), antecedent[2]
 
+    lines += [Pred("clause", Num(len(lines) + j), Ident(s), Ident(v), Ident(o))
+              for j, (s, v, o) in enumerate(after)]
     obs = Rec(discourse=Lst(lines), query=query)
     return obs, vocab, answer, {"mode": mode, "antecedent": list(antecedent)}
 

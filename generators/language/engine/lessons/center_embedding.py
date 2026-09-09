@@ -23,9 +23,21 @@ def gen_center_embedding(rng: random.Random, ctx):
     toks = list(subs) + list(reversed(chosen))
     if rng.random() < 0.5:                       # a trailing adverb, so "last token" fails
         toks.append(rng.choice(adverbs()))
-    obs = Rec(sentence=Lst([Tok(w) for w in toks]), query=Pred("verb_of", Ident(subs[0])))
-    return (obs, _shuffled(rng, chosen), chosen[0],
-            {"depth": depth, "pairs": dict(zip(subs, chosen)), "length": len(toks)})
+    # Always asking for the *outermost* subject fixes the answer at the last
+    # verb of the sentence, which "take the option mentioned last" reads off
+    # without unwinding anything.  Querying a subject drawn at random keeps the
+    # pairing exactly as hard -- subject i still pairs with the verb at
+    # ``depth + (depth - 1 - i)`` -- and moves the answer around.
+    if not ctx.hardens("center_embedding"):
+        obs = Rec(sentence=Lst([Tok(w) for w in toks]),
+                  query=Pred("verb_of", Ident(subs[0])))
+        return (obs, _shuffled(rng, chosen), chosen[0],
+                {"depth": depth, "pairs": dict(zip(subs, chosen)), "length": len(toks)})
+    q = rng.randrange(depth)
+    obs = Rec(sentence=Lst([Tok(w) for w in toks]), query=Pred("verb_of", Ident(subs[q])))
+    return (obs, _shuffled(rng, chosen), chosen[q],
+            {"depth": depth, "pairs": dict(zip(subs, chosen)), "length": len(toks),
+             "queried": subs[q]})
 
 
 class CenterEmbedding(Lesson):

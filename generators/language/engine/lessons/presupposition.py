@@ -21,7 +21,11 @@ def gen_presupposition(rng: random.Random, ctx):
     that treats the whole utterance as one proposition cannot separate the two
     layers. The label is drawn first and the polarity chosen to realize it.
     """
-    n_extra = ctx.at(0, 5, default=0)
+    # With no other utterance in the episode the polarity word is a global
+    # feature of the whole prompt, and reading it together with the query's
+    # predicate name classifies 0.868 of episodes without locating anything.
+    n_extra = (ctx.at(1, 5, default=1) if ctx.hardens("presupposition")
+               else ctx.at(0, 5, default=0))
     label = rng.choice(["asserted", "presupposed", "denied", "neither"])
     if label == "asserted":
         polarity = "affirm"
@@ -39,6 +43,7 @@ def gen_presupposition(rng: random.Random, ctx):
         presup = ("did_before", subj, act)
         unrelated = (rng.choice(["does", "did_before"]), other_subj, other_act)
         trigger = "again"
+        key, okey = (subj, act), (other_subj, other_act)
         pool = [(x, y) for x in NAMES for y in ACTIVITIES
                 if (x, y) not in {(subj, act), (other_subj, other_act)}]
     else:
@@ -50,8 +55,18 @@ def gen_presupposition(rng: random.Random, ctx):
         presup = ("exists", color, shape)
         unrelated = (rng.choice(["on_table", "exists"]), other_color, other_shape)
         trigger = "the_x_is_on_the_table"
+        key, okey = (color, shape), (other_color, other_shape)
         pool = [(x, y) for x in COLORS for y in SHAPES
                 if (x, y) not in {(color, shape), (other_color, other_shape)}]
+
+    if ctx.hardens("presupposition"):
+        # A `neither` proposition sharing *neither* argument with the utterance
+        # is separable by raw character overlap alone. One shared argument makes
+        # the overlap the same as an asserted proposition's, so the queried pair
+        # has to actually be matched against the utterance.
+        mixed = (key[0], okey[1]) if rng.random() < 0.5 else (okey[0], key[1])
+        unrelated = (unrelated[0], mixed[0], mixed[1])
+        pool = [p for p in pool if p != mixed]
 
     # utterances about wholly different pairs: they carry layers of their own,
     # so the queried proposition has to be traced back to the utterance that

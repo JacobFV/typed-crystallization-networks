@@ -21,19 +21,28 @@ SEEDS = range(8)
 
 
 def cell(job):
+    """Two digests: the episode content, and the instance ids separately.
+
+    The id is a function of the sampling regime as well as the seed, so a
+    legacy-stream check has to compare the episodes themselves; the ids are
+    checked on their own, under the regime that actually claims to be stable.
+    """
     lid, kwargs = job
-    L = lc.get(lid)
-    h = hashlib.blake2b(digest_size=16)
+    body = hashlib.blake2b(digest_size=16)
+    ids = hashlib.blake2b(digest_size=16)
     for lang in LANGS:
         for d in DIFFS:
             for s in SEEDS:
                 try:
-                    ex = L.example(seed=s, language=lang, difficulty=d, **kwargs)
-                    h.update(json.dumps(ex.to_dict(), sort_keys=True,
-                                        ensure_ascii=False).encode("utf8"))
+                    rec = lc.get(lid).example(seed=s, language=lang,
+                                              difficulty=d, **kwargs).to_dict()
+                    ids.update(rec.pop("instance_id", "").encode())
+                    body.update(json.dumps(rec, sort_keys=True,
+                                           ensure_ascii=False).encode("utf8"))
                 except Exception as exc:
-                    h.update(f"!{type(exc).__name__}".encode())
-    return lid, h.hexdigest()
+                    body.update(f"!{type(exc).__name__}".encode())
+                    ids.update(b"!")
+    return lid, {"content": body.hexdigest(), "ids": ids.hexdigest()}
 
 
 def main():

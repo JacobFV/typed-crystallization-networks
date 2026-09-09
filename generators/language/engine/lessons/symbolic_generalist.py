@@ -8,6 +8,7 @@ from __future__ import annotations
 import random
 
 from .._structure import Ident, Pred, Rec
+from ..context import GenerationContext
 from ..lesson import Lesson
 from ..generators.capstone import _OWN_IDS, _dedup, _shuffled
 
@@ -40,7 +41,10 @@ def gen_symbolic_generalist(rng: random.Random, ctx):
     for _ in range(20):
         drawn = rng.sample(pool, n_parts)
         try:
-            parts = [l.invoke(rng) for l in drawn]
+            # same sampling regime as this episode; language and difficulty
+            # are deliberately not passed down, exactly as before
+            parts = [l.invoke(rng, GenerationContext(hardening=ctx.hardening))
+                     for l in drawn]
         except Exception:                             # a broken lesson must not break this one
             continue
         if any(ans not in list(voc) for _, voc, ans, _ in parts):

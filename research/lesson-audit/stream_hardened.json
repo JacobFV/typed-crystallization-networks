@@ -1,0 +1,725 @@
+{
+ "cells": 179,
+ "configurations": 12,
+ "digests": {
+  "abstraction_ladder": {
+   "content": "ccf953ccda02ddac8a36a1b4527da3ad",
+   "ids": "5610aeec3de7ccb3334faff4406453dd"
+  },
+  "adversarial_argumentation": {
+   "content": "afa3cc3bb63f911dc6d967c9217486e1",
+   "ids": "77797c690f02dd4c89bfa6b0a19e3b7b"
+  },
+  "algorithm_analysis": {
+   "content": "86f7d01fc49d129e5d653e332aa368c3",
+   "ids": "3d5220a0471cb0996619916b81a01e53"
+  },
+  "algorithm_discovery": {
+   "content": "fff42d528c2b44639d8f34a6d2fcc10f",
+   "ids": "cc5c6f93f71bcfbf6b91a746b6052926"
+  },
+  "ambiguity_preservation": {
+   "content": "8c0e6165ac33ac9904b1adf22b42bd92",
+   "ids": "5a50369c618f72949a765a97a5fe409b"
+  },
+  "analogy": {
+   "content": "475fe00b19f838e171bbc8e0bf073b9b",
+   "ids": "424d84797c29383e928af483f929c446"
+  },
+  "anomaly_resolution": {
+   "content": "405cdef44f80f650e1393f289eca863c",
+   "ids": "4b3f92d53552117a912dedd953cbc11b"
+  },
+  "anytime_reasoning": {
+   "content": "9383621d7ff87bbef58892c807c83835",
+   "ids": "ead05fb745e4184f214574e918327e57"
+  },
+  "architecture_composition": {
+   "content": "3a95dd159ee93acdefeec37af0e16b37",
+   "ids": "6e0fc10cb50a32057a38395cac285241"
+  },
+  "architecture_selection": {
+   "content": "31f7eff771040a13c7bc4050f5597641",
+   "ids": "b7bc7f7d4bbadb6ca0bcd6ed57dc0f5b"
+  },
+  "argumentation": {
+   "content": "7cb228bb96dc50edcc4e7e6971be6041",
+   "ids": "f8a2c021b660197236d23373c761f7af"
+  },
+  "belief_revision": {
+   "content": "45da31206bd58e8ea42c8bc0058a37bb",
+   "ids": "7199bc44f582da2b6670b8cb4044e21f"
+  },
+  "belief_state": {
+   "content": "50273058c8d2fbf435f5445d16d71121",
+   "ids": "822a19d22aaab4dad68d46848b4a2909"
+  },
+  "capability_estimation": {
+   "content": "5f1635b66fa5ac125be9c6a830e69e76",
+   "ids": "5941d62f4ec8e6a1f5f1f1ef1a7cf443"
+  },
+  "causal_language": {
+   "content": "a208c70d5701b275c83dce0985e55143",
+   "ids": "0cfd0174c78db6265a1ed6a497c96465"
+  },
+  "center_embedding": {
+   "content": "436d2d7bc5d0cbfbab0ce9e2db9191c2",
+   "ids": "c0d25f263309ea7c416a1d4e1aa00330"
+  },
+  "civilization_simulator": {
+   "content": "492e0e8e652622dc6e113ad4c426a8a6",
+   "ids": "4ced230c2f92098e149c054a62164b5c"
+  },
+  "coalition_formation": {
+   "content": "4c9747df868ec8d74108294a08d45835",
+   "ids": "211281c141d3a7ae788fce86bab92567"
+  },
+  "collective_theory_building": {
+   "content": "0f906d1b7265b630ec1a39dd0d3baf6d",
+   "ids": "430769b0494963aa665a7c50ac1f84be"
+  },
+  "comparatives": {
+   "content": "ad56deee231a53ff18d77ce4b3924f03",
+   "ids": "3ec7d1258868d6fb939c9f9ff3279f10"
+  },
+  "compiler_construction": {
+   "content": "779ea00932126fa8d353f89b3d324035",
+   "ids": "c683fb705d5db64f016b0a2bae5ec36a"
+  },
+  "compositional_reference": {
+   "content": "9f36c4eb07934b87cbb1994ecaa6736b",
+   "ids": "e5475773453985cd62aa804aaa1386a9"
+  },
+  "compressed_language": {
+   "content": "c275d48d79dceebf0123876037c108ce",
+   "ids": "21ef4446e376b0814ad64114549e64ab"
+  },
+  "concept_invention": {
+   "content": "5e50378ae5bb36d2c6b959ca674f5215",
+   "ids": "054911d49ce81090c1bcee6aece10957"
+  },
+  "conceptual_chunking": {
+   "content": "9d15e0dde046cb07bc42db5755400581",
+   "ids": "2792db5396e9798ae964da860f112435"
+  },
+  "conjecture_generation": {
+   "content": "b6d6f3f5d7e5819c0afa0e724739c6c0",
+   "ids": "07b78170a3bd51406acc4379c0b12f7b"
+  },
+  "conservation_law_discovery": {
+   "content": "5257736d45c061c86ad1a9e81b440431",
+   "ids": "ad13d53e0d9bb972fc5911032ee8f9bd"
+  },
+  "context_free_language": {
+   "content": "f77befc2317621e0a6a2bef3d42d1d27",
+   "ids": "22770439f26d89d3db380aec1cdeb01a"
+  },
+  "continual_language": {
+   "content": "78c66f090d8262bdb54ff210e80d9f4e",
+   "ids": "f4160325a5df53e35d6bdd0714557d19"
+  },
+  "contract_reasoning": {
+   "content": "9804a7f3076d3e3920e3c8619b939914",
+   "ids": "8a8ec404e435dc3e7eb601912ee4bce3"
+  },
+  "contradiction_tolerance": {
+   "content": "4d518d33adbcb02efa56707ec82ffcf4",
+   "ids": "103d37a2552d5a89e10cdd52f537d86e"
+  },
+  "counterexample_generation": {
+   "content": "a0bd2c8fab754d8057821b629c08c135",
+   "ids": "a3403522cdb301697cefdafad0186d8b"
+  },
+  "counterfactuals": {
+   "content": "97abc65250f2307378831d2b46f3a09e",
+   "ids": "a502f14ffa6b443f86407801529010f6"
+  },
+  "counting_quantifier": {
+   "content": "d31114728ac9e4c126d13cd2c43545bd",
+   "ids": "5cbfc0b090f8cc57bb182bebcd9593f2"
+  },
+  "cross_domain_unification": {
+   "content": "1a2cc8d80415da1717ef1cad00dc1af4",
+   "ids": "7cc099547035efeabff4693e17aa0754"
+  },
+  "cultural_evolution": {
+   "content": "cd0d7a93bfdbcecaf2602389ed97982a",
+   "ids": "bc7ea497fb7456f9610301f8921de630"
+  },
+  "curriculum_design": {
+   "content": "e3d058323f90b8c49de653f5e60daa91",
+   "ids": "99c17b1eae1752e7db86fe1126963701"
+  },
+  "curriculum_invention": {
+   "content": "c1969a50ee1cd2c43252ff0322181fea",
+   "ids": "964806607da16c284fa02f8056bf139e"
+  },
+  "deception_detection": {
+   "content": "601c955e66f789ad3975282a8d34bc58",
+   "ids": "7c6add567b26746db88773aa583c0a9d"
+  },
+  "decomposition": {
+   "content": "01179ebb3cf69bec06966e49e59010dc",
+   "ids": "6a4c911d66ba92bf3520dad73618f518"
+  },
+  "default_reasoning": {
+   "content": "4c55a52f9ddde6fe6a47cb7b9391b35f",
+   "ids": "20f3e16a2f2429431019a9b8fa9fc614"
+  },
+  "definitions": {
+   "content": "ec1c4805c33480dd0a60148d1ca4b9fc",
+   "ids": "d33a5c4b5c69db963e815e9020db6963"
+  },
+  "deformalization": {
+   "content": "81ae81875c08010d51a7de0d81eb15fe",
+   "ids": "7d597f40d385876c4da2ccadc6795bd2"
+  },
+  "dialogue_game": {
+   "content": "565858f9d5e3f994a7e91485f5b56ca8",
+   "ids": "c75d2f5a4513d5bb9b5d1201293dffde"
+  },
+  "dimensional_analysis": {
+   "content": "350b5db00aaef72d40360cc1e57fde5c",
+   "ids": "7bcee4e43c66393f8c3eb628dae18208"
+  },
+  "discourse_state": {
+   "content": "728795bfebc7346904ee34847ee8f607",
+   "ids": "4c7726f826d4e42739ef7f9242c12590"
+  },
+  "distributed_knowledge": {
+   "content": "d901537b445af2e46ca1aa90108a2abd",
+   "ids": "4eee725395ad30529a1809c883e97cde"
+  },
+  "document_world": {
+   "content": "183bd2e45319cdf52474166c701c7a6e",
+   "ids": "1861d68ace6ef0f4b1dc33b40abc1757"
+  },
+  "dsl_invention": {
+   "content": "546b45d19863fe015727de85a086680c",
+   "ids": "4c8b33952546142b01a83c4f889f65d1"
+  },
+  "ellipsis": {
+   "content": "46ba073b6a2115b0682c8b3976f1db99",
+   "ids": "2d9f45c6bf2840ddea570a9ed9a5fb13"
+  },
+  "emergence_discovery": {
+   "content": "19844b07643b2ecf20040322000573ee",
+   "ids": "2a49bba5844fd8c5f2c21ed09f118453"
+  },
+  "entailment": {
+   "content": "0eb25b8cf0552827b46122e912fc4626",
+   "ids": "fd75495d0d275778a957b821adb2eccf"
+  },
+  "event_semantics": {
+   "content": "a7d622c2c9ecaf14d806dc5455a30862",
+   "ids": "4b141d53e9af7988cbdc607427685bf6"
+  },
+  "experimental_design": {
+   "content": "87185267aa7dbf29a141163fad7e52a5",
+   "ids": "056926edcda21b0569dfe22061b4a51f"
+  },
+  "explanation": {
+   "content": "22d5c489546d2d22d8b3cbf4cf3b30c3",
+   "ids": "013579eaee80e9b4f355dfe103ba04b0"
+  },
+  "explanation_repair": {
+   "content": "11f142ed623a33cba346a49b1ec95c02",
+   "ids": "4d084d7120e4586fef33c625ca8f14e3"
+  },
+  "expression_eval": {
+   "content": "f2d3120754c1d5d60fd3fdab415c0920",
+   "ids": "04f203cfd8dc28585b939803f97aef68"
+  },
+  "external_memory_design": {
+   "content": "92a4cb920a5cd52047077adc8058847a",
+   "ids": "484459481c4ff3f0ce8b0ae5b37f4e20"
+  },
+  "falsification": {
+   "content": "71611b2df39308696189e223e6380fae",
+   "ids": "0d5fbf393f5b34c10d677fdeba67a694"
+  },
+  "few_shot_language_learning": {
+   "content": "b406e5934e01f190d6179417a4b525e6",
+   "ids": "d46cac8000a9790395e2f6b397e5797f"
+  },
+  "finite_state_language": {
+   "content": "c462c6b08ccb5773894c5b6729605182",
+   "ids": "3ade71b00a4f692e4b414f7f5367ef4d"
+  },
+  "formalization": {
+   "content": "3e02af676b3bcbcac730f2fb7b3eb41b",
+   "ids": "ea47c65d6e7d69bb3ee55cbfbe488be1"
+  },
+  "general_language_agent": {
+   "content": "5213929e8258e4d9989b5d5b0030afb9",
+   "ids": "b7c9a78e56a471bd6807bc60c357b228"
+  },
+  "goal_generation": {
+   "content": "8ef28eea07a2ebd43441a6de6d20c7ff",
+   "ids": "2cd1e8c847b6472ed94a3647edaeec59"
+  },
+  "goal_inference": {
+   "content": "9830b5557563b0c392b144ee285d065f",
+   "ids": "429e10f1e92e685b04b8482b86f7842b"
+  },
+  "goal_revision": {
+   "content": "966a98759624b7341e812f336dba3134",
+   "ids": "c4503f0f03812a6cf3c8223bbbc9b76b"
+  },
+  "grammar_induction": {
+   "content": "b3c31faafb83fd5cac079505b4caa779",
+   "ids": "d7f5cad6202ec6275168e87ec6b87826"
+  },
+  "hierarchical_planning": {
+   "content": "f6e0cd88aa3e955337dd3a691e2aa09f",
+   "ids": "f87a10c0f7943e68bd2f440bfc650c23"
+  },
+  "historical_reconstruction": {
+   "content": "7d68235ecbffa04dcb1f2a989018cc36",
+   "ids": "5ffe263859ba6d8843920e3f6cc77c1a"
+  },
+  "identity_continuity": {
+   "content": "c21311e6a569e8ef20aa7869fd45f77f",
+   "ids": "9e887d4e5ddcd61911f2d9069faeff07"
+  },
+  "implicature": {
+   "content": "ef7a6277a0470f79cca86d277d8f2085",
+   "ids": "2304c2ba1393f986eccce3e45426004f"
+  },
+  "institution_design": {
+   "content": "f83a660f263e5428cc738b556e4dff0e",
+   "ids": "574bf5a5044f8173ab7effb9a92910ce"
+  },
+  "institution_learning": {
+   "content": "fb3624b7226785494a713c95fd837835",
+   "ids": "046e34767016f052272d8a2d9bcbc9cb"
+  },
+  "instruction_composition": {
+   "content": "72346314d71d20cc187538042f808999",
+   "ids": "95857a6e8b873ee251290ca98331f518"
+  },
+  "instruction_following_micro": {
+   "content": "8e31ecced0c21ffdd4c71118293f15ec",
+   "ids": "dc46bca11e36f607df0e04b4107dd61b"
+  },
+  "interactive_reference": {
+   "content": "9cad7ccebd669123845c59821abab340",
+   "ids": "40462ee6033200b3387d9cdcbd204ea2"
+  },
+  "interpreter_learning": {
+   "content": "b234b0195b52fe452895da048fb2150e",
+   "ids": "decd16344199b6283f054aa618253c73"
+  },
+  "invariance_discovery": {
+   "content": "6adb35032c21cc91e409e4cfb31ec29a",
+   "ids": "e341577d0feb9233318863bad57d86ff"
+  },
+  "knowledge_gap_detection": {
+   "content": "2a73dfdeeef34387ed83118032c54b6b",
+   "ids": "c5d211827351b471125f5551309a1036"
+  },
+  "knowledge_refactoring": {
+   "content": "e2a6402adbf062ee47c027a91279c51c",
+   "ids": "46b1008484a06d2810bcaf56c32cf75e"
+  },
+  "knowledge_update": {
+   "content": "286ae51f9fbc75ed3a03038a2ed2f3db",
+   "ids": "6e64a8a12fef7e7dbb4bc4a62e5c98b9"
+  },
+  "language_culture": {
+   "content": "5e9ebb477a0754be1429fffda9c09dc0",
+   "ids": "f1e8aa754b7d392926e9bc6fded3b6d0"
+  },
+  "language_design": {
+   "content": "e799ecbae4e9c2221664cfe82a04d20e",
+   "ids": "548e659a20bc5e460598aa9cc9819280"
+  },
+  "latent_rule_discovery": {
+   "content": "a11c0b34b1c1dd15b0d39e4e8d710902",
+   "ids": "fd0e3105ec96d0d250a8c581ede8ba8b"
+  },
+  "lemma_invention": {
+   "content": "10867a8fecacf233b9f093c282f0530f",
+   "ids": "9690ddfcf86dd85cbc3ec704d4bb9a9a"
+  },
+  "lexicon_induction": {
+   "content": "3e29fa2c690edf2318631827546be8f9",
+   "ids": "a69888b23d95588bca0e5f0a57b66671"
+  },
+  "logic_discovery": {
+   "content": "8567e54e4f66d3523931fa8509975c3f",
+   "ids": "64e743c001032be12495340848a030ef"
+  },
+  "logic_selection": {
+   "content": "26f69b2d24aaa76acdd8cb3c390c838f",
+   "ids": "0c52f354537cc00b8ecacf4fc7deb805"
+  },
+  "long_horizon_projects": {
+   "content": "652696b8e1b44247d99f02c634d36ce2",
+   "ids": "65035916f78f0ee7c172dfe3e851f31d"
+  },
+  "long_range_agreement": {
+   "content": "912cd946dea5171b1cba5c3b73eca9b5",
+   "ids": "3f03dae5dfe7b26f85ffb8452542c7e7"
+  },
+  "mathematical_definition_learning": {
+   "content": "d8714827030e334ae87ee9fc807e29d7",
+   "ids": "a67c29b35fb7c1b05135f558e22ca1f6"
+  },
+  "mechanism_design": {
+   "content": "73382945c71c249c2f0e0b22eae49208",
+   "ids": "fb6f64cf8334431ac6bf3ad11567aa73"
+  },
+  "mechanism_discovery": {
+   "content": "9af8635d2d8e09d3cf5869444a1ebe4f",
+   "ids": "023536ffcd14ae9e0022b82cb93c42bc"
+  },
+  "metalinguistic_reasoning": {
+   "content": "8c04eddfca901b52d5fb89101ddaed61",
+   "ids": "516f2bd7839c2c5921f8100ecfa490c4"
+  },
+  "metareasoning": {
+   "content": "2f597e5f0dee9b4caab4e6a1fd0eabde",
+   "ids": "c309393dcddd3380d6489380c48e7f84"
+  },
+  "minimum_description_learning": {
+   "content": "d4be2d59afa334110e72630fc6e09a6e",
+   "ids": "0e89239e0a9e4872cb88547f7aa648be"
+  },
+  "multi_objective_reasoning": {
+   "content": "1c493ee6b0e56a14608ecf74ea7e24d6",
+   "ids": "3ec504fb4f47133884edd4e623e12f9a"
+  },
+  "multi_perspective_modeling": {
+   "content": "70e95815d88817df6fc45c6f62020b4d",
+   "ids": "40fef9a5ee0b5075e15b445cdb639a76"
+  },
+  "multimodal_symbolization": {
+   "content": "78dab55c6e1e443c5b057452a1df7be4",
+   "ids": "da794e812088d5085822bf462f27926f"
+  },
+  "multiscale_modeling": {
+   "content": "0c42eccb3b86f382ef3b8687f97b416c",
+   "ids": "0e4369c57f1dff37b5fe8bee39d3a607"
+  },
+  "narrative_modeling": {
+   "content": "5f55f19d92b8e0d689a70bde981ee975",
+   "ids": "0c5392fa3a4b76e078fad5fc4283b739"
+  },
+  "natural_language_bridge": {
+   "content": "89e98561e22b1ddd17bc6c1db78cf571",
+   "ids": "d8c8428da9d8d0b7d7a99129333be00a"
+  },
+  "negation": {
+   "content": "5d7dcc7d4f28d7bb04b05eb081cd9503",
+   "ids": "948666d97ec687eeec22c5ab785b5236"
+  },
+  "negotiation_game": {
+   "content": "8e8e12381b4a7a61803dab1e2a1070ab",
+   "ids": "77a885600ad0d43bea5b65fecc4baddf"
+  },
+  "nesting_depth_compare": {
+   "content": "5c69a9f28800f23d5aad6ffa89711ce5",
+   "ids": "66d968a32c4dd497e32a7043a52f01a7"
+  },
+  "next_symbol": {
+   "content": "4843a50f4cf81c45ee4b292551738115",
+   "ids": "f363331ec942ef38fd02f892b75e6a3a"
+  },
+  "noisy_channel_language": {
+   "content": "dd3c93604aad569fdedd914f23c20956",
+   "ids": "a80ea867ab28a7834f9c96f75b7b10f2"
+  },
+  "norm_reasoning": {
+   "content": "d5dcf65d052199a55eff000ded84c192",
+   "ids": "5455b8a05edf33b466c39cec69368ec7"
+  },
+  "ontology_alignment": {
+   "content": "29878d743494b73b43eb1148f713e49e",
+   "ids": "224b05e951e0045131ba71e1403d7e2f"
+  },
+  "ontology_construction": {
+   "content": "3abe2805700910b577e955e4321ad068",
+   "ids": "9ae67ad8879617d8733665ada09830ee"
+  },
+  "ontology_revision": {
+   "content": "c57d1a38153b8d7427645bb7f69caada",
+   "ids": "08641279ab956a34dd6c420633c25b65"
+  },
+  "open_ended_concept_discovery": {
+   "content": "88ac8a3aa6927616a3d94729e1800cf5",
+   "ids": "79bfc514560426583b9db6dbc49a3935"
+  },
+  "open_ended_question_generation": {
+   "content": "e1893df1f7672624d2dd21d79111f501",
+   "ids": "a8a02a60a40b002951b0f65246beb327"
+  },
+  "open_world_language": {
+   "content": "3f25ebe6cbefd26cd9aa14dd4422902f",
+   "ids": "983b67d6d0191ba9847f4843e1e25c96"
+  },
+  "palindrome": {
+   "content": "07e036c5f1b2bd2c5777e13917fa8a05",
+   "ids": "809425d3ef09b14fdc630b9c8f2b2d3e"
+  },
+  "paradigm_shift": {
+   "content": "69d6638e7ec7ec05ecc11eff27df743a",
+   "ids": "8be8bfa1b57dc2e3ff88787f005538b2"
+  },
+  "paraphrase": {
+   "content": "cc542d5064b6c230bd9ab9aca09bda67",
+   "ids": "3b0c5e778a1913f28f613386efd31e99"
+  },
+  "parse_depth": {
+   "content": "7034a6cd139cc3d7afecc3049150b270",
+   "ids": "5505ea04e9960d89308991efc877aca8"
+  },
+  "planning_language": {
+   "content": "5de922b76396ecf5f6f6479802b81312",
+   "ids": "273ec857e01237e90eeffaca3ae918c6"
+  },
+  "predicate_logic": {
+   "content": "d3584954fe9f70b1d7a49a01af64c711",
+   "ids": "b05665bbbd6004ffdb07f66c57e728be"
+  },
+  "presupposition": {
+   "content": "3f00335da4c0623395d72f5c7bfcf80f",
+   "ids": "11024eda00a76180b1424e3fc590abb3"
+  },
+  "problem_formulation": {
+   "content": "8c7e86aad2a27d2381acc838e4e47e3f",
+   "ids": "5cc10f43d70595720a68078ebb705b5f"
+  },
+  "problem_reformulation": {
+   "content": "0cdaa963a85f383b8cc477083e0c9c04",
+   "ids": "c4ac04e7bd50166dc70e427ba89cacdf"
+  },
+  "procedural_language": {
+   "content": "8d466e047b9423ba5e264dd68934f993",
+   "ids": "31d8e73595b2641fa0e420aa30db288c"
+  },
+  "program_explanation": {
+   "content": "497d4d1d33a67d1628de2e382d9e9395",
+   "ids": "7bb84e4305ca2beabf47660ea6ceb987"
+  },
+  "program_synthesis": {
+   "content": "4707f5386d41a69da3cc1dfecacc76f7",
+   "ids": "8d52bce02cdb873c37f38c9d6d1102a2"
+  },
+  "pronoun_coreference": {
+   "content": "14eaa1b1cf7d4eb7fac95fd2329af7b0",
+   "ids": "12934e8ffec1396c4a41dd125edf1d76"
+  },
+  "proof_compression": {
+   "content": "be6ecc385bd2f6bfbe3f8e9b217b54c3",
+   "ids": "85bfc10e44cbb14632d7f1549d270911"
+  },
+  "proof_translation": {
+   "content": "01cd27bd1922a96b3dd38515e5a80a86",
+   "ids": "4447bc77230e542fbd5a1306c335a103"
+  },
+  "protocol_discovery": {
+   "content": "a320158953557a9a7757e8e438e436d1",
+   "ids": "a516a35420e7890f40a492dede4386a6"
+  },
+  "quantification": {
+   "content": "e17668ee562a1e6f537d7584742368a0",
+   "ids": "25f74ad07f7effea3cf76bbc99d67df5"
+  },
+  "question_answering": {
+   "content": "a773d26f47f6608938a326a915e7526f",
+   "ids": "96f1b31d8c5701fbb653c0329dc21543"
+  },
+  "question_generation": {
+   "content": "e57f580925fae2ed38f6e359c968e710",
+   "ids": "15457994e2d7d256ee6b2bec56efff42"
+  },
+  "recursive_self_application": {
+   "content": "da0d4d9a7bbd470de328e4cc619f15e9",
+   "ids": "3daf781896c500f1813498c516f955eb"
+  },
+  "reflective_goal_reasoning": {
+   "content": "995c658dc7e7c454a831626f57e9edaf",
+   "ids": "6101d551e773c6a604c57ddf0341fcc2"
+  },
+  "representation_invention": {
+   "content": "b9bfa28b33b30fc2695607d63add1edc",
+   "ids": "fdbe176e49c33aba6d9e9d3640ea9d36"
+  },
+  "representation_selection": {
+   "content": "690eef62c1e9fd532354fa64bb504453",
+   "ids": "be1db2770c97e4bb607f63fda43cee2c"
+  },
+  "research_program": {
+   "content": "61920db48c569c18a199e42e3ca09067",
+   "ids": "8e761f9060b2ee11a4c5232b3999b9b1"
+  },
+  "resource_bounded_reasoning": {
+   "content": "b630a9378f7da86e381ca5c7e71bb65e",
+   "ids": "0f16ee1356a4acf44712cf49a75318cf"
+  },
+  "scientific_civilization": {
+   "content": "471d3516c1d790bc9c581514cad17435",
+   "ids": "a492a9ef37be038bcb611c464853852a"
+  },
+  "scientific_model_induction": {
+   "content": "9aa116dfbd393607ece3eb49f49b01e3",
+   "ids": "47581b740569449065030d586394b02a"
+  },
+  "scope_ambiguity": {
+   "content": "6137f9483788caca561ea4ac0352e5b2",
+   "ids": "57838510428aa5c571caf4c3de1c58bd"
+  },
+  "self_error_diagnosis": {
+   "content": "38959840b4df3b6dd5da2754db946b0c",
+   "ids": "e5dae86008831cfcfe251bab33058772"
+  },
+  "self_model": {
+   "content": "9f9a91be5ea8b9d396f0af21cc5ad0c6",
+   "ids": "0fc56f749eb0bdaaec14d579a28bef1f"
+  },
+  "self_repair": {
+   "content": "4bd8d072dd4db3bf0a8f35815a1a33aa",
+   "ids": "1d41be0314c03882882e18b454e421b3"
+  },
+  "semantic_compression": {
+   "content": "c8bf59a4c375a35d8bb8212ef3bf8df1",
+   "ids": "5da952317b37e0030c8619f6eb2cdb79"
+  },
+  "sequence_copy": {
+   "content": "ac38d18af0224fcfe6e54f3e417d29ca",
+   "ids": "d242d1e1290f4c4e54bda7a111f1b44c"
+  },
+  "set_operations": {
+   "content": "b1afcdb2d1ef2acf7edff300b6f532bc",
+   "ids": "c964b33bb3cdd167af5ff94945aba11c"
+  },
+  "social_convention_learning": {
+   "content": "b30848558ce74b13467789f9c519b726",
+   "ids": "ccc9d2dbca1923f0af8036ea741d6e7d"
+  },
+  "source_provenance": {
+   "content": "db561d298ebb09747800edb2b94d72de",
+   "ids": "6151d1b163a70c9255791770995e6cad"
+  },
+  "source_reliability_learning": {
+   "content": "2658c87953bbf07371f19efaf685d8b8",
+   "ids": "2bc113588a5c646cf60b645fb057460c"
+  },
+  "spatial_language": {
+   "content": "4ac9001eeb6d8f240d19f3d4c2e535ff",
+   "ids": "0aedea3944043cffb81884df08ea2082"
+  },
+  "speaker_listener_game": {
+   "content": "db37e086ed7b419ccd98ae181a375062",
+   "ids": "a373bbaad15b63209b4865c465e5fd21"
+  },
+  "strategy_discovery": {
+   "content": "a75445d678f7656781a3bc74080e9502",
+   "ids": "a746f8f1ad0e2a89055d88b0c136978c"
+  },
+  "strategy_transfer": {
+   "content": "8cd8651c9780b52a0d8fdcd33ba5bf8d",
+   "ids": "782916b751bfa95b448efcd659e752ef"
+  },
+  "string_reversal": {
+   "content": "19e87982cce16bdb6b10d18a8f55cf3b",
+   "ids": "aa9bd98a886c034df6f4d438bca491cd"
+  },
+  "symbol_discrimination": {
+   "content": "2ac29d25b25f49f738d1579cd2e71b6f",
+   "ids": "5aac59ef19b58b64cca12bc891480d0c"
+  },
+  "symbol_equivalence": {
+   "content": "66b121d67631fd81831fe5db14824bfd",
+   "ids": "d14c8f1ae443c84730f26773528c3072"
+  },
+  "symbol_grounding": {
+   "content": "509bf4a3c1ad2dbef44e5aeba86a66dc",
+   "ids": "ccaf6326c76d2a903b4044e04e8ec4ae"
+  },
+  "symbolic_generalist": {
+   "content": "5944adee54b1e83197c06746577dadea",
+   "ids": "bf5e07dffd7ebd06da307012f9febf0b"
+  },
+  "symbolic_world_builder": {
+   "content": "e549671d73ab751dde72f75b276e89d6",
+   "ids": "268e12365d2f4547cda8068fd4c685b7"
+  },
+  "symmetry_reasoning": {
+   "content": "97f5e497c18b7c1fe04b8cf6ffb8bb9a",
+   "ids": "86b34df71502d8a7dd50ed70d5046147"
+  },
+  "teaching": {
+   "content": "9de0b9f3b1554a01ce19a1679706fb6c",
+   "ids": "33a0659c9ba8d987e33811f2dad49123"
+  },
+  "temporal_language": {
+   "content": "e84664ca273cbb4fdec26177195e4f6c",
+   "ids": "38c44edd76d6c75c078cfce1217235c9"
+  },
+  "thematic_roles": {
+   "content": "7eb9751e094d0ce9a96fc35aad58b4b2",
+   "ids": "a79be2a50185b2caeed09900c8c220ae"
+  },
+  "theorem_proving": {
+   "content": "850269269b99d1c0f27920e5ae892a00",
+   "ids": "062530e50697326fa4411419b8e4464a"
+  },
+  "theory_comparison": {
+   "content": "31fae45d5954daa4a89d069625848eba",
+   "ids": "05f9fae77610724ac655e88048ac33f0"
+  },
+  "theory_transfer": {
+   "content": "eeacbf641f0608d1d5a1e678912bbe5c",
+   "ids": "4e8fc23d3872566b9823b757cf65bb07"
+  },
+  "tool_construction": {
+   "content": "068c202c3123b1ad2f24b3c44ce5dfd1",
+   "ids": "40f9e781ba3488cdd82adc25d3013f64"
+  },
+  "translation": {
+   "content": "5c6b9f7788a71ea8be94b1b1d30fc406",
+   "ids": "1d9d2dfd71df8eab13b4a70a4dbce530"
+  },
+  "tree_to_sequence": {
+   "content": "70bf9f3d18f0965abbc579f0abc80483",
+   "ids": "7509ce994f14cf130f7d83bc86518b6e"
+  },
+  "uncertain_symbolic_reasoning": {
+   "content": "f1b58bf8f520682dad943049e524bc1b",
+   "ids": "8cf3fe3bdbef8f2ab1801550ebd2791c"
+  },
+  "underspecification_reasoning": {
+   "content": "b1413e210b8eece124c1a276b7487a90",
+   "ids": "0410ac60f60b634d870e499e0584d0c9"
+  },
+  "unification": {
+   "content": "3330dae3b7dcfb9564b5a9df9daa8b18",
+   "ids": "101453aba23a41b861d694431d42148e"
+  },
+  "universal_interface_transfer": {
+   "content": "345422f06e974a26efb3a0ec452a3298",
+   "ids": "de0088add148504fceb5334aae3f2dcc"
+  },
+  "unknown_game": {
+   "content": "8c947c35c0deb6fcf15fe3d93a8519eb",
+   "ids": "5f8d551c1ca33f21adb00895da6829e9"
+  },
+  "value_learning": {
+   "content": "1c5702266f4a4ceb52b91099ab8854be",
+   "ids": "06855b51d81b712d6de866a7b47e9fea"
+  },
+  "variable_binding": {
+   "content": "4f149a1265e984dea2c7da73780fa7f5",
+   "ids": "a1d30a9f57a49ba1d6ff38c55e500d69"
+  },
+  "world_model_synthesis": {
+   "content": "3044e96ca3330da189abee16bd96d65e",
+   "ids": "a8beb7b0d510d5ca1d0ee902847435ea"
+  }
+ },
+ "episodes": 17184,
+ "hardening": "(default)",
+ "seeds": 8
+}

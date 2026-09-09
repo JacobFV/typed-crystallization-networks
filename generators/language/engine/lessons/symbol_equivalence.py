@@ -11,6 +11,7 @@ import string
 from .._structure import Ident, Lst, Num, Pred, Rec
 from ..lesson import Lesson
 from ..generators.base import COLORS, _scene
+from ..generators.extra import _shuffled
 
 
 def gen_symbol_equivalence(rng: random.Random, ctx):
@@ -19,10 +20,33 @@ def gen_symbol_equivalence(rng: random.Random, ctx):
     tgt = rng.choice(objs)
     alias = "".join(rng.choice(string.ascii_lowercase) for _ in range(4))
     facts = [Pred("means", Ident(alias), Ident(tgt["color"]))]
+    denotes = tgt["color"]
+    if ctx.hardens("symbol_equivalence"):
+        # One alias means the answer colour is named twice -- once in the scene
+        # and once in the lexicon -- and is the last colour printed, so "the
+        # option that occurs most" and "the option that occurs last" are both
+        # exact.  A lexicon of several aliases forces the queried one to be
+        # looked up; the distractor aliases denote other colours in the scene,
+        # so every colour present is named the same number of times.
+        pool = sorted({o["color"] for o in objs})
+        rng.shuffle(pool)
+        pool = pool[:3] if len(pool) >= 2 else pool
+        if denotes not in pool:
+            pool[rng.randrange(len(pool))] = denotes
+        aliases = {}
+        for c in pool:
+            while True:
+                a = "".join(rng.choice(string.ascii_lowercase) for _ in range(4))
+                if a not in aliases:
+                    aliases[a] = c
+                    break
+        alias = next(a for a, c in aliases.items() if c == denotes)
+        facts = _shuffled(rng, [Pred("means", Ident(a), Ident(c))
+                                for a, c in aliases.items()])
     obs = Rec(scene=Lst([Pred("obj", Ident(o["id"]), Ident(o["color"]), Ident(o["shape"]),
                              Num(o["x"]), Num(o["y"])) for o in objs]),
               lexicon=Lst(facts), query=Pred("which_color", Ident(alias)))
-    return obs, COLORS, tgt["color"], {"alias": alias, "denotes": tgt["color"]}
+    return obs, COLORS, denotes, {"alias": alias, "denotes": denotes}
 
 
 class SymbolEquivalence(Lesson):

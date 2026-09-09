@@ -13,8 +13,9 @@
 | `e3_remedies.py` | E3: the remedy table |
 | `e4_staged.py`, `e4b_handoff_budget.py` | E4: staged world model then policy, and how little reward the handoff needs |
 | `e5_horizon.py` | E5: horizon 4/8/16/32, dense and terminal-only |
-| `e6_mpc.py` | E6: model-predictive control against the crystallized program, no learned policy |
+| `e6_mpc.py`, `e6b_plan1.py` | E6: model-predictive control against the crystallized program, no learned policy; and whether enumerating deeper action sequences buys anything |
 | `e7_budget.py` | E7: return against environment-episode budget |
+| `e8_mlp.py` | E8: a tuning grid for the neural baseline, so "the MLP never learns it" is not under-tuning |
 | `refs.py` | trivial references (always-false, always-true, uniform, oracle) at every horizon |
 | `aggregate.py` | turns raw JSON into the tables in `RESULTS.md` |
 | `out/*.json`, `out/*.log` | raw results and logs |

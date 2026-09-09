@@ -1,0 +1,93 @@
+{
+  "arms": 6,
+  "arms_detail": [
+    {
+      "arm": 0,
+      "crashed_episodes": 5,
+      "episodes": 5,
+      "mean_return": 0.0,
+      "policy": {
+        "brand": 7,
+        "ppos": 54
+      },
+      "transform": {
+        "pos": 115,
+        "shift": 35
+      }
+    },
+    {
+      "arm": 1,
+      "crashed_episodes": 0,
+      "episodes": 5,
+      "mean_return": 0.6,
+      "policy": {
+        "brand": 3,
+        "ppos": 54
+      },
+      "transform": {
+        "pos": 115,
+        "shift": 32
+      }
+    },
+    {
+      "arm": 2,
+      "crashed_episodes": 5,
+      "episodes": 5,
+      "mean_return": 0.0,
+      "policy": {
+        "brand": 7,
+        "ppos": 32
+      },
+      "transform": {
+        "pos": 47,
+        "shift": 51
+      }
+    },
+    {
+      "arm": 3,
+      "crashed_episodes": 5,
+      "episodes": 5,
+      "mean_return": 0.0,
+      "policy": {
+        "brand": 4,
+        "ppos": 28
+      },
+      "transform": {
+        "pos": 47,
+        "shift": 6
+      }
+    },
+    {
+      "arm": 4,
+      "crashed_episodes": 5,
+      "episodes": 5,
+      "mean_return": 0.0,
+      "policy": {
+        "brand": 0,
+        "ppos": 34
+      },
+      "transform": {
+        "pos": 36,
+        "shift": 5
+      }
+    },
+    {
+      "arm": 5,
+      "crashed_episodes": 5,
+      "episodes": 5,
+      "mean_return": 0.0,
+      "policy": {
+        "brand": 2,
+        "ppos": 41
+      },
+      "transform": {
+        "pos": 101,
+        "shift": 28
+      }
+    }
+  ],
+  "episodes_per_arm": 5,
+  "max_return": 2,
+  "mean_return_over_all_arms": 0.09999999999999999,
+  "seconds": 86.76761161000468
+}

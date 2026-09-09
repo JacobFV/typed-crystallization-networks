@@ -454,9 +454,9 @@ _LOCAL_LESSON_IDS = ("ontology_construction", "ontology_revision", "ontology_ali
 _STATE = {"composing": False}
 
 
-def _local_episode(rng: random.Random):
+def _local_episode(rng: random.Random, ctx=None):
     """A non-composing episode from this section, for the fallback paths."""
     from ..registry import get
 
     lid = _LOCAL_LESSON_IDS[rng.randrange(len(_LOCAL_LESSON_IDS))]
-    return get(lid).invoke(rng)
+    return get(lid).invoke(rng, ctx)

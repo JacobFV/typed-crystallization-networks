@@ -26,7 +26,7 @@ import engine as lc                                            # noqa: E402
 from battery import Episode, answer_stats, run_battery         # noqa: E402
 
 
-def draw(lesson_id, seeds, difficulty=None, null=False):
+def draw(lesson_id, seeds, difficulty=None, null=False, hardening=None):
     """Episodes for a seed range.
 
     ``null`` replaces every answer with a uniformly random member of the
@@ -41,7 +41,7 @@ def draw(lesson_id, seeds, difficulty=None, null=False):
     out, bad = [], 0
     for s in seeds:
         try:
-            ex = L.example(seed=s, difficulty=difficulty)
+            ex = L.example(seed=s, difficulty=difficulty, hardening=hardening)
         except Exception:
             bad += 1
             continue
@@ -63,10 +63,10 @@ def oracle_bound(eps):
 
 
 def audit_lesson(args):
-    lesson_id, n_tr, n_te, difficulty, null = args
+    lesson_id, n_tr, n_te, difficulty, null, hardening = args
     t0 = time.time()
-    tr, bad_a = draw(lesson_id, range(0, n_tr), difficulty, null)
-    te, bad_b = draw(lesson_id, range(1_000_000, 1_000_000 + n_te), difficulty, null)
+    tr, bad_a = draw(lesson_id, range(0, n_tr), difficulty, null, hardening)
+    te, bad_b = draw(lesson_id, range(1_000_000, 1_000_000 + n_te), difficulty, null, hardening)
     if not tr or not te:
         return lesson_id, {"error": "no episodes", "failed_seeds": bad_a + bad_b}
     row = {"stats": answer_stats(te), "train_n": len(tr), "test_n": len(te),
@@ -89,13 +89,15 @@ def main():
     p.add_argument("--out", default=os.path.join(HERE, "audit.json"))
     p.add_argument("--lessons", default="")
     p.add_argument("--difficulty", type=float, default=None)
+    p.add_argument("--hardening", default="",
+                   help='"none" for the pre-audit draw, "" for the default')
     p.add_argument("--null", action="store_true",
                    help="randomise every answer within its own choice set")
     a = p.parse_args()
 
     ids = ([x for x in a.lessons.split(",") if x] or
            [i for i in lc.lesson_ids() if lc.get(i).status == "implemented"])
-    jobs = [(i, a.train, a.test, a.difficulty, a.null) for i in ids]
+    jobs = [(i, a.train, a.test, a.difficulty, a.null, a.hardening or None) for i in ids]
     t0 = time.time()
     res = {}
     with ProcessPoolExecutor(max_workers=a.workers) as pool:
@@ -106,6 +108,7 @@ def main():
     wall = time.time() - t0
     payload = {"meta": {"lessons": len(ids), "train_seeds": a.train,
                         "test_seeds": a.test, "difficulty": a.difficulty, "null": a.null,
+                        "hardening": a.hardening or "(default)",
                         "episodes": len(ids) * (a.train + a.test),
                         "wall_seconds": round(wall, 1),
                         "workers": a.workers},

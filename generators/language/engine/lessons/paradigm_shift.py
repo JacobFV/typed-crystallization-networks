@@ -12,6 +12,40 @@ from ..lesson import Lesson
 from ..generators.selfmodel import ASSUMPTIONS, _assumption_status, _rules, _shuffled
 
 
+def _regime(rng: random.Random, which: str, bound: int, step: int, steps: int):
+    """A series of readings that falsifies exactly the assumption ``which``.
+
+    The same four constructions the target series uses, factored out so a
+    *control* series can be built for every assumption that is not the target.
+    """
+    series = []
+    for _ in range(200):
+        if which == "positivity":
+            series = [rng.randint(-6, -1)]
+            for _ in range(steps):
+                series.append(series[-1] + rng.randint(1, step))
+        elif which == "monotonicity":
+            series = [rng.randint(3, 12)]
+            for _ in range(steps):
+                series.append(series[-1] + rng.randint(1, step))
+            i = rng.randrange(len(series) - 1)
+            series[i], series[i + 1] = series[i + 1], series[i]
+        elif which == "boundedness":
+            series = [bound - rng.randint(1, 4)]
+            for _ in range(steps):
+                series.append(series[-1] + rng.randint(1, step))
+        else:
+            series = [rng.randint(2, 8)]
+            jump = rng.randrange(steps)
+            for k in range(steps):
+                series.append(series[-1] + (rng.randint(step + 2, step + 9) if k == jump
+                                            else rng.randint(1, step)))
+        st = _assumption_status(series, bound, step)
+        if [a for a in ASSUMPTIONS if not st[a]] == [which]:
+            break
+    return series
+
+
 def gen_paradigm_shift(rng: random.Random, ctx):
     """A framework that held in the old regime; exactly one assumption dies in the new one.
 
@@ -62,6 +96,19 @@ def gen_paradigm_shift(rng: random.Random, ctx):
     # They are conditions the code already computes exactly, so they are
     # written as the comparisons they are and the grammar says them in its own
     # language -- Polish "wartość więcej niż 0", Finnish "arvo enemmän kuin 0".
+    # Each assumption leaves its own mark on the characters of the prompt: a
+    # falsified `positivity` prints a minus sign, a falsified `boundedness`
+    # prints three-digit readings.  A depth-4 tree over character counts named
+    # the target 0.823 of the time on that alone.  A control series for every
+    # *other* assumption puts all four marks in every prompt, so the target can
+    # only be found by attributing a violation to the regime the rules name.
+    controls = []
+    if ctx.hardens("paradigm_shift"):
+        controls = _shuffled(rng, [
+            Lst([Pred("reading", Num(i), Num(v))
+                 for i, v in enumerate(_regime(rng, a, bound, step, steps))])
+            for a in ASSUMPTIONS if a != target])
+    control_fields = {"control_regimes": Lst(controls)} if controls else {}
     obs = Rec(framework=Lst([Pred("assumes", Ident("positivity"),
                                   Pred("gt", Tok("value"), Num(0))),
                              Pred("assumes", Ident("monotonicity"),
@@ -73,6 +120,7 @@ def gen_paradigm_shift(rng: random.Random, ctx):
               constants=Lst([Pred("limit", Num(bound)), Pred("step", Num(step))]),
               old_regime=Lst([Pred("reading", Num(i), Num(v)) for i, v in enumerate(old)]),
               new_regime=Lst([Pred("reading", Num(i), Num(v)) for i, v in enumerate(new)]),
+              **control_fields,
               rules=_rules("the_framework_holds_in_a_regime_iff_all_four_assumptions_hold_of_its_readings",
                            "name_the_assumption_the_new_regime_falsifies"),
               query=Ident("falsified_assumption"))

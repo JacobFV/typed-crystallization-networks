@@ -83,3 +83,17 @@ H32_rewardonly_dense                   seed 3 eval 32.000 env_ep   1064 719.6s
 H32_rewardonly_terminal                seed 0 eval 1.000 env_ep   1064 704.5s
 H32_rewardonly_terminal                seed 1 eval 1.000 env_ep   1064 711.9s
 H32_rewardonly_terminal                seed 2 eval 1.000 env_ep   1064 389.4s
+H32_rewardonly_terminal                seed 3 eval 1.000 env_ep   1064 415.5s
+H32_staged_dense                       seed 0 eval 32.000 env_ep   1256 158.6s
+H32_staged_dense                       seed 1 eval 32.000 env_ep   1256 160.4s
+H32_staged_dense                       seed 2 eval 32.000 env_ep   1256 144.9s
+H32_staged_dense                       seed 3 eval 32.000 env_ep   1256 149.6s
+H32_staged_terminal                    seed 0 eval 1.000 env_ep   1256 142.8s
+H32_staged_terminal                    seed 1 eval 0.562 env_ep   1256 153.3s
+H32_staged_terminal                    seed 2 eval 1.000 env_ep   1256 150.4s
+H32_staged_terminal                    seed 3 eval 1.000 env_ep   1256 151.1s
+H32_staged_terminal_b32                seed 0 eval 1.000 env_ep   1256 116.5s
+H32_staged_terminal_b32                seed 1 eval 1.000 env_ep   1256 123.8s
+H32_staged_terminal_b32                seed 2 eval 1.000 env_ep   1256 121.0s
+H32_staged_terminal_b32                seed 3 eval 0.469 env_ep   1256 120.7s
+references {'always_false': 2.125, 'always_true': 1.875, 'uniform': 2.046875, 'oracle': 4.0}

@@ -1,0 +1,55 @@
+{
+  "analytic": {
+    "expected_days_of_wall_clock_to_first_reward": 27.23764733761743,
+    "expected_episodes_at_horizon_3_uniform_verb": 176942.3105240711,
+    "expected_write_actions_to_first_reward": 176942.3105240711,
+    "measured_episode_seconds": 13.3,
+    "neutral_mean_decodes_to": "length 256, every byte 128 -- a 256-byte text of 0x80",
+    "probability_byte_field_decodes_to_the_successor": 0.0037334015223280392,
+    "probability_length_field_decodes_to_1": 0.001513782937313024,
+    "probability_one_neutral_write_is_rewardable": 5.651559522638655e-06,
+    "why_reinforce_cannot_start": "the reward is exact content equality, so a rollout scores 0 until the length draw lands on 1 and the byte draw lands on the successor digit at the same time"
+  },
+  "neutral_policy": {
+    "distinct_single_byte_texts": 13,
+    "draws": 20000,
+    "exactly_8": 0,
+    "length_histogram_top": [
+      [
+        8,
+        77
+      ],
+      [
+        30,
+        74
+      ],
+      [
+        475,
+        74
+      ],
+      [
+        34,
+        73
+      ],
+      [
+        470,
+        73
+      ]
+    ],
+    "length_one": 38
+  },
+  "parameter_width": 1026,
+  "program_supplied_parameters": {
+    "distinct_single_byte_texts": 5,
+    "draws": 20000,
+    "exactly_8": 12067,
+    "length_histogram_top": [
+      [
+        1,
+        20000
+      ]
+    ],
+    "length_one": 20000
+  },
+  "text_capacity": 512
+}

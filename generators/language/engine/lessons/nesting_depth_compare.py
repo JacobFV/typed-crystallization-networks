@@ -20,6 +20,16 @@ def gen_nesting_depth_compare(rng: random.Random, ctx):
     ld, rd = (max(d1, d2), min(d1, d2)) if left_deep else (min(d1, d2), max(d1, d2))
     left = _nest(rng, ld) + "()" * rng.randint(*ctx.span((0, 4), (2, 8)))
     right = _nest(rng, rd) + "()" * rng.randint(*ctx.span((0, 4), (2, 8)))
+    if ctx.hardens("nesting_depth_compare"):
+        # Independent padding does not equalize anything: the deeper string is
+        # still the longer one on average, and "where does the word *right*
+        # start, as a fraction of the prompt" recovers that at 0.81.  Padding
+        # both to a common length with flat pairs -- which cannot change a
+        # maximum depth -- leaves the two strings identical in length and in
+        # bracket counts, so only the nesting separates them.
+        total = max(len(left), len(right)) + 2 * rng.randint(*ctx.span((0, 4), (2, 8)))
+        left += "()" * ((total - len(left)) // 2)
+        right += "()" * ((total - len(right)) // 2)
     dl, dr = _max_depth(left), _max_depth(right)
     obs = Rec(left=Lst([Tok(c) for c in left]), right=Lst([Tok(c) for c in right]),
               query=Ident("deeper"))

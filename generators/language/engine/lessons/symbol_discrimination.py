@@ -19,9 +19,17 @@ def gen_symbol_discrimination(rng: random.Random, ctx):
     examples = [(k, "high" if k >= boundary else "low") for k in range(0, top + 1, 2) if k != v]
     rng.shuffle(examples)
     shown = examples[:ctx.at(5, 10, default=5)]
-    obs = Rec(examples=Lst([Pred("ex", Num(k), Ident(lab)) for k, lab in shown]),
-              query=Pred("classify", Num(v)))
-    return obs, ["low", "high"], ("high" if v >= boundary else "low"), {"boundary": boundary}
+    # The scale always started at zero and the boundary always sat in a narrow
+    # band inside it, so the queried number alone predicts the label 0.80 of the
+    # time and the shown examples are decorative.  Sliding the whole scale by a
+    # per-episode offset leaves the category structure untouched and makes the
+    # queried magnitude carry nothing: only where it falls relative to the shown
+    # examples decides.
+    origin = rng.randrange(0, 40) if ctx.hardens("symbol_discrimination") else 0
+    obs = Rec(examples=Lst([Pred("ex", Num(origin + k), Ident(lab)) for k, lab in shown]),
+              query=Pred("classify", Num(origin + v)))
+    return (obs, ["low", "high"], ("high" if v >= boundary else "low"),
+            {"boundary": origin + boundary})
 
 
 class SymbolDiscrimination(Lesson):

@@ -9,6 +9,7 @@ import random
 
 from .._structure import Ident, Lst, Rec, Tok
 from ..lesson import Lesson
+from ..context import GenerationContext
 from ..generators.ontology import _OWN_IDS, _STATE, _local_episode, _shuffled
 
 
@@ -27,8 +28,12 @@ def gen_general_language_agent(rng: random.Random, ctx):
     The legal answers travel in the observation as ``answer_options``: the
     contract the agent must read is part of the episode, not of the harness.
     """
+    # The sampling regime is a property of the episode, so a composed
+    # sub-episode is drawn under the same one; the language and the difficulty
+    # are deliberately *not* passed down, exactly as before.
+    sub = GenerationContext(hardening=ctx.hardening)
     if _STATE["composing"]:                          # another composer drew us
-        return _local_episode(rng)
+        return _local_episode(rng, sub)
 
     from ..registry import all_lessons              # local: the registry imports us
 
@@ -46,8 +51,8 @@ def gen_general_language_agent(rng: random.Random, ctx):
             lid, lesson = pool[rng.randrange(len(pool))]
             seed = rng.getrandbits(63)
             try:
-                sub_obs, vocab, ans, sub_hidden = lesson.invoke(random.Random(seed))
-                again = lesson.invoke(random.Random(seed))
+                sub_obs, vocab, ans, sub_hidden = lesson.invoke(random.Random(seed), sub)
+                again = lesson.invoke(random.Random(seed), sub)
             except Exception:                        # a broken lesson must not break this one
                 continue
             vocab = list(vocab)
@@ -59,7 +64,7 @@ def gen_general_language_agent(rng: random.Random, ctx):
     finally:
         _STATE["composing"] = False
     if picked is None:                               # pragma: no cover - registry present
-        return _local_episode(rng)
+        return _local_episode(rng, sub)
     lid, sub_obs, vocab, ans, sub_hidden = picked
 
     fields = {str(k): v for k, v in sub_obs.value}

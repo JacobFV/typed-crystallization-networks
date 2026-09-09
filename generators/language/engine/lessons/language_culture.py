@@ -40,9 +40,16 @@ def gen_language_culture(rng: random.Random, ctx):
         if not drifted:
             continue
         target = rng.choice(drifted)
+        # The surviving word is almost always the last one printed in the
+        # transmission log, so "copy the token at a fixed offset from the end"
+        # answers 0.907 of episodes without replaying anything.  Each fact
+        # carries its own generation and position number, so the log can be
+        # shown in any order and still determines the chain exactly.
+        log = (_shuffled(rng, heard_facts) if ctx.hardens("language_culture")
+               else heard_facts)
         obs = Rec(founder_lexicon=Lst(_shuffled(rng, [Pred("says", Ident(m), Ident(w))
                                                       for m, w in origin.items()])),
-                  transmission=Lst(heard_facts),
+                  transmission=Lst(log),
                   rule=Lst([Pred("unheard_meaning_takes", Pred("last_heard_word"))]),
                   query=Pred("word_for", Num(generations), Ident(target)))
         return (obs, _shuffled(rng, list(origin.values())), lex[target],
