@@ -23,13 +23,79 @@ not the surface, so it belongs with the seed — see ``INTENT.md``.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Sequence, TypeVar
+from typing import Any, Sequence, TypeVar
 
 from .languages import DEFAULT_LANGUAGE
 
-__all__ = ["GenerationContext"]
+__all__ = ["GenerationContext", "HARDENING", "DEFAULT_HARDENING",
+           "NO_HARDENING", "resolve_hardening"]
 
 T = TypeVar("T")
+
+#: Anti-exploit draws, named by the lesson each one belongs to.
+#:
+#: A lesson is in this set because an audit found a cheap heuristic -- copying a
+#: token, counting characters, taking the last-mentioned option -- reaching the
+#: lesson's own accuracy without doing what the lesson is named after.  The
+#: named draw changes *how episodes are sampled*, never what the lesson asks or
+#: how its answer is computed.  See ``research/lesson-audit/RESULTS.md``.
+HARDENING: frozenset[str] = frozenset({
+    "center_embedding",
+    "context_free_language",
+    "ellipsis",
+    "language_culture",
+    "nesting_depth_compare",
+    "next_symbol",
+    "paradigm_shift",
+    "parse_depth",
+    "presupposition",
+    "symbol_discrimination",
+    "symbol_equivalence",
+    "tree_to_sequence",
+    "underspecification_reasoning",
+    "unification",
+})
+
+#: What a caller that says nothing gets.  The hardened draw is the default
+#: because an exploitable lesson is worse than a changed distribution; the
+#: previous stream stays reachable, exactly, as ``hardening="none"``.
+DEFAULT_HARDENING: frozenset[str] = HARDENING
+
+#: Every pre-audit draw, bit-identical to the catalogue before the audit.
+NO_HARDENING: frozenset[str] = frozenset()
+
+
+def resolve_hardening(spec: Any) -> frozenset[str]:
+    """Read a hardening selection from whatever a caller had to hand.
+
+    ``None`` means the default set, ``"none"``/``"off"``/``False`` the empty
+    one, ``"all"``/``True`` every named draw, and any iterable or
+    comma-separated string names the draws to enable.  Unknown names are an
+    error rather than a silent no-op, because a misspelled fix that quietly does
+    nothing is exactly the failure this whole exercise is about.
+    """
+    if spec is None:
+        return DEFAULT_HARDENING
+    if spec is True:
+        return HARDENING
+    if spec is False:
+        return NO_HARDENING
+    if isinstance(spec, str):
+        key = spec.strip().casefold()
+        if key in ("", "default"):
+            return DEFAULT_HARDENING
+        if key in ("none", "off", "legacy"):
+            return NO_HARDENING
+        if key in ("all", "on"):
+            return HARDENING
+        names = [x.strip() for x in spec.split(",") if x.strip()]
+    else:
+        names = [str(x).strip() for x in spec]
+    unknown = sorted(set(names) - HARDENING)
+    if unknown:
+        raise ValueError(f"unknown hardening name(s): {unknown}; "
+                         f"known: {sorted(HARDENING)}")
+    return frozenset(names)
 
 
 @dataclass(frozen=True)
@@ -44,10 +110,26 @@ class GenerationContext:
 
     language: str = DEFAULT_LANGUAGE
     difficulty: float | None = None
+    #: which anti-exploit draws are in force for this episode
+    hardening: frozenset[str] = DEFAULT_HARDENING
 
     def __post_init__(self) -> None:
         if self.difficulty is not None and not 0.0 <= self.difficulty <= 1.0:
             raise ValueError(f"difficulty must be in [0, 1], got {self.difficulty}")
+        if not isinstance(self.hardening, frozenset):
+            object.__setattr__(self, "hardening", resolve_hardening(self.hardening))
+
+    # ---- sampling regime --------------------------------------------
+    def hardens(self, name: str) -> bool:
+        """Whether the named anti-exploit draw applies to this episode.
+
+        A lesson asks this once and branches; the unhardened branch has to be
+        left exactly as it was, because that is what the legacy stream check in
+        ``tests/test_language_hardening.py`` compares against.
+        """
+        if name not in HARDENING:
+            raise ValueError(f"{name!r} is not a declared hardening name")
+        return name in self.hardening
 
     # ---- knobs -------------------------------------------------------
     def at(self, lo: int, hi: int, *, default: int | None = None) -> int:

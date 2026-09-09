@@ -53,22 +53,24 @@ Five results, in the order they should change what the project does.
    and the collinearity test is then ordinary `mul`/`sub`/`abs`/`le`.  No
    operator was added and no type rule bent.
 
-4. **Enumeration settles this rung; the relaxed path's recorded failures were
-   invalid relaxations, and one real boundary survives the correction.**  The gradient arm is 0/4 on the 6,144-program space
-   and 1/4 on the 393,216-program one -- and **0/4
-   exact on held-out episodes**, so its one training success does not
-   generalise -- where enumeration exhausts both and returns a program with
-   held-out max error 0.0.  But **those gradient numbers were
-   measured on a surrogate that is exactly 0.0** at the operating distance:
-   `relaxed` computes `le` as `sigmoid(d/tau)` at `tau = 1`, which underflows in
-   float32 at a gap of 89, and this rung's gaps have median
-   192.  Re-run with a live surrogate the arms are
-   0/4 and {{sfix_carrier}}, and the reason is now a *declared*
-   boundary rather than an accident: `shifted`, the neighbour offset, is
-   `grad = None` under every temperature policy because `pack` declares
-   `gradient="none"`, while `thr` goes from `None` to 1.9e-22 to
-   0.00584 as the two accidents are removed.  Section 4 separates the three
-   mechanisms.
+4. **Enumeration settles this rung, and the reason the relaxed path does not is
+   now three measured mechanisms rather than one number.**  Every gradient arm
+   in section 3 was run on a surrogate that is **exactly 0.0** at the operating
+   distance: `relaxed` computes `le` as `sigmoid(d/tau)` at `tau = 1`, which
+   underflows in float32 at a gap of 89, and this rung's gaps have
+   median 192 with 0.906 of records past it.  Those
+   `0/4` and `1/4` figures are therefore not evidence
+   about learnability.  Re-run with a live surrogate under three temperature
+   policies the arms are 0/4, 0/4 and
+   1/4, and the landscape measurement in section 4.4 explains why:
+   the **shipped** temperature puts the loss minimum on a *correct* threshold
+   with zero gradient, and every temperature large enough to restore the
+   gradient moves the minimum onto a *wrong* one -- at `tau = 2^bits` the whole
+   loss spread collapses to 5.96e-08.  This rung's relaxed
+   landscape is a plateau with cliffs: enumeration walks it and gradient descent
+   cannot.  One boundary survives all of that and is genuine: `shifted`, the
+   neighbour offset, is `grad = None` under every policy because `pack` declares
+   `gradient="none"`.
 
 5. **A certificate about a family is not a certificate about a target, and the
    candidate pool is part of the family.**  The coarse eight-value threshold
@@ -105,10 +107,14 @@ Same as the previous track, and stated again because two things changed.
   does not vary synthesis.**  Every gradient number here comes from
   `research/discrete-perception/common.py:local_fit` with `init_noise = 0.5`,
   which that track verified bit-identical to `tcn.synthesis.fit` at zero noise.
-* **The host is shared and loaded.**  Every wall clock is an upper bound and two
-  of the long runs overlapped deliberately; programs evaluated and node
-  evaluations are the load-independent measures and are reported beside every
-  time.
+* **The host is shared and loaded** (load average 28-81 on 20 cores, other agents
+  included), and up to four of this track's runs overlapped deliberately.  Every
+  wall clock is an upper bound; programs evaluated, node evaluations and
+  choice-logit gradients are the load-independent measures and are reported
+  beside every time.
+* **Every gradient arm reports the surrogate's value at its operating
+  distance.**  Section 4.2 is why: a `0/n` next to a surrogate of 0.0 is a
+  statement about the relaxation, not about the task.
 
 ---
 
@@ -766,20 +772,38 @@ All arms leave `tcn/` untouched and replace `relaxed` at runtime in one process.
 | as shipped (section 3) | **0.0** | `None` | yes | 0/4 | 0/4 |
 | deterministic nodes unfrozen, shipped surrogate | 0.0 | 1.9e-22 | yes | 0/4 | 0/4 |
 | comparison nodes unfrozen, `tau = mean operand` | alive | 0.00584 | **no** | 0/4 | 0/4 |
-| comparison nodes unfrozen, `tau = 2^bits` (carrier) | alive | {{sfix_carrier_thr}} | **no** | {{sfix_carrier}} | {{sfix_carrier_held}} |
-| comparison nodes unfrozen, `tau = 32` (decision margin) | alive | None | yes | {{margin_grad}} | {{margin_grad_held}} |
+| comparison nodes unfrozen, `tau = 2^bits` (carrier) | alive | 7.26e-09 | **no** | 0/4 | 0/4 |
+| comparison nodes unfrozen, `tau = 32` (decision margin) | alive | 0.0319 | yes | 1/4 | 0/4 |
 | `tau = mean operand`, **offset pinned** to the right neighbour | alive | 0.00882 | no | 0/4 | 0/4 |
 | *every* deterministic node unfrozen, `tau = mean operand` | alive | 0.00892 | -- | 0/4 | 0/4 |
 | *every* deterministic node unfrozen, `tau = 2^bits` | alive | 7.26e-09 | -- | 0/4 | 0/4 |
 
-**A live surrogate is necessary and not sufficient here.**  Every corrected arm is still 0/4, and the reason is in the row above it: `shifted` remains `grad = None` under every temperature policy, because `pack` declares `gradient="none"`.  The relaxed path can now see the threshold and the two combinators and still cannot see which neighbour to read, so it cannot settle this rung.  That is a statement about a declared boundary, which is what the corrected measurement is for -- it is no longer a statement about an underflow.
+**Reading the table.**  Every arm run with a surrogate that is 0.0 at the
+operating distance is 0/4, and so is every arm run with a surrogate
+scaled to the *operand* range -- 0/4 for `mean|operand|` and
+0/4 for the carrier rule -- which is what section 4.4 predicts,
+because those two policies move the loss minimum off the correct threshold.  The
+one policy whose minimum stays correct while its derivative comes alive,
+`tau = 32`, is **1/4 conforming on training** with held-out accuracy
+0.995536 -- which is the coarse pool's own ceiling, the same number
+enumeration returns from that pool (section 3.1).  So with a temperature matched
+to the decision margin the relaxed path does reach the best program the coarse
+space contains, in 1 seed of 4, where enumeration reaches it in
+8.0 s with an exhaustion certificate and a conforming count.
+
+Pinning the offset -- removing the one choice behind `pack`'s declared boundary
+-- does not rescue the operand policy (0/4), so the declared boundary
+is not the only thing in the way; the temperature is.  That ordering is the
+correction's content applied to this rung: the recorded failures were invalid
+relaxations, and the valid measurement is that this landscape is hard for
+relaxation and trivial for enumeration, not that relaxation is excluded from it.
 
 Enumeration, on the same space and the same records, exhausts 6144
 programs in 8.0 s and 393216 in 196.1 s
 with a prefix-reusing walk, returning a program with held-out max error
 0.0 and a conforming count.
 
-### 4.5 What this says about the method boundary
+### 4.6 What this says about the method boundary
 
 The previous track drew the boundary as "constants at a fixed input: relaxation;
 behind `gradient="none"`: enumeration".  Two of the three failures here were not
@@ -914,9 +938,13 @@ them is the source of a positive claim.
 * **Derived targets.**  Every rung supervises on an equivalence class of a probe
   (`object_ids >= 0`, `object_ids[i] == object_ids[j]`) rather than the probe
   itself.  Section 2.1 is the measurement that motivates it.
-* **A shared, loaded host,** with two long runs overlapping deliberately.  Wall
-  clocks are upper bounds and are not comparable across hours; programs and node
-  evaluations are reported beside every one.
+* **A shared, loaded host,** with up to four of this track's runs overlapping
+  deliberately and other agents on the same 20 cores throughout (load average
+  28-81).  Wall clocks are upper bounds, are not comparable across hours, and the
+  section 4.5 gradient arms in particular range from 350 s to 1,160 s per seed
+  for identical work.  Programs, node evaluations and choice-logit gradients are
+  the load-independent measures and are reported beside every time; no
+  qualitative claim here rests on a wall clock.
 * **Supervision budgets are small**: 448 records at R=8.
 * **`local_fit`** is a copy of `tcn.synthesis.fit` with an `init_noise`
   argument, because the shipped one cannot vary a seed.  0.5 is arbitrary.

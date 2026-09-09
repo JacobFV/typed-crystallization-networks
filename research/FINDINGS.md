@@ -973,3 +973,65 @@ finding that policy learning has never worked here. That number was read from
 the policy-learning track's in-progress files while it was still running; that
 track has not reported, has no `RESULTS.md`, and had experiments outstanding.
 Treat it as preliminary until the track reports and its headline is checked.
+
+## 21. Object identity: a structural impossibility, and the relation that survives it
+
+Full detail in `research/object-identity/RESULTS.md`.
+
+**Two structural certificates, not statistics.** Permuting the generator's object
+list leaves the rendered image bit-identical while changing every foreground
+pixel's `object_ids`; re-drawing every object's colour leaves `object_ids`
+identical while changing the image. So **`object_ids` is not a function of the
+image at any context size**, up to all 6,912 bytes. Section 14's per-pixel
+certificate is a special case of this. Verified independently from the
+supervising session: permuting the object list left the image identical in 8 of
+8 episodes while the labels changed, and one counterexample suffices for a
+"not a function" proof.
+
+The 15-context by 12-target ceiling table agrees — advantage exactly 0.0000 at
+every context for `object_ids`, `raster_rank` and `is_object_0`, and negative
+when restricted to foreground. Key recurrence **falls** from 0.469 at one pixel
+to 0.264 at 3x3: a wider window transfers less, not more.
+
+**What survives is the permutation-invariant residue — the same-object
+relation — and only through one predicate.** On adjacent foreground pairs, every
+equality-based context is at advantage 0.0000: pixel, pair, 4-neighbourhood,
+3x3, equality patterns, equality-plus-background. Adding **collinearity** takes
+it to 1.0000 held-out against a 0.8842 baseline. The reason is in the renderer:
+it paints `clip(base * shade)`, so one object's pixels share a colour ray. Max
+integer cross product over same-object pairs is 140; the minimum over
+different-object pairs is 231.
+
+`pack` on a one-field tuple strips `role="byte"` legally, `encode` widens, and
+collinearity is ordinary `mul`/`sub`/`abs`/`le`. A 393,216-program space was
+exhausted by a prefix-reusing walk in 196 s (against `enumerate_fit`'s projected
+1,217 s) yielding 910 conforming, 858 validation-exact, and a returned program at
+**held-out max error 0.0**, applied at R=8 through 32 by three caller nodes with
+**one wrong slot in 5,520**.
+
+**The merged `operator_parameters` fix pays off immediately**: those three caller
+nodes are now *discovered* rather than supplied — 8 programs, exhausted, unique,
+0.1 s — closing the positional-reuse track's D4.
+
+**A refinement that changes the fix now in flight.** The track reproduced the
+dead-surrogate fault in `le` (`sigmoid(d/tau)` exactly 0.0 in value and
+derivative at gap >= 89, with operating gaps of median 192), and then measured
+the landscape rather than only the gradient. The shipped `tau=1` is dead **but
+puts its minimum on a correct threshold** — a plateau with cliffs, not a
+misleading slope. Scaling to the carrier restores the gradient and **moves the
+minimum onto a wrong threshold**, collapsing the loss spread to 5.96e-08. Only a
+temperature matched to the **decision margin** (32, not the carrier's 256) has
+both a correct minimum and a live derivative, and it was the only arm that
+worked: 1/4 conforming at the pool's own ceiling against 0/4 for shipped,
+operand-scaled, carrier-scaled and offset-pinned.
+
+So the section 16 rule is operator-dependent: **`eq` on bytes wants the carrier
+width; the ordering comparisons on products of bytes want the decision margin,
+and the carrier flattens them.** The core-fix track has been told not to ship a
+single derived constant across the comparison family, and to report where the
+loss minimum sits rather than only whether a gradient is nonzero.
+
+**It generalizes.** `world_2d` and `world_3d`'s `agent_0/visible_ids` is
+undetermined for the same reason, and the collinearity module transfers to both
+unchanged at held-out 1.000000 with no re-search — it is a property of the
+shared renderer rather than of one generator.

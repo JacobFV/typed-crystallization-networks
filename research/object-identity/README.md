@@ -16,7 +16,11 @@ Order of the work, which is also the order the scripts should be run in:
 | `rung4_segment.py` | `out/rung4_segment.json` | the direct, staged and flat search arms plus positional application |
 | `residual.py` | `out/residual.json` | why the direct arm's two held-out errors are the candidate pool and not the data |
 | `wide_threshold.py` | `out/wide_threshold.json` | the same rung with the threshold pool widened to 512 values |
+| `apply.py` | `out/apply.json` | the module applied at every position at four widths, via both callers |
+| `rule_shapes.py` | `out/rule_shapes.json` | the searched program's predicate shape against the one the bound assumed |
 | `unfreeze.py` | `out/unfreeze.json` | which of two mechanisms severs the gradient, isolated |
+| `surrogate_fix.py` | `out/surrogate_fix_*.json` | the operating distance of the `le` surrogate, and the gradient arms re-run with a live one under three temperature policies |
+| `landscape.py` | `out/landscape.json` | whether a corrected surrogate's loss minimum is still on a correct threshold |
 | `world3d.py` | `out/world3d.json` | whether another generator's segmentation probe is determined |
 | `discoverable.py` | `out/discoverable.json` | whether the merged `operator_parameters` makes the positional caller discoverable |
 | `tables.py` | `RESULTS.md` | renders the report |
@@ -25,5 +29,8 @@ Order of the work, which is also the order the scripts should be run in:
 ceiling, the certificates).  Everything else is imported from
 `research/discrete-perception/common.py`, which is imported rather than copied.
 
-Nothing under `tcn/` or `generators/` was modified.  Two proposed diffs are in
+Nothing under `tcn/` or `generators/` was modified.  `surrogate_fix.py` and
+`landscape.py` replace `tcn.learning.relaxed` at runtime, in their own process
+only, and restore it in a `finally`; the replacement is byte-identical to the
+shipped one except for the COMPARE temperature.  Three proposed diffs are in
 `RESULTS.md` section 9.

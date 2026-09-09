@@ -42,7 +42,8 @@ lists, numbers. Point it at anything that maps a string to a string.
 
 from __future__ import annotations
 
-from .context import GenerationContext
+from .context import (DEFAULT_HARDENING, HARDENING, NO_HARDENING,
+                      GenerationContext, resolve_hardening)
 from .curricula import Curriculum, Node, curricula, curriculum_ids
 from .curricula import get as curriculum
 from .dataset import export, iter_records, read_jsonl, splits, write_jsonl
@@ -75,6 +76,8 @@ __all__ = [
     # lessons
     "Lesson", "Example", "AXES", "CORE_AXES", "EXTENDED_AXES", "LessonNotImplemented",
     "instance_id", "GenerationContext",
+    # sampling regime
+    "HARDENING", "DEFAULT_HARDENING", "NO_HARDENING", "resolve_hardening",
     # curricula
     "Curriculum", "Node", "curriculum", "curricula", "curriculum_ids",
     # presentation

@@ -35,7 +35,7 @@ from dataclasses import dataclass, field
 from typing import Any, Callable, ClassVar, Iterator, Mapping, Sequence
 
 from ._structure import Term, sexpr, to_json
-from .context import GenerationContext
+from .context import GenerationContext, DEFAULT_HARDENING, resolve_hardening
 from .generators.extra import ACTIVE_LANGUAGE
 from .languages import DEFAULT_LANGUAGE, Language, get_language
 from .presentation import DEFAULT_PRESENTATION, OPEN_FORMAT, Presentation
@@ -77,7 +77,8 @@ def as_text(x: Any) -> str:
     return str(x)
 
 
-def instance_id(lesson_id: str, seed: int, difficulty: float | None = None) -> str:
+def instance_id(lesson_id: str, seed: int, difficulty: float | None = None,
+                hardening: frozenset[str] | None = None) -> str:
     """A stable id for the *problem*, independent of how it is presented.
 
     Every rendering of one episode — English, Turkish, rasterized, dictated —
@@ -87,7 +88,12 @@ def instance_id(lesson_id: str, seed: int, difficulty: float | None = None) -> s
     learned a surface does not. See ``INTENT.md``.
     """
     d = "-" if difficulty is None else f"{difficulty:.6f}"
-    return hashlib.blake2b(f"{lesson_id}|{seed}|{d}".encode(), digest_size=8).hexdigest()
+    key = f"{lesson_id}|{seed}|{d}"
+    # A non-default sampling regime is a different *problem*, so it gets a
+    # different id; the default regime keeps every id it already had.
+    if hardening is not None and frozenset(hardening) != DEFAULT_HARDENING:
+        key += "|h:" + ",".join(sorted(hardening))
+    return hashlib.blake2b(key.encode(), digest_size=8).hexdigest()
 
 
 @dataclass(frozen=True)
@@ -231,7 +237,8 @@ class Lesson:
     def example(self, seed: int = 0, *,
                 language: str | Language | None = None,
                 presentation: str | Presentation | None = None,
-                difficulty: float | None = None) -> Example:
+                difficulty: float | None = None,
+                hardening: Any = None) -> Example:
         """Generate one episode. The same seed and settings give the same episode.
 
         ``presentation`` carries the language, the answer format and the
@@ -246,7 +253,9 @@ class Lesson:
             raise ValueError(
                 f"{self.id} does not declare open_answerable, so the {OPEN_FORMAT!r} "
                 f"format would hide an answer set the episode cannot be solved without")
-        ctx = GenerationContext(language=lang.code, difficulty=difficulty)
+        hard = resolve_hardening(hardening)
+        ctx = GenerationContext(language=lang.code, difficulty=difficulty,
+                                hardening=hard)
         # The morphology lessons draw their inflected material from the pack the
         # episode will be read in, so the generator has to know which that is. It
         # was read once at import from the default language, which is why an
@@ -266,7 +275,7 @@ class Lesson:
             observation=observation, prompt=prompt,
             answer=answer_text, choices=opts,
             target=fmt.render_target(lang.lexicon, opts, answer_text),
-            instance_id=instance_id(self.id, seed, difficulty),
+            instance_id=instance_id(self.id, seed, difficulty, hard),
             presentation=pres.key(), difficulty=difficulty,
             metadata={"level": self.level, "tags": list(self.tags),
                       "teaches": self.teaches, "capabilities": list(self.capabilities),
@@ -277,13 +286,16 @@ class Lesson:
     def examples(self, n: int = 100, *, seed0: int = 0,
                  language: str | Language | None = None,
                  presentation: str | Presentation | None = None,
-                 difficulty: float | None = None) -> Iterator[Example]:
+                 difficulty: float | None = None,
+                 hardening: Any = None) -> Iterator[Example]:
         """Generate ``n`` consecutive episodes starting from ``seed0``."""
         for i in range(n):
             yield self.example(seed0 + i, language=language,
-                               presentation=presentation, difficulty=difficulty)
+                               presentation=presentation, difficulty=difficulty,
+                               hardening=hardening)
 
-    def structured(self, seed: int = 0, *, difficulty: float | None = None) -> dict[str, Any]:
+    def structured(self, seed: int = 0, *, difficulty: float | None = None,
+                   hardening: Any = None) -> dict[str, Any]:
         """The episode as plain JSON-able data rather than as text.
 
         This is the structural probe. A system can be right about the answer for
@@ -292,9 +304,11 @@ class Lesson:
         signal than accuracy — and needs no judge, because the comparison is
         exact. See ``INTENT.md``.
         """
-        obs, choices, answer, hidden = self.build(seed, GenerationContext(difficulty=difficulty))
+        hard = resolve_hardening(hardening)
+        obs, choices, answer, hidden = self.build(
+            seed, GenerationContext(difficulty=difficulty, hardening=hard))
         return {"lesson_id": self.id, "seed": seed,
-                "instance_id": instance_id(self.id, seed, difficulty),
+                "instance_id": instance_id(self.id, seed, difficulty, hard),
                 "observation": to_json(obs),
                 "choices": [as_text(c) for c in choices], "answer": as_text(answer),
                 "hidden": _plain(hidden)}

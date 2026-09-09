@@ -1,5 +1,6 @@
 """Local symbolic construction and grammatical realization under the common contract."""
 from .engine.registry import get,lesson_ids
+from .engine.context import HARDENING,DEFAULT_HARDENING,NO_HARDENING
 from tcn.generation import Generator,Value,BOOL,integer,product,text_value,read_text,vector_value
 TEXT=text_value('',512).type
 
@@ -7,7 +8,12 @@ class Implementation(Generator):
     action_schema={'wait':{},'answer':{'text':TEXT}}
     def initialize(self,address,configuration):
         lesson=configuration.get('lesson','unification');language=configuration.get('language','english')
-        ex=get(lesson).example(seed=address.rng().randrange(2**31),language=language)
+        # `difficulty` widens a lesson's own axes; `hardening` selects which
+        # anti-exploit draws are in force. Both are versioned semantic
+        # configuration, not a trainer branch: the actor sees only `text`.
+        ex=get(lesson).example(seed=address.rng().randrange(2**31),language=language,
+                               difficulty=configuration.get('difficulty'),
+                               hardening=configuration.get('hardening'))
         data=ex.to_dict()
         return {'time':0.,'tick':0,'example':data,'response':'','capacity':configuration.get('capacity',1024),'horizon':configuration.get('horizon',4)}
     def advance(self,s,actions,dt,rng):

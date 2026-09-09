@@ -319,6 +319,8 @@ def main():
     arm(pf, "operand", "pinned_grad"); arm(mf, "fixed32", "margin_grad")
     v["pinned_thr"] = v.pop("pinned_grad_thr", None)
     v["margin_thr"] = v.pop("margin_grad_thr", None)
+    if mf and "fixed32" in mf:
+        v["margin_held_acc"] = f(max(r.get("held_acc", 0.) for r in mf["fixed32"]["rows"]), 6)
     if lnd:
         v["landscape_table"] = table(
             ["comparison temperature", "argmin threshold", "is it exact?", "loss spread"],
@@ -338,33 +340,6 @@ def main():
                                       sf["operand"]["choice_gradients"]["choice_grad_l1"].items()
                                       if k in ("shifted", "thr", "m1", "same")})
         v["sfix_thr"] = v.get("sfix_operand_thr")
-        best = max((sf[k]["summary"]["successes"] for k in ("operand", "carrier") if k in sf),
-                   default=0)
-        n = len(sf["operand"]["rows"])
-        heldbest = max((sf[k]["held_exact"] for k in ("operand", "carrier") if k in sf), default=0)
-        if heldbest:
-            v["sfix_conclusion"] = (
-                "**With a live surrogate the relaxed path does reach this rung**: the best "
-                f"corrected arm is {heldbest}/{n} exact on held-out episodes, against 0/4 for "
-                "every arm run with the shipped surrogate.  The recorded failures in section 3 "
-                "were invalid relaxations.")
-        elif best:
-            v["sfix_conclusion"] = (
-                f"**A live surrogate is necessary and not sufficient here.**  The best corrected "
-                f"arm reaches {best}/{n} conforming on training and {heldbest}/{n} exact on "
-                "held-out, against 0/4 with the shipped surrogate -- so scaling the temperature "
-                "does change the outcome, and the remaining gap is the offset, which is behind "
-                "`pack`'s declared `gradient=\"none\"` and cannot be relaxed at all.")
-        else:
-            v["sfix_conclusion"] = (
-                "**A live surrogate is necessary and not sufficient here.**  Every corrected arm "
-                f"is still 0/{n}, and the reason is in the row above it: `shifted` remains "
-                "`grad = None` under every temperature policy, because `pack` declares "
-                "`gradient=\"none\"`.  The relaxed path can now see the threshold and the two "
-                "combinators and still cannot see which neighbour to read, so it cannot settle "
-                "this rung.  That is a statement about a declared boundary, which is what the "
-                "corrected measurement is for -- it is no longer a statement about an underflow.")
-
     template = (HERE / "RESULTS.template.md").read_text()
     missing = sorted(set(re.findall(r"\{\{(\w+)\}\}", template)) - set(v))
     if missing:
