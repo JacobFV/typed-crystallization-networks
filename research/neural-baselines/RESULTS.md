@@ -635,3 +635,26 @@ this document quotes so they can be regenerated and diffed rather than trusted.
 `out/computer_trivial_cache.json` caches the four model-free closed-loop
 references so a re-run does not spend 120 live kernel steps re-measuring them;
 delete it to re-measure.
+
+### Test status, and one pre-existing failure
+
+`.venv/bin/python -m pytest tests -q` in this worktree: **13 failed, 275 passed**
+before any diagnosis. Twelve of the thirteen are an artifact of the git worktree
+itself — `generators/computer/engine/node_modules` is gitignored, so a worktree
+gets the tracked TypeScript without `tsx`, and `node --import tsx` cannot start
+the kernel. Symlinking the main checkout's `node_modules` into the worktree turns
+those twelve into passes (**11 passed of the 12 re-run**, plus one that was
+already passing).
+
+The thirteenth, `tests/test_panel_interface.py::test_panel_episode_replays_and_restores`,
+fails **deterministically** (2 of 2 re-runs, 3 s each) with
+`AssertionError: replayed episode diverged` at `tcn/generation.py:168`. It is
+**not** caused by this track: `git diff <this branch's base>..main -- tcn
+generators` is empty, and this branch's diff touches only
+`research/neural-baselines/`. It is recorded here rather than worked around,
+per the standing instruction to report a wall instead of routing around it.
+
+Everything under `research/neural-baselines/` in this document ran against
+`tcn/` and `generators/` that are **byte-identical to main** — checked with
+`git diff` on both directories — so `source_fingerprint()` is unaffected and no
+recorded episode anywhere in the repository is invalidated.
