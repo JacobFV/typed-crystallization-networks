@@ -1,0 +1,663 @@
+{
+ "arms": [
+  {
+   "byte_head": "cls",
+   "heldout_byte_accuracy_median": 0.5,
+   "mean_return_median": 0.9,
+   "model": "gru_h16",
+   "parameters": 7708,
+   "policy_ms_median": 4.1054955,
+   "rows": [
+    {
+     "closed_loop": {
+      "episodes": 10,
+      "max_return": 2,
+      "mean_return": 1.0,
+      "policy_ms_median": 4.138498,
+      "solved": 5
+     },
+     "closed_loop_rows": [
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "k = 7",
+       "return": 0.0,
+       "target": "8",
+       "written": [
+        "6"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "wait",
+        "wait"
+       ],
+       "document": "xy = 1",
+       "return": 0.0,
+       "target": "2",
+       "written": []
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "idx = 8",
+       "return": 0.0,
+       "target": "9",
+       "written": [
+        "6"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "amount = 4",
+       "return": 0.0,
+       "target": "5",
+       "written": [
+        "7"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "accumulator = 0",
+       "return": 2.0,
+       "target": "1",
+       "written": [
+        "1"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "q = 5",
+       "return": 2.0,
+       "target": "6",
+       "written": [
+        "6"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "zz = 2",
+       "return": 2.0,
+       "target": "3",
+       "written": [
+        "3"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "sum = 6",
+       "return": 2.0,
+       "target": "7",
+       "written": [
+        "7"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "length = 3",
+       "return": 2.0,
+       "target": "4",
+       "written": [
+        "4"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "registers = 7",
+       "return": 0.0,
+       "target": "8",
+       "written": [
+        "1"
+       ]
+      }
+     ],
+     "final_loss": 0.003364161355420947,
+     "heldout_supervised": {
+      "byte_accuracy": 0.5,
+      "verb_accuracy": 0.9666666388511658
+     },
+     "lr": 0.005,
+     "parameters": 7708,
+     "seed": 0,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 68.22536594897974
+    },
+    {
+     "closed_loop": {
+      "episodes": 10,
+      "max_return": 2,
+      "mean_return": 0.8,
+      "policy_ms_median": 4.072493,
+      "solved": 4
+     },
+     "closed_loop_rows": [
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "k = 7",
+       "return": 0.0,
+       "target": "8",
+       "written": [
+        "7"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "xy = 1",
+       "return": 0.0,
+       "target": "2",
+       "written": [
+        "3"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "idx = 8",
+       "return": 0.0,
+       "target": "9",
+       "written": [
+        "3"
+       ]
+      },
+      {
+       "actions": [
+        "wait",
+        "wait",
+        "wait"
+       ],
+       "document": "amount = 4",
+       "return": 0.0,
+       "target": "5",
+       "written": []
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "accumulator = 0",
+       "return": 2.0,
+       "target": "1",
+       "written": [
+        "1"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "q = 5",
+       "return": 2.0,
+       "target": "6",
+       "written": [
+        "6"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "zz = 2",
+       "return": 2.0,
+       "target": "3",
+       "written": [
+        "3"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "sum = 6",
+       "return": 2.0,
+       "target": "7",
+       "written": [
+        "7"
+       ]
+      },
+      {
+       "actions": [
+        "wait",
+        "wait",
+        "wait"
+       ],
+       "document": "length = 3",
+       "return": 0.0,
+       "target": "4",
+       "written": []
+      },
+      {
+       "actions": [
+        "wait",
+        "wait",
+        "wait"
+       ],
+       "document": "registers = 7",
+       "return": 0.0,
+       "target": "8",
+       "written": []
+      }
+     ],
+     "final_loss": 0.004308880772441626,
+     "heldout_supervised": {
+      "byte_accuracy": 0.5,
+      "verb_accuracy": 0.8999999761581421
+     },
+     "lr": 0.005,
+     "parameters": 7708,
+     "seed": 1,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 83.41665804898366
+    }
+   ],
+   "solved_max": 5,
+   "solved_median": 4.5
+  },
+  {
+   "byte_head": "cls",
+   "heldout_byte_accuracy_median": 0.30000000447034836,
+   "mean_return_median": 0.6000000000000001,
+   "model": "cnn_w32",
+   "parameters": 14508,
+   "policy_ms_median": 0.58833325,
+   "rows": [
+    {
+     "closed_loop": {
+      "episodes": 10,
+      "max_return": 2,
+      "mean_return": 0.4,
+      "policy_ms_median": 0.5061895,
+      "solved": 2
+     },
+     "closed_loop_rows": [
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "k = 7",
+       "return": 0.0,
+       "target": "8",
+       "written": [
+        "4"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "xy = 1",
+       "return": 0.0,
+       "target": "2",
+       "written": [
+        "4"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "idx = 8",
+       "return": 0.0,
+       "target": "9",
+       "written": [
+        "7"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "amount = 4",
+       "return": 0.0,
+       "target": "5",
+       "written": [
+        "3"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "accumulator = 0",
+       "return": 0.0,
+       "target": "1",
+       "written": [
+        "3"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "q = 5",
+       "return": 2.0,
+       "target": "6",
+       "written": [
+        "6"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "zz = 2",
+       "return": 0.0,
+       "target": "3",
+       "written": [
+        "7"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "sum = 6",
+       "return": 0.0,
+       "target": "7",
+       "written": [
+        "6"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "length = 3",
+       "return": 2.0,
+       "target": "4",
+       "written": [
+        "4"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "registers = 7",
+       "return": 0.0,
+       "target": "8",
+       "written": [
+        "3"
+       ]
+      }
+     ],
+     "final_loss": 7.377286965493113e-05,
+     "heldout_supervised": {
+      "byte_accuracy": 0.20000000298023224,
+      "verb_accuracy": 1.0
+     },
+     "lr": 0.005,
+     "parameters": 14508,
+     "seed": 0,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 5.983736596012022
+    },
+    {
+     "closed_loop": {
+      "episodes": 10,
+      "max_return": 2,
+      "mean_return": 0.8,
+      "policy_ms_median": 0.670477,
+      "solved": 4
+     },
+     "closed_loop_rows": [
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "k = 7",
+       "return": 0.0,
+       "target": "8",
+       "written": [
+        "1"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "xy = 1",
+       "return": 0.0,
+       "target": "2",
+       "written": [
+        "7"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "idx = 8",
+       "return": 0.0,
+       "target": "9",
+       "written": [
+        "4"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "amount = 4",
+       "return": 0.0,
+       "target": "5",
+       "written": [
+        "7"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "accumulator = 0",
+       "return": 2.0,
+       "target": "1",
+       "written": [
+        "1"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "q = 5",
+       "return": 2.0,
+       "target": "6",
+       "written": [
+        "6"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "zz = 2",
+       "return": 2.0,
+       "target": "3",
+       "written": [
+        "3"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "sum = 6",
+       "return": 0.0,
+       "target": "7",
+       "written": [
+        "4"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "length = 3",
+       "return": 2.0,
+       "target": "4",
+       "written": [
+        "4"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "registers = 7",
+       "return": 0.0,
+       "target": "8",
+       "written": [
+        "3"
+       ]
+      }
+     ],
+     "final_loss": 6.391861825250089e-05,
+     "heldout_supervised": {
+      "byte_accuracy": 0.4000000059604645,
+      "verb_accuracy": 1.0
+     },
+     "lr": 0.005,
+     "parameters": 14508,
+     "seed": 1,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 6.9690760530065745
+    }
+   ],
+   "solved_max": 4,
+   "solved_median": 3.0
+  }
+ ],
+ "classifier_ceiling": {
+  "heldout_target_bytes": [
+   56,
+   50,
+   57,
+   53,
+   49,
+   54,
+   51,
+   55,
+   52,
+   56
+  ],
+  "max_possible_byte_accuracy": 0.5,
+  "training_target_bytes": [
+   49,
+   51,
+   52,
+   54,
+   55
+  ]
+ },
+ "protocol": "selection on held-out supervised accuracy -- NOT the matched protocol; reported to show the neural side's best achievable live score"
+}

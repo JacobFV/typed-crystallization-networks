@@ -1,0 +1,30 @@
+[
+ {
+  "episodes": 10,
+  "label": "always write \"5\"",
+  "max_return": 2,
+  "mean_return": 0.3,
+  "solved": 0
+ },
+ {
+  "episodes": 10,
+  "label": "read then write the modal digit \"5\"",
+  "max_return": 2,
+  "mean_return": 0.2,
+  "solved": 1
+ },
+ {
+  "episodes": 10,
+  "label": "uniform random verb, random digit",
+  "max_return": 2,
+  "mean_return": 0.6,
+  "solved": 1
+ },
+ {
+  "episodes": 10,
+  "label": "always wait",
+  "max_return": 2,
+  "mean_return": 0.0,
+  "solved": 0
+ }
+]

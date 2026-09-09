@@ -1,0 +1,129 @@
+{
+ "artifact": "computer-capability frozen agent (successor task)",
+ "budget": {
+  "optimizer_steps": 0,
+  "programs_enumerated": 7928,
+  "search_seconds": 194.72235320799518,
+  "train_decision_points": 15,
+  "train_documents": 5
+ },
+ "latency": {
+  "agent_act_ms_first": 93.615006,
+  "agent_act_ms_median": 13.350442000000001,
+  "kernel_step_ms_median": 866.257274,
+  "note": "Agent.act runs the program twice per step; the kernel round trip is reported separately and charged to neither method."
+ },
+ "peak_rss_mb": 249.58203125,
+ "quality": {
+  "episodes": 10,
+  "max_return": 2,
+  "mean_return": 2.0,
+  "rows": [
+   {
+    "document": "k = 7",
+    "return": 2.0,
+    "verbs": [
+     "read",
+     "write",
+     "wait"
+    ]
+   },
+   {
+    "document": "xy = 1",
+    "return": 2.0,
+    "verbs": [
+     "read",
+     "write",
+     "wait"
+    ]
+   },
+   {
+    "document": "idx = 8",
+    "return": 2.0,
+    "verbs": [
+     "read",
+     "write",
+     "wait"
+    ]
+   },
+   {
+    "document": "amount = 4",
+    "return": 2.0,
+    "verbs": [
+     "read",
+     "write",
+     "wait"
+    ]
+   },
+   {
+    "document": "accumulator = 0",
+    "return": 2.0,
+    "verbs": [
+     "read",
+     "write",
+     "wait"
+    ]
+   },
+   {
+    "document": "q = 5",
+    "return": 2.0,
+    "verbs": [
+     "read",
+     "write",
+     "wait"
+    ]
+   },
+   {
+    "document": "zz = 2",
+    "return": 2.0,
+    "verbs": [
+     "read",
+     "write",
+     "wait"
+    ]
+   },
+   {
+    "document": "sum = 6",
+    "return": 2.0,
+    "verbs": [
+     "read",
+     "write",
+     "wait"
+    ]
+   },
+   {
+    "document": "length = 3",
+    "return": 2.0,
+    "verbs": [
+     "read",
+     "write",
+     "wait"
+    ]
+   },
+   {
+    "document": "registers = 7",
+    "return": 2.0,
+    "verbs": [
+     "read",
+     "write",
+     "wait"
+    ]
+   }
+  ],
+  "solved": 10
+ },
+ "rebuilt_from": "research/computer-capability/out/search.json",
+ "size": {
+  "description_bits": 33971936,
+  "distinct_operators": 14,
+  "estimated_operator_cost": 23.0,
+  "gzip_bits": 151416,
+  "gzip_bytes": 18927,
+  "json_bits": 33971936,
+  "json_bytes": 4246492,
+  "module_count": 0,
+  "pruned_nodes": 23,
+  "total_static_nodes": 23,
+  "trainable_parameters": 0
+ }
+}

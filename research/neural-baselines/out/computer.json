@@ -1,0 +1,1355 @@
+{
+ "arms": [
+  {
+   "byte_head": "reg",
+   "heldout_byte_accuracy_median": 0.0,
+   "heldout_verb_accuracy_median": 0.9833333194255829,
+   "kind": "matched",
+   "mean_return_median": 0.0,
+   "model": "gru_h16",
+   "parameters": 3373,
+   "policy_ms_median": 9.25221075,
+   "rows": [
+    {
+     "closed_loop": {
+      "episodes": 10,
+      "max_return": 2,
+      "mean_return": 0.0,
+      "policy_ms_median": 9.9511175,
+      "solved": 0
+     },
+     "closed_loop_rows": [
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "k = 7",
+       "return": 0.0,
+       "target": "8",
+       "written": [
+        "1"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "read",
+        "read"
+       ],
+       "document": "xy = 1",
+       "return": 0.0,
+       "target": "2",
+       "written": []
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "idx = 8",
+       "return": 0.0,
+       "target": "9",
+       "written": [
+        "@"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "amount = 4",
+       "return": 0.0,
+       "target": "5",
+       "written": [
+        "2"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "accumulator = 0",
+       "return": 0.0,
+       "target": "1",
+       "written": [
+        "G"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "q = 5",
+       "return": 0.0,
+       "target": "6",
+       "written": [
+        "="
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "zz = 2",
+       "return": 0.0,
+       "target": "3",
+       "written": [
+        "`"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "sum = 6",
+       "return": 0.0,
+       "target": "7",
+       "written": [
+        ":"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "read"
+       ],
+       "document": "length = 3",
+       "return": 0.0,
+       "target": "4",
+       "written": [
+        ""
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "registers = 7",
+       "return": 0.0,
+       "target": "8",
+       "written": [
+        ":"
+       ]
+      }
+     ],
+     "final_loss": 0.0003101415641140193,
+     "heldout_supervised": {
+      "byte_accuracy": 0.0,
+      "verb_accuracy": 0.9666666388511658
+     },
+     "lr": 0.005,
+     "parameters": 3373,
+     "seed": 0,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 181.2068708119914
+    },
+    {
+     "closed_loop": {
+      "episodes": 10,
+      "max_return": 2,
+      "mean_return": 0.0,
+      "policy_ms_median": 8.553304,
+      "solved": 0
+     },
+     "closed_loop_rows": [
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "k = 7",
+       "return": 0.0,
+       "target": "8",
+       "written": [
+        "E"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "xy = 1",
+       "return": 0.0,
+       "target": "2",
+       "written": [
+        "?"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "idx = 8",
+       "return": 0.0,
+       "target": "9",
+       "written": [
+        "A"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "amount = 4",
+       "return": 0.0,
+       "target": "5",
+       "written": [
+        "3"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "accumulator = 0",
+       "return": 0.0,
+       "target": "1",
+       "written": [
+        "3"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "q = 5",
+       "return": 0.0,
+       "target": "6",
+       "written": [
+        "H"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "zz = 2",
+       "return": 0.0,
+       "target": "3",
+       "written": [
+        "E"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "sum = 6",
+       "return": 0.0,
+       "target": "7",
+       "written": [
+        "@"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "length = 3",
+       "return": 0.0,
+       "target": "4",
+       "written": [
+        "8"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "registers = 7",
+       "return": 0.0,
+       "target": "8",
+       "written": [
+        "F"
+       ]
+      }
+     ],
+     "final_loss": 0.00025363321765325963,
+     "heldout_supervised": {
+      "byte_accuracy": 0.0,
+      "verb_accuracy": 1.0
+     },
+     "lr": 0.005,
+     "parameters": 3373,
+     "seed": 1,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 205.92010012402898
+    }
+   ],
+   "solved_max": 0,
+   "solved_median": 0.0,
+   "train_byte_accuracy_median": 1.0,
+   "train_seconds_median": 193.56348546801019,
+   "train_verb_accuracy_median": 1.0
+  },
+  {
+   "byte_head": "cls",
+   "heldout_byte_accuracy_median": 0.5,
+   "heldout_verb_accuracy_median": 0.9333333075046539,
+   "kind": "matched",
+   "model": "gru_h16",
+   "parameters": 7708,
+   "rows": [
+    {
+     "final_loss": 0.003364161355420947,
+     "heldout_supervised": {
+      "byte_accuracy": 0.5,
+      "verb_accuracy": 0.9666666388511658
+     },
+     "lr": 0.005,
+     "parameters": 7708,
+     "seed": 0,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 261.84614000999136
+    },
+    {
+     "final_loss": 0.004308880772441626,
+     "heldout_supervised": {
+      "byte_accuracy": 0.5,
+      "verb_accuracy": 0.8999999761581421
+     },
+     "lr": 0.005,
+     "parameters": 7708,
+     "seed": 1,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 242.86665174999507
+    }
+   ],
+   "train_byte_accuracy_median": 1.0,
+   "train_seconds_median": 252.35639587999322,
+   "train_verb_accuracy_median": 1.0
+  },
+  {
+   "byte_head": "reg",
+   "heldout_byte_accuracy_median": 0.05000000074505806,
+   "heldout_verb_accuracy_median": 0.9833333194255829,
+   "kind": "matched",
+   "mean_return_median": 0.1,
+   "model": "gru_h32",
+   "parameters": 6221,
+   "policy_ms_median": 8.68476725,
+   "rows": [
+    {
+     "closed_loop": {
+      "episodes": 10,
+      "max_return": 2,
+      "mean_return": 0.0,
+      "policy_ms_median": 8.9779465,
+      "solved": 0
+     },
+     "closed_loop_rows": [
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "k = 7",
+       "return": 0.0,
+       "target": "8",
+       "written": [
+        "%"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "wait",
+        "wait"
+       ],
+       "document": "xy = 1",
+       "return": 0.0,
+       "target": "2",
+       "written": []
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "idx = 8",
+       "return": 0.0,
+       "target": "9",
+       "written": [
+        "\u000f"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "amount = 4",
+       "return": 0.0,
+       "target": "5",
+       "written": [
+        "-"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "accumulator = 0",
+       "return": 0.0,
+       "target": "1",
+       "written": [
+        "7"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "q = 5",
+       "return": 0.0,
+       "target": "6",
+       "written": [
+        ","
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "zz = 2",
+       "return": 0.0,
+       "target": "3",
+       "written": [
+        "\u001c"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "sum = 6",
+       "return": 0.0,
+       "target": "7",
+       "written": [
+        "-"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "length = 3",
+       "return": 0.0,
+       "target": "4",
+       "written": [
+        "3"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "registers = 7",
+       "return": 0.0,
+       "target": "8",
+       "written": [
+        "\u0001"
+       ]
+      }
+     ],
+     "final_loss": 6.754198693670332e-05,
+     "heldout_supervised": {
+      "byte_accuracy": 0.0,
+      "verb_accuracy": 0.9666666388511658
+     },
+     "lr": 0.005,
+     "parameters": 6221,
+     "seed": 0,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 273.24844823998865
+    },
+    {
+     "closed_loop": {
+      "episodes": 10,
+      "max_return": 2,
+      "mean_return": 0.2,
+      "policy_ms_median": 8.391587999999999,
+      "solved": 1
+     },
+     "closed_loop_rows": [
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "k = 7",
+       "return": 0.0,
+       "target": "8",
+       "written": [
+        "\u000e"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "read"
+       ],
+       "document": "xy = 1",
+       "return": 0.0,
+       "target": "2",
+       "written": [
+        ""
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "idx = 8",
+       "return": 0.0,
+       "target": "9",
+       "written": [
+        "\r"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "amount = 4",
+       "return": 0.0,
+       "target": "5",
+       "written": [
+        "0"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "accumulator = 0",
+       "return": 0.0,
+       "target": "1",
+       "written": [
+        "5"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "q = 5",
+       "return": 0.0,
+       "target": "6",
+       "written": [
+        ")"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "zz = 2",
+       "return": 2.0,
+       "target": "3",
+       "written": [
+        "3"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "sum = 6",
+       "return": 0.0,
+       "target": "7",
+       "written": [
+        "$"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "length = 3",
+       "return": 0.0,
+       "target": "4",
+       "written": [
+        "2"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "registers = 7",
+       "return": 0.0,
+       "target": "8",
+       "written": [
+        "4"
+       ]
+      }
+     ],
+     "final_loss": 7.037895557004958e-05,
+     "heldout_supervised": {
+      "byte_accuracy": 0.10000000149011612,
+      "verb_accuracy": 1.0
+     },
+     "lr": 0.005,
+     "parameters": 6221,
+     "seed": 1,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 256.4758346659946
+    }
+   ],
+   "solved_max": 1,
+   "solved_median": 0.5,
+   "train_byte_accuracy_median": 1.0,
+   "train_seconds_median": 264.86214145299164,
+   "train_verb_accuracy_median": 1.0
+  },
+  {
+   "byte_head": "cls",
+   "heldout_byte_accuracy_median": 0.5,
+   "heldout_verb_accuracy_median": 1.0,
+   "kind": "matched",
+   "model": "gru_h32",
+   "parameters": 14636,
+   "rows": [
+    {
+     "final_loss": 0.001038133748807013,
+     "heldout_supervised": {
+      "byte_accuracy": 0.5,
+      "verb_accuracy": 1.0
+     },
+     "lr": 0.005,
+     "parameters": 14636,
+     "seed": 0,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 262.739824749995
+    },
+    {
+     "final_loss": 0.0012677122140303254,
+     "heldout_supervised": {
+      "byte_accuracy": 0.5,
+      "verb_accuracy": 1.0
+     },
+     "lr": 0.005,
+     "parameters": 14636,
+     "seed": 1,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 247.14215840701945
+    }
+   ],
+   "train_byte_accuracy_median": 1.0,
+   "train_seconds_median": 254.94099157850724,
+   "train_verb_accuracy_median": 1.0
+  },
+  {
+   "byte_head": "reg",
+   "heldout_byte_accuracy_median": 0.0,
+   "heldout_verb_accuracy_median": 1.0,
+   "kind": "matched",
+   "model": "cnn_w32",
+   "parameters": 6093,
+   "rows": [
+    {
+     "final_loss": 2.145844882761594e-05,
+     "heldout_supervised": {
+      "byte_accuracy": 0.0,
+      "verb_accuracy": 1.0
+     },
+     "lr": 0.005,
+     "parameters": 6093,
+     "seed": 0,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 7.980282893055119
+    },
+    {
+     "final_loss": 4.5878459786763415e-05,
+     "heldout_supervised": {
+      "byte_accuracy": 0.0,
+      "verb_accuracy": 1.0
+     },
+     "lr": 0.005,
+     "parameters": 6093,
+     "seed": 1,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 0.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 7.954690804006532
+    }
+   ],
+   "train_byte_accuracy_median": 0.5,
+   "train_seconds_median": 7.967486848530825,
+   "train_verb_accuracy_median": 1.0
+  },
+  {
+   "byte_head": "cls",
+   "heldout_byte_accuracy_median": 0.30000000447034836,
+   "heldout_verb_accuracy_median": 1.0,
+   "kind": "matched",
+   "model": "cnn_w32",
+   "parameters": 14508,
+   "rows": [
+    {
+     "final_loss": 7.377286965493113e-05,
+     "heldout_supervised": {
+      "byte_accuracy": 0.20000000298023224,
+      "verb_accuracy": 1.0
+     },
+     "lr": 0.005,
+     "parameters": 14508,
+     "seed": 0,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 9.230228491011076
+    },
+    {
+     "final_loss": 6.391861825250089e-05,
+     "heldout_supervised": {
+      "byte_accuracy": 0.4000000059604645,
+      "verb_accuracy": 1.0
+     },
+     "lr": 0.005,
+     "parameters": 14508,
+     "seed": 1,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 11.116825123026501
+    }
+   ],
+   "train_byte_accuracy_median": 1.0,
+   "train_seconds_median": 10.173526807018789,
+   "train_verb_accuracy_median": 1.0
+  },
+  {
+   "byte_head": "reg",
+   "heldout_byte_accuracy_median": 0.05000000074505806,
+   "heldout_verb_accuracy_median": 1.0,
+   "kind": "matched",
+   "model": "mlp_absolute_w48",
+   "parameters": 15597,
+   "rows": [
+    {
+     "final_loss": 1.4074475075176451e-05,
+     "heldout_supervised": {
+      "byte_accuracy": 0.10000000149011612,
+      "verb_accuracy": 1.0
+     },
+     "lr": 0.005,
+     "parameters": 15597,
+     "seed": 0,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 7.2683400560054
+    },
+    {
+     "final_loss": 2.68063504336169e-05,
+     "heldout_supervised": {
+      "byte_accuracy": 0.0,
+      "verb_accuracy": 1.0
+     },
+     "lr": 0.005,
+     "parameters": 15597,
+     "seed": 1,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 8.278251319017727
+    }
+   ],
+   "train_byte_accuracy_median": 1.0,
+   "train_seconds_median": 7.773295687511563,
+   "train_verb_accuracy_median": 1.0
+  },
+  {
+   "byte_head": "cls",
+   "heldout_byte_accuracy_median": 0.10000000149011612,
+   "heldout_verb_accuracy_median": 0.9666666686534882,
+   "kind": "matched",
+   "model": "mlp_absolute_w48",
+   "parameters": 24012,
+   "rows": [
+    {
+     "final_loss": 3.309999010525644e-05,
+     "heldout_supervised": {
+      "byte_accuracy": 0.10000000149011612,
+      "verb_accuracy": 1.0
+     },
+     "lr": 0.005,
+     "parameters": 24012,
+     "seed": 0,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 9.909503853996284
+    },
+    {
+     "final_loss": 8.575080755690578e-06,
+     "heldout_supervised": {
+      "byte_accuracy": 0.10000000149011612,
+      "verb_accuracy": 0.9333333373069763
+     },
+     "lr": 0.005,
+     "parameters": 24012,
+     "seed": 1,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 13.600690963037778
+    }
+   ],
+   "train_byte_accuracy_median": 1.0,
+   "train_seconds_median": 11.755097408517031,
+   "train_verb_accuracy_median": 1.0
+  },
+  {
+   "byte_head": "reg",
+   "heldout_byte_accuracy_median": 0.45000001788139343,
+   "heldout_verb_accuracy_median": 1.0,
+   "kind": "structural_hint",
+   "mean_return_median": 0.8999999999999999,
+   "model": "mlp_relative_hint",
+   "parameters": 4333,
+   "policy_ms_median": 0.68585125,
+   "rows": [
+    {
+     "closed_loop": {
+      "episodes": 10,
+      "max_return": 2,
+      "mean_return": 1.2,
+      "policy_ms_median": 0.705859,
+      "solved": 6
+     },
+     "closed_loop_rows": [
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "k = 7",
+       "return": 0.0,
+       "target": "8",
+       "written": [
+        "/"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "xy = 1",
+       "return": 0.0,
+       "target": "2",
+       "written": [
+        "("
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "idx = 8",
+       "return": 0.0,
+       "target": "9",
+       "written": [
+        ";"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "amount = 4",
+       "return": 2.0,
+       "target": "5",
+       "written": [
+        "5"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "accumulator = 0",
+       "return": 2.0,
+       "target": "1",
+       "written": [
+        "1"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "q = 5",
+       "return": 2.0,
+       "target": "6",
+       "written": [
+        "6"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "zz = 2",
+       "return": 2.0,
+       "target": "3",
+       "written": [
+        "3"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "sum = 6",
+       "return": 2.0,
+       "target": "7",
+       "written": [
+        "7"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "length = 3",
+       "return": 2.0,
+       "target": "4",
+       "written": [
+        "4"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "registers = 7",
+       "return": 0.0,
+       "target": "8",
+       "written": [
+        "/"
+       ]
+      }
+     ],
+     "final_loss": 1.353426523564849e-05,
+     "heldout_supervised": {
+      "byte_accuracy": 0.6000000238418579,
+      "verb_accuracy": 1.0
+     },
+     "lr": 0.005,
+     "parameters": 4333,
+     "seed": 0,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 6.455207251012325
+    },
+    {
+     "closed_loop": {
+      "episodes": 10,
+      "max_return": 2,
+      "mean_return": 0.6,
+      "policy_ms_median": 0.6658435,
+      "solved": 3
+     },
+     "closed_loop_rows": [
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "k = 7",
+       "return": 0.0,
+       "target": "8",
+       "written": [
+        "*"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "xy = 1",
+       "return": 0.0,
+       "target": "2",
+       "written": [
+        "-"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "idx = 8",
+       "return": 0.0,
+       "target": "9",
+       "written": [
+        "2"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "amount = 4",
+       "return": 0.0,
+       "target": "5",
+       "written": [
+        "2"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "accumulator = 0",
+       "return": 0.0,
+       "target": "1",
+       "written": [
+        "2"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "q = 5",
+       "return": 2.0,
+       "target": "6",
+       "written": [
+        "6"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "zz = 2",
+       "return": 2.0,
+       "target": "3",
+       "written": [
+        "3"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "sum = 6",
+       "return": 2.0,
+       "target": "7",
+       "written": [
+        "7"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "length = 3",
+       "return": 0.0,
+       "target": "4",
+       "written": [
+        "5"
+       ]
+      },
+      {
+       "actions": [
+        "read",
+        "write",
+        "wait"
+       ],
+       "document": "registers = 7",
+       "return": 0.0,
+       "target": "8",
+       "written": [
+        "+"
+       ]
+      }
+     ],
+     "final_loss": 1.9176119167241268e-05,
+     "heldout_supervised": {
+      "byte_accuracy": 0.30000001192092896,
+      "verb_accuracy": 1.0
+     },
+     "lr": 0.005,
+     "parameters": 4333,
+     "seed": 1,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 5.913786859018728
+    }
+   ],
+   "solved_max": 6,
+   "solved_median": 4.5,
+   "train_byte_accuracy_median": 1.0,
+   "train_seconds_median": 6.184497055015527,
+   "train_verb_accuracy_median": 1.0
+  },
+  {
+   "byte_head": "cls",
+   "heldout_byte_accuracy_median": 0.5,
+   "heldout_verb_accuracy_median": 1.0,
+   "kind": "structural_hint",
+   "model": "mlp_relative_hint",
+   "parameters": 12748,
+   "rows": [
+    {
+     "final_loss": 9.609491826267913e-05,
+     "heldout_supervised": {
+      "byte_accuracy": 0.5,
+      "verb_accuracy": 1.0
+     },
+     "lr": 0.005,
+     "parameters": 12748,
+     "seed": 0,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 8.21276471100282
+    },
+    {
+     "final_loss": 9.993994899559766e-05,
+     "heldout_supervised": {
+      "byte_accuracy": 0.5,
+      "verb_accuracy": 1.0
+     },
+     "lr": 0.005,
+     "parameters": 12748,
+     "seed": 1,
+     "steps": 800,
+     "train": {
+      "byte_accuracy": 1.0,
+      "verb_accuracy": 1.0
+     },
+     "train_seconds": 10.204972220002674
+    }
+   ],
+   "train_byte_accuracy_median": 1.0,
+   "train_seconds_median": 9.208868465502746,
+   "train_verb_accuracy_median": 1.0
+  }
+ ],
+ "best_closed_loop_over_every_matched_arm_run_live": 1,
+ "budget": {
+  "collect_seconds": 121.28064990695566,
+  "train_decision_points": 15,
+  "train_documents": 5,
+  "train_write_decisions": 5
+ },
+ "padding_check": {
+  "bytes_beyond_prefix_all_zero": true,
+  "max_terminal_length": 45,
+  "prefix_bytes_used": 64
+ },
+ "selected_on_training_fit": {
+  "byte_head": "reg",
+  "heldout_byte_accuracy_median": 0.0,
+  "mean_return_median": 0.0,
+  "model": "gru_h16",
+  "parameters": 3373,
+  "policy_ms_median": 9.25221075,
+  "solved_median": 0.0,
+  "train_byte_accuracy_median": 1.0,
+  "train_verb_accuracy_median": 1.0
+ },
+ "supervised_trivial_reference": {
+  "constant_byte_accuracy_train": 0.20000000298023224,
+  "constant_verb_accuracy": 0.3333333432674408,
+  "random_byte_accuracy": 0.00390625,
+  "random_verb_accuracy": 0.3333333333333333
+ },
+ "trivial_reference_closed_loop": [
+  {
+   "episodes": 10,
+   "label": "always write \"5\"",
+   "max_return": 2,
+   "mean_return": 0.3,
+   "solved": 0
+  },
+  {
+   "episodes": 10,
+   "label": "read then write the modal digit \"5\"",
+   "max_return": 2,
+   "mean_return": 0.2,
+   "solved": 1
+  },
+  {
+   "episodes": 10,
+   "label": "uniform random verb, random digit",
+   "max_return": 2,
+   "mean_return": 0.6,
+   "solved": 1
+  },
+  {
+   "episodes": 10,
+   "label": "always wait",
+   "max_return": 2,
+   "mean_return": 0.0,
+   "solved": 0
+  }
+ ]
+}
