@@ -25,9 +25,9 @@ how much they matter to the project's pitch.
 
 **1. The complete path is dominated by neither the operators nor the model —
 it is dominated by the typed value layer re-encoding the observation at every
-graph edge.**  On the screenshot parse, 96% of execution time is
+graph edge.**  On the screenshot parse, **97.7%** of execution time is
 `tcn/types.py`'s `decode`, `encode` and `validate_raw`; the operator semantics
-that do the actual work are **0.3%**.  Cost per operator application is not a
+and the graph walk that do the actual work are **0.6%**.  Cost per operator application is not a
 constant: it is about **3.5 µs + 0.07 µs per element of the widest value on that
 edge**, which is why the same interpreter costs 3.4 µs/op on the mixed fixture
 and 239 µs/op on a 3,072-byte raster.  `execution_cost` counts operators and is
@@ -123,7 +123,17 @@ operator applications and 15.4 s.
 `cProfile` over one screenshot parse, `tottime` grouped by role.  The profiler
 inflates the absolute seconds about 3.5×; the shares are the measurement.
 
-PROFILE_TABLE_PLACEHOLDER
+| role | profiled seconds | share |
+|---|---|---|
+| Type.decode (types.py:171,175) | 35.05 | **61.6%** |
+| Type.encode (types.py:134,142) | 9.80 | **17.2%** |
+| validate_raw (types.py:185) | 5.30 | **9.3%** |
+| numeric/type guards called by both | 3.18 | **5.6%** |
+| Type/Value dict round-trip | 2.22 | **3.9%** |
+| operator semantics + graph walk | 0.32 | **0.6%** |
+| other | 1.00 | **1.8%** |
+| **typed value layer, total** | **55.54** | **97.7%** |
+| total profiled | 56.87 | 100% |
 
 **This is the honest headline, and it is fixable engineering rather than a
 fundamental limit.**  `Registry.exact` decodes *every argument in full* on every
@@ -132,7 +142,8 @@ that walks the whole recursive carrier, and `Value.__post_init__` re-validates
 every carrier the interpreter itself just constructed.  A 3,072-element raster
 therefore pays a full 3,072-element decode at each of the 64,346 operator
 applications that can see it.  FINDINGS §26 found 73% of one apply path in
-`Value.of` re-encoding; on this artifact the same fault is 96%.
+`Value.of` re-encoding; on this artifact the same family of faults is **97.7%**,
+and `Value.of` re-encoding is 17.2% of it — decoding is the larger half.
 
 ### 3.1 What two mechanical fixes buy, with outputs checked identical
 

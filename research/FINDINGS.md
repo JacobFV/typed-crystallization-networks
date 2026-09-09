@@ -1673,3 +1673,33 @@ supervision genuinely cannot identify the emitter from that slice.
 
 Staging again carried it: 16.7M programs to 8,192, a projected 7.2 hours to
 4.4 seconds.
+
+## 35. The export size is a JSON envelope, measured
+
+Exporting the working programs produced a 117.71 MB `visual.pyz`, large enough
+that GitHub refused the push. Since the project's central claim is that these
+run on a light desktop, that number needed settling rather than explaining away.
+
+Measured from the supervising session:
+
+| export | raw | gzip -9 | ratio |
+|---|---|---|---|
+| `visual.pyz` | 117.71 MB | **0.573 MB** | **206x** |
+| `computer.pyz` | 11.63 MB | 0.069 MB | 170x |
+| `language.pyz` | 1.49 MB | 0.031 MB | 48x |
+| `mixed.pyz` | 0.043 MB | 0.012 MB | **4x** |
+
+**The smallest program is the control.** The four-node mixed program compresses
+4x, which is ordinary for JSON. The wide ones compress 48 to 206x, and the ratio
+rises with declared observation width. Repeated type declarations behave exactly
+that way; distinct learned content does not.
+
+So the visual parse is on the order of **0.57 MB of content inside a 117 MB JSON
+envelope**, and the envelope is a serialization choice rather than a property of
+the program. A shared type table or a compact encoding collapses it. This is the
+same fault as section 6's finding that `description_bits` measures JSON length —
+the joint program shipping 68,768 bits to learn 8 bits of content — now
+confirmed to affect the exported artifact as well as the reported size.
+
+Both numbers belong in any efficiency claim, side by side. Quoting 117 MB
+understates the method and quoting 0.57 MB overstates what currently ships.
