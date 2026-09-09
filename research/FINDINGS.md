@@ -1430,3 +1430,62 @@ principled-routing improvement rather than a rescue of the case I first reached
 for, and the toy proves nothing on its own.
 
 264 tests pass.
+
+## 29. A task that poses real credit assignment, and two things that solve it
+
+Full detail in `research/credit-assignment/RESULTS.md`. This closes the last of
+the four demands.
+
+**The task.** A gated `interface='panel'` configuration of `generators/computer`:
+four slot files, one holding a key and digit; actions `wait`, `look(slot)`,
+`dial(value)`, `commit`. `commit` writes the register to disk and ends the
+episode, and reward arrives only on that step, read back off the filesystem.
+
+**It poses credit assignment, proved by exact computation rather than asserted.**
+Belief-state dynamic programming over the task's own distribution gives
+**V\*(6) = 1.0000 against a myopic optimum of 0.0625** — a 16x gap. The optimal
+first action becomes `look` at horizon 3, `look` is never itself rewarded, and
+its credit arrives two to five steps later. The optimal policy flips to myopic
+below a discount of 0.394.
+
+**The bandit-decomposition detector was run against the track's own task and it
+clears**: V\*(H) is not H times V\*(1) — 1.0000 against 0.375 at H=6 — and the
+myopic policy is not optimal at any H>1. It does not decompose the way `logic`
+does, which is exactly the failure the detector existed to catch.
+
+**Exploration is now feasible**: the probability that one neutral `commit` is
+rewarded is 6.24e-02 against `write.text`'s 5.65e-06 — an **11,043x**
+improvement, 28.9 episodes per reward at about 45 seconds, against roughly 27
+days.
+
+**Two things solve it, at very different prices.** Model-based — enumerate action
+sequences against a frozen exact model, perception found by exhaustive
+enumeration against probes, no policy learned at all — reaches **1.00/1 on 64/64
+held-out in 89 environment episodes**, cheapest by an order of magnitude, as in
+section 22. Reward-only REINFORCE learns the **delayed** part: 6/6 seeds recover
+`look -> dial -> commit`, none of which is rewarded on the step taken.
+
+**The controls are what make it credible.** The gamma=0 control, differing only
+in `discount`, falls into the trap on 4/4 seeds, committing first at 0.0664
+against the exactly computed myopic value of 0.0625; gamma=0.5 sits between, as
+the 0.394 threshold predicts. `flat` scores 0.026, `probe_only` scores 0.000
+reproducing F-init, and `reward_percept` scores 0.0625, re-measuring the
+`unpack` gradient boundary of section 23.
+
+**What reward-only does not learn is the argument sub-action.** It widens its
+slot sampler instead of selecting the sweep (0.594 sampling, 0.240
+deterministic); supplied the sub-action, it reaches 1.0000 on 3/3 seeds by
+episode 200. So the hierarchy claim is half-measured: the composite-action arm
+is written and smoke-tested but never run, and remains an argument rather than a
+measurement.
+
+**Verified independently here**: the default action menu is unchanged at
+`('wait','command','type','key','read','write')` with probes `['state_counts']`,
+while `interface='panel'` gives `('wait','look','dial','commit')`. The track
+reports 384/384 identical `StepRecord`s against a pre-change copy. `observe` now
+returns a literal shell menu rather than `tuple(self.action_schema)`, and panel
+verbs are refused outside the panel interface.
+
+**A required core diff, not applied**: `TrainConfig.__post_init__`'s `> 0` weight
+checks make reward-only, supervision-only and gamma=0 arms inexpressible, which
+is why the track re-implements `JointTrainer.episode` rather than using it.

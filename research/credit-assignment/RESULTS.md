@@ -15,6 +15,15 @@ number.
 The checkout is shared with several agents and ran at load 50-85 on 20 cores
 throughout, which is why wall-clock figures are noisy; episode counts are not.
 
+> **STATUS: substantially complete, with three gaps, all named.** The session ended and
+> killed (a) the `staged_enum` arm's three seeds mid-run, (b) `macro.py`'s
+> composite-action arm, which is written and smoke-tested but never run, and (c) a
+> re-run of the baselines at n = 192. Section 10 lists the exact commands. **Everything
+> else below is measured**, and every number in it comes from a file in `out/`: the
+> exact analysis, the 384-combination equivalence check, the 64-combination session
+> check, the n = 48 baselines, the perception enumeration, the model-based arm, and
+> seven learning arms over 24 seed-runs.
+
 ---
 
 ## 0. Verdict
@@ -46,7 +55,7 @@ REINFORCE on the typed program recovers the exact situation-to-verb map --
 `look` when nothing is showing, `dial` when the task record is showing, `commit` after
 dialling -- on **6 / 6 seeds** in 600 episodes, none of those three actions being
 rewarded on the step it is taken. Its return under its own sampling policy rises from
-**0.06 to 0.59**, against a myopic reference measured at **PLACEHOLDER-MYOPIC** and an
+**0.06 to 0.59**, against a myopic reference measured at **0.0664 (learned) / 0.0208 (reference at n=48) / 0.0625 (exact)** and an
 exact oracle at **1.00**.
 
 **Reward alone does not solve the argument.** It never selects the sweeping sub-action
@@ -60,7 +69,10 @@ optimum **1.00 / 1 on 64 / 64 held-out episodes in 89 environment episodes**. It
 again the cheapest arm by an order of magnitude, exactly as in
 `research/policy-learning/RESULTS.md`.
 
-PLACEHOLDER-VERDICT-MACRO
+**Not established, and it is the one thing left undone.** The composite-action arm --
+does reward alone pick `sweep` over `stare` when the choice is between two crystallized
+modules rather than inside a 12-candidate arithmetic pool -- is written, smoke-tested and
+unrun. Section 8 states the prediction it tests.
 
 ---
 
@@ -162,7 +174,15 @@ refused outside the panel interface rather than merely unlisted.
 configurations, action sequences, objectives, splits and probe settings, and compares
 every serialized `StepRecord` field for field.
 
-PLACEHOLDER-EQUIV-TABLE
+| | |
+|---|---|
+| combinations (4 documents x 4 seeds x 3 action sequences x 2 objectives x 2 splits x 2 probe settings) | **384** |
+| records identical, field for field | **384 / 384** |
+| mismatches | **0** |
+
+That is twice the 192-combination precedent in
+`research/computer-capability/equivalence.py`, and it includes the probe dimension,
+which that check did not.
 
 `tests/test_panel_interface.py` adds ten invariants: the two menus and their mutual
 refusal, the narrow argument widths (2 and 2, against 1026 for `write.text`), that
@@ -200,7 +220,16 @@ fields inside `state['result']`, and **no** field of any `StepRecord` -- no
 observation, no probe, no latent, no reward -- so the learning arms that were in flight
 when it was fixed measured exactly what they claim to.
 
-PLACEHOLDER-SESSION-EQUIV
+**Verification.** `session_equivalence.py` drives the same addresses, configurations
+and action sequences through both transports and compares every serialized
+`StepRecord`: **64 / 64 identical, 0 mismatches**, over four panel action sequences x
+6 episode indices x 2 splits plus two shell sequences x 4 indices x 2 documents. The
+same check is in the suite as `test_session_transport_is_transparent`.
+
+**Note for anyone running `bridge.ts` in parallel.** Under load its `finally { rm(...) }`
+intermittently raises `ENOTEMPTY` and kills the transition; it took out one of the six
+equivalence chunks and had to be re-run. `session.ts`'s teardown retries and then gives
+up, because failing to delete a scratch directory must not end an episode.
 
 ---
 
@@ -368,7 +397,39 @@ generator through `panel.Counter`. `oracle` reads `Host.state['panel']` -- it is
 reference, not a model; the typed programs in section 7 see `terminal` and the
 executed-action ports and nothing else.
 
-PLACEHOLDER-REFS-TABLE
+| policy | mean return | sd | solved / 48 | exact value (section 4) |
+|---|---|---|---|---|
+| `always_wait` (constant) | 0.0000 | 0.000 | 0/48 | 0 |
+| `look_only` (constant) | 0.0000 | 0.000 | 0/48 | 0 |
+| `uniform_random` | 0.0000 | 0.000 | 0/48 | ~0.045 |
+| `neutral_typed` (the sampler a fresh policy uses) | 0.0833 | 0.276 | 4/48 | 0.0346 |
+| `commit_now` (**the myopic reference**) | 0.0208 | 0.143 | 1/48 | **0.0625** |
+| `dial_then_commit` (non-myopic, uninformed) | 0.1042 | 0.305 | 5/48 | 0.1111 |
+| `fixed_slot_plan` (plan, one fixed slot) | 0.2500 | 0.433 | 12/48 | 0.3333 |
+| `oracle` (**the exact plan**) | **1.0000** | 0.000 | **48/48** | **1.0000** |
+
+At n = 48 a single success is 0.021 of the mean, so the references are consistent with
+the exact values but individually noisy (`commit_now` drew 1 where 3 were expected,
+`neutral_typed` 4 where 1.7 were). **A re-run at n = 192 was launched and was killed with
+the session before it wrote anything**: both `out/refs.json` and `out/refs_48.json` are
+the n = 48 table above. Re-run `.venv/bin/python research/credit-assignment/refs.py 192`
+to tighten it.
+
+Horizon sweep, same references:
+
+| H | oracle (sweep plan) | commit_now (myopic) | uniform_random | neutral_typed |
+|---|---|---|---|---|
+| 1 | 0.0000 | 0.0208 | 0.0000 | 0.0000 |
+| 2 | 0.0000 | 0.0208 | 0.0000 | 0.0208 |
+| 3 | 0.3750 | 0.0208 | 0.0000 | 0.0417 |
+| 4 | 0.5208 | 0.0208 | 0.0000 | 0.0833 |
+| 6 | **1.0000** | 0.0208 | 0.0000 | 0.0833 |
+| 8 | **1.0000** | 0.0208 | 0.0000 | 0.1042 |
+
+The oracle here is the *sweep plan*, not the horizon-conditional DP optimum, which is
+why it is 0 at H = 1 and 2 where the DP optimum is `commit` and `dial, commit`. From
+H = 3 it tracks the exact V\* (0.375 measured against 0.3333 exact, 0.5208 against
+0.5556, 1.0 against 1.0).
 
 The exact values from section 4 for comparison: optimal 1.0000, myopic 0.0625,
 blind dial-then-commit 1/9 = 0.1111. The measured references land on them.
@@ -417,7 +478,80 @@ What reward has to supply, in every reward-only arm:
 
 ### 7.2 Reward only, and the myopic control
 
-PLACEHOLDER-ARM-TABLES
+600 training episodes per seed, `lr = .05`, `discount = .95` unless stated, Adam,
+grad-clip 5, value baseline, entropy weight .02, evaluated on 64 held-out episodes at
+indices 10000+. **Deterministic** evaluation is `argmax` template with each argument at
+its mean, which is what `tcn/agent.py` does at `deterministic=True`. **Stochastic**
+evaluation samples, which is what the policy itself does -- and it matters here,
+because several arms learn a deliberately *wide* argument sampler and deterministic
+evaluation destroys exactly that.
+
+| arm | seeds | eval (deterministic) | sd | eval (stochastic) | seeds at 1.00 | env episodes |
+|---|---|---|---|---|---|---|
+| `flat` -- no state-dependent policy | 3 | 0.0260 | 0.037 | 0.1146 | 0/3 | 856 |
+| `probe_only` -- supervision, no actor term | 2 | **0.0000** | 0.000 | 0.0781 | 0/2 | 524 |
+| `myopic` -- **gamma = 0** | 4 | **0.0664** | 0.023 | 0.0820 | 0/4 | 856 |
+| `reward_percept` -- perception searched under reward | 3 | 0.0625 | 0.044 | 0.0677 | 0/3 | 856 |
+| `reward_g50` -- gamma = 0.5 | 3 | 0.1979 | 0.064 | 0.3281 | 0/3 | 856 |
+| **`reward`** -- reward only, gamma = 0.95 | 6 | **0.2396** | 0.058 | **0.5938** | 0/6 | 856 |
+| **`reward_sweep_given`** -- the same, sub-action supplied | 3 | **1.0000** | 0.000 | 0.6927 | **3/3** | 856 |
+| **model-based** (section 7.3) | -- | **1.0000** | 0.000 | -- | **64/64 episodes** | **89** |
+| references | -- | myopic **0.0625**, oracle **1.0000** | | | | |
+
+**The decisive comparison is `reward` against `myopic`, and it is a one-parameter
+difference.** The two arms share every line of code, every seed range and every budget;
+they differ in `discount`. What each arm's policy learned, read off its argmax logit per
+situation:
+
+| arm | nothing showing | task record showing | just dialled | seeds agreeing |
+|---|---|---|---|---|
+| `reward` (gamma = .95) | **`look`** | **`dial`** | **`commit`** | **6 / 6** |
+| `myopic` (gamma = 0) | **`commit`** | commit / dial / wait | `commit` | **4 / 4 on `commit` first** |
+
+That is the credit-assignment result. Every seed of the gamma = 0.95 arm recovers the
+exact three-situation plan `look -> dial -> commit`, in which **neither of the first two
+actions is ever rewarded on the step it is taken**; every seed of the gamma = 0 arm
+falls into the myopic trap and commits immediately. The exact DP predicted the flip at
+gamma = 0.394 (section 4.3), and `reward_g50` at gamma = 0.5 -- just above the threshold
+-- sits between them at 0.1979 / 0.3281, which is the shape a discount just past a
+policy-flip threshold should have.
+
+The training reward rate says the same thing without any evaluation at all:
+
+| arm | 50 | 150 | 300 | 450 | 600 |
+|---|---|---|---|---|---|
+| `reward` | 0.11 | 0.20 | 0.50 | 0.56 | **0.58** |
+| `reward_sweep_given` | 0.08 | 0.19 | 0.64 | 0.61 | **0.74** |
+| `reward_g50` | 0.12 | 0.13 | 0.21 | 0.28 | 0.35 |
+| `myopic` | 0.14 | 0.07 | 0.08 | 0.10 | **0.07** |
+| `flat` | 0.10 | 0.09 | 0.08 | 0.10 | 0.07 |
+| `reward_percept` | 0.07 | 0.06 | 0.07 | 0.11 | 0.11 |
+
+**What reward only does not learn: the argument-computing sub-action.** On 6 / 6 seeds
+`next_slot` settles on a *constant* slot (`add(one_slot,one_slot)` or
+`identity(one_slot)`) and the policy instead **widens its own slot sampler**
+(`logstd_slot` rises from 0 to 0.26-2.32), i.e. it searches slots at random rather than
+sweeping. That is a coherent strategy -- it is worth 0.7141 (section 6) against 0.3333
+for a fixed slot -- and it is why the stochastic evaluation reads 0.5938 while the
+deterministic one, which collapses the sampler to its mean, reads 0.2396.
+
+**Supply the sub-action and reward finishes the job.** `reward_sweep_given` is the same
+arm with `next_slot` reduced to its one sweeping candidate: **1.0000 on 3 / 3 seeds**,
+crossing to 1.000 between episode 100 and 200. So the delayed part is learnable from
+reward and the argument part, inside a 12-candidate arithmetic pool, is not -- at this
+budget.
+
+**Three controls behave as they must.**
+
+* `flat` (one state-independent logit vector) reaches **0.0260**: the situation-conditioned
+  structure is load-bearing, and the arms above are not winning on the templates alone.
+* `probe_only` (dense probe supervision, `w_actor = 0`) reaches **0.0000** while its
+  probe loss falls -- the F-init control of `research/policy-learning/RESULTS.md`
+  reproduces exactly: supervision alone produces no behaviour.
+* `reward_percept` (the four perception choices left searched under reward) reaches
+  **0.0625**, i.e. the myopic value. This re-measures FINDINGS section 23's boundary
+  rather than assuming it: `unpack` is `gradient="none"`, the address choice gets no
+  gradient, and with perception unresolved the policy has nothing to condition on.
 
 ### 7.3 The model-based route: enumerate against a frozen exact model, learn no policy
 
@@ -460,7 +594,20 @@ This is the exact optimum of section 4.1, reached with no policy at all.
 
 ### 7.4 Cost, side by side
 
-PLACEHOLDER-COST-TABLE
+Environment episodes to reach the stated return on 64 held-out episodes, counted by
+`panel.Counter` (creations and steps, evaluation included):
+
+| approach | environment episodes | held-out return |
+|---|---|---|
+| **frozen exact model + enumeration, no policy at all** | **89** | **1.0000 (64/64)** |
+| reward only, sweeping sub-action supplied | ~290 (200 training + evaluation) | **1.0000 (3/3 seeds)** |
+| reward only, sub-action searched | 856 | 0.2396 deterministic / 0.5938 sampling |
+| reward only, gamma = 0 | 856 | 0.0664 |
+| supervision only, no reward term | 524 | 0.0000 |
+
+The ranking reproduces `research/policy-learning/RESULTS.md`'s: the model-based route is
+cheapest by an order of magnitude, and it is the only one that reaches the exact optimum
+without being handed the sub-action.
 
 ---
 
@@ -493,7 +640,24 @@ every call site -- and the wrong sub-action is **952 bits cheaper** than the rig
 So `L_program_description` prefers no macro at all, and among macros it prefers the
 useless one. Nothing but the delayed reward can separate them.
 
-PLACEHOLDER-MACRO-TABLE
+**NOT MEASURED -- the session ended before this arm ran.** `macro.py` is written,
+smoke-tested end to end (`out/macro_sweep_stare_s90.json`, a 10-episode run that builds
+both modules, registers them, trains and evaluates without error), and wired into
+`run_macro.sh`, but the four `sweep+stare` seeds and the two `stare`-only controls at
+400 episodes had not completed. Run:
+
+```sh
+bash research/credit-assignment/run_macro.sh
+.venv/bin/python research/credit-assignment/aggregate.py
+```
+
+The prediction it tests, stated in advance so it can be wrong: `reward` selects a
+constant slot out of the 12-candidate arithmetic pool (measured, 6/6 seeds) but reaches
+1.0000 when the sweep is the only candidate (measured, 3/3 seeds), so the question is
+whether reducing the choice to *two crystallized modules* -- one right, one wrong -- is
+enough for reward alone to pick the right one. If it is, the hierarchy is what made the
+sub-action discoverable. If it is not, the 12-candidate pool was not the obstacle and
+the report should say so.
 
 ---
 
@@ -557,7 +721,59 @@ modular type will hit this.
 
 ---
 
-## 10. Limitations
+## 10. What is not done, in priority order
+
+1. **Run the composite-action arm.** `bash research/credit-assignment/run_macro.sh`
+   (about 25 minutes at 6 concurrent processes), then
+   `.venv/bin/python research/credit-assignment/aggregate.py`. This is the experiment
+   that decides whether the *hierarchy* -- section 1's level 1 -- is what makes the
+   sub-action discoverable, and it is the only claim in section 1 that is currently an
+   argument rather than a measurement. `out/macro_sweep_stare_s90.json` proves the
+   machinery runs.
+2. **Collect the `staged_enum` arm.** Three seeds were in flight when the session ended
+   and produced nothing; re-run
+   `.venv/bin/python research/credit-assignment/arms.py staged_enum <seed> 600` for
+   seeds 0, 1, 2 (they can run concurrently; each takes about 25 minutes). Two
+   short-budget runs exist at seeds 98 and 99 and are excluded from the tables by the
+   `seed >= 90` filter in `aggregate.py`. The expectation is that it matches
+   `reward` (the enumerated perception is what the declared arms already have), so its
+   value is confirming the handoff rather than the perception.
+3. **Collect the n = 192 baselines.** `out/refs.json` will overwrite `out/refs_48.json`
+   when the re-run finishes; section 6 currently reports n = 48 and says so.
+4. **Run the full test suite.** `.venv/bin/python -m pytest tests/ -q`.
+   `tests/test_panel_interface.py` passed 10/10 on its own; the rest of the suite was
+   not re-run after the last edit to `generators/computer/engine/session.ts` (a retry
+   around a scratch-directory delete, reachable only from the gated session transport).
+5. **Then, if the budget exists**: `reward` at 2,000 episodes rather than 600, to see
+   whether the sweep is found late rather than never; and the same study at
+   `panel_register=0` (section 4.4), where the myopic baseline is 0 rather than 1/16.
+
+---
+
+## 11. Files changed outside `research/credit-assignment/`
+
+Nothing under `tcn/` was touched. Three files:
+
+| file | change |
+|---|---|
+| `generators/computer/generator.py` | gated `interface='panel'`: three verbs added to `action_schema`, `panel_setup`, panel branches in `initialize` / `advance` / `observe`, three privileged probes and one latent, an opt-in `Session` transport, and the shell menu frozen as the literal `SHELL_MENU` |
+| `generators/computer/engine/session.ts` | **new file**, a long-lived sibling of `bridge.ts`; nothing reaches it unless `configuration['session']` is set |
+| `tests/test_panel_interface.py` | **new file**, 10 invariants, all passing |
+
+**Confirmed, and it is the load-bearing one:** the three panel verbs are declared in
+`Implementation.action_schema` (so `Host.validate_actions` accepts them) and are **gated
+out of the default `available_actions`**. `observe` now returns the literal
+`SHELL_MENU = ('wait','command','type','key','read','write')` for the shell interface
+instead of the old `tuple(self.action_schema)`, which would have silently grown. The
+panel verbs are additionally **refused** outside the panel interface, and the shell verbs
+refused inside it, rather than merely being unlisted. This is asserted by
+`test_panel_menu_and_default_shell_menu_are_disjoint_and_stable` and by all 384
+combinations of `equivalence.py`, which compare full `StepRecord`s -- `available_actions`
+included -- against a pre-change copy of the generator.
+
+---
+
+## 12. Limitations
 
 * **One task, one generator.** Everything here is the panel configuration of
   `generators/computer`. The exact DP, the exploration probability and the
