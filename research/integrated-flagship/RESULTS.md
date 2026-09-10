@@ -391,9 +391,21 @@ kernel on all 48 episodes:
 | V2 counter = brute force, gap 1 | 33/33 sub-spaces agree on S and K; 3 contain conformers |
 | V2 counter = `tcn.search.enumerate_prefix` | steps_and_relation: S 192, K 12, tcn `complete` 12; grounding_and_steps: S 64, K 1, tcn `unique` 1; matcher_and_literals: S 32, K 2, tcn `complete` 2 — 3/3 agree |
 | V1 evaluator = `Program.execute` (click node, 48 episodes each) | 510/510 programs agree (schema 170, flat 170, distractor 170) |
+| V3 live kernel rewards = evaluator hits (12 training episodes each) | 51/51 programs |
+| V3 `tcn.search.enumerate_environment` through the integrated generator | space 6, conforming 2 (`complete`), counter 2, episodes 72 → agree |
 <!-- END:validation -->
 
 ## 8. Resources
+
+**Repository constraints, honoured.** The full suite, run once at the end under the same cap with
+no other job in flight: `337 passed, 1 failed` (`out/pytest.log`). The one failure is
+`tests/test_panel_interface.py::test_panel_episode_replays_and_restores`, the documented
+worktree-only replay failure — **confirmed environmental** by moving `research/integrated-flagship/`
+out of the tree entirely and re-running that file, which fails identically (`1 failed, 9 passed`).
+The shipped fixture (`python -m tcn train --episodes 160`, `out/fixture.log`) reproduces
+`0.248836 → 0.002231` with `fully_frozen: true` and evaluation and frozen evaluation both `4.0`.
+`tcn/` and `generators/` have no diff on this branch; the gitignored `node_modules` symlink the
+`generators/computer` tests need was removed before the final commit.
 
 <!-- BEGIN:resources -->
 | capped job | peak RSS (GB) | wall clock | exit |
@@ -442,12 +454,14 @@ kernel on all 48 episodes:
 | `cache` | 0.22 | 0:24.52 | 0 |
 | `diag_v1` | 0.25 | 2:29.91 | 0 |
 | `first_generalizing_gap0` | 0.38 | 20:40.25 | 0 |
+| `fixture` | 0.32 | 0:11.05 | 0 |
 | `generalize_gap0` | 0.39 | 5:31.25 | 0 |
 | `generalize_gap1` | 0.48 | 15:51.42 | 0 |
 | `instrument_gap0` | 0.26 | 7:33.93 | 0 |
 | `library` | 0.24 | 0:01.16 | 0 |
 | `posthoc_gap0` | 4.25 | 4:19.05 | 0 |
 | `posthoc_gap1` | 2.19 | 2:09.38 | 0 |
+| `pytest` | 0.61 | 1:22.02 | 1 |
 | `sources` | 0.28 | 1:30.87 | 0 |
 | `v1_shard0` | 0.29 | 1:34:57 | 0 |
 | `v1_shard1` | 0.29 | 1:57:04 | 0 |
@@ -455,8 +469,9 @@ kernel on all 48 episodes:
 | `v2brute_gap0` | 0.49 | 0:41.46 | 0 |
 | `v2brute_gap1` | 0.49 | 0:20.77 | 0 |
 | `v2tcn_gap0` | 0.30 | 7:04.85 | 0 |
+| `v3_live` | 0.27 | 30:07.16 | 0 |
 
-Memory floor: 68 capped starts logged in `out/memory_floor.log`; MemAvailable at start ranged 31.1–108.7 GB; phases refused by the 25 GB floor: 0.
+Memory floor: 69 capped starts logged in `out/memory_floor.log`; MemAvailable at start ranged 31.1–108.7 GB; phases refused by the 25 GB floor: 0.
 <!-- END:resources -->
 
 ---

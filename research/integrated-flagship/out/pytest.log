@@ -1,0 +1,30 @@
+........................................................................ [ 21%]
+........................................................................ [ 42%]
+........................................................................ [ 63%]
+...F.................................................................... [ 85%]
+..................................................                       [100%]
+=================================== FAILURES ===================================
+___________________ test_panel_episode_replays_and_restores ____________________
+
+    def test_panel_episode_replays_and_restores():
+        host=Host.create('computer',seed=5,index=4,configuration=PANEL)
+        host.step((look(1),));host.step((dial(7),))
+>       assert host.replay().digest==host.digest
+               ^^^^^^^^^^^^^
+
+tests/test_panel_interface.py:107: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tcn.generation.Host object at 0xf5cc790b7650>
+
+    def replay(self):
+        h=Host(self.generator,self.address,self.configuration,self.objective)
+        for row in self.inputs: h.step(tuple(Action.from_dict(a) for a in row["actions"]),row["dt"],row["random_input"])
+>       if h.digest!=self.digest: raise AssertionError("replayed episode diverged")
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: replayed episode diverged
+
+tcn/generation.py:168: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_panel_interface.py::test_panel_episode_replays_and_restores
+1 failed, 337 passed in 80.96s (0:01:20)

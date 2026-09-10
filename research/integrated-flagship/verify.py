@@ -339,6 +339,28 @@ for gap in (0, 1):
             claim(f"gap {gap} {r['arm']}: compiled program returns the interpreter's click",
                   r["compiled_matches_interpreter"])
 
+# the core is untouched: this track changed nothing under tcn/ or generators/
+import subprocess  # noqa: E402
+_diff = subprocess.run(["git", "diff", "main", "--stat", "--", "tcn/", "generators/"],
+                       cwd=HERE.parents[1], capture_output=True, text=True)
+claim("tcn/ and generators/ have no diff against main", _diff.returncode == 0 and not _diff.stdout.strip(),
+      _diff.stdout.strip()[:200])
+
+# the full suite ran once, with only the documented environmental failure
+_pt = (OUT / "pytest.log")
+if _pt.exists():
+    _txt = _pt.read_text()
+    _m = re.search(r"(\d+) failed, (\d+) passed", _txt)
+    claim("the full suite ran with exactly one failure, the documented worktree replay test",
+          bool(_m) and _m.group(1) == "1" and
+          "test_panel_episode_replays_and_restores" in _txt, _m.group(0) if _m else "")
+_fx = (OUT / "fixture.log")
+if _fx.exists():
+    _t = _fx.read_text()
+    claim("the shipped fixture reproduces 0.248836 -> 0.002231 at 4/4 frozen",
+          "0.248835613951087" in _t and "0.0022308224288281053" in _t and '"fully_frozen": true' in _t
+          and '"frozen_evaluation_mean_return": 4.0' in _t)
+
 # resources: every capped job under the 20G cap, none refused silently
 peaks = []
 for p in OUT.glob("*.time"):

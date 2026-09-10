@@ -1,0 +1,444 @@
+{
+ "c1": {
+  "gap0": {
+   "N''_over_N": 10925.41069576016,
+   "expected_programs": {
+    "N": {
+     "den": "5291430621263841152257",
+     "float": 94986243.04417856,
+     "num": "502613115042775967352225792001"
+    },
+    "N'": {
+     "den": "1164494804749377",
+     "float": 178712437.7823524,
+     "num": "208109705341645619200001"
+    },
+    "N''": {
+     "den": "77281",
+     "float": 1037763715704.9425,
+     "num": "80199417713393665"
+    }
+   },
+   "verdict": "FAIL"
+  },
+  "gap1": {
+   "N''_over_N": 1779786.400379286,
+   "expected_programs": {
+    "N": {
+     "den": "1364295822101452375105",
+     "float": 368404789.4162652,
+     "num": "502613115042775967352225792001"
+    },
+    "N'": {
+     "den": "261654545281",
+     "float": 795360558778.5579,
+     "num": "208109705341645619200001"
+    },
+    "N''": {
+     "den": "3196621",
+     "float": 655681834037663.5,
+     "num": "2095966320003309895681"
+    }
+   },
+   "verdict": "FAIL"
+  }
+ },
+ "exact_generalizing": {
+  "gap0": {
+   "certificate_distractor": "complete",
+   "certificate_schema": "complete",
+   "distractor": "0",
+   "schema": "686985984"
+  },
+  "gap1": {
+   "certificate_distractor": "complete",
+   "certificate_schema": "complete",
+   "distractor": "0",
+   "schema": "0"
+  }
+ },
+ "format": "integrated-flagship/headline-1",
+ "generalize_gap0": {
+  "KO_ADDR": {
+   "generalize": 400,
+   "n": 400,
+   "wilson95": [
+    0.9904873594003194,
+    1.0
+   ]
+  },
+  "KO_STEP": {
+   "generalize": 8,
+   "n": 400,
+   "wilson95": [
+    0.010168264597915496,
+    0.038963870377777945
+   ]
+  },
+  "KO_TRUTH": {
+   "generalize": 400,
+   "n": 400,
+   "wilson95": [
+    0.9904873594003194,
+    1.0
+   ]
+  },
+  "N": {
+   "generalize": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ]
+  },
+  "N'": {
+   "generalize": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ]
+  },
+  "N''": {
+   "generalize": 400,
+   "n": 400,
+   "wilson95": [
+    0.9904873594003194,
+    1.0
+   ]
+  },
+  "P": {
+   "generalize": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ]
+  },
+  "STEP_hand": {
+   "generalize": 400,
+   "n": 400,
+   "wilson95": [
+    0.9904873594003194,
+    1.0
+   ]
+  },
+  "STEP_only": {
+   "generalize": 400,
+   "n": 400,
+   "wilson95": [
+    0.9904873594003194,
+    1.0
+   ]
+  },
+  "U_Vonly": {
+   "generalize": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ]
+  },
+  "U_feat": {
+   "generalize": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ]
+  },
+  "U_steep": {
+   "generalize": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ]
+  }
+ },
+ "generalize_gap1": {
+  "N": {
+   "generalize": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ]
+  },
+  "N'": {
+   "generalize": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ]
+  },
+  "N''": {
+   "generalize": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ]
+  },
+  "P": {
+   "generalize": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ]
+  },
+  "U_feat": {
+   "generalize": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ]
+  }
+ },
+ "posthoc_claims_gap0": {
+  "hand_feature_cheaper_than_n2": {
+   "holds": true,
+   "n2_exact_log10": 12.01609848198369,
+   "ratio": 30.889834192847783,
+   "sampled_corroboration": {
+    "generalize": 1,
+    "n": 20000,
+    "wilson95": [
+     8.82605523813606e-06,
+     0.00028319785280960614
+    ]
+   },
+   "u_feat_exact_log10": 10.52628290483551
+  },
+  "n2_vs_flat_inconclusive": {
+   "flat_bound_log10": 11.694261974748853,
+   "holds": true,
+   "n2_exact_log10": 12.01609848198369,
+   "reading": "the flat substrate's lower bound lies below N''s exact cost, so these data do not show the library cheaper than flat search on this metric"
+  },
+  "n2_vs_schema_saving": {
+   "holds": true,
+   "n2_exact_log10": 12.01609848198369,
+   "ratio": 291.90798501907403,
+   "schema_exact_log10": 14.481344457075474
+  },
+  "summary": "on the post-hoc first-generalizing metric the learned library beats the schema-only arm, is not shown to beat the flat substrate, and is beaten by a hand-feature control"
+ },
+ "posthoc_first_generalizing_gap0": {
+  "A_noobs": {
+   "bound_log10": null,
+   "estimate_log10": null,
+   "exact_log10": 20.702149308984367,
+   "sampled": null
+  },
+  "KO_ADDR": {
+   "bound_log10": null,
+   "estimate_log10": null,
+   "exact_log10": 13.484680177609851,
+   "sampled": null
+  },
+  "KO_STEP": {
+   "bound_log10": null,
+   "estimate_log10": null,
+   "exact_log10": 13.206412473947683,
+   "sampled": null
+  },
+  "KO_TRUTH": {
+   "bound_log10": null,
+   "estimate_log10": null,
+   "exact_log10": 13.576168218725545,
+   "sampled": null
+  },
+  "N": {
+   "bound_log10": 11.694261974748853,
+   "estimate_log10": null,
+   "exact_log10": null,
+   "sampled": {
+    "generalize": 0,
+    "n": 20000,
+    "wilson95": [
+     0.0,
+     0.00019204311235897808
+    ]
+   }
+  },
+  "N'": {
+   "bound_log10": 11.968756043211839,
+   "estimate_log10": null,
+   "exact_log10": 14.481344457075474,
+   "sampled": {
+    "generalize": 0,
+    "n": 20000,
+    "wilson95": [
+     0.0,
+     0.00019204311235897808
+    ]
+   }
+  },
+  "N''": {
+   "bound_log10": 12.01609848198369,
+   "estimate_log10": 12.01609848198369,
+   "exact_log10": 12.01609848198369,
+   "sampled": {
+    "generalize": 20000,
+    "n": 20000,
+    "wilson95": [
+     0.9998079568876411,
+     1.0
+    ]
+   }
+  },
+  "OCC_1": {
+   "bound_log10": null,
+   "estimate_log10": null,
+   "exact_log10": 17.74152369984752,
+   "sampled": null
+  },
+  "OCC_10": {
+   "bound_log10": null,
+   "estimate_log10": null,
+   "exact_log10": 12.01609848198369,
+   "sampled": null
+  },
+  "OCC_100": {
+   "bound_log10": null,
+   "estimate_log10": null,
+   "exact_log10": 12.01609848198369,
+   "sampled": null
+  },
+  "OCC_3": {
+   "bound_log10": null,
+   "estimate_log10": null,
+   "exact_log10": 15.653336969316669,
+   "sampled": null
+  },
+  "OCC_3500": {
+   "bound_log10": null,
+   "estimate_log10": null,
+   "exact_log10": 12.01609848198369,
+   "sampled": null
+  },
+  "P": {
+   "bound_log10": 21.178420164827926,
+   "estimate_log10": 21.931540116725476,
+   "exact_log10": null,
+   "sampled": {
+    "generalize": 1,
+    "n": 20000,
+    "wilson95": [
+     8.82605523813606e-06,
+     0.00028319785280960614
+    ]
+   }
+  },
+  "R_0": {
+   "bound_log10": null,
+   "estimate_log10": null,
+   "exact_log10": 22.3031333471868,
+   "sampled": null
+  },
+  "R_1": {
+   "bound_log10": null,
+   "estimate_log10": null,
+   "exact_log10": 13.737857741361374,
+   "sampled": null
+  },
+  "R_2": {
+   "bound_log10": null,
+   "estimate_log10": null,
+   "exact_log10": 19.54811003018259,
+   "sampled": null
+  },
+  "R_3": {
+   "bound_log10": null,
+   "estimate_log10": null,
+   "exact_log10": 20.56117401226179,
+   "sampled": null
+  },
+  "R_4": {
+   "bound_log10": null,
+   "estimate_log10": null,
+   "exact_log10": 22.114172371165022,
+   "sampled": null
+  },
+  "STEP_hand": {
+   "bound_log10": null,
+   "estimate_log10": null,
+   "exact_log10": 16.518124269039262,
+   "sampled": null
+  },
+  "STEP_only": {
+   "bound_log10": null,
+   "estimate_log10": null,
+   "exact_log10": 21.221389846719376,
+   "sampled": null
+  },
+  "U_Vonly": {
+   "bound_log10": null,
+   "estimate_log10": null,
+   "exact_log10": 13.873857651374943,
+   "sampled": null
+  },
+  "U_feat": {
+   "bound_log10": 9.857011458332508,
+   "estimate_log10": 10.610131410230059,
+   "exact_log10": 10.52628290483551,
+   "sampled": {
+    "generalize": 1,
+    "n": 20000,
+    "wilson95": [
+     8.82605523813606e-06,
+     0.00028319785280960614
+    ]
+   }
+  },
+  "U_steep": {
+   "bound_log10": null,
+   "estimate_log10": null,
+   "exact_log10": 10.52628290483551,
+   "sampled": null
+  },
+  "V_1": {
+   "bound_log10": null,
+   "estimate_log10": null,
+   "exact_log10": 12.227778347556317,
+   "sampled": null
+  },
+  "V_10": {
+   "bound_log10": null,
+   "estimate_log10": null,
+   "exact_log10": 10.292581681383638,
+   "sampled": null
+  },
+  "V_100": {
+   "bound_log10": null,
+   "estimate_log10": null,
+   "exact_log10": 10.292581681383638,
+   "sampled": null
+  },
+  "V_3": {
+   "bound_log10": null,
+   "estimate_log10": null,
+   "exact_log10": 10.292581681383638,
+   "sampled": null
+  }
+ },
+ "step_hand_gap0": {
+  "expected_programs": {
+   "den": "403969",
+   "float": 3.2970404020767236e+16,
+   "num": "13319021141865319628801"
+  },
+  "generalize": {
+   "generalize": 400,
+   "n": 400,
+   "wilson95": [
+    0.9904873594003194,
+    1.0
+   ]
+  }
+ }
+}
