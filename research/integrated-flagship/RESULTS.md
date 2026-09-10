@@ -346,8 +346,32 @@ Rows per kind (rows / survivors): ADDR 233/23, GROUND 0/0, LIT 424/22, STEP 20/6
 
 ## 6. Why — instrumentation of the found programs
 
+For one sampled first solution of each arm (the program that arm's search reaches first), built
+as a frozen `tcn` program and rolled out live through the integrated generator and the computer
+kernel on all 48 episodes:
+
+* **Which inherited abstractions landed on the execution path.** Every one of the fifteen slots
+  survives `Program.pruned()` in every found program, so the inherited schema instantiations —
+  the M3 lexical detector on both address slots, the §33 S0 colour-equality shape on the matcher,
+  and the §33 step pool on the three click slots — are all on the path wherever an arm uses them.
+* **How much re-specialization they needed.** Every schema slot was re-selected on the target: the
+  hard-transferred vector H copies the source selections and fails below every baseline (§5), and
+  in the knockouts only the step preference mattered (§9.3).
+* **Live agreement.** The kernel's rewards equal the evaluator's hits episode for episode for every
+  found program; only N″'s found program generalizes.
+* **Compiled execution did not get cheaper under the library.** `tcn.compile` runs each found
+  program with the interpreter's exact click at a speed-up that is the same across arms — the
+  inherited structure changes *which* program is found, not how fast a found program runs.
+  A measurement only; no compiler work was done.
+
 <!-- BEGIN:instrument_gap0 -->
-(not run)
+| arm | found program (slot specs) | slots on the execution path | live train / held-out (kernel) | live = evaluator | interpreted s/episode | compiled s/episode | compiled speed-up |
+|---|---|---|---|---|---|---|---|
+| N'' | cpos=('sub', 'length', 'k5'); ra=('max', 'k13', 'k4'); M=(1, 2, 8, 8); X1=('sub', 'lo', 3); X2=('sub', 'lo', 48); X3=('add', 'hi', 3) | 15/15 | 1.0000 / 1.0000 | True | 0.712 | 0.00042 | 1697× |
+| N' | cpos=('add', 'k2', 'k13'); ra=('add', 'k10', 'k14'); M=(1, 2, 9, 3); X1=('sub', 'hi', 51); X2=('sub', 'hi', 3); X3=('add', 'lo', 51) | 15/15 | 1.0000 / 0.6667 | True | 0.768 | 0.00048 | 1596× |
+| N | cpos=('max', 'k13', 'k6'); ra=('max', 'k8', 'k15'); M=(2, 1, 3, 6); X1=('max', 'lo', 67); X2=('add', 'lo', 125); X3=('max', 'lo', 58) | 15/15 | 1.0000 / 0.6389 | True | 0.778 | 0.00049 | 1604× |
+| P | cpos=('sub', 'length', 'k13'); ra=('min', 'length', 'k10'); M=(1, 2, 1, 1); X1=('min', 'hi', 125); X2=('sub', 'hi', 54); X3=('mul', 'hi', 8) | 15/15 | 1.0000 / 0.3333 | True | 0.705 | 0.00041 | 1706× |
+| U_feat | cpos=('add', 'k3', 'k13'); ra=('max', 'k8', 'k13'); M=(1, 2, 9, 12); X1=('sub', 'hi', 51); X2=('add', 'lo', 48); X3=('add', 'lo', 51) | 15/15 | 1.0000 / 0.5278 | True | 0.770 | 0.00048 | 1601× |
 <!-- END:instrument_gap0 -->
 
 ## 7. Validation of the instruments
@@ -410,12 +434,15 @@ Rows per kind (rows / survivors): ADDR 233/23, GROUND 0/0, LIT 424/22, STEP 20/6
 | `diag_v1` | 0.25 | 2:29.91 | 0 |
 | `first_generalizing_gap0` | 0.38 | 20:40.25 | 0 |
 | `generalize_gap0` | 0.39 | 5:31.25 | 0 |
+| `generalize_gap1` | 0.48 | 15:51.42 | 0 |
+| `instrument_gap0` | 0.26 | 7:33.93 | 0 |
+| `library` | 0.24 | 0:01.16 | 0 |
 | `sources` | 0.28 | 1:30.87 | 0 |
 | `v1_shard0` | 0.29 | 1:34:57 | 0 |
 | `v2brute_gap0` | 0.49 | 0:41.46 | 0 |
 | `v2tcn_gap0` | 0.30 | 7:04.85 | 0 |
 
-Memory floor: 60 capped starts logged in `out/memory_floor.log`; MemAvailable at start ranged 31.1–102.3 GB; phases refused by the 25 GB floor: 0.
+Memory floor: 65 capped starts logged in `out/memory_floor.log`; MemAvailable at start ranged 31.1–108.7 GB; phases refused by the 25 GB floor: 0.
 <!-- END:resources -->
 
 ---
@@ -462,7 +489,16 @@ well as training"), not counted as F6 having fired. If some programs do generali
 reached a spurious one first.
 
 <!-- BEGIN:generalize_gap1 -->
-(not run)
+| space | programs | conform on all 48 episodes (train + held-out) | certificate | expected programs to first generalizing, uniform order |
+|---|---|---|---|---|
+| distractor pools (D′, D″) | 2.08×10^23 | 0 | `complete` | no generalizing program exists |
+| schema pools (N′) | 2.08×10^23 | 0 | `complete` | — |
+
+N″'s tiered order, to its first generalizing program: none found in the tiers counted programs.
+Distractor address expressions equal to `length−5` on every episode: 0 of 1445.
+Direct 48-episode counting equals the transform on the 12 training episodes: True.
+
+**The pre-registered distractor could not succeed**: its space contains no program that conforms on all 48 episodes, so D′/D″'s failure to generalize is true by construction and says nothing about the library. The matched-distractor role is carried by R (right schemas, permuted prior) and U (unfitted weights).
 <!-- END:generalize_gap1 -->
 
 **What it shows (post-hoc, not F6):** at `gap 1` the schema space holds **no** program that conforms
