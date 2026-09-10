@@ -1,0 +1,21 @@
+C-trace   full     window rank1 at alpha in [0.0, 0.02, 0.05, 0.08, 0.1, 0.25, 0.5, 1.0, 2.0, 3.0, 4.0, 6.0, 10.0]
+C-trace   wo_u1    window rank1 at alpha in [0.0, 0.02, 0.05, 0.08, 0.1, 0.25, 0.5, 1.0, 2.0, 3.0, 4.0, 6.0, 10.0]
+C-trace   wo_u2    window rank1 at alpha in [0.0, 0.02, 0.05, 0.08, 0.1, 0.25, 0.5, 1.0, 2.0, 3.0, 4.0, 6.0, 10.0]
+C-trace   wo_u3    window rank1 at alpha in [0.0, 0.02, 0.05, 0.08, 0.1, 0.25, 0.5, 1.0, 2.0, 3.0, 4.0, 6.0, 10.0]
+C-trace   wo_u4    window rank1 at alpha in [0.0, 0.02, 0.05, 0.08, 0.1, 0.25, 0.5, 1.0, 2.0, 3.0, 4.0, 6.0, 10.0]
+C-trace   wo_u5    window rank1 at alpha in [0.0, 0.02, 0.05, 0.08, 0.1, 0.25, 0.5, 1.0, 2.0, 3.0, 4.0, 6.0, 10.0]
+C-trace   min_tasks=2 max_nodes=4 eligible= 32 O1=WIN(r1) O2=WIN(r1) B1=WIN(r1)
+C-trace   min_tasks=2 max_nodes=5 eligible= 32 O1=WIN(r1) O2=WIN(r1) B1=WIN(r1)
+C-trace   min_tasks=3 max_nodes=4 eligible=  8 O1=WIN(r1) O2=WIN(r1) B1=WIN(r1)
+C-trace   min_tasks=3 max_nodes=5 eligible=  8 O1=WIN(r1) O2=WIN(r1) B1=WIN(r1)
+C-minall  full     window rank1 at alpha in NONE
+C-minall  wo_u1    window rank1 at alpha in NONE
+C-minall  wo_u2    window rank1 at alpha in [0.0, 0.02, 0.05, 0.08, 0.1, 0.25, 0.5, 1.0, 2.0, 3.0, 4.0, 6.0, 10.0]
+C-minall  wo_u3    window rank1 at alpha in NONE
+C-minall  wo_u4    window rank1 at alpha in NONE
+C-minall  wo_u5    window rank1 at alpha in NONE
+C-minall  min_tasks=2 max_nodes=4 eligible= 11 O1=no(r2) O2=no(r2) B1=WIN(r1)
+C-minall  min_tasks=2 max_nodes=5 eligible= 11 O1=no(r2) O2=no(r2) B1=WIN(r1)
+C-minall  min_tasks=3 max_nodes=4 eligible=  4 O1=no(r2) O2=no(r2) B1=WIN(r1)
+C-minall  min_tasks=3 max_nodes=5 eligible=  4 O1=no(r2) O2=no(r2) B1=WIN(r1)
+-> /home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a72857902ded2d05a/research/second-family/out/sensitivity.json

@@ -1,0 +1,876 @@
+{
+  "entries": [
+    {
+      "description_bits": 6056,
+      "digest": "82b93e4bc7b294ff04c8f289",
+      "execution_cost": 2.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "syn_rank1",
+      "nodes": 2,
+      "operator": "module:82b93e4bc7b294ff04c8f289",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 3,
+        "corpus": "C-trace",
+        "entries": 108,
+        "excluded": [],
+        "family": "w4",
+        "identity": "syntactic",
+        "is_window": false,
+        "preregistered": true,
+        "rank": 1,
+        "rule": "mine_multi.propose",
+        "saving_bits": 187200,
+        "tasks": [
+          "u1_w_abcd_xor_e",
+          "u2_w_acbd_and_e",
+          "u3_w_bcde_or_a",
+          "u4_w_acde_xor_b",
+          "u5_w_abde_or_c",
+          "u6_w_abce_and_d"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 8304,
+      "digest": "544e46660ae8ba6140998d95",
+      "execution_cost": 3.0,
+      "fixture_cases": 16,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x3",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "sem_rank1",
+      "nodes": 3,
+      "operator": "module:544e46660ae8ba6140998d95",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 4,
+        "corpus": "C-trace",
+        "entries": 73,
+        "excluded": [],
+        "family": "w4",
+        "identity": "semantic",
+        "is_window": true,
+        "preregistered": true,
+        "rank": 1,
+        "rule": "mine_semantic.propose",
+        "saving_bits": 314512,
+        "tasks": [
+          "u1_w_abcd_xor_e",
+          "u2_w_acbd_and_e",
+          "u3_w_bcde_or_a",
+          "u4_w_acde_xor_b",
+          "u5_w_abde_or_c",
+          "u6_w_abce_and_d"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 8304,
+      "digest": "c8a9fa9083c92e924e10c55d",
+      "execution_cost": 3.0,
+      "fixture_cases": 16,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x3",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "syn_runnerup",
+      "nodes": 3,
+      "operator": "module:c8a9fa9083c92e924e10c55d",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 4,
+        "corpus": "C-trace",
+        "entries": 41,
+        "excluded": [],
+        "family": "w4",
+        "identity": "syntactic",
+        "is_window": false,
+        "preregistered": true,
+        "rank": 3,
+        "rule": "mine_multi.propose",
+        "saving_bits": 134048,
+        "tasks": [
+          "u2_w_acbd_and_e",
+          "u6_w_abce_and_d"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 10344,
+      "digest": "07e7d820aa7155ebfb3c81a7",
+      "execution_cost": 4.0,
+      "fixture_cases": 16,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x3",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "sem_runnerup",
+      "nodes": 4,
+      "operator": "module:07e7d820aa7155ebfb3c81a7",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 4,
+        "corpus": "C-trace",
+        "entries": 42,
+        "excluded": [],
+        "family": "w4",
+        "identity": "semantic",
+        "is_window": false,
+        "preregistered": true,
+        "rank": 3,
+        "rule": "mine_semantic.propose",
+        "saving_bits": 221008,
+        "tasks": [
+          "u2_w_acbd_and_e",
+          "u6_w_abce_and_d"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 8304,
+      "digest": "1e8b0e63e5f636a7e47b08cd",
+      "execution_cost": 3.0,
+      "fixture_cases": 16,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x3",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "sem_matched",
+      "nodes": 3,
+      "operator": "module:1e8b0e63e5f636a7e47b08cd",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 4,
+        "corpus": "C-trace",
+        "entries": 50,
+        "excluded": [],
+        "family": "w4",
+        "identity": "semantic",
+        "is_window": false,
+        "preregistered": true,
+        "rank": 6,
+        "rule": "mine_semantic.propose",
+        "saving_bits": 165296,
+        "tasks": [
+          "u2_w_acbd_and_e",
+          "u6_w_abce_and_d"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 8296,
+      "digest": "8dd1a248244ee7e555c5cb6a",
+      "execution_cost": 3.0,
+      "fixture_cases": 16,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x3",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "sem_off",
+      "nodes": 3,
+      "operator": "module:8dd1a248244ee7e555c5cb6a",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 4,
+        "corpus": "C-trace",
+        "entries": 46,
+        "excluded": [],
+        "family": "x4",
+        "identity": "semantic",
+        "is_window": true,
+        "preregistered": true,
+        "rank": 1,
+        "rule": "mine_semantic.propose",
+        "saving_bits": 151048,
+        "tasks": [
+          "v1_w_abcd_xor_e",
+          "v2_w_acbd_and_e",
+          "v3_w_bcde_or_a",
+          "v4_w_acde_xor_b",
+          "v5_w_abde_or_c",
+          "v6_w_abce_and_d"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 8304,
+      "digest": "544e46660ae8ba6140998d95",
+      "execution_cost": 3.0,
+      "fixture_cases": 16,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x3",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "win_semantic",
+      "nodes": 3,
+      "operator": "module:544e46660ae8ba6140998d95",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 4,
+        "corpus": "C-trace",
+        "entries": 73,
+        "excluded": [],
+        "family": "w4",
+        "identity": "semantic",
+        "is_window": true,
+        "preregistered": true,
+        "rank": 1,
+        "rule": "mine_semantic.propose",
+        "saving_bits": 314512,
+        "tasks": [
+          "u1_w_abcd_xor_e",
+          "u2_w_acbd_and_e",
+          "u3_w_bcde_or_a",
+          "u4_w_acde_xor_b",
+          "u5_w_abde_or_c",
+          "u6_w_abce_and_d"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 8304,
+      "digest": "544e46660ae8ba6140998d95",
+      "execution_cost": 3.0,
+      "fixture_cases": 16,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x3",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "win_syntactic",
+      "nodes": 3,
+      "operator": "module:544e46660ae8ba6140998d95",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 4,
+        "corpus": "C-trace",
+        "entries": 39,
+        "excluded": [],
+        "family": "w4",
+        "identity": "syntactic",
+        "is_window": true,
+        "preregistered": true,
+        "rank": 4,
+        "rule": "mine_multi.propose",
+        "saving_bits": 127104,
+        "tasks": [
+          "u1_w_abcd_xor_e",
+          "u2_w_acbd_and_e",
+          "u3_w_bcde_or_a",
+          "u4_w_acde_xor_b",
+          "u5_w_abde_or_c",
+          "u6_w_abce_and_d"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 8304,
+      "digest": "544e46660ae8ba6140998d95",
+      "execution_cost": 3.0,
+      "fixture_cases": 16,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x3",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "cls_544e46660ae8",
+      "nodes": 3,
+      "operator": "module:544e46660ae8ba6140998d95",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 4,
+        "identity": "(arity, truth table)",
+        "nodes": 3,
+        "preregistered": true,
+        "rule": "mine_semantic pooling, unchanged",
+        "selected_on": "full",
+        "track": "research/second-family",
+        "truth_table": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 3800,
+      "digest": "5e50f17066eb3de5049f4ed5",
+      "execution_cost": 1.0,
+      "fixture_cases": 4,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "cls_5e50f17066eb",
+      "nodes": 1,
+      "operator": "module:5e50f17066eb3de5049f4ed5",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 2,
+        "identity": "(arity, truth table)",
+        "nodes": 1,
+        "preregistered": true,
+        "rule": "mine_semantic pooling, unchanged",
+        "selected_on": "full",
+        "track": "research/second-family",
+        "truth_table": [
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 3808,
+      "digest": "85aa887f3e90a3903b9fa709",
+      "execution_cost": 1.0,
+      "fixture_cases": 4,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "cls_85aa887f3e90",
+      "nodes": 1,
+      "operator": "module:85aa887f3e90a3903b9fa709",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 2,
+        "identity": "(arity, truth table)",
+        "nodes": 1,
+        "preregistered": true,
+        "rule": "mine_semantic pooling, unchanged",
+        "selected_on": "full",
+        "track": "research/second-family",
+        "truth_table": [
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 3808,
+      "digest": "9e8092e7bdb684bb47a3cc29",
+      "execution_cost": 1.0,
+      "fixture_cases": 4,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "cls_9e8092e7bdb6",
+      "nodes": 1,
+      "operator": "module:9e8092e7bdb684bb47a3cc29",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 2,
+        "identity": "(arity, truth table)",
+        "nodes": 1,
+        "preregistered": true,
+        "rule": "mine_semantic pooling, unchanged",
+        "selected_on": "wo_u1",
+        "track": "research/second-family",
+        "truth_table": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 6056,
+      "digest": "189383c67d3107d82f7f924b",
+      "execution_cost": 2.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "cls_189383c67d31",
+      "nodes": 2,
+      "operator": "module:189383c67d3107d82f7f924b",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 3,
+        "identity": "(arity, truth table)",
+        "nodes": 2,
+        "preregistered": true,
+        "rule": "mine_semantic pooling, unchanged",
+        "selected_on": "wo_u3",
+        "track": "research/second-family",
+        "truth_table": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 8096,
+      "digest": "a20f9a11fd367eee7f33baf7",
+      "execution_cost": 3.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "alt_a20f9a11fd36",
+      "nodes": 3,
+      "operator": "module:a20f9a11fd367eee7f33baf7",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "amendment": 1,
+        "exploratory": true,
+        "role": "B1 tie-break alternative",
+        "track": "research/second-family"
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    }
+  ],
+  "format": "tcn.library/1"
+}
