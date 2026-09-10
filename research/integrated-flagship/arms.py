@@ -165,9 +165,27 @@ class VOnlyHandPrior:
         return {k: e.describe() for k, e in self.est.items()}
 
 
+class KnockoutPrior:
+    """POST-HOC per-kind knockout (coordinator-requested): N''s fitted prior with
+    exactly ONE learned estimator replaced -- by uniform for TRUTH/STEP, and by the
+    hand V 10:1 rule for ADDR (so it is not A_noobs). A knockout that removes
+    generalization names the domain whose rows carry it: ADDR <- s19/s23,
+    TRUTH/STEP <- s33."""
+
+    def __init__(self, src, kind):
+        base = prior.Prior(src)
+        self.est = dict(base.est)
+        self.est[kind] = _Rule("V", .1) if kind == "ADDR" else _Rule()
+        self.kind = kind
+
+    def describe(self):
+        return {k: e.describe() for k, e in self.est.items()}
+
+
 def arm_table(src):
     learned = prior.Prior(src)
     return {
+        **{f"KO_{k}": ("schema", KnockoutPrior(src, k)) for k in ("ADDR", "TRUTH", "STEP")},
         "U_Vonly": ("schema", VOnlyHandPrior()),
         "U_steep": ("schema", SteepHandPrior()),
         **{f"OCC_{r}": ("schema", OccursRatioPrior(src, r)) for r in OCC_RATIOS},
