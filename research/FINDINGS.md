@@ -3713,3 +3713,81 @@ conformance check rather than a certificate.
 **Resources.** Every job ran inside the capped scope; peak memory stayed under
 1 GB per job.
 
+
+## 65. The integrated flagship: the library fails its pre-registered criterion, and what does generalize is a step preference a one-line rule reproduces
+
+`research/integrated-flagship/RESULTS.md`, merged as `b9a6747`; `tcn/` and
+`generators/` untouched. `PREREGISTRATION.md` committed before any arm. Every
+figure in its RESULTS is rendered from `out/` by script, and `verify.py` reports
+493 PASS, 0 FAIL. Verified here from raw JSON.
+
+**The task.** A raw screenshot and a raw textual instruction, a relationally
+specified widget to identify, a click to emit — the three inherited domains
+(visual §33, language §19, computer §23) meeting in one unseen task.
+
+**C1 fails as pre-registered.** Expected programs to the first program
+conforming on the 12 training episodes, every arm exhausted with certificate
+`complete`: N (no library) 9.50×10⁷, N′ (schema only) 1.79×10⁸, N″ (schema +
+learned prior) 1.04×10¹². The library costs **10,925× more** than the flat
+substrate, not the pre-registered 10× less; at the second configuration
+(`gap 1`) 1.78×10⁶× more. N′ ≈ N, so the schema is organisational reuse.
+
+**The pre-registered metric was mis-specified — recorded as a lesson, not a
+rescue.** On 12 training episodes the flat and schema-only spaces are dense with
+programs that fit training and fail held-out: N and N′ generalize 0/400, N″
+400/400 (Wilson 0.990–1.000). Their low costs are the cost of reaching a wrong
+answer. No verdict is re-narrated on the corrected metric.
+
+**No leakage.** All 725 prior rows (ADDR 233, LIT 424, TRUTH 48, STEP 20) come
+from the §19, §23 and §33 searches; the integrated task contributes only
+unlabelled training-observation features, and the held-out episodes enter
+nothing but the score.
+
+**C2 passes only vacuously.** The distractor space contains **0** programs
+conforming on all 48 episodes (exhausted, `complete`) — it could not have
+succeeded. The matched-distractor role falls to the post-hoc R, U and knockout
+controls.
+
+**What carries the generalization is one estimator fitted on 20 rows — and a
+one-line rule replaces it.** Knocking out one learned estimator at a time leaves
+400/400 (ADDR, LIT, TRUTH) except STEP, which drops to 8/400; STEP fitted alone,
+every other estimator uniform, is sufficient (400/400). But the hand rule "prefer
+single-pixel and single-row offsets" also gives 400/400, at 3.30×10¹⁶ against
+STEP_only's 1.66×10²¹. **Those 20 inherited rows add nothing measurable beyond a
+prior a human would write.** Steep hand features without learned content
+(U_steep, U_Vonly) never generalize: the step preference is what matters, not
+the observation features.
+
+**"Generalizes" and "cheaper" are separate claims.** The step preference makes
+the first hit correct, not cheap; cost is set by the address and literal
+preferences. Post-hoc, on programs to the first *generalizing* program, N″
+(1.04×10¹²) beats N′ (3.0×10¹⁴ exact) by 292×, is **not shown** to beat flat N —
+N's bound 4.9×10¹¹ lies below N″'s exact cost, so that comparison is
+inconclusive — and is beaten 31× by the hand-feature control U_feat. The whole
+post-hoc block is exploratory; C1's failure is the finding.
+
+**The inherited schema is refuted at the second configuration — the CEGIS
+lesson.** At `gap 1` the schema space holds 2.6×10¹¹ training conformers and
+**zero** programs conforming on all 48 episodes (exhausted): its STEP pool lacks
+the two-row step the task needs. N″'s 0/400 there is therefore not a failure of
+the prior — no prior over that pool could generalize. Pre-registered F6 is **not**
+triggered (it is defined on training conformance, which is non-zero here), and
+the prediction that N′/N″ have no solution at `gap 1` is falsified as stated.
+Admission on training conformance is not enough: the held-out counterexample is
+the stricter check this proposes.
+
+**Instrumentation.** All 15 slots are live in every found program, every schema
+slot needed re-specialization, and the hard-transferred vector scores 0.139
+held-out — below every baseline. Compiled execution is ~1,600× faster than
+interpreted, equally for all arms.
+
+**Evaluator checked.** The fast evaluator matches `Program.execute` on 510/510
+programs across all 48 episodes; the counter matches brute force on 35/35 and
+33/33 sub-spaces, and live kernel rewards on 51/51 programs.
+
+[single-configuration evidence: one seed set, one palette, one relation
+vocabulary, one colour vocabulary, 12 training and 36 held-out episodes,
+resolution 16; `gap 1` is the only second configuration.]
+
+**Resources.** Every job ran inside the capped scope; peak RSS 4.25 GB, and the
+25 GB floor never blocked a phase (0 refusals in 69 starts).

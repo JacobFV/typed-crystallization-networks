@@ -197,3 +197,5 @@ these figures is checked against this value by the gate (`verify.py --gate`). Qu
 | §63 | `§63/counting-on-shipped-stream` | 0.526193 | `research/demo-language-fix/out/demo-after-quick/summary.json` |
 | §63 | `§63/ten-of-ten` | 10 | `research/demo-language-fix/out/demo-after-suite/summary.json` |
 | §64 | `§64/verifier-pass` | 141 | `research/visual-width-reuse/out/verify.json` |
+| §65 | `§65/c1-ratio` | 10925.4 | `research/integrated-flagship/out/headline.json` |
+| §65 | `§65/verifier-pass` | 493 | `research/integrated-flagship/out/verify.json` |

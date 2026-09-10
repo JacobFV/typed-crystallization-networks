@@ -1323,6 +1323,42 @@ def checks_early_sections() -> None:
     fact("§64/vector-transfers", sec_ids(64), s64, r"digest for digest",
          lambda: (all(r["with_digest"] == r["without_digest"] for r in J(wc)["rows"]),
                   "%d rows, every with_digest == without_digest" % len(J(wc)["rows"])), wc)
+    # §65 -- the integrated visual-language-computer flagship
+    s65 = S("65")
+    fv, fh = "research/integrated-flagship/out/verify.json", "research/integrated-flagship/out/headline.json"
+    claim("§65/verifier-pass", sec_ids(65), s65, r"`verify\.py` reports (\d+) PASS, 0 FAIL",
+          lambda: J(fv)["pass"], fv)
+    claim("§65/c1-ratio", sec_ids(65), s65, r"costs ([\d,]+)× more than the flat",
+          lambda: dig(J(fh), "c1.gap0.N''_over_N"), fh, tol=1.0)
+    fact("§65/c1-fails", sec_ids(65), s65, r"C1 fails as pre-registered",
+         lambda: (dig(J(fh), "c1.gap0.verdict") == "FAIL" and dig(J(fh), "c1.gap1.verdict") == "FAIL",
+                  "gap0 %s, gap1 %s" % (dig(J(fh), "c1.gap0.verdict"), dig(J(fh), "c1.gap1.verdict"))), fh)
+    fact("§65/distractor-vacuous", sec_ids(65), s65, r"contains 0 programs conforming on all 48 episodes",
+         lambda: (dig(J(fh), "exact_generalizing.gap0.distractor") == "0"
+                  and dig(J(fh), "exact_generalizing.gap0.certificate_distractor") == "complete",
+                  "distractor K_generalizing=%s, certificate %s" % (dig(J(fh), "exact_generalizing.gap0.distractor"),
+                                                                   dig(J(fh), "exact_generalizing.gap0.certificate_distractor"))), fh)
+    fact("§65/step-knockout", sec_ids(65), s65, r"except STEP, which drops to 8/400",
+         lambda: (dig(J(fh), "generalize_gap0.KO_STEP.generalize") == 8
+                  and all(dig(J(fh), "generalize_gap0.%s.generalize" % k) == 400 for k in ("KO_ADDR", "KO_TRUTH")),
+                  "KO_STEP %s/400, KO_ADDR %s, KO_TRUTH %s" % (dig(J(fh), "generalize_gap0.KO_STEP.generalize"),
+                                                               dig(J(fh), "generalize_gap0.KO_ADDR.generalize"),
+                                                               dig(J(fh), "generalize_gap0.KO_TRUTH.generalize"))), fh)
+    fact("§65/hand-rule-replaces-it", sec_ids(65), s65, r"also gives 400/400",
+         lambda: (dig(J(fh), "step_hand_gap0.generalize.generalize") == 400
+                  and dig(J(fh), "generalize_gap0.STEP_only.generalize") == 400,
+                  "STEP_hand %s/400, STEP_only %s/400" % (dig(J(fh), "step_hand_gap0.generalize.generalize"),
+                                                          dig(J(fh), "generalize_gap0.STEP_only.generalize"))), fh)
+    fact("§65/schema-refuted-at-gap1", sec_ids(65), s65, r"zero programs conforming on all 48 episodes",
+         lambda: (dig(J(fh), "exact_generalizing.gap1.schema") == "0"
+                  and dig(J(fh), "exact_generalizing.gap1.certificate_schema") == "complete",
+                  "gap1 schema K_generalizing=%s, certificate %s" % (dig(J(fh), "exact_generalizing.gap1.schema"),
+                                                                    dig(J(fh), "exact_generalizing.gap1.certificate_schema"))), fh)
+    fact("§65/npp-generalizes-gap0-not-gap1", sec_ids(65), s65, r"N″\s+400/400",
+         lambda: (dig(J(fh), "generalize_gap0.N''.generalize") == 400
+                  and dig(J(fh), "generalize_gap1.N''.generalize") == 0,
+                  "gap0 %s/400, gap1 %s/400" % (dig(J(fh), "generalize_gap0.N''.generalize"),
+                                                dig(J(fh), "generalize_gap1.N''.generalize"))), fh)
     cp, dw = "research/language-post-audit/control_preaudit.json", "research/language-post-audit/dyck_p22_c95-110.json"
     s45 = S("45")
     claim("§45/window-conforming", sec_ids(45), s45, r"exhausted, (\d+) conforming, certificate `complete`", lambda: _enum(J(dw))["conforming"], dw)
