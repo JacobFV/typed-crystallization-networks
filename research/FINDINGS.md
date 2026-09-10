@@ -2926,3 +2926,69 @@ turn out to be **one class** (`tt/3/57`) — the same 2,709,504-program space wa
 exhausted twice under two names. §52's verdict is unaffected (both scored 0), but
 it means §52's arm count overstates the distinct controls by one.
 
+## 56. The residual 6.2× is representational, not structural — and the compiled path can beat hand-written Python
+
+`research/residual-gap/RESULTS.md`, branch `worktree-agent-ae2285740a6b89153`
+(`7935f00`), **not merged at time of writing**; `tcn/` and `generators/`
+untouched. `PREREGISTRATION.md` at `6d875b8` before any arm. §51 left the last
+unexplained number in the performance line: laziness recovers 2.08× of a 12.9×
+gap, and *"whatever closes the remaining gap is not a lazy conditional."* This
+attributes it. Verified here from raw JSON.
+
+**Method, and it is why the attribution is trustworthy.** A cumulative ladder of
+seven semantics-preserving source transforms carries arm B (resynthesized) to arm
+C (hand-written reference), **every rung gated bit-identical** on 2,883 uniform +
+54 deploy + 1 worst record against fixed reference digests, and against the typed
+interpreter on a stratified oracle. Verified here: **all eight rungs R0–R7 match
+the reference digests on all three distributions**. Because the ladder is
+cumulative the log-deltas sum to the gap *by construction* — I re-derived the sum
+and it closes to 1.8502 against log(6.364) = 1.8506.
+
+| rung | transform | factor | log share |
+|---|---|---|---|
+| R4→R5 | **typed-guard elimination** (range + index checks) | **2.834×** | **56.3%** |
+| R2→R3 | loop-invariant code motion + CSE | **1.844×** | 33.1% |
+| R0→R1 | guard-call inlining — `tcn/compile.py` already does this; the resynthesizer's emitter does not | 1.184× | 9.1% |
+| R6→R7 | loop-shape | 1.052× | 2.7% |
+| **R3→R4** | **short-circuiting a learned truth table — the only structural rung** | **1.067×** | **3.5%** |
+| R1→R2 | module-call inlining | 1.022× | 1.2% |
+| R5→R6 | loop-bound strength reduction | **0.896×** *(a regression)* | −3.1% |
+
+**Structural 3.5%, representational 93.7%, unexplained under 8% with unstable
+sign.** Under the strictest reading — counting LICM as structural — it is
+36.6% / 60.7%, so **representational dominates either way**, on all three
+distributions and in a second interpreter (6.509× out-of-process on 3.12.3).
+
+**The ceiling is real and tight.** Of the full 13.11× specification-to-reference
+gap, early exit is ~29% and is **already banked** by §49/§51. The synthesizer's
+*remaining* headroom is **1.067×**. Everything else is compiler engineering.
+
+**And that engineering closes the gap completely.** Applying the representational
+rungs through R5 lands at **2.546 µs against the hand-written reference's
+2.700 µs** — **6% faster than hand-written Python**, verified from the raw
+timings. So the answer to §48's line of inquiry is now complete: the overhead was
+interpreter overhead, compiling removed most of it, laziness is worth ~2×, and
+the rest is ordinary optimization that a better emitter can do mechanically.
+
+**The pre-registered rung that failed is the most instructive part.** R5a —
+typed-guard elimination *including* the `min(·, 3069)` clamp — **failed the
+bit-identity gate on 243 of 2,883 records** and was excluded. The clamp is
+**load-bearing, not dead code**. Had the ladder not been gated per rung, that
+would have shipped as a silent 8.4%-of-records semantic change.
+
+**Three measures disagree, exactly as §51 warned:** 1.00× in scan steps, 9.4× in
+bytecodes, 6.4× in wall clock. Candidates 1–3 were falsified by measurement — arm
+C builds a tuple per scan step and arm B builds none; the boundary *scales with*
+the gap rather than explaining it; both arms run exactly 1.00 loop iterations per
+scan step. Candidate 4 was confirmed: **52% of arm B's bytecodes are in guard
+frames**, 378 Python calls per record against 2.
+
+**Five amendments recorded**, including one — the decision rule's ambiguity for
+LICM — that moves **33% against this track's own hypothesis**.
+
+**What this means for the project.** The efficiency story no longer has an
+unexplained factor in it. It also relocates the work: the next gain is in
+`tcn/compile.py`'s emitter (guard elimination where the type system already
+proves the bound), not in the resynthesizer. That is a smaller, better-understood
+job than algorithm discovery.
+
