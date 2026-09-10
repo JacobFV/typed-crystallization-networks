@@ -330,10 +330,116 @@ def condition_crosscheck():
     (OUT / "crosscheck.json").write_text(json.dumps(report, indent=2))
 
 
+def condition_wrong_schema():
+    """Amendment 1, arm F: the same 272 space, one edge moved.
+
+    `relation`'s lookup candidate reads `gate_0` instead of `gate_{d-1}`. At
+    depth 1 those are the same node, so the depth-1 fit is bound to return the
+    same vector with the same certificate; the transfer is where the two schemas
+    separate. This is the control that shows a passing transfer is a property of
+    the schema and not of the mechanism that carries the vector.
+    """
+    names, program, registry = build("first_gate", 1)
+    task = task_for(names, 1, FIT_INDICES, "train")
+    fit = sweep(program, registry, task)
+    report = {"fit": fit, "transfer": []}
+    print("first_gate fit", {k: fit[k] for k in ("space_size", "evaluated", "exhausted",
+                                                 "conforming", "certificate", "best_return")},
+          fit["conforming_selections"], flush=True)
+    for selection in fit["conforming_selections"]:
+        row = {"selection": selection, "per_depth": {}}
+        for d in DEPTHS:
+            per, exact = score_selection("first_gate", d, selection, EVAL_INDICES, "test")
+            row["per_depth"][str(d)] = summarize(per)
+            row["per_depth"][str(d)]["frozen_digest"] = exact.digest
+            print(f"first_gate sel={selection} -> d={d} "
+                  f"{row['per_depth'][str(d)]['mean']:.4f}", flush=True)
+        report["transfer"].append(row)
+    # And the whole space at each depth, so a collapse is not confused with
+    # "nothing in this family works at that depth".
+    report["exhaust"] = {}
+    for d in DEPTHS:
+        n, p, r = build("first_gate", d)
+        report["exhaust"][str(d)] = {
+            k: v for k, v in sweep(p, r, task_for(n, d, EVAL_INDICES, "test")).items()
+            if k != "all_returns"}
+        print("first_gate exhaust", d, report["exhaust"][str(d)]["conforming"],
+              report["exhaust"][str(d)]["best_return"], flush=True)
+    (OUT / "wrong_schema.json").write_text(json.dumps(report, indent=2))
+
+
+def condition_difficulty():
+    """Amendment 1, arm G: achieved difficulty, over the held-out episodes."""
+    sys.path.insert(0, str(HERE.parents[1] / "generators" / "logic"))
+    from generators.logic.generator import relevant_inputs
+    report = {}
+    for d in DEPTHS:
+        circuits, finals, relevant, targets = [], [], [], []
+        for i in EVAL_INDICES:
+            host = S.make_host(d, i, "test", BASE, HORIZON)
+            gates = host.records[0].state["gates"] if hasattr(host.records[0], "state") else None
+            view = host.view().observations
+            fields = [round(x) for x in view["program"].decoded]
+            gates = [tuple(fields[3 * g:3 * g + 3]) for g in range(d)]
+            circuits.append(tuple(gates))
+            finals.append(gates[-1][2])
+            relevant.append(len(relevant_inputs(BASE["inputs"], [list(g) for g in gates])))
+            targets.append(bool(host.records[0].probes["target"].decoded))
+        majority = max(sum(targets), len(targets) - sum(targets)) / len(targets)
+        report[str(d)] = {
+            "episodes": len(EVAL_INDICES),
+            "distinct_circuits": len(set(circuits)),
+            "distinct_final_tables": sorted(set(finals)),
+            "relevant_inputs_histogram": {str(k): relevant.count(k)
+                                          for k in sorted(set(relevant))},
+            "min_relevant_inputs_achieved": min(relevant),
+            "fraction_target_true": sum(targets) / len(targets),
+            "majority_fraction": majority,
+        }
+        print(d, json.dumps(report[str(d)]), flush=True)
+    (OUT / "difficulty.json").write_text(json.dumps(report, indent=2))
+
+
+def condition_size():
+    """Amendment 1, arm H: what part of the artifact is width-invariant."""
+    fit = json.loads((OUT / "fit.json").read_text())
+    selection = fit["1"]["conforming_selections"][0]
+    report = {"selection": selection, "per_depth": {}}
+    free = None
+    for d in DEPTHS:
+        names, program, registry = build("interpreter", d)
+        free = dict(free_nodes(program))
+        full = {n.name: 0 for n in program.nodes}
+        full.update(selection)
+        from tcn.search import frozen_selection
+        exact = frozen_selection(program, full, registry)
+        pruned = exact.pruned()
+        report["per_depth"][str(d)] = {
+            "program_fields": len(dict(program.inputs)["program"].items),
+            "program_flat_width": dict(program.inputs)["program"].width,
+            "scaffold_nodes": len(program.nodes),
+            "frozen_nodes": len(exact.nodes),
+            "pruned_nodes": len(pruned.nodes),
+            "description_bits": exact.description_bits(registry),
+            "pruned_description_bits": pruned.description_bits(registry),
+            "execution_cost": exact.execution_cost(registry),
+            "digest": exact.digest,
+        }
+        print(d, report["per_depth"][str(d)], flush=True)
+    report["selection_vector_bits"] = sum(math.log2(c) for c in free.values())
+    report["selection_vector_entries"] = len(free)
+    report["distinct_digests"] = len({v["digest"] for v in report["per_depth"].values()})
+    print("selection vector:", report["selection_vector_bits"], "bits;",
+          report["distinct_digests"], "distinct frozen artifacts", flush=True)
+    (OUT / "size.json").write_text(json.dumps(report, indent=2))
+
+
 CONDITIONS = {"baselines": condition_baselines, "fit": condition_fit,
               "exhaust": condition_exhaust, "transfer": condition_transfer,
               "record": condition_record, "hardened": condition_hardened,
-              "crosscheck": condition_crosscheck}
+              "crosscheck": condition_crosscheck,
+              "wrong_schema": condition_wrong_schema,
+              "difficulty": condition_difficulty, "size": condition_size}
 
 if __name__ == "__main__":
     OUT.mkdir(exist_ok=True)

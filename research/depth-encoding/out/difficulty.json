@@ -1,0 +1,143 @@
+{
+  "1": {
+    "episodes": 64,
+    "distinct_circuits": 52,
+    "distinct_final_tables": [
+      1,
+      2,
+      4,
+      6,
+      7,
+      8,
+      9,
+      11,
+      13,
+      14
+    ],
+    "relevant_inputs_histogram": {
+      "2": 64
+    },
+    "min_relevant_inputs_achieved": 2,
+    "fraction_target_true": 0.46875,
+    "majority_fraction": 0.53125
+  },
+  "2": {
+    "episodes": 64,
+    "distinct_circuits": 64,
+    "distinct_final_tables": [
+      1,
+      2,
+      4,
+      6,
+      7,
+      8,
+      9,
+      11,
+      13,
+      14
+    ],
+    "relevant_inputs_histogram": {
+      "2": 53,
+      "3": 11
+    },
+    "min_relevant_inputs_achieved": 2,
+    "fraction_target_true": 0.46875,
+    "majority_fraction": 0.53125
+  },
+  "3": {
+    "episodes": 64,
+    "distinct_circuits": 64,
+    "distinct_final_tables": [
+      1,
+      2,
+      4,
+      6,
+      7,
+      8,
+      9,
+      11,
+      13,
+      14
+    ],
+    "relevant_inputs_histogram": {
+      "2": 50,
+      "3": 13,
+      "4": 1
+    },
+    "min_relevant_inputs_achieved": 2,
+    "fraction_target_true": 0.59375,
+    "majority_fraction": 0.59375
+  },
+  "4": {
+    "episodes": 64,
+    "distinct_circuits": 64,
+    "distinct_final_tables": [
+      1,
+      2,
+      4,
+      6,
+      7,
+      8,
+      9,
+      11,
+      13,
+      14
+    ],
+    "relevant_inputs_histogram": {
+      "2": 40,
+      "3": 18,
+      "4": 6
+    },
+    "min_relevant_inputs_achieved": 2,
+    "fraction_target_true": 0.625,
+    "majority_fraction": 0.625
+  },
+  "6": {
+    "episodes": 64,
+    "distinct_circuits": 64,
+    "distinct_final_tables": [
+      1,
+      2,
+      4,
+      6,
+      7,
+      8,
+      9,
+      11,
+      13,
+      14
+    ],
+    "relevant_inputs_histogram": {
+      "2": 32,
+      "3": 25,
+      "4": 7
+    },
+    "min_relevant_inputs_achieved": 2,
+    "fraction_target_true": 0.484375,
+    "majority_fraction": 0.515625
+  },
+  "8": {
+    "episodes": 64,
+    "distinct_circuits": 64,
+    "distinct_final_tables": [
+      1,
+      2,
+      4,
+      6,
+      7,
+      8,
+      9,
+      11,
+      13,
+      14
+    ],
+    "relevant_inputs_histogram": {
+      "2": 35,
+      "3": 24,
+      "4": 5
+    },
+    "min_relevant_inputs_achieved": 2,
+    "fraction_target_true": 0.390625,
+    "majority_fraction": 0.609375
+  }
+}

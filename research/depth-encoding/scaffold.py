@@ -83,7 +83,7 @@ def _policy_tail(b, relation="relation", goal="goal_relation"):
     b.add("value", [b.op("tuple", ("baseline",))], "value")
 
 
-def interpreter_scaffold(host, depth, registry=None):
+def interpreter_scaffold(host, depth, registry=None, answer="last"):
     """One instantiated artifact per depth, from one schema.
 
     Reads the `program` channel directly -- the width-varying one -- and unrolls
@@ -127,7 +127,10 @@ def interpreter_scaffold(host, depth, registry=None):
 
     last = depth - 1
     fixed = [b.op(f"truth_{j}", (f"wa_{last}", f"wb_{last}")) for j in range(16)]
-    lookup = b.op("identity", (f"gate_{last}",))
+    # `answer="first"` is amendment 1's wrong-schema control: the lookup reads
+    # gate 0 rather than the last gate. At depth 1 the two are the same node, so
+    # a depth-1 fit cannot tell the two schemas apart.
+    lookup = b.op("identity", (f"gate_{0 if answer == 'first' else last}",))
     b.add("relation", fixed + [lookup], "latent")
     b.add("goal_relation", [b.op(f"truth_{j}", ("relation", "goal")) for j in range(16)], "latent")
     _policy_tail(b)
@@ -160,7 +163,13 @@ def record_scaffold(host, depth=None, registry=None):
     return names, program, r
 
 
-SCAFFOLDS = {"interpreter": interpreter_scaffold, "record": record_scaffold}
+def first_gate_scaffold(host, depth, registry=None):
+    """Amendment 1, arm F. Identical to `interpreter_scaffold` but for one edge."""
+    return interpreter_scaffold(host, depth, registry, answer="first")
+
+
+SCAFFOLDS = {"interpreter": interpreter_scaffold, "record": record_scaffold,
+             "first_gate": first_gate_scaffold}
 
 
 def agent_config(names, horizon):
