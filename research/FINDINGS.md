@@ -20,7 +20,8 @@ Three tracks converged on this independently, which is why it is stated first:
   19-38% to 88-94%, flat at every depth from 3 to 16.
 - Track 6 measured that the flagship joint result comes from dense privileged
   probe supervision, and that pure policy-gradient learning fails at chance for
-  the typed program *and* for a matched neural baseline.
+  the typed program *and* for a matched neural baseline. **[SUPERSEDED — §22:
+  track 6 never ran REINFORCE on the typed program; it learns from reward, 8/8.]**
 
 `ARCHITECTURE.md` section 5 (crystallization) is the mechanism the project
 treats as central. Section 7 (supervision interfaces) is the mechanism the
@@ -32,7 +33,7 @@ much better evidenced one.
 | Claim | Verdict | Evidence |
 |---|---|---|
 | Exact typed programs generalize where a fitted network does not | **Holds, decisively** | Track 6: 1.8e-8 interpolating and 3.1e-8 extrapolating, against a tuned MLP's 5.2e-3 and 0.232. The MLP fails the repo's own 1e-6 assertion by three orders of magnitude. |
-| Hierarchical supervision makes hard synthesis tractable | **Holds** | Track 3: free wiring 19-38% -> 88-94% at 2,120 candidates/node, no depth degradation. |
+| Hierarchical supervision makes hard synthesis tractable | **Holds** | Track 3: free wiring 19-38% -> 88-94% at ~~2,120 candidates/node~~ **5,776 candidates on the widest node** *[record-audit gate, 2026-09-10: `search-scaling/FD_supervision.json`'s `n_candidates` tops at 5,776 and never contains 2,120; the track's RESULTS prose says 2,120, which no committed file records]*, no depth degradation. |
 | Search can discover structure rather than be handed it | **Holds, once legality allows it** | Track 4: the interpreter candidate is selected in 8/8 seeds unprompted, survives crystallization, and the exact frozen agent scores 4.00 (sd 0) on truth tables never trained on. |
 | Module cost accounting is implemented as specified | **Holds** | Track 5: definition counted once regardless of call sites, execution charged per use, transitive through nesting. |
 | Type legality is structural, not a loss penalty | **Holds** | Verified by construction in `graph.py`; no track found an escape hatch. |
@@ -45,15 +46,16 @@ much better evidenced one.
 | Progressive crystallization is necessary | **Refuted** | Track 1: 11 arms bit-identical at shipped budgets; an arm with no crystallizer and zero extra evaluations reaches the same frozen program. At 30 steps the scheduler conforms 3/16 where budget-matched argmax conforms 16/16 (p = 3.2e-06), discarding 94.8% of its optimizer steps. |
 | Outside-in ordering, degradation tolerance, rollback | **No positive effect anywhere** | Track 1 component scorecard. Ordering is inert (A identical to C); tolerance is inert (E bit-identical to A in all five configs). |
 | The gradient-connectivity guard protects interior learning | **Does not detect what it claims** | Track 1: severed choice logits still receive exactly-zero-but-present gradients from the entropy term, so `grad is None` tests graph reachability, not learning signal. The regularizer defeats the guard for exactly the parameters section 5 exists to protect. |
-| Recursive abstraction helps | **No measurable benefit** | Track 5: module on the output path in 0 of 20 runs, including 0 of 10 successes. 1.4x description bits, 1.7x latency; execution-cost crossover never occurs. |
+| Recursive abstraction helps | **No measurable benefit** **[SUPERSEDED — §12: 27/27 once F1 and F2 were fixed]** | Track 5: module on the output path in 0 of 20 runs, including 0 of ~~10~~ 9 successes *[record-audit gate: `recursive-abstraction/summary.json` records 2/12 + 7/8 arm-B successes]*. 1.4x description bits, 1.7x latency; execution-cost crossover never occurs. |
 | Tiny description size | **Refuted** | Track 6: joint ships 68,768 bits to learn 8 bits of content, losing 2,150x to a 32-bit lookup table. `description_bits` measures JSON verbosity. |
-| Tiny inference cost | **Refuted as stated** | Track 6: the "four-operation program" runs 450x slower than those four operations in plain Python and no faster than a 625-parameter MLP. Interpreter overhead dominates the `cost = 4` proxy by ~2.5 orders of magnitude. |
+| Tiny inference cost | **Refuted as stated** | Track 6: the "four-operation program" runs 450x **[SUPERSEDED — §36 measured the complete path at 146× to 90,400×; §48 compiled it away]** slower than those four operations in plain Python and no faster than a 625-parameter MLP. Interpreter overhead dominates the `cost = 4` proxy by ~2.5 orders of magnitude. |
 | 4/4 demonstrates structural generalization | **Refuted for the recorded scaffold; achieved by a corrected one** | Track 4, and step 4 on a verified-fair benchmark: the recorded scaffold measures 1.95-2.03 against a best constant of 2.13-2.56 and cannot do better, since one frozen program computes one relation. A table-conditioned scaffold reaches 3.38-4.00 on gate families never trained on, in both directions, with the interpreter candidate selected 8/8 seeds unprompted. See section 13. |
 | A generic scaffold cannot learn the joint task | **Refuted** | Track 2: the run was stopped before its transition (episodes ~750/800/2600). At 5120 episodes, 4.00/4 on both seeds tested. |
 
 ## 4. Instrumentation faults found
 
 These are bugs in how the system measures itself, and they distorted the record.
+**[SUPERSEDED — F-conf, F-bench and F-soft were fixed in §10.]**
 
 - **F-conf** `SoftProgram.export()` argmaxes every node, so the conformance test
   for freezing one node demands the whole program already be correct. 57-74% of
@@ -79,6 +81,11 @@ These are bugs in how the system measures itself, and they distorted the record.
   site. (Track 5)
 
 ## 5. Core changes proposed, none applied
+
+**[SUPERSEDED IN PART — this heading was true when written. §10 applied several of
+these (the F-conf gate, memoised validation, unit-arity module outputs, the
+discrete baseline), measured recommendation 10 as the wrong fix, and §14b wired
+the MDL term (recommendation 7). Read §10 before acting on any item below.]**
 
 Ordered by measured payoff. Diffs are in the per-track reports.
 
@@ -128,10 +135,11 @@ Ordered by measured payoff. Diffs are in the per-track reports.
   and >= 16-node graphs cannot speak to 48k-1.8M-gate behavior.
 - **Depth generalization needs a different encoding.** `program`'s width is
   3 x depth, so a fixed-width typed program cannot accept an episode of unseen
-  depth. This requires a recurrent or set-shaped gate encoding. (Track 4)
+  depth. This requires a recurrent or set-shaped gate encoding. (Track 4) **[SUPERSEDED —
+  §15 generalized depth with no addition to the algebra, through a second typed view.]**
 - **Policy learning is the weak half.** Track 2 measures actor gradient SNR at
   0.221 and shows the policy readout, not the relation, is the slow part; track 6
-  shows pure REINFORCE at chance for both TCN and the baseline. Episode batching
+  shows pure REINFORCE at chance for both TCN and the baseline **[SUPERSEDED — §22]**. Episode batching
   was tried and reverted: it speeds prediction and starves the readout.
 
 ## 7. Track 8 — differentiable search is not earning its keep
@@ -153,8 +161,10 @@ searches.
   both finished. **TerpreT's finding reproduces on this repo's own tasks.**
 - **`generators/logic`'s `depth` is not a difficulty dial.** Over 200 draws each
   at depths 4, 5 and 6, *zero* required as many gates as the generator used, and
-  measured solution density *rises* with depth (7.8e-3 at depth 1 to 9.7e-2 at
-  depth 6). This corroborates track 3's recommendation 6 and means any
+  measured solution density *rises* with depth (7.8e-3 at depth 1 to ~~9.7e-2~~ 9.6e-2 at
+  depth 6 *[record-audit gate: the median of the two stored depth-6 densities in
+  `enumerative-baseline/out/scaling_generator_d1_2_3_4_5_6.json`; the track's RESULTS
+  table also differs at depths 4 and 5, so it was evidently taken from another run]*). This corroborates track 3's recommendation 6 and means any
   depth-vs-accuracy curve on this generator varies candidate-set size while
   target complexity stays flat.
 - **Partial credit under noise is not a relaxation advantage.** Enumeration with
@@ -256,8 +266,8 @@ the best arity it reached rather than failing opaquely.
 
 `synthesis.fit` now reports `exact_max_error` (the largest disagreement between
 the exported program and the targets) alongside `relaxed_loss`, plus the
-`tolerance` they are judged against. On the mixed fixture these read 1.007e-06
-and 0.0 respectively: the relaxed number is nonzero while the exported program
+`tolerance` they are judged against. On the mixed fixture these read ~~1.007e-06
+and 0.0 respectively~~ **[§62 audit, corrected: in the other order — `relaxed_loss` 1.007e-06 and `exact_max_error` 0.0 (`baselines/out/tcn_mixed/report.json` records the relaxed loss)]**: the relaxed number is nonzero while the exported program
 is exact, which is the disagreement in miniature.
 
 ### Constant fitting — diagnosis corrected, then fixed
@@ -339,7 +349,7 @@ node every call site was paying.
 
 | measurement | before | after |
 |---|---|---|
-| 5-node module call | 113.8 us (27.4x a primitive) | **16.4 us (4.0x)** |
+| 5-node module call *(prose-only: no raw file records these three rows — §62 audit)* | 113.8 us (27.4x a primitive) | **16.4 us (4.0x)** |
 | execution cost vs inlining | 1.40-1.62x | **parity** |
 | description-size crossover (3-gate body) | 4 call sites | **2 call sites** |
 | 8-gate body at 8 call sites | never crosses over | **0.28x inlined** |
@@ -366,7 +376,8 @@ methods agree.
 
 On the mixed scaffold (96 programs): enumeration solves it exhaustively in
 **3.0 ms** against the gradient path's 2,751 ms, certifies the solution unique,
-and selects the identical program. Track 8 measured 41 ms for this sweep; the
+and selects the identical program **[single-configuration evidence: one 96-program
+scaffold at one configuration. A single-configuration `unique` certificate is not evidence of a correct schema — §53 arm F, §60]**. Track 8 measured 41 ms for this sweep; the
 validation memoization above accounts for the rest.
 
 Five tests in `tests/test_search.py` cover the uniqueness certificate, the
@@ -380,9 +391,11 @@ from the supervising session where noted.
 
 **Highest rung that works: foreground/background segmentation of raw `geometry`
 pixels.** 12/12 seeds, exact on training and zero error on 48 held-out episodes
-at 2x2 and 3x3. The program recovers the background colour from raw bytes
+at 2x2 and ~~3x3~~ 4x4 *[§62 audit: `rung3_colour.json`'s keys are `R2` and `R4`; 2x2/3x3 is the mask arm]*. The program recovers the background colour from raw bytes
 searched over the full 256-value alphabet, with `tcn.search.enumerate_fit`
-certifying the solution unique among 65,536 programs. Nothing pre-digested: the
+certifying the solution unique among 65,536 programs **[single-configuration
+evidence: one generator configuration, with the identical selection at R=2 and R=4.
+A single-configuration `unique` certificate is not evidence of a correct schema — §53 arm F, §60]**. Nothing pre-digested: the
 input is the raw byte tuple and the supervision is an equivalence class of the
 generator's own `depth` probe. Rung 1a (sinusoid frequency from raw samples)
 also works, to about 150 candidate programs.
@@ -446,8 +459,10 @@ fixed, that conclusion is overturned, and the cause was the accounting rather
 than the search.
 
 **The decisive measurement flips.** Track 5: module on the output path in 0 of
-20 arm-B runs, 0 of 10 successes. Re-test: **27 of 27 successes are the
-abstracted program**, on both scaffolds.
+20 arm-B runs, 0 of ~~10~~ 9 successes *[§62 audit: `recursive-abstraction/e1_results.json` + `e2_results.json` give 2/12 + 7/8]*. Re-test: **27 of 27 successes are the
+abstracted program**, on both scaffolds **[§62 audit: the chance rate for that
+metric is 0.816 on the tight scaffold and 0.6886 on the wide, over 20,000 random
+trials each — `recursive-abstraction-retest/baseline.json`]**.
 
 | arm | wide scaffold, 8 seeds | tight scaffold, 24 seeds |
 |---|---|---|
@@ -457,7 +472,10 @@ abstracted program**, on both scaffolds.
 
 p = 1.6e-4 and 7.4e-9. Enumeration certifies this is not a search artifact:
 arm A's 230,400-program space is exhausted with no solution, arm C's 2,709,504
-likewise, and arm B's contains 144 solutions, **all** of which use the module.
+likewise, and arm B's contains 144 solutions, **all** of which use the module **[single-scaffold
+evidence: these exhaustion certificates are on the tight scaffold only; the wide
+arms' 1.93e22 and 3.46e24 spaces were never enumerated, although the table above
+pairs the two]**.
 The target's flat minimum is proved >= 7 gates against a 9-gate circuit, while
 the abstracted route is 3 nodes.
 
@@ -468,7 +486,7 @@ comparisons, confirmed by running the re-test's own `costs_detail.py`:
 
 - against an **exact** primitive (what section 10 measured, both sides through
   `exact_tensor`): its D1 reports 1.7x, and an independent sweep from the
-  supervising session gives 1.4x-5.3x across 3, 5 and 9-node bodies at batches
+  supervising session gives 1.4x-5.3x *(prose-only: no raw file — §62 audit)* across 3, 5 and 9-node bodies at batches
   1 to 256. Section 10's figure stands for that comparison.
 - against a **relaxed** primitive, which is pure tensor arithmetic with no
   Python loop: roughly two orders of magnitude at batch 64.
@@ -513,14 +531,17 @@ verified by exhaustive search over all 16 gates and both objectives.
 2.13-2.56) and structurally cannot exceed it. **The table-conditioned scaffold
 reaches 3.38-4.00 on gate families it never trained on**, in both directions and
 including when wiring varies, with the interpreter candidate **selected in 8/8
-seeds in every condition** — made legal, not supplied.
+seeds in every condition** — made legal, not supplied **[single-family evidence: one
+Boolean gate-table pool split, one generator, 8 seeds; 3.38–4.00 are arm means and
+per-seed values reach 2.75 (`out/results.json`)]**.
 
 That is the first structural-generalization result in this repository that its
 benchmark actually supports.
 
 **Enumeration solves it too.** The scaffold's own 272-program space, scored by
-return on eight training episodes, exhausts in 130 s and reaches 4.00 held-out —
-selecting the same interpreter candidate. Consistent with section 8: the
+return on eight training episodes, exhausts in 130 s and reaches 4.00 held-out *[§62 audit: `out/results.json` records no
+`exhausted` or `unique` key; exhaustion is inferred from `evaluated == space_size` =
+272]* — selecting the same interpreter candidate. Consistent with section 8: the
 gradient path's advantage on this family is not solution quality, and this
 comparison does not isolate the one advantage it does have, since a fair
 sample-efficiency test holds rollouts fixed rather than wall clock.
@@ -533,7 +554,12 @@ Fixed with two regression tests; the invalid log is kept, since the identical
 columns are the diagnostic. This is the second time in this pass that a result
 too clean to be true turned out to be an instrumentation fault.
 
-## 14. Discrete perception: rung 3.5, and where each method actually wins
+## 14a. Discrete perception: rung 3.5, and where each method actually wins
+
+*[Numbering note, 2026-09-10: two sections carried the number 14. This one is §14a; the
+second, "Preference", is §14b. Neither was renumbered. Older citations of a bare
+"§14" meaning program-size preference (`mdl_weight`) mean §14b; those meaning
+discrete perception mean §14a.]*
 
 Full detail in `research/discrete-perception/RESULTS.md`.
 
@@ -541,7 +567,9 @@ Full detail in `research/discrete-perception/RESULTS.md`.
 pixels** — an edge detector `fg(i) != fg(i+k)` with the neighbour offset
 searched. Staged: freeze the rung-3 foreground module, then exhaust 48 programs
 in 4.6 s returning exactly one, held-out max error 0.0, applied at every
-position. Undecomposed the same target is 4.9e10 programs, projected 7.6 years.
+position **[single-configuration evidence: one configuration — the sibling
+subsampled run over the same 48-program space (`rung35_window_subsampled.json`)
+returns 0 conforming. A single-configuration `unique` certificate is not evidence of a correct schema — §53 arm F, §60]**. Undecomposed the same target is 4.9e10 programs, projected 7.6 years.
 Staging is what makes it reachable.
 
 **Positional application scales as claimed.** R=8 through R=48 (a 6,912-byte
@@ -553,7 +581,7 @@ ladder's (3R^2)^2.
 **A correction to section 8's framing.** Gradient descent wins prominently in
 two places, on identical spaces and data:
 
-- rung 3 at R=4 and R=8, 4/4 and 6/6 seeds exact on held-out where enumeration's
+- rung 3 at R=4 and R=8, ~~4/4 and 6/6 seeds exact~~ **4/4 seeds exact at each resolution** *(§62 audit: the 6/6 is the separate R=4 tie-break run)* on held-out where enumeration's
   *returned* program was not, and faster than the certifying sweep;
 - the full 256-value byte alphabet, 4.3e9 programs, 6/6 with zero held-out
   error, where brute force projects to 107 days.
@@ -565,19 +593,35 @@ section 11's result restated from the other side.
 
 **Above rung 3.5 the wall is informational, not algorithmic.** For `object_ids`
 and `depth` the best possible per-pixel predictor — an RGB lookup table, an
-upper bound on the whole family — fits training pixels perfectly and scores
+upper bound on the whole family — fits training pixels perfectly **[§62 audit: for
+`object_ids`; `depth` fits training pixels only to 0.9863 (`rung4_objects.json`, 4
+colliding keys) and 0.9883 in `rung5_depth.json`]** and scores
 exactly the majority baseline on held-out episodes, advantage 0.000. Objects are
 not one colour (mean 3.31 distinct RGBs, 34.6% single-coloured). Four candidate
 families were exhausted with no solution. Those are completeness certificates,
 not budget failures: the supervision does not determine the target from a single
 pixel, so no per-pixel program can exist.
 
-**Non-uniqueness is the norm and the tie-break was wrong.** Every rung-3 arm has
-2,464-2,608 of 32,000 conforming, about 5% of which disagree with the renderer
+**Non-uniqueness is the norm and the tie-break was wrong.** ~~Every rung-3 arm has~~
+**The mask arms have** 2,464-2,608 of 32,000 conforming **[§62 audit: 2,464 and
+2,608 are the mask arms at R=4 and R=8 under full training supervision
+(`rung3_mask*.json`). Across all rung-3 arms the range is 1,664–2,752: the
+prefix-walk sweep (`incremental.json`, 384 records) finds 2,608, 1,888, 1,664 and
+2,608 at R=8, 16, 32 and 64, and the R=4 mask arm reaches 2,752 at 16 supervised
+records — so "every rung-3 arm" does not hold]**, about 5% **[§62 audit: 5.19% at R=4, 10.4% at R=8]** of
+which disagree with the renderer
 on fresh episodes, and the count barely moves as supervision grows eightfold.
 `enumerate_fit`'s lexicographic pick was measurably wrong on fresh episodes at
-both R=4 and R=8. Requiring exactness at every position of a validation split is
-what fixed it.
+~~both R=4 and R=8~~ **R=4** **[§62 audit: `tiebreak.json` has one row, resolution
+4; its `arguments.resolutions` asks for [4, 8] but the R=8 row was never
+written]**. ~~Requiring exactness at every position of a validation split is
+what fixed it.~~ **[§62 audit, corrected 2026-09-10 — this sentence inverted its
+own source. In `tiebreak.json` the `validation_filtered` rule returns the
+identical selection vector as `lexicographic`, with the identical 3 wrong slots
+of 384 (accuracy 0.9921875); only the `gradient` rule reaches `max_error` 0.0,
+0 wrong slots. The track's own `RESULTS.md` says filtering through a second
+supervision split "does not fix it". Nothing in this section fixed the
+tie-break.]**
 
 **Two faults, both verified here.** `tcn/search.py:evaluate` did not catch
 `IndexError`, so one address running off a tuple end aborted the whole sweep —
@@ -609,7 +653,7 @@ values and relations sets of tuples; this is that, and nothing else.
 parallel and carries no fold, but section 4's explicit recurrence is the fold:
 one gate per tick, dispatched with `insert`/`pair`/`filter`, wires read by `mux`
 over `index`/`member`, the result committed with `insert`. Verified exact
-against the generator's own wire values on 40 episodes at each of depths 1-8,
+against the generator's own wire values on 40 episodes at each of depths ~~1-8~~ 1, 2, 3, 4, 6 and 8 *(§62 audit: `out/exactness.json` holds six depths, 240 episodes)*,
 settling at exactly tick d-1.
 
 **One fixed graph, trained at depths 1-2 only, on held-out episodes:**
@@ -647,7 +691,7 @@ set is still exactly `bits`, `goal`, `program`.
 ## 16. CORRECTION: the address wall was misattributed
 
 Full detail in `research/address-wall/RESULTS.md`. This supersedes the framing in
-sections 11 and 14, which I stated three times and briefed several agents on.
+sections 11 and 14a, which I stated three times and briefed several agents on.
 
 **What I recorded:** relaxing an input address is worse than chance (0.25 against
 a 0.29 chance rate) while relaxing a value at a fixed address is 208x better, so
@@ -683,10 +727,13 @@ disease either.
 **Three separate mechanisms, now distinguished.** M1, a mean confound in the
 linear read, where the mean term beats the identifying covariance term 5,010 to
 0.166 at byte scale; the landscape is nevertheless convex with the reference as
-the unique global optimum, and Adam recovers in 35 of 36 sweep cells. M2, the
+the unique global optimum **[single-configuration evidence: 3 seeds, n=4 addresses,
+one regime — §62 audit A22]**, and Adam recovers in 35 of 36 sweep cells. M2, the
 surrogate saturation above. M3, `index` kernel locality — at tau=1 the kernel
 keeps only 0.564 of its mass on the addressed element, giving 5 to 25 local
-minima with basins 1.3 to 2.5 addresses wide.
+minima with basins 1.3 to 2.5 addresses wide **[§62 audit: that band is a selected
+sub-range. In `address-wall/out/landscape.json`'s `index_map` the per-run local minima
+span 1 to 81 and basin widths 0.09 to 14.02, over the 80 recorded runs]**.
 
 **What survives of the original finding.** Depth generalization measured wire
 binding gradients of 4.7e-08 and 3.1e-05 against 8.7e-03 for an operator choice,
@@ -728,14 +775,19 @@ reaches upright 0.9994 where the zero-torque arm never exceeds -0.99.
 
 **What it costs.** The typing is authored, not derived: gym gives
 `Box(low, high, shape, dtype)`, and every unit, frame, encoding and bound was
-written by hand, where a wrong one is silently wrong. **77% of a step is contract
-rather than physics** — 0.394 ms of MuJoCo inside a 1.68 ms typed step. And the
+written by hand, where a wrong one is silently wrong. ~~**77% of a step is contract
+rather than physics** — 0.394 ms of MuJoCo inside a 1.68 ms typed step.~~
+**[§62 audit, corrected to the track's shipped JSON, `out/replay_check.json`:]**
+**75.4% of a step is contract rather than physics** — 0.423 ms of MuJoCo inside
+a 1.72 ms typed step. *(The quoted 77% / 0.394 / 1.68 came from the track's prose
+table, which disagrees with its own JSON.)* And the
 contract is only as strong as the engine: MuJoCo works because
 `mjSTATE_INTEGRATION` exists, while Box2D through gym does not serialize and no
 wrapper fixes that.
 
 **Encoding decisions, interrogated against `Registry.resolve` rather than
-assumed.** `role="byte"` admits only `eq` and `pack` — the section 14 trap,
+assumed.** `role="byte"` admits ~~only `eq` and `pack`~~ **`count`, `eq` and `pack` only**
+*(§62 audit: `out/operator_legality.json` lists three)* — the section 14a trap,
 avoided deliberately. Angles are declared dimensionless because radians are, and
 because `unit="rad"` would make `sin`/`cos` type-illegal. Rates carry
 `unit="rad/s"`, which correctly kills `sin(velocity)`, at the cost that no
@@ -772,14 +824,17 @@ replacement text for `AGENTS.md` line 42 and `ARCHITECTURE.md` sections 6 and 9.
 
 **Fingerprint granularity, verified here.** `source_fingerprint()` hashes all of
 `tcn/` and `generators/`, so any change to either invalidates every recorded
-episode. Confirmed directly: all three `artifacts/system/*/episode.json.gz`
+episode. Confirmed directly: all three *[§62 audit: `STATUS.md` B5 says eleven; `artifacts/` is
+gitignored, so neither count can be checked from a clone]* `artifacts/system/*/episode.json.gz`
 now fail `Host.restore` with "episode source revision mismatch". This is the
 documented intent — `docs/VALIDATION.md` says fingerprints pin replay to their
 code revision so stale artifacts are not silently resumed — and tonight's core
 commits are what invalidated them. The finding is that the granularity is coarse:
 adding a generator invalidates episodes from every other generator.
 
-## 14. Preference: the objective can now see program size, and it costs search
+## 14b. Preference: the objective can now see program size, and it costs search
+
+*[Numbering note, 2026-09-10: the second section headed §14; see §14a.]*
 
 Full detail in `research/abstraction-preference/RESULTS.md`. Branch
 `abstraction-preference`, **not merged** — see `MERGE-QUEUE.md`.
@@ -825,7 +880,8 @@ row once: **4.5-4.9x** on a whole soft forward pass, **6-8%** slower where rows
 never repeat, bit-identical throughout — against the 7.45x section 12 quoted from
 the re-test's projection for the module candidates alone. `Program.pruned()` is
 applied by `Registry.register_module` and `runtime.save_program`, preserving
-semantics over 3,875 row comparisons on every fixture; it removes a 62%
+semantics over ~~3,875~~ 5,475 row comparisons on every fixture *(§62 audit:
+`prune_fixtures.json` sums to 5,475 over six fixtures)*; it removes a 62%
 description overstatement from an abstracted export, but **does not move the
 section 10 crossover** (still 2 call sites) and fixes only 1 of 5 learned
 modules, because most of the "5 gates where 4 suffice" surcharge is redundant
@@ -862,7 +918,9 @@ against a random control of 0/400. Both hand-supplied priors ablate away — the
 wider spaces reach the identical function — which is exactly the enumeration
 certificate the hand-initialization rule now asks for. The module is hardened,
 registered, applied at every position by three caller nodes at max error 0.0,
-and then **chosen** by a second program over a same-shaped distractor.
+and then **chosen** by a second program over a same-shaped distractor
+**[single-configuration evidence: the choice is a two-element space at one
+configuration. A single-configuration `unique` certificate is not evidence of a correct schema — §53 arm F, §60]**.
 
 **The agent caught two of its own dial faults**, reproducing the F-bench trap:
 requesting 12 widgets at `min_size 6` achieves 3, the same as requesting 6; and
@@ -901,11 +959,16 @@ pre-audit stream only; §45 proves no conforming program exists in this scaffold
 on the re-drawn stream, and shows the capability was counting rather than
 balancedness.** Against a 0.548 majority constant, 0.5 random, and a 0.648 best fitted-feature baseline
 whose training-perfect features collapse to the constant off-distribution.
-Trained only on lengths {2,4,6} — twelve distinct strings — **[§62: the next
-clause overstates. `final_eval.json` gives `per_length {8:1.0, 10:1.0, 12:1.0,
-14:1.0, 16:0.5}` — the single error in 724 *is* the length-16 case, as §45 notes
-and this section did not.]** it is exact at
-lengths 8 through 16 and at a nesting depth never seen.
+Trained only on lengths {2,4,6} — twelve distinct strings — ~~it is exact at
+lengths 8 through 16~~ **[§62 audit, corrected 2026-09-10: it is exact at
+lengths 8, 10, 12 and 14 and scores 0.5 at length 16 — `final_eval.json`
+`per_length {8:1.0, 10:1.0, 12:1.0, 14:1.0, 16:0.5}`; the single error in 724
+*is* the length-16 case, as §45 notes and this section did not]** and at a
+nesting depth never seen. **[§62 audit: the stage-B search was `unique: false` with 10
+conforming (`stage_b.json`), and declaration-order ranking picked the member that
+fails at length 16; §63 found the shipped demo was running a different, 1.000-scoring
+member of the same ten-way tie.]** **[single-lesson evidence: one lesson of 179, one
+scaffold, one stream — the pre-audit one]**
 
 **The lexical unit was discovered, not given.** `role="byte"` gives the agent no
 notion of a symbol, so stage A learns `open(text,i) = eq(index(bytes, base+i), c)`
@@ -972,14 +1035,16 @@ always-False **1.00**: the demo track's 3.00/4 **does** reproduce, and the
 demo track was right and this section's retraction of it was not. Original text
 follows, retained rather than deleted.
 
-~~Did not reproduce.~~ The demo track reported that a constant answer scores
+~~Did not reproduce. The demo track reported that a constant answer scores
 3.00/4 on the joint result's own 16 test episodes, and used that to argue the
 record's baseline was understated. Measured directly on those same 16 episodes
-with the same objective cycling: **always-True 2.00/4 and always-False 2.00/4**,
+with the same objective cycling: always-True 2.00/4 and always-False 2.00/4,
 so the best constant is 2.00/4, not 3.00. The correction the demo makes by
 scoring against a 64-episode extension is still reasonable practice, but the
 specific claim that motivated it is not supported and is recorded here as
-unreproduced rather than propagated.
+unreproduced rather than propagated.~~ *[Struck by the record-audit gate,
+2026-09-10, so the withdrawn paragraph reads as withdrawn; the words are
+unchanged.]*
 
 **One blocker statement in that report is ahead of its evidence.** It states
 that reward-only REINFORCE now reaches 4.000 on 8/8 seeds, superseding the
@@ -996,14 +1061,23 @@ Full detail in `research/object-identity/RESULTS.md`.
 list leaves the rendered image bit-identical while changing every foreground
 pixel's `object_ids`; re-drawing every object's colour leaves `object_ids`
 identical while changing the image. So **`object_ids` is not a function of the
-image at any context size**, up to all 6,912 bytes. Section 14's per-pixel
+image at any context size**, up to all 6,912 bytes. Section 14a's per-pixel
 certificate is a special case of this. Verified independently from the
 supervising session: permuting the object list left the image identical in 8 of
 8 episodes while the labels changed, and one counterexample suffices for a
 "not a function" proof.
 
-The 15-context by 12-target ceiling table agrees — advantage exactly 0.0000 at
-every context for `object_ids`, `raster_rank` and `is_object_0`, and negative
+~~The 15-context by 12-target ceiling table agrees — advantage exactly 0.0000 at
+every context for `object_ids`, `raster_rank` and `is_object_0`~~ **[§62 audit,
+corrected 2026-09-10: `out/bounds.json` holds 210 rows, 15 contexts × 14
+targets. Advantage is exactly 0.0000 for those three targets at every
+*raw-byte* context — pixel, pixel + position, pixel + right neighbour,
+4-neighbourhood, 3×3 window, pixel + global colour rank — which is the qualifier
+the track's own report carries and this section dropped. At the derived
+equality, background and chroma contexts it is non-zero in 8, 8 and 2 of the 15
+contexts respectively, up to +0.2018 (`eqbg_cross4`, `raster_rank`). The
+structural permutation certificate above does not depend on this table and is
+what carries the section's conclusion.]**, and negative
 when restricted to foreground. Key recurrence **falls** from 0.469 at one pixel
 to 0.264 at 3x3: a wider window transfers less, not more.
 
@@ -1025,7 +1099,10 @@ exhausted by a prefix-reusing walk in 196 s (against `enumerate_fit`'s projected
 
 **The merged `operator_parameters` fix pays off immediately**: those three caller
 nodes are now *discovered* rather than supplied — 8 programs, exhausted, unique,
-0.1 s — closing the positional-reuse track's D4.
+0.1 s **[single-configuration evidence: an eight-program space, one run, one
+resolution (`out/discoverable.json`). A single-configuration `unique`
+certificate is not evidence of a correct schema — §53 arm F, §60]** — closing
+the positional-reuse track's D4.
 
 **A refinement that changes the fix now in flight.** The track reproduced the
 dead-surrogate fault in `le` (`sigmoid(d/tau)` exactly 0.0 in value and
@@ -1047,8 +1124,11 @@ loss minimum sits rather than only whether a gradient is nonzero.
 
 **It generalizes.** `world_2d` and `world_3d`'s `agent_0/visible_ids` is
 undetermined for the same reason, and the collinearity module transfers to both
-unchanged at held-out 1.000000 with no re-search — it is a property of the
-shared renderer rather than of one generator.
+unchanged at held-out 1.000000 *[§62 audit: against majority baselines 0.9290
+(`world_3d`) and 0.9489 (`world_2d`), `out/world3d.json`]* with no re-search — it is a
+property of the shared renderer rather than of one generator **[single-renderer
+evidence: `world_2d` and `world_3d` share the renderer, so this is one renderer,
+not two domains]**.
 
 ## 22. CORRECTION: a policy CAN be learned from reward here
 
@@ -1141,7 +1221,9 @@ generator against the shipped reward:
 
 The learned content is `pos = sub(length, 1)` — a **computed** address chosen over
 fifteen constant ones, with enumeration certifying the conforming address unique
-in a 136-candidate space — plus `shift = add(value, 1)` and
+in a 136-candidate space **[single-task evidence: one task, one document family,
+one generator configuration; and the certificate is conditional — the full
+`SearchResult` is `unique: false` with 2 conforming]** — plus `shift = add(value, 1)` and
 `brand = eq(terminal[0], '{')` as the perceptual predicate deciding read from
 write.
 
@@ -1218,12 +1300,14 @@ heuristic that reported 1.000 in both regimes and measured nothing. On four
 sampled lessons the legacy stream scores 1.000 for every one, winning through
 `nearest_neighbour`, `choice_in_observation`, `prompt_length` and
 `choice_ranker` respectively, while the hardened default scores 0.580, 0.205,
-0.230 and 0.300 with the oracle unchanged at 1.0. Exploits collapse; the lessons
+0.230 and 0.300 *(prose-only: no raw file records these four — §62 audit)* with the oracle unchanged at 1.0. Exploits collapse; the lessons
 stay answerable.
 
 **The default distribution changed deliberately**, which is the right call: an
 off-by-default fix fixes nothing. The old stream is preserved and verified as
-`hardening="none"`, bit-identical to the pre-audit generator over 179 lessons by
+`hardening="none"`, ~~bit-identical~~ **content-identical on 179/179 lessons, while
+the instance-id digests differ on 179/179** *(§62 audit: `stream_legacy.json` vs
+`stream_preaudit.json`)* to the pre-audit generator over 179 lessons by
 12 configurations by 8 seeds — 17,184 episodes — against a digest taken from an
 independent pre-audit copy of the sources. Under the new default exactly 16
 lessons change, the 14 plus two composers that draw sub-episodes; the other 163
@@ -1278,13 +1362,16 @@ exact frozen agent.
 only and opt-in. On `le` over bytes the shipped temperature is numerically dead
 past |d| >= 17 **yet keeps its loss minimum on the correct threshold**, while
 the carrier restores the derivative and moves that minimum onto a wrong one,
-collapsing the loss spread by two to three orders of magnitude. A margin is a
+collapsing the loss spread ~~by two to three orders of magnitude~~ **about 47×**
+*(§62 audit: 10.009 → 0.2142, `core-gradient-fixes/measure.json`)*. A margin is a
 property of the decision being learned rather than of the declared type, so no
 constant was invented for that family. `eq`'s own width biases a
 constant-selection minimum by two bytes while buying 0/12 to 12/12 on a
 free-address benchmark — a trade, not a free win.
 
-**The language track is not unblocked: still 0 of 44.** Section 19 called the
+**The language track is not unblocked: ~~still 0 of 44~~ none conforms** *[§62 audit:
+`core-gradient-fixes/language.json` records 36 gradient runs, 22 of them after the
+fix; 44 is §19's pre-fix count]*. Section 19 called the
 temperature separation a prerequisite. It is one, and it is not the remedy.
 
 Liveness, measured per candidate per example: **92 of 256 candidates were live
@@ -1322,6 +1409,9 @@ reinterpretation stays forbidden:
 | **symbol -> intensity** | **illegal** |
 | intensity -> category | illegal |
 
+*[§62 audit: the `symbol -> intensity` row was never measured — `out/legality.json`
+has no `symbol` entry.]*
+
 and arithmetic opens only where it should: illegal on `byte`, illegal on
 `category`, legal on `intensity`.
 
@@ -1334,9 +1424,11 @@ asymmetry.
 
 **The result.** A 3x3 Sobel-x over raw geometry pixels, nine trainable weights,
 learned straight from bytes: 4/4 seeds recover the exact reference kernel at
-held-out max error 0.0 after integer rounding, against 2.18e4 for the best
-constant, and applied at every position by the shipped three-node caller at max
-error 0.0 for R=8 and R=16.
+held-out max error 0.0 after integer rounding, against ~~2.18e4~~ 2.17e4 for the best
+constant *(§62 audit: 2.18e4 is `predict_zero`; the best constant is
+`predict_train_mean`)*, and applied at every position by the shipped three-node caller at max
+error 0.0 for R=8 and R=16 **[single-configuration evidence: 4 seeds, one kernel
+(Sobel-x), one generator]**.
 
 **The isolated control is what makes it credible.** The identical 729-program
 space, with the byte exiting through `pack` — the object-identity loophole —
@@ -1354,7 +1446,7 @@ discrete analogue, whose 1,953,125 programs project to 1,211 s exhaustive.
 widens 216x (32,000 to 6,912,000) and the projected conforming set 63x, so
 enumeration pays while relaxation does not — and with 63x more conforming
 programs `enumerate_fit`'s tie-break has far more ways to be wrong, which
-section 14 already measured going wrong on this exact fixture. Nothing
+section 14a already measured going wrong on this exact fixture. Nothing
 previously solvable became unsolvable, and the conforming set improved
 qualitatively: held-out-exact fraction 0.84 to 0.91, because an ordering
 predicate on an intensity generalizes across shades where equality against a
@@ -1397,7 +1489,8 @@ it to the shipped `Agent`, rolls out and sums reward components, with an
 27-episode staged result of section 22 reproduces through the backend and now
 carries a certificate the bespoke loop could not produce: **supervision proves 2
 of 512 programs conform — probes determine everything except one bit — and
-reward proves 1 of those 2.** Unstaged, the same answer costs 512 episodes and
+reward proves 1 of those 2.** **[single-configuration evidence: a residual space of
+2 at one setting. A single-configuration `unique` certificate is not evidence of a correct schema — §53 arm F, §60]** Unstaged, the same answer costs 512 episodes and
 still leaves 256 conforming, or 8,192 episodes for 8. So staging is a **300x
 episode ratio with the better certificate on the cheaper side**.
 
@@ -1484,7 +1577,9 @@ in `discount`, falls into the trap on 4/4 seeds, committing first at 0.0664
 against the exactly computed myopic value of 0.0625; gamma=0.5 sits between, as
 the 0.394 threshold predicts. `flat` scores 0.026, `probe_only` scores 0.000
 reproducing F-init, and `reward_percept` scores 0.0625, re-measuring the
-`unpack` gradient boundary of section 23.
+`unpack` gradient boundary of section 23 **[single-seed-set evidence: `flat`,
+`probe_only` and `reward_percept` are 3, 2 and 3 seeds, quoted as bare point values,
+on one `interface='panel'` configuration]**.
 
 **What reward-only does not learn is the argument sub-action.** It widens its
 slot sampler instead of selecting the sweep (0.594 sampling, 0.240
@@ -1505,6 +1600,10 @@ checks make reward-only, supervision-only and gamma=0 arms inexpressible, which
 is why the track re-implements `JointTrainer.episode` rather than using it.
 
 ## 30. Module selections transfer across widths; a hardened module does not
+
+**[BOUNDED BY §60 — read that before citing this section.]** The selections transfer
+across widths *within one domain*. Across a domain boundary §60 found the schema
+instantiates but the certified vector scores 0 where no-library scores 1.
 
 Surfaced by the object-identity track while its positional-application loop
 crashed, and worth recording because it is a real constraint on the composition
@@ -1588,7 +1687,9 @@ Every search exhausted. S0: 256/256, 2 conforming, 1 distinct function, held-out
 error 0.0 — and a 16,384-program `--free` ablation returns the *same single
 function*. S1: 400/400, 2 conforming (a literal swapped pair, one predicate),
 with offsets `[3, 96]` discovered rather than supplied. **S2: 25/25, 1
-conforming, certificate `unique`.** Random controls scored 2/400, 0/400, 1/400
+conforming, certificate `unique`.** **[single-configuration evidence: a 25-program
+space at one screen configuration — resolution 32, palette 32, nesting 5,
+min_size 4; no second resolution or palette was run. A single-configuration `unique` certificate is not evidence of a correct schema — §53 arm F, §60]** Random controls scored 2/400, 0/400, 1/400
 and 4/50. No gradient arm was needed.
 
 **Running it found three faults in the draft, and two were the same fault.** Fill
@@ -1640,7 +1741,8 @@ zero-channel tests agree at all 16,384 pixels, so the supervision does not
 separate them. T1 exhausts 5/5 with **3 conforming, not unique**. The best anchor
 is the widget text origin at 1.000 on 80 balanced held-out pairs against a 0.500
 baseline, but that sample contains no colliding pair; over all 8,385 held-out
-pairs it is 0.9957 with all 36 errors on the two known collision classes. One
+pairs it is 0.9957 *[§62 audit: against an always-different baseline of 0.9741 on that
+same set, `visual-ladder/out/rung2.json`]* with all 36 errors on the two known collision classes. One
 unexplained observation is recorded rather than smoothed over: 10 `('i','i')`
 false negatives in training.
 
@@ -1673,7 +1775,10 @@ instruction set's executor from `evaluate`: space 432, exhausted, 2 conforming
 and extensionally identical, held-out max error 0.0 on 1,952 examples,
 recovering the table bit order and selector. Stage B, supervised on **behaviour
 only**, recovers the emitter: two searches of 4,096, **conforming = 1,
-certificate `unique`** on both heads.
+certificate `unique`** on both heads **[single-configuration evidence: one target
+shape (the Shannon skeleton) at width 3 and one address layout; the negative
+control earns 16 conforming per head from a different slice, so the certificate is
+slice-dependent. A single-configuration `unique` certificate is not evidence of a correct schema — §53 arm F, §60]**.
 
 **It generalizes structurally, not just across seeds.** Verified from `run.json`:
 **228 of 228** unseen behaviours on a structural split trained only on weight-2
@@ -1686,7 +1791,8 @@ and **0 of 240** held out, with 16 conforming per head rather than one — the
 supervision genuinely cannot identify the emitter from that slice.
 
 Staging again carried it: 16.7M programs to 8,192, a projected 7.2 hours to
-4.4 seconds.
+4.4 seconds *[§62 audit: `out/run.json`'s own `projected_seconds` is 80,530.6 s =
+22.4 h; 7.2 h is the second of two documented projections]*.
 
 ## 35. The export size is a JSON envelope, measured
 
@@ -1695,6 +1801,10 @@ that GitHub refused the push. Since the project's central claim is that these
 run on a light desktop, that number needed settling rather than explaining away.
 
 Measured from the supervising session:
+
+*[§62 audit: the gzip -9 column has no raw file — `sizes.json` stores only the gzip of
+the minified JSON, and the four `.pyz` files are not committed. The raw column is
+checked against `pyz_*.json`.]*
 
 | export | raw | gzip -9 | ratio |
 |---|---|---|---|
@@ -1728,12 +1838,16 @@ the 0.0487 ms figure that excluded everything around the program).
 **4.06 ms** (164); computer **981 ms per step**, of which the frozen program is
 **13.2 ms** and the live OS is **968 ms**; the visual parse **15.4 s** (64,346
 operations). Deployed as `.pyz` under `python3 -I` with no torch and no
-repository installed: **19-60 MB RSS, 51-410 ms cold start**, every artifact
-correct.
+repository installed: **19-60 MB RSS, 51-410 ms cold start** for mixed, language
+and computer, every artifact correct **[§62 audit: the range silently omitted the
+fourth artifact — `visual.pyz` is 377.5 MB RSS and 5,179 ms cold start
+(`out/pyz_visual.json`), larger than the 270.8 MB torch baseline §43 compares
+against]**.
 
 **Where the time goes, and it is not the method.** Verified independently here
-from `out/profile.json`: `Type.decode`, `Type.encode`, `validate_raw` and their
-guards account for **97.7%** of execution, while **operator semantics plus the
+from `out/profile.json`: `Type.decode`, `Type.encode`, `validate_raw`, their
+guards and the Type/Value dict round-trip account for **97.7%** of execution
+*(§62 audit: the four roles first named alone are 93.8%)*, while **operator semantics plus the
 graph walk are 0.32 s of 56.87 s — 0.56%**. Cost is roughly 3.5 us plus 0.07 us
 per element of the widest value on an edge, so `execution_cost` is **blind to the
 dominant term** and every cost figure in this repository has been measuring the
@@ -1741,9 +1855,12 @@ wrong thing. Two caches give 3.4x with bit-identical outputs; interning `Type` a
 load gives 4.1x on the exported path.
 
 **Size resolves the same way.** `visual.pyz` is 117.7 MB of which **99.68% is
-repeated type declarations**; the program itself is 41 KB, its constants 4.6 KB,
-and the **learned content is 21.3 bits**. It gzips to 149 KB, consistent with the
-206x compression measured in section 35.
+repeated type declarations** *[§62 audit: 99.68% is the share of the 35.3 MB minified
+JSON (`out/sizes.json`); 88.0 MB of the 117.7 MB is indentation]*; the program itself is 41 KB, its constants 4.6 KB,
+and the **learned content is 21.3 bits**. It gzips to 149 KB ~~, consistent with the
+206x compression measured in section 35~~ *[§62 audit: 149 KB is the
+minified-then-gzipped JSON, 831× the `.pyz` (`out/sizes.json`); §35's 206× is the
+as-shipped `.pyz` gzip, a different measurement]*.
 
 **The honest claim, in the track's own words:** after crystallization the
 artifact is ordinary software — hundreds of typed nodes, tens of KB, no
@@ -1814,7 +1931,10 @@ asserted by a test.
 Seasons genuinely **repair** the incumbent (2.531 to 2.938, and on mixed 5/8 to
 8/8 and 7/8 to 8/8) and still lose decisively. Step-matched argmax reaches 8/8 on
 20-30% fewer forward passes and 3.625 against 2.594 on joint using **9.3x fewer
-environment episodes**. The population equals the same members with selection
+environment episodes** *[§62 audit: the table above reports
+`post_crystallization.mean_return` (2.938 / 2.531) while 3.625 / 2.594 are frozen
+returns — two metrics; and 9.3× is against `argmax@shipped`, the step-matched
+figure is 2.7×. The raw data is on branch `seasons` only]*. The population equals the same members with selection
 switched off, and loses to a single argmax run given its summed budget.
 
 **That is the fourth independent confirmation** — after the ablation, DARTS-PT
@@ -1996,7 +2116,7 @@ from raw JSON in the supervising session, not taken from the agent's summary.
 **First, a correction to the standing task list.** The overnight priority list
 carried "wire the MDL term into `synthesis.fit`, which has no cost term" from
 track 5 F3, and I repeated it verbatim in the brief. **It is stale.** `fit` has
-accepted `mdl_weight` since §14 merged, scaling ARCHITECTURE §8's
+accepted `mdl_weight` since §14b merged, scaling ARCHITECTURE §8's
 `L_program_description` at `tcn/synthesis.py:32,131`. The genuine gap was
 narrower — `fit` never forwarded `rank` to the discrete backends — and is fixed
 on the branch with the default unchanged. **A priority item that a merged section
@@ -2004,7 +2124,8 @@ already closed will otherwise be re-dispatched indefinitely.**
 
 **Q1: preferring shorter programs buys nothing here, and it is certified rather
 than argued.** Five declared spaces exhausted: mixed 1/96 `unique`, visual S2
-1/25 `unique`, S0 2/256, S1 2/400, language 10/45,375. Verified from
+1/25 `unique`, S0 2/256, S1 2/400, language 10/45,375 **[single-configuration evidence: each space is
+one scaffold at one configuration. A single-configuration `unique` certificate is not evidence of a correct schema — §53 arm F, §60]**. Verified from
 `out/language_family.json`, the only set whose members differ:
 
 | description bits | bytecodes | execution cost | nodes | unseen accuracy |
@@ -2036,12 +2157,15 @@ propagate into it.
 
 **Program length is a property of the scaffold, not of the selection.** Sweeping
 `rect_scaffold`'s span with every space exhausted certifies `none exists` at
-spans 4 through 29 and `unique` at 30 — so 549 scaffold nodes against the shipped
+~~spans 4 through 29~~ **spans 4, 8, 12, 16, 20, 24, 28 and 29** — the eight spans actually
+enumerated in that range, not all 26 *(§62 audit; plausible by monotonicity, not
+certified)* — and `unique` at 30 — so 549 scaffold nodes against the shipped
 585 is the true minimum, not a lucky find. Accuracy stays 1.000 at max error 0.0.
 Whole parse: 650,571 → 630,626 bytecodes against hand-written 58,859.
 
 **That closes 3.1% of the 27.6× gap, and wall clock does not move.** The
-compiled-runtime decomposition (11.1× more bytecodes × 2.25× per bytecode) is
+compiled-runtime decomposition (11.1× more bytecodes × 2.25× per bytecode — which
+multiply to 24.9×, `attribute_visual.json`'s own total, not the 27.6×; §62 audit) is
 therefore not addressable by ranking within a fixed scaffold. Whatever the visual
 program computes in excess of the hand-written reference is structural.
 
@@ -2066,6 +2190,18 @@ it symlinked the branch gives **336 passed, 1 failed**, and the base commit give
 313 passed, 1 failed, in both cases the known worktree-only
 `test_panel_interface` failure already documented in `research/MERGE-QUEUE.md`.
 
+## 42. [Number never assigned — citations of §42 mean §48]
+
+**Added by the record-audit gate, 2026-09-10. Not a finding.** No section 42 was
+ever written in any commit: `git log --all -S'## 42.'` over this file returns
+nothing, and the `compiled-runtime` branch's FINDINGS stops at §38. The number
+was reserved for the compiled-runtime track's section in a merge dry-run
+(`research/MERGE-QUEUE.md`) that was superseded, and that section landed as
+**§48**. `HANDOFF.md`, `README.md`, §45 and several commit messages cite "§42"
+for the interpreter-overhead result; read every such citation as §48. This
+heading exists so those citations resolve and the numbering has no silent gap;
+no existing section was renumbered.
+
 ## 43. Matched neural baselines exist now, and the answer differs per artifact
 
 `research/neural-baselines/RESULTS.md`, branch `neural-baselines` (92ca646),
@@ -2089,8 +2225,11 @@ documents in the repository.
 Verified from `out/visual.json`: **nine** arms, three CNN widths (10,867 /
 40,099 / 153,859 parameters) × three budgets, and **every one scores 0.0 exact
 trees**. Best rectangle accuracy is 0.665 at 192 screens — 32× the typed
-program's 6 — and links reach 0.469. The typed program takes 20/20 rectangles,
-20/20 parent links and an exact tree on every held-out screen from 6 screens.
+program's 6 — and links reach 0.469. The typed program takes ~~20/20 rectangles,
+20/20 parent links and an exact tree on every held-out screen~~ **227/227 rectangles
+and 227/227 parent links, 12/12 exact trees, over 12 held-out screens of 15–20
+widgets each** *(§62 audit: 20/20 holds on 8 of the 12; `out/tcn_visual.json`)* from
+6 screens.
 The trivial reference is reported beside it and matters: `no corner here` scores
 **0.9815** per position, so per-position accuracy on this task is nearly
 uninformative and only the exact-tree column means anything.
@@ -2120,9 +2259,15 @@ live score`, which is the right disclosure and is generous to the baseline.
 Typed scores 10/10. Latency 13.35 ms against 0.39–9.85 ms is the same order and
 either way is ~1.5% of the 866 ms kernel step.
 
-**The one cost axis the typed side wins across the board** is deployment
+~~**The one cost axis the typed side wins across the board** is deployment
 footprint: 24–60 MB and 91–479 ms stdlib-only, against ~270 MB and 1.7–7.2 s just
-to import torch.
+to import torch.~~ **[§62 audit, corrected 2026-09-10 — this changes a verdict, not
+only a figure:]** deployment footprint is **not** won across the board.
+`language.pyz` and `computer.pyz` run in 24–60 MB and 91–479 ms stdlib-only, against
+~270 MB and 0.83–9.59 s just to import torch (`neural-baselines/out/latency.json`;
+per-arm medians 2.59 / 4.23 / 6.00 s). But `visual.pyz` is 377.5 MB RSS and 5,179 ms
+cold start — larger than the 270.8 MB torch baseline. Only the compiled visual
+zipapp of §48 (30.2 MB, 90 ms) wins there.
 
 **Verified against the track's own protocol rules:** `tcn/` and `generators/` are
 byte-identical to main (`git diff --stat main...HEAD -- tcn/ generators/` is
@@ -2178,7 +2323,9 @@ Re-deriving every intermediate node's truth table from `out/corpus_exact.json`
 and testing against `MAJ3` and `M` over **all ordered 3-subsets of the 4 inputs**
 (the naive check using only `(a,b,c)` is unfair to tasks like `t3_maj_bcd`):
 
-- a `MAJ3` body survives in **1 of 6** solved programs;
+- a `MAJ3` body survives in **1 of 6** solved programs *[§62 audit: under the declared
+  `and/or/xor` operator order; it is 2 of 6 when `or` is declared first —
+  `out/order_robustness.json`]*;
 - an `M` body survives in **4 of 6**, matching the rule's own site count.
 
 So the rule mined exactly what recurs. **CORRECTED BY §46 — read that before
@@ -2270,7 +2417,7 @@ post-audit number is: no conforming program in the shipped scaffold, certificate
 **Why this matters beyond the language track.** Two independent measurements this
 session now locate their limit in *what the representation can express* rather
 than in search or compute: this one, where the scaffold cannot say "running
-minimum", and §42/§41, where the algebra is provably total and eager so
+minimum", and ~~§42~~ §48/§41, where the algebra is provably total and eager so
 early-exit is inexpressible. See
 `research/algorithm-resynthesis/DESIGN.md` for the design study that follows from
 the pair.
@@ -2334,7 +2481,8 @@ should be represented.
 **Both changes are required; neither suffices.** Semantic pooling on `C-min`
 still ranks `MAJ3` nowhere (`rank1_computes_maj3: false`) because the abstraction
 is absent from that corpus. A richer corpus under syntactic identity still ranks
-it 11th to 18th. Only retaining multiple minima **and** pooling semantically
+it ~~11th to 18th~~ 11th to 65th *(§62 audit: `C-plus1`, in the table above, ranks it
+65th)*. Only retaining multiple minima **and** pooling semantically
 reaches rank 1.
 
 **Cost, reported honestly.** 7.6× DFS nodes and 12.9× CPU overall — but the half
@@ -2383,12 +2531,19 @@ identically on a scaffold with 110 solutions and one with provably zero is not
 searching that scaffold at all.
 
 The mechanism is measured, not inferred: `symbols` has a first-step gradient of
-**exactly 0.0**, so both scaffolds select the **identical `c` at every seed**,
+**exactly 0.0 at `tau_lt=0`** *(1.8e-08 and 8.3e-09 at `tau_lt=128` — §62 audit)*, so
+both scaffolds select the **identical `c` at every seed in 3 of 4 arm pairs**
+*(at `tau_lt=128, steps=3000` they diverge: dyck `[0,47,48,47,48,48,0,47]`, counting
+`[62,62,62,61,62,62,62,61]`, `out/q2_summary.json`)*, largely
 unchanged by 5× the budget, and `min_ok` was correct in **0 of 32** min-prefix
 runs. This is the fourth instance of the §16 family — a surrogate that is
 identically zero at the operating distances — and the track states plainly that
-0/8 alone cannot separate a bad optimiser from an unlucky one; **the seed-for-seed
-identity is what does**.
+0/8 alone cannot separate a bad optimiser from an unlucky one; ~~**the seed-for-seed
+identity is what does**~~ **the identical median 0.4738 in all eight arms, with the
+seed-for-seed identity in 3 of 4 pairs, is what does**.
+
+**[Q3 is BOUNDED BY §50 — the probe does not generalise; the operator sweep was doing
+the work.]**
 
 **Q3 — I predicted a negative here and was wrong.** The brief said "a negative
 here is expected and valuable: if nothing in the system can propose it, scaffold
@@ -2461,7 +2616,10 @@ with `sys.monitoring`: language is 7.9x the bytecodes of hand-written code and
 7.1x the time, at a *lower* cost per bytecode (2.37 ns against 2.63 ns). The
 parse's 27.6x decomposes as **11.1x more elementary operations** — the S2 module
 is a fixed-depth 30-term formulation with no early exit — times 2.25x per-bytecode
-cost. **Native compilation would attack only the 2.25x**; the 11x is what the
+cost **[§62 audit: 11.052 × 2.249 multiply to 24.9x, `attribute_visual.json`'s own
+total, which times the hand-written reference at 0.209 ms; the 27.6x in the table is
+`bench_visual.json`'s, at 0.186 ms. Both runs are real; the decomposition belongs to
+the 24.9x]**. **Native compilation would attack only the 2.25x**; the 11x is what the
 program says to compute, and the lever for it is a search that finds shorter
 programs, not a faster backend.
 
@@ -2522,7 +2680,8 @@ anti-unification rather than supplied.
 
 **And a pre-registered criterion fails, which is the more important half.** On
 the distribution the shipped parse *actually feeds* S2 — corner positions, 54 of
-2,883 interior records (**1.87%**, mirroring the parse's 20-of-961 = 2.08%) — the
+2,883 interior records (**1.87%**, mirroring the parse's 20-of-961 = 2.08%, which is recorded in
+`lazy-latency/out/crossover.json`, not in this track's `out/` — §62 audit) — the
 expected-work ratio is **2.48×, below the pre-registered 3×**. Corners are
 precisely where the extent is *large*, so the loop runs longer there than at a
 random interior pixel. Quoting the 4.42× held-out figure without this row would
@@ -2628,6 +2787,9 @@ first:
 | uniform held out | 38.031 µs | 10.576 µs | 3.596× | 1.532 µs | 24.820× |
 | **worst case** | 37.025 µs | 40.892 µs | **0.905× — B is 1.105× slower** | 5.749 µs | 6.440× |
 
+**[single-subroutine evidence: one subroutine plus two miniatures; the deployment
+2.079× rests on 54 records and the worst case on a single record]**
+
 No confidence interval contains 1. Replicated at 1.853× in a separate
 stdlib-only Python 3.12 process. §49's modelled 2.48×/4.42× attenuate to
 **2.08×/3.60×** in real time.
@@ -2654,7 +2816,9 @@ hit rate of **0.798**. Deployment sits at mean 18.8 and 0.021, far below both,
 which is *why* B wins there. That crossover, not the 2.08×, is what transfers to
 other tasks.
 
-**Also:** B is **40.2× smaller on disk** and cold-starts **3.9× faster**.
+**Also:** B is **40.2× smaller on disk** and cold-starts ~~**3.9× faster**~~ **3.83× faster**
+*(§62 audit: the median, `out/deployment.json` stage 3; 3.49× by minimum. No
+denominator yields 3.9)*.
 
 **Method note, and it is why this result is believable.** The track recorded
 **five amendments to its own pre-registration, each with the number it replaced,
@@ -2670,6 +2834,11 @@ Tests 336 passed / 1 failed, identical to the pre-existing worktree baseline;
 fixture reproduces 0.248836 → 0.002231 at 4/4.
 
 ## 52. Semantic pooling survives its control — and the failure moves from identity to ranking
+
+**[BOUNDED BY §57 — read that before citing this section.]** Pooling reaches the
+ceiling on family 1 on both bands and on family 2's high-fragmentation band, and
+**loses** on family 2's `C-minall` band. "Established improvement" below holds only
+within those bounds.
 
 `research/semantic-library/RESULTS.md`, branch `research/semantic-library`
 (`1230a67`), **not merged at time of writing**; `tcn/` untouched.
@@ -2693,8 +2862,14 @@ controls reach **0**:
 | **wrong, pooled — runner-up class** | **0** | true | `complete` |
 | **wrong, pooled — off-family corpus** | **0** | true | `complete` |
 
+*[§62 audit, cross-reference to §55: `arm2_syntactic` and `arm4s_runnerup` are one class
+(`tt/3/57`, `class-identity/out/q2_partition.json`) — the same space exhausted twice
+under two names, so this table overstates the distinct controls by one. The verdict
+is unaffected; both score 0.]*
+
 The strong form: of **13** eligible arity-3 pooled classes swept, exactly **one**
-yields any conforming program, and it is the one the rule ranks first. So the
+yields any conforming program, and it is the one the rule ranks first **[single-family evidence: one family (MAJ3),
+one scaffold geometry; the 13-class sweep is one corpus]**. So the
 pooling is genuinely selecting, unlike §47 Q3's probe where deleting the
 diagnosis *improved* the result.
 
@@ -2744,6 +2919,10 @@ library induction. The open question it hands forward is a ranking objective tha
 does not penalise breadth.
 
 ## 53. Width-polymorphism is already reachable without weakening typing — and certifying at one width proves nothing
+
+**[BOUNDED BY §60 — read that before citing this section.]** "Selections transfer
+completely" holds across widths *within one domain*; across a domain boundary the
+certified vector does not transfer.
 
 `research/depth-encoding/RESULTS.md`, branch `worktree-agent-a8d788159e4f7d7a0`
 (`a6547f5`), **not merged at time of writing**; `tcn/` and `generators/`
@@ -2808,8 +2987,9 @@ schema.** Any future width-polymorphic claim must certify at two or more widths,
 and this repository has been treating single-width `unique` as strong evidence.
 
 **Disclosed by the track, not by me:** pre-registered criterion 4 ("arm B stays
-at or below its best constant at every `d′`") **failed as written** — 4 of 24
-cells sit above by 0.0625–0.1875 on a 0–4 scale at n=64, margins of one or two
+at or below its best constant at every `d′`") **failed as written** — ~~4 of 24~~ 6 of 24
+cells sit above by 0.0625–0.1875 *(§62 audit: `record.json` transfer means against
+`baselines.json` best constants)* on a 0–4 scale at n=64, margins of one or two
 episodes' reward, with arm B's spread straddling the constant in both directions.
 The criterion was too tight for a control with that per-episode variance; the
 substantive claim is unaffected, and the failure is recorded rather than
@@ -2840,12 +3020,12 @@ by 0.85%. This finds objectives that do not. Verified here from raw JSON.
 
 | objective | rank-1 digest across all six corpora | helps, of 5 held-out | off-family controls |
 |---|---|---|---|
-| O1 `description_bits` summed (incumbent) | **flips** — two digests | 2 of 5 (§52) | 0 |
+| O1 `description_bits` summed (incumbent) | **flips** — ~~two~~ three digests *(§62 audit: `165bc290`, `08735e50`, `0ba4287a`)* | 2 of 5 (§52) | 0 |
 | **O2 breadth-weighted** `|T(c)|·Σs_e − D` | **one, stable** `165bc290d9c8` | **5 of 5** | 0 |
 | O3 per-task mean | one | 0 of 5 | 0 |
 | **O4 in-corpus leave-one-out CV** | **one, stable** `165bc290d9c8` | **5 of 5** | 0 |
 | O5 measured-cost-aware | flips | 0 of 5 | 0 |
-| **B1/B2 frequency count** | one | **0 of 5** | 0 |
+| **B1/B2 frequency count** | one for B1; B2 flips *(§62 audit)* | **0 of 5** | 0 |
 
 Every enumeration `exhausted: true`, certificate `complete`,
 `evaluated == space_size` — verified across all 70 rows. Both off-family controls
@@ -2922,8 +3102,9 @@ yields a conformance check, never a uniqueness certificate.**
 Arm F1 is refused by the **two-width rule** — certified at one width, whatever
 its certificate. Arm F2 is refused by **vector agreement** — admitted at two
 widths, the stored vector scores 1.75 at the second. Bypassing R1 on purpose to
-build the unsound format hands a consumer **1.625 / 1.9375 / 2.125** at widths 5,
-7 and 12 — at or below best constant every time. So §53's caution is now
+build the unsound format hands a consumer **1.625 / 1.9375 / 2.125** at ~~widths 5,
+7 and 12~~ depths 5, 7 and 12 *(widths 15, 21, 36 — §62 audit; the artifacts' `per_width`
+keys are depths)* — at or below best constant every time. So §53's caution is now
 enforceable, not just stated.
 
 **A core change is premature, and my own design study was wrong in one part.**
@@ -2945,6 +3126,11 @@ exhausted twice under two names. §52's verdict is unaffected (both scored 0), b
 it means §52's arm count overstates the distinct controls by one.
 
 ## 56. The residual 6.2× is representational, not structural — and the compiled path can beat hand-written Python
+
+**[BOUNDED BY §59 and §61 — read those before citing this section.]** The 2.834×
+attribution is correct for the ladder it measured and has twice failed to predict
+the gain from an actual implementation (1.10× and 1.08×). "That engineering closes
+the gap completely" is a statement about this ladder, not about `tcn/compile.py`.
 
 `research/residual-gap/RESULTS.md`, branch `worktree-agent-ae2285740a6b89153`
 (`7935f00`), **not merged at time of writing**; `tcn/` and `generators/`
@@ -2970,10 +3156,11 @@ and it closes to 1.8502 against log(6.364) = 1.8506.
 | R6→R7 | loop-shape | 1.052× | 2.7% |
 | **R3→R4** | **short-circuiting a learned truth table — the only structural rung** | **1.067×** | **3.5%** |
 | R1→R2 | module-call inlining | 1.022× | 1.2% |
-| R5→R6 | loop-bound strength reduction | **0.896×** *(a regression)* | −3.1% |
+| R5→R6 | loop-bound strength reduction | **0.896×** *(a regression)* | ~~−3.1%~~ −5.9% *(§62 audit: log(0.896)/log(6.364); the 93.7% and 60.7% aggregates require it)* |
 
 **Structural 3.5%, representational 93.7%, unexplained under 8% with unstable
-sign.** Under the strictest reading — counting LICM as structural — it is
+sign.** **[single-subroutine evidence: one program pair, one subroutine (S2); the
+worst-case rung is n = 1]** Under the strictest reading — counting LICM as structural — it is
 36.6% / 60.7%, so **representational dominates either way**, on all three
 distributions and in a second interpreter (6.509× out-of-process on 3.12.3).
 
@@ -3035,7 +3222,9 @@ in-family target task:
 
 On `C-trace` — §52's geometry — pooling reaches the hand-authored ceiling **under
 a different digest**, and all wrong-module arms including three distinct semantic
-classes score 0. **On `C-minall` it inverts**: plain digest identity wins and
+classes score 0 *[§62 audit: on `C-minall`, `arm4s_runnerup` and `arm4s_matched` share
+digest `1e8b0e63e5f636a7e47b08cd` (`out/arms_enum.json`) — the duplicate-control
+defect §55 found in §52, so there is one fewer distinct wrong-module arm there]*. **On `C-minall` it inverts**: plain digest identity wins and
 pooling fails. **Pooling buys rank in proportion to fragmentation**, and where the
 competitor is itself the fragmented class it loses. That boundary condition is new
 and was not visible on family 1.
@@ -3050,6 +3239,11 @@ live-control property §52 required. Checked; no contradiction.)*
 |---|---|---|---|
 | C-trace | 10 of 10 | **10 of 10 — a tie** | **10 of 10** |
 | C-minall | 11 of 15 | **11 of 15 — a tie** | **10 of 10** |
+
+*[§62 audit M11 — OPEN: the C-minall "11 of 15" cells do not reconstruct from
+`ranked_C-minall.json`, `sensitivity.json` or `heldout.json`; under O1 the window is at
+rank 1 in 1 of 6 C-minall corpora, and no committed file records a 15-task
+denominator. Left as written and flagged, not corrected.]*
 
 **O2 ties O1 on both bands** — the incumbent never flips here, tightest margin
 6.47% against §54's 0.85%. And **B1, which helped 0 of 5 on family 1 and was the
@@ -3074,6 +3268,10 @@ objective has been shown to beat the incumbent on more than one family.**
 
 ## 58. No non-trivial abstraction is shared across the real domains, and the blocker is width typing
 
+**[BOUNDED BY §60 — read that before citing this section.]** The closing claim that
+the schema mechanism is "the prerequisite for the owner's stated objective" is not
+supported: §60 found the schema crosses domains and the certified vector does not.
+
 `research/cross-domain/RESULTS.md`, branch `worktree-agent-a5dd347038d51263e`
 (`9157d15`), **not merged at time of writing**; `tcn/` and `generators/`
 untouched. `PREREGISTRATION.md` at `5d9ce5c` before any arm. Every
@@ -3097,7 +3295,10 @@ Every cross-domain class is a **single universal operator** of
 **The positive control is what makes the negative trustworthy.** The same code,
 same identity rule, on two Boolean families finds **10 non-trivial shared classes
 on the `C-trace` band and 7 on `C-minall`** (both stable at `MAX_NODES` 3 and 5).
-*(The track's summary said 5; I measured 7–10 and record the measured figures.)*
+~~*(The track's summary said 5; I measured 7–10 and record the measured figures.)*~~
+*[§62 audit: the track reports both — the `S` identity rule gives 5 on both bands and
+the `D` rule 7–10 (`out/control_3_*.json`). Two rules, not a disagreement; the track
+was not wrong.]*
 Within the visual domain alone it finds 14 shared classes, 4 non-trivial,
 including `index(x2, add(x0, x1))` shared between `V_rect` and `V_same`. **So the
 method detects non-trivial sharing when it exists — the cross-domain zero is
@@ -3185,7 +3386,9 @@ this change**, and nobody should cite §59 as delivering §56's factor.
 (full-width `add`/`sub`/`sum`, unbounded by construction) and all 14 G2 — two of
 which are an off-by-one, since a *closed* bound `(0, N)` can never prove a
 half-open index into an `N`-tuple. And visual's hot function `_m1` — **3,100
-calls per screenshot, 73.7% of bytecodes** — loses **every** guard to a missing
+calls per screenshot, 73.7% of bytecodes** *[§62 audit: the raw gives 76.0%
+new / 72.0% old; and "language −8.45%, visual −5.42%" below are −7.76% / −5.30% in the
+raw totals — data on branch `research/emitter-guards` only]* — loses **every** guard to a missing
 refinement bound on the raster address. **That missing bound is related to §56's
 load-bearing `min(·, 3069)` clamp** — **[CORRECTED BY §61: `(0, 3069)` is *unsound* as a type bound, because `_m1` reads `obs[a+2]`, which carries `a`'s type and reaches 3071. The clamp's value is not the type's bound. The sound bound is `(0, 3071)`, and only after rewriting the clamp.]**: the same fact that made §56's R5a fail its
 gate is what blocks the hot path here. A refinement type carrying that bound
@@ -3250,7 +3453,8 @@ domain the schema was not derived from, whose address cannot be constant:
 | hand-authored equivalent | 0 | true | `complete` | 150 |
 | re-selecting the schema's vector | 1 | true | `unique` | **750** |
 
-The certified class **scores zero where no-library succeeds**. The hand-authored
+The certified class **scores zero where no-library succeeds** **[single-task
+evidence: one target task, `T_C2`, n_test = 20]**. The hand-authored
 equivalent also scores 0, so **the failure is the vector, not the structure**.
 Re-selecting the vector on the new domain does solve it (picking `sub`) — and
 enumerates **the identical 750 programs**, buying nothing.
@@ -3390,7 +3594,9 @@ carries a bounding banner; the source sections do not, so a reader arriving at
 **Robustness inventory: 25 load-bearing claims rest on a single family, width,
 seed set or configuration — 16 of them undisclosed, including nine
 single-configuration `unique` certificates presented as evidence**, which §53's
-arm F and §61 both established is not evidence.
+arm F and ~~§61~~ §60 both established is not evidence *[record-audit gate: §60 is
+the section in which a wrong schema earns the same `unique`; §61 is the refinement
+bound]*.
 
 **Applied immediately:** CORRECTIONS rows 8 and 10 rewritten with the true
 figures and with the fact that they were wrong; §39 and `inference-cost/RESULTS`

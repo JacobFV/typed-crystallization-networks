@@ -39,10 +39,10 @@ fault was in the measurement, not the method under test.
 |---|---|---|---|---|
 | 1 | Typed synthesis with exact export | held-out max error ≤ 1e-7 on 584 unfitted points; exported `.pyz` runs on stdlib Python | matched MLP 1.8e-2 max / 0.232 extrapolation RMSE (`research/baselines/RESULTS.md` §3) | `scripts/demo.sh --only synthesis` |
 | 2 | Enumeration cross-check on that synthesis | unique program of 96, found in ~7 ms, identical to the gradient path's | gradient path ~3 s, no uniqueness certificate (`research/enumerative-baseline/RESULTS.md` §2) | same |
-| 3 | Structural generalization to unseen Boolean gate families | 3.38–4.00 on families never trained on, both split directions; interpreter candidate selected 8/8 unprompted | best constant 2.13–2.56; the recorded scaffold measures 1.95–2.03 and provably cannot exceed 2.00 (`research/nondegenerate-generalization/RESULTS.md`) | `scripts/demo.sh --only structure` |
+| 3 | Structural generalization to unseen Boolean gate families | 3.38–4.00 on families never trained on, both split directions *(8-seed arm means; per-seed values reach 2.75, `research/nondegenerate-generalization/out/results.json` — §62 audit)* **[single-family evidence: one Boolean gate-table pool split, one generator]**; interpreter candidate selected 8/8 unprompted | best constant 2.13–2.56; the recorded scaffold measures 1.95–2.03 and provably cannot exceed 2.00 (`research/nondegenerate-generalization/RESULTS.md`) | `scripts/demo.sh --only structure` |
 | 4 | Depth generalization from one fixed graph | trained at depths 1–2 only, scores 4.00 at depths 1, 2, 3, 4, 6 and 8, sd 0.00 over 8 seeds | best constant 2.06–2.50 per depth; 272-program space, optimum certified unique (`research/depth-generalization/RESULTS.md`) | `scripts/demo.sh --only depth` |
-| 5 | Recursive abstraction | module on the output path in 27/27 successes; arm B 8/8 wide and 19/24 tight | flat arm 0/8 and 0/24, same-size distractor 0/8 and 0/24; the 230,400-program flat space exhausted with no solution; 144 of 144 solutions use the module (`research/recursive-abstraction-retest/RESULTS.md`) | `scripts/demo.sh --only abstraction` |
-| 6 | Positional reuse | one frozen module applied at **1,024** positions of a 3,072-value observation with **three** caller nodes, exact; `--full` does 2,304 positions over 6,912 values | 17 structural symbols shared against 3N+13 per-position and 8N+1 inlined, at 0.93× execution cost (`research/positional-reuse/RESULTS.md`) | `scripts/demo.sh --only positional` |
+| 5 | Recursive abstraction | module on the output path in 27/27 successes *(chance rate 0.816 tight / 0.6886 wide, `research/recursive-abstraction-retest/baseline.json`)*; arm B 8/8 wide and 19/24 tight | flat arm 0/8 and 0/24, same-size distractor 0/8 and 0/24; the 230,400-program flat space exhausted with no solution; 144 of 144 solutions use the module (`research/recursive-abstraction-retest/RESULTS.md`) | `scripts/demo.sh --only abstraction` |
+| 6 | Positional reuse | one frozen module applied at **1,024** positions of a 3,072-value observation with **three** caller nodes, exact; `--full` does 2,304 positions over 6,912 values | 17 structural symbols shared against 3N+13 per-position and 8N+1 inlined, at 0.93× execution cost *(at N=4 in `research/positional-reuse/cost.json`; the demo measures 0.91× at N=32 — §62 audit)* (`research/positional-reuse/RESULTS.md`) | `scripts/demo.sh --only positional` |
 | 7 | Foreground/background segmentation from raw pixels | held-out max error 0.0 on 48 unseen episodes; background colour recovered over the full 0–255 byte alphabet | unique among 65,536 programs; constant predictor 0.854 (`research/perception-ladder/RESULTS.md` §4) | `scripts/demo.sh --only segmentation` |
 | 8 | Two-position edge detector, offset searched | held-out max error 0.0, accuracy 1.000, applied at every position | unique among 48 staged programs; undecomposed the same target is 4.9e10 programs, 7.6 years projected; constant predictor 0.844 (`research/discrete-perception/RESULTS.md` §5) | `scripts/demo.sh --only edge` |
 | 9 | A language task learned from raw prompt bytes | stage A discovers its own lexical unit — which byte opens a bracket, over the full 0–255 alphabet, and where the symbol field starts — unique among 10,496 programs, on **both** streams. **On the post-audit stream the generator ships** (`hardening='context_free_language'`) stage B reaches **1.000** on **859** held-out episodes at lengths 16–22 never trained on, using a running `min` beside the running `add` — `min` and `and`, both already in core — 680,625-program space exhausted, 110 conforming, certificate `complete` (§45, §47); §19's own counting scaffold provably contains **no conforming program** there, 45,375 exhausted, `complete`. **On the pre-audit stream** (`hardening='none'`) §19's recorded program reaches **0.9986187845303868** on **724** — one error in 724, at length 16; corrected from 1.000 per §43 — on a lesson §24 found exploitable. §19's counting program scores **exactly the majority** on the shipped stream: what it demonstrated was counting, not balancedness. The demo prints both rows and names the stream on each | post-audit majority constant **0.5262**, random 0.500, best fitted feature 0.4738, training-string lookup 0.4738; pre-audit majority constant 0.548, best fitted feature 0.648; gradient descent conforms **0 of 64** runs on the post-audit space and **0 of 44** pre-audit (`research/language-post-audit/RESULTS.md`, `research/language-capability/RESULTS.md`) | `scripts/demo.sh --only language` |
@@ -51,7 +51,9 @@ fault was in the measurement, not the method under test.
 Three more results that are certificates rather than runs, so they have no demo:
 
 - **Dense hierarchical supervision is what makes hard synthesis tractable.** Free
-  wiring goes 19–38% → 88–94% at 2,120 candidates per node, flat from depth 3 to
+  wiring goes 19–38% → 88–94% at ~~2,120 candidates per node~~ 5,776 candidates on the widest node *(record-audit
+  gate, 2026-09-10: `research/search-scaling/FD_supervision.json`; 2,120 is in no committed
+  file)*, flat from depth 3 to
   16; on entangled outputs geometry is 12/12 against 0/12 and relations 8/8
   against 1/8. On a decomposable per-element output it is exactly equal to
   output-only supervision, because `probe_loss`'s elementwise BCE already is the
@@ -77,11 +79,14 @@ Three more results that are certificates rather than runs, so they have no demo:
   in `tcn/graph.py`; no track found an escape hatch. It is also load-bearing in
   the wrong direction — see B3.
 
-Framework health, re-run twice today: **179 Python tests pass** (145.79 s and
-157.45 s);
-**370 of 372** computer-engine tests pass, the two failures being wall-clock
-thresholds (`durationMs < 80`, measured 81) on a machine running a dozen other
-experiments.
+Framework health, ~~re-run twice today: 179 Python tests pass (145.79 s and
+157.45 s); 370 of 372 computer-engine tests pass, the two failures being
+wall-clock thresholds (`durationMs < 80`, measured 81) on a machine running a
+dozen other experiments.~~ **[§62 audit, corrected 2026-09-10:]** **337 Python
+tests** collected on 2026-09-10 — 336 pass and 1 fails, the documented
+worktree-only `test_panel_interface` replay; **372 of 372** computer-engine tests
+pass. No test count is recorded in any artifact; `research/record-audit/verify.py`
+re-collects the Python count and fails if this line goes stale.
 
 ---
 
@@ -91,14 +96,17 @@ Not "untried". Measured, with the arm that beat it.
 
 | claim | verdict | evidence |
 |---|---|---|
-| Progressive crystallization earns its complexity | **Refuted, four times independently.** Inert at shipped budgets — eleven arms bit-identical, and an arm with no crystallizer and zero extra objective evaluations reaches the same frozen program. Harmful at tight ones: 3/16 conformance against budget-matched argmax's 16/16 (p = 3.2e-06), discarding 94.8% of its optimizer steps. Step-matched argmax beats every scheduler arm on the joint task below saturation, at 2.4–2.5× fewer environment rollouts. The reversible form the third track asked for was then built and also loses: seasons 2.938 against step-matched argmax 3.625 and 3.781 for argmax at the population's summed budget, the latter using 9.3× fewer environment episodes. | `research/crystallization-ablation/RESULTS.md`, `research/perturbation-selection/RESULTS.md`, `research/loss-gated-eligibility/RESULTS.md`, `research/seasons/RESULTS.md` (branch `seasons`) |
+| Progressive crystallization earns its complexity | **Refuted, four times independently.** Inert at shipped budgets — eleven arms bit-identical, and an arm with no crystallizer and zero extra objective evaluations reaches the same frozen program. Harmful at tight ones: 3/16 conformance against budget-matched argmax's 16/16 (p = 3.2e-06), discarding 94.8% of its optimizer steps. Step-matched argmax beats every scheduler arm on the joint task below saturation, at 2.4–2.5× fewer environment rollouts. The reversible form the third track asked for was then built and also loses: seasons 2.938 against step-matched argmax 3.625 and 3.781 for argmax at the population's summed budget, the latter using 9.3× fewer environment episodes *(§62 audit: 2.938 is a
+post-crystallization mean and 3.625 a frozen return — two metrics; 9.3× is against
+`argmax@shipped`, and step-matched is 2.7×; the data is on branch `seasons`)*. | `research/crystallization-ablation/RESULTS.md`, `research/perturbation-selection/RESULTS.md`, `research/loss-gated-eligibility/RESULTS.md`, `research/seasons/RESULTS.md` (branch `seasons`) |
 | Outside-in ordering, degradation tolerance, rollback | **No positive effect anywhere.** Ordering is inert (arm A identical to arm C); tolerance is inert (arm E bit-identical to arm A in all five configurations). | `research/crystallization-ablation/RESULTS.md` |
 | The gradient-connectivity guard protects interior learning | **Does not detect what it claims.** `grad is None` tests autograd reachability, not learning signal; the entropy regularizer keeps every severed logit reachable. A fix was implemented and reverted after measurement: it also flags legitimately concentrated choices and blocked the joint fixture from crystallizing at all (286 deferrals against 4). | `research/crystallization-ablation/RESULTS.md`; `docs/VALIDATION.md` §3.9 |
 | Tiny description size | **Refuted.** Joint ships 68,768 bits to express 8 bits of learned content, against 4,896 for an equally-scoring 153-parameter MLP and 32 for an equally-scoring lookup table. Mixed is a tie (17,728 against 20,000). `description_bits` measures JSON verbosity. | `research/baselines/RESULTS.md` §7 |
 | Tiny inference cost | **Refuted as stated.** The "four-operation program" runs 450× slower than those four operations in plain Python, and no faster than a 625-parameter torch MLP. Interpreter overhead dominates the `cost = 4` proxy by ~2.5 orders of magnitude. | `research/baselines/RESULTS.md` §5, §7 |
 | Differentiable relaxation is the right way to search a typed operator space | **Not as the search itself.** Brute force settles the joint result's 256-way choice in 0.081 ms against 10–36 s of gradient descent, and the mixed fixture's 96 programs in 7 ms against 2.7 s. As difficulty rises the gradient path breaks *first*: at depth 4 it succeeds 0.17 where exhaustive enumeration holds to depth 4 and a hand-written CDCL solver never failed through depth 6. TerpreT's finding reproduces on this repo's own tasks. | `research/enumerative-baseline/RESULTS.md` |
 | Relaxing an input address is worse than chance | **Retracted — it was a dead surrogate.** `eq`'s relaxation is exactly 0.0 in float32 past \|a−b\| ≥ 11, so 16 of 16 address gradients were exactly zero and the instrument averaged the survivors. Scaling the surrogate by the carrier width takes the failing arm from 0/12 to 12/12 — which is the right rule for `eq` on bytes and the wrong one for `le` on byte products, where it flattens a correct landscape (loss spread 5.96e-08). | `research/address-wall/RESULTS.md`, superseding `research/perception-ladder/RESULTS.md` §11; `research/object-identity/RESULTS.md` §4.4 |
-| A per-pixel program can recover object identity or depth | **Refuted by completeness certificate, not by budget.** The best possible per-pixel predictor — an RGB lookup table, an upper bound on the whole family — fits training pixels perfectly and scores *exactly* the majority baseline on held-out episodes, advantage 0.000, at pixel, pixel+position, aggregate and 3×3 window contexts. Permuting object ids leaves the image identical; recolouring leaves the ids identical. The supervision does not determine the target. | `research/object-identity/out/bounds.json`, `research/discrete-perception/out/rung4_objects.json` |
+| A per-pixel program can recover object identity or depth | **Refuted by completeness certificate, not by budget.** The best possible per-pixel predictor — an RGB lookup table, an upper bound on the whole family — fits training pixels perfectly *(for object identity;
+  `depth` fits them only to 0.986 — §62 audit)* and scores *exactly* the majority baseline on held-out episodes, advantage 0.000, at pixel, pixel+position, aggregate and 3×3 window contexts. Permuting object ids leaves the image identical; recolouring leaves the ids identical. The supervision does not determine the target. | `research/object-identity/out/bounds.json`, `research/discrete-perception/out/rung4_objects.json` |
 | A matched neural baseline can learn this task from reward | **Refuted.** A 32-hidden MLP under REINFORCE on the same raw observations sits at 1.977–2.063 at every budget up to 2,000 training episodes — below always-False (2.125) — where the typed program has solved it by 400. With auxiliary losses it is still at chance to 2,560 episodes. | `research/policy-learning/out/e7.log`, `out/e1.json`, `research/baselines/RESULTS.md` §4 |
 | Terminal-only reward can train this substrate | **Refuted at every horizon tested.** Dense per-step reward solves horizons 4, 8 and 16 outright; terminal-only reward scores 1.000, 1.000 and 0.859 against oracles of 4, 8 and 16. | `research/policy-learning/out/e5.log` (horizon 32 still running) |
 | Advantage normalization is a safe default here | **Refuted.** Three arms that add it land at 2.008 on 0/8 seeds — below always-False — and more episodes do not repair them. | `research/policy-learning/out/e3.log` |
@@ -124,7 +132,7 @@ Declared, exercised by sampling and replay, never learned from.
   membership. (`research/language-capability/RESULTS.md` §1, §2, §3, §6.)
   The curriculum still trains on none of it: the only learning stages in
   `curricula/system.json` are `typed_synthesis` and `joint_prediction_policy`.
-- **Computer use.** `generators/computer` has a real Node kernel with 370
+- **Computer use.** `generators/computer` has a real Node kernel with ~~370~~ 372
   passing engine tests and genuine causal shell/file/app transitions. No program
   has ever been trained on it (`curricula/system.json`, stage `computer`, is
   `sample` plus a replay gate).
@@ -146,14 +154,17 @@ Declared, exercised by sampling and replay, never learned from.
   48k–1.8M-gate behavior the DLGN literature reports.
   (`research/search-scaling/RESULTS.md`.)
 
-Two tracks are **in flight right now** and should not be cited as settled.
-`research/policy-learning/` has a `README.md` file index and **no `RESULTS.md`**
+~~Two tracks are in flight right now and should not be cited as settled.
+`research/policy-learning/` has a `README.md` file index and no `RESULTS.md`
 — `aggregate.py` and the README both refer to tables in a file nobody has
 written — with E5 (horizon) and E7 (the 4000-episode budget point) still
 executing. `research/object-identity/RESULTS.md` still carries three unrendered
 `{{ }}` placeholders in its temperature-policy table, with two `surrogate_fix.py`
-processes live. Everything B2 and B3 quote from them comes from raw JSON and
-logs, named individually.
+processes live.~~ **[§62 audit, corrected 2026-09-10: both tracks have since
+reported. `research/policy-learning/RESULTS.md` exists (FINDINGS §22), and
+`research/object-identity/RESULTS.md` carries no `{{ }}` placeholders.]**
+Everything B2 and B3 quote from them comes from raw JSON and logs, named
+individually.
 
 ---
 
@@ -240,10 +251,12 @@ actor direction never ranks `goal_relation`'s optimum above chance (rank 6–7 o
 16), while the probe gradient identifies `relation` from **8** averaged episodes.
 (`out/e2_direction.json`, `out/cancellation.json`.)
 
-**Treat this track as raw data, not a report.** It has a `README.md` file index
-and **no `RESULTS.md`**; `aggregate.py` and the README both refer to tables in a
+~~**Treat this track as raw data, not a report.** It has a `README.md` file index
+and no `RESULTS.md`; `aggregate.py` and the README both refer to tables in a
 file that has not been written. Two of its experiments are still executing
-(E5 horizon, E7 at budget 4000), and E1's `B1_exactPG_*` arms return **0.000 on
+(E5 horizon, E7 at budget 4000), and~~ **[§62 audit, corrected 2026-09-10: the
+track has reported — `research/policy-learning/RESULTS.md`, FINDINGS §22. What
+still stands from this paragraph:]** E1's `B1_exactPG_*` arms return **0.000 on
 every seed** where E3's `R12/R13/R14` exact-PG arms return 4.000 on 8/8 — nothing
 reconciles that, so cite neither as an exact-policy-gradient result.
 
@@ -373,15 +386,19 @@ shipped path is meaningless until this changes.
 *Check:* `grep -n 'torch.zeros' tcn/learning.py`;
 `research/perception-ladder/RESULTS.md` fault P2.
 
-### B7 — The documented entry point does not run.
+### B7 — ~~The documented entry point does not run.~~ CLOSED (§20)
 
-`.venv/bin/tcn` has the shebang
+**[§62 audit, 2026-09-10: this blocker contradicted this file's own header, which
+records B7 closed. The shebang was repaired in §20; the text below is retained as
+what was believed before that.]**
+
+~~`.venv/bin/tcn` has the shebang
 `#!/home/brandonin/Documents/differentiable-agentic-software/.venv/bin/python3`,
 which does not exist. Every `.venv/bin/tcn ...` command in `README.md` fails with
 "No such file or directory". This is cosmetic to fix and expensive to leave: it
-is the first thing a reader tries. `scripts/demo.sh` uses `python -m tcn`.
+is the first thing a reader tries.~~ `scripts/demo.sh` uses `python -m tcn`.
 
-*Check:* `head -1 .venv/bin/tcn`.
+*Check:* `head -1 .venv/bin/tcn` — it now names this repository's own venv.
 
 ### B8 — `tcn/search.py` cannot score a recurrent program.
 
@@ -419,7 +436,11 @@ up and unapplied.
   lexicographic pick was measurably wrong on fresh episodes there; it was wrong
   again on language, where 10 of 45,375 conform and declaration order returns one
   that fails at the longest unseen length. `rank='description'`/`'cost'` now
-  exists, and requiring exactness on a validation split fixed both — but on the
+  exists, and ~~requiring exactness on a validation split fixed both~~ **[§62
+  audit, corrected 2026-09-10: on rung 3 the validation filter fixed nothing —
+  `research/discrete-perception/out/tiebreak.json` has `validation_filtered`
+  returning the identical program as `lexicographic`, 3 of 384 slots wrong; only
+  the gradient runs were exact. See FINDINGS §14a]** — and on the
   GUI generator at 2 widgets that same filter leaves 4 survivors denoting 2
   functions with a survivor held-out max error of **1.0000**, because a
   validation split drawn from equally sparse screens does not separate the
@@ -444,7 +465,8 @@ led with have since been settled, and `ARCHITECTURE.md` sections 5 and 8.1 have
 been rewritten accordingly rather than softened. **Progressive crystallization**
 is refuted outright, four times, including in the reversible form its third
 refutation asked for. **Tiny description size** is refuted *as shipped* — the
-visual artifact is 117.7 MB of which 99.68% is repeated type declarations —
+visual artifact is 117.7 MB of which 99.68% *(of the 35.3 MB minified JSON — §62 audit)*
+is repeated type declarations —
 while the canonical program is 41 KB and the learned content 21.3 bits; all
 three numbers are real and none may stand in for another. **Tiny inference
 cost** is likewise refuted as currently implemented, at 146× to 90,400× slower
@@ -458,7 +480,8 @@ and profile attribution flips from 97.7% marshalling to 66.7% operator work.
 Against the interpreter that is 27× / 637× / 3,359× / 14,232× on mixed, language,
 visual and computer. What remains is **not** representational either: generated
 Python is 3.1× / 7.1× / 27.6× the hand-written equivalent, and the visual figure
-decomposes as 11.1× more bytecodes executed × 2.25× per bytecode — the
+decomposes as 11.1× more bytecodes executed × 2.25× per bytecode *(which multiply to
+24.9×, `attribute_visual.json`'s own total, not the 27.6× — §62 audit)* — the
 synthesized program computes more than the task needs, which is a program-length
 problem that native code generation would not touch.
 (`research/compiled-runtime/RESULTS.md`, branch `compiled-runtime`.) A discrete backend belongs in section 2's candidate inventory. Two capabilities the measurement pass wrote off, recursive

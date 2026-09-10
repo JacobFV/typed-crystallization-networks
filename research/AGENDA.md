@@ -13,7 +13,7 @@ priority item that a merged change already closed will otherwise be re-dispatche
 indefinitely.
 
 - **"Wire the MDL term into `synthesis.fit`, which has no cost term" (track 5
-  F3).** `fit` has accepted `mdl_weight` since §14 merged, at
+  F3).** `fit` has accepted `mdl_weight` since §14b merged, at
   `tcn/synthesis.py:32,131`, scaling ARCHITECTURE §8's `L_program_description`.
   Beyond being done, §41 then measured it to be **useless on the artifacts we
   have**: the description-minimal program is the bytecode-maximal one, and

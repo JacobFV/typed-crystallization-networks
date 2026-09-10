@@ -9,7 +9,7 @@ below.
 ```bash
 git clone <repo> && cd typed-crystallization-networks
 ./scripts/setup.sh
-.venv/bin/python -m pytest -q          # expect: 288 passed
+.venv/bin/python -m pytest -q          # expect: 338 passed (a worktree: 337 + the known panel-replay failure)
 .venv/bin/python -m tcn train --episodes 160
 # expect: 0.248836 -> 0.002231, fully frozen, 4.0 evaluation, 4.0 exact frozen
 .venv/bin/python -m tcn demo           # ten capabilities against their baselines
@@ -19,9 +19,9 @@ git clone <repo> && cd typed-crystallization-networks
 
 | you want | read |
 |---|---|
-| what was measured, authoritatively | [`research/FINDINGS.md`](research/FINDINGS.md) — 44 numbered sections; supersedes everything else |
+| what was measured, authoritatively | [`research/FINDINGS.md`](research/FINDINGS.md) — ~~44~~ 63 numbered sections (the number 14 is headed §14a and §14b; §42 is a tombstone); supersedes everything else, and `research/record-audit/verify.py --gate` checks it against the artifacts |
 | **how the project got here, chronologically** | [`docs/PROJECT-LOG.md`](docs/PROJECT-LOG.md) — five phases, with commit SHAs |
-| **what we believed and got wrong** | [`docs/CORRECTIONS.md`](docs/CORRECTIONS.md) — 14 reversals + process failures |
+| **what we believed and got wrong** | [`docs/CORRECTIONS.md`](docs/CORRECTIONS.md) — ~~14~~ 34 reversals and corrections, plus process failures |
 | what a given session did | [`docs/handoffs/`](docs/handoffs/) — one dated file per session, never edited after the fact |
 | the short hostile summary | [`STATUS.md`](STATUS.md) |
 | the constitutional spec | [`ARCHITECTURE.md`](ARCHITECTURE.md) — §5 (commitment), §8.1 (four costs, three sizes) |
@@ -82,29 +82,42 @@ shared across the real artifacts.
 **Operational:** one heavy agent at a time, capped (see Traps). Slow the branching
 rate.
 
+**The record gate is live (2026-09-10).** `tests/test_record_gate.py` runs
+`research/record-audit/verify.py --gate` (~3 s, reads committed artifacts only), so
+`pytest` and `scripts/check.sh` fail when a document claim disagrees with its artifact,
+a checked claim is reworded away, a section is cited that does not exist, or a
+**new FINDINGS section has neither a verified claim nor a `SECTION_UNCHECKABLE`
+reason**. Writing a section now means adding its check. Quote headline figures from
+`research/record-audit/HEADLINES.md`, which is generated from the artifacts. The
+slow audit (`verify.py --demo --tests`) is separate and is not run by pytest.
+
 ## State as of 2026-09-09
 
 **Settled:** the inference overhead was *interpreter* overhead, not the typed
 representation. Compiling a frozen program to stdlib Python takes the visual
-parse from 103,487,972 element operations to 6,144 (§42, branch
-`compiled-runtime`).
+parse from 103,487,972 element operations to 6,144 (~~§42, branch
+`compiled-runtime`~~ §48 — §42 was never assigned).
 
 **Refuted four times:** the progressive irreversible freezing schedule, most
-recently in the reversible form its third refutation asked for (§7, §12, §37).
+recently in the reversible form its third refutation asked for (~~§7, §12, §37~~
+§1/§3, §10, §37 — §7 and §12 are not about crystallization; §62 audit).
 
 **Open, highest value first:**
 
-1. **Mine abstractions from *pre*-minimisation programs.** §44 measured why the
+1. ~~**Mine abstractions from *pre*-minimisation programs.** §44 measured why the
    obvious rule fails: exact minimisation fuses the reusable fragment into its
    wrapper, so `MAJ3` survives in 1 of 6 minimised programs and the frequency
    statistics never see it. Harness is built and verified in
-   `research/earned-abstraction/`; arm 3 proves the task *is* solvable there.
+   `research/earned-abstraction/`; arm 3 proves the task *is* solvable there.~~
+   **SUPERSEDED — this restates §44's mechanism, which §46 overturned (the tie-break,
+   not minimisation; CORRECTIONS row 15), and §46/§52/§54/§57 have since done the work.**
 2. **Shorten the programs.** §41 certified that ranking within a fixed scaffold
-   cannot (`none exists` at spans 4–29, `unique` at 30). The scaffold is the lever.
+   cannot (`none exists` at the eight spans enumerated between 4 and 29, `unique` at 30). The scaffold is the lever.
 3. **Fix or retire `execution_cost`.** It is constant across programs whose
    executed bytecodes differ — no signal, not merely a poor predictor.
-4. **The language capability on the post-audit stream** — never measured; see
-   the stream trap below.
+4. ~~**The language capability on the post-audit stream** — never measured; see
+   the stream trap below.~~ **CLOSED — §45 measured it (the counting scaffold has no
+   conforming program; the min-prefix program reaches 1.000 on 859) and §63 ships it.**
 
 ## Traps that have cost real time
 
@@ -130,8 +143,11 @@ recently in the reversible form its third refutation asked for (§7, §12, §37)
 - **Never quote §19's language number without saying which stream.** It
   reproduces only with `hardening='none'`; §24 re-drew the lesson and the track's
   training split is empty on today's default (§39).
-- `main`'s FINDINGS jumps **§41 → §43**. §42 is on branch `compiled-runtime` and
-  arrives when it merges.
+- ~~`main`'s FINDINGS jumps §41 → §43. §42 is on branch `compiled-runtime` and
+  arrives when it merges.~~ **Corrected 2026-09-10 (§62 audit):** §42 never existed
+  in any commit; the result it was reserved for is **§48**, and FINDINGS now carries a
+  §42 tombstone saying so. §14 was used twice; the two sections are headed §14a
+  (discrete perception) and §14b (preference). Nothing was renumbered.
 - **Never merge a change to `tcn/` or `generators/` while an agent is measuring
   against main** — `source_fingerprint()` hashes both, invalidating every
   recorded episode.
@@ -139,7 +155,7 @@ recently in the reversible form its third refutation asked for (§7, §12, §37)
 ## Working discipline that keeps paying
 
 Independently spot-check every headline against **raw data**, not against a
-summary. That has caught nine wrong conclusions. Two were caught only because an
+summary. That has caught ~~nine~~ most of the 34 rows in `docs/CORRECTIONS.md`. Two were caught only because an
 agent reported a number contradicting a recorded one *instead of routing around
 it* — ask for that behaviour explicitly in briefs. Enumeration beside every
 synthesis number; constant and random baselines beside every return; probes are
