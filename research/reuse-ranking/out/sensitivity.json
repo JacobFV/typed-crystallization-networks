@@ -1,0 +1,7082 @@
+{
+ "exponent": {
+  "alphas": [
+   0,
+   0.02,
+   0.05,
+   0.08,
+   0.1,
+   0.25,
+   0.5,
+   0.75,
+   1,
+   1.5,
+   2,
+   3,
+   5,
+   10
+  ],
+  "result": {
+   "full": {
+    "per_alpha": {
+     "0": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.02": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.05": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.08": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.1": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.25": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.5": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.75": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "1": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "1.5": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "10": {
+      "digest": "82b93e4bc7b294ff04c8f289",
+      "is_window": false
+     },
+     "2": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "3": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "5": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     }
+    },
+    "window_rank1_alpha_max": 5.0,
+    "window_rank1_alpha_min": 0.0,
+    "window_rank1_in_all_swept": false
+   },
+   "wo_t1": {
+    "per_alpha": {
+     "0": {
+      "digest": "08735e504400bf4879acf0a7",
+      "is_window": false
+     },
+     "0.02": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.05": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.08": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.1": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.25": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.5": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.75": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "1": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "1.5": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "10": {
+      "digest": "82b93e4bc7b294ff04c8f289",
+      "is_window": false
+     },
+     "2": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "3": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "5": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     }
+    },
+    "window_rank1_alpha_max": 5.0,
+    "window_rank1_alpha_min": 0.02,
+    "window_rank1_in_all_swept": false
+   },
+   "wo_t2": {
+    "per_alpha": {
+     "0": {
+      "digest": "0ba4287a0409988fa2b5eff9",
+      "is_window": false
+     },
+     "0.02": {
+      "digest": "0ba4287a0409988fa2b5eff9",
+      "is_window": false
+     },
+     "0.05": {
+      "digest": "0ba4287a0409988fa2b5eff9",
+      "is_window": false
+     },
+     "0.08": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.1": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.25": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.5": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.75": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "1": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "1.5": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "10": {
+      "digest": "82b93e4bc7b294ff04c8f289",
+      "is_window": false
+     },
+     "2": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "3": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "5": {
+      "digest": "82b93e4bc7b294ff04c8f289",
+      "is_window": false
+     }
+    },
+    "window_rank1_alpha_max": 3.0,
+    "window_rank1_alpha_min": 0.08,
+    "window_rank1_in_all_swept": false
+   },
+   "wo_t3": {
+    "per_alpha": {
+     "0": {
+      "digest": "0ba4287a0409988fa2b5eff9",
+      "is_window": false
+     },
+     "0.02": {
+      "digest": "0ba4287a0409988fa2b5eff9",
+      "is_window": false
+     },
+     "0.05": {
+      "digest": "0ba4287a0409988fa2b5eff9",
+      "is_window": false
+     },
+     "0.08": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.1": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.25": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.5": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.75": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "1": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "1.5": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "10": {
+      "digest": "82b93e4bc7b294ff04c8f289",
+      "is_window": false
+     },
+     "2": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "3": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "5": {
+      "digest": "82b93e4bc7b294ff04c8f289",
+      "is_window": false
+     }
+    },
+    "window_rank1_alpha_max": 3.0,
+    "window_rank1_alpha_min": 0.08,
+    "window_rank1_in_all_swept": false
+   },
+   "wo_t4": {
+    "per_alpha": {
+     "0": {
+      "digest": "08735e504400bf4879acf0a7",
+      "is_window": false
+     },
+     "0.02": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.05": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.08": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.1": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.25": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.5": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.75": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "1": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "1.5": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "10": {
+      "digest": "82b93e4bc7b294ff04c8f289",
+      "is_window": false
+     },
+     "2": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "3": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "5": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     }
+    },
+    "window_rank1_alpha_max": 5.0,
+    "window_rank1_alpha_min": 0.02,
+    "window_rank1_in_all_swept": false
+   },
+   "wo_t5": {
+    "per_alpha": {
+     "0": {
+      "digest": "0ba4287a0409988fa2b5eff9",
+      "is_window": false
+     },
+     "0.02": {
+      "digest": "0ba4287a0409988fa2b5eff9",
+      "is_window": false
+     },
+     "0.05": {
+      "digest": "0ba4287a0409988fa2b5eff9",
+      "is_window": false
+     },
+     "0.08": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.1": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.25": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.5": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "0.75": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "1": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "1.5": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "10": {
+      "digest": "82b93e4bc7b294ff04c8f289",
+      "is_window": false
+     },
+     "2": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "3": {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "is_window": true
+     },
+     "5": {
+      "digest": "82b93e4bc7b294ff04c8f289",
+      "is_window": false
+     }
+    },
+    "window_rank1_alpha_max": 3.0,
+    "window_rank1_alpha_min": 0.08,
+    "window_rank1_in_all_swept": false
+   }
+  }
+ },
+ "parameter_grid": [
+  {
+   "corpus": "full",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 3,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 2.6131389779620804,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 3,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.8365372660337016,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 3,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.9028042730060406,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 3,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.7739334920188412,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 3,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.851934081001673,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 3,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.7761350400396623,
+   "window_constructible": false
+  },
+  {
+   "corpus": "full",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 3,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 2.6453321159933694,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 3,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.8059752939734608,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 3,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.9680787000106648,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 3,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.776765524991788,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 3,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.7994443560019135,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 3,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.8401023600017652,
+   "window_constructible": false
+  },
+  {
+   "corpus": "full",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 3,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 2.5943739250069484,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 3,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.557175962952897,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 3,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.6427928340272047,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 3,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.6078901409637183,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 3,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.5181110479752533,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 3,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.6074934920179658,
+   "window_constructible": false
+  },
+  {
+   "corpus": "full",
+   "eligible": 15,
+   "max_holes": 3,
+   "max_nodes": 3,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 4.391049174009822,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 13,
+   "max_holes": 3,
+   "max_nodes": 3,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 2.029551681014709,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 15,
+   "max_holes": 3,
+   "max_nodes": 3,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 2.1883622420136817,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 13,
+   "max_holes": 3,
+   "max_nodes": 3,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 2.0046031679958105,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 13,
+   "max_holes": 3,
+   "max_nodes": 3,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.9596586399711668,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 13,
+   "max_holes": 3,
+   "max_nodes": 3,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.9714577470440418,
+   "window_constructible": false
+  },
+  {
+   "corpus": "full",
+   "eligible": 11,
+   "max_holes": 3,
+   "max_nodes": 3,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 2.651258226018399,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 11,
+   "max_holes": 3,
+   "max_nodes": 3,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.889315356966108,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 11,
+   "max_holes": 3,
+   "max_nodes": 3,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 2.419034586986527,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 11,
+   "max_holes": 3,
+   "max_nodes": 3,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.8970971530070528,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 11,
+   "max_holes": 3,
+   "max_nodes": 3,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.8544279700145125,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 11,
+   "max_holes": 3,
+   "max_nodes": 3,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.863034448993858,
+   "window_constructible": false
+  },
+  {
+   "corpus": "full",
+   "eligible": 11,
+   "max_holes": 3,
+   "max_nodes": 3,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 2.6444899570196867,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 11,
+   "max_holes": 3,
+   "max_nodes": 3,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.1612378349527717,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 11,
+   "max_holes": 3,
+   "max_nodes": 3,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.2147399010136724,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 11,
+   "max_holes": 3,
+   "max_nodes": 3,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.1966076419921592,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 11,
+   "max_holes": 3,
+   "max_nodes": 3,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.1234686910174787,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 11,
+   "max_holes": 3,
+   "max_nodes": 3,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.1540058650425635,
+   "window_constructible": false
+  },
+  {
+   "corpus": "full",
+   "eligible": 29,
+   "max_holes": 4,
+   "max_nodes": 3,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 4.877915190998465,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 23,
+   "max_holes": 4,
+   "max_nodes": 3,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 3.2189243699540384,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 29,
+   "max_holes": 4,
+   "max_nodes": 3,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 3.702048113977071,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 24,
+   "max_holes": 4,
+   "max_nodes": 3,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "326c107145958c643ba251f2",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 3.2752368999645114,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 23,
+   "max_holes": 4,
+   "max_nodes": 3,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 3.1834367839619517,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 24,
+   "max_holes": 4,
+   "max_nodes": 3,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "326c107145958c643ba251f2",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 3.2555893340031616,
+   "window_constructible": false
+  },
+  {
+   "corpus": "full",
+   "eligible": 18,
+   "max_holes": 4,
+   "max_nodes": 3,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 4.014501685043797,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 18,
+   "max_holes": 4,
+   "max_nodes": 3,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 2.937989558035042,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 18,
+   "max_holes": 4,
+   "max_nodes": 3,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 3.0501732130069286,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 18,
+   "max_holes": 4,
+   "max_nodes": 3,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "326c107145958c643ba251f2",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 2.996461044996977,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 18,
+   "max_holes": 4,
+   "max_nodes": 3,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 2.897426546958741,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 18,
+   "max_holes": 4,
+   "max_nodes": 3,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "326c107145958c643ba251f2",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 2.961761789978482,
+   "window_constructible": false
+  },
+  {
+   "corpus": "full",
+   "eligible": 18,
+   "max_holes": 4,
+   "max_nodes": 3,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 4.045799240004271,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 18,
+   "max_holes": 4,
+   "max_nodes": 3,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.3676919139688835,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 18,
+   "max_holes": 4,
+   "max_nodes": 3,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.4958779989974573,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 18,
+   "max_holes": 4,
+   "max_nodes": 3,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "326c107145958c643ba251f2",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.3980725010042079,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 18,
+   "max_holes": 4,
+   "max_nodes": 3,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "ca785ec948250acbf39b8f66",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.400798506976571,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 18,
+   "max_holes": 4,
+   "max_nodes": 3,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "326c107145958c643ba251f2",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.7967809039982967,
+   "window_constructible": false
+  },
+  {
+   "corpus": "full",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 4,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 2.667040503001772,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 4,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 0.9749314099899493,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 4,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.0696638689842075,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 4,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 0.9670958030037582,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 4,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.0224858750007115,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 4,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.022440195956733,
+   "window_constructible": false
+  },
+  {
+   "corpus": "full",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 4,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.4305216029752046,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 4,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.0224267430021428,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 4,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.0521635980112478,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 4,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.023837243032176,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 4,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 0.9941772379679605,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 4,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.0144378409604542,
+   "window_constructible": false
+  },
+  {
+   "corpus": "full",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 4,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.42637099995045,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 4,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 0.8683878779993393,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 4,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 0.9080228100065142,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 4,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 0.8557032080134377,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 4,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 0.874934769992251,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 4,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 0.8581717080087401,
+   "window_constructible": false
+  },
+  {
+   "corpus": "full",
+   "eligible": 16,
+   "max_holes": 3,
+   "max_nodes": 4,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 12
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 3.592476218997035,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 14,
+   "max_holes": 3,
+   "max_nodes": 4,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 10
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 2.4798840080038644,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 16,
+   "max_holes": 3,
+   "max_nodes": 4,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 12
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 3.1033090089913458,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 14,
+   "max_holes": 3,
+   "max_nodes": 4,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 10
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 2.6598236840218306,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 14,
+   "max_holes": 3,
+   "max_nodes": 4,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 10
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 2.7630813480354846,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 14,
+   "max_holes": 3,
+   "max_nodes": 4,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 10
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 2.466759844974149,
+   "window_constructible": true
+  },
+  {
+   "corpus": "full",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 4,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 3.2912160150008276,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 4,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 2.355336800974328,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 4,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 2.4610080350539647,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 4,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 2.374082870024722,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 4,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 2.3334641180117615,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 4,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 2.3422519430168904,
+   "window_constructible": true
+  },
+  {
+   "corpus": "full",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 4,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 3.289696544990875,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 4,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 10
+    }
+   },
+   "wall_seconds": 1.3488689119694754,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 4,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 10
+    }
+   },
+   "wall_seconds": 1.4102928850334138,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 4,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 10
+    }
+   },
+   "wall_seconds": 1.3723362919990905,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 4,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 10
+    }
+   },
+   "wall_seconds": 1.3104860180174,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 4,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 10
+    }
+   },
+   "wall_seconds": 1.378249806992244,
+   "window_constructible": true
+  },
+  {
+   "corpus": "full",
+   "eligible": 37,
+   "max_holes": 4,
+   "max_nodes": 4,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 12
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 6.7302740960149094,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 26,
+   "max_holes": 4,
+   "max_nodes": 4,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 11
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 4.185300842975266,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 37,
+   "max_holes": 4,
+   "max_nodes": 4,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 16
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 5.132381238974631,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 30,
+   "max_holes": 4,
+   "max_nodes": 4,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 11
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 4.47206565795932,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 26,
+   "max_holes": 4,
+   "max_nodes": 4,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 11
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 4.188141560007352,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 30,
+   "max_holes": 4,
+   "max_nodes": 4,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 11
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 4.423400141007733,
+   "window_constructible": true
+  },
+  {
+   "corpus": "full",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 4,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 5.121893508010544,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 4,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 3.707547365978826,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 4,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 10
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 3.9841903069755062,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 4,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 9
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 3.7879051530035213,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 4,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 3.833099645038601,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 4,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 9
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 7.684660223021638,
+   "window_constructible": true
+  },
+  {
+   "corpus": "full",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 4,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 10.303033906035125,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 4,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 17
+    }
+   },
+   "wall_seconds": 2.6431855430128053,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 4,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 10
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 17
+    }
+   },
+   "wall_seconds": 3.5853610759950243,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 4,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 9
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 17
+    }
+   },
+   "wall_seconds": 3.575748017989099,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 4,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 17
+    }
+   },
+   "wall_seconds": 3.446179204969667,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 4,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 9
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 17
+    }
+   },
+   "wall_seconds": 3.7689363479730673,
+   "window_constructible": true
+  },
+  {
+   "corpus": "full",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 5,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 2.4983288799994625,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 5,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 2.0246847519883886,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 5,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 2.9440431279945187,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 5,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.9279414690099657,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 5,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 2.504175067995675,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 5,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 2.7266504340223037,
+   "window_constructible": false
+  },
+  {
+   "corpus": "full",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 5,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 2.3919607260031626,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 5,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.578884246002417,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 5,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 2.3334685370209627,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 5,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 2.3182718959869817,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 5,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.440332452999428,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 5,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.1252470220206305,
+   "window_constructible": false
+  },
+  {
+   "corpus": "full",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 5,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.5696120989741758,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 5,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 0.9017989720450714,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 5,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.030397383030504,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 5,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 0.9646852409932762,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 5,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 1.011731885955669,
+   "window_constructible": false
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 3,
+   "max_holes": 2,
+   "max_nodes": 5,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": null
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O1": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O2": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    },
+    "O4": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": null
+    }
+   },
+   "wall_seconds": 0.9223524290136993,
+   "window_constructible": false
+  },
+  {
+   "corpus": "full",
+   "eligible": 16,
+   "max_holes": 3,
+   "max_nodes": 5,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 12
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 5.073960685054772,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 14,
+   "max_holes": 3,
+   "max_nodes": 5,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 10
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 2.659233640995808,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 16,
+   "max_holes": 3,
+   "max_nodes": 5,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 12
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 4.630007922009099,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 14,
+   "max_holes": 3,
+   "max_nodes": 5,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 10
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 2.583853496995289,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 14,
+   "max_holes": 3,
+   "max_nodes": 5,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 10
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 2.7591055200318806,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 14,
+   "max_holes": 3,
+   "max_nodes": 5,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 10
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 5.532447111036163,
+   "window_constructible": true
+  },
+  {
+   "corpus": "full",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 5,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 4.336164504988119,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 5,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 2.617706603021361,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 5,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 2.6484654850210063,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 5,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 2.5139659959822893,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 5,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 2.7547089339932427,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 5,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 2.9314640820375644,
+   "window_constructible": true
+  },
+  {
+   "corpus": "full",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 5,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 3.9468450879794545,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 5,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 10
+    }
+   },
+   "wall_seconds": 1.782518288004212,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 5,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 10
+    }
+   },
+   "wall_seconds": 1.9017721799900755,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 5,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 10
+    }
+   },
+   "wall_seconds": 1.6552442780230194,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 5,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 10
+    }
+   },
+   "wall_seconds": 2.2853422310436144,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 12,
+   "max_holes": 3,
+   "max_nodes": 5,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 10
+    }
+   },
+   "wall_seconds": 2.4539999429835007,
+   "window_constructible": true
+  },
+  {
+   "corpus": "full",
+   "eligible": 40,
+   "max_holes": 4,
+   "max_nodes": 5,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 12
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 8.803586596972309,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 28,
+   "max_holes": 4,
+   "max_nodes": 5,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "08735e504400bf4879acf0a7",
+     "is_window": false,
+     "window_rank": 2
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 11
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 4.930909836955834,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 40,
+   "max_holes": 4,
+   "max_nodes": 5,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "0ba4287a0409988fa2b5eff9",
+     "is_window": false,
+     "window_rank": 3
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 16
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 6.893713460012805,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 31,
+   "max_holes": 4,
+   "max_nodes": 5,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "0ba4287a0409988fa2b5eff9",
+     "is_window": false,
+     "window_rank": 2
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 11
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 6.022298205003608,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 28,
+   "max_holes": 4,
+   "max_nodes": 5,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "08735e504400bf4879acf0a7",
+     "is_window": false,
+     "window_rank": 2
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 11
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 5.310084619035479,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 31,
+   "max_holes": 4,
+   "max_nodes": 5,
+   "min_tasks": 2,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "0ba4287a0409988fa2b5eff9",
+     "is_window": false,
+     "window_rank": 2
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 11
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 6.110770770988893,
+   "window_constructible": true
+  },
+  {
+   "corpus": "full",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 5,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 8.183717308042105,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 5,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 4.640020159014966,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 5,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 10
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 4.97393340599956,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 5,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 9
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 4.623377443000209,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 5,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 6.361535305972211,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 5,
+   "min_tasks": 3,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 9
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 5.368529939965811,
+   "window_constructible": true
+  },
+  {
+   "corpus": "full",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 5,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    }
+   },
+   "wall_seconds": 6.33166689099744,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t1",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 5,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 17
+    }
+   },
+   "wall_seconds": 2.659071837028023,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t2",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 5,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "85aa887f3e90a3903b9fa709",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 10
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 17
+    }
+   },
+   "wall_seconds": 4.188711834023707,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t3",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 5,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 9
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 17
+    }
+   },
+   "wall_seconds": 4.203865052957553,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t4",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 5,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 6
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 8
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 17
+    }
+   },
+   "wall_seconds": 2.094010973989498,
+   "window_constructible": true
+  },
+  {
+   "corpus": "wo_t5",
+   "eligible": 19,
+   "max_holes": 4,
+   "max_nodes": 5,
+   "min_tasks": 4,
+   "rank1": {
+    "B1": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 4
+    },
+    "B2": {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "is_window": false,
+     "window_rank": 7
+    },
+    "O1": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O2": {
+     "digest": "165bc290d9c82b70a8ea3cc2",
+     "is_window": true,
+     "window_rank": 1
+    },
+    "O3": {
+     "digest": "5e50f17066eb3de5049f4ed5",
+     "is_window": false,
+     "window_rank": 9
+    },
+    "O4": {
+     "digest": "82b93e4bc7b294ff04c8f289",
+     "is_window": false,
+     "window_rank": 17
+    }
+   },
+   "wall_seconds": 2.102073500980623,
+   "window_constructible": true
+  }
+ ],
+ "parameter_grid_summary": {
+  "B1": {
+   "of_all": 162,
+   "of_constructible": 72,
+   "rank1_is_window": 0,
+   "rank1_is_window_all": 0
+  },
+  "B2": {
+   "of_all": 162,
+   "of_constructible": 72,
+   "rank1_is_window": 0,
+   "rank1_is_window_all": 0
+  },
+  "O1": {
+   "of_all": 162,
+   "of_constructible": 72,
+   "rank1_is_window": 67,
+   "rank1_is_window_all": 67
+  },
+  "O2": {
+   "of_all": 162,
+   "of_constructible": 72,
+   "rank1_is_window": 72,
+   "rank1_is_window_all": 72
+  },
+  "O3": {
+   "of_all": 162,
+   "of_constructible": 72,
+   "rank1_is_window": 0,
+   "rank1_is_window_all": 0
+  },
+  "O4": {
+   "of_all": 162,
+   "of_constructible": 72,
+   "rank1_is_window": 52,
+   "rank1_is_window_all": 52
+  }
+ }
+}

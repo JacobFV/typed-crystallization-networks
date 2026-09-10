@@ -1,0 +1,124 @@
+{
+ "description_vs_bytecodes": [
+  [
+   4043552,
+   41465
+  ],
+  [
+   4043560,
+   41417
+  ],
+  [
+   4043560,
+   41441
+  ],
+  [
+   4043560,
+   41465
+  ],
+  [
+   4043568,
+   41441
+  ]
+ ],
+ "distinct_bytecodes": [
+  41417,
+  41441,
+  41465
+ ],
+ "distinct_description_bits": [
+  4043552,
+  4043560,
+  4043568
+ ],
+ "distinct_execution_cost": [
+  148.0
+ ],
+ "enumeration": {
+  "count": 10,
+  "evaluated": 45375,
+  "exhausted": true,
+  "seconds": 218.57734051300213,
+  "space_size": 45375,
+  "unique": false
+ },
+ "n_rows": 10,
+ "objectives": {
+  "B1": {
+   "degenerate": true,
+   "note": "every candidate covers the single task; a complete tie",
+   "pick": null
+  },
+  "B2": {
+   "degenerate": true,
+   "note": "every candidate covers the single task; a complete tie",
+   "pick": null
+  },
+  "O1": {
+   "degenerate": false,
+   "note": "maximise saving = minimise description_bits",
+   "pick": {
+    "bytecodes_total": 41465,
+    "description_bits": 4043552,
+    "execution_cost": 148.0,
+    "is_bytecode_maximal": true,
+    "is_bytecode_minimal": false,
+    "is_description_minimal": true,
+    "nodes": 84,
+    "unseen_accuracy": 1.0,
+    "unseen_majority_constant": 0.5661157024793388
+   }
+  },
+  "O2": {
+   "degenerate": true,
+   "note": "|T| = 1 for every candidate, so the weight is a constant multiplier and the ordering is identical to O1",
+   "pick": {
+    "bytecodes_total": 41465,
+    "description_bits": 4043552,
+    "execution_cost": 148.0,
+    "is_bytecode_maximal": true,
+    "is_bytecode_minimal": false,
+    "is_description_minimal": true,
+    "nodes": 84,
+    "unseen_accuracy": 1.0,
+    "unseen_majority_constant": 0.5661157024793388
+   }
+  },
+  "O3": {
+   "degenerate": true,
+   "note": "one task, so the per-task mean is the value itself",
+   "pick": {
+    "bytecodes_total": 41465,
+    "description_bits": 4043552,
+    "execution_cost": 148.0,
+    "is_bytecode_maximal": true,
+    "is_bytecode_minimal": false,
+    "is_description_minimal": true,
+    "nodes": 84,
+    "unseen_accuracy": 1.0,
+    "unseen_majority_constant": 0.5661157024793388
+   }
+  },
+  "O4": {
+   "degenerate": true,
+   "note": "holding out the only task empties the mining corpus; every candidate scores 0 and the objective carries no signal at all",
+   "pick": null
+  },
+  "O5": {
+   "degenerate": false,
+   "note": "minimise measured executed bytecodes (\u00a741's own instrument)",
+   "pick": {
+    "bytecodes_total": 41417,
+    "description_bits": 4043560,
+    "execution_cost": 148.0,
+    "is_bytecode_maximal": false,
+    "is_bytecode_minimal": true,
+    "is_description_minimal": false,
+    "nodes": 84,
+    "unseen_accuracy": 1.0,
+    "unseen_majority_constant": 0.5661157024793388
+   }
+  }
+ },
+ "source": "research/program-length/out/language_family.json"
+}
