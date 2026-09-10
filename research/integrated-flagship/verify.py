@@ -366,9 +366,34 @@ for tok in re.findall(r"(?<![\w.§/-])\d[\d,]*(?:\.\d+)?(?:×10\^\d+)?", prose):
 claim("every number in RESULTS.md prose is structural or appears in a rendered block",
       not bad, f"untraced: {sorted(set(bad))[:20]}")
 
+# headline.json (read by the merge gate): every value re-derived here from raw files
+h = J("headline.json")
+if h is not None:
+    ok = True
+    for gap in (0, 1):
+        for a in ("N", "N'", "N''"):
+            e = h["c1"][f"gap{gap}"]["expected_programs"].get(a)
+            d = arm(gap, a)
+            c = recompute_cost(d) if d else None
+            ok &= (e is None and c is None) or (e is not None and c is not None and
+                                                 Fraction(int(e["num"]), int(e["den"])) == c)
+        for a, v in h[f"generalize_gap{gap}"].items():
+            d = arm(gap, a)
+            s = (d or {}).get("first_solution_samples") or {}
+            ok &= v is not None and v["generalize"] == s.get("generalize_count") and v["n"] == s.get("n")
+    for gap, v in h["exact_generalizing"].items():
+        g_ = J(f"generalize_{gap}.json")
+        ok &= g_ is not None and v["schema"] == g_["schema"]["K_generalizing"] and \
+            v["distractor"] == g_["distractor"]["K_generalizing"]
+    claim("headline.json: every value re-derives exactly from the arm and generalize files", ok)
+
 fails = 0
 for ok, name, detail in results:
     print(("PASS" if ok else "FAIL"), name, ("— " + detail) if detail else "")
     fails += not ok
 print(f"\n{len(results) - fails} PASS, {fails} FAIL")
+(OUT / "verify.json").write_text(json.dumps(
+    {"pass": len(results) - fails, "fail": fails,
+     "claims": [{"name": name, "ok": ok, "detail": detail} for ok, name, detail in results]},
+    indent=1))
 sys.exit(1 if fails else 0)

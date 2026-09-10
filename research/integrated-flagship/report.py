@@ -474,6 +474,42 @@ BLOCKS = {
 }
 
 
+def headline():
+    """The numbers FINDINGS will quote, each derived from files under out/."""
+    def ep(gap, a):
+        d = arm(gap, a)
+        c = cost(d) if d else None
+        return None if c is None else {"num": str(c.numerator), "den": str(c.denominator),
+                                       "float": float(c)}
+
+    def gen(gap, a):
+        d = arm(gap, a)
+        s = (d or {}).get("first_solution_samples") or {}
+        return None if not s else {"generalize": s["generalize_count"], "n": s["n"],
+                                   "wilson95": s["generalize_wilson95"]}
+    out = {"format": "integrated-flagship/headline-1", "c1": {}, "generalize_gap0": {},
+           "generalize_gap1": {}, "exact_generalizing": {}}
+    for gap in (0, 1):
+        n, n2 = cost(arm(gap, "N")), cost(arm(gap, "N''"))
+        out["c1"][f"gap{gap}"] = {
+            "expected_programs": {a: ep(gap, a) for a in ("N", "N'", "N''")},
+            "N''_over_N": float(n2 / n) if n and n2 else None,
+            "verdict": (None if not (n and n2) else ("PASS" if n2 * 10 <= n else "FAIL"))}
+    arms0 = ["N", "N'", "N''", "P", "KO_ADDR", "KO_TRUTH", "KO_STEP", "STEP_only", "STEP_hand",
+             "U_feat", "U_steep", "U_Vonly"]
+    out["generalize_gap0"] = {a: gen(0, a) for a in arms0 if arm(0, a)}
+    out["generalize_gap1"] = {a: gen(1, a) for a in ("N", "N'", "N''", "P", "U_feat") if arm(1, a)}
+    for gap in (0, 1):
+        g = load(f"generalize_gap{gap}.json")
+        if g:
+            out["exact_generalizing"][f"gap{gap}"] = {
+                "schema": g["schema"]["K_generalizing"], "distractor": g["distractor"]["K_generalizing"],
+                "certificate_schema": g["schema"]["certificate"],
+                "certificate_distractor": g["distractor"]["certificate"]}
+    out["step_hand_gap0"] = {"generalize": gen(0, "STEP_hand"), "expected_programs": ep(0, "STEP_hand")}
+    return out
+
+
 def render(text):
     def sub(m):
         name = m.group(1)
@@ -484,4 +520,5 @@ def render(text):
 
 if __name__ == "__main__":
     RESULTS.write_text(render(RESULTS.read_text()))
-    print("rendered", RESULTS)
+    (OUT / "headline.json").write_text(json.dumps(headline(), indent=1, sort_keys=True))
+    print("rendered", RESULTS, "and out/headline.json")
