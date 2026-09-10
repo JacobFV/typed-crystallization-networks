@@ -105,6 +105,66 @@ def _tkey(t):
     return json.dumps(t.to_dict(), sort_keys=True, separators=(",", ":"))
 
 
+def _int_interval(t):
+    """The closed integer interval every value of `t` provably lies in, or `None`.
+
+    Purely a property of the *declared* type: the encoded width intersected with
+    the refinement bounds.  `None` for anything that is not an integer-encoded
+    `int`, so a caller can never mistake "no interval" for "any interval".
+
+    `Type.__post_init__` caps `bits` at 64, so both endpoints are ordinary
+    Python ints and the arithmetic below never becomes unbounded.
+    """
+    if t is None or t.kind != "int" or t.encoding.kind != "integer":
+        return None
+    e = t.encoding
+    lo = -(2 ** (t.bits - 1)) if e.signed else 0
+    hi = 2 ** (t.bits - int(e.signed)) - 1
+    if t.bounds is not None:
+        lo = max(lo, math.ceil(t.bounds[0]))
+        hi = min(hi, math.floor(t.bounds[1]))
+    return (lo, hi) if lo <= hi else None
+
+
+# `float(x)` is exact for a Python int of magnitude at most 2**53, and `round`
+# of an exact float is the int itself.  Past that boundary `float()` rounds to
+# the nearest representable double and can carry a value *out* of its declared
+# range -- `float(2**63 - 1)` is `2**63` -- so an integer-valued conversion may
+# only be treated as the identity on the interval inside this bound.
+_EXACT_FLOAT_INT = 2 ** 53
+
+
+def _iv_mul(a, b):
+    xs = [a[0] * b[0], a[0] * b[1], a[1] * b[0], a[1] * b[1]]
+    return (min(xs), max(xs))
+
+
+def _iv_floordiv(a, b):
+    """Interval of Python `a // b` over the box, with 0 excluded from `b`."""
+    parts = []
+    if b[0] <= -1:
+        parts.append((b[0], min(b[1], -1)))
+    if b[1] >= 1:
+        parts.append((max(b[0], 1), b[1]))
+    if not parts:
+        return None
+    xs = []
+    for lo, hi in parts:
+        # floor division is monotone in each argument on a sign-constant box,
+        # so the extrema are attained at the corners.
+        xs += [a[0] // lo, a[0] // hi, a[1] // lo, a[1] // hi]
+    return (min(xs), max(xs))
+
+
+def _iv_mod(b):
+    """Interval of Python `a % b`, which takes the sign of `b`."""
+    if b[0] > 0:
+        return (0, b[1] - 1)
+    if b[1] < 0:
+        return (b[0] + 1, 0)
+    return None
+
+
 def _lit(x):
     """A Python literal for a decoded value.  Deterministic for sets."""
     if isinstance(x, bool):
@@ -136,12 +196,125 @@ class _Compiler:
         self.modules = {}          # module name -> function name
         self.module_lines = []
         self.prov = {}             # variable name -> provenance record
+        self.iv = {}               # variable name -> proved closed integer interval
         self.n = 0
         self.stats = {"nodes_emitted": 0, "nodes_folded": 0, "nodes_pruned_dead": 0,
                       "scalar_canonicalisations": 0, "structural_canonicalisations_elided": 0,
                       "boundary_encoders": 0, "modules_emitted": 0, "widest_static_type": 0,
-                      "boundary_identity_guards": 0}
+                      "boundary_identity_guards": 0,
+                      "guard_range_emitted": 0, "guard_range_eliminated": 0,
+                      "guard_index_emitted": 0, "guard_index_eliminated": 0,
+                      "guard_zerodiv_emitted": 0, "guard_zerodiv_eliminated": 0,
+                      "guard_shift_emitted": 0, "guard_shift_eliminated": 0}
         self.needs = set()
+
+    # ---- the interval lattice ---------------------------------------------
+    # INVARIANT IV.  Every SSA name whose declared type is an integer-encoded
+    # `int` is bound to a value inside that type's interval.  It is established
+    # at every binding site the emitter controls: an input or state port by its
+    # `_IN`/`_ST` boundary encoder, a constant by the `Value` it was decoded
+    # from, a scalar node by the range check or the `_canon_fn` its own emission
+    # ends in, `pack` by `Registry.resolve`'s `bits == sum(item bits)` law,
+    # `unpack` by masking each field to its own width, and every structural
+    # operator by only moving values that already satisfy IV.  IV is inductive,
+    # so *proving* a value in range and then deleting its check preserves it.
+    #
+    # `self.iv` therefore starts from the declared type and is only ever
+    # refined -- never widened -- by what the emitter itself computed.  Absence
+    # from `self.iv` is the top element: it discharges no obligation.
+    def note_iv(self, var, t):
+        """Record the declared-type interval for a binding site, if it has one."""
+        span = _int_interval(t)
+        if span is not None:
+            self.iv.setdefault(var, span)
+        return span
+
+    def src_iv(self, name):
+        """The proved interval of a source operand, or `None` for unknown."""
+        return self.iv.get(name)
+
+    def _expr_iv(self, op, s):
+        """Interval of the expression `_lower` is about to assign to `op`'s result.
+
+        Computed from the *operand* intervals, so it can be strictly tighter
+        than the declared output type -- which is the whole point: a check is
+        removable exactly when the expression's own interval already sits inside
+        the declared range.  Returns `None` for any operator this has not been
+        taught, and `None` never discharges an obligation.
+        """
+        n = op.name
+        a = self.src_iv(s[0]) if s else None
+        b = self.src_iv(s[1]) if len(s) > 1 else None
+        if n in {"add", "sub", "mul", "min", "max", "mod", "idiv", "shl", "shr"}:
+            if a is None or b is None:
+                return None
+            if n == "add":
+                return (a[0] + b[0], a[1] + b[1])
+            if n == "sub":
+                return (a[0] - b[1], a[1] - b[0])
+            if n == "mul":
+                return _iv_mul(a, b)
+            if n == "min":
+                return (min(a[0], b[0]), min(a[1], b[1]))
+            if n == "max":
+                return (max(a[0], b[0]), max(a[1], b[1]))
+            if n == "mod":
+                return _iv_mod(b)
+            if n == "idiv":
+                return _iv_floordiv(a, b)
+            # A shift is only bounded when the shift count is; cap the width so
+            # the interval arithmetic itself cannot blow up.
+            if b[0] < 0 or b[1] > 64:
+                return None
+            xs = [a[0] << b[0], a[0] << b[1], a[1] << b[0], a[1] << b[1]] if n == "shl" \
+                else [a[0] >> b[0], a[0] >> b[1], a[1] >> b[0], a[1] >> b[1]]
+            return (min(xs), max(xs))
+        if n == "neg":
+            return None if a is None else (-a[1], -a[0])
+        if n == "abs":
+            if a is None:
+                return None
+            if a[0] >= 0:
+                return a
+            if a[1] <= 0:
+                return (-a[1], -a[0])
+            return (0, max(-a[0], a[1]))
+        if n == "count":
+            t0 = op.inputs[0]
+            if t0.kind == "tuple":
+                return (len(t0.items), len(t0.items))
+            if t0.kind == "set":
+                return (0, t0.capacity)
+            return None
+        if n in {"sum", "reduce_min", "reduce_max"}:
+            t0 = op.inputs[0]
+            if t0.kind != "tuple" or not t0.items:
+                return None
+            spans = [_int_interval(x) for x in t0.items]
+            if any(x is None for x in spans):
+                return None
+            if n == "sum":
+                return (sum(x[0] for x in spans), sum(x[1] for x in spans))
+            if n == "reduce_min":
+                return (min(x[0] for x in spans), min(x[1] for x in spans))
+            return (max(x[0] for x in spans), max(x[1] for x in spans))
+        if n in CONVERSIONS:
+            if op.output.kind != "int" or op.output.encoding.kind != "integer":
+                return None
+            if op.inputs[0].kind == "bool":
+                # `round(float(b))` on a `bool` is 0 or 1, and the declared type
+                # `bool` admits nothing else.  AMENDMENT 1, RESULTS.md sec 8.
+                return (0, 1)
+            # `round(float(x))` on an integer operand is the identity, but only
+            # where `float(x)` is exact; see `_EXACT_FLOAT_INT`.
+            if a is None:
+                return None
+            if op.inputs[0].kind != "int" or op.inputs[0].encoding.kind != "integer":
+                return None
+            if max(abs(a[0]), abs(a[1])) > _EXACT_FLOAT_INT:
+                return None
+            return a
+        return None
 
     # ---- type table -------------------------------------------------------
     def tid(self, t):
@@ -189,6 +362,8 @@ class _Compiler:
             self.consts[src] = name
             self.const_lines.append("%s = %s" % (name, src))
             self.known[name] = value
+            if isinstance(value, int) and not isinstance(value, bool):
+                self.iv[name] = (value, value)
         return name
 
     def var(self):
@@ -277,15 +452,7 @@ class _Compiler:
         always exactly representable as floats and `math.isfinite` on a member
         can never itself raise.
         """
-        if t.kind != "int" or t.encoding.kind != "integer":
-            return None
-        e = t.encoding
-        lo = -(2 ** (t.bits - 1)) if e.signed else 0
-        hi = 2 ** (t.bits - int(e.signed)) - 1
-        if t.bounds is not None:
-            lo = max(lo, math.ceil(t.bounds[0]))
-            hi = min(hi, math.floor(t.bounds[1]))
-        return (lo, hi) if lo <= hi else None
+        return _int_interval(t)
 
     def _identity_guard(self, t, arity):
         """A sound, cheap predicate for "this whole tuple is already canonical".
@@ -418,8 +585,21 @@ class _Compiler:
                 return "float64"
         return None
 
-    def _emit_scalar(self, dst, expr, op):
-        """Assign `dst` the canonical form of `expr` under `op.output`."""
+    def _emit_scalar(self, dst, expr, op, s=()):
+        """Assign `dst` the canonical form of `expr` under `op.output`.
+
+        GUARD CLASS G1 -- the integer range check.  `_fast_kind` has already
+        established that the operator is closed over the declared integer
+        carrier, so the only thing the check can detect is an overflow of the
+        declared width.  When the interval of `expr`, computed from the operand
+        intervals under IV, already lies inside that width, the check is
+        *unreachable* and is not emitted: `research/emitter-guards/RESULTS.md`.
+
+        The proof is over the declared types alone.  Where it does not go
+        through -- and on the artifacts measured it usually does not, because
+        `add` on two full-width carriers can overflow by construction -- the
+        check stays exactly as it was.
+        """
         t = op.output
         if t.kind == "bool":
             return ["%s = %s" % (dst, expr)]
@@ -428,8 +608,16 @@ class _Compiler:
             M = 2 ** t.bits
             lo = -(M // 2) if t.encoding.signed else 0
             hi = M // (2 if t.encoding.signed else 1) - 1
-            self.needs.add("ovf")
             self.stats["scalar_canonicalisations"] += 1
+            span = self._expr_iv(op, s) if s else None
+            if span is not None and lo <= span[0] and span[1] <= hi:
+                self.stats["guard_range_eliminated"] += 1
+                self.iv[dst] = span
+                return ["%s = %s" % (dst, expr)]
+            self.needs.add("ovf")
+            self.stats["guard_range_emitted"] += 1
+            if span is not None and max(lo, span[0]) <= min(hi, span[1]):
+                self.iv[dst] = (max(lo, span[0]), min(hi, span[1]))
             return ["%s = %s" % (dst, expr),
                     "if not %d <= %s <= %d: _ovf(%s, %d, %d)" % (lo, dst, hi, dst, lo, hi)]
         if kind == "float64":
@@ -457,6 +645,9 @@ class _Compiler:
             # carrier, encoding, unit, frame and bounds to be preserved, so the
             # decoded value is bit-for-bit the same object.
             self.stats["structural_canonicalisations_elided"] += 1
+            span = self.src_iv(s[0])
+            if span is not None:
+                self.iv[dst] = span              # the identical value
             return ["%s = %s" % (dst, s[0])]
         if n == "not":
             return ["%s = not %s" % (dst, s[0])]
@@ -470,6 +661,9 @@ class _Compiler:
             return ["%s = %s[2 * %s + %s]" % (dst, self.const(table), s[0], s[1])]
         if n == "mux":
             self.stats["structural_canonicalisations_elided"] += 1
+            a, b = self.src_iv(s[1]), self.src_iv(s[2])
+            if a is not None and b is not None:
+                self.iv[dst] = (min(a[0], b[0]), max(a[1], b[1]))
             return ["%s = %s if %s else %s" % (dst, s[1], s[0], s[2])]
         if n in COMPARE:
             e = {"eq": "==", "lt": "<", "le": "<=", "gt": ">", "ge": ">="}[n]
@@ -477,14 +671,27 @@ class _Compiler:
         if n in BINARY:
             k = self.known.get(s[1], _UNKNOWN)
             if n in {"div", "mod", "idiv"}:
+                # GUARD CLASS G3 -- zero denominator.  Removable exactly when
+                # the divisor's declared interval excludes zero.
                 if k is _UNKNOWN:
-                    L.append("if %s == 0: raise ValueError('zero denominator')" % s[1])
+                    span = self.src_iv(s[1])
+                    if span is not None and (span[0] > 0 or span[1] < 0):
+                        self.stats["guard_zerodiv_eliminated"] += 1
+                    else:
+                        self.stats["guard_zerodiv_emitted"] += 1
+                        L.append("if %s == 0: raise ValueError('zero denominator')" % s[1])
                 elif k == 0:
                     return ["raise ValueError('zero denominator')"]
             if n in {"shl", "shr"}:
+                # GUARD CLASS G4 -- shift outside the bit width.
                 if k is _UNKNOWN:
-                    L.append("if not 0 <= %s < %d: raise ValueError('shift outside bit width')"
-                             % (s[1], op.inputs[0].bits))
+                    span = self.src_iv(s[1])
+                    if span is not None and span[0] >= 0 and span[1] < op.inputs[0].bits:
+                        self.stats["guard_shift_eliminated"] += 1
+                    else:
+                        self.stats["guard_shift_emitted"] += 1
+                        L.append("if not 0 <= %s < %d: raise ValueError('shift outside bit width')"
+                                 % (s[1], op.inputs[0].bits))
                 elif not 0 <= k < op.inputs[0].bits:
                     return ["raise ValueError('shift outside bit width')"]
             sym = {"add": "+", "sub": "-", "mul": "*", "div": "/", "mod": "%",
@@ -496,7 +703,7 @@ class _Compiler:
                 expr = "%s(%s, %s)" % (_MATH_BINARY[n], s[0], s[1])
             else:
                 expr = "%s(%s, %s)" % (n, s[0], s[1])          # min / max
-            return L + self._emit_scalar(dst, expr, op)
+            return L + self._emit_scalar(dst, expr, op, s)
         if n in UNARY:
             if n == "neg":
                 expr = "-%s" % s[0]
@@ -505,7 +712,7 @@ class _Compiler:
             else:
                 self.needs.add(n)
                 expr = "%s(%s)" % (_MATH_UNARY[n], s[0])
-            return self._emit_scalar(dst, expr, op)
+            return self._emit_scalar(dst, expr, op, s)
         if n in {"sum", "mean", "reduce_min", "reduce_max", "count"}:
             src = s[0]
             if op.inputs[0].kind == "set":
@@ -517,7 +724,7 @@ class _Compiler:
             expr = {"sum": "sum(%s)", "mean": "sum(%s) / len(%s)",
                     "reduce_min": "min(%s)", "reduce_max": "max(%s)", "count": "len(%s)"}[n]
             expr = expr % ((src, src) if n == "mean" else src)
-            return L + self._emit_scalar(dst, expr, op)
+            return L + self._emit_scalar(dst, expr, op, s)
         if n == "tuple":
             self.stats["structural_canonicalisations_elided"] += 1
             return ["%s = (%s)" % (dst, "".join(x + "," for x in s))]
@@ -528,8 +735,17 @@ class _Compiler:
             self.stats["structural_canonicalisations_elided"] += 1
             k = self.known.get(s[1], _UNKNOWN)
             if k is _UNKNOWN:
-                L.append("if not 0 <= %s < %d: raise IndexError('index outside tuple')"
-                         % (s[1], len(op.inputs[0].items)))
+                # GUARD CLASS G2 -- the dynamic tuple index.  The tuple's width
+                # is static, so the check is removable exactly when the index's
+                # declared interval already lies inside it.
+                span = self.src_iv(s[1])
+                width = len(op.inputs[0].items)
+                if span is not None and span[0] >= 0 and span[1] < width:
+                    self.stats["guard_index_eliminated"] += 1
+                else:
+                    self.stats["guard_index_emitted"] += 1
+                    L.append("if not 0 <= %s < %d: raise IndexError('index outside tuple')"
+                             % (s[1], width))
             elif not 0 <= k < len(op.inputs[0].items):
                 return ["raise IndexError('index outside tuple')"]
             return L + ["%s = %s[%s]" % (dst, s[0], s[1])]
@@ -567,7 +783,8 @@ class _Compiler:
             scalar = _ScalarOp(op.output.items[0], op.inputs[0], "sub" if n == "difference" else "add")
             tmp = self.var()
             L += self._emit_scalar(tmp, "%s - %s" % (s[0], s[1]) if n == "difference"
-                                   else "%s + %s" % (s[1], s[0]), scalar)
+                                   else "%s + %s" % (s[1], s[0]), scalar,
+                                   s if n == "difference" else (s[1], s[0]))
             return L + ["%s = (%s, %s)" % (dst, tmp, s[0] if n == "difference" else tmp)]
         if n in {"fft", "ifft"}:
             self.needs.add("cmath")
@@ -627,7 +844,7 @@ class _Compiler:
                 expr = "round(float(%s))" % s[0]
             else:
                 expr = "float(%s)" % s[0]
-            return self._emit_scalar(dst, expr, op)
+            return self._emit_scalar(dst, expr, op, s)
         raise KeyError("cannot compile operator: %s" % n)
 
     # ---- program bodies ---------------------------------------------------
@@ -644,6 +861,10 @@ class _Compiler:
         env = {k: v for (k, _), v in zip(module.inputs, ports)}
         for k, v in zip(module.inputs, ports):
             self.prov[v] = {"scope": name, "node": k[0], "role": "input", "type": self.tid(k[1])}
+            # A module is emitted once and called from every site, so its port
+            # may only carry the *declared* interval -- IV at the call site --
+            # never a caller's refinement.
+            self.note_iv(v, k[1])
         body = self.emit_body(module, env, name)
         outs = [env[v] for _, v in module.outputs]
         ret = outs[0] if len(outs) == 1 else "(%s)" % "".join(x + "," for x in outs)
@@ -703,6 +924,7 @@ class _Compiler:
             lines.append("# " + tag)
             lines += stmts
             env[n.name] = dst
+            self.note_iv(dst, n.output)          # IV; `_emit_scalar` may be tighter
             self.stats["nodes_emitted"] += 1
             self.stats.setdefault("emitted_per_scope", {})
             self.stats["emitted_per_scope"][scope] = self.stats["emitted_per_scope"].get(scope, 0) + 1
@@ -723,6 +945,7 @@ class _Compiler:
             v = self.var()
             env[k] = v
             self.prov[v] = {"scope": "run", "node": k, "role": "input", "type": self.tid(t)}
+            self.note_iv(v, t)
             arg_lines.append("    %s = _IN[%r](inputs[%r]) if validate else inputs[%r]"
                              % (v, k, k, k))
         state_names = [k for k, _, _ in p.state]
@@ -730,6 +953,7 @@ class _Compiler:
             var = self.var()
             env[k] = var
             self.prov[var] = {"scope": "run", "node": k, "role": "state", "type": self.tid(v0.type)}
+            self.note_iv(var, v0.type)
             arg_lines.append("    %s = _S0[%r] if state is None else (_ST[%r](state[%r]) if validate else state[%r])"
                              % (var, k, k, k, k))
         body = self.emit_body(p, env, "run")

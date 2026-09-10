@@ -309,3 +309,134 @@ def test_compilation_requires_a_frozen_program():
     p = Program((('a', I8), ('b', I8)), (node,), (('s', 's'),)).validate(R)
     with pytest.raises(ValueError):
         compile_program(p, R)
+
+
+# ---------------------------------------------------------------------------
+# Typed-guard elimination -- `research/emitter-guards/RESULTS.md`.
+#
+# A guard is removed only where the declared types prove it unreachable.  Each
+# class is tested twice: once where the proof goes through (the value must be
+# identical to the interpreter's and the guard must actually be gone) and once
+# where it does not (the guard must still be there and must raise the identical
+# exception at the identical edge).  `research/residual-gap/RESULTS.md` sec 2.1
+# is why the second half exists: a transform that looked obviously safe was
+# wrong on 243 of 2,883 records.
+# ---------------------------------------------------------------------------
+U8B = integer(8, signed=False, bounds=(0, 3))
+U8D = integer(8, signed=False, bounds=(1, 9))
+U8W = integer(8, signed=False, bounds=(0, 4))
+U16 = integer(16, signed=False)
+
+
+def _guards(program, registry):
+    res = compile_program(program, registry)
+    return res, {k[6:]: v for k, v in res.stats.items() if k.startswith('guard_')}
+
+
+def test_g1_range_guard_goes_where_the_type_proves_it_and_stays_where_it_does_not():
+    # min / max of two values of one type cannot leave that type's range
+    p, r = build((('a', I8), ('b', I8)),
+                 [('m', 'min', ('a', 'b'), None, None), ('x', 'max', ('a', 'b'), None, None)],
+                 (('m', 'm'), ('x', 'x')))
+    res, g = _guards(p, r)
+    assert g['range_eliminated'] == 2 and g['range_emitted'] == 0
+    assert '_ovf(' not in res.source
+    agree(p, r, [{'a': a, 'b': b} for a in (-128, -1, 0, 127) for b in (-128, 0, 127)])
+
+    # add of two full-width values can overflow, so the guard has to stay
+    p, r = build((('a', I8), ('b', I8)), [('s', 'add', ('a', 'b'), None, None)], (('s', 's'),))
+    res, g = _guards(p, r)
+    assert g['range_eliminated'] == 0 and g['range_emitted'] == 1
+    assert '_ovf(' in res.source
+    agree(p, r, [{'a': 127, 'b': 1}, {'a': -128, 'b': -1}, {'a': 100, 'b': -100}])
+
+
+def test_g1_range_guard_goes_for_a_boolean_conversion():
+    p, r = build((('a', BOOL),), [('e', 'encode', ('a',), None, U16)], (('e', 'e'),))
+    res, g = _guards(p, r)
+    assert g['range_eliminated'] == 1 and g['range_emitted'] == 0
+    assert '_ovf(' not in res.source
+    agree(p, r, [{'a': True}, {'a': False}])
+
+
+def test_g2_index_guard_goes_only_when_the_bound_is_inside_the_tuple():
+    T4 = product(U8, U8, U8, U8)
+    # bounds (0, 3) on a 4-tuple: provable
+    p, r = build((('t', T4), ('i', U8B)), [('v', 'index', ('t', 'i'), None, None)], (('v', 'v'),))
+    res, g = _guards(p, r)
+    assert g['index_eliminated'] == 1 and g['index_emitted'] == 0
+    assert 'index outside tuple' not in res.source
+    agree(p, r, [{'t': (7, 8, 9, 10), 'i': i} for i in range(4)])
+
+    # bounds (0, 4) on a 4-tuple: a closed refinement bound never proves a
+    # half-open index, so the guard stays -- and it fires at i = 4
+    p, r = build((('t', T4), ('i', U8W)), [('v', 'index', ('t', 'i'), None, None)], (('v', 'v'),))
+    res, g = _guards(p, r)
+    assert g['index_eliminated'] == 0 and g['index_emitted'] == 1
+    assert 'index outside tuple' in res.source
+    agree(p, r, [{'t': (7, 8, 9, 10), 'i': i} for i in range(5)])
+    with pytest.raises(IndexError):
+        compile_program(p, r).module().run({'t': (7, 8, 9, 10), 'i': 4})
+
+
+def test_g3_zero_denominator_guard_goes_only_when_zero_is_outside_the_bound():
+    p, r = build((('a', U8D), ('b', U8D)),
+                 [('q', 'idiv', ('a', 'b'), None, None), ('m', 'mod', ('a', 'b'), None, None)],
+                 (('q', 'q'), ('m', 'm')))
+    res, g = _guards(p, r)
+    assert g['zerodiv_eliminated'] == 2 and g['zerodiv_emitted'] == 0
+    assert 'zero denominator' not in res.source
+    agree(p, r, [{'a': a, 'b': b} for a in (1, 7, 9) for b in (1, 3, 9)])
+
+    p, r = build((('a', U8), ('b', U8)),
+                 [('q', 'idiv', ('a', 'b'), None, None)], (('q', 'q'),))
+    res, g = _guards(p, r)
+    assert g['zerodiv_eliminated'] == 0 and g['zerodiv_emitted'] == 1
+    assert 'zero denominator' in res.source
+    agree(p, r, [{'a': 7, 'b': 0}, {'a': 7, 'b': 2}])
+
+
+def test_g4_shift_guard_goes_only_when_the_count_is_bounded_by_the_width():
+    p, r = build((('a', U8B), ('b', U8B)), [('s', 'shl', ('a', 'b'), None, None)], (('s', 's'),))
+    res, g = _guards(p, r)
+    assert g['shift_eliminated'] == 1 and g['shift_emitted'] == 0
+    assert 'shift outside bit width' not in res.source
+    agree(p, r, [{'a': a, 'b': b} for a in range(4) for b in range(4)])
+
+    p, r = build((('a', I8), ('b', I8)), [('s', 'shl', ('a', 'b'), None, None)], (('s', 's'),))
+    res, g = _guards(p, r)
+    assert g['shift_eliminated'] == 0 and g['shift_emitted'] == 1
+    assert 'shift outside bit width' in res.source
+    agree(p, r, [{'a': 1, 'b': b} for b in (0, 3, 8, -1)])
+
+
+def test_a_load_bearing_clamp_is_never_deleted_and_is_what_proves_the_index():
+    """The `research/residual-gap` R5a case, as a standing regression.
+
+    R5a failed on 243 of 2,883 records because it deleted a `min(., 3069)`
+    clamp along with the guards.  This pass deletes guards only: the clamp is an
+    operator, so it survives, and the interval it establishes is precisely what
+    discharges the index obligation downstream.
+    """
+    T8 = product(*([U8] * 8))
+    p, r = build((('t', T8), ('a', U16)),
+                 [('c', 'min', ('a', 'k'), None, None),
+                  ('v', 'index', ('t', 'c'), None, None)],
+                 (('v', 'v'),), constants=(('k', Value.of(U16, 7)),))
+    res, g = _guards(p, r)
+    assert 'min(' in res.source                        # the clamp survives
+    assert g['index_eliminated'] == 1 and g['index_emitted'] == 0
+    assert 'index outside tuple' not in res.source
+    agree(p, r, [{'t': tuple(range(10, 18)), 'a': a} for a in (0, 3, 7, 8, 4095, 65535)])
+
+
+def test_guard_elimination_never_changes_the_boundary():
+    """Every input is still validated in full; only internal checks are removed."""
+    p, r = build((('a', I8), ('b', I8)), [('m', 'min', ('a', 'b'), None, None)], (('m', 'm'),))
+    mod = compile_program(p, r).module()
+    with pytest.raises(OverflowError):
+        mod.run({'a': 200, 'b': 0})
+    with pytest.raises(ValueError):
+        mod.run({'a': 1.5, 'b': 0})
+    with pytest.raises(TypeError):
+        mod.run({'a': True, 'b': 0})

@@ -1,0 +1,125 @@
+{
+ "visual": {
+  "subroutine_timing": {
+   "_m2": {
+    "identical": true,
+    "calls_timed": 19,
+    "sweep_calls": 266,
+    "latency_us": {
+     "old": {
+      "median_us": 37.65714285714285,
+      "min_us": 37.204086466165414,
+      "max_us": 38.259725563909775,
+      "ci95_lo_us": 37.59307894736842,
+      "ci95_hi_us": 37.721078947368426,
+      "ci_coverage": 0.9475,
+      "repeats": 21
+     },
+     "new": {
+      "median_us": 33.215507518797,
+      "min_us": 32.619962406015034,
+      "max_us": 33.82525563909775,
+      "ci95_lo_us": 33.13009398496241,
+      "ci95_hi_us": 33.30573308270677,
+      "ci_coverage": 0.9475,
+      "repeats": 21
+     }
+    },
+    "ratio_old_over_new": {
+     "ratio": 1.1337217363254886,
+     "ci95_lo": 1.1288606073261787,
+     "ci95_hi": 1.1384606499630225,
+     "contains_1": false
+    },
+    "bytecodes_per_call": {
+     "old": 15114.105263157895,
+     "new": 13300.105263157895
+    },
+    "bytecode_ratio_old_over_new": 1.136389897982604
+   }
+  },
+  "module_functions": {
+   "module:117c596cccfb573f606e8d7f": "_m0",
+   "module:b409b71ea0e41d77abb7cb9c": "_m1",
+   "module:c79e712699a5aa1716f3f65c": "_m2"
+  },
+  "calls_per_case": {
+   "old": {
+    "_m1": 3100,
+    "_m0": 961,
+    "_m2": 19
+   },
+   "new": {
+    "_m1": 3100,
+    "_m0": 961,
+    "_m2": 19
+   }
+  },
+  "bytecodes_by_code_object": {
+   "old": {
+    "_m1": 468100,
+    "_m2": 109147,
+    "_m0": 51894,
+    "<genexpr>": 21363,
+    "run": 57,
+    "by_code": 10,
+    "<lambda>": 9
+   },
+   "new": {
+    "_m1": 468100,
+    "_m2": 74681,
+    "_m0": 51894,
+    "<genexpr>": 21363,
+    "run": 57,
+    "by_code": 10,
+    "<lambda>": 9
+   }
+  },
+  "guards_kept_by_function": {
+   "G1 in _m0": 2,
+   "G1 in _m1": 4,
+   "G1 in _m2": 69,
+   "G2 in _m1": 6,
+   "G2 in _m2": 6
+  },
+  "guards_eliminated_by_function": {
+   "G1 in _m2": 191
+  }
+ },
+ "language": {
+  "subroutine_timing": {},
+  "module_functions": {
+   "module:8063993bfeee7393683e47b3": "_m0"
+  },
+  "calls_per_case": {
+   "old": {
+    "_m0": 16
+   },
+   "new": {
+    "_m0": 16
+   }
+  },
+  "bytecodes_by_code_object": {
+   "old": {
+    "_c0": 731,
+    "run": 542,
+    "_m0": 448,
+    "by_code": 10,
+    "<lambda>": 9
+   },
+   "new": {
+    "_c0": 731,
+    "_m0": 448,
+    "run": 407,
+    "by_code": 10,
+    "<lambda>": 9
+   }
+  },
+  "guards_kept_by_function": {
+   "G2 in _m0": 1
+  },
+  "guards_eliminated_by_function": {
+   "G1 in run": 15
+  }
+ }
+}

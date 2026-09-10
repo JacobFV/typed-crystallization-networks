@@ -1,0 +1,275 @@
+{
+ "mixed": {
+  "stats": {
+   "guard_range_emitted": 0,
+   "guard_range_eliminated": 0,
+   "guard_index_emitted": 0,
+   "guard_index_eliminated": 0,
+   "guard_zerodiv_emitted": 0,
+   "guard_zerodiv_eliminated": 0,
+   "guard_shift_emitted": 0,
+   "guard_shift_eliminated": 0
+  },
+  "kept_by_shape": {},
+  "eliminated_by_shape": {},
+  "kept_examples": []
+ },
+ "language": {
+  "stats": {
+   "guard_range_emitted": 0,
+   "guard_range_eliminated": 15,
+   "guard_index_emitted": 1,
+   "guard_index_eliminated": 0,
+   "guard_zerodiv_emitted": 0,
+   "guard_zerodiv_eliminated": 0,
+   "guard_shift_emitted": 0,
+   "guard_shift_eliminated": 0
+  },
+  "kept_by_shape": {
+   "G2 index(tuple[128], int32u bounds(0, 128)) -> int8u": 1
+  },
+  "eliminated_by_shape": {
+   "G1 add(int16s, int16s) -> int16s": 15
+  },
+  "kept_examples": [
+   {
+    "guard": "G2",
+    "kept": true,
+    "operator": "index",
+    "operand_types": [
+     "tuple[128]",
+     "int32u bounds(0, 128)"
+    ],
+    "operand_intervals": [
+     null,
+     [
+      0,
+      128
+     ]
+    ],
+    "output_type": "int8u",
+    "proved": null
+   }
+  ]
+ },
+ "visual": {
+  "stats": {
+   "guard_range_emitted": 75,
+   "guard_range_eliminated": 191,
+   "guard_index_emitted": 12,
+   "guard_index_eliminated": 0,
+   "guard_zerodiv_emitted": 0,
+   "guard_zerodiv_eliminated": 0,
+   "guard_shift_emitted": 0,
+   "guard_shift_eliminated": 0
+  },
+  "kept_by_shape": {
+   "G1 add(int16u, int16u) -> int16u": 70,
+   "G2 index(tuple[3072], int16u) -> int8u": 12,
+   "G1 sub(int16u, int16u) -> int16u": 3,
+   "G1 sum(tuple[31]) -> int16u": 2
+  },
+  "eliminated_by_shape": {
+   "G1 add(int16u, int16u) -> int16u": 64,
+   "G1 min(int16u, int16u) -> int16u": 62,
+   "G1 encode(bool) -> int16u": 62,
+   "G1 idiv(int16u, int16u) -> int16u": 2,
+   "G1 mod(int16u, int16u) -> int16u": 1
+  },
+  "kept_examples": [
+   {
+    "guard": "G1",
+    "kept": true,
+    "operator": "sub",
+    "operand_types": [
+     "int16u",
+     "int16u"
+    ],
+    "operand_intervals": [
+     [
+      0,
+      65535
+     ],
+     [
+      3,
+      3
+     ]
+    ],
+    "output_type": "int16u",
+    "proved": [
+     -3,
+     65532
+    ]
+   },
+   {
+    "guard": "G1",
+    "kept": true,
+    "operator": "sub",
+    "operand_types": [
+     "int16u",
+     "int16u"
+    ],
+    "operand_intervals": [
+     [
+      0,
+      65535
+     ],
+     [
+      96,
+      96
+     ]
+    ],
+    "output_type": "int16u",
+    "proved": [
+     -96,
+     65439
+    ]
+   },
+   {
+    "guard": "G1",
+    "kept": true,
+    "operator": "add",
+    "operand_types": [
+     "int16u",
+     "int16u"
+    ],
+    "operand_intervals": [
+     [
+      0,
+      65535
+     ],
+     [
+      1,
+      1
+     ]
+    ],
+    "output_type": "int16u",
+    "proved": [
+     1,
+     65536
+    ]
+   },
+   {
+    "guard": "G1",
+    "kept": true,
+    "operator": "add",
+    "operand_types": [
+     "int16u",
+     "int16u"
+    ],
+    "operand_intervals": [
+     [
+      0,
+      65535
+     ],
+     [
+      2,
+      2
+     ]
+    ],
+    "output_type": "int16u",
+    "proved": [
+     2,
+     65537
+    ]
+   },
+   {
+    "guard": "G2",
+    "kept": true,
+    "operator": "index",
+    "operand_types": [
+     "tuple[3072]",
+     "int16u"
+    ],
+    "operand_intervals": [
+     null,
+     [
+      0,
+      65535
+     ]
+    ],
+    "output_type": "int8u",
+    "proved": null
+   },
+   {
+    "guard": "G2",
+    "kept": true,
+    "operator": "index",
+    "operand_types": [
+     "tuple[3072]",
+     "int16u"
+    ],
+    "operand_intervals": [
+     null,
+     [
+      1,
+      65535
+     ]
+    ],
+    "output_type": "int8u",
+    "proved": null
+   }
+  ]
+ },
+ "computer": {
+  "stats": {
+   "guard_range_emitted": 1,
+   "guard_range_eliminated": 0,
+   "guard_index_emitted": 1,
+   "guard_index_eliminated": 0,
+   "guard_zerodiv_emitted": 0,
+   "guard_zerodiv_eliminated": 0,
+   "guard_shift_emitted": 0,
+   "guard_shift_eliminated": 0
+  },
+  "kept_by_shape": {
+   "G2 index(tuple[4096], int32u bounds(0, 4096)) -> int8u": 1,
+   "G1 add(int8u, int8u) -> int8u": 1
+  },
+  "eliminated_by_shape": {},
+  "kept_examples": [
+   {
+    "guard": "G2",
+    "kept": true,
+    "operator": "index",
+    "operand_types": [
+     "tuple[4096]",
+     "int32u bounds(0, 4096)"
+    ],
+    "operand_intervals": [
+     null,
+     [
+      0,
+      4096
+     ]
+    ],
+    "output_type": "int8u",
+    "proved": null
+   },
+   {
+    "guard": "G1",
+    "kept": true,
+    "operator": "add",
+    "operand_types": [
+     "int8u",
+     "int8u"
+    ],
+    "operand_intervals": [
+     [
+      0,
+      255
+     ],
+     [
+      1,
+      1
+     ]
+    ],
+    "output_type": "int8u",
+    "proved": [
+     1,
+     256
+    ]
+   }
+  ]
+ }
+}
