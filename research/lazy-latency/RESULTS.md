@@ -351,6 +351,11 @@ a point.  It does not; the deployment row is stable in both runs to 0.6 %.
 
 Both runs are kept: `out/latency_run1.json`, `out/latency_run2.json`.
 
+A third run was not taken.  The host's load rose to **43.0** while this document
+was being written and stayed there; a third run under that load would have been
+strictly worse than run 2 and would have added nothing that run 2's widened
+intervals do not already show.  Recorded rather than quietly omitted.
+
 ---
 
 ## 8. Falsification, condition by condition
