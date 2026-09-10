@@ -18,8 +18,8 @@ HERE = pathlib.Path(__file__).resolve().parent
 OUT = HERE / "out"
 RESULTS = HERE / "RESULTS.md"
 ARMS = ["N", "N'", "N''", "P", "D'", "A_noobs"] + [f"D''_{s}" for s in range(5)] + \
-       [f"R_{s}" for s in range(5)]
-LABEL = {"N": "N — flat, uniform", "N'": "N′ — schema, uniform", "N''": "N″ — schema + learned prior",
+       [f"R_{s}" for s in range(5)] + ["U_feat"]
+LABEL = {"U_feat": "U — N″'s features, UNFITTED weights (post-hoc control)","N": "N — flat, uniform", "N'": "N′ — schema, uniform", "N''": "N″ — schema + learned prior",
          "P": "P — flat + learned prior", "D'": "D′ — distractor schemas, uniform",
          "A_noobs": "N″ without observation features",
          **{f"D''_{s}": f"D″ — distractor schemas + permuted prior (seed {s})" for s in range(5)},

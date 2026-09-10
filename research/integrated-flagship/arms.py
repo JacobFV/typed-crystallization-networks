@@ -44,9 +44,39 @@ WIDTH = 16
 PERMUTATION_SEEDS = (0, 1, 2, 3, 4)
 
 
+class _Rule:
+    """A fixed, hand-written score: 1 when the named boolean feature is on, else `off`."""
+
+    def __init__(self, feature=None, off=.5):
+        self.feature, self.off = feature, off
+
+    def score(self, row):
+        if self.feature is None:
+            return 1.0
+        return 1.0 if row[self.feature] else self.off
+
+    def describe(self):
+        return {"rule": f"1 if {self.feature} else {self.off}" if self.feature else "uniform",
+                "p0": None, "rows": 0, "features": [self.feature] if self.feature else [],
+                "cells": {}}
+
+
+class HandFeaturePrior:
+    """POST-HOC control (coordinator-requested, not pre-registered): N''s features
+    with UNFITTED weights -- 'prefer candidates whose feature is on' -- so the
+    earlier domains' rows teach nothing here."""
+
+    def __init__(self):
+        self.est = {"ADDR": _Rule("V"), "LIT": _Rule("occurs"), "TRUTH": _Rule(), "STEP": _Rule()}
+
+    def describe(self):
+        return {k: e.describe() for k, e in self.est.items()}
+
+
 def arm_table(src):
     learned = prior.Prior(src)
     return {
+        "U_feat": ("schema", HandFeaturePrior()),
         "N": ("flat", None), "N'": ("schema", None), "N''": ("schema", learned),
         "P": ("flat", learned), "D'": ("distractor", None),
         **{f"D''_{s}": ("distractor", prior.Prior(src, permute=s)) for s in PERMUTATION_SEEDS},

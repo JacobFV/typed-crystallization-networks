@@ -71,7 +71,8 @@ for m in re.finditer(r"<!-- BEGIN:(\w+) -->\n(.*?)\n<!-- END:\1 -->", RESULTS, f
           report.BLOCKS[name]() == body)
 
 # ------------------------------------------------------ layer 2: raw claims
-ARMS = ["N", "N'", "N''", "P", "D'", "A_noobs"] + [f"D''_{s}" for s in range(5)] + [f"R_{s}" for s in range(5)]
+ARMS = ["N", "N'", "N''", "P", "D'", "A_noobs"] + [f"D''_{s}" for s in range(5)] + \
+       [f"R_{s}" for s in range(5)] + ["U_feat"]
 costs = {}
 for gap in (0, 1):
     for a in ARMS:
