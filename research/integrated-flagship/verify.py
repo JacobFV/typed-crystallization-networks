@@ -120,6 +120,13 @@ for gap in (0, 1):
                   Fraction(int(d["expected_episodes"]["num"]), int(d["expected_episodes"]["den"])) == 12 * c)
         costs[(gap, a)] = c
 
+# sweep harness sanity: OCC_3500 pins the occurs ratio at ~N'''s own fitted value,
+# so it must reproduce N'''s expected cost (recomputed from tier rows, not stored)
+if costs.get((0, "OCC_3500")) is not None and costs.get((0, "N''")) is not None:
+    a_, b_ = costs[(0, "OCC_3500")], costs[(0, "N''")]
+    claim("sweep sanity: OCC_3500 reproduces N'' expected programs (within 1e-6 relative)",
+          abs(float(a_) / float(b_) - 1) < 1e-6, f"{float(a_):.6e} vs {float(b_):.6e}")
+
 # subset relation that F3's theorem rests on: N' and N'' pools are inside N's
 import family  # noqa: E402
 flat, schema = family.pools("flat"), family.pools("schema")
