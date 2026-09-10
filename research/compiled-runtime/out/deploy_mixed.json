@@ -1,0 +1,45 @@
+{
+ "A": {
+  "amortized_inference_ms": 0.03331574599724263,
+  "batch_wall_2n_ms": 221.92524099955335,
+  "batch_wall_ms": 155.2937490050681,
+  "bytes_on_disk": 45322,
+  "cold_start_ms": 83.31191702745855,
+  "first_output_bytes": 176,
+  "gzip_bytes": 12140,
+  "outputs": 4000,
+  "peak_rss_mb_batch": 19.060546875,
+  "peak_rss_mb_cold": 18.5234375,
+  "repeats": 2000
+ },
+ "C": {
+  "amortized_inference_ms": 0.004636605002451688,
+  "batch_wall_2n_ms": 305.508618010208,
+  "batch_wall_ms": 212.77651796117425,
+  "bytes_on_disk": 1713,
+  "cold_start_ms": 38.43357303412631,
+  "first_output_bytes": 43,
+  "gzip_bytes": 1697,
+  "outputs": 40000,
+  "peak_rss_mb_batch": 10.7734375,
+  "peak_rss_mb_cold": 10.76953125,
+  "repeats": 20000
+ },
+ "D": {
+  "amortized_inference_ms": 0.006497733152355067,
+  "batch_wall_2n_ms": 321.7827370390296,
+  "batch_wall_ms": 191.82807399192825,
+  "bytes_on_disk": 876,
+  "cold_start_ms": 36.845365015324205,
+  "first_output_bytes": 43,
+  "gzip_bytes": 819,
+  "outputs": 40000,
+  "peak_rss_mb_batch": 10.45703125,
+  "peak_rss_mb_cold": 10.4609375,
+  "repeats": 20000
+ },
+ "artifact": "mixed",
+ "interpreter": "/usr/bin/python3",
+ "transport_in_bytes": 47,
+ "transport_in_bytes_A": 251
+}

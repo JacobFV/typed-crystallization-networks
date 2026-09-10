@@ -1,0 +1,104 @@
+{
+ "arms": {
+  "A": {
+   "boundary_decode_ms": 0.275984,
+   "boundary_encode_ms": 3.033587,
+   "complete_ms": 19.249488,
+   "peak_alloc_mb": 0.129704,
+   "program_min_ms": 14.425164,
+   "program_ms": 15.939917
+  },
+  "B": {
+   "boundary_decode_ms": 0.000336,
+   "boundary_encode_ms": 1.716721,
+   "complete_ms": 13.462795,
+   "peak_alloc_mb": 0.154751,
+   "program_min_ms": 10.803528,
+   "program_ms": 11.745738
+  },
+  "C": {
+   "boundary_decode_ms": 0.0,
+   "boundary_encode_ms": 0.585313,
+   "complete_ms": 0.586433,
+   "peak_alloc_mb": 0.040728,
+   "program_min_ms": 0.001056,
+   "program_ms": 0.00112
+  }
+ },
+ "artifact": "computer",
+ "build_seconds": 0.36708833900047466,
+ "bytes": {
+  "A_artifact_json": 12150388,
+  "A_artifact_json_gzip": 58667,
+  "A_interpreter_source": 38575,
+  "C_generated_python": 30393,
+  "C_generated_python_gzip": 2652,
+  "D_hand_written_source": 0
+ },
+ "cases": 3,
+ "compile_seconds": 0.5172973589506,
+ "compiler": {
+  "boundary_encoders": 9,
+  "emitted_per_scope": {
+   "run": 22
+  },
+  "modules_emitted": 0,
+  "nodes_emitted": 22,
+  "nodes_folded": 1,
+  "nodes_pruned_dead": 0,
+  "scalar_canonicalisations": 8,
+  "source_bytes": 30393,
+  "source_lines": 185,
+  "structural_canonicalisations_elided": 10,
+  "type_table_entries": 15,
+  "widest_static_type": 4097
+ },
+ "equivalence": {
+  "B_identical_to_A": true,
+  "C_identical_to_A": true,
+  "D_agreement": [],
+  "D_identical_to_A": false
+ },
+ "peak_rss_mb_process": 76.80859375,
+ "ratios": {
+  "A_over_B_program": 1.3570809258643433,
+  "A_over_C_program": 14232.06875
+ },
+ "repeats": 51,
+ "structure": {
+  "caller_nodes": 23,
+  "distinct_operators": 14,
+  "modules": 0,
+  "total_static_nodes": 23,
+  "widest_declared_value_elements": 4097
+ },
+ "type_identity_live": {
+  "distinct_canonical_types": 15,
+  "distinct_type_objects": 28318
+ },
+ "what": "frozen computer-use agent program (program only, synthetic observation)",
+ "work": {
+  "encode_decode_validate_calls": {
+   "A": {
+    "decode": 29308,
+    "encode": 9773,
+    "total": 48856,
+    "validate_raw": 9775
+   },
+   "B": {
+    "decode": 10306,
+    "encode": 9773,
+    "total": 20079,
+    "validate_raw": 0
+   },
+   "C": {
+    "boundary": 9228,
+    "internal": 7,
+    "total": 9235
+   }
+  },
+  "module_calls_C": {},
+  "operator_applications_A": 23,
+  "operator_applications_C": 22
+ }
+}
