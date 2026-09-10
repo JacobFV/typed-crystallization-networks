@@ -51,7 +51,7 @@ def _maj_module(r):
     return r.register_module(prog)
 
 
-def build_bool():
+def build_bool(train_every=2):
     r = Registry()
     mn = _maj_module(r)
     import later
@@ -71,8 +71,8 @@ def build_bool():
              Node("y", BOOL, tuple(y), "core", 2))
     prog = Program(inputs, nodes, (("out", "y"),)).validate(r)
     rows = later.later_examples()
-    train = [rows[i] for i in range(0, 64, 2)]
-    heldout = [rows[i] for i in range(1, 64, 2)]
+    train = [rows[i] for i in range(64) if i % train_every]
+    heldout = [rows[i] for i in range(64) if not i % train_every]
     sig = [Signal("y", "out", ("core",), BOOL, "bce")]
     return {"name": "bool", "registry": r, "program": prog, "signals": sig,
             "train": train, "heldout": heldout,
@@ -145,7 +145,7 @@ def _pair_module(r, pp):
 BOOLCOMB = ("and", "or", "xor", "nand", "nor", "xnor", "eq", "not", "identity")
 
 
-def build_rel():
+def build_rel(n_train=96, n_heldout=96):
     """Reachability over a 3-entity digraph: one, two and three edge steps.
 
     Three steps is what the closure needs at three entities -- a simple path
@@ -189,8 +189,8 @@ def build_rel():
     )
     prog = Program(inputs, nodes, (("out", "ans"),)).validate(r)
     cfg = {"entities": 3}
-    train = _episodes_from("relations", range(0, 96), "train", cfg)
-    heldout = _episodes_from("relations", range(1000, 1096), "test", cfg)
+    train = _episodes_from("relations", range(0, n_train), "train", cfg)
+    heldout = _episodes_from("relations", range(1000, 1000 + n_heldout), "test", cfg)
     sig = [Signal("ans", "target", ("core",), BOOL, "bce")]
     return {"name": "rel", "registry": r, "program": prog, "signals": sig,
             "train": train, "heldout": heldout,

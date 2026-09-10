@@ -1,0 +1,67 @@
+{
+ "admissible": 11,
+ "admissible_defects": [
+  {
+   "certificate": "complete",
+   "defect": "delete_node:n1:None",
+   "failed_space": 640
+  },
+  {
+   "certificate": "complete",
+   "defect": "delete_node:n2:None",
+   "failed_space": 640
+  },
+  {
+   "certificate": "complete",
+   "defect": "drop_operator:y:xor",
+   "failed_space": 11200
+  },
+  {
+   "certificate": "complete",
+   "defect": "drop_source:y:n1",
+   "failed_space": 3600
+  },
+  {
+   "certificate": "complete",
+   "defect": "drop_source:y:n2",
+   "failed_space": 3600
+  },
+  {
+   "certificate": "complete",
+   "defect": "keep_prefix:y:1",
+   "failed_space": 400
+  },
+  {
+   "certificate": "complete",
+   "defect": "keep_prefix:y:2",
+   "failed_space": 800
+  },
+  {
+   "certificate": "complete",
+   "defect": "keep_prefix:y:3",
+   "failed_space": 1200
+  },
+  {
+   "certificate": "complete",
+   "defect": "keep_prefix:y:4",
+   "failed_space": 1600
+  },
+  {
+   "certificate": "complete",
+   "defect": "keep_prefix:y:6",
+   "failed_space": 2400
+  },
+  {
+   "certificate": "complete",
+   "defect": "keep_prefix:y:8",
+   "failed_space": 3200
+  }
+ ],
+ "base_space": 12800,
+ "defects_enumerated": 46,
+ "domain": "bool",
+ "invalid": 3,
+ "note": "an upper bound on corpus size: a defect admitted here is still rejected by run_domain.py if its edit space contains no repair",
+ "seconds": 2.376589662002516,
+ "solvable_on_train": 32
+}
