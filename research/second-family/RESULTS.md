@@ -426,13 +426,24 @@ two configurations disagree in exactly the way that matters.
   names; `family.py` and `evaltasks.py` shadow §54's by module name. Every
   scoring, pooling, rewriting and verification path is §46's and §54's own.
 
-**Constraints.** Repo `.venv`. Test baseline taken on this worktree *before any
-file of this track existed*: **336 passed, 1 failed** —
-`tests/test_panel_interface.py::test_panel_episode_replays_and_restores`, the
-documented environmental failure, with `generators/computer/engine/node_modules`
-symlinked from the main checkout (without the symlink that one passes and 13
-`generators/computer` tests fail instead). This track adds no test and touches
-no tested module.
+**Constraints.** Repo `.venv`.
+
+* **Tests.** Baseline taken on this worktree *before any file of this track
+  existed*: **336 passed, 1 failed** of 337 —
+  `tests/test_panel_interface.py::test_panel_episode_replays_and_restores`, the
+  documented environmental failure, with
+  `generators/computer/engine/node_modules` symlinked from the main checkout
+  (without the symlink that one passes and 13 `generators/computer` tests fail
+  instead). After the track: **336 passed, 1 failed**, the same test. Verified
+  by removing `research/second-family/` entirely and re-running
+  `tests/test_panel_interface.py` — **still 1 failed, 9 passed**, so the
+  failure is not this track's.
+* **Fixture.** `.venv/bin/python -m tcn train --episodes 160` reproduces
+  `initial_prediction_loss 0.248835613951087` →
+  `final_prediction_loss 0.0022308224288281053`, `evaluation_mean_return 4.0`
+  and `frozen_evaluation_mean_return 4.0` — 0.248836 → 0.002231 at 4/4 frozen.
+* `tcn/` and `generators/` have no diff. Nothing under
+  `research/residual-gap/` was read or written.
 
 ---
 
