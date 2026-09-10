@@ -309,3 +309,50 @@ Predicted outcome of each sweep point, stated now:
 | `V_3`, `V_10`, `V_100` | occurs at N″'s fitted ratio | generalization |
 
 Any row whose outcome differs is reported as falsifying the corresponding clause.
+
+---
+
+## 9. After the pre-registered arms — controls, the distractor's reach, and exploratory measurements
+
+Everything in this section is **post-hoc** unless it says otherwise. None of it changes §1.
+
+### 9.1 Could the pre-registered distractor have succeeded at all?
+
+Exact counts over all 48 episodes (training and held-out together):
+
+<!-- BEGIN:generalize_gap0 -->
+<!-- END:generalize_gap0 -->
+
+### 9.2 The pre-sweep prediction, tested
+
+Each sweep point changes exactly one thing in N″ (the literal-slot occurs ratio, or the
+address-slot V penalty). The prediction above was committed before any of them ran.
+
+<!-- BEGIN:sweep -->
+<!-- END:sweep -->
+
+### 9.3 What the prior prefers, against how often its first solution generalizes
+
+U_feat (N″'s features with **unfitted** weights) is the primary clean control. R is a
+**within-slot permutation that preserves each source slot's base rates**; it weakens the prior's
+preferences without destroying them, so it is not a "content destroyed" control.
+
+<!-- BEGIN:mechanism -->
+<!-- END:mechanism -->
+
+### 9.4 Programs to the first GENERALIZING program — exploratory, not a verdict
+
+<!-- BEGIN:posthoc_gap0 -->
+<!-- END:posthoc_gap0 -->
+
+### 9.5 Proposed follow-up pre-registration (a proposal, not run here)
+
+1. **Criterion on held-out conformance.** Cost is programs and episodes to the first program that
+   conforms on the training episodes **and** on a disjoint validation split, with the verdict
+   scored on a third, untouched split.
+2. **Enough training episodes that spurious fits are rare**, sized from this track's measured
+   spurious-fit densities, so that the flat substrate's first hit is not a spurious one.
+3. **The distractor must be shown able to succeed** (its space must contain a generalizing
+   program, counted exactly) before its failure is read as evidence.
+4. **The observation-conditioned features (V, occurs) are part of the library under test**, with
+   the unfitted-weight control (U) and the sweep as pre-registered arms, not added afterwards.

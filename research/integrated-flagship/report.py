@@ -329,7 +329,96 @@ def block_generalize(gap):
     return "\n".join(lines)
 
 
+PREDICTED = {"OCC_1": False, "OCC_3": None, "OCC_10": True, "OCC_100": True, "OCC_3500": True,
+             "V_1": False, "V_3": True, "V_10": True, "V_100": True}
+CLAUSE = {"OCC_1": "(b)", "OCC_3": "(b) band", "OCC_10": "(b)", "OCC_100": "(b)", "OCC_3500": "(b)",
+          "V_1": "(a)", "V_3": "(a)", "V_10": "(a)", "V_100": "(a)"}
+
+
+def block_sweep():
+    rows = ["| sweep point | predicted (pre-sweep) | observed generalizing / sampled (95% Wilson) | expected programs | verdict |",
+            "|---|---|---|---|---|"]
+    falsified = []
+    for a, want in PREDICTED.items():
+        d = arm(0, a)
+        if d is None:
+            rows.append(f"| {a} | {'—' if want is None else ('generalizes' if want else 'does not')} | (not run) | — | — |")
+            continue
+        s = d.get("first_solution_samples")
+        if not s:
+            got, txt = False, "no solution in the space"
+        else:
+            got = s["generalize_count"] / s["n"] > .5
+            lo, hi = s["generalize_wilson95"]
+            txt = f"{s['generalize_count']}/{s['n']} ({lo:.3f}–{hi:.3f})"
+        if want is None:
+            verdict = "undetermined by the prediction"
+        elif got == want:
+            verdict = "as predicted"
+        else:
+            verdict = f"**FALSIFIES clause {CLAUSE[a]}**"
+            falsified.append(a)
+        c = cost(d)
+        rows.append(f"| {a} | {'—' if want is None else ('generalizes' if want else 'does not')} | {txt} | "
+                    f"{sci(float(c)) if c is not None else '—'} | {verdict} |")
+    rows.append("")
+    rows.append("A point counts as generalizing when more than half its sampled first solutions conform on all 36 "
+                "held-out episodes. " + ("Falsified at: " + ", ".join(falsified) + "." if falsified
+                                         else "No run point falsified the prediction."))
+    return "\n".join(rows)
+
+
+def block_mechanism():
+    m = load("mechanism_gap0.json")
+    if m is None:
+        return "(not run)"
+    rows = ["| arm | pools | LIT occurs ratio | ADDR mean V=True / V=False | rank of `sub(length,5)` in cpos | best rank of an address = 13 in ra | absent letters enter at tier | generalizing / 400 | expected programs |",
+            "|---|---|---|---|---|---|---|---|---|"]
+    for r in m["rows"]:
+        v = (f"{r['addr_V_mean_true']:.3f} / {r['addr_V_mean_false']:.3f}"
+             if r["addr_V_mean_true"] is not None else "rule")
+        rows.append(f"| {r['arm']} | {r['pool']} | {sci(r['lit_occurs_ratio'])} | {v} | "
+                    f"{r.get('colour_address_rank', '—')} | {r.get('relation_address_best_rank', '—')} | "
+                    f"{r.get('absent_letters_enter_tier', '—')} | {r['generalize_count']} | "
+                    f"{sci(10 ** r['expected_programs_log10']) if r['expected_programs_log10'] is not None else '—'} |")
+    sl, sr = m["spearman_log_lit_ratio_vs_generalize"], m["spearman_colour_rank_vs_generalize"]
+    rows.append("")
+    rows.append(f"Over the {m['n_schema_arms']} schema-pool arms, Spearman(log occurs ratio, generalizing) = "
+                f"{'—' if sl is None else f'{sl:.3f}'}; Spearman(−colour-address rank, generalizing) = "
+                f"{'—' if sr is None else f'{sr:.3f}'}.")
+    return "\n".join(rows)
+
+
+def block_posthoc(gap):
+    p = load(f"posthoc_gap{gap}.json")
+    g = load(f"generalize_gap{gap}.json")
+    rows = ["| arm | exact cost to a training-conforming program | sampled first-shell conformers that generalize | "
+            "cost to a first generalizing program (estimate / bounds) | exact, from 48-episode counts |",
+            "|---|---|---|---|---|"]
+    exact = {}
+    if g:
+        s = g["schema"]["expected_programs_to_first_generalizing_uniform"]
+        exact["N'"] = sci(10 ** s["log10"]) if s else "none exists"
+        n2 = g.get("N''_expected_programs_to_first_generalizing")
+        exact["N''"] = sci(10 ** n2["log10"]) if n2 else "—"
+    for r in p or []:
+        if not r.get("samples"):
+            continue
+        lo, hi = r["wilson95"]
+        est = (sci(10 ** r["cost_to_generalizing_estimate_log10"])
+               if r["cost_to_generalizing_estimate_log10"] is not None else "—")
+        lb = sci(10 ** r["cost_to_generalizing_lower_bound_log10"])
+        ub = (sci(10 ** r["cost_to_generalizing_upper_bound_log10"])
+              if r["cost_to_generalizing_upper_bound_log10"] is not None else "unbounded")
+        rows.append(f"| {r['arm']} | {sci(10 ** r['cost_to_conforming_log10'])} | "
+                    f"{r['generalize_count']}/{r['samples']} ({lo:.5f}–{hi:.5f}) | {est} ({lb} – {ub}) | "
+                    f"{exact.get(r['arm'], '—')} |")
+    return "\n".join(rows) if len(rows) > 2 or exact else "(not run)"
+
+
 BLOCKS = {
+    "sweep": block_sweep, "mechanism": block_mechanism,
+    "posthoc_gap0": lambda: block_posthoc(0),
     "leakage": block_leakage,
     "generalize_gap0": lambda: block_generalize(0),
     "criteria_gap0": lambda: block_criteria(0), "criteria_gap1": lambda: block_criteria(1),
