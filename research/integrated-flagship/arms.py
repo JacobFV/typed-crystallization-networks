@@ -141,9 +141,23 @@ class VRatioPrior:
         return d
 
 
+class SteepHandPrior:
+    """POST-HOC control (coordinator-requested): hand rules at N''s own steepness,
+    NOTHING fitted from sources.json -- occurs 3511:1 (N''s fitted LIT ratio,
+    hard-coded), V 10:1, TRUTH and STEP uniform."""
+
+    def __init__(self):
+        self.est = {"ADDR": _Rule("V", .1), "LIT": _Rule("occurs", 1 / 3511.),
+                    "TRUTH": _Rule(), "STEP": _Rule()}
+
+    def describe(self):
+        return {k: e.describe() for k, e in self.est.items()}
+
+
 def arm_table(src):
     learned = prior.Prior(src)
     return {
+        "U_steep": ("schema", SteepHandPrior()),
         **{f"OCC_{r}": ("schema", OccursRatioPrior(src, r)) for r in OCC_RATIOS},
         **{f"V_{r}": ("schema", VRatioPrior(src, r)) for r in V_RATIOS},
         "U_feat": ("schema", HandFeaturePrior()),
