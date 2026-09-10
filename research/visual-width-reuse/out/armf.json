@@ -1,0 +1,554 @@
+{
+ "format": {
+  "frozen_offsets/F1_one_width": {
+   "admitted": false,
+   "rule": "R1 two-width rule: schema/f76d397e3fab/e5e65ef68969 is certified at 1 width(s) [32]; a schema class needs at least 2 distinct widths. A `unique` certificate at one width is not evidence of a correct schema (FINDINGS section 53, arm F)"
+  },
+  "frozen_offsets/F2_two_widths": {
+   "admitted": false,
+   "rule": "R2 vector agreement: schema/f76d397e3fab/e5e65ef68969 at width 24 has conforming=0 mean_return=0.8333333333333334 against threshold 0.1564102564102564; the stored selection vector must conform at every certified width"
+  },
+  "frozen_span/F1_one_width": {
+   "admitted": false,
+   "rule": "R1 two-width rule: schema/f76d397e3fab/6b5ff2ba1ed6 is certified at 1 width(s) [32]; a schema class needs at least 2 distinct widths. A `unique` certificate at one width is not evidence of a correct schema (FINDINGS section 53, arm F)"
+  },
+  "frozen_span/F2_two_widths": {
+   "admitted": true
+  }
+ },
+ "reference_resolution": 32,
+ "schemas": {
+  "frozen_offsets": {
+   "note": "arm F1: the offset pool frozen at its resolution-32 values",
+   "per_resolution": {
+    "16": {
+     "offsets": [
+      6,
+      99,
+      3,
+      96,
+      9
+     ],
+     "s1": {
+      "best_constant": 0.9667590027700831,
+      "bit_identical_to_right": false,
+      "digest": "a4742076955c2329ffc4201e",
+      "nodes": 22,
+      "right_schema_digest": "0274a30b6438b543c9062086",
+      "stored_vector_conforms": false,
+      "stored_vector_held_accuracy": 0.9556786703601108,
+      "walk": {
+       "certificate": "none exists",
+       "conforming": 0,
+       "evaluated": 400,
+       "exhausted": true,
+       "node_units": 6353600,
+       "nodes": 22,
+       "row_evaluations": 288800,
+       "rows": 722,
+       "seconds": 7.063046092999912,
+       "space_size": 400
+      }
+     },
+     "s2": {
+      "best_constant": 0.1840277777777778,
+      "bit_identical_to_right": false,
+      "digest": "33df7843991660c4f082b2ef",
+      "nodes": 298,
+      "right_schema_digest": "c999cee93879b10f5e6a791c",
+      "stored_vector_conforms": false,
+      "stored_vector_held_accuracy": 0.8541666666666666,
+      "walk": {
+       "certificate": "none exists",
+       "conforming": 0,
+       "evaluated": 25,
+       "exhausted": true,
+       "node_units": 357600,
+       "nodes": 298,
+       "row_evaluations": 1200,
+       "rows": 48,
+       "seconds": 0.7750605090000136,
+       "space_size": 25
+      }
+     },
+     "span": 16,
+     "width": 16
+    },
+    "24": {
+     "offsets": [
+      6,
+      99,
+      3,
+      96,
+      9
+     ],
+     "s1": {
+      "best_constant": 0.9793103448275862,
+      "bit_identical_to_right": false,
+      "digest": "aa78653704d85bb3f347838d",
+      "nodes": 22,
+      "right_schema_digest": "52877e45c7f280abb5908df0",
+      "stored_vector_conforms": false,
+      "stored_vector_held_accuracy": 0.6979310344827586,
+      "walk": {
+       "certificate": "none exists",
+       "conforming": 0,
+       "evaluated": 400,
+       "exhausted": true,
+       "node_units": 6371200,
+       "nodes": 22,
+       "row_evaluations": 289600,
+       "rows": 724,
+       "seconds": 41.128920849,
+       "space_size": 400
+      }
+     },
+     "s2": {
+      "best_constant": 0.1564102564102564,
+      "bit_identical_to_right": false,
+      "digest": "9aabf9cdb46f4f63d6f037c2",
+      "nodes": 442,
+      "right_schema_digest": "33124a0ea737bdf447bb5fee",
+      "stored_vector_conforms": false,
+      "stored_vector_held_accuracy": 0.8333333333333334,
+      "walk": {
+       "certificate": "none exists",
+       "conforming": 0,
+       "evaluated": 25,
+       "exhausted": true,
+       "node_units": 839800,
+       "nodes": 442,
+       "row_evaluations": 1900,
+       "rows": 76,
+       "seconds": 2.2782625970000936,
+       "space_size": 25
+      }
+     },
+     "span": 24,
+     "width": 24
+    },
+    "32": {
+     "offsets": [
+      6,
+      99,
+      3,
+      96,
+      9
+     ],
+     "s1": {
+      "best_constant": 0.9737931034482759,
+      "bit_identical_to_right": true,
+      "digest": "6804983bda88826441cba10d",
+      "nodes": 22,
+      "right_schema_digest": "6804983bda88826441cba10d",
+      "stored_vector_conforms": true,
+      "stored_vector_held_accuracy": 1.0,
+      "walk": {
+       "certificate": "complete",
+       "conforming": 2,
+       "evaluated": 400,
+       "exhausted": true,
+       "node_units": 6388800,
+       "nodes": 22,
+       "row_evaluations": 290400,
+       "rows": 726,
+       "seconds": 19.92163371499987,
+       "space_size": 400
+      }
+     },
+     "s2": {
+      "best_constant": 0.11467889908256881,
+      "bit_identical_to_right": true,
+      "digest": "009b0bc80630eb8fcf02493e",
+      "nodes": 586,
+      "right_schema_digest": "009b0bc80630eb8fcf02493e",
+      "stored_vector_conforms": true,
+      "stored_vector_held_accuracy": 1.0,
+      "walk": {
+       "certificate": "unique",
+       "conforming": 1,
+       "evaluated": 25,
+       "exhausted": true,
+       "node_units": 1714050,
+       "nodes": 586,
+       "row_evaluations": 2925,
+       "rows": 117,
+       "seconds": 25.65084167400005,
+       "space_size": 25
+      }
+     },
+     "span": 32,
+     "width": 32
+    },
+    "40": {
+     "offsets": [
+      6,
+      99,
+      3,
+      96,
+      9
+     ],
+     "s1": {
+      "best_constant": 0.9820689655172414,
+      "bit_identical_to_right": false,
+      "digest": "7a50299121bfeeff4ffc1e08",
+      "nodes": 22,
+      "right_schema_digest": "0672f2cc49eadbad341bc6cc",
+      "stored_vector_conforms": false,
+      "stored_vector_held_accuracy": 0.7006896551724138,
+      "walk": {
+       "certificate": "none exists",
+       "conforming": 0,
+       "evaluated": 400,
+       "exhausted": true,
+       "node_units": 6388800,
+       "nodes": 22,
+       "row_evaluations": 290400,
+       "rows": 726,
+       "seconds": 74.10616171499987,
+       "space_size": 400
+      }
+     },
+     "s2": {
+      "best_constant": 0.12361111111111112,
+      "bit_identical_to_right": false,
+      "digest": "59a06e462db778f7ffa17479",
+      "nodes": 730,
+      "right_schema_digest": "2d7f7a90e5bae6a50c9aa0f5",
+      "stored_vector_conforms": false,
+      "stored_vector_held_accuracy": 0.8333333333333334,
+      "walk": {
+       "certificate": "none exists",
+       "conforming": 0,
+       "evaluated": 25,
+       "exhausted": true,
+       "node_units": 2190000,
+       "nodes": 730,
+       "row_evaluations": 3000,
+       "rows": 120,
+       "seconds": 10.353903161000062,
+       "space_size": 25
+      }
+     },
+     "span": 40,
+     "width": 40
+    },
+    "48": {
+     "offsets": [
+      6,
+      99,
+      3,
+      96,
+      9
+     ],
+     "s1": {
+      "best_constant": 0.9889807162534435,
+      "digest": "c07eb030273e1cf400e7af0a",
+      "nodes": 22,
+      "stored_vector_conforms": false,
+      "stored_vector_held_accuracy": 0.7258953168044077,
+      "walk": {
+       "certificate": "none exists",
+       "conforming": 0,
+       "evaluated": 400,
+       "exhausted": true,
+       "node_units": 6388800,
+       "nodes": 22,
+       "row_evaluations": 290400,
+       "rows": 726,
+       "seconds": 38.95974522400002,
+       "space_size": 400
+      }
+     },
+     "s2": {
+      "best_constant": 0.125,
+      "digest": "0b74041e0148547c36f0ba12",
+      "nodes": 874,
+      "stored_vector_conforms": false,
+      "stored_vector_held_accuracy": 0.8333333333333334,
+      "walk": {
+       "certificate": "none exists",
+       "conforming": 0,
+       "evaluated": 25,
+       "exhausted": true,
+       "node_units": 2622000,
+       "nodes": 874,
+       "row_evaluations": 3000,
+       "rows": 120,
+       "seconds": 17.902882125999895,
+       "space_size": 25
+      }
+     },
+     "span": 48,
+     "width": 48
+    }
+   }
+  },
+  "frozen_span": {
+   "note": "arm F2: span frozen at 32, the value that is correct at resolution 32",
+   "per_resolution": {
+    "16": {
+     "offsets": [
+      6,
+      51,
+      3,
+      48,
+      9
+     ],
+     "s1": {
+      "best_constant": 0.9667590027700831,
+      "bit_identical_to_right": true,
+      "digest": "0274a30b6438b543c9062086",
+      "nodes": 22,
+      "right_schema_digest": "0274a30b6438b543c9062086",
+      "stored_vector_conforms": true,
+      "stored_vector_held_accuracy": 1.0,
+      "walk": {
+       "certificate": "complete",
+       "conforming": 2,
+       "evaluated": 400,
+       "exhausted": true,
+       "node_units": 6353600,
+       "nodes": 22,
+       "row_evaluations": 288800,
+       "rows": 722,
+       "seconds": 9.797829911999997,
+       "space_size": 400
+      }
+     },
+     "s2": {
+      "best_constant": 0.1840277777777778,
+      "bit_identical_to_right": false,
+      "digest": "21ae8375330c545a568e0e89",
+      "nodes": 586,
+      "right_schema_digest": "c999cee93879b10f5e6a791c",
+      "stored_vector_conforms": true,
+      "stored_vector_held_accuracy": 1.0,
+      "walk": {
+       "certificate": "unique",
+       "conforming": 1,
+       "evaluated": 25,
+       "exhausted": true,
+       "node_units": 703200,
+       "nodes": 586,
+       "row_evaluations": 1200,
+       "rows": 48,
+       "seconds": 3.5842693680001503,
+       "space_size": 25
+      }
+     },
+     "span": 32,
+     "width": 16
+    },
+    "24": {
+     "offsets": [
+      6,
+      75,
+      3,
+      72,
+      9
+     ],
+     "s1": {
+      "best_constant": 0.9793103448275862,
+      "bit_identical_to_right": true,
+      "digest": "52877e45c7f280abb5908df0",
+      "nodes": 22,
+      "right_schema_digest": "52877e45c7f280abb5908df0",
+      "stored_vector_conforms": true,
+      "stored_vector_held_accuracy": 1.0,
+      "walk": {
+       "certificate": "complete",
+       "conforming": 2,
+       "evaluated": 400,
+       "exhausted": true,
+       "node_units": 6371200,
+       "nodes": 22,
+       "row_evaluations": 289600,
+       "rows": 724,
+       "seconds": 35.43061407899995,
+       "space_size": 400
+      }
+     },
+     "s2": {
+      "best_constant": 0.1564102564102564,
+      "bit_identical_to_right": false,
+      "digest": "9de1e567a518efea943a3dc6",
+      "nodes": 586,
+      "right_schema_digest": "33124a0ea737bdf447bb5fee",
+      "stored_vector_conforms": true,
+      "stored_vector_held_accuracy": 1.0,
+      "walk": {
+       "certificate": "unique",
+       "conforming": 1,
+       "evaluated": 25,
+       "exhausted": true,
+       "node_units": 1113400,
+       "nodes": 586,
+       "row_evaluations": 1900,
+       "rows": 76,
+       "seconds": 10.463803305999818,
+       "space_size": 25
+      }
+     },
+     "span": 32,
+     "width": 24
+    },
+    "32": {
+     "offsets": [
+      6,
+      99,
+      3,
+      96,
+      9
+     ],
+     "s1": {
+      "best_constant": 0.9737931034482759,
+      "bit_identical_to_right": true,
+      "digest": "6804983bda88826441cba10d",
+      "nodes": 22,
+      "right_schema_digest": "6804983bda88826441cba10d",
+      "stored_vector_conforms": true,
+      "stored_vector_held_accuracy": 1.0,
+      "walk": {
+       "certificate": "complete",
+       "conforming": 2,
+       "evaluated": 400,
+       "exhausted": true,
+       "node_units": 6388800,
+       "nodes": 22,
+       "row_evaluations": 290400,
+       "rows": 726,
+       "seconds": 19.56732050200003,
+       "space_size": 400
+      }
+     },
+     "s2": {
+      "best_constant": 0.11467889908256881,
+      "bit_identical_to_right": true,
+      "digest": "009b0bc80630eb8fcf02493e",
+      "nodes": 586,
+      "right_schema_digest": "009b0bc80630eb8fcf02493e",
+      "stored_vector_conforms": true,
+      "stored_vector_held_accuracy": 1.0,
+      "walk": {
+       "certificate": "unique",
+       "conforming": 1,
+       "evaluated": 25,
+       "exhausted": true,
+       "node_units": 1714050,
+       "nodes": 586,
+       "row_evaluations": 2925,
+       "rows": 117,
+       "seconds": 25.009127815000056,
+       "space_size": 25
+      }
+     },
+     "span": 32,
+     "width": 32
+    },
+    "40": {
+     "offsets": [
+      6,
+      123,
+      3,
+      120,
+      9
+     ],
+     "s1": {
+      "best_constant": 0.9820689655172414,
+      "bit_identical_to_right": true,
+      "digest": "0672f2cc49eadbad341bc6cc",
+      "nodes": 22,
+      "right_schema_digest": "0672f2cc49eadbad341bc6cc",
+      "stored_vector_conforms": true,
+      "stored_vector_held_accuracy": 1.0,
+      "walk": {
+       "certificate": "complete",
+       "conforming": 2,
+       "evaluated": 400,
+       "exhausted": true,
+       "node_units": 6388800,
+       "nodes": 22,
+       "row_evaluations": 290400,
+       "rows": 726,
+       "seconds": 58.28669693699976,
+       "space_size": 400
+      }
+     },
+     "s2": {
+      "best_constant": 0.12361111111111112,
+      "bit_identical_to_right": false,
+      "digest": "515a8e1a5c5decefef711aeb",
+      "nodes": 586,
+      "right_schema_digest": "2d7f7a90e5bae6a50c9aa0f5",
+      "stored_vector_conforms": false,
+      "stored_vector_held_accuracy": 0.9638888888888889,
+      "walk": {
+       "certificate": "none exists",
+       "conforming": 0,
+       "evaluated": 25,
+       "exhausted": true,
+       "node_units": 1758000,
+       "nodes": 586,
+       "row_evaluations": 3000,
+       "rows": 120,
+       "seconds": 7.8152462069997455,
+       "space_size": 25
+      }
+     },
+     "span": 32,
+     "width": 40
+    },
+    "48": {
+     "offsets": [
+      6,
+      147,
+      3,
+      144,
+      9
+     ],
+     "s1": {
+      "best_constant": 0.9889807162534435,
+      "digest": "878a367422894babff869ae0",
+      "nodes": 22,
+      "stored_vector_conforms": true,
+      "stored_vector_held_accuracy": 1.0,
+      "walk": {
+       "certificate": "complete",
+       "conforming": 2,
+       "evaluated": 400,
+       "exhausted": true,
+       "node_units": 6388800,
+       "nodes": 22,
+       "row_evaluations": 290400,
+       "rows": 726,
+       "seconds": 56.14982582099992,
+       "space_size": 400
+      }
+     },
+     "s2": {
+      "best_constant": 0.125,
+      "digest": "dd86d4691efd0685025fff3e",
+      "nodes": 586,
+      "stored_vector_conforms": false,
+      "stored_vector_held_accuracy": 0.9638888888888889,
+      "walk": {
+       "certificate": "none exists",
+       "conforming": 0,
+       "evaluated": 25,
+       "exhausted": true,
+       "node_units": 1758000,
+       "nodes": 586,
+       "row_evaluations": 3000,
+       "rows": 120,
+       "seconds": 11.916765320000195,
+       "space_size": 25
+      }
+     },
+     "span": 32,
+     "width": 48
+    }
+   }
+  }
+ }
+}
