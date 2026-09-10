@@ -153,7 +153,8 @@ def main(names):
         new = C.compile_program(p, r)
         mo, mn = old.module("o_" + name), new.module("n_" + name)
         case = {k: f["cases"][0][k] for k, _ in p.inputs}
-        fns = [k for k in mn.__dict__ if k.startswith("_m")]
+        fns = [k for k in mn.__dict__ if k.startswith("_m")
+               or (k.startswith("_c") and k != "_cexp" and callable(mn.__dict__[k]))]
         counts = {}
         for arm, m in (("old", mo), ("new", mn)):
             with harness.CallCounter(m, fns) as cc:

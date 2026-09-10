@@ -1,0 +1,531 @@
+{
+ "repeats": 21,
+ "run": "run2",
+ "artifacts": {
+  "mixed": {
+   "artifact": "mixed",
+   "what": "answer = sin(xor(a, b) + x) -- the historical 4-operation reference",
+   "cases": 4,
+   "baseline_rev": "ee7d63c",
+   "baseline_source_sha256": "bf2115e66ba32ec60380b775af71440754b030bdd89b20b18bfd1a32669e90c2",
+   "identity_before_timing": {
+    "identical": true,
+    "comparisons": 8,
+    "digest_old": "36cd27bd15f00edc3dbb4f2ec555ff84b883dee6d25eb813bde41218e188c7df",
+    "digest_new": "36cd27bd15f00edc3dbb4f2ec555ff84b883dee6d25eb813bde41218e188c7df"
+   },
+   "guards": {
+    "old": {},
+    "new": {
+     "guard_range_emitted": 0,
+     "guard_range_eliminated": 0,
+     "guard_index_emitted": 0,
+     "guard_index_eliminated": 0,
+     "guard_zerodiv_emitted": 0,
+     "guard_zerodiv_eliminated": 0,
+     "guard_shift_emitted": 0,
+     "guard_shift_eliminated": 0
+    }
+   },
+   "program_digest": "d332eb48f8f56b181d47975b",
+   "source_sha256": {
+    "old": "185312c8c2f7311cabb6422585b3d078357b33b96fb0ff04bd961e427459d6c5",
+    "new": "185312c8c2f7311cabb6422585b3d078357b33b96fb0ff04bd961e427459d6c5"
+   },
+   "null_control": true,
+   "timed": true,
+   "primitives": {
+    "instrument": "Registry.exact applications, module calls excluded",
+    "cases": 4,
+    "worst_ops": 4,
+    "best_ops": 4,
+    "expected_ops": 4,
+    "native_eval": "unavailable: KeyError: 'NativeEval cannot execute operator: sin'"
+   },
+   "bytecodes": {
+    "old": {
+     "expected": 120,
+     "worst": 120,
+     "best": 120,
+     "cases": 4
+    },
+    "new": {
+     "expected": 120,
+     "worst": 120,
+     "best": 120,
+     "cases": 4
+    },
+    "ratio_old_over_new": 1.0
+   },
+   "cpu_affinity": [
+    19
+   ],
+   "loadavg_before": [
+    "4.42",
+    "4.86",
+    "4.73"
+   ],
+   "latency_us": {
+    "old": {
+     "median_us": 0.4205558659217877,
+     "min_us": 0.41461173184357547,
+     "max_us": 0.4288016759776536,
+     "ci95_lo_us": 0.4188351955307263,
+     "ci95_hi_us": 0.4239972067039106,
+     "ci_coverage": 0.9475,
+     "repeats": 21
+    },
+    "new": {
+     "median_us": 0.4200195530726257,
+     "min_us": 0.4148128491620111,
+     "max_us": 0.43537150837988825,
+     "ci95_lo_us": 0.4180977653631285,
+     "ci95_hi_us": 0.42480167597765367,
+     "ci_coverage": 0.9475,
+     "repeats": 21
+    }
+   },
+   "latency_ratio_old_over_new": {
+    "ratio": 1.0012768759102728,
+    "ci95_lo": 0.990373424338666,
+    "ci95_hi": 1.0092804254666872,
+    "contains_1": true
+   },
+   "sweep": {
+    "sweep_calls": 716,
+    "case_multiplier": 179
+   },
+   "loadavg_after": [
+    "4.42",
+    "4.86",
+    "4.73"
+   ],
+   "deployment": {
+    "old": {
+     "source_bytes": 2629,
+     "source_lines": 63,
+     "pyz_bytes": 1713,
+     "cold_start_ms": 17.335812968667597,
+     "cold_start_samples": [
+      13.893675000872463,
+      15.66726400051266,
+      17.335812968667597,
+      20.288227999117225,
+      21.869514021091163
+     ],
+     "peak_rss_mb_cold": 10.76953125
+    },
+    "new": {
+     "source_bytes": 2629,
+     "source_lines": 63,
+     "pyz_bytes": 1713,
+     "cold_start_ms": 15.10936301201582,
+     "cold_start_samples": [
+      13.955531001556665,
+      14.077097992412746,
+      15.10936301201582,
+      15.225330949760973,
+      15.494065009988844
+     ],
+     "peak_rss_mb_cold": 10.76953125
+    }
+   },
+   "seconds": 0.3
+  },
+  "language": {
+   "artifact": "language",
+   "what": "grammaticality of a Dyck word from a 128-byte prompt",
+   "cases": 12,
+   "baseline_rev": "ee7d63c",
+   "baseline_source_sha256": "bf2115e66ba32ec60380b775af71440754b030bdd89b20b18bfd1a32669e90c2",
+   "identity_before_timing": {
+    "identical": true,
+    "comparisons": 24,
+    "digest_old": "7703dc27e37fc411135f25338874c5eac882d633d893e49639701b002f2655c7",
+    "digest_new": "7703dc27e37fc411135f25338874c5eac882d633d893e49639701b002f2655c7"
+   },
+   "guards": {
+    "old": {},
+    "new": {
+     "guard_range_emitted": 0,
+     "guard_range_eliminated": 15,
+     "guard_index_emitted": 1,
+     "guard_index_eliminated": 0,
+     "guard_zerodiv_emitted": 0,
+     "guard_zerodiv_eliminated": 0,
+     "guard_shift_emitted": 0,
+     "guard_shift_eliminated": 0
+    }
+   },
+   "program_digest": "513bd337ea1c672aecbe48c3",
+   "source_sha256": {
+    "old": "60344cef52ff2d447c6ec912318d5775350f701b0cfe9553d60c6d45b908d86f",
+    "new": "21fdab76ef5c91b0fabaeb0d4d92fc0830c055d5cd7afdec90f956e701ae0997"
+   },
+   "null_control": false,
+   "timed": true,
+   "primitives": {
+    "instrument": "Registry.exact applications, module calls excluded",
+    "cases": 12,
+    "worst_ops": 148,
+    "best_ops": 148,
+    "expected_ops": 148,
+    "native_eval": {
+     "worst_ops": 148,
+     "best_ops": 148,
+     "expected_ops": 148.0
+    },
+    "instruments_agree": true
+   },
+   "bytecodes": {
+    "old": {
+     "expected": 1731.75,
+     "worst": 1735,
+     "best": 1729,
+     "cases": 12
+    },
+    "new": {
+     "expected": 1596.75,
+     "worst": 1600,
+     "best": 1594,
+     "cases": 12
+    },
+    "ratio_old_over_new": 1.0845467355565994
+   },
+   "cpu_affinity": [
+    19
+   ],
+   "loadavg_before": [
+    "4.42",
+    "4.86",
+    "4.73"
+   ],
+   "latency_us": {
+    "old": {
+     "median_us": 4.051197916666666,
+     "min_us": 3.9676979166666664,
+     "max_us": 4.08553125,
+     "ci95_lo_us": 4.025920138888889,
+     "ci95_hi_us": 4.0746423611111116,
+     "ci_coverage": 0.9475,
+     "repeats": 21
+    },
+    "new": {
+     "median_us": 3.6851423611111107,
+     "min_us": 3.6264201388888893,
+     "max_us": 3.710197916666667,
+     "ci95_lo_us": 3.6780902777777778,
+     "ci95_hi_us": 3.6889791666666665,
+     "ci_coverage": 0.9475,
+     "repeats": 21
+    }
+   },
+   "latency_ratio_old_over_new": {
+    "ratio": 1.0993328125986388,
+    "ci95_lo": 1.091518004236291,
+    "ci95_hi": 1.106152690618247,
+    "contains_1": false
+   },
+   "sweep": {
+    "sweep_calls": 288,
+    "case_multiplier": 24
+   },
+   "loadavg_after": [
+    "4.42",
+    "4.86",
+    "4.73"
+   ],
+   "deployment": {
+    "old": {
+     "source_bytes": 24255,
+     "source_lines": 522,
+     "pyz_bytes": 5661,
+     "cold_start_ms": 21.518332010600716,
+     "cold_start_samples": [
+      20.95513604581356,
+      21.37726196087897,
+      21.518332010600716,
+      28.63380900816992,
+      33.97176001453772
+     ],
+     "peak_rss_mb_cold": 13.2734375
+    },
+    "new": {
+     "source_bytes": 23234,
+     "source_lines": 503,
+     "pyz_bytes": 5515,
+     "cold_start_ms": 20.170053001493216,
+     "cold_start_samples": [
+      18.99079600116238,
+      19.355161988642067,
+      20.170053001493216,
+      20.320276031270623,
+      21.251214027870446
+     ],
+     "peak_rss_mb_cold": 13.16015625
+    }
+   },
+   "seconds": 0.9
+  },
+  "computer": {
+   "artifact": "computer",
+   "what": "frozen computer-use agent program (program only, synthetic observation)",
+   "cases": 3,
+   "baseline_rev": "ee7d63c",
+   "baseline_source_sha256": "bf2115e66ba32ec60380b775af71440754b030bdd89b20b18bfd1a32669e90c2",
+   "identity_before_timing": {
+    "identical": true,
+    "comparisons": 6,
+    "digest_old": "9e16e37693fb954beb09bfaf0b0cc4139a7032a90095409c7093acf29ae742f1",
+    "digest_new": "9e16e37693fb954beb09bfaf0b0cc4139a7032a90095409c7093acf29ae742f1"
+   },
+   "guards": {
+    "old": {},
+    "new": {
+     "guard_range_emitted": 1,
+     "guard_range_eliminated": 0,
+     "guard_index_emitted": 1,
+     "guard_index_eliminated": 0,
+     "guard_zerodiv_emitted": 0,
+     "guard_zerodiv_eliminated": 0,
+     "guard_shift_emitted": 0,
+     "guard_shift_eliminated": 0
+    }
+   },
+   "program_digest": "4000a975cc7b84585d304fdf",
+   "source_sha256": {
+    "old": "6f87ba38f456eb01598ebcec8833aa059915d40517f21282a8238ad1bf8846ed",
+    "new": "6f87ba38f456eb01598ebcec8833aa059915d40517f21282a8238ad1bf8846ed"
+   },
+   "null_control": true,
+   "timed": true,
+   "primitives": {
+    "instrument": "Registry.exact applications, module calls excluded",
+    "cases": 3,
+    "worst_ops": 23,
+    "best_ops": 23,
+    "expected_ops": 23,
+    "native_eval": "unavailable: KeyError: 'NativeEval cannot execute operator: decode'"
+   },
+   "bytecodes": {
+    "old": {
+     "expected": 328,
+     "worst": 328,
+     "best": 328,
+     "cases": 3
+    },
+    "new": {
+     "expected": 328,
+     "worst": 328,
+     "best": 328,
+     "cases": 3
+    },
+    "ratio_old_over_new": 1.0
+   },
+   "cpu_affinity": [
+    19
+   ],
+   "loadavg_before": [
+    "4.39",
+    "4.85",
+    "4.72"
+   ],
+   "latency_us": {
+    "old": {
+     "median_us": 1.7771851851851852,
+     "min_us": 1.1783703703703703,
+     "max_us": 2.2571666666666665,
+     "ci95_lo_us": 1.5291666666666668,
+     "ci95_hi_us": 1.864,
+     "ci_coverage": 0.9475,
+     "repeats": 21
+    },
+    "new": {
+     "median_us": 1.5131666666666665,
+     "min_us": 1.1899074074074074,
+     "max_us": 2.373333333333333,
+     "ci95_lo_us": 1.242648148148148,
+     "ci95_hi_us": 1.8358518518518518,
+     "ci_coverage": 0.9475,
+     "repeats": 21
+    }
+   },
+   "latency_ratio_old_over_new": {
+    "ratio": 1.1744807920598206,
+    "ci95_lo": 0.9699964067553001,
+    "ci95_hi": 1.43015960538277,
+    "contains_1": true
+   },
+   "sweep": {
+    "sweep_calls": 54,
+    "case_multiplier": 18
+   },
+   "loadavg_after": [
+    "4.39",
+    "4.85",
+    "4.72"
+   ],
+   "deployment": {
+    "old": {
+     "source_bytes": 30645,
+     "source_lines": 189,
+     "pyz_bytes": 3353,
+     "cold_start_ms": 29.47034902172163,
+     "cold_start_samples": [
+      26.94217296084389,
+      27.518265007529408,
+      29.47034902172163,
+      29.622396978083998,
+      31.21955500682816
+     ],
+     "peak_rss_mb_cold": 16.5625
+    },
+    "new": {
+     "source_bytes": 30645,
+     "source_lines": 189,
+     "pyz_bytes": 3353,
+     "cold_start_ms": 30.67976498277858,
+     "cold_start_samples": [
+      28.2077330048196,
+      30.289447982795537,
+      30.67976498277858,
+      38.905059976968914,
+      42.11947205476463
+     ],
+     "peak_rss_mb_cold": 16.55078125
+    }
+   },
+   "seconds": 2.6
+  },
+  "visual": {
+   "artifact": "visual",
+   "what": "32x32 RGB screenshot -> set of widget rectangles with parent keys",
+   "cases": 3,
+   "baseline_rev": "ee7d63c",
+   "baseline_source_sha256": "bf2115e66ba32ec60380b775af71440754b030bdd89b20b18bfd1a32669e90c2",
+   "identity_before_timing": {
+    "identical": true,
+    "comparisons": 6,
+    "digest_old": "b63deee43a7a4877be077cdc86c00a379a77933918a50d4fc4d9e02d0fffeddf",
+    "digest_new": "b63deee43a7a4877be077cdc86c00a379a77933918a50d4fc4d9e02d0fffeddf"
+   },
+   "guards": {
+    "old": {},
+    "new": {
+     "guard_range_emitted": 75,
+     "guard_range_eliminated": 191,
+     "guard_index_emitted": 12,
+     "guard_index_eliminated": 0,
+     "guard_zerodiv_emitted": 0,
+     "guard_zerodiv_eliminated": 0,
+     "guard_shift_emitted": 0,
+     "guard_shift_eliminated": 0
+    }
+   },
+   "program_digest": "80ed81f2f86776de1c86d49e",
+   "source_sha256": {
+    "old": "bdec4a7657d24d9a274bbdc893fcc705e8277406519c527a9c70c627e07a29bb",
+    "new": "20e45f6b5e87c9a6e4af99ce8c581fdf125d8b79d92c0bfd2069e01b07861faa"
+   },
+   "null_control": false,
+   "timed": true,
+   "primitives": {
+    "instrument": "Registry.exact applications, module calls excluded",
+    "cases": 3,
+    "worst_ops": 61246,
+    "best_ops": 56887,
+    "expected_ops": 59793,
+    "native_eval": "unavailable: KeyError: 'NativeEval cannot execute operator: pair'"
+   },
+   "bytecodes": {
+    "old": {
+     "expected": 635400.3333333334,
+     "worst": 650569,
+     "best": 605291,
+     "cases": 3
+    },
+    "new": {
+     "expected": 602748.3333333334,
+     "worst": 616103,
+     "best": 576267,
+     "cases": 3
+    },
+    "ratio_old_over_new": 1.0541718627730203
+   },
+   "cpu_affinity": [
+    19
+   ],
+   "loadavg_before": [
+    "6.62",
+    "5.35",
+    "4.90"
+   ],
+   "latency_us": {
+    "old": {
+     "median_us": 4993.103,
+     "min_us": 4902.986333333333,
+     "max_us": 5092.5,
+     "ci95_lo_us": 4934.517,
+     "ci95_hi_us": 5020.532333333334,
+     "ci_coverage": 0.9475,
+     "repeats": 21
+    },
+    "new": {
+     "median_us": 4894.8,
+     "min_us": 4809.216333333333,
+     "max_us": 5015.172333333333,
+     "ci95_lo_us": 4857.071666666667,
+     "ci95_hi_us": 4926.325,
+     "ci_coverage": 0.9475,
+     "repeats": 21
+    }
+   },
+   "latency_ratio_old_over_new": {
+    "ratio": 1.020083149464738,
+    "ci95_lo": 1.005737306138832,
+    "ci95_hi": 1.0274070961493331,
+    "contains_1": false
+   },
+   "sweep": {
+    "sweep_calls": 3,
+    "case_multiplier": 1
+   },
+   "loadavg_after": [
+    "6.62",
+    "5.35",
+    "4.90"
+   ],
+   "deployment": {
+    "old": {
+     "source_bytes": 171232,
+     "source_lines": 1533,
+     "pyz_bytes": 22692,
+     "cold_start_ms": 67.00000097043812,
+     "cold_start_samples": [
+      61.25798402354121,
+      61.578126973472536,
+      67.00000097043812,
+      68.55869595892727,
+      70.54188498295844
+     ],
+     "peak_rss_mb_cold": 30.1875
+    },
+    "new": {
+     "source_bytes": 161352,
+     "source_lines": 1342,
+     "pyz_bytes": 21344,
+     "cold_start_ms": 51.48071004077792,
+     "cold_start_samples": [
+      49.78371103061363,
+      50.84824899677187,
+      51.48071004077792,
+      52.77257499983534,
+      76.33270195219666
+     ],
+     "peak_rss_mb_cold": 28.71875
+    }
+   },
+   "seconds": 52.3
+  }
+ }
+}
