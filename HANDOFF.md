@@ -125,8 +125,15 @@ recently in the reversible form its third refutation asked for (~~§7, §12, §3
   The machine is an NVIDIA GB10 with **unified memory**: CPU and GPU share one
   121 GB pool, so exhausting RAM shows up as `NVRM ... NV_ERR_NO_MEMORY` in the
   kernel log and takes the whole host down. The venv's torch is **CPU-only**
-  (`2.14.0+cpu`), so this was plain RAM, from several agents running parallel
-  enumeration and sweep jobs (up to 11-way shards) alongside pytest. Rules:
+  (`2.14.0+cpu`). **Correction, same day:** the failing allocation was an NVRM
+  *GPU* allocation, which CPU-only torch cannot make, so the allocation that failed
+  belonged to a GPU-using process. After the reboot a separate project's training
+  (`/home/brandonin/Documents/IBM-1`, `train_proprioceptive_motor.py`) was observed
+  holding **~66 GB of GPU memory** — the most probable source of the original
+  failure, though it was only observed post-reboot. This project's parallel CPU
+  jobs (up to 11-way shards, alongside pytest) added RAM pressure on the same
+  shared pool; both matter. **Available memory, not the 121 GB total, is the
+  budget — run `nvidia-smi` and `free -g` before any heavy dispatch.** Rules:
   run **one heavy agent at a time**; wrap heavy jobs in
   `systemd-run --user --scope -p MemoryMax=40G -p CPUQuota=800% <cmd>` so a
   runaway job is killed rather than the host; cap worker processes at ~4 with
