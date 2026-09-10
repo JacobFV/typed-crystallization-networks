@@ -421,6 +421,14 @@ reached a spurious one first.
 <!-- BEGIN:generalize_gap1 -->
 <!-- END:generalize_gap1 -->
 
+**What it shows (post-hoc, not F6):** at `gap 1` the schema space holds **no** program that conforms
+on all 48 episodes, exhausted. The step schema's offset pool fits the training episodes but
+contains nothing that generalizes, so no order over it — learned or hand-written — could have
+returned a generalizing program. This is the stricter check this track proposes for next time
+(§9.5): a schema instantiation must conform on held-out as well as on training before it counts
+as admitted, and a failure is a counterexample against the schema class. By the pre-registered
+definition, F6 did not fire.
+
 `gap 0`:
 
 <!-- BEGIN:generalize_gap0 -->
@@ -590,3 +598,8 @@ Sampled first-shell conformers, for the arms whose first hit does not always gen
    program, counted exactly) before its failure is read as evidence.
 4. **The observation-conditioned features (V, occurs) are part of the library under test**, with
    the unfitted-weight control (U) and the sweep as pre-registered arms, not added afterwards.
+5. **A stricter CEGIS admission check for schemas.** A schema instantiation counts as admitted
+   only if its space contains a program that conforms on held-out episodes as well as on
+   training, counted exactly; a failure is a counterexample recorded against the schema class,
+   which is then refined or split. F6 as written here ("0 conforming, exhausted" on training)
+   could not see the `gap 1` failure of the step schema's offset pool (§9.1).
