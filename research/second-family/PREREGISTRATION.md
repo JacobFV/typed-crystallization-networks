@@ -284,3 +284,26 @@ Repo `.venv`; all 337 tests run and the count of failures compared against a
 baseline taken on this worktree **before** any file of this track existed; the
 shipped fixture must still reproduce 0.248836 → 0.002231 at 4/4 frozen; corpus
 and enumeration artifacts stay out of git where they are large.
+
+---
+
+## Amendment 1 — the frequency baseline's tie-break, added after the primary arms
+
+**Replaces nothing; adds one exploratory arm to §6's F3.** Written and run
+*after* the primary tables were complete, so it is exploratory in the strict
+sense and can change no primary verdict.
+
+F3 (*"B1 helps as many held-out tasks as O2"*) fires. Checking it "hardest", as
+F3 requires, showed that **B1's rank 1 is decided by the tie-break on all
+twelve corpora and never by the score**: the frequency score ties at the top on
+4 to 6 classes every time, and `objectives.rank`'s tie-break `(-nodes, digest)`
+does the selecting. On the `C-trace` band the tie-break's `-nodes` term leaves
+**two** classes at three nodes — the window `544e46660ae8…` and a non-window
+arity-3 class `a20f9a11fd36…` — and the window is chosen because `5` sorts
+before `a` in the hex digest.
+
+So one arm is added: **`B1_alt`**, the class B1's digest comparison did *not*
+pick, offered to the same five held-out tasks under the identical protocol. If
+`B1_alt` helps 0 of 5, then B1's `5 of 5` on `C-trace` rests on a two-way
+lexicographic coin flip rather than on frequency, and that is what the write-up
+must say. The result is reported whichever way it falls.
