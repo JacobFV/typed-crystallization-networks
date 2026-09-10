@@ -1,0 +1,262 @@
+{
+ "question": "Q1 -- does the unmodified search find the min-prefix program without the hand-chosen window?",
+ "scaffold": "stage_b_dyck",
+ "positions": 22,
+ "full_space_size": 680625,
+ "shards": 11,
+ "c_values_covered": 121,
+ "c_overlaps": 0,
+ "partition_is_exact": true,
+ "summed_shard_space": 680625,
+ "evaluated": 680625,
+ "exhausted": true,
+ "conforming": 110,
+ "certificate": "complete",
+ "wall_clock_seconds_parallel": 2069.8652895009727,
+ "cpu_seconds_total": 20990.11732976802,
+ "cpu_hours_total": 5.830588147157783,
+ "seconds_per_program": 0.030839474497363486,
+ "witness_index_recomputed": 571822,
+ "witness_index_recorded_by_section_45": 571822,
+ "index_arithmetic_agrees": true,
+ "per_shard": [
+  {
+   "sub_range": [
+    0,
+    11
+   ],
+   "space": 61875,
+   "evaluated": 61875,
+   "exhausted": true,
+   "conforming": 0,
+   "certificate": "complete",
+   "seconds": 1966.4064154770458,
+   "first_conforming_index": null
+  },
+  {
+   "sub_range": [
+    11,
+    22
+   ],
+   "space": 61875,
+   "evaluated": 61875,
+   "exhausted": true,
+   "conforming": 0,
+   "certificate": "complete",
+   "seconds": 1958.0034388810163,
+   "first_conforming_index": null
+  },
+  {
+   "sub_range": [
+    22,
+    33
+   ],
+   "space": 61875,
+   "evaluated": 61875,
+   "exhausted": true,
+   "conforming": 0,
+   "certificate": "complete",
+   "seconds": 2013.12434569397,
+   "first_conforming_index": null
+  },
+  {
+   "sub_range": [
+    33,
+    44
+   ],
+   "space": 61875,
+   "evaluated": 61875,
+   "exhausted": true,
+   "conforming": 0,
+   "certificate": "complete",
+   "seconds": 2068.807261000038,
+   "first_conforming_index": null
+  },
+  {
+   "sub_range": [
+    44,
+    55
+   ],
+   "space": 61875,
+   "evaluated": 61875,
+   "exhausted": true,
+   "conforming": 0,
+   "certificate": "complete",
+   "seconds": 2031.912790383969,
+   "first_conforming_index": null
+  },
+  {
+   "sub_range": [
+    55,
+    66
+   ],
+   "space": 61875,
+   "evaluated": 61875,
+   "exhausted": true,
+   "conforming": 0,
+   "certificate": "complete",
+   "seconds": 2069.8652895009727,
+   "first_conforming_index": null
+  },
+  {
+   "sub_range": [
+    66,
+    77
+   ],
+   "space": 61875,
+   "evaluated": 61875,
+   "exhausted": true,
+   "conforming": 0,
+   "certificate": "complete",
+   "seconds": 1957.6179858600372,
+   "first_conforming_index": null
+  },
+  {
+   "sub_range": [
+    77,
+    88
+   ],
+   "space": 61875,
+   "evaluated": 61875,
+   "exhausted": true,
+   "conforming": 0,
+   "certificate": "complete",
+   "seconds": 1952.5663714089897,
+   "first_conforming_index": null
+  },
+  {
+   "sub_range": [
+    88,
+    99
+   ],
+   "space": 61875,
+   "evaluated": 61875,
+   "exhausted": true,
+   "conforming": 0,
+   "certificate": "complete",
+   "seconds": 1995.908420038002,
+   "first_conforming_index": null
+  },
+  {
+   "sub_range": [
+    99,
+    110
+   ],
+   "space": 61875,
+   "evaluated": 61875,
+   "exhausted": true,
+   "conforming": 110,
+   "certificate": "complete",
+   "seconds": 1974.0183139599976,
+   "first_conforming_index": 571746
+  },
+  {
+   "sub_range": [
+    110,
+    121
+   ],
+   "space": 61875,
+   "evaluated": 61875,
+   "exhausted": true,
+   "conforming": 0,
+   "certificate": "complete",
+   "seconds": 1001.886697563983,
+   "first_conforming_index": null
+  }
+ ],
+ "first_conforming": {
+  "decoded": {
+   "c": 101,
+   "plus": 1,
+   "minus": -1,
+   "total_ok": [
+    "ge",
+    -2
+   ],
+   "min_ok": [
+    "eq",
+    0
+   ]
+  },
+  "global_enumeration_index": 571746,
+  "fraction_through_enumeration": 0.8400308539944904,
+  "programs_before_it": 571746,
+  "projected_single_thread_hours_to_reach": 4.8978739405471075,
+  "train": {
+   "accuracy": 1.0,
+   "per_length": {
+    "10": 1.0,
+    "12": 1.0,
+    "14": 1.0
+   },
+   "n": 24,
+   "constant_yes": 0.5,
+   "constant_no": 0.5,
+   "majority_constant": 0.5,
+   "random": 0.5
+  },
+  "heldout_seen_lengths": {
+   "accuracy": 1.0,
+   "per_length": {
+    "10": 1.0,
+    "12": 1.0,
+    "14": 1.0
+   },
+   "n": 120,
+   "constant_yes": 0.4666666666666667,
+   "constant_no": 0.5333333333333333,
+   "majority_constant": 0.5333333333333333,
+   "random": 0.5
+  },
+  "heldout_unseen_lengths": {
+   "accuracy": 1.0,
+   "per_length": {
+    "16": 1.0,
+    "18": 1.0,
+    "20": 1.0,
+    "22": 1.0
+   },
+   "n": 859,
+   "constant_yes": 0.5261932479627474,
+   "constant_no": 0.47380675203725264,
+   "majority_constant": 0.5261932479627474,
+   "random": 0.5
+  },
+  "description_bits": 4965056,
+  "execution_cost": 226.0
+ },
+ "arm_1b_control_section_45_window": {
+  "sub_range": [
+   95,
+   110
+  ],
+  "space_size": 84375,
+  "evaluated": 84375,
+  "exhausted": true,
+  "conforming": 110,
+  "certificate": "complete",
+  "seconds": 2546.6767089920468,
+  "recorded_by_section_45": {
+   "space_size": 84375,
+   "evaluated": 84375,
+   "exhausted": true,
+   "conforming": 110,
+   "certificate": "complete"
+  },
+  "reproduces": true,
+  "heldout_unseen_lengths": {
+   "accuracy": 1.0,
+   "per_length": {
+    "16": 1.0,
+    "18": 1.0,
+    "20": 1.0,
+    "22": 1.0
+   },
+   "n": 859,
+   "constant_yes": 0.5261932479627474,
+   "constant_no": 0.47380675203725264,
+   "majority_constant": 0.5261932479627474,
+   "random": 0.5
+  }
+ }
+}

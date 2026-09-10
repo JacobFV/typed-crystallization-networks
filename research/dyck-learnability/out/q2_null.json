@@ -1,0 +1,35 @@
+{
+ "stream": "context_free_language",
+ "seed": 0,
+ "baselines_heldout_unseen": {
+  "n": 859,
+  "constant_yes": 0.5261932479627474,
+  "constant_no": 0.47380675203725264,
+  "majority_constant": 0.5261932479627474,
+  "random": 0.5
+ },
+ "rows": [
+  {
+   "scaffold": "dyck",
+   "space_size": 680625,
+   "draws": 2000,
+   "usable_draws": 1883,
+   "conforming_draws": 0,
+   "conforming_rate_over_draws": 0.0,
+   "conforming_rate_over_usable": 0.0,
+   "conforming_heldout_unseen": [],
+   "seconds": 49.59875575499609
+  },
+  {
+   "scaffold": "counting",
+   "space_size": 45375,
+   "draws": 2000,
+   "usable_draws": 1895,
+   "conforming_draws": 0,
+   "conforming_rate_over_draws": 0.0,
+   "conforming_rate_over_usable": 0.0,
+   "conforming_heldout_unseen": [],
+   "seconds": 39.495587404002436
+  }
+ ]
+}
