@@ -1,0 +1,92 @@
+{
+  "sparse_guard": {
+    "nodes": 24,
+    "modules": 1,
+    "module_leaf_cost": {
+      "module:e7eb548cb14f0237a5855ba9": 16
+    },
+    "domain_size": 65536,
+    "native_evaluator_certified_on": 65536,
+    "execution_cost_scalar": 84.0,
+    "spec_worst_ops": 84,
+    "spec_best_ops": 84,
+    "spec_expected_ops": 84.0,
+    "spec_ops_histogram": {
+      "84": 65536
+    },
+    "spec_by_operator_expected": {
+      "add": 20.0,
+      "encode": 4.0,
+      "eq": 4.0,
+      "insert": 4.0,
+      "mod": 20.0,
+      "mul": 20.0,
+      "mux": 4.0,
+      "project": 4.0,
+      "tuple": 4.0
+    },
+    "compile_stats": {
+      "nodes_emitted": 40,
+      "nodes_folded": 0,
+      "nodes_pruned_dead": 0,
+      "scalar_canonicalisations": 16,
+      "structural_canonicalisations_elided": 20,
+      "boundary_encoders": 2,
+      "modules_emitted": 1,
+      "widest_static_type": 12,
+      "boundary_identity_guards": 0,
+      "type_table_entries": 6,
+      "source_bytes": 10830,
+      "source_lines": 167
+    },
+    "spec_compiled_bytecodes": [
+      998,
+      998,
+      1002
+    ]
+  },
+  "find_first": {
+    "nodes": 24,
+    "modules": 1,
+    "module_leaf_cost": {
+      "module:8175c6670ea6f3315b2f9449": 7
+    },
+    "domain_size": 65536,
+    "native_evaluator_certified_on": 65536,
+    "execution_cost_scalar": 72.0,
+    "spec_worst_ops": 72,
+    "spec_best_ops": 72,
+    "spec_expected_ops": 72.0,
+    "spec_ops_histogram": {
+      "72": 65536
+    },
+    "spec_by_operator_expected": {
+      "add": 8.0,
+      "encode": 8.0,
+      "ge": 8.0,
+      "mod": 16.0,
+      "mul": 16.0,
+      "mux": 8.0,
+      "project": 8.0
+    },
+    "compile_stats": {
+      "nodes_emitted": 31,
+      "nodes_folded": 0,
+      "nodes_pruned_dead": 0,
+      "scalar_canonicalisations": 6,
+      "structural_canonicalisations_elided": 24,
+      "boundary_encoders": 2,
+      "modules_emitted": 1,
+      "widest_static_type": 8,
+      "boundary_identity_guards": 1,
+      "type_table_entries": 5,
+      "source_bytes": 8404,
+      "source_lines": 135
+    },
+    "spec_compiled_bytecodes": [
+      815,
+      823,
+      823
+    ]
+  }
+}

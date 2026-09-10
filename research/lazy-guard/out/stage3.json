@@ -1,0 +1,639 @@
+{
+  "subroutine": "research/visual-ladder rect_scaffold (S2)",
+  "span": 32,
+  "rect_nodes": 585,
+  "rect_digest": "c79e712699a5aa1716f3f65c",
+  "execution_cost_scalar": 1453.0,
+  "search_seeds": [
+    0,
+    1
+  ],
+  "heldout_seeds": [
+    200,
+    201,
+    202
+  ],
+  "search_domain_records": 1922,
+  "domain_note": "declared enumerated domain: every interior position of the declared episodes; the 3,072-byte carrier cannot be exhausted and this is stated as weaker than the stage 1-2 certificate",
+  "oracle_chain": {
+    "compiled_equals_interpreter_on": 5,
+    "note": "the interpreter costs ~270 us per operator on this carrier (FINDINGS sec 48), so the compiled program is the oracle for the exhaustive pass and the identity is re-established here"
+  },
+  "search": {
+    "w_extent": {
+      "sampled_expected_ops": 176.25,
+      "candidates_considered": 62034,
+      "exact_on_samples": 294,
+      "rejected_by_exhaustive_check": 0,
+      "components": [
+        {
+          "lambda": "mul(identity(Ref(off3)), Var(i))",
+          "arity": 31,
+          "abstracted": "const family 1..31 -> loop variable"
+        },
+        {
+          "lambda": "Var(i)",
+          "arity": 31,
+          "abstracted": "the loop variable of the 1..31 family"
+        },
+        {
+          "lambda": "add(project(Ref(rec)), mul(identity(Ref(off3)), Var(i)))",
+          "arity": 31,
+          "abstracted": "const family 1..31 -> loop variable"
+        },
+        {
+          "lambda": "Var(i)",
+          "arity": 31,
+          "abstracted": "the loop variable of the 1..31 family"
+        },
+        {
+          "lambda": "min(add(project(Ref(rec)), mul(identity(Ref(off3)), Var(i))), Ref(last))",
+          "arity": 31,
+          "abstracted": "const family 1..31 -> loop variable"
+        },
+        {
+          "lambda": "Var(i)",
+          "arity": 31,
+          "abstracted": "the loop variable of the 1..31 family"
+        },
+        {
+          "lambda": "module:b409b7(min(add(project(Ref(rec)), mul(identity(Ref(off3)), Var(i))), Ref(last)), project(Ref(rec)), project(Ref(rec)))",
+          "arity": 31,
+          "abstracted": "const family 1..31 -> loop variable"
+        },
+        {
+          "lambda": "Var(i)",
+          "arity": 31,
+          "abstracted": "the loop variable of the 1..31 family"
+        },
+        {
+          "lambda": "add(mod(idiv(project(Ref(rec)), Ref(three)), Ref(width)), Var(i))",
+          "arity": 31,
+          "abstracted": "const family 1..31 -> loop variable"
+        },
+        {
+          "lambda": "Var(i)",
+          "arity": 31,
+          "abstracted": "the loop variable of the 1..31 family"
+        },
+        {
+          "lambda": "lt(add(mod(idiv(project(Ref(rec)), Ref(three)), Ref(width)), Var(i)), Ref(width))",
+          "arity": 31,
+          "abstracted": "const family 1..31 -> loop variable"
+        },
+        {
+          "lambda": "Var(i)",
+          "arity": 31,
+          "abstracted": "the loop variable of the 1..31 family"
+        },
+        {
+          "lambda": "and(module:b409b7(min(add(project(Ref(rec)), mul(identity(Ref(off3)), Var(i))), Ref(last)), project(Ref(rec)), project(Ref(rec))), lt(add(mod(idiv(project(Ref(rec)), Ref(three)), Ref(width)), Var(i)), Ref(width)))",
+          "arity": 31,
+          "abstracted": "const family 1..31 -> loop variable"
+        },
+        {
+          "lambda": "Var(i)",
+          "arity": 31,
+          "abstracted": "the loop variable of the 1..31 family"
+        }
+      ]
+    },
+    "h_extent": {
+      "sampled_expected_ops": 109.6875,
+      "candidates_considered": 62034,
+      "exact_on_samples": 294,
+      "rejected_by_exhaustive_check": 0,
+      "components": [
+        {
+          "lambda": "mul(identity(Ref(off96)), Var(i))",
+          "arity": 31,
+          "abstracted": "const family 1..31 -> loop variable"
+        },
+        {
+          "lambda": "Var(i)",
+          "arity": 31,
+          "abstracted": "the loop variable of the 1..31 family"
+        },
+        {
+          "lambda": "add(project(Ref(rec)), mul(identity(Ref(off96)), Var(i)))",
+          "arity": 31,
+          "abstracted": "const family 1..31 -> loop variable"
+        },
+        {
+          "lambda": "Var(i)",
+          "arity": 31,
+          "abstracted": "the loop variable of the 1..31 family"
+        },
+        {
+          "lambda": "min(add(project(Ref(rec)), mul(identity(Ref(off96)), Var(i))), Ref(last))",
+          "arity": 31,
+          "abstracted": "const family 1..31 -> loop variable"
+        },
+        {
+          "lambda": "Var(i)",
+          "arity": 31,
+          "abstracted": "the loop variable of the 1..31 family"
+        },
+        {
+          "lambda": "module:b409b7(min(add(project(Ref(rec)), mul(identity(Ref(off96)), Var(i))), Ref(last)), project(Ref(rec)), project(Ref(rec)))",
+          "arity": 31,
+          "abstracted": "const family 1..31 -> loop variable"
+        },
+        {
+          "lambda": "Var(i)",
+          "arity": 31,
+          "abstracted": "the loop variable of the 1..31 family"
+        },
+        {
+          "lambda": "add(idiv(idiv(project(Ref(rec)), Ref(three)), Ref(width)), Var(i))",
+          "arity": 31,
+          "abstracted": "const family 1..31 -> loop variable"
+        },
+        {
+          "lambda": "Var(i)",
+          "arity": 31,
+          "abstracted": "the loop variable of the 1..31 family"
+        },
+        {
+          "lambda": "lt(add(idiv(idiv(project(Ref(rec)), Ref(three)), Ref(width)), Var(i)), Ref(height))",
+          "arity": 31,
+          "abstracted": "const family 1..31 -> loop variable"
+        },
+        {
+          "lambda": "Var(i)",
+          "arity": 31,
+          "abstracted": "the loop variable of the 1..31 family"
+        },
+        {
+          "lambda": "and(module:b409b7(min(add(project(Ref(rec)), mul(identity(Ref(off96)), Var(i))), Ref(last)), project(Ref(rec)), project(Ref(rec))), lt(add(idiv(idiv(project(Ref(rec)), Ref(three)), Ref(width)), Var(i)), Ref(height)))",
+          "arity": 31,
+          "abstracted": "const family 1..31 -> loop variable"
+        },
+        {
+          "lambda": "Var(i)",
+          "arity": 31,
+          "abstracted": "the loop variable of the 1..31 family"
+        }
+      ]
+    }
+  },
+  "result": {
+    "w_extent": "find i in [1,32) where not(and(module:b409b7(min(add(project(Ref(rec)), mul(identity(Ref(off3)), Var(i))), Ref(last)), project(Ref(rec)), project(Ref(rec))), lt(add(mod(idiv(project(Ref(rec)), Ref(three)), Ref(width)), Var(i)), Ref(width)))) -> Var(i) else Lit(1)",
+    "h_extent": "find i in [1,32) where not(and(module:b409b7(min(add(project(Ref(rec)), mul(identity(Ref(off96)), Var(i))), Ref(last)), project(Ref(rec)), project(Ref(rec))), lt(add(idiv(idiv(project(Ref(rec)), Ref(three)), Ref(width)), Var(i)), Ref(height)))) -> Var(i) else Lit(1)"
+  },
+  "constructs_used": [
+    "Call",
+    "Find",
+    "Lit",
+    "Prim",
+    "Ref",
+    "Var"
+  ],
+  "search_domain": {
+    "spec": {
+      "cases": 1922,
+      "worst_ops": 1453,
+      "best_ops": 1453,
+      "expected_ops": 1453.0,
+      "total_ops": 2792666,
+      "histogram": {
+        "1453": 1922
+      },
+      "by_operator_expected": {
+        "add": 378.0,
+        "and": 122.0,
+        "encode": 62.0,
+        "eq": 186.0,
+        "identity": 2.0,
+        "idiv": 2.0,
+        "index": 378.0,
+        "lt": 62.0,
+        "min": 62.0,
+        "mod": 1.0,
+        "mul": 62.0,
+        "pack": 2.0,
+        "project": 2.0,
+        "sub": 1.0,
+        "sum": 2.0,
+        "truth_2": 62.0,
+        "truth_7": 62.0,
+        "tuple": 5.0
+      },
+      "output_digest": "60b44d239c6558206cb2cb7ed8ebc1e88df2b5dbf5659c8b142605d7ad163ae2"
+    },
+    "resynth": {
+      "cases": 1922,
+      "worst_ops": 1461,
+      "best_ops": 81,
+      "expected_ops": 320.375650364204,
+      "total_ops": 615762,
+      "histogram": {
+        "81": 40,
+        "111": 131,
+        "141": 154,
+        "171": 177,
+        "201": 180,
+        "231": 167,
+        "261": 160,
+        "291": 144,
+        "321": 123,
+        "351": 106,
+        "381": 88,
+        "411": 68,
+        "441": 52,
+        "471": 41,
+        "501": 32,
+        "531": 28,
+        "561": 21,
+        "591": 19,
+        "621": 18,
+        "651": 15,
+        "681": 13,
+        "711": 15,
+        "741": 15,
+        "771": 16,
+        "801": 17,
+        "831": 15,
+        "861": 14,
+        "891": 14,
+        "921": 16,
+        "951": 11,
+        "981": 6,
+        "1071": 1,
+        "1161": 1,
+        "1251": 1,
+        "1341": 1,
+        "1371": 1,
+        "1461": 1
+      },
+      "by_operator_expected": {
+        "add": 63.87513007284079,
+        "and": 9.979188345473466,
+        "eq": 29.937565036420395,
+        "find_test": 9.979188345473466,
+        "identity": 9.979188345473466,
+        "idiv": 16.422476586888656,
+        "index": 65.87513007284079,
+        "lt": 9.979188345473466,
+        "min": 9.979188345473466,
+        "mod": 6.535900104058273,
+        "mul": 9.979188345473466,
+        "not": 9.979188345473466,
+        "pack": 2.0,
+        "project": 41.91675338189386,
+        "sub": 1.0,
+        "truth_2": 9.979188345473466,
+        "truth_7": 9.979188345473466,
+        "tuple": 3.0
+      },
+      "output_digest": "60b44d239c6558206cb2cb7ed8ebc1e88df2b5dbf5659c8b142605d7ad163ae2"
+    },
+    "ratios": {
+      "expected_ratio": 4.535300976676053,
+      "worst_ratio": 0.9945242984257358,
+      "best_ratio": 17.938271604938272
+    }
+  },
+  "heldout": {
+    "records": 2883,
+    "spec": {
+      "cases": 2883,
+      "worst_ops": 1453,
+      "best_ops": 1453,
+      "expected_ops": 1453.0,
+      "total_ops": 4188999,
+      "histogram": {
+        "1453": 2883
+      },
+      "by_operator_expected": {
+        "add": 378.0,
+        "and": 122.0,
+        "encode": 62.0,
+        "eq": 186.0,
+        "identity": 2.0,
+        "idiv": 2.0,
+        "index": 378.0,
+        "lt": 62.0,
+        "min": 62.0,
+        "mod": 1.0,
+        "mul": 62.0,
+        "pack": 2.0,
+        "project": 2.0,
+        "sub": 1.0,
+        "sum": 2.0,
+        "truth_2": 62.0,
+        "truth_7": 62.0,
+        "tuple": 5.0
+      },
+      "output_digest": "f9b53b8292bc7815802e1e441f01ae7e8e8c4386734c4aef5c7d26d1470e7c0e"
+    },
+    "resynth": {
+      "cases": 2883,
+      "worst_ops": 1431,
+      "best_ops": 81,
+      "expected_ops": 328.68990634755465,
+      "total_ops": 947613,
+      "histogram": {
+        "81": 57,
+        "111": 186,
+        "141": 219,
+        "171": 251,
+        "201": 265,
+        "231": 253,
+        "261": 236,
+        "291": 216,
+        "321": 189,
+        "351": 162,
+        "381": 133,
+        "411": 105,
+        "441": 78,
+        "471": 61,
+        "501": 49,
+        "531": 40,
+        "561": 35,
+        "591": 29,
+        "621": 26,
+        "651": 26,
+        "681": 24,
+        "711": 28,
+        "741": 25,
+        "771": 25,
+        "801": 26,
+        "831": 28,
+        "861": 25,
+        "891": 24,
+        "921": 24,
+        "951": 19,
+        "981": 10,
+        "1041": 1,
+        "1161": 1,
+        "1191": 2,
+        "1221": 1,
+        "1281": 1,
+        "1311": 1,
+        "1401": 1,
+        "1431": 1
+      },
+      "by_operator_expected": {
+        "add": 65.53798126951092,
+        "and": 10.256330211585155,
+        "eq": 30.768990634755465,
+        "find_test": 10.256330211585155,
+        "identity": 10.256330211585155,
+        "idiv": 17.217134928893515,
+        "index": 67.53798126951092,
+        "lt": 10.256330211585155,
+        "min": 10.256330211585155,
+        "mod": 6.295525494276795,
+        "mul": 10.256330211585155,
+        "not": 10.256330211585155,
+        "pack": 2.0,
+        "project": 43.02532084634062,
+        "sub": 1.0,
+        "truth_2": 10.256330211585155,
+        "truth_7": 10.256330211585155,
+        "tuple": 3.0
+      },
+      "output_digest": "f9b53b8292bc7815802e1e441f01ae7e8e8c4386734c4aef5c7d26d1470e7c0e"
+    },
+    "ratios": {
+      "expected_ratio": 4.420579920283913,
+      "worst_ratio": 1.0153738644304682,
+      "best_ratio": 17.938271604938272
+    },
+    "certificate": {
+      "exact": true,
+      "checked": 2883,
+      "counterexample": null,
+      "oracle": "tcn.compile.compile_program(rect) -- certified against the interpreter on a sample above",
+      "exhaustive_over": "the declared enumerated domain, not the type domain"
+    }
+  },
+  "corner_distribution": {
+    "records": 54,
+    "spec": {
+      "cases": 54,
+      "worst_ops": 1453,
+      "best_ops": 1453,
+      "expected_ops": 1453.0,
+      "total_ops": 78462,
+      "histogram": {
+        "1453": 54
+      },
+      "by_operator_expected": {
+        "add": 378.0,
+        "and": 122.0,
+        "encode": 62.0,
+        "eq": 186.0,
+        "identity": 2.0,
+        "idiv": 2.0,
+        "index": 378.0,
+        "lt": 62.0,
+        "min": 62.0,
+        "mod": 1.0,
+        "mul": 62.0,
+        "pack": 2.0,
+        "project": 2.0,
+        "sub": 1.0,
+        "sum": 2.0,
+        "truth_2": 62.0,
+        "truth_7": 62.0,
+        "tuple": 5.0
+      },
+      "output_digest": "b4148088c7ddabd82f281eb3c27fe74dac27d7cb03fcf105746b8fa6e139d10b"
+    },
+    "resynth": {
+      "cases": 54,
+      "worst_ops": 1431,
+      "best_ops": 231,
+      "expected_ops": 585.4444444444445,
+      "total_ops": 31614,
+      "histogram": {
+        "231": 1,
+        "261": 3,
+        "291": 6,
+        "321": 1,
+        "351": 3,
+        "381": 3,
+        "411": 5,
+        "441": 3,
+        "471": 3,
+        "501": 2,
+        "531": 3,
+        "561": 2,
+        "621": 2,
+        "651": 1,
+        "711": 4,
+        "771": 1,
+        "801": 2,
+        "831": 1,
+        "861": 1,
+        "1191": 2,
+        "1221": 1,
+        "1281": 1,
+        "1311": 1,
+        "1401": 1,
+        "1431": 1
+      },
+      "by_operator_expected": {
+        "add": 116.88888888888889,
+        "and": 18.814814814814813,
+        "eq": 56.44444444444444,
+        "find_test": 18.814814814814813,
+        "identity": 18.814814814814813,
+        "idiv": 29.87037037037037,
+        "index": 118.88888888888889,
+        "lt": 18.814814814814813,
+        "min": 18.814814814814813,
+        "mod": 10.75925925925926,
+        "mul": 18.814814814814813,
+        "not": 18.814814814814813,
+        "pack": 2.0,
+        "project": 77.25925925925925,
+        "sub": 1.0,
+        "truth_2": 18.814814814814813,
+        "truth_7": 18.814814814814813,
+        "tuple": 3.0
+      },
+      "output_digest": "b4148088c7ddabd82f281eb3c27fe74dac27d7cb03fcf105746b8fa6e139d10b"
+    },
+    "ratios": {
+      "expected_ratio": 2.4818751186183334,
+      "worst_ratio": 1.0153738644304682,
+      "best_ratio": 6.29004329004329
+    },
+    "note": "the positions the assembly's `filter` actually passes to the rect module, so this is the deployed distribution"
+  },
+  "level_check": {
+    "worst_ratio": 0.9945242984257358,
+    "expected_ratio": 4.535300976676053,
+    "level_1_component_worst_ratio": 0.9945242984257358,
+    "level_3_component": 4.5602716634024185,
+    "reading": "the worst-case ratio is the part attributable to removing bookkeeping the loop makes unnecessary (level 1); the quotient is the part attributable to iterations the data lets the algorithm skip (level 3)"
+  },
+  "deployment": {
+    "source_path": "/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a8abe05761fdeb94b/research/lazy-guard/out/stage3_algorithm.py",
+    "source_bytes": 3291,
+    "matches_compiled_oracle": true,
+    "checked": 2883,
+    "note": "generated code imports nothing but its own prelude; the stdlib-only subprocess check of stages 1-2 is not repeated here because the input is a 3,072-element raster per record"
+  },
+  "ablation_matrix": {
+    "full": {
+      "solved": true,
+      "expected_ops": 166.0770031217482,
+      "worst_ops": 930,
+      "expected_ratio_vs_spec": 4.3353383458646615,
+      "constructs_used": [
+        "Call",
+        "Find",
+        "Lit",
+        "Prim",
+        "Ref",
+        "Var"
+      ],
+      "result": [
+        "k28 = Lit(28)",
+        "k29 = Lit(29)",
+        "k30 = Lit(30)",
+        "k31 = Lit(31)"
+      ],
+      "candidates_considered": 62034
+    },
+    "minus_Guard": {
+      "solved": true,
+      "expected_ops": 166.0770031217482,
+      "worst_ops": 930,
+      "expected_ratio_vs_spec": 4.3353383458646615,
+      "constructs_used": [
+        "Call",
+        "Find",
+        "Lit",
+        "Prim",
+        "Ref",
+        "Var"
+      ],
+      "result": [
+        "k28 = Lit(28)",
+        "k29 = Lit(29)",
+        "k30 = Lit(30)",
+        "k31 = Lit(31)"
+      ],
+      "candidates_considered": 62034
+    },
+    "minus_Find": {
+      "solved": false,
+      "expected_ops": null,
+      "expected_ratio_vs_spec": null,
+      "constructs_used": [],
+      "candidates_considered": 42000
+    },
+    "minus_Scan": {
+      "solved": true,
+      "expected_ops": 166.0770031217482,
+      "worst_ops": 930,
+      "expected_ratio_vs_spec": 4.3353383458646615,
+      "constructs_used": [
+        "Call",
+        "Find",
+        "Lit",
+        "Prim",
+        "Ref",
+        "Var"
+      ],
+      "result": [
+        "k28 = Lit(28)",
+        "k29 = Lit(29)",
+        "k30 = Lit(30)",
+        "k31 = Lit(31)"
+      ],
+      "candidates_considered": 20076
+    },
+    "minus_Let": {
+      "solved": true,
+      "expected_ops": 166.0770031217482,
+      "worst_ops": 930,
+      "expected_ratio_vs_spec": 4.3353383458646615,
+      "constructs_used": [
+        "Call",
+        "Find",
+        "Lit",
+        "Prim",
+        "Ref",
+        "Var"
+      ],
+      "result": [
+        "k28 = Lit(28)",
+        "k29 = Lit(29)",
+        "k30 = Lit(30)",
+        "k31 = Lit(31)"
+      ],
+      "candidates_considered": 62034
+    }
+  },
+  "ablation_summary": {
+    "full_expected_ratio": 4.3353383458646615,
+    "threshold": 3.0,
+    "single_removals_that_block": [
+      "Find"
+    ],
+    "single_removals_that_do_not_block": [
+      "Guard",
+      "Scan",
+      "Let"
+    ],
+    "single_blocking": true,
+    "joint_removal": {
+      "solved": false,
+      "candidates_considered": 42,
+      "result": null,
+      "blocked": true
+    },
+    "capability_blocking": false
+  },
+  "ablation_no_find_no_scan": {
+    "solved": false,
+    "candidates_considered": 42,
+    "result": null
+  }
+}
