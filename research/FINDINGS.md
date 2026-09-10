@@ -2657,3 +2657,77 @@ from a demonstration.
 Tests 336 passed / 1 failed, identical to the pre-existing worktree baseline;
 fixture reproduces 0.248836 → 0.002231 at 4/4.
 
+## 52. Semantic pooling survives its control — and the failure moves from identity to ranking
+
+`research/semantic-library/RESULTS.md`, branch `research/semantic-library`
+(`1230a67`), **not merged at time of writing**; `tcn/` untouched.
+`PREREGISTRATION.md` at `30904e2`, before any arm. This is the replication §46
+demanded of itself, with the control §46 lacked. Verified here from raw JSON.
+
+**F1 does not fire — this is not another §50.** §46 replicates exactly: same
+digest `165bc290d9c82b70a8ea3cc2`, **144 conforming** of 2,709,504 exhausted,
+certificate `complete`, 18/24 tight, 8/8 wide, median 1.0000 against constant and
+random 0.5 — equal to the hand-authored ceiling. And **both** pooled wrong-module
+controls reach **0**:
+
+| arm | conforming | exhausted | certificate |
+|---|---|---|---|
+| no library | 0 | true | `complete` |
+| syntactic mining | 0 | true | `complete` |
+| **semantic pooling** | **144** | true | `complete` |
+| hand-authored ceiling | 144 | true | `complete` |
+| wrong, authored | 0 | true | `complete` |
+| wrong, mined | 0 | true | `complete` |
+| **wrong, pooled — runner-up class** | **0** | true | `complete` |
+| **wrong, pooled — off-family corpus** | **0** | true | `complete` |
+
+The strong form: of **13** eligible arity-3 pooled classes swept, exactly **one**
+yields any conforming program, and it is the one the rule ranks first. So the
+pooling is genuinely selecting, unlike §47 Q3's probe where deleting the
+diagnosis *improved* the result.
+
+**F2 does fire, and the diagnosis is precise.** The induced library does **not**
+transfer to tasks it was not mined from. Across five leave-one-out corpora:
+
+| arm | helps, of 5 held-out tasks |
+|---|---|
+| no library / syntactic | **0 of 5** |
+| **published module (MDL rank-1)** | **2 of 5** |
+| **the same pooled class, windowed** | **5 of 5** |
+| hand-authored ceiling | 5 of 5 |
+
+**The right class is in the pool — the ranking is what fails.** Every
+leave-one-out corpus still *contains* the majority class and publishes the
+identical digest, at rank 2 or 3. Rank 1 flips to a 4-ary fragment present in
+only two tasks, and it flips by **0.85%** in two of five. The mechanism: the MDL
+score sums savings over entries, so **removing a task penalises broad fragments
+and leaves narrow ones untouched** — precisely inverting what "reusable" should
+mean.
+
+So the honest split is: **semantic pooling solves the identity problem §46
+identified; the description-bit objective then fails at the ranking layer.** That
+is a different and more tractable defect than §46's, and it is consistent with
+§41, which certified that description-bit ranking picks the bytecode-*maximal*
+program. **Two independent tracks now show `description_bits` selecting wrongly
+when it is used to rank.**
+
+**Negative controls hold both ways.** The two off-family held-out tasks (`H_par`,
+`H_d134`) get **0 from every arm including the ceiling** — the majority module
+does not help tasks it should not. `arm1_none` exhausts at 0 on all seven compact
+tasks, and the D134 module solves its own task and nothing else.
+
+**Cost.** Pooling is **1.08–1.19×** syntactic mining and *shrinks* the eligible
+set (94 → 40), so the identity fix is nearly free. `C-trace` costs **73×**
+`C-minall`'s DFS nodes and buys nothing — same digest, same numbers — which
+retires the trace-corpus idea from §46.
+
+**Disclosed by the track:** its own `_parity` helper used a chained comparison,
+caught by its own baseline, fixed, rows re-run, verdict unchanged. Fixture
+reproduces 0.248836 → 0.002231 at 4/4.
+
+**Status.** §46's exploratory finding is now **replicated and controlled** for
+identity, and **refuted** for transfer. Treat semantic pooling as an established
+improvement to abstraction *identity*, not as a demonstrated capability for
+library induction. The open question it hands forward is a ranking objective that
+does not penalise breadth.
+
