@@ -207,7 +207,7 @@ def main():
     t0 = time.perf_counter()
     ident = identity_checks()
     print(json.dumps(ident, indent=1), flush=True)
-    ids = ([a.only] if a.only else list(case_mod.CASES))
+    ids = (a.only.split(',') if a.only else list(case_mod.CASES))
     recs = []
     for cid in ids:
         recs.append(run_case(cid))

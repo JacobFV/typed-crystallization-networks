@@ -1,0 +1,242 @@
+{
+ "family": "C2",
+ "task": "bal",
+ "stream": "context_free_language",
+ "positions": 22,
+ "second_fold": "min",
+ "hole": "acc_fold",
+ "candidates": [
+  "add",
+  "idiv",
+  "max",
+  "min",
+  "mod",
+  "mul",
+  "shl",
+  "shr",
+  "sub"
+ ],
+ "folds_that_conform_on_train": [
+  "add",
+  "sub"
+ ],
+ "train_majority_constant": null,
+ "rows": [
+  {
+   "acc_fold": "add",
+   "second_fold": "min",
+   "space_size": 680625,
+   "exhausted": true,
+   "certificate": "complete",
+   "usable_members_on_train": 630000,
+   "best_train_accuracy": 1.0,
+   "members_tied_at_best_train": 110,
+   "conforming_on_train": 110,
+   "best_member_readable": {
+    "c": 101,
+    "plus": 1,
+    "minus": -1,
+    "total_ok": [
+     "ge",
+     -2
+    ],
+    "fold_ok": [
+     "eq",
+     0
+    ]
+   }
+  },
+  {
+   "acc_fold": "idiv",
+   "second_fold": "min",
+   "space_size": 680625,
+   "exhausted": true,
+   "certificate": "complete",
+   "usable_members_on_train": 324000,
+   "best_train_accuracy": 0.6666666666666666,
+   "members_tied_at_best_train": 1260,
+   "conforming_on_train": 0,
+   "best_member_readable": {
+    "c": 0,
+    "plus": -2,
+    "minus": -1,
+    "total_ok": [
+     "eq",
+     1
+    ],
+    "fold_ok": [
+     "eq",
+     -2
+    ]
+   }
+  },
+  {
+   "acc_fold": "max",
+   "second_fold": "min",
+   "space_size": 680625,
+   "exhausted": true,
+   "certificate": "complete",
+   "usable_members_on_train": 630000,
+   "best_train_accuracy": 0.5833333333333334,
+   "members_tied_at_best_train": 451,
+   "conforming_on_train": 0,
+   "best_member_readable": {
+    "c": 92,
+    "plus": -2,
+    "minus": -2,
+    "total_ok": [
+     "ge",
+     -1
+    ],
+    "fold_ok": [
+     "eq",
+     -2
+    ]
+   }
+  },
+  {
+   "acc_fold": "min",
+   "second_fold": "min",
+   "space_size": 680625,
+   "exhausted": true,
+   "certificate": "complete",
+   "usable_members_on_train": 630000,
+   "best_train_accuracy": 0.5833333333333334,
+   "members_tied_at_best_train": 696,
+   "conforming_on_train": 0,
+   "best_member_readable": {
+    "c": 92,
+    "plus": 1,
+    "minus": 1,
+    "total_ok": [
+     "eq",
+     0
+    ],
+    "fold_ok": [
+     "ge",
+     -2
+    ]
+   }
+  },
+  {
+   "acc_fold": "mod",
+   "second_fold": "min",
+   "space_size": 680625,
+   "exhausted": true,
+   "certificate": "complete",
+   "usable_members_on_train": 324000,
+   "best_train_accuracy": 0.5833333333333334,
+   "members_tied_at_best_train": 1260,
+   "conforming_on_train": 0,
+   "best_member_readable": {
+    "c": 0,
+    "plus": 1,
+    "minus": -2,
+    "total_ok": [
+     "ge",
+     -2
+    ],
+    "fold_ok": [
+     "eq",
+     0
+    ]
+   }
+  },
+  {
+   "acc_fold": "mul",
+   "second_fold": "min",
+   "space_size": 680625,
+   "exhausted": true,
+   "certificate": "complete",
+   "usable_members_on_train": 455625,
+   "best_train_accuracy": 0.75,
+   "members_tied_at_best_train": 21,
+   "conforming_on_train": 0,
+   "best_member_readable": {
+    "c": 109,
+    "plus": -1,
+    "minus": -2,
+    "total_ok": [
+     "ge",
+     -2
+    ],
+    "fold_ok": [
+     "ge",
+     -2
+    ]
+   }
+  },
+  {
+   "acc_fold": "shl",
+   "second_fold": "min",
+   "space_size": 680625,
+   "exhausted": true,
+   "certificate": "complete",
+   "usable_members_on_train": 132525,
+   "best_train_accuracy": 0.5833333333333334,
+   "members_tied_at_best_train": 28,
+   "conforming_on_train": 0,
+   "best_member_readable": {
+    "c": 110,
+    "plus": 1,
+    "minus": 0,
+    "total_ok": [
+     "ge",
+     2
+    ],
+    "fold_ok": [
+     "ge",
+     -2
+    ]
+   }
+  },
+  {
+   "acc_fold": "shr",
+   "second_fold": "min",
+   "space_size": 680625,
+   "exhausted": true,
+   "certificate": "complete",
+   "usable_members_on_train": 226800,
+   "best_train_accuracy": 0.5833333333333334,
+   "members_tied_at_best_train": 35,
+   "conforming_on_train": 0,
+   "best_member_readable": {
+    "c": 110,
+    "plus": 1,
+    "minus": 0,
+    "total_ok": [
+     "eq",
+     0
+    ],
+    "fold_ok": [
+     "ge",
+     -2
+    ]
+   }
+  },
+  {
+   "acc_fold": "sub",
+   "second_fold": "min",
+   "space_size": 680625,
+   "exhausted": true,
+   "certificate": "complete",
+   "usable_members_on_train": 630000,
+   "best_train_accuracy": 1.0,
+   "members_tied_at_best_train": 29,
+   "conforming_on_train": 29,
+   "best_member_readable": {
+    "c": 101,
+    "plus": -1,
+    "minus": 1,
+    "total_ok": [
+     "eq",
+     -2
+    ],
+    "fold_ok": [
+     "eq",
+     -2
+    ]
+   }
+  }
+ ]
+}
