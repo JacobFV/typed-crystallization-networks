@@ -346,6 +346,15 @@ Exact counts over all 48 episodes (training and held-out together):
 Each sweep point changes exactly one thing in N″ (the literal-slot occurs ratio, or the
 address-slot V penalty). The prediction above was committed before any of them ran.
 
+**The sweeps are sensitivity curves, not arms of the library.** Every sweep point was run on the
+target task, so whichever point is cheapest was *selected on the target*: it is tuned, not
+inherited, and no sweep minimum is quoted anywhere as what the library achieves. Cost claims in
+this document are made only for arms whose settings were fixed before the target was seen — N,
+N′, N″, P, R, U_feat, U_steep, U_Vonly, the KO_ knockouts and the STEP_ arms. One genuine finding
+about the prior does come out of the curves: **N″'s fitted V steepness is not the cost-optimal
+setting for this task.** It was fitted on the earlier domains' survival rates, and nothing about
+that fitting guarantees a cost-optimal steepness on a new task; the V curve shows it is not.
+
 <!-- BEGIN:sweep -->
 <!-- END:sweep -->
 
