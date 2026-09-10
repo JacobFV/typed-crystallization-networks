@@ -29,6 +29,7 @@ def merge(domain):
     for k in SUM:
         out[k] = sum(p[k] for p in parts)
     out["peak_rss_gb"] = max(p["peak_rss_gb"] for p in parts)
+    out["complete"] = all(p.get("complete") for p in parts)
     out["defects_tried"] = parts[0]["defects_tried"]      # the same full list per shard
     for p in parts:
         assert p["base"] == parts[0]["base"], f"{domain}: shards disagree on the base"

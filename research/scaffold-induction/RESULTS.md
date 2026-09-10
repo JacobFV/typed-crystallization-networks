@@ -134,6 +134,20 @@ substituted for it.
 <!-- BEGIN:validity -->
 <!-- END:validity -->
 
+**V2 — the decider.** Every (case, edit) pair is decided by
+`tcn.search.enumerate_prefix`, core machinery rather than a track simulator, so
+there is nothing to validate against `Program.execute` in the way §45 and §47
+had to validate theirs. It is checked anyway, two ways: a deterministic sample
+of edits per case is re-decided by the flat `enumerate_fit` walk over the same
+space, and **every** recorded witness is re-executed through `Program.execute` on
+**every** episode of its domain. `validate_decider.py` also asserts that the edit
+enumeration is reproducible — that re-applying the defect and re-enumerating
+yields exactly the committed key set — because an ordering claim over an
+irreproducible list would mean nothing.
+
+<!-- BEGIN:decider -->
+<!-- END:decider -->
+
 ---
 
 ## S1 — re-scoring §50's own corpus on held-out conformance

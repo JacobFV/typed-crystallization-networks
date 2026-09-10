@@ -271,6 +271,24 @@ def main():
     claim("D1's headline ordering is the seed-0 permutation, which is one of the 20",
           all(r["cost"]["D1"] in r["D1_permutations"] for r in a["cases"]))
 
+    # ---- layer 2e2: V2, the decider's own cross-checks
+    for d in domains:
+        v = J(f"validate_{d}")
+        if v is None:
+            claim(f"V2[{d}]: the decider cross-check was run", False,
+                  "out/validate_<domain>.json missing")
+            continue
+        claim(f"V2[{d}]: the flat walk agrees with the prefix walk on every sample",
+              not v["fit_mismatches"], f"{len(v['fit_mismatches'])} disagreements")
+        claim(f"V2[{d}]: every recorded witness re-executes to the target",
+              not v["witness_mismatches"],
+              f"{len(v['witness_mismatches'])} witnesses did not reproduce")
+        adm = [x for x in cases[d]["cases"] if x.get("admitted")]
+        want = sum(1 for x in adm for e in x["edits"] if e["repair"] and e["witness"])
+        claim(f"V2[{d}]: every repair's witness was checked, not a sample",
+              v["witnesses_checked"] == want,
+              f"{v['witnesses_checked']} vs {want}")
+
     # ---- layer 2f: S1
     s = J("s50_rescore")
     if s is not None:

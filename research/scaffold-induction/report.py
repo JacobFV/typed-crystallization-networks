@@ -57,11 +57,13 @@ def corpus():
                      c["defects_tried"], c["admitted"],
                      c["rejected_solvable_on_train"], c["rejected_no_repair"],
                      c["rejected_invalid"],
-                     _n(pd.get("n_edits_mean"), 1), _n(pd.get("n_repairs_mean"), 1)])
+                     _n(pd.get("n_edits_mean"), 1), _n(pd.get("n_repairs_mean"), 1),
+                     "yes" if c.get("complete") else
+                     "**no — stopped early, cases so far**"])
     return table(["domain", "task", "train", "held out", "nodes", "base space",
                   "defects tried", "**admitted**", "rejected: solvable on train",
                   "rejected: no repair", "rejected: invalid",
-                  "edits/case", "repairs/case"], rows)
+                  "edits/case", "repairs/case", "defect list exhausted"], rows)
 
 
 def costs():
@@ -191,6 +193,22 @@ def s50():
     return table(["S1 — §50's corpus on held-out conformance", "count"], rows)
 
 
+def decider():
+    rows = []
+    for d in A()["domains"]:
+        try:
+            v = kit.load(f"validate_{d}")
+        except FileNotFoundError:
+            rows.append([d, "not run", "—", "—", "—"])
+            continue
+        rows.append([d, v["fit_checked"], len(v["fit_mismatches"]),
+                     f"{v['witnesses_checked']} ({v['episode_evaluations']:,} "
+                     f"episode evaluations)", len(v["witness_mismatches"])])
+    return table(["domain", "edits re-decided by the flat walk",
+                  "disagreements", "witnesses re-executed through `Program.execute`",
+                  "witnesses that did not reproduce"], rows)
+
+
 def percase():
     a = A()
     rows = []
@@ -211,7 +229,7 @@ def resources():
     return table(["domain", "corpus seconds", "peak RSS (GB)"], rows)
 
 
-BLOCKS = {"corpus": corpus, "costs": costs, "criteria": criteria, "ratios": ratios,
+BLOCKS = {"corpus": corpus, "decider": decider, "costs": costs, "criteria": criteria, "ratios": ratios,
           "deployed": deployed, "validity": validity, "estimator": estimator,
           "families": families, "s50": s50, "percase": percase,
           "resources": resources}
