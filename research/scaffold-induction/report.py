@@ -189,7 +189,14 @@ def s50():
             ["the training-stop variant also conforms on all episodes",
              f"{s['training_stop_conforms_heldout']} / {s['failed_cases']}"],
             ["of those, the language cases (the only ones with a held-out split)",
-             f"{s['lang_training_stop_conforms_heldout']} / {s['lang_cases']}"]]
+             f"{s['lang_training_stop_conforms_heldout']} / {s['lang_cases']}"],
+            ["variants that conform on training and **fail** on the held-out "
+             "episodes (the section-65 trap, counted over every variant of every "
+             "case)",
+             sum(1 for c in d["cases"] for r in c["rows"]
+                 if r["conforming_on_train"] and not r["conforming_on_all"])],
+            ["the Boolean cases, which have no held-out split",
+             f"{s['bool_cases']}, both with no conforming variant at all"]]
     return table(["S1 — §50's corpus on held-out conformance", "count"], rows)
 
 

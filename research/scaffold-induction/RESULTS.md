@@ -152,6 +152,21 @@ irreproducible list would mean nothing.
 
 ## S1 — re-scoring §50's own corpus on held-out conformance
 
+**The pre-registered prediction F8 was that §50's count would fall. It does
+not.** On every language case in §50's corpus, the variants that conform on the
+training episodes are exactly the variants that conform on the held-out episodes
+too — there is not one training-only fit in the whole family. The operator
+sweep's repairs generalize, and §50's baseline is stronger than this track
+predicted, not weaker. The prediction is kept and marked wrong rather than
+removed.
+
+This is worth holding beside the corpus above, where the same protocol on this
+track's own domains produces many edits that fit training and fail held-out. The
+difference is a property of the *family*, not of the method: §50's language
+scaffold family is narrow enough that fitting the training episodes already
+pins the program, while the edit spaces here are wide enough to contain fits
+that do not.
+
 <!-- BEGIN:s50 -->
 <!-- END:s50 -->
 
