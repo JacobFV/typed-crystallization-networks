@@ -42,6 +42,7 @@ def main():
     seeds = int(sys.argv[2]) if len(sys.argv) > 2 else 24
     steps = int(sys.argv[3]) if len(sys.argv) > 3 else 400
     which = sys.argv[4].split(",") if len(sys.argv) > 4 else list(arms.ARMS)
+    tag = sys.argv[5] if len(sys.argv) > 5 else scaffold
     jobs = [(arm, scaffold, s, steps) for arm in which for s in range(seeds)]
     t0 = time.perf_counter()
     with ProcessPoolExecutor(max_workers=int(os.environ.get("TCN_WORKERS", "12"))) as pool:
@@ -74,7 +75,7 @@ def main():
                            "best_accuracy", "median_steps_to_conformant")},
                          sort_keys=True), flush=True)
     OUT.mkdir(exist_ok=True)
-    (OUT / f"gradient_{scaffold}.json").write_text(json.dumps(
+    (OUT / f"gradient_{tag}.json").write_text(json.dumps(
         {"scaffold": scaffold, "seeds": seeds, "steps": steps,
          "constant_baseline_accuracy": 0.5, "random_baseline_accuracy": 0.5,
          "summary": summary, "records": records,

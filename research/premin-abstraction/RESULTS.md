@@ -64,8 +64,9 @@ mined from the minimised corpus.
    band — every conforming program at one gate above the minimum — raises the
    *number* of programs holding a majority-valued node but drops the largest
    single majority digest from **15 programs** (`C-minall`) to **2**, across
-   **54** digests. Extra gates buy extra sharing, and sharing breaks the
-   single-exit condition and re-factors the circuit. §44's headline should be
+   **54** digests. A spare gate is not spent on a cleaner majority; it is spent
+   on a *different* majority circuit, so each extra program brings a new digest
+   instead of reinforcing an existing one. §44's headline should be
    sharpened: it is not minimisation that hides the abstraction, it is
    **committing to one program per task**; and going *past* the minimum
    fragments the abstraction's identity instead of consolidating it.
@@ -74,6 +75,19 @@ mined from the minimised corpus.
    the proposal** — and the part that actually helped, `C-minall`, cost **less
    than §44's own corpus build** (11.5 M DFS nodes and 21 CPU-s against
    110.7 M and 136 CPU-s). The expensive half is the half that hurt.
+
+7. **Exploratory, outside the pre-registration, and the most actionable thing
+   here (§10).** Change *only* the identity relation — pool occurrences by
+   (arity, truth table) instead of by `Program.digest`, everything else in the
+   rule imported unchanged — and on `C-trace` majority becomes **rank 1 of
+   112** at **+860 960 bits**, ahead of `M`'s +323 272; its arm gives **144
+   conforming, 18/24 tight, 8/8 wide**, equal to the hand-authored ceiling on
+   every measured axis, with no human choosing the module. **It needs both
+   changes**: on §44's own one-program-per-task corpus, semantic identity
+   changes nothing, because majority occurs in one task and never clears the
+   reuse gate. This was run after the pre-registered arms and is counted toward
+   no criterion; it should be re-run pre-registered on another family before it
+   is claimed as more than a measurement of this one.
 
 ---
 
@@ -94,9 +108,17 @@ this branch, with this track's own machinery:
 | certified minima `t1..t6` | 5, 5, 5, 5, 5, 3 | **5, 5, 5, 5, 5, 3** (re-derived independently, `out/min_certificate.json`) |
 | `C-min` ranked table | 13 eligible, rank 1 = `M`, +3 648 bits | **13 eligible, rank 1 = `M`, +3 648 bits** |
 | FINDINGS §44 median accuracies | 0.6250 / 0.7812 / 1.0000 / 0.6250 / 0.7812 | **identical**, re-derived from that track's raw records |
+| §44's retention check on its own corpus | `MAJ3` in **1 of 6**, `M` in **4 of 6** | **1 of 6 and 4 of 6**, from §44's stored programs with this track's instrument |
+| §44's tight/wide gradient tables | 0/24, 0/24, 18/24, 0/24, 0/24 and 0/8, 0/8, 8/8, 0/8, 0/8 | **identical on every arm and every column** |
 
 Nothing failed to reproduce. The reproduction of `arm2_earned` at 0 conforming
 is the gate the brief set for continuing, and it passed.
+
+**Corpus definitions tried.** All five were declared in the pre-registration
+before any was built, and all five are reported above. **None was changed,
+added or abandoned after the fact.** The declared sampler fallback was never
+needed — every band exhausted inside the budget — and the declared cap of 32
+per task per band bound only the two `k_t + 1` bands.
 
 ---
 
@@ -161,6 +183,31 @@ Over the **full** enumerated sets, not the capped ones:
 | `t5_maj_abd_or_c` | 15 / 27 (0.556) | 513 / 1 581 (0.324) | 9 / 27 (0.333) | 543 / 1 581 (0.343) |
 | `t6_maj_abc_xor_maj_bcd` | 0 / 1 | 0 / 6 | 0 / 1 | 0 / 6 |
 
+Rolled up to the corpus, over the programs that were actually mined (the capped
+sets) and over the full enumerations:
+
+| corpus | programs mined | `MAJ3` | `M` | `M'` | | programs enumerated | `MAJ3` | `M` | `M'` |
+|---|---|---|---|---|---|---|---|---|---|
+| `C-min` | 6 | **1** (0.167) | 4 (0.667) | 3 (0.500) | | 6 | 1 | 4 | 3 |
+| `C-minall` | 130 | **75** (0.577) | 33 (0.254) | 30 (0.231) | | 130 | 75 (0.577) | 33 (0.254) | 30 (0.231) |
+| `C-plus1` | 166 | 61 (0.367) | 43 (0.259) | 35 (0.211) | | 6 639 | 2 358 (0.355) | 1 647 (0.248) | 1 596 (0.240) |
+| `C-trace` | 296 | **136** (0.459) | 76 (0.257) | 65 (0.220) | | 6 769 | 2 433 (0.359) | 1 680 (0.248) | 1 626 (0.240) |
+| `C-plus1-one` | 6 | 1 (0.167) | 3 (0.500) | 1 (0.167) | | 6 | 1 | 3 | 1 |
+
+`C-min`'s row — **1 of 6 for `MAJ3`, 4 of 6 for `M`** — is §44's independently
+verified figure, reproduced here from that track's stored programs with this
+track's own instrument. The capped and uncapped fractions agree to within 0.012
+on `C-plus1`, which is the check that the declared subsample is not biased.
+
+**A limitation of this measurement, stated because §44 has it too.** The value
+check asks whether a node's value equals the fragment over an ordered 3-subset
+of the four *inputs*. A fragment's holes need not be inputs — they can be
+internal ports — so this **undercounts**: the rule finds its rank-1 fragment `M`
+at 140 of `C-trace`'s 296 entries while the value check sees it at 76, the
+difference being occurrences whose arguments are other gates. The two
+measurements are therefore not nested in either direction, and §3.2's
+structural count is the one that governs the outcome.
+
 **§44's `1 of 6` is a property of the tie-break, not of minimisation.** Every
 one of the five non-collapsing tasks has a *minimum-length* program that holds
 the majority at a node — 15 of them, in each case — and §44's enumeration order
@@ -223,7 +270,24 @@ declared rule changes are inert on a one-program-per-task corpus.
 **Three corpora, one digest.** `C-minall`, `C-plus1` and `C-trace` all publish
 `module:ec516b3808ddef7e7d0e7d22` — bit-for-bit §44's `earned@1`. `arm2p_trace`
 is not merely *equivalent* to `arm2_earned`; it is the same content-addressed
-module reached through a second library.
+module reached through a second library. The full module identity map, printed
+from the arms themselves by `check_arms.py`:
+
+| arm | module operator | nodes |
+|---|---|---|
+| `arm1_none` | — | — |
+| `arm2_earned` | `module:ec516b3808ddef7e7d0e7d22` | 2 |
+| `arm2p_trace`, `arm2p_minall`, `arm2p_plus1` | `module:ec516b3808ddef7e7d0e7d22` | 2 |
+| `arm3_authored` | `module:8ceedf7b792a7116514f90ab` | 4 |
+| `arm4_wrong_authored` | `module:dc59f82e89cd0ad1797ef375` | 4 |
+| `arm4b_wrong_mined` | `module:b22e2ef14a32a68f1224304f` | 2 |
+| `arm2p_plus1one` | `module:26f930da7b619fd563401a8c` | 3 |
+| *`arm3p_mined_maj3`*, *`arm2s_semantic_trace`* | `module:165bc290d9c82b70a8ea3cc2` | 4 |
+
+Every mined module is loaded from a real `tcn.library.Library` on disk under
+`policy="strict"`, with a manifest, a module file and a recorded conformance
+fixture — the module crosses from the earlier tasks to the later one through the
+store, not through a Python variable.
 
 ### 4.1 The top of `C-trace`, with every majority row it contains
 
@@ -246,9 +310,10 @@ positive, and ranked 74th.
 
 **The failure is legible in one comparison.** Rank 18 is worth **2.6× more per
 corpus program** than rank 1 and appears in **8.75× fewer** of them. Corpus MDL
-multiplies the two, and breadth wins. Twelve different majority abstractions
-sum to 87 entries between them — still fewer than rank 1's 140, and split
-twelve ways.
+multiplies the two, and breadth wins. The **12** majority digests that clear the
+reuse gate sum to 87 entries between them — still fewer than rank 1's 140, and
+split twelve ways. The other **46** of the 58 majority digests in the corpus
+occur in a single task and are never even eligible.
 
 ---
 
@@ -268,8 +333,9 @@ best constant and a uniform random predictor both score 0.5.
 | `arm3_authored` | hand-authored `MAJ3` | 336/336/24 | 2 709 504 | 2 709 504 | yes | **144** | `complete` | 3 | 190 |
 | `arm4_wrong_authored` | truth table 134, hand-authored | 336/336/24 | 2 709 504 | 2 709 504 | yes | **0** | `complete` | — | 159 |
 | `arm4b_wrong_mined` | §44's runner-up | 336/336/24 | 2 709 504 | 2 709 504 | yes | **0** | `complete` | — | 216 |
-| `arm2p_plus1one` | the module mined from `C-plus1-one` (arity 4) | 1416/1416/32 | 64 161 792 | <!--P1ONE--> |
+| `arm2p_plus1one` | the module mined from `C-plus1-one` (arity 4) | 1416/1416/32 | **64 161 792** | 64 161 792 | yes | **0** | `complete` | — | 8 185 |
 | *`arm3p_mined_maj3`* (exploratory) | `C-trace`'s **rank-18** majority abstraction | 336/336/24 | 2 709 504 | 2 709 504 | yes | **144** | `complete` | 3 | 363 |
+| *`arm2s_semantic_trace`* (exploratory, §10) | rank-**1** of the semantic-identity rule on `C-trace` — the same digest | 336/336/24 | 2 709 504 | 2 709 504 | yes | **144** | `complete` | 3 | 277 |
 
 `arm2p_minall` and `arm2p_plus1` are **not** separate rows because they are not
 separate arms: `C-minall` and `C-plus1` publish the *same content digest* as
@@ -280,9 +346,13 @@ itself the result.
 `arm2p_plus1one` is the one pre-registered secondary arm that *is* owed: a
 different digest, and a 4-ary one, which makes its call-site candidate block
 `6**4` wide and its tight space **64 161 792** programs — 24× every other arm.
-It still gets a full sweep with the cap raised to `2**27` so the certificate
-survives. This is `MAX_HOLES` earning its keep: an abstraction the search
-cannot afford to offer is not a useful abstraction.
+It still got a full sweep, with the cap raised to `2**27` so the certificate
+survives: **64 161 792 evaluated, exhausted, `complete`, 0 conforming**, at a
+cost of 8 185 s against the other arms' 159–363 s. This is `MAX_HOLES` earning
+its keep — an abstraction the search cannot afford to offer is not a useful
+abstraction — and it is the only arm in this track that mining made *worse* on
+both axes at once: 40× the search for a lower mean accuracy than the module it
+replaced.
 
 Three readings:
 
@@ -332,6 +402,7 @@ and uniform random both score **0.5000** exact accuracy.
 | `arm2p_plus1` | 0/24 | — | 0.7812 | 0.6875 | 0.7812 | 0.5000 | 0 |
 | `arm2p_plus1one` | 0/24 | — | 0.7812 | 0.6641 | 0.7812 | 0.5000 | 0 |
 | *`arm3p_mined_maj3`* (exploratory) | **18/24** | **50** | **1.0000** | 0.8750 | 1.0000 | 0.5000 | 18 |
+| *`arm2s_semantic_trace`* (exploratory, §10) | **18/24** | **50** | **1.0000** | 0.8750 | 1.0000 | 0.5000 | 18 |
 
 `arm1_none`, `arm2_earned`, `arm3_authored`, `arm4_wrong_authored` and
 `arm4b_wrong_mined` reproduce §44's tight table to four decimals on every
@@ -347,11 +418,41 @@ mined arm that moves at all is `arm2p_plus1one`, and it moves *down* — mean
 50 steps to first conforming export, median accuracy 1.0000 — every figure equal
 to the hand-authored arm's, from a module the rule mined.
 
-<!--GRAD_TIGHT-->
+### 6.2 Wide scaffold (9 nodes), 8 seeds — both routes fit
+
+The tight scaffold cannot hold a flat solution at all (flat minimum proved ≥ 7
+against three nodes), so it cannot separate "the module helped" from "nothing
+fits". The wide scaffold is §44's non-degenerate comparison: nine nodes, wide
+enough for the verified 9-gate flat program, far too large to exhaust.
+
+| arm | solved | median steps | **median accuracy** | mean | best | constant baseline | module on output path |
+|---|---|---|---|---|---|---|---|
+| `arm1_none` | 0/8 | — | 0.6875 | 0.6875 | 0.6875 | 0.5000 | 0 |
+| `arm2_earned` | 0/8 | — | 0.7812 | 0.7930 | 0.8750 | 0.5000 | 0 |
+| **`arm2p_trace`** | **0/8** | — | **0.7812** | **0.7930** | 0.8750 | 0.5000 | 0 |
+| `arm3_authored` | **8/8** | **90** | **1.0000** | 1.0000 | 1.0000 | 0.5000 | 8 |
+| `arm4_wrong_authored` | 0/8 | — | 0.6875 | 0.6641 | 0.6875 | 0.5000 | 0 |
+| `arm4b_wrong_mined` | 0/8 | — | 0.7812 | 0.7930 | 0.8750 | 0.5000 | 0 |
+| `arm2p_minall` | 0/8 | — | 0.7812 | 0.7930 | 0.8750 | 0.5000 | 0 |
+| `arm2p_plus1` | 0/8 | — | 0.7812 | 0.7930 | 0.8750 | 0.5000 | 0 |
+| `arm2p_plus1one` | 0/8 | — | 0.7812 | 0.7812 | 0.7812 | 0.5000 | 0 |
+| *`arm3p_mined_maj3`* (exploratory) | **8/8** | **90** | **1.0000** | 1.0000 | 1.0000 | 0.5000 | 8 |
+| *`arm2s_semantic_trace`* (exploratory, §10) | **8/8** | **90** | **1.0000** | 1.0000 | 1.0000 | 0.5000 | 8 |
+
+Every §44 row reproduces to four decimals, including the tie §44 called its
+sharpest single number: `arm2_earned` and `arm4b_wrong_mined` at 0.7930 mean
+and 0.8750 best. **`arm2p_trace` joins that tie exactly** — the earned module
+from a corpus 49× larger is indistinguishable from a *wrong* module of the same
+size, on the same four decimals. That is the second pre-registered
+falsification condition, unchanged from §44.
+
+`arm2p_plus1one` is the only mined arm with a different module, and it is the
+worst of them: 0.7812 on every seed, below `arm2_earned`'s 0.7930 mean, in a
+scaffold whose candidate lists it inflates by a factor of twelve.
 
 <!--GRAD_WIDE-->
 
-## 8. Sensitivity of the rule to its own parameters
+## 7. Sensitivity of the rule to its own parameters
 
 Declared in the pre-registration as a reported-regardless robustness check, run
 once, reported whatever the headline says. 40 settings per corpus —
@@ -377,7 +478,7 @@ over the two corpora that matter (`out/sensitivity.json`).
 
 The negative is not a parameter choice, and it is not a knife edge.
 
-## 9. What the richer corpus cost
+## 8. What the richer corpus cost
 
 Reported because the brief asks for it, and because it is the part of this
 result that generalises to any system that would do this for real. A rule that
@@ -408,7 +509,106 @@ Two things worth saying plainly.
   largest single majority digest from 15 entries to 2. On this family, paying
   more search to go past the minimum buys a worse corpus for mining.
 
+## 9. Verdict against the pre-registered falsification criteria
+
+The pre-registration named four conditions. Three fire, one does not, and all
+four are read off the tables above rather than argued.
+
+| pre-registered condition | fires? | evidence |
+|---|---|---|
+| **"The corpus was not the problem; the rule is"** — `arm2p_trace` ties `arm2_earned` | **yes, by identity** | Both load `module:ec516b3808ddef7e7d0e7d22`. 0 vs 0 conforming in the same exhausted 2 709 504-program space, certificate `complete` both; 0/24 vs 0/24 tight and 0/8 vs 0/8 wide; identical median, mean and best accuracy on both scaffolds. `C-minall` and `C-plus1` publish the same digest, so this holds for every non-minimised corpus tried. |
+| **"Any module of that size helps and the selection contributes nothing"** — `arm2p_trace` ties a wrong module | **yes** | Ties `arm4_wrong_authored` 0 vs 0 conforming, exhausted. Ties `arm4b_wrong_mined` to four decimals on the wide scaffold (median 0.7812, mean 0.7930, best 0.8750 both) and on the tight scaffold (0.7812 / 0.6875 / 0.7812 vs 0.7812 / 0.7161 / 0.7812 — same median and best). |
+| **"Mining does not reach what a human picks, even from a richer corpus"** — `arm2p_trace` loses badly to `arm3_authored` | **yes** | 0 vs 144 conforming in an exhausted space; 0/24 vs 18/24 tight; 0/8 vs 8/8 wide; median accuracy 0.7812 vs 1.0000. |
+| **"The rule is degenerate"** — rank-1 is a 1-node fragment, or nothing clears the reuse gate | **no** | 94–182 eligible abstractions on the non-minimised corpora; rank-1 is a 2-node, 3-ary fragment at the declared parameters. On `C-trace` the four single-gate fragments are ranked **179, 180, 181 and 182 of 182** — dead last — despite `xor` occurring at 614 sites and `and` at 534, because a one-gate call site *costs* 224–232 bits more than the inline gate no matter how many sites amortise the definition. The one place a 1-node fragment wins is `C-minall` at `MAX_HOLES = 2`, with a **negative** saving of −44 864: the rule correctly reporting that nothing in reach is worth abstracting, the same behaviour §44 recorded at that setting. |
+
+**All three payoff criteria fire, exactly as in §44, on a corpus 49× larger
+that demonstrably contains the abstraction.** The degeneracy criterion does not
+fire, which matters: the rule is not broken and is not gaming its own score. It
+is answering the question it was asked — *which subprogram is most reused, by
+content digest, across this corpus* — and the answer to that question is not
+the answer to *which subprogram will make the next task easy*.
+
+Nothing was re-tuned after seeing this. The parameter sweep in §7 was declared
+in advance as reported-regardless and is reported in full; the one arm added
+after the fact (`arm3p_mined_maj3`) is labelled exploratory everywhere and is
+counted toward no criterion.
+
 <!--CRITERIA-->
+
+## 10. Exploratory: the identity relation, not the corpus
+
+**Not pre-registered.** Everything in this section was run after the tables
+above were read; it is counted toward no falsification criterion and it does not
+change any verdict. It is here because it converts §44's closing speculation
+into a measurement.
+
+§44 closed by asking for "a rule that mines *semantic* reuse (fragments
+computing the same function under different circuits) rather than the structural
+reuse mined here". `mine_semantic.py` is that rule and **only** that rule: R1,
+R2's construction, the rewriting, R3's reuse gate and R4's MDL score are
+imported unchanged. One thing differs — occurrences are pooled by
+**(arity, truth table)** instead of by `Program.digest`, each pool elects a
+representative circuit (fewest nodes, then digest), and every occurrence in the
+pool is rewritten to a call to that representative. This is semantics-preserving
+because a fragment's truth table is taken in its own hole order, and every
+rewrite is still executed against the task's rows before it is scored.
+
+| corpus | entries | eligible | rank-1 computes `MAJ3`? | rank-1 saving | circuits pooled at rank 1 | best `MAJ3` rank |
+|---|---|---|---|---|---|---|
+| `C-min` | 6 | 13 | **no** (still `M`) | +3 648 | 1 | — (ineligible) |
+| `C-minall` | 130 | 40 | **YES** | +415 872 | 8 | **1** |
+| `C-plus1` | 166 | 107 | **YES** | +434 960 | 54 | **1** |
+| `C-trace` | 296 | 112 | **YES** | +860 960 | **58** | **1** |
+| `C-plus1-one` | 6 | 9 | **no** | +4 064 | 3 | — (ineligible) |
+
+The top of `C-trace` under semantic identity, with the structural winner for
+comparison:
+
+| rank | representative body | arity | circuits pooled | tasks | entries | saving | per entry |
+|---|---|---|---|---|---|---|---|
+| **1** | `and(x0,x1); xor(x0,x1); and(x2,n1); or(n0,n2)` — **`MAJ3`** | 3 | **58** | 5 | **134** | **+860 960** | 6 425 |
+| 2 | a 5-node, 4-ary fragment | 4 | 13 | 2 | 53 | +386 152 | 7 286 |
+| 3 | a 5-node, 4-ary fragment | 4 | 16 | 2 | 48 | +349 104 | 7 273 |
+| **4** | `and(x0,x1); or(n0,x2)` — **§44's `M`** | 3 | 4 | 5 | 144 | +323 272 | 2 245 |
+
+**It takes both changes, and neither alone.** On `C-min` — one minimal program
+per task — semantic identity does *not* help: majority occurs in a single task,
+so it never clears the reuse gate, and the rule proposes `M` at +3 648 exactly
+as §44 did. On `C-trace` with structural identity the rule proposes `M` at
++275 136 with majority 18th. With **both** a tie-break-free corpus **and**
+semantic identity, majority is rank 1 of 112 at +860 960, ahead of `M`'s
++323 272 — a 2.7× margin, from a fragment that was 3.4× behind before.
+
+Two details worth recording.
+
+* **The 58-way split is real, and part of it is not even about different
+  circuits.** Of the 12 *eligible* majority digests on `C-trace`, ten are
+  distinct circuits — and two of them (ranks 31 and 74, carrying 11 and 5
+  entries) are **the same circuit written in two different topological orders**,
+  which is §44's own hand-authored `MAJ3` body. R2's canonical form numbers
+  nodes by the host program's node order and keeps each operator's argument
+  order, so it is not canonical up to graph isomorphism (`check_digest_split.py`
+  verifies this by grouping the digests under an order-free key). Ranks 72 and
+  73 are a second such pair.
+* **The arm confirms it, measured rather than inferred.** The semantic rule's
+  rank-1 proposal publishes as `module:165bc290d9c82b70a8ea3cc2` — the *same
+  content digest* as the exploratory `arm3p_mined_maj3` module. Run as its own
+  arm anyway:
+
+| arm | conforming / space | exhausted | certificate | tight | wide |
+|---|---|---|---|---|---|
+| `arm3_authored` (the ceiling) | 144 / 2 709 504 | yes | `complete` | 18/24, median 50 steps, median acc 1.0000 | 8/8, median 90, 1.0000 |
+| *`arm2s_semantic_trace`* (exploratory) | **144 / 2 709 504** | yes | `complete` | **18/24, median 50 steps, median acc 1.0000** | **8/8, median 90, 1.0000** |
+
+A rule that reads only solved programs, with **no human choosing the module**,
+reaches the hand-authored ceiling on every measured axis — once its corpus keeps
+every minimum instead of one and its identity relation is semantic instead of
+structural. That is a positive result, and it is explicitly **outside** the
+pre-registration: it was not among the arms declared in advance, it followed
+from reading the ranked table, and it should be re-run as a pre-registered
+experiment (on a family whose shared structure is not majority, and with the
+later task fixed in advance again) before it is claimed as more than a
+measurement of this family.
 
 ## 11. What this changes about §44, and what it does not
 
@@ -442,15 +642,27 @@ has nothing to do with how the corpus was solved: **the more ways there are to
 compute a useful function, the less any one of them looks reused.** §44's
 closing paragraph asked for "a rule that mines *semantic* reuse (fragments
 computing the same function under different circuits) rather than the
-structural reuse mined here". This track measures how much that would be worth
-on this family: **58 digests to 1**, and a jump from rank 18 to rank 1 that
-takes the arm from 0 conforming to **144**.
+structural reuse mined here". §10 measures how much that is worth on this
+family: **58 digests collapse to 1**, majority goes from rank 18 to **rank 1**
+at +860 960 bits against `M`'s +323 272, and the arm goes from 0 conforming to
+**144** — with 18/24 and 8/8 on the two gradient scaffolds, equal to the
+hand-authored ceiling on every measured axis. That is exploratory and outside
+the pre-registration, and it is the single most actionable thing in this track.
 
-**Not closed.** Everything §44 listed as open stays open, and this adds one:
-the acquisition path still needs exhaustive search (§44's finding that the
-shipped gradient synthesiser solves 1 of 6 earlier tasks is untouched here and
-was not re-run), and the *selection* now has a measured, named obstacle rather
-than a suspected one.
+**Not closed.** Everything §44 listed as open stays open, and this adds one and
+narrows another:
+
+* the acquisition path still needs exhaustive search — §44's finding that the
+  shipped gradient synthesiser solves 1 of 6 earlier tasks is untouched here
+  and was not re-run;
+* **new**: `Program.digest` is not canonical up to graph isomorphism (two
+  topological orders of the same four-gate majority give two digests, §10),
+  which is fine for a content-addressed store and quietly wrong for anything
+  that counts occurrences;
+* **narrowed**: the selection obstacle is no longer "the solver does not
+  preserve modular structure". It is the pair *(one program per task,
+  structural identity)*, and §10 shows that fixing both — and only both — lifts
+  the arm to the ceiling on this family.
 
 ## 12. Reproduction and provenance
 
@@ -463,7 +675,19 @@ than a suspected one.
   truth table before entering a corpus (`verified_in_tcn: true` for all twelve
   bands).
 * **Every enumeration is a full sweep**, `exhausted: true`, certificate
-  `complete`, reported separately from `evaluated`.
+  `complete`, reported separately from `evaluated`. Nine arms, **83 358 720**
+  programs evaluated in total.
+* **What was and was not pre-registered.** Arms 1, 2, 2′, 3, 4, 4b and the
+  secondary `arm2p_plus1one` were declared in `PREREGISTRATION.md` before any
+  arm ran. `arm3p_mined_maj3`, `arm2s_semantic_trace` and the whole of §10 were
+  **not**; they were added after the ranked tables were read, are labelled
+  exploratory wherever they appear, and are counted toward no falsification
+  criterion.
+* **Test suite: 287 passed, 1 failed.** The failure is
+  `tests/test_panel_interface.py::test_panel_episode_replays_and_restores`, the
+  documented environmental failure in a worktree with `node_modules` symlinked
+  from the main checkout. It is on main's own code and is not this track's; the
+  symlink was removed before committing.
 * **The shipped fixture reproduces**: `python -m tcn train --episodes 160` gives
   `initial_prediction_loss` 0.248835613951087 → `final_prediction_loss`
   0.0022308224288281053, `fully_frozen: true`, `frozen_evaluation_mean_return`

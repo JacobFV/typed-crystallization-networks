@@ -26,12 +26,17 @@ SECONDARY = ("arm2p_minall", "arm2p_plus1", "arm2p_plus1one")
 #: abstraction C-trace offers (rank 18 of 182), inherited through the same
 #: library path. It separates "the corpus does not contain the abstraction"
 #: from "the ranking does not pick it".
-EXPLORATORY = ("arm3p_mined_maj3",)
+#: Also not pre-registered: the rank-1 proposal of the *semantic*-identity
+#: variant of the rule (`mine_semantic.py`) on `C-trace`. Its module is the
+#: same content digest as `arm3p_mined_maj3`'s, which is itself the finding;
+#: the arm is run anyway so the number is measured and not inferred.
+EXPLORATORY = ("arm3p_mined_maj3", "arm2s_semantic_trace")
 ARMS = PRIMARY + SECONDARY + EXPLORATORY
 
 MINED = {"arm2p_trace": "trace", "arm2p_minall": "minall",
          "arm2p_plus1": "plus1", "arm2p_plus1one": "plus1one",
-         "arm3p_mined_maj3": "trace_maj3"}
+         "arm3p_mined_maj3": "trace_maj3",
+         "arm2s_semantic_trace": "semantic_trace"}
 
 DESCRIPTION = {
     "arm1_none": "no library; the flat space",
@@ -44,6 +49,7 @@ DESCRIPTION = {
     "arm2p_plus1": "module mined from C-plus1 (every length k+1 program)",
     "arm2p_plus1one": "module mined from C-plus1-one (one length k+1 program per task)",
     "arm3p_mined_maj3": "EXPLORATORY, not pre-registered: C-trace's rank-18 majority abstraction",
+    "arm2s_semantic_trace": "EXPLORATORY, not pre-registered: rank-1 of the semantic-identity rule on C-trace",
 }
 
 
