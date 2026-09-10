@@ -1,0 +1,508 @@
+{
+  "sites": [
+    {
+      "file": "tcn/types.py",
+      "line": 58,
+      "lines": [
+        58
+      ],
+      "cite": "tcn/types.py:58",
+      "source": "items: tuple[Type, ...] = ()",
+      "what": "`Type` is a frozen dataclass, so `==` is structural over every field; `items` carries a tuple's arity and `capacity` a set's bound. This is the single root of every comparison below.",
+      "klass": "definition"
+    },
+    {
+      "file": "tcn/types.py",
+      "line": 64,
+      "lines": [
+        64
+      ],
+      "cite": "tcn/types.py:64",
+      "source": "capacity: int = 0",
+      "what": "A set's declared bound is a field of its type, so two capacities are two types.",
+      "klass": "definition"
+    },
+    {
+      "file": "tcn/types.py",
+      "line": 113,
+      "lines": [
+        113
+      ],
+      "cite": "tcn/types.py:113",
+      "source": "return self.capacity*(1+self.items[0].width)",
+      "what": "`Type.width` \u2014 the flat relaxation width, derived from arity/capacity.",
+      "klass": "derivation"
+    },
+    {
+      "file": "tcn/types.py",
+      "line": 141,
+      "lines": [
+        141
+      ],
+      "cite": "tcn/types.py:141",
+      "source": "raise ValueError(\"tuple arity mismatch\")",
+      "what": "`encode` refuses a value whose arity disagrees with the declared tuple.",
+      "klass": "value equality"
+    },
+    {
+      "file": "tcn/types.py",
+      "line": 194,
+      "lines": [
+        194
+      ],
+      "cite": "tcn/types.py:194",
+      "source": "if type(raw) is not tuple or len(raw) != len(t.items): raise TypeError(\"invalid tuple\")",
+      "what": "`validate_raw` \u2014 every `Value` construction re-checks arity.",
+      "klass": "value equality"
+    },
+    {
+      "file": "tcn/types.py",
+      "line": 146,
+      "lines": [
+        146
+      ],
+      "cite": "tcn/types.py:146",
+      "source": "raise OverflowError(\"set capacity exceeded\")",
+      "what": "`encode` refuses a set larger than the declared capacity.",
+      "klass": "value equality"
+    },
+    {
+      "file": "tcn/graph.py",
+      "line": 75,
+      "lines": [
+        75
+      ],
+      "cite": "tcn/graph.py:75",
+      "source": "if tuple(known[s] for s in c.sources)!=c.operator.inputs: raise TypeError(\"candidate input mismatch\")",
+      "what": "`Program.validate` \u2014 a candidate's declared operator inputs must equal the types of the ports it reads. This is where a depth-1 candidate spliced into a depth-2 scaffold dies.",
+      "klass": "type equality"
+    },
+    {
+      "file": "tcn/graph.py",
+      "line": 76,
+      "lines": [
+        76
+      ],
+      "cite": "tcn/graph.py:76",
+      "source": "if c.operator.output!=n.output: raise TypeError(\"mixed output types\")",
+      "what": "`Program.validate` \u2014 every candidate at a node must agree with the node's output type, so a width-carrying output pins the node.",
+      "klass": "type equality"
+    },
+    {
+      "file": "tcn/graph.py",
+      "line": 77,
+      "lines": [
+        77
+      ],
+      "cite": "tcn/graph.py:77",
+      "source": "if registry.from_dict(c.operator.to_dict())!=c.operator: raise TypeError(\"operator contract drift\")",
+      "what": "`Program.validate` re-resolves each operator from its own dict and demands the identical `Operator`; widths inside `inputs`/`output` are part of that.",
+      "klass": "type equality"
+    },
+    {
+      "file": "tcn/graph.py",
+      "line": 82,
+      "lines": [
+        82
+      ],
+      "cite": "tcn/graph.py:82",
+      "source": "if update not in known or known[update]!=v.type: raise TypeError(\"state update mismatch\")",
+      "what": "`Program.validate` \u2014 a recurrence carrier's type is fixed, width included.",
+      "klass": "type equality"
+    },
+    {
+      "file": "tcn/graph.py",
+      "line": 87,
+      "lines": [
+        87
+      ],
+      "cite": "tcn/graph.py:87",
+      "source": "if types.get(s.source)!=s.type: raise TypeError(\"probe signature mismatch\")",
+      "what": "`validate_signals` \u2014 a supervision signal's type must equal the port's.",
+      "klass": "type equality"
+    },
+    {
+      "file": "tcn/graph.py",
+      "line": 99,
+      "lines": [
+        99
+      ],
+      "cite": "tcn/graph.py:99",
+      "source": "if any(inputs[k].type!=t for k,t in self.inputs): raise TypeError(\"input representation mismatch\")",
+      "what": "`Program.execute` \u2014 **the runtime gate**. A frozen program handed a `program` observation of another depth fails here, before any node runs.",
+      "klass": "type equality"
+    },
+    {
+      "file": "tcn/graph.py",
+      "line": 104,
+      "lines": [
+        104
+      ],
+      "cite": "tcn/graph.py:104",
+      "source": "if x.type!=v.type: raise TypeError(\"state type mismatch\")",
+      "what": "`Program.execute` \u2014 the same for a supplied state carrier.",
+      "klass": "type equality"
+    },
+    {
+      "file": "tcn/graph.py",
+      "line": 184,
+      "lines": [
+        184
+      ],
+      "cite": "tcn/graph.py:184",
+      "source": "return [{\"index\":i} for i in range(len(types[0].items))] if len(types)==1 and types[0].kind==\"tuple\" else []",
+      "what": "`operator_parameters` \u2014 the `project` parameter family is derived from the tuple's arity, so the *search space itself* is width-derived.",
+      "klass": "derivation"
+    },
+    {
+      "file": "tcn/operators.py",
+      "line": 47,
+      "lines": [
+        47
+      ],
+      "cite": "tcn/operators.py:47",
+      "source": "require(ts == tuple(t for _,t in m.inputs))",
+      "what": "`Registry.resolve`, module branch \u2014 **\u00a730's error**. A hardened module's input type names the observation, so it cannot be resolved at another width.",
+      "klass": "type equality"
+    },
+    {
+      "file": "tcn/operators.py",
+      "line": 94,
+      "lines": [
+        94
+      ],
+      "cite": "tcn/operators.py:94",
+      "source": "require(len(ts)==1 and ts[0].kind==\"tuple\" and 0<=p.get(\"index\",-1)<len(ts[0].items))",
+      "what": "`project` \u2014 the index bound is the arity, so a `project index=3` operator is illegal on a 3-field tuple.",
+      "klass": "type equality"
+    },
+    {
+      "file": "tcn/operators.py",
+      "line": 98,
+      "lines": [
+        98
+      ],
+      "cite": "tcn/operators.py:98",
+      "source": "require(bool(ts[0].items) and len(set(ts[0].items))==1)",
+      "what": "`index` \u2014 dynamic tuple indexing needs a uniform tuple; its *input* type still carries the arity even though its output does not.",
+      "klass": "type equality"
+    },
+    {
+      "file": "tcn/operators.py",
+      "line": 101,
+      "lines": [
+        101
+      ],
+      "cite": "tcn/operators.py:101",
+      "source": "require(len(ts)==2 and ts[0].kind==\"set\" and ts[0].items[0]==ts[1])",
+      "what": "`member`/`insert`/`remove` \u2014 element type equality, capacity carried in `ts[0]`.",
+      "klass": "type equality"
+    },
+    {
+      "file": "tcn/operators.py",
+      "line": 104,
+      "lines": [
+        104
+      ],
+      "cite": "tcn/operators.py:104",
+      "source": "require(len(ts)==2 and ts[0]==ts[1] and ts[0].kind==\"set\"); inferred=ts[0]; grad=\"none\"",
+      "what": "`union`/`intersection` \u2014 full set-type equality, **capacity included**.",
+      "klass": "type equality"
+    },
+    {
+      "file": "tcn/operators.py",
+      "line": 107,
+      "lines": [
+        107
+      ],
+      "cite": "tcn/operators.py:107",
+      "source": "inferred=setof(product(ts[0].items[0],ts[1].items[0]), ts[0].capacity*ts[1].capacity)",
+      "what": "`pair`/`join` \u2014 the output capacity is the product of the inputs', so a capacity change propagates downstream as a type change.",
+      "klass": "derivation"
+    },
+    {
+      "file": "tcn/operators.py",
+      "line": 113,
+      "lines": [
+        113
+      ],
+      "cite": "tcn/operators.py:113",
+      "source": "require(tuple(t for _,t in m.inputs)==ts[0].items)",
+      "what": "`map`/`filter` \u2014 the mapped module's input type must equal the set's element type.",
+      "klass": "type equality"
+    },
+    {
+      "file": "tcn/operators.py",
+      "line": 117,
+      "lines": [
+        117
+      ],
+      "cite": "tcn/operators.py:117",
+      "source": "inferred=ts[0] if name==\"filter\" else setof(outs[0],ts[0].capacity)",
+      "what": "`map` \u2014 **the declared capacity is copied into the output type**, so a `map` at capacity 8 and one at capacity 16 are different operators with different output types.",
+      "klass": "derivation"
+    },
+    {
+      "file": "tcn/operators.py",
+      "line": 118,
+      "lines": [
+        118
+      ],
+      "cite": "tcn/operators.py:118",
+      "source": "grad=\"none\"; cost=max(1,ts[0].capacity)*m.execution_cost(self)",
+      "what": "`map`/`filter` \u2014 declared capacity is also the charged execution cost, so it is not a free parameter to raise.",
+      "klass": "derivation"
+    },
+    {
+      "file": "tcn/operators.py",
+      "line": 171,
+      "lines": [
+        171
+      ],
+      "cite": "tcn/operators.py:171",
+      "source": "require(output is None or output==inferred, \"output signature mismatch\")",
+      "what": "`Registry.resolve` \u2014 the final gate; a requested output type must equal the inferred one, widths included.",
+      "klass": "type equality"
+    },
+    {
+      "file": "tcn/operators.py",
+      "line": 176,
+      "lines": [
+        176
+      ],
+      "cite": "tcn/operators.py:176",
+      "source": "if tuple(v.type for v in args)!=op.inputs: raise TypeError(\"input type mismatch\")",
+      "what": "`Registry.exact` \u2014 re-checked at every single exact execution.",
+      "klass": "type equality"
+    },
+    {
+      "file": "tcn/learning.py",
+      "line": 225,
+      "lines": [
+        225
+      ],
+      "cite": "tcn/learning.py:225",
+      "source": "if values[k].shape[-1]!=t.width: raise TypeError(\"input width mismatch\")",
+      "what": "`SoftProgram` \u2014 the relaxed path checks the flat width, the numeric shadow of the same fact.",
+      "klass": "type equality"
+    },
+    {
+      "file": "tcn/compile.py",
+      "line": 338,
+      "lines": [
+        338
+      ],
+      "cite": "tcn/compile.py:338",
+      "source": "body = [\"    if len(x) != %d: raise ValueError('tuple arity mismatch')\" % len(t.items)]",
+      "what": "`compile.py` bakes the arity into the generated boundary check, so a compiled artifact is width-specific in emitted source too.",
+      "klass": "derivation"
+    },
+    {
+      "file": "tcn/compile.py",
+      "line": 542,
+      "lines": [
+        542,
+        555
+      ],
+      "cite": "tcn/compile.py:542,555",
+      "source": "\"if len(%s) > %d: raise OverflowError('set capacity exceeded')\" % (dst, out.capacity)]",
+      "what": "the compiled backend likewise bakes the declared set capacity.",
+      "klass": "derivation"
+    },
+    {
+      "file": "tcn/library.py",
+      "line": 241,
+      "lines": [
+        241
+      ],
+      "cite": "tcn/library.py:241",
+      "source": "inputs=tuple((k, t.to_dict()) for k, t in stored.inputs),",
+      "what": "`Library.publish` \u2014 a stored entry records the module's input **type dicts**, which contain `items`/`capacity`; two widths are two entries with two digests.",
+      "klass": "storage"
+    },
+    {
+      "file": "generators/logic/generator.py",
+      "line": 128,
+      "lines": [
+        128
+      ],
+      "cite": "generators/logic/generator.py:128",
+      "source": "obs={'bits':Value.of(product(*(BOOL for _ in s['bits'])),tuple(s['bits'])),'program':vector_value([x for g in s['gates'] for x in g])}",
+      "what": "**where the width is created**: `program` is a tuple of `3 \u00d7 depth` scalars, so depth moves the type.",
+      "klass": "origin"
+    },
+    {
+      "file": "generators/logic/generator.py",
+      "line": 129,
+      "lines": [
+        129
+      ],
+      "cite": "generators/logic/generator.py:129",
+      "source": "if s.get('gate_capacity') is not None: obs['gates']=gate_set_value(s['gates'],s['gate_capacity'])",
+      "what": "\u00a715's second typed view: one `set` type at a declared capacity, emitted only when configured. Depth moves cardinality, not width.",
+      "klass": "origin"
+    }
+  ],
+  "demonstrations": {
+    "observation_types": {
+      "depth_1_program_fields": 3,
+      "depth_1_flat_width": 3,
+      "depth_2_program_fields": 6,
+      "depth_2_flat_width": 6,
+      "types_equal": false,
+      "gates_type_equal": true,
+      "gates_capacity": 8,
+      "gates_flat_width": 40,
+      "gates_cardinality_d1": 1,
+      "gates_cardinality_d2": 2
+    },
+    "execute_wrong_width": {
+      "raised": true,
+      "type": "TypeError",
+      "message": "input representation mismatch",
+      "at": "tcn/graph.py:99"
+    },
+    "execute_right_width": {
+      "raised": false
+    },
+    "validate_spliced_candidate": {
+      "raised": true,
+      "type": "TypeError",
+      "message": "candidate input mismatch",
+      "at": "tcn/graph.py:75"
+    },
+    "module_digests_differ": {
+      "depth_1": "module:b10add3e1f24224520d9c3a5",
+      "depth_2": "module:29bd8074b767d5653dc1431c",
+      "equal": false
+    },
+    "module_resolved_at_other_width": {
+      "raised": true,
+      "type": "TypeError",
+      "message": "module:b10add3e1f24224520d9c3a5: operator signature mismatch",
+      "at": "tcn/operators.py:43"
+    },
+    "module_resolved_at_own_width": {
+      "raised": false
+    },
+    "project_index_past_arity": {
+      "raised": true,
+      "type": "TypeError",
+      "message": "project: operator signature mismatch",
+      "at": "tcn/operators.py:43"
+    },
+    "project_parameter_family_size": {
+      "depth_1": 3,
+      "depth_2": 6
+    },
+    "map_capacity_in_output_type": {
+      "capacity_8_output": {
+        "kind": "set",
+        "items": [
+          {
+            "kind": "int",
+            "bits": 8,
+            "encoding": {
+              "kind": "integer",
+              "signed": false,
+              "scale": 1.0,
+              "overflow": "error"
+            }
+          }
+        ],
+        "capacity": 8
+      },
+      "capacity_16_output": {
+        "kind": "set",
+        "items": [
+          {
+            "kind": "int",
+            "bits": 8,
+            "encoding": {
+              "kind": "integer",
+              "signed": false,
+              "scale": 1.0,
+              "overflow": "error"
+            }
+          }
+        ],
+        "capacity": 16
+      },
+      "outputs_equal": false,
+      "cost_8": 8.0,
+      "cost_16": 16.0
+    },
+    "map_wrong_element_width": {
+      "raised": true,
+      "type": "TypeError",
+      "message": "map: operator signature mismatch",
+      "at": "tcn/operators.py:43"
+    },
+    "union_across_capacities": {
+      "raised": true,
+      "type": "TypeError",
+      "message": "union: operator signature mismatch",
+      "at": "tcn/operators.py:43"
+    },
+    "exact_wrong_width": {
+      "raised": true,
+      "type": "TypeError",
+      "message": "input type mismatch",
+      "at": "tcn/operators.py:176"
+    },
+    "encode_wrong_arity": {
+      "raised": true,
+      "type": "ValueError",
+      "message": "tuple arity mismatch",
+      "at": "tcn/types.py:141"
+    },
+    "validate_raw_wrong_arity": {
+      "raised": true,
+      "type": "TypeError",
+      "message": "invalid tuple",
+      "at": "tcn/types.py:194"
+    },
+    "encode_over_capacity": {
+      "raised": true,
+      "type": "OverflowError",
+      "message": "set capacity exceeded",
+      "at": "tcn/types.py:146"
+    },
+    "soft_wrong_width": {
+      "raised": true,
+      "type": "TypeError",
+      "message": "input width mismatch",
+      "at": "tcn/learning.py:225"
+    },
+    "library": {
+      "entry_1_digest": "b10add3e1f24224520d9c3a5",
+      "entry_2_digest": "29bd8074b767d5653dc1431c",
+      "same_name_two_versions": [
+        1,
+        2
+      ],
+      "stored_input_types_equal": false,
+      "loaded_at_other_width": {
+        "raised": true,
+        "type": "TypeError",
+        "message": "module:b10add3e1f24224520d9c3a5: operator signature mismatch",
+        "at": "tcn/operators.py:43"
+      },
+      "loaded_at_own_width": {
+        "raised": false
+      }
+    },
+    "compiled_bakes_arity": {
+      "mentions_depth_1_arity": true,
+      "arity": 3
+    }
+  },
+  "site_counts": {
+    "definition": 2,
+    "derivation": 7,
+    "value equality": 3,
+    "type equality": 16,
+    "storage": 1,
+    "origin": 2
+  }
+}
