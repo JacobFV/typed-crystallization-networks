@@ -1,0 +1,531 @@
+{
+ "repeats": 21,
+ "run": "run3",
+ "artifacts": {
+  "mixed": {
+   "artifact": "mixed",
+   "what": "answer = sin(xor(a, b) + x) -- the historical 4-operation reference",
+   "cases": 4,
+   "baseline_rev": "ee7d63c",
+   "baseline_source_sha256": "bf2115e66ba32ec60380b775af71440754b030bdd89b20b18bfd1a32669e90c2",
+   "identity_before_timing": {
+    "identical": true,
+    "comparisons": 8,
+    "digest_old": "36cd27bd15f00edc3dbb4f2ec555ff84b883dee6d25eb813bde41218e188c7df",
+    "digest_new": "36cd27bd15f00edc3dbb4f2ec555ff84b883dee6d25eb813bde41218e188c7df"
+   },
+   "guards": {
+    "old": {},
+    "new": {
+     "guard_range_emitted": 0,
+     "guard_range_eliminated": 0,
+     "guard_index_emitted": 0,
+     "guard_index_eliminated": 0,
+     "guard_zerodiv_emitted": 0,
+     "guard_zerodiv_eliminated": 0,
+     "guard_shift_emitted": 0,
+     "guard_shift_eliminated": 0
+    }
+   },
+   "program_digest": "d332eb48f8f56b181d47975b",
+   "source_sha256": {
+    "old": "185312c8c2f7311cabb6422585b3d078357b33b96fb0ff04bd961e427459d6c5",
+    "new": "185312c8c2f7311cabb6422585b3d078357b33b96fb0ff04bd961e427459d6c5"
+   },
+   "null_control": true,
+   "timed": true,
+   "primitives": {
+    "instrument": "Registry.exact applications, module calls excluded",
+    "cases": 4,
+    "worst_ops": 4,
+    "best_ops": 4,
+    "expected_ops": 4,
+    "native_eval": "unavailable: KeyError: 'NativeEval cannot execute operator: sin'"
+   },
+   "bytecodes": {
+    "old": {
+     "expected": 120,
+     "worst": 120,
+     "best": 120,
+     "cases": 4
+    },
+    "new": {
+     "expected": 120,
+     "worst": 120,
+     "best": 120,
+     "cases": 4
+    },
+    "ratio_old_over_new": 1.0
+   },
+   "cpu_affinity": [
+    19
+   ],
+   "loadavg_before": [
+    "5.57",
+    "5.31",
+    "4.92"
+   ],
+   "latency_us": {
+    "old": {
+     "median_us": 0.4293303571428571,
+     "min_us": 0.41847470238095236,
+     "max_us": 0.48347321428571427,
+     "ci95_lo_us": 0.4255461309523809,
+     "ci95_hi_us": 0.4308080357142857,
+     "ci_coverage": 0.9475,
+     "repeats": 21
+    },
+    "new": {
+     "median_us": 0.42983035714285717,
+     "min_us": 0.42152083333333334,
+     "max_us": 0.6006874999999999,
+     "ci95_lo_us": 0.42814136904761907,
+     "ci95_hi_us": 0.43152083333333335,
+     "ci_coverage": 0.9475,
+     "repeats": 21
+    }
+   },
+   "latency_ratio_old_over_new": {
+    "ratio": 0.9988367503790946,
+    "ci95_lo": 0.989625260834325,
+    "ci95_hi": 1.0032214457236783,
+    "contains_1": true
+   },
+   "sweep": {
+    "sweep_calls": 672,
+    "case_multiplier": 168
+   },
+   "loadavg_after": [
+    "5.57",
+    "5.31",
+    "4.92"
+   ],
+   "deployment": {
+    "old": {
+     "source_bytes": 2629,
+     "source_lines": 63,
+     "pyz_bytes": 1713,
+     "cold_start_ms": 22.689843957778066,
+     "cold_start_samples": [
+      21.513097977731377,
+      22.106456046458334,
+      22.689843957778066,
+      23.28843396389857,
+      24.78730701841414
+     ],
+     "peak_rss_mb_cold": 10.76953125
+    },
+    "new": {
+     "source_bytes": 2629,
+     "source_lines": 63,
+     "pyz_bytes": 1713,
+     "cold_start_ms": 22.110679012257606,
+     "cold_start_samples": [
+      20.125057024415582,
+      20.362350973300636,
+      22.110679012257606,
+      26.076740003190935,
+      27.087808004580438
+     ],
+     "peak_rss_mb_cold": 10.76953125
+    }
+   },
+   "seconds": 0.4
+  },
+  "language": {
+   "artifact": "language",
+   "what": "grammaticality of a Dyck word from a 128-byte prompt",
+   "cases": 12,
+   "baseline_rev": "ee7d63c",
+   "baseline_source_sha256": "bf2115e66ba32ec60380b775af71440754b030bdd89b20b18bfd1a32669e90c2",
+   "identity_before_timing": {
+    "identical": true,
+    "comparisons": 24,
+    "digest_old": "7703dc27e37fc411135f25338874c5eac882d633d893e49639701b002f2655c7",
+    "digest_new": "7703dc27e37fc411135f25338874c5eac882d633d893e49639701b002f2655c7"
+   },
+   "guards": {
+    "old": {},
+    "new": {
+     "guard_range_emitted": 0,
+     "guard_range_eliminated": 15,
+     "guard_index_emitted": 1,
+     "guard_index_eliminated": 0,
+     "guard_zerodiv_emitted": 0,
+     "guard_zerodiv_eliminated": 0,
+     "guard_shift_emitted": 0,
+     "guard_shift_eliminated": 0
+    }
+   },
+   "program_digest": "513bd337ea1c672aecbe48c3",
+   "source_sha256": {
+    "old": "60344cef52ff2d447c6ec912318d5775350f701b0cfe9553d60c6d45b908d86f",
+    "new": "21fdab76ef5c91b0fabaeb0d4d92fc0830c055d5cd7afdec90f956e701ae0997"
+   },
+   "null_control": false,
+   "timed": true,
+   "primitives": {
+    "instrument": "Registry.exact applications, module calls excluded",
+    "cases": 12,
+    "worst_ops": 148,
+    "best_ops": 148,
+    "expected_ops": 148,
+    "native_eval": {
+     "worst_ops": 148,
+     "best_ops": 148,
+     "expected_ops": 148.0
+    },
+    "instruments_agree": true
+   },
+   "bytecodes": {
+    "old": {
+     "expected": 1731.75,
+     "worst": 1735,
+     "best": 1729,
+     "cases": 12
+    },
+    "new": {
+     "expected": 1596.75,
+     "worst": 1600,
+     "best": 1594,
+     "cases": 12
+    },
+    "ratio_old_over_new": 1.0845467355565994
+   },
+   "cpu_affinity": [
+    19
+   ],
+   "loadavg_before": [
+    "5.57",
+    "5.31",
+    "4.92"
+   ],
+   "latency_us": {
+    "old": {
+     "median_us": 4.062154320987654,
+     "min_us": 4.029512345679012,
+     "max_us": 4.087537037037038,
+     "ci95_lo_us": 4.050944444444445,
+     "ci95_hi_us": 4.069413580246914,
+     "ci_coverage": 0.9475,
+     "repeats": 21
+    },
+    "new": {
+     "median_us": 3.668376543209877,
+     "min_us": 3.6533148148148147,
+     "max_us": 3.7305524691358025,
+     "ci95_lo_us": 3.6669938271604936,
+     "ci95_hi_us": 3.693317901234568,
+     "ci_coverage": 0.9475,
+     "repeats": 21
+    }
+   },
+   "latency_ratio_old_over_new": {
+    "ratio": 1.1073438817251886,
+    "ci95_lo": 1.0993472237624224,
+    "ci95_hi": 1.1092469358202963,
+    "contains_1": false
+   },
+   "sweep": {
+    "sweep_calls": 324,
+    "case_multiplier": 27
+   },
+   "loadavg_after": [
+    "5.57",
+    "5.31",
+    "4.92"
+   ],
+   "deployment": {
+    "old": {
+     "source_bytes": 24255,
+     "source_lines": 522,
+     "pyz_bytes": 5661,
+     "cold_start_ms": 19.829170953016728,
+     "cold_start_samples": [
+      19.18245299020782,
+      19.477091962471604,
+      19.829170953016728,
+      20.20715194521472,
+      21.18212403729558
+     ],
+     "peak_rss_mb_cold": 13.28125
+    },
+    "new": {
+     "source_bytes": 23234,
+     "source_lines": 503,
+     "pyz_bytes": 5515,
+     "cold_start_ms": 20.770750008523464,
+     "cold_start_samples": [
+      19.641283026430756,
+      20.134496968239546,
+      20.770750008523464,
+      26.598386000841856,
+      33.227826992515475
+     ],
+     "peak_rss_mb_cold": 13.21484375
+    }
+   },
+   "seconds": 0.9
+  },
+  "computer": {
+   "artifact": "computer",
+   "what": "frozen computer-use agent program (program only, synthetic observation)",
+   "cases": 3,
+   "baseline_rev": "ee7d63c",
+   "baseline_source_sha256": "bf2115e66ba32ec60380b775af71440754b030bdd89b20b18bfd1a32669e90c2",
+   "identity_before_timing": {
+    "identical": true,
+    "comparisons": 6,
+    "digest_old": "9e16e37693fb954beb09bfaf0b0cc4139a7032a90095409c7093acf29ae742f1",
+    "digest_new": "9e16e37693fb954beb09bfaf0b0cc4139a7032a90095409c7093acf29ae742f1"
+   },
+   "guards": {
+    "old": {},
+    "new": {
+     "guard_range_emitted": 1,
+     "guard_range_eliminated": 0,
+     "guard_index_emitted": 1,
+     "guard_index_eliminated": 0,
+     "guard_zerodiv_emitted": 0,
+     "guard_zerodiv_eliminated": 0,
+     "guard_shift_emitted": 0,
+     "guard_shift_eliminated": 0
+    }
+   },
+   "program_digest": "4000a975cc7b84585d304fdf",
+   "source_sha256": {
+    "old": "6f87ba38f456eb01598ebcec8833aa059915d40517f21282a8238ad1bf8846ed",
+    "new": "6f87ba38f456eb01598ebcec8833aa059915d40517f21282a8238ad1bf8846ed"
+   },
+   "null_control": true,
+   "timed": true,
+   "primitives": {
+    "instrument": "Registry.exact applications, module calls excluded",
+    "cases": 3,
+    "worst_ops": 23,
+    "best_ops": 23,
+    "expected_ops": 23,
+    "native_eval": "unavailable: KeyError: 'NativeEval cannot execute operator: decode'"
+   },
+   "bytecodes": {
+    "old": {
+     "expected": 328,
+     "worst": 328,
+     "best": 328,
+     "cases": 3
+    },
+    "new": {
+     "expected": 328,
+     "worst": 328,
+     "best": 328,
+     "cases": 3
+    },
+    "ratio_old_over_new": 1.0
+   },
+   "cpu_affinity": [
+    19
+   ],
+   "loadavg_before": [
+    "5.44",
+    "5.29",
+    "4.92"
+   ],
+   "latency_us": {
+    "old": {
+     "median_us": 1.086661111111111,
+     "min_us": 1.0693277777777779,
+     "max_us": 1.2943944444444446,
+     "ci95_lo_us": 1.0823944444444444,
+     "ci95_hi_us": 1.0961722222222223,
+     "ci_coverage": 0.9475,
+     "repeats": 21
+    },
+    "new": {
+     "median_us": 1.0821277777777778,
+     "min_us": 1.0673722222222222,
+     "max_us": 1.2871944444444443,
+     "ci95_lo_us": 1.0737722222222221,
+     "ci95_hi_us": 1.0920833333333333,
+     "ci_coverage": 0.9475,
+     "repeats": 21
+    }
+   },
+   "latency_ratio_old_over_new": {
+    "ratio": 1.0041892772983267,
+    "ci95_lo": 0.9925117639577771,
+    "ci95_hi": 1.0139780359831647,
+    "contains_1": true
+   },
+   "sweep": {
+    "sweep_calls": 180,
+    "case_multiplier": 60
+   },
+   "loadavg_after": [
+    "5.44",
+    "5.29",
+    "4.92"
+   ],
+   "deployment": {
+    "old": {
+     "source_bytes": 30645,
+     "source_lines": 189,
+     "pyz_bytes": 3353,
+     "cold_start_ms": 28.465514013078064,
+     "cold_start_samples": [
+      28.26289104996249,
+      28.277162986341864,
+      28.465514013078064,
+      29.178486031014472,
+      29.25659902393818
+     ],
+     "peak_rss_mb_cold": 16.55859375
+    },
+    "new": {
+     "source_bytes": 30645,
+     "source_lines": 189,
+     "pyz_bytes": 3353,
+     "cold_start_ms": 29.997667006682605,
+     "cold_start_samples": [
+      28.434665990062058,
+      29.9921790137887,
+      29.997667006682605,
+      36.12795803928748,
+      39.36470998451114
+     ],
+     "peak_rss_mb_cold": 16.5625
+    }
+   },
+   "seconds": 1.9
+  },
+  "visual": {
+   "artifact": "visual",
+   "what": "32x32 RGB screenshot -> set of widget rectangles with parent keys",
+   "cases": 3,
+   "baseline_rev": "ee7d63c",
+   "baseline_source_sha256": "bf2115e66ba32ec60380b775af71440754b030bdd89b20b18bfd1a32669e90c2",
+   "identity_before_timing": {
+    "identical": true,
+    "comparisons": 6,
+    "digest_old": "b63deee43a7a4877be077cdc86c00a379a77933918a50d4fc4d9e02d0fffeddf",
+    "digest_new": "b63deee43a7a4877be077cdc86c00a379a77933918a50d4fc4d9e02d0fffeddf"
+   },
+   "guards": {
+    "old": {},
+    "new": {
+     "guard_range_emitted": 75,
+     "guard_range_eliminated": 191,
+     "guard_index_emitted": 12,
+     "guard_index_eliminated": 0,
+     "guard_zerodiv_emitted": 0,
+     "guard_zerodiv_eliminated": 0,
+     "guard_shift_emitted": 0,
+     "guard_shift_eliminated": 0
+    }
+   },
+   "program_digest": "80ed81f2f86776de1c86d49e",
+   "source_sha256": {
+    "old": "bdec4a7657d24d9a274bbdc893fcc705e8277406519c527a9c70c627e07a29bb",
+    "new": "20e45f6b5e87c9a6e4af99ce8c581fdf125d8b79d92c0bfd2069e01b07861faa"
+   },
+   "null_control": false,
+   "timed": true,
+   "primitives": {
+    "instrument": "Registry.exact applications, module calls excluded",
+    "cases": 3,
+    "worst_ops": 61246,
+    "best_ops": 56887,
+    "expected_ops": 59793,
+    "native_eval": "unavailable: KeyError: 'NativeEval cannot execute operator: pair'"
+   },
+   "bytecodes": {
+    "old": {
+     "expected": 635400.3333333334,
+     "worst": 650569,
+     "best": 605291,
+     "cases": 3
+    },
+    "new": {
+     "expected": 602748.3333333334,
+     "worst": 616103,
+     "best": 576267,
+     "cases": 3
+    },
+    "ratio_old_over_new": 1.0541718627730203
+   },
+   "cpu_affinity": [
+    19
+   ],
+   "loadavg_before": [
+    "5.27",
+    "5.25",
+    "4.92"
+   ],
+   "latency_us": {
+    "old": {
+     "median_us": 4985.221666666667,
+     "min_us": 4829.2863333333335,
+     "max_us": 5119.962333333334,
+     "ci95_lo_us": 4905.078,
+     "ci95_hi_us": 5037.109333333333,
+     "ci_coverage": 0.9475,
+     "repeats": 21
+    },
+    "new": {
+     "median_us": 4971.333666666666,
+     "min_us": 4829.537,
+     "max_us": 5072.373333333334,
+     "ci95_lo_us": 4874.448666666666,
+     "ci95_hi_us": 4981.376,
+     "ci_coverage": 0.9475,
+     "repeats": 21
+    }
+   },
+   "latency_ratio_old_over_new": {
+    "ratio": 1.002793616548638,
+    "ci95_lo": 0.9921487658748864,
+    "ci95_hi": 1.0175335384938577,
+    "contains_1": true
+   },
+   "sweep": {
+    "sweep_calls": 3,
+    "case_multiplier": 1
+   },
+   "loadavg_after": [
+    "5.27",
+    "5.25",
+    "4.92"
+   ],
+   "deployment": {
+    "old": {
+     "source_bytes": 171232,
+     "source_lines": 1533,
+     "pyz_bytes": 22692,
+     "cold_start_ms": 67.37307499861345,
+     "cold_start_samples": [
+      55.79230701550841,
+      56.845087034162134,
+      67.37307499861345,
+      72.95580301433802,
+      77.79699796810746
+     ],
+     "peak_rss_mb_cold": 30.1875
+    },
+    "new": {
+     "source_bytes": 161352,
+     "source_lines": 1342,
+     "pyz_bytes": 21344,
+     "cold_start_ms": 51.474165986292064,
+     "cold_start_samples": [
+      50.19514699233696,
+      50.99970399169251,
+      51.474165986292064,
+      65.36220299312845,
+      68.15804698271677
+     ],
+     "peak_rss_mb_cold": 28.77734375
+    }
+   },
+   "seconds": 53.2
+  }
+ }
+}

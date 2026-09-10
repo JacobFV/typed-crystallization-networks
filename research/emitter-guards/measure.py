@@ -254,6 +254,13 @@ def run(name, repeats=REPEATS):
            "guards": {a: {k: v for k, v in res.stats.items() if k.startswith("guard_")}
                       for a, (res, _m) in mods.items()},
            "program_digest": p.digest}
+    import hashlib
+    shas = {a: hashlib.sha256(res.source.encode()).hexdigest()
+            for a, (res, _m) in mods.items()}
+    rep["source_sha256"] = shas
+    # An artifact whose two arms emit byte-identical source is a NULL CONTROL:
+    # any measured wall-clock difference on it is the instrument's own bias.
+    rep["null_control"] = shas["old"] == shas["new"]
     if not ident["identical"]:
         rep["timed"] = False
         rep["reason"] = "bit-identity failed on the timed cases; nothing timed"
@@ -274,9 +281,11 @@ def run(name, repeats=REPEATS):
 
 
 def main(argv):
-    names = argv[1:] or ["mixed", "language", "computer", "visual"]
-    tag = "measure" if len(names) == 4 else "measure_" + "_".join(names)
-    report = {"repeats": REPEATS, "artifacts": {}}
+    args = argv[1:]
+    run_tag = args.pop(0) if args and args[0].startswith("run") else "run1"
+    names = args or ["mixed", "language", "computer", "visual"]
+    tag = "measure_%s" % run_tag if len(names) == 4 else "measure_%s_%s" % (run_tag, "_".join(names))
+    report = {"repeats": REPEATS, "run": run_tag, "artifacts": {}}
     for n in names:
         print("== measure %s" % n, flush=True)
         rep = run(n)
