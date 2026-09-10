@@ -1,0 +1,26 @@
+=== w4
+  u1_w_abcd_xor_e min len=4 found=1 capped=1 dfs=133136 0.2s verified=True
+  u1_w_abcd_xor_e plus1 len=5 found=10 capped=10 dfs=10676386 19.3s verified=True
+  u2_w_acbd_and_e min len=4 found=3 capped=3 dfs=133136 0.2s verified=True
+  u2_w_acbd_and_e plus1 len=5 found=37 capped=32 dfs=10676386 21.5s verified=True
+  u3_w_bcde_or_a min len=4 found=1 capped=1 dfs=133136 0.2s verified=True
+  u3_w_bcde_or_a plus1 len=5 found=21 capped=21 dfs=10676386 20.8s verified=True
+  u4_w_acde_xor_b min len=4 found=1 capped=1 dfs=133136 0.2s verified=True
+  u4_w_acde_xor_b plus1 len=5 found=10 capped=10 dfs=10676386 19.7s verified=True
+  u5_w_abde_or_c min len=4 found=1 capped=1 dfs=133136 0.4s verified=True
+  u5_w_abde_or_c plus1 len=5 found=21 capped=21 dfs=10676386 37.5s verified=True
+  u6_w_abce_and_d min len=4 found=3 capped=3 dfs=133136 0.4s verified=True
+  u6_w_abce_and_d plus1 len=5 found=37 capped=32 dfs=10676386 38.1s verified=True
+=== x4
+  v1_w_abcd_xor_e min len=4 found=3 capped=3 dfs=133136 0.4s verified=True
+  v1_w_abcd_xor_e plus1 len=5 found=6 capped=6 dfs=10676386 34.7s verified=True
+  v2_w_acbd_and_e min len=4 found=1 capped=1 dfs=133136 0.4s verified=True
+  v2_w_acbd_and_e plus1 len=5 found=11 capped=11 dfs=10676386 37.8s verified=True
+  v3_w_bcde_or_a min len=4 found=1 capped=1 dfs=133136 0.4s verified=True
+  v3_w_bcde_or_a plus1 len=5 found=16 capped=16 dfs=10676386 38.1s verified=True
+  v4_w_acde_xor_b min len=4 found=3 capped=3 dfs=133136 0.4s verified=True
+  v4_w_acde_xor_b plus1 len=5 found=6 capped=6 dfs=10676386 34.6s verified=True
+  v5_w_abde_or_c min len=4 found=1 capped=1 dfs=133136 0.4s verified=True
+  v5_w_abde_or_c plus1 len=5 found=16 capped=16 dfs=10676386 37.9s verified=True
+  v6_w_abce_and_d min len=4 found=1 capped=1 dfs=133136 0.4s verified=True
+  v6_w_abce_and_d plus1 len=5 found=11 capped=11 dfs=10676386 37.8s verified=True
