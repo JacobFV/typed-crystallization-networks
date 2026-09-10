@@ -263,7 +263,10 @@ def v1(shard, of, per_arm, seed):
     for arm in ("schema", "flat", "distractor"):
         pool = family.pools(arm)
         T = engine.Tables(eps, pool)
-        program, registry = family.build(pool, head="key")
+        # Amendment A1: compare the `clk` node of the scaffold with no head. The
+        # `key` and `agent` heads raise on an off-raster click by design (a miss),
+        # which would hide the click value the evaluator must reproduce.
+        program, registry = family.build(pool, head="none")
         for i in range(per_arm):
             if i % of != shard:
                 continue

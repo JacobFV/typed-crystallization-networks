@@ -355,87 +355,200 @@ def space_size(T, R):
     return s
 
 
-def count(T, R, return_detail=False):
-    """Exact number of conforming programs in the restricted space."""
-    E = T.ep.E
-    full = (1 << E) - 1
-    routes = relation_side(T, R)
-    if not routes:
-        return (0, {}) if return_detail else 0
-    r_keys = np.array([[m0, m1, full & ~(m0 | m1)] for m0, m1 in routes], dtype=np.int64)
-    r_w = [routes[(m0, m1)] for m0, m1 in routes]
-    r_w_arr = np.array(r_w, dtype=object)
-    classes = colour_side(T, R)
-    xmask = {s: R.m[s] for s in X_SLOTS}
-    kmask = {s: R.m[s] for s in K_SLOTS}
-    # matchers grouped by table
-    tables = defaultdict(int)
-    for m in np.flatnonzero(R.m["M"] & T.match_valid):
-        tables[T.tau[m].tobytes()] += 1
-    tau_of = {}
-    for m in np.flatnonzero(R.m["M"] & T.match_valid):
-        tau_of.setdefault(T.tau[m].tobytes(), T.tau[m])
-    rcache = {}
-    ident = np.arange(E)
+class Counter:
+    """The exact counter, keeping enough structure to sample conformers uniformly.
 
-    def R_of(L):
-        if L in rcache:
-            return rcache[L]
-        hm = np.zeros(len(T.steps), dtype=np.int64)
-        for e in range(E):
-            hm |= T.hit[e][L[e]].astype(np.int64) << e
-        prods = np.ones(len(r_keys), dtype=np.int64)
+    `total` is the exact number of conforming programs in the restricted space.
+    `terms` are the (matcher table, class vector, grounding groups, L) cells with
+    a non-zero contribution; `sample` draws conformers exactly uniformly from
+    them, so "the program a uniform-order search finds first" can be drawn and
+    scored on held-out episodes.
+    """
+
+    def __init__(self, T, R, collect=False):
+        self.T, self.R = T, R
+        E = self.E = T.ep.E
+        full = self.full = (1 << E) - 1
+        routes = relation_side(T, R)
+        self.route_list = list(routes)
+        self.r_w = [routes[k] for k in self.route_list]
+        self.r_keys = np.array([[m0, m1, full & ~(m0 | m1)] for m0, m1 in self.route_list],
+                               dtype=np.int64).reshape(-1, 3)
+        classes = colour_side(T, R)
+        self.class_list = list(classes)
+        self.c_w = [classes[k] for k in self.class_list]
+        self.xmask = {s: R.m[s] for s in X_SLOTS}
+        self.kmask = {s: R.m[s] for s in K_SLOTS}
+        allowed_m = np.flatnonzero(R.m["M"] & T.match_valid)
+        tables = defaultdict(list)
+        for m in allowed_m:
+            tables[T.tau[m].tobytes()].append(int(m))
+        self.tables = tables
+        self.rcache = {}
+        self.terms = [] if collect else None
+        self.total = self._count() if self.route_list and self.class_list else 0
+
+    # ------------------------------------------------------------ R(L)
+    def _hm(self, L):
+        hm = np.zeros(len(self.T.steps), dtype=np.int64)
+        for e in range(self.E):
+            hm |= self.T.hit[e][L[e]].astype(np.int64) << e
+        return hm
+
+    def route_products(self, L):
+        hm = self._hm(L)
+        prods = np.ones(len(self.r_keys), dtype=np.int64)
         for j, s in enumerate(X_SLOTS):
-            g = np.bincount(hm[xmask[s]], minlength=1 << E)
-            F = zeta_superset(g, E)
-            prods *= F[r_keys[:, j]]
-        total = 0
+            g = np.bincount(hm[self.xmask[s]], minlength=1 << self.E)
+            F = zeta_superset(g, self.E)
+            prods *= F[self.r_keys[:, j]]
+        return prods, hm
+
+    def R_of(self, L):
+        r = self.rcache.get(L)
+        if r is not None:
+            return r
+        prods, _ = self.route_products(L)
         nz = np.flatnonzero(prods)
-        for i in nz:
-            total += r_w[i] * int(prods[i])
-        rcache[L] = total
+        total = 0
+        for start in range(0, len(nz), 2048):          # int64-safe partial sums
+            idx = nz[start:start + 2048]
+            w = np.array([self.r_w[i] for i in idx], dtype=object)
+            total += int(np.dot(w, prods[idx].astype(object)))
+        self.rcache[L] = total
         return total
 
-    total = 0
-    detail = defaultdict(int)
-    for tkey, wt in tables.items():
-        tau = tau_of[tkey]
-        for (c0, c1, c2), wc in classes.items():
-            cmask = [c0, c1, c2, full & ~(c0 | c1 | c2)]
-            per_class = []
-            dead = False
+    # ------------------------------------------------------------- count
+    def _count(self):
+        T, E, full = self.T, self.E, self.full
+        cm = np.array([[c0, c1, c2, full & ~(c0 | c1 | c2)] for c0, c1, c2 in self.class_list],
+                      dtype=np.int64)
+        total = 0
+        for tkey, members in self.tables.items():
+            wt = len(members)
+            tau = T.tau[members[0]]
+            # vectorised prune: every non-empty class needs a colour valid on all its episodes
+            alive = np.ones(len(cm), dtype=bool)
             for j, s in enumerate(K_SLOTS):
-                eps = [e for e in range(E) if cmask[j] >> e & 1]
-                groups = defaultdict(int)
-                for ki in np.flatnonzero(kmask[s]):
-                    k = T.ground[s][ki]
-                    sig = tuple(int(tau[e, k]) for e in eps)
-                    if any(v == ERR for v in sig):
-                        continue
-                    groups[sig] += 1
-                if not groups:
-                    dead = True
+                cols = T.ground[s][np.flatnonzero(self.kmask[s])]
+                if len(cols) == 0:
+                    alive[:] = False
                     break
-                per_class.append((eps, list(groups.items())))
-            if dead:
-                continue
-            for combo in itertools.product(*(g for _, g in per_class)):
-                L = [0] * E
-                mult = 1
-                for (eps, _), (sig, cnt) in zip(per_class, combo):
-                    mult *= cnt
-                    for e, v in zip(eps, sig):
-                        L[e] = v
-                r = R_of(tuple(L))
-                if r:
-                    add = wt * wc * mult * r
-                    total += add
-                    if return_detail:
-                        detail[("M-table", tkey[:8].hex())] += add
+                validbits = np.array([sum(1 << e for e in range(E) if tau[e, k] != ERR)
+                                      for k in cols], dtype=np.int64)
+                ok = ((cm[:, j:j + 1] & ~validbits[None, :]) == 0).any(axis=1)
+                alive &= ok
+            for ci in np.flatnonzero(alive):
+                cmask = cm[ci]
+                per_class = []
+                for j, s in enumerate(K_SLOTS):
+                    eps = [e for e in range(E) if cmask[j] >> e & 1]
+                    groups = defaultdict(list)
+                    for ki in np.flatnonzero(self.kmask[s]):
+                        k = T.ground[s][ki]
+                        sig = tuple(int(tau[e, k]) for e in eps)
+                        if ERR in sig:
+                            continue
+                        groups[sig].append(int(ki))
+                    per_class.append((eps, list(groups.items())))
+                for combo in itertools.product(*(g for _, g in per_class)):
+                    L = [0] * E
+                    mult = 1
+                    for (eps, _), (sig, kis) in zip(per_class, combo):
+                        mult *= len(kis)
+                        for e, v in zip(eps, sig):
+                            L[e] = v
+                    L = tuple(L)
+                    r = self.R_of(L)
+                    if r:
+                        add = wt * self.c_w[ci] * mult * r
+                        total += add
+                        if self.terms is not None:
+                            self.terms.append((add, tkey, int(ci), combo, L))
+        return total
+
+    # ------------------------------------------------------------ sampling
+    def _addr_members(self, slot_addr, lit_slots, target):
+        """(address index, letter tuple) configurations producing `target` masks."""
+        T, R, E = self.T, self.R, self.E
+        A = T.addr[slot_addr]
+        out = []
+        for i in np.flatnonzero(R.m[slot_addr] & A["valid"]):
+            bv = A["byte"][i]
+            per = []
+            for s in lit_slots:
+                g = defaultdict(list)
+                for j, v in enumerate(T.lit[s]):
+                    bits = 0
+                    for e in range(E):
+                        if bv[e] == v:
+                            bits |= 1 << e
+                    if (R.occ[s][j] if bits else R.abs[s][j]):
+                        g[bits].append(j)
+                per.append(g)
+            for combo in itertools.product(*(list(g.items()) for g in per)):
+                masks = [m for m, _ in combo]
+                if len(lit_slots) == 3:
+                    got = (masks[0], masks[1] & ~masks[0], masks[2] & ~(masks[0] | masks[1]))
+                else:
+                    got = (masks[0], masks[1] & ~masks[0])
+                if got == target:
+                    out.append((int(i), [js for _, js in combo]))
+        return out
+
+    def sample(self, n, rng):
+        if not self.terms:
+            return []
+        import bisect
+        cum = []
+        acc = 0
+        for t in self.terms:
+            acc += t[0]
+            cum.append(acc)
+        assert acc == self.total
+        T = self.T
+        out = []
+        cache_c, cache_r = {}, {}
+        for _ in range(n):
+            u = rng.randrange(self.total)
+            add, tkey, ci, combo, L = self.terms[bisect.bisect_right(cum, u)]
+            sel = {"M": rng.choice(self.tables[tkey])}
+            if ci not in cache_c:
+                cache_c[ci] = self._addr_members("cpos", COLOUR_SLOTS, self.class_list[ci])
+            members = cache_c[ci]
+            weights = [math.prod(len(js) for js in lits) for _, lits in members]
+            i, lits = rng.choices(members, weights=weights)[0]
+            sel["cpos"] = i
+            for s, js in zip(COLOUR_SLOTS, lits):
+                sel[s] = rng.choice(js)
+            for s, (sig, kis) in zip(K_SLOTS, combo):
+                sel[s] = rng.choice(kis)
+            prods, hm = self.route_products(L)
+            w = [self.r_w[k] * int(prods[k]) for k in range(len(prods))]
+            k = rng.choices(range(len(w)), weights=w)[0]
+            if k not in cache_r:
+                cache_r[k] = self._addr_members("ra", REL_SLOTS, self.route_list[k])
+            members = cache_r[k]
+            weights = [math.prod(len(js) for js in lits) for _, lits in members]
+            i, lits = rng.choices(members, weights=weights)[0]
+            sel["ra"] = i
+            for s, js in zip(REL_SLOTS, lits):
+                sel[s] = rng.choice(js)
+            for j, s in enumerate(X_SLOTS):
+                need = int(self.r_keys[k, j])
+                xs = np.flatnonzero(self.xmask[s] & ((hm & need) == need))
+                sel[s] = int(rng.choice(xs))
+            out.append(sel)
+        return out
+
+
+def count(T, R, return_detail=False):
+    """Exact number of conforming programs in the restricted space."""
+    c = Counter(T, R)
     if return_detail:
-        return total, {"routes": len(routes), "classes": len(classes), "tables": len(tables),
-                       "distinct_L": len(rcache)}
-    return total
+        return c.total, {"routes": len(c.route_list), "classes": len(c.class_list),
+                         "tables": len(c.tables), "distinct_L": len(c.rcache)}
+    return c.total
 
 
 def expected_first(S, K):
