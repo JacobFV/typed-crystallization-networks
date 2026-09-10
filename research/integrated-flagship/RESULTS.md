@@ -209,3 +209,27 @@ Rows per kind (rows / survivors): ADDR 233/23, GROUND 0/0, LIT 424/22, STEP 20/6
 
 Memory floor: 17 capped starts logged in `out/memory_floor.log`; MemAvailable at start ranged 36.8–42.2 GB; phases refused by the 25 GB floor: 0.
 <!-- END:resources -->
+
+---
+
+## Pre-sweep prediction (written 2026-09-10T12:10:01-07:00, before any OCC_ or V_ arm has run)
+
+**A conjecture, not a finding:** drawn from three R seeds and crude cell-mean statistics
+(`R_0`: occurs ratio `2.4`, V positive, `0/400`; `R_1`: `3.9`, V positive, `400/400`;
+`R_2`: `3.9`, V inverted, `0/400`). The coordinator proposed it; it is recorded here so that the
+sensitivity sweeps test it rather than being fitted to it.
+
+> Generalization requires BOTH (a) a positive V preference on the address slots AND (b) an occurs
+> ratio on the literal slots above a threshold somewhere between `2.4` and `3.9`.
+
+Predicted outcome of each sweep point, stated now:
+
+| sweep point | what is held | predicted |
+|---|---|---|
+| `OCC_1` | V fitted (positive) | no generalization — (b) fails |
+| `OCC_3` | V fitted (positive) | undetermined — inside the threshold band |
+| `OCC_10`, `OCC_100`, `OCC_3500` | V fitted (positive) | generalization; `OCC_3500` should reproduce N″ |
+| `V_1` | occurs at N″'s fitted ratio | no generalization — (a) fails (zero preference is not positive) |
+| `V_3`, `V_10`, `V_100` | occurs at N″'s fitted ratio | generalization |
+
+Any row whose outcome differs is reported as falsifying the corresponding clause.
