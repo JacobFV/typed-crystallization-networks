@@ -1132,6 +1132,14 @@ def checks_library_line() -> None:
           f"{sd} (branch refinement-bounds)")
     claim("§61/preclamp", sec_ids(61), s61, r"pre-clamp value from ([\d,]+) to 3,069",
           lambda: JB(RB, sd)["clamp_identity"]["full_rectangle_0_to_L"]["max_preclamp_value"], f"{sd} (branch refinement-bounds)")
+    uncheckable("§23/configuration-count", sec_ids(23),
+                "'across 27 configurations' — no committed file records a configuration count (audit L24)")
+    open_item("§46/79x", sec_ids(46), "L16",
+              "§46's 'k+1 half cost 79× more': out/corpora.json's DFS counts give 72× (166,506,943 / 2,307,181) and no "
+              "committed file records the CPU ratio, so 79× can be neither confirmed nor corrected")
+    open_item("§15/soft-floor", sec_ids(15), "L19",
+              "§15's soft-model '3.20-3.31': the audit reports a floor of 3.19, but this gate found no soft-score field in "
+              "depth-generalization/out/ to confirm or correct either figure")
     open_item("§19/overlap-subset", sec_ids(19), "L25",
               "§19's '0% string overlap' — the audit reports it is certified only for an n=242 subset at lengths "
               "8-14; this gate found no committed file under research/language-capability/ that records overlap "

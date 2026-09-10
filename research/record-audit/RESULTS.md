@@ -6,12 +6,15 @@ file and `research/record-audit/verify.py`, which re-runs every mechanical check
 below so the audit is repeatable.
 
 ```bash
-.venv/bin/python research/record-audit/verify.py            # passes 1 and 3, against artifacts/demo/summary.json
+.venv/bin/python research/record-audit/verify.py --gate     # the fast gate; tests/test_record_gate.py runs this
+.venv/bin/python research/record-audit/verify.py            # gate + STATUS test count + demo summary if present
 .venv/bin/python research/record-audit/verify.py --demo     # run the ten demonstrations first
 .venv/bin/python research/record-audit/verify.py --tests    # also run pytest
 ```
 
-Current state: **49 checks, 25 pass, 23 fail, 1 warn.**
+~~Current state: 49 checks, 25 pass, 23 fail, 1 warn.~~ That was the audit's state on
+its own branch. **Current state (after "Gate, 2026-09-10" below): `--gate` 302 checks,
+291 pass, 0 fail, 7 uncheckable, 4 open; 60 of 63 FINDINGS sections verified.**
 
 `--tests` needs the gitignored `node_modules` symlinked into
 `generators/computer/engine/` from the main checkout, per
@@ -631,3 +634,208 @@ The 18 failures at baseline, by check id: `record/no-duplicate-sections`,
 **Section coverage at baseline: 7 of 63 sections** (§19, §20, §39, §41, §43, §47,
 §48) have at least one check comparing a document claim to a committed artifact.
 63 = sections 1–41 and 43–63, with §14 counted twice because it is two sections.
+
+### Read first — corrections that changed a conclusion, not only a number
+
+These four are the ones the supervising session should look at before anything
+else. Each is applied in place, original struck through, with a CORRECTIONS row.
+
+1. **§14a and `STATUS.md` B9 — nothing fixed the rung-3 tie-break.** The record
+   said "requiring exactness at every position of a validation split is what fixed
+   it" and STATUS said the filter "fixed both". `tiebreak.json`: the
+   `validation_filtered` rule returns the *identical* program as `lexicographic`,
+   3 of 384 slots wrong; only the gradient runs are exact. The claimed remedy is
+   not a remedy (CORRECTIONS row 22).
+2. **Deployment footprint is not won "across the board".** §36, §43 and
+   `README.md` ranged the typed footprint over three artifacts and omitted the
+   fourth: `visual.pyz` is 377.5 MB RSS and 5,179 ms cold start, above the
+   270.8 MB torch baseline. The one cost axis §43 called a universal win is a win
+   for three of four artifacts, and for visual only through the §48 compiled
+   zipapp (row 25).
+3. **`README.md` listed a capability that does not exist under "Holds up under
+   measurement".** "The persistent module library and curriculum artifact flow
+   (section 25)" — §25 contains neither, and `STATUS.md` B1 says no registry
+   outlives a single script. Struck (row 30).
+4. **§41's certified negative is certified at 8 spans, not 26.** "Certifies `none
+   exists` at spans 4 through 29" was enumerated at 4, 8, 12, 16, 20, 24, 28, 29.
+   The conclusion (ranking within a fixed scaffold cannot shorten the parse) holds
+   where enumerated and is plausible between; it is no longer "certified" across
+   the range (row 27).
+
+Everything else below changed a figure, a scope or a citation, not a verdict.
+§21's structural certificate, §19's program, §47's conclusion and §43's quality
+verdict all survive their corrections.
+
+### Step 2 — every baseline FAIL resolved one of two ways
+
+The original `verify.py` had one design defect behind most of its 18 failures: it
+asserted the record's **believed** value against the artifact ("the agreement count
+must be 9", "the best constant must be 2.00", "per_length must be all 1.0"), so a
+check could only fail, and kept failing after the record was corrected. It is
+rewritten so that **every check reads the claim from the document's live text**
+(struck-through originals removed) and compares it with the committed artifact at
+the precision the document quotes; a claim that disappears from the document
+FAILs rather than silently passing. No check was weakened to pass: where the
+artifact disagreed with the document, the document was changed.
+
+| baseline FAIL | resolution | which was wrong |
+|---|---|---|
+| `record/no-duplicate-sections` [14] | headings now §14a and §14b, citations fixed, nothing renumbered (step 7) | the record |
+| `record/no-missing-sections` [42] | §42 tombstone heading; citations point to §48 (step 7) | the record |
+| `record/no-dangling-section-refs` | 5 citations of §42 fixed | the record |
+| `record/cited-paths-exist` | the 4 paths exist on their named branches; the check now resolves `seasons`, `research/emitter-guards`, `refinement-bounds` refs with `git cat-file` and reports UNCHECKABLE-from-main rather than FAIL; an unknown missing path still FAILs | the check |
+| `retracted/language-stream-unqualified-in-README` | README names the stream | the record |
+| `status/policy-learning-has-results`, `status/object-identity-placeholders` | STATUS §3 and B2 struck and corrected | the record |
+| `status/test-count` | STATUS re-stated with its date; the check moved to the full audit (it needs `pytest --collect-only`) and still FAILs on mismatch | the record |
+| `pass1/§19-exact-at-lengths-8-to-16` | §19 corrected; the check now reads §19's stated exact lengths and compares them with `per_length` | both |
+| `pass1/§39-inproc-agreement-count` | the check asserted 9 — the belief being corrected. Now reads the count from §39, §62, CORRECTIONS row 10 and inference-cost RESULTS (all 7/12) | the check |
+| `pass1/§39-inproc-results-corrected` | inference-cost RESULTS now lists episodes 2, 3, 6, 8 and 9; the "9/12" it retains is marked as the earlier wrong figure, which the check recognises as history | both |
+| `pass1/§20-joint-constant-baseline` | the check asserted 2.00 — the retracted belief. Now compares the recomputed 3.00/1.00 with §20, §62 and CORRECTIONS row 8; §20's withdrawn paragraph is struck so it reads as withdrawn | the check |
+| `pass1/§43-deployment-footprint` | §36, §43, README corrected (conclusion change 2) | the record |
+| `pass1/§48-visual-decomposition` | §48, §41, README, STATUS now state the 24.9× product beside the 27.6× | the record |
+| `pass1/§43-visual-rectangles` | §43 and README now say 227/227 over 15–20-widget screens | the record |
+| `pass1/§41-span-sweep` | §41 names the eight spans (conclusion change 4) | the record |
+| `pass1/§47-seed-identity`, `pass1/§47-symbols-gradient-zero` | §47 Q2 qualified: 3 of 4 arm pairs; gradient exactly 0.0 only at `tau_lt=0` | the record |
+
+A further verifier defect surfaced at baseline and is fixed: `pass3/status-ten-capabilities`
+**passed on a one-demo summary** (1/1). The demo checks now return UNCHECKABLE unless the
+summary covers all ten demonstrations. `artifacts/` is gitignored, so these checks
+belong to the full audit, not the gate.
+
+### Step 3 — the audit's discrepancy table
+
+The audit's RESULTS itemises **66** of its 85 discrepancies (H1–H7, M1–M29,
+L1–L30). The other 19 came from per-section audit notes that were never
+committed, so nothing here can address them; they are not counted below.
+
+| | items | already applied before this branch | applied here | partly applied | open |
+|---|---|---|---|---|---|
+| high | 7 | 4 (H1 by §63; H2, H3, H4) | **3** (H5 §14a, H6 §19, H7 §21) | 0 | 0 |
+| medium | 29 | 0 | **27** | 0 | **2** — M11 (§57 "11 of 15" does not reconstruct from any committed file), M16 (§17 "all three" vs STATUS "eleven": `artifacts/` is gitignored) |
+| low | 30 | 0 | **26** | **2** — L16 (the 65th rank fixed; "79×" open: `corpora.json` gives 72× nodes and no CPU ratio is recorded), L19 (the depth list fixed; the 3.19 soft-model floor open: no soft-score field found) | **2** — L24 (§23's "27 configurations": no file records it, marked prose-only), L25 (§19's "0% overlap" subset: no file found; the stage-B half applied) |
+| **total** | **66** | **4** | **56** | **2** | **4** (+ 2 open halves) |
+
+Every applied correction keeps the original text, struck through or marked
+"§62 audit", in the sentence it corrects. The OPEN items are registered in
+`verify.py` with their audit ids; they do not fail the gate, and if one ever
+starts to reconcile the gate FAILs so the marker is retired.
+
+**Found by the gate, not by the audit — 4 more, all applied:** §2 and STATUS's
+"2,120 candidates per node" (no committed `n_candidates` list contains 2,120; the
+widest node is 5,776); §3's "0 of 10 successes" (9 — the same defect as L17, in a
+second section); §7's "9.7e-2 at depth 6" (9.6e-2 in the committed JSON); and the
+§62 section's own citation of §61 for the single-width caution (it is §60). The
+first three came from the coverage sweep of §1–§9 and §18–§63 by a helper agent;
+§2 was re-checked independently before it was applied (CORRECTIONS rows 33–34).
+
+**A correction of mine that the gate caught before commit.** Applying M19, I read
+`resolution_transfer.json`'s 1,640 as the smallest rung-3 conforming count and
+wrote that the audit's "1,664–2,752" did not reproduce. The verifier's check for
+my own sentence failed: 1,640 is `conforming_train_and_validation`, a different
+statistic, and 1,664 *is* recorded — `incremental.json`, the prefix-walk sweep at
+R=32. The audit's range is right; §14a now says so. Recorded because it is the
+exact failure CORRECTIONS rows 8 and 10 describe, caught this time by the check
+rather than by a later audit.
+
+Also applied from the audit's pass 2 and recommendations: `[BOUNDED BY …]` banners
+on §30 and §53 (→ §60), §52 (→ §57), §56 (→ §59, §61), §58 (→ §60) and §47 Q3
+(→ §50); SUPERSEDED markers on the §1–§9 verdicts later sections overturned
+(REINFORCE → §22, recursive abstraction → §12, the 450× → §36/§48, F-conf/F-bench/
+F-soft → §10, depth encoding → §15, §5's heading → §10/§14b); prose-only markers on
+§10's module-call costs, §12's 1.4x–5.3x sweep, §24's four sampled scores, §35's
+gzip column, §52's 73× and §23's configuration count. Not done: recommendation 20
+(nine tracks with a RESULTS.md that FINDINGS never cites) is a structural gap in
+the record, not a figure, and is left for the supervising session.
+
+### Step 4 — single-configuration labels
+
+The audit's inventory has 25 load-bearing claims resting on one family, width, seed
+set or configuration; 7 were already fully disclosed (A7, A8, A10, A11, A14, A15,
+A16). **All 18 not fully disclosed now carry a label inside the sentence making
+the claim** — the audit's 16 undisclosed plus the two it marked "partly" (A13,
+A17) that also lacked one: A1, A2, A3, A4, A5, A6, A9, A12, A13, A17, A18, A19,
+A20, A21, A22, A23, A24, A25. Format:
+`[single-configuration evidence: …]` (also `-family`, `-scaffold`, `-lesson`,
+`-task`, `-renderer`, `-subroutine`, `-seed-set`).
+
+**The nine single-configuration `unique` certificates presented as evidence** —
+A2 (§34), A3 (§32), A19 (§14a), A20 (§18), A21 (§21), A23 (§27), §10's mixed
+1/96, §11's 65,536 and §41's visual S2 1/25 — each label also says: *"A
+single-configuration `unique` certificate is not evidence of a correct schema —
+§53 arm F, §60."* (The brief and FINDINGS §62 cite §61 for this; the section that
+established it is §60, where a deliberately wrong schema earns the same `unique`
+at width 128. §61 is the refinement-bound section.) The same labels were added
+where `STATUS.md` row 3 and `README.md` repeat A1 and A24.
+
+`verify.py`'s `labels/` group checks all 21 FINDINGS labels (18 + the three extra
+certificates): each must sit within the claim's sentence, and each certificate
+label must carry the §53/§60 caution. **21 labels added, 21 machine-checked.**
+
+### Step 5 — coverage
+
+**Section coverage: 7 of 63 at baseline → 60 of 63.** The other three are declared
+UNCHECKABLE with a reason, and the gate would FAIL if they were not: §6 (open
+questions; the live-node fraction is stored nowhere and track 2 has no
+directory), §9 (a to-do list) and §28 (its only figure is a test count). Coverage
+counts a section only when a check *comparing a document claim with a committed
+artifact* PASSes; wording checks and label checks do not count.
+
+Order followed the brief: every figure the audit or the gate corrected in
+`README.md`, `STATUS.md` and `HANDOFF.md` has a check (language stream, footprint,
+rectangles, decomposition, test count, chance rate, positional 0.93×, 2,120 →
+5,776), then the FINDINGS sections those documents cite, then the rest. §37, §59
+and §61 are checked against their artifacts on branches `seasons`,
+`research/emitter-guards` and `refinement-bounds` through `git show`; in a clone
+without those branches the checks report UNCHECKABLE, never PASS.
+
+**Requirement 1 — machine-generated headlines.** `verify.py --emit-headlines`
+writes `research/record-audit/HEADLINES.md`: every figure a numeric check verifies,
+as read from its artifact, with the artifact named. The gate FAILs if the
+committed file is stale. Quote from it rather than transcribing.
+
+### Step 6 — the gate
+
+**Mechanism: `tests/test_record_gate.py`**, which runs `verify.py --gate --quiet`.
+It is the lightest mechanism that is actually run: `scripts/check.sh` runs
+`pytest -q`, every agent brief asks for pytest before merge, and a new file under
+`tests/` needs no change to `check.sh` or `tcn/`.
+
+| | fast gate (`--gate`, in pytest) | full audit (not in pytest) |
+|---|---|---|
+| runs | structure, citations, retracted wording, STATUS freshness, all artifact claims, labels, headlines, coverage | the gate, plus the STATUS test count (`pytest --collect-only`), the demo summary, optionally `--demo` (ten demos, minutes) and `--tests` |
+| cost | **1.86 s wall, 341 MB RSS** measured; one 32-episode `Host` recompute for §20, no training, no enumeration, no artifact written | minutes |
+| fails on | any FAIL | same |
+
+What turns a claim FAIL without anyone deciding to audit: a figure edited away
+from its artifact; a checked sentence reworded so the claim vanishes; a citation
+of a section that does not exist or of a bare §14; a cited `research/` path that
+exists nowhere; a new FINDINGS section with no PASSing artifact check and no
+`SECTION_UNCHECKABLE` reason; a stale HEADLINES.md. **So writing §64 now requires
+adding its check in the same commit** — the intended cost of requirement 2.
+
+### Step 7 — numbering
+
+§14 is headed **§14a** (discrete perception) and **§14b** (preference), each with a
+numbering note; the five bare references were resolved by meaning (§16, §17, §21,
+§26 → 14a; §41, `CORRECTIONS.md` row 14, `research/AGENDA.md` → 14b). **§42** gets a
+tombstone heading — "Number never assigned — citations of §42 mean §48" — so
+`README.md`, `HANDOFF.md`, §45 and external commit messages resolve; HANDOFF's
+false claim that §42 is on branch `compiled-runtime` is struck. No section was
+renumbered. The gate enforces both: any other shared number, gap without a
+tombstone, or bare §14 FAILs.
+
+### Counts
+
+| | baseline (unmodified `verify.py`) | final |
+|---|---|---|
+| verifier, `--gate` | 27 checks: 8 pass, **18 fail**, 1 warn | **302 checks: 291 pass, 0 fail, 0 warn, 7 uncheckable, 4 open** |
+| verifier, full (adds test count and demo summary) | — | 304 checks: 292 pass, 0 fail, 0 warn, 8 uncheckable, 4 open |
+| section coverage | 7 of 63 | **60 of 63** (3 declared uncheckable) |
+| audit discrepancies (66 itemised) | 4 applied | **60 applied** (4 before + 56 here), 2 partly, **4 open** — the 4 OPEN checks are M11, L16, L19, L25; M16 and L24 report UNCHECKABLE |
+| found by the gate | — | 4 more, all applied |
+| single-configuration labels | 0 | **21** in FINDINGS (+2 in README/STATUS), all checked |
+| test suite | 337 collected | 338 collected; in this worktree without `node_modules` **325 pass, 13 fail** — all 13 are the documented Node-engine environmental failures (`test_generators` computer/embodied ×4, `test_panel_interface` ×9), the same set the audit reproduced without the symlink; `test_record_gate` passes. Run once, capped at 16 GB / 200% CPU, 35.8 s |
+
+The UNCHECKABLE rows in the gate are: the off-branch paths (checkable here, not from a
+clone of main), §17's episode count (`artifacts/` is gitignored), §35's gzip column,
+§23's configuration count, and the three declared sections §6, §9, §28.

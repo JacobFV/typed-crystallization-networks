@@ -1240,7 +1240,8 @@ eight documents, `state_counts` and `event_count` take one distinct series while
 channel was added: capacity-declared `filesystem` and `processes` relations,
 declared file contents, and `goal_reached`, as probes and latents only. Verified
 independently here: the default observation set is `['pixels','terminal']` with
-probes `['state_counts']` across 27 configurations, the channel is absent unless
+probes `['state_counts']` across 27 configurations *(prose-only: no file records a
+configuration count — §62 audit L24)*, the channel is absent unless
 `probe` is configured, and enabling it leaves observations unchanged. The agent
 reports the default stream bit-identical over 192 seed/config/action/objective/
 split combinations, and the channel is load-bearing — re-deriving every target
@@ -2487,7 +2488,9 @@ reaches rank 1.
 
 **Cost, reported honestly.** 7.6× DFS nodes and 12.9× CPU overall — but the half
 that mattered, `C-minall`, was **cheaper** than §44's own corpus build, while the
-k+1 half cost **79×** more and fragmented identity further (54 digests, largest
+k+1 half cost **79×** *[§62 audit L16 — OPEN: `out/corpora.json`'s DFS counts give
+72× (166,506,943 against 2,307,181); no committed file records the CPU ratio, so 79×
+can be neither confirmed nor corrected here]* more and fragmented identity further (54 digests, largest
 2). So the useful change is the cheap one.
 
 **What is and is not established.** Established: §44's causal claim is wrong in
@@ -2904,7 +2907,7 @@ does not help tasks it should not. `arm1_none` exhausts at 0 on all seven compac
 tasks, and the D134 module solves its own task and nothing else.
 
 **Cost.** Pooling is **1.08–1.19×** syntactic mining and *shrinks* the eligible
-set (94 → 40), so the identity fix is nearly free. `C-trace` costs **73×**
+set (94 → 40), so the identity fix is nearly free. `C-trace` costs **73×** *(prose-only: no raw file records it — §62 audit)*
 `C-minall`'s DFS nodes and buys nothing — same digest, same numbers — which
 retires the trace-corpus idea from §46.
 

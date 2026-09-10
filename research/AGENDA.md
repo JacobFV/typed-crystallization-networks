@@ -24,7 +24,7 @@ indefinitely.
   reason in a comment.
 
 Also closed by measurement rather than by implementation: **loss-gated
-eligibility** (§7, §12, §37 — it is one of the four independent refutations of
+eligibility** (~~§7, §12, §37~~ §1/§3, §10, §37 — it is one of the four independent refutations of
 the progressive scheduler, not an open experiment).
 
 ## Standing observations that motivate the tracks

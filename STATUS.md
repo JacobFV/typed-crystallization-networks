@@ -82,10 +82,12 @@ Three more results that are certificates rather than runs, so they have no demo:
 Framework health, ~~re-run twice today: 179 Python tests pass (145.79 s and
 157.45 s); 370 of 372 computer-engine tests pass, the two failures being
 wall-clock thresholds (`durationMs < 80`, measured 81) on a machine running a
-dozen other experiments.~~ **[§62 audit, corrected 2026-09-10:]** **337 Python
-tests** collected on 2026-09-10 — 336 pass and 1 fails, the documented
-worktree-only `test_panel_interface` replay; **372 of 372** computer-engine tests
-pass. No test count is recorded in any artifact; `research/record-audit/verify.py`
+dozen other experiments.~~ **[§62 audit, corrected 2026-09-10:]** **338 Python
+tests** collected on 2026-09-10 (337 plus `tests/test_record_gate.py`). In a git
+worktree without the gitignored `node_modules`, 325 pass and 13 fail — all 13 need
+the Node computer engine; with it symlinked the audit measured 336 pass and 1
+fail on the 337, the documented worktree-only `test_panel_interface` replay.
+**372 of 372** computer-engine tests pass. No test count is recorded in any artifact; `research/record-audit/verify.py`
 re-collects the Python count and fails if this line goes stale.
 
 ---
