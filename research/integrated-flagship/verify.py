@@ -234,21 +234,27 @@ if d is not None:
 import numpy as np  # noqa: E402,F811
 
 # ------------------------------------ the distractor's reach (exact, 48 episodes)
-g = J("generalize_gap0.json")
-if g is not None:
-    claim("direct 48-episode counting equals the zeta transform on the training episodes",
+for _gap in (0, 1):
+    g = J(f"generalize_gap{_gap}.json")
+    if g is None:
+        continue
+    claim(f"gap {_gap}: direct 48-episode counting equals the zeta transform on the training episodes",
           all(v["transform"] == v["direct"] for v in g["direct_equals_transform_on_train"].values()))
-    claim("the positive control holds: the schema space contains generalizing programs",
-          int(g["schema"]["K_generalizing"]) > 0, g["schema"]["K_generalizing"])
+    ks = int(g["schema"]["K_generalizing"])
+    if _gap == 0:
+        claim("gap 0: the positive control holds: the schema space contains generalizing programs",
+              ks > 0, g["schema"]["K_generalizing"])
+    claim(f"gap {_gap}: the schema space's generalizing count is exhausted (certificate complete)",
+          g["schema"]["certificate"] in ("complete", "unique"), str(ks))
     kd = int(g["distractor"]["K_generalizing"])
-    claim("the distractor space's generalizing count is exhausted (certificate complete)",
+    claim(f"gap {_gap}: the distractor space's generalizing count is exhausted (certificate complete)",
           g["distractor"]["certificate"] in ("complete", "unique"), str(kd))
     straw = kd == 0
-    seg = RESULTS.split("<!-- BEGIN:generalize_gap0 -->")[1].split("<!-- END")[0] \
-        if "<!-- BEGIN:generalize_gap0 -->" in RESULTS else ""
-    claim("RESULTS states the distractor fact that holds (straw man iff 0 generalizing programs)",
+    seg = RESULTS.split(f"<!-- BEGIN:generalize_gap{_gap} -->")[1].split("<!-- END")[0] \
+        if f"<!-- BEGIN:generalize_gap{_gap} -->" in RESULTS else ""
+    claim(f"gap {_gap}: RESULTS states the distractor fact that holds (straw man iff 0 generalizing programs)",
           not seg or (("could not succeed" in seg) == straw))
-    claim("analytic: no distractor address expression equals length-5 on every episode",
+    claim(f"gap {_gap}: analytic: no distractor address expression equals length-5 on every episode",
           g["distractor_addresses_equal_length_minus_5"] == [] or not straw)
 
 # post-hoc: programs to first generalizing, recomputed from each arm's 48-episode tier rows

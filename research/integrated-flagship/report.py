@@ -462,6 +462,7 @@ BLOCKS = {
     "posthoc_gap0": lambda: block_posthoc(0),
     "leakage": block_leakage,
     "generalize_gap0": lambda: block_generalize(0),
+    "generalize_gap1": lambda: block_generalize(1),
     "criteria_gap0": lambda: block_criteria(0), "criteria_gap1": lambda: block_criteria(1),
     "arms_gap0": lambda: block_arms(0), "arms_gap1": lambda: block_arms(1),
     "tiers_npp_gap0": lambda: block_tiers(0, "N''"), "tiers_p_gap0": lambda: block_tiers(0, "P"),

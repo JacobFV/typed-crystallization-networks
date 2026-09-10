@@ -398,6 +398,14 @@ Everything in this section is **post-hoc** unless it says otherwise. None of it 
 
 Exact counts over all 48 episodes (training and held-out together):
 
+The same count at the second configuration (`gap 1`), where the pre-registration predicted the
+step schema's offset pool lacks the step a correct click needs (F6):
+
+<!-- BEGIN:generalize_gap1 -->
+<!-- END:generalize_gap1 -->
+
+`gap 0`:
+
 <!-- BEGIN:generalize_gap0 -->
 | space | programs | conform on all 48 episodes (train + held-out) | certificate | expected programs to first generalizing, uniform order |
 |---|---|---|---|---|
