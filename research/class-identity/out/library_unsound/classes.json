@@ -1,0 +1,48 @@
+{
+  "format": "tcn.classes/0",
+  "records": [
+    {
+      "certified": [
+        {
+          "artifact_digest": "aa29e3e3bad03fb8546f199d",
+          "certificate": "unique",
+          "conforming": 1,
+          "evaluated": 272,
+          "exhausted": true,
+          "mean_return": 4.0,
+          "space_size": 272,
+          "threshold": 4.0,
+          "width": 1
+        }
+      ],
+      "class_id": "schema/f72db2cf6eca/d24b464be2ed",
+      "kind": "schema",
+      "members": [
+        "aa29e3e3bad03fb8546f199d"
+      ],
+      "preferred": {},
+      "provenance": {
+        "arm": "F1"
+      },
+      "schema": {
+        "free_nodes": [
+          [
+            "relation",
+            17
+          ],
+          [
+            "goal_relation",
+            16
+          ]
+        ],
+        "module": "research/depth-encoding/scaffold.py",
+        "qualified_name": "research.depth-encoding.scaffold:first_gate_scaffold",
+        "source_fingerprint": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947"
+      },
+      "selections": {
+        "goal_relation": 6,
+        "relation": 16
+      }
+    }
+  ]
+}

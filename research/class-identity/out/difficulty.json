@@ -1,0 +1,77 @@
+{
+  "5": {
+    "episodes": 64,
+    "program_fields": 15,
+    "distinct_circuits": 64,
+    "distinct_final_tables": [
+      1,
+      2,
+      4,
+      6,
+      7,
+      8,
+      9,
+      11,
+      13,
+      14
+    ],
+    "relevant_inputs_histogram": {
+      "2": 36,
+      "3": 24,
+      "4": 4
+    },
+    "min_relevant_inputs_achieved": 2,
+    "fraction_target_true": 0.5,
+    "majority_fraction": 0.5
+  },
+  "7": {
+    "episodes": 64,
+    "program_fields": 21,
+    "distinct_circuits": 64,
+    "distinct_final_tables": [
+      1,
+      2,
+      4,
+      6,
+      7,
+      8,
+      9,
+      11,
+      13,
+      14
+    ],
+    "relevant_inputs_histogram": {
+      "2": 32,
+      "3": 24,
+      "4": 8
+    },
+    "min_relevant_inputs_achieved": 2,
+    "fraction_target_true": 0.546875,
+    "majority_fraction": 0.546875
+  },
+  "12": {
+    "episodes": 64,
+    "program_fields": 36,
+    "distinct_circuits": 64,
+    "distinct_final_tables": [
+      1,
+      2,
+      4,
+      6,
+      7,
+      8,
+      9,
+      11,
+      13,
+      14
+    ],
+    "relevant_inputs_histogram": {
+      "2": 31,
+      "3": 25,
+      "4": 8
+    },
+    "min_relevant_inputs_achieved": 2,
+    "fraction_target_true": 0.53125,
+    "majority_fraction": 0.53125
+  }
+}

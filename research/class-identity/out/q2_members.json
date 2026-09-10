@@ -1,0 +1,341 @@
+{
+  "class_id": "tt/3/17",
+  "recorded_circuits_pooled": 8,
+  "recovered_members": 8,
+  "elected_by_miner": "165bc290d9c82b70a8ea3cc2",
+  "published_by_section_52": "165bc290d9c82b70a8ea3cc2",
+  "node_counts": [
+    4
+  ],
+  "execution_costs": [
+    4.0
+  ],
+  "description_bits": [
+    10120,
+    10128,
+    10136
+  ],
+  "cost_axes_agree_on_preferred": false,
+  "members": [
+    {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "nodes": 4,
+      "execution_cost": 4.0,
+      "description_bits": 10128,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "x2",
+            "n1"
+          ]
+        ],
+        [
+          "or",
+          "n3",
+          [
+            "n0",
+            "n2"
+          ]
+        ]
+      ]
+    },
+    {
+      "digest": "5c63a8debc929c517c47db5f",
+      "nodes": 4,
+      "execution_cost": 4.0,
+      "description_bits": 10120,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ],
+        [
+          "or",
+          "n2",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n3",
+          [
+            "n1",
+            "n2"
+          ]
+        ]
+      ]
+    },
+    {
+      "digest": "622970233b2c1fc3aa622dbb",
+      "nodes": 4,
+      "execution_cost": 4.0,
+      "description_bits": 10136,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "x1",
+            "x2"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "n0",
+            "n1"
+          ]
+        ],
+        [
+          "xor",
+          "n3",
+          [
+            "x1",
+            "n2"
+          ]
+        ]
+      ]
+    },
+    {
+      "digest": "840ac85876f1e9f660c62c7c",
+      "nodes": 4,
+      "execution_cost": 4.0,
+      "description_bits": 10136,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "x2",
+            "n1"
+          ]
+        ],
+        [
+          "xor",
+          "n3",
+          [
+            "n0",
+            "n2"
+          ]
+        ]
+      ]
+    },
+    {
+      "digest": "954b3b5fc45f78a6f801fbec",
+      "nodes": 4,
+      "execution_cost": 4.0,
+      "description_bits": 10120,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n2",
+          [
+            "x2",
+            "n0"
+          ]
+        ],
+        [
+          "and",
+          "n3",
+          [
+            "n1",
+            "n2"
+          ]
+        ]
+      ]
+    },
+    {
+      "digest": "cfc6a9e1b971e2c4a349a319",
+      "nodes": 4,
+      "execution_cost": 4.0,
+      "description_bits": 10136,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "x0",
+            "x2"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "n0",
+            "n1"
+          ]
+        ],
+        [
+          "xor",
+          "n3",
+          [
+            "x0",
+            "n2"
+          ]
+        ]
+      ]
+    },
+    {
+      "digest": "d641ba804ed54f7f90fdfdea",
+      "nodes": 4,
+      "execution_cost": 4.0,
+      "description_bits": 10136,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "x2",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "n0",
+            "n1"
+          ]
+        ],
+        [
+          "xor",
+          "n3",
+          [
+            "x1",
+            "n2"
+          ]
+        ]
+      ]
+    },
+    {
+      "digest": "fff10bba4aa150363b74a5fb",
+      "nodes": 4,
+      "execution_cost": 4.0,
+      "description_bits": 10120,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "x2",
+            "n1"
+          ]
+        ],
+        [
+          "or",
+          "n3",
+          [
+            "n0",
+            "n2"
+          ]
+        ]
+      ]
+    }
+  ]
+}

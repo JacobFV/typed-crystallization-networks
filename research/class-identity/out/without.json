@@ -1,0 +1,119 @@
+{
+  "5": {
+    "space_size": 272,
+    "evaluated": 272,
+    "exhausted": true,
+    "unusable": 0,
+    "conforming": 1,
+    "threshold": 4.0,
+    "certificate": "unique",
+    "best_return": 4.0,
+    "conforming_selections": [
+      {
+        "relation": 16,
+        "goal_relation": 6
+      }
+    ],
+    "distribution": {
+      "mean": 2.0,
+      "sd": 0.4517799974010143,
+      "n": 272,
+      "min": 0.0,
+      "max": 4.0
+    },
+    "seconds": 58.08859725401271,
+    "episodes": 17408,
+    "steps": 69632,
+    "free_nodes": [
+      [
+        "relation",
+        17
+      ],
+      [
+        "goal_relation",
+        16
+      ]
+    ],
+    "width": 5,
+    "second_best_return": 3.3125,
+    "whole_space_mean": 2.0
+  },
+  "7": {
+    "space_size": 272,
+    "evaluated": 272,
+    "exhausted": true,
+    "unusable": 0,
+    "conforming": 1,
+    "threshold": 4.0,
+    "certificate": "unique",
+    "best_return": 4.0,
+    "conforming_selections": [
+      {
+        "relation": 16,
+        "goal_relation": 6
+      }
+    ],
+    "distribution": {
+      "mean": 2.0,
+      "sd": 0.2826877457966939,
+      "n": 272,
+      "min": 0.0,
+      "max": 4.0
+    },
+    "seconds": 79.52496771799633,
+    "episodes": 17408,
+    "steps": 69632,
+    "free_nodes": [
+      [
+        "relation",
+        17
+      ],
+      [
+        "goal_relation",
+        16
+      ]
+    ],
+    "width": 7,
+    "second_best_return": 3.125,
+    "whole_space_mean": 2.0
+  },
+  "12": {
+    "space_size": 272,
+    "evaluated": 272,
+    "exhausted": true,
+    "unusable": 0,
+    "conforming": 1,
+    "threshold": 4.0,
+    "certificate": "unique",
+    "best_return": 4.0,
+    "conforming_selections": [
+      {
+        "relation": 16,
+        "goal_relation": 6
+      }
+    ],
+    "distribution": {
+      "mean": 2.0,
+      "sd": 0.33582250187789336,
+      "n": 272,
+      "min": 0.0,
+      "max": 4.0
+    },
+    "seconds": 146.89840877597453,
+    "episodes": 17408,
+    "steps": 69632,
+    "free_nodes": [
+      [
+        "relation",
+        17
+      ],
+      [
+        "goal_relation",
+        16
+      ]
+    ],
+    "width": 12,
+    "second_best_return": 3.1875,
+    "whole_space_mean": 2.0
+  }
+}

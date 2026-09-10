@@ -1,0 +1,69 @@
+{
+  "kind": "interpreter",
+  "construct_widths": [
+    1,
+    2
+  ],
+  "per_width": {
+    "1": {
+      "space_size": 272,
+      "evaluated": 272,
+      "exhausted": true,
+      "conforming": 1,
+      "certificate": "unique",
+      "best_return": 4.0,
+      "seconds": 5.346889420994557,
+      "episodes": 4352,
+      "steps": 17408,
+      "free_nodes": [
+        [
+          "relation",
+          17
+        ],
+        [
+          "goal_relation",
+          16
+        ]
+      ],
+      "conforming_selections": [
+        {
+          "relation": 16,
+          "goal_relation": 6
+        }
+      ],
+      "artifact_digest": "aa29e3e3bad03fb8546f199d"
+    },
+    "2": {
+      "space_size": 272,
+      "evaluated": 272,
+      "exhausted": true,
+      "conforming": 1,
+      "certificate": "unique",
+      "best_return": 4.0,
+      "seconds": 7.6095864059752785,
+      "episodes": 4352,
+      "steps": 17408,
+      "free_nodes": [
+        [
+          "relation",
+          17
+        ],
+        [
+          "goal_relation",
+          16
+        ]
+      ],
+      "conforming_selections": [
+        {
+          "relation": 16,
+          "goal_relation": 6
+        }
+      ],
+      "artifact_digest": "2ecc0b362563175302d25e34"
+    }
+  },
+  "vectors_agree": true,
+  "class_id": "schema/f72db2cf6eca/8958463f0dee",
+  "admitted": true,
+  "refusal": null
+}

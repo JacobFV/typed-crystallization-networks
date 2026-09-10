@@ -1,0 +1,68 @@
+{
+  "format": "tcn.classes/0",
+  "records": [
+    {
+      "certified": [
+        {
+          "artifact_digest": "aa29e3e3bad03fb8546f199d",
+          "certificate": "unique",
+          "conforming": 1,
+          "evaluated": 272,
+          "exhausted": true,
+          "mean_return": 4.0,
+          "space_size": 272,
+          "threshold": 4.0,
+          "width": 1
+        },
+        {
+          "artifact_digest": "2ecc0b362563175302d25e34",
+          "certificate": "unique",
+          "conforming": 1,
+          "evaluated": 272,
+          "exhausted": true,
+          "mean_return": 4.0,
+          "space_size": 272,
+          "threshold": 4.0,
+          "width": 2
+        }
+      ],
+      "class_id": "schema/f72db2cf6eca/8958463f0dee",
+      "kind": "schema",
+      "members": [
+        "aa29e3e3bad03fb8546f199d",
+        "2ecc0b362563175302d25e34"
+      ],
+      "preferred": {
+        "description_bits": "aa29e3e3bad03fb8546f199d",
+        "execution_cost": "aa29e3e3bad03fb8546f199d"
+      },
+      "provenance": {
+        "construct_widths": [
+          1,
+          2
+        ],
+        "from": "FINDINGS 53",
+        "track": "class-identity"
+      },
+      "schema": {
+        "free_nodes": [
+          [
+            "relation",
+            17
+          ],
+          [
+            "goal_relation",
+            16
+          ]
+        ],
+        "module": "research/depth-encoding/scaffold.py",
+        "qualified_name": "research.depth-encoding.scaffold:interpreter_scaffold",
+        "source_fingerprint": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947"
+      },
+      "selections": {
+        "goal_relation": 6,
+        "relation": 16
+      }
+    }
+  ]
+}
