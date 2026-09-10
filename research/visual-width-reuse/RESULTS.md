@@ -234,7 +234,57 @@ Offered to §55's store:
 
 ## 7. Verdict
 
-*(written after arm F and resolution 48 report)*
+**In the owner's vocabulary — schema plus specialization — within one domain,
+across widths, the certified vector transfers, not only the schema.** §60 found
+the reverse across domains: the schema crossed and the frozen vector did not.
+Here the exhaustive search, run independently at every one of the five
+resolutions, returns the *same* index vector for all three stages (§3.2), and
+the vector certified at two widths rebuilds, at three unseen widths, the exact
+artifact enumeration selects there — digest for digest, with the parse equal
+component for component (§4). The certificate behind "the vector transfers" is
+therefore the one the without arm earns at each held-out width: `unique` for S2'
+and `complete` for S0 and S1', each exhaustive, each containing the stored
+vector. The with arm itself earns only a conformance check. This rests on one
+seed set, one palette and square screens.
+
+**§55's mechanism carries to a real artifact.** Falsification F-b does not fire.
+
+**The saving does not exceed the space size — §55's caveat stands, and it is
+now shown to be structural rather than an artifact of a toy space.** On
+programs and row-evaluations the ratio is bounded by the largest stage space by
+construction: replacing one exhaustive enumeration per stage with one evaluation
+saves that enumeration and nothing more. Measured as executed work through one
+code path it is smaller still, because `evaluate` abandons a wrong program on
+its first failing row while the right program must run every row: at S2' the
+walk over the whole space costs little more than checking the one correct
+program (§4.1). Only the shipped `enumerate_prefix` search makes the ratio
+large, and that is the search's per-program interpreter overhead, which a faster
+search would remove. **F-c fires.** The real artifact does not make the search
+expensive enough that skipping it is a capability at scale; absolute search time
+here is the same order as §55's (§4.3).
+
+**Arm F splits, and the split is the new finding.** The wrong schema §53
+anticipated — constants frozen at the tested width — is refused twice, exactly
+as in §55 and §60. But a wrong schema that is only *insufficient in one
+direction* passes the two-width rule: `frozen_span` is correct at and below the
+width it froze, so certifying at 24 and 32 cannot see it, and §55's store admits
+it. **F-d fires for this payload: R1 + R2 are insufficient on a real artifact
+when the certified widths do not bracket the failure.** What stops it is the
+conformance check §55 charged at every instantiation — it fails at 40 and 48 —
+so the format *as used* stays sound, but only because that check is mandatory.
+A store that skipped the check to claim a larger saving would ship an artifact
+that scores well above the best constant and is wrong.
+
+**§33 does not move** (F-e does not fire). The width barrier is real (F-a does
+not fire). The derived span is width-safe at every resolution tested (F-f does
+not fire).
+
+**What would change these conclusions.** A certified pair that brackets the
+held-out widths, or a rule requiring one certified width above every
+instantiation, would close the `frozen_span` gap at the cost of more
+certification; that is proposed, not tested. The flat saving would change only
+with a search whose per-program cost grows faster than one full check, which
+nothing here exhibits.
 
 ---
 
@@ -259,3 +309,42 @@ resolution, `run.py armf`, `run.py refusal`, `run.py null`, `size.py`,
 `types_probe.py`, `collision.py`, `check.py`, `report.py`, then `verify.py`.
 
 ## 9. Preserved negatives and disclosures
+
+* **Pre-registered C4 fails as written, for `frozen_span`.** C4 required the
+  format to refuse the wrong schema at one width *and* at two. It refuses
+  `frozen_span` at one and admits it at two. The criterion is resolved as
+  written in §6, not reworded; §7 is what it means.
+* **The parse is not exact at held-out resolution 40** — one rectangle on one
+  screen, a parent-colour collision (§4.2). Both arms miss it identically. It is
+  reported, and `palette` was not raised to make it go away.
+* **"Row-evaluations" and "node units" are nominal**, not measured work (§2).
+  The pre-registration listed node units as a cost currency without knowing
+  `evaluate` short-circuits; the column is kept and labelled as an upper bound
+  rather than dropped.
+* **The whole-space baseline is scored on a fixed prefix of the held-out rows**,
+  identical at every resolution, because scoring every program on every row is
+  quadratic in the supervision. The chosen program is re-scored on exactly those
+  rows so the comparison is like for like; held-out accuracy in every other
+  column uses all held-out rows. The cap was added after a smoke run at
+  resolution 16 showed the uncapped S1' baseline dominating the arm
+  (`out/smoke_16.json`), and before any reported arm ran.
+* **Timing was not taken on a quiet host.** Resolutions 16, 24, 32 and 40 of the
+  without arm ran alone, before the host crash. The resolution-48 re-run, the
+  three with-arm runs and arm F ran after it, up to four capped workers at once,
+  beside an unrelated GPU process holding most of the unified memory (next
+  item). Wall-clock ratios at resolution 48 therefore mix two load conditions,
+  and the null control (§8) bounds only the spread of repeated identical work
+  under the load it saw. Programs and row-evaluations are load-independent.
+* **An unrelated process held most of the host's memory during the capped
+  runs**: a GPU training job from another project directory, not started by this
+  track. It was left running — it is not this track's to stop — and is flagged
+  in the track's final report. Every job here peaked well under the cap (§8).
+* **`enum_48` was re-run from scratch after the crash.** The pre-crash file
+  stopped after S1'; nothing from it is used.
+* **The schema lives outside `source_fingerprint()`'s scope**
+  (`tcn/generation.py:33-42` walks only `tcn/` and `generators/`), exactly as
+  §55's did. A class record here is a witness, not a self-contained artifact.
+* **Staging is credited to neither arm.** Charging the without arm the joint
+  space instead of the staged sum would have produced a saving in the thousands
+  and a headline that "exceeds the space size". It is shown in §4.2 and not
+  used.

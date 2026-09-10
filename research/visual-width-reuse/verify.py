@@ -206,8 +206,28 @@ def check_claims():
     claim("arm F2 (frozen span): 0 conforming, exhausted, at 40 and 48 for S2'",
           all(fs[str(w)]["s2"]["walk"]["conforming"] == 0 and fs[str(w)]["s2"]["walk"]["exhausted"]
               for w in (40, 48)))
-    for k, v in armf["format"].items():
-        claim(f"arm F format: `{k}` is refused", not v["admitted"], v.get("rule", "ADMITTED")[:80])
+    fmt = armf["format"]
+    claim("arm F1 (frozen offsets): refused by R1 at one width",
+          not fmt["frozen_offsets/F1_one_width"]["admitted"]
+          and fmt["frozen_offsets/F1_one_width"]["rule"].startswith("R1"))
+    claim("arm F1 (frozen offsets): refused by R2 at two widths",
+          not fmt["frozen_offsets/F2_two_widths"]["admitted"]
+          and fmt["frozen_offsets/F2_two_widths"]["rule"].startswith("R2"))
+    claim("arm F2 (frozen span): refused by R1 at one width",
+          not fmt["frozen_span/F1_one_width"]["admitted"]
+          and fmt["frozen_span/F1_one_width"]["rule"].startswith("R1"))
+    claim("arm F2 (frozen span): ADMITTED at two widths (24, 32) -- F-d fires",
+          fmt["frozen_span/F2_two_widths"]["admitted"])
+    claim("arm F2 (frozen span): conforms with a `unique` S2' certificate at 16, 24 and 32",
+          all(fs[str(w)]["s2"]["walk"]["conforming"] == 1
+              and fs[str(w)]["s2"]["walk"]["certificate"] == "unique"
+              and fs[str(w)]["s2"]["stored_vector_conforms"] for w in (16, 24, 32)))
+    claim("arm F2 (frozen span): the instantiation-time conformance check rejects it at 40, 48",
+          all(not fs[str(w)]["s2"]["stored_vector_conforms"] for w in (40, 48)))
+    claim("arm F2 (frozen span): what it would ship at 40/48 beats the best constant -- a "
+          "plausible-looking wrong artifact",
+          all(fs[str(w)]["s2"]["stored_vector_held_accuracy"] > fs[str(w)]["s2"]["best_constant"]
+              for w in (40, 48)))
 
     # F-a
     claim("F-a: the res-32 artifact accepts a res-32 screen",

@@ -431,6 +431,26 @@ def headline(F):
         f"{'exceed' if min(pref) > largest else 'not uniformly exceed'} {largest}, and that is "
         f"interpreter overhead in the search, not search difficulty.",
     ]
+    fmt = F["armf"]["format"]
+    fs = F["armf"]["schemas"]["frozen_span"]["per_resolution"]
+    fo = F["armf"]["schemas"]["frozen_offsets"]["per_resolution"]
+    above = [w for w in ("40", "48") if not fs[w]["s2"]["stored_vector_conforms"]]
+    lines += [
+        f"- **Arm F, frozen offsets:** "
+        f"{'refused' if not fmt['frozen_offsets/F1_one_width']['admitted'] else 'ADMITTED'} at one "
+        f"width, {'refused' if not fmt['frozen_offsets/F2_two_widths']['admitted'] else 'ADMITTED'} "
+        f"at two; 0 conforming at "
+        f"{sum(fo[w][st]['walk']['conforming'] == 0 for w in ('16', '24', '40', '48') for st in ('s1', 's2'))}"
+        f" of 8 off-reference stage spaces. §53's result carries.",
+        f"- **Arm F, frozen span:** "
+        f"{'refused' if not fmt['frozen_span/F1_one_width']['admitted'] else 'ADMITTED'} at one width "
+        f"and **{'refused' if not fmt['frozen_span/F2_two_widths']['admitted'] else 'ADMITTED'} at "
+        f"two** (24, 32), because it is correct at and below the value it froze. It fails the "
+        f"conformance check at {', '.join(above)}, where it would ship held-out accuracy "
+        f"{' / '.join(f4(fs[w]['s2']['stored_vector_held_accuracy']) for w in ('40', '48'))} "
+        f"against a best constant of "
+        f"{' / '.join(f4(fs[w]['s2']['best_constant']) for w in ('40', '48'))}: plausible, and wrong.",
+    ]
     return "\n".join(lines)
 
 

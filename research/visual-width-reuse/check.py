@@ -128,8 +128,13 @@ def main():
     verdict["C4b frozen span: 0 conforming above the frozen value (40, 48)"] = all(
         fs[str(w)]["s2"]["walk"]["conforming"] == 0 and fs[str(w)]["s2"]["walk"]["exhausted"]
         for w in (40, 48))
+    # Pre-registered C4 asks that the format refuse the wrong schema at one and at
+    # two widths.  Resolved as written -- this FAILs for `frozen_span`, and that is
+    # F-d firing, not a bug in the check.
     verdict["C4b frozen span: refused by the format at one and at two widths"] = all(
         not armf["format"][k]["admitted"] for k in armf["format"] if k.startswith("frozen_span"))
+    verdict["C4d the instantiation-time conformance check rejects frozen span at 40 and 48"] = all(
+        not fs[str(w)]["s2"]["stored_vector_conforms"] for w in (40, 48))
     verdict["C4c arm F is bit-identical to the right schema at 32"] = all(
         armf["schemas"][s]["per_resolution"]["32"][st].get("bit_identical_to_right")
         for s in armf["schemas"] for st in ("s1", "s2"))
