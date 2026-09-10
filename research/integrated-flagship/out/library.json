@@ -1,0 +1,260 @@
+{
+ "format": "integrated-flagship/library-1",
+ "classes": [
+  {
+   "class": "lexical-detector",
+   "level": "parametric structural schema",
+   "semantic": "eq(index(buffer, comb(x0, x1)), literal): the byte at a computed address equals a literal",
+   "schema": "research/motif-unification/schema.py:m3_schema (\u00a758/\u00a760)",
+   "implementations": [
+    "\u00a719 L_stage_a open (db59f9b09bb7)",
+    "\u00a733 V_same cmp (e38275a68420)"
+   ],
+   "observed": [
+    {
+     "domain": "language",
+     "width": 128
+    },
+    {
+     "domain": "visual",
+     "width": 3072
+    },
+    {
+     "domain": "computer",
+     "width": 4096,
+     "outcome": "schema re-selected; vector failed (\u00a760 T_C2)"
+    }
+   ],
+   "used_here_for": [
+    "cpos",
+    "ra"
+   ],
+   "this_task": {
+    "gap0/N'": {
+     "solution_exists": true,
+     "full_K": "1164494804749376",
+     "expected_programs_log10": 8.252154778987288
+    },
+    "gap0/N''": {
+     "solution_exists": true,
+     "full_K": "1164494804749376",
+     "expected_programs_log10": 12.01609848198369
+    },
+    "gap0/D'": {
+     "solution_exists": true,
+     "full_K": "1116634624",
+     "expected_programs_log10": 14.270381243831226
+    },
+    "gap1/N'": {
+     "solution_exists": true,
+     "full_K": "261654545280",
+     "expected_programs_log10": 11.900564050907525
+    },
+    "gap1/N''": {
+     "solution_exists": true,
+     "full_K": "261654545280",
+     "expected_programs_log10": 14.81669315150777
+    },
+    "gap1/D'": {
+     "solution_exists": true,
+     "full_K": "703488",
+     "expected_programs_log10": 17.47103502326732
+    }
+   }
+  },
+  {
+   "class": "colour-equality-3ch",
+   "level": "parametric structural schema",
+   "semantic": "three channel equalities at byte strides +1, +2, combined by two truth tables",
+   "schema": "research/visual-ladder/rung3_widgets.py:same_scaffold (\u00a733, \u00a764)",
+   "certified_vector": {
+    "rg": 7,
+    "same": 2
+   },
+   "observed": [
+    {
+     "domain": "visual",
+     "width": 16
+    },
+    {
+     "domain": "visual",
+     "width": 24
+    },
+    {
+     "domain": "visual",
+     "width": 32
+    },
+    {
+     "domain": "visual",
+     "width": 40
+    },
+    {
+     "domain": "visual",
+     "width": 48
+    }
+   ],
+   "used_here_for": [
+    "M"
+   ],
+   "this_task": {
+    "gap0/N'": {
+     "solution_exists": true,
+     "full_K": "1164494804749376",
+     "expected_programs_log10": 8.252154778987288
+    },
+    "gap0/N''": {
+     "solution_exists": true,
+     "full_K": "1164494804749376",
+     "expected_programs_log10": 12.01609848198369
+    },
+    "gap0/D'": {
+     "solution_exists": true,
+     "full_K": "1116634624",
+     "expected_programs_log10": 14.270381243831226
+    },
+    "gap1/N'": {
+     "solution_exists": true,
+     "full_K": "261654545280",
+     "expected_programs_log10": 11.900564050907525
+    },
+    "gap1/N''": {
+     "solution_exists": true,
+     "full_K": "261654545280",
+     "expected_programs_log10": 14.81669315150777
+    },
+    "gap1/D'": {
+     "solution_exists": true,
+     "full_K": "703488",
+     "expected_programs_log10": 17.47103502326732
+    }
+   }
+  },
+  {
+   "class": "raster-step",
+   "level": "parametric structural schema",
+   "semantic": "a position moved by one of offset_pool(W) = (6, 3W+3, 3, 3W, 9) bytes",
+   "schema": "research/visual-ladder/rung3_widgets.py:offset_pool (\u00a733 S1'/S2', \u00a764)",
+   "certified_vector": {
+    "s1": {
+     "back_a": 2,
+     "back_b": 3
+    },
+    "s2": {
+     "step_w": 2,
+     "step_h": 3
+    }
+   },
+   "observed": [
+    {
+     "domain": "visual",
+     "width": 16
+    },
+    {
+     "domain": "visual",
+     "width": 24
+    },
+    {
+     "domain": "visual",
+     "width": 32
+    },
+    {
+     "domain": "visual",
+     "width": 40
+    },
+    {
+     "domain": "visual",
+     "width": 48
+    }
+   ],
+   "used_here_for": [
+    "X1",
+    "X2",
+    "X3"
+   ],
+   "this_task": {
+    "gap0/N'": {
+     "solution_exists": true,
+     "full_K": "1164494804749376",
+     "expected_programs_log10": 8.252154778987288
+    },
+    "gap0/N''": {
+     "solution_exists": true,
+     "full_K": "1164494804749376",
+     "expected_programs_log10": 12.01609848198369
+    },
+    "gap0/D'": {
+     "solution_exists": true,
+     "full_K": "1116634624",
+     "expected_programs_log10": 14.270381243831226
+    },
+    "gap1/N'": {
+     "solution_exists": true,
+     "full_K": "261654545280",
+     "expected_programs_log10": 11.900564050907525
+    },
+    "gap1/N''": {
+     "solution_exists": true,
+     "full_K": "261654545280",
+     "expected_programs_log10": 14.81669315150777
+    },
+    "gap1/D'": {
+     "solution_exists": true,
+     "full_K": "703488",
+     "expected_programs_log10": 17.47103502326732
+    }
+   }
+  },
+  {
+   "class": "specialization-prior",
+   "level": "specialization policy / prior",
+   "semantic": "P(candidate survives | op, operand kinds, V, occurs, table, offset class)",
+   "fitted_on": {
+    "ADDR": 233,
+    "GROUND": 0,
+    "LIT": 424,
+    "STEP": 20,
+    "TRUTH": 48,
+    "certificates": 4
+   },
+   "sources": [
+    "s19_stage_a",
+    "s23_transform",
+    "s23_policy",
+    "s33"
+   ],
+   "this_task": {
+    "gap0/N'": {
+     "solution_exists": true,
+     "full_K": "1164494804749376",
+     "expected_programs_log10": 8.252154778987288
+    },
+    "gap0/N''": {
+     "solution_exists": true,
+     "full_K": "1164494804749376",
+     "expected_programs_log10": 12.01609848198369
+    },
+    "gap0/D'": {
+     "solution_exists": true,
+     "full_K": "1116634624",
+     "expected_programs_log10": 14.270381243831226
+    },
+    "gap1/N'": {
+     "solution_exists": true,
+     "full_K": "261654545280",
+     "expected_programs_log10": 11.900564050907525
+    },
+    "gap1/N''": {
+     "solution_exists": true,
+     "full_K": "261654545280",
+     "expected_programs_log10": 14.81669315150777
+    },
+    "gap1/D'": {
+     "solution_exists": true,
+     "full_K": "703488",
+     "expected_programs_log10": 17.47103502326732
+    }
+   }
+  }
+ ],
+ "note": "Evidence, not a score: no scalar abstraction score is computed (\u00a757)."
+}
