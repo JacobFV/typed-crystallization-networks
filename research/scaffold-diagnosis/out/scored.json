@@ -1,0 +1,2698 @@
+{
+ "summary": {
+  "n_cases": 23,
+  "n_failed_scaffolds": 18,
+  "n_solvable_controls": 5,
+  "independent_tasks": [
+   "bool:maj(a,b,c) xor maj(d,e,f)",
+   "lang:bal",
+   "lang:max2"
+  ],
+  "n_independent_tasks": 3,
+  "probe": {
+   "failed_cases": 18,
+   "correct": 2,
+   "declined": 14,
+   "wrong_not_declined": 2,
+   "fired_on_solvable_scaffolds": 5,
+   "solvable_cases": 5
+  },
+  "input_dependent_variant": {
+   "failed_cases": 18,
+   "correct": 0,
+   "declined": 18,
+   "wrong_not_declined": 0,
+   "fired_on_solvable_scaffolds": 5,
+   "solvable_cases": 5
+  },
+  "sweeponly": {
+   "failed_cases": 18,
+   "correct": 8,
+   "declined": 2,
+   "wrong_not_declined": 8,
+   "fired_on_solvable_scaffolds": 5,
+   "solvable_cases": 5
+  },
+  "F2_stage_d_fired_on_solvable_controls": [
+   "S3_counting_preaudit",
+   "C_bal_max",
+   "C_bal_min",
+   "C_max2_max",
+   "S2_tight_maj3"
+  ],
+  "F2_stage_d_input_dependent_fired_on_solvable_controls": [
+   "S3_counting_preaudit",
+   "C_bal_max",
+   "C_bal_min",
+   "C_max2_max",
+   "S2_tight_maj3"
+  ],
+  "F5_site_equals_terminal_node": "0/23",
+  "F1_sites_that_are_constant_nodes": 16,
+  "F1_failed_cases_where_d_did_not_fire": [
+   "R3_tight_wrong_module"
+  ]
+ },
+ "rows": [
+  {
+   "id": "R1_counting_postaudit",
+   "adapter": "lang",
+   "task": "bal",
+   "stream": "context_free_language",
+   "acc_fold": "add",
+   "second_fold": null,
+   "contains_solution": false,
+   "known_repair": [
+    "min",
+    "max"
+   ],
+   "repair_family_truth": "fold",
+   "defect_kind": "insufficient statistic: the accumulator is a bracket count",
+   "n_nodes": 114,
+   "n_fired_nodes": 58,
+   "d_fired": true,
+   "d_site": "m21",
+   "d_rule": "constant node",
+   "d_site_distinct": 1,
+   "d_fired_input_dependent": true,
+   "d_site_input_dependent": "m21",
+   "terminal_site": "acc21",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": 0.75,
+   "train_majority_constant": 0.5,
+   "probe_family": null,
+   "probe_operators": [],
+   "probe_train": null,
+   "probe_solves": [],
+   "probe_correct": false,
+   "probe_declined": true,
+   "probe_note": "no candidate proposed",
+   "input_dependent_family": null,
+   "input_dependent_operators": [],
+   "input_dependent_train": null,
+   "input_dependent_solves": [],
+   "input_dependent_correct": false,
+   "input_dependent_declined": true,
+   "input_dependent_note": "no candidate proposed",
+   "sweeponly_family": "fold",
+   "sweeponly_operators": [
+    "max",
+    "min"
+   ],
+   "sweeponly_train": 1.0,
+   "sweeponly_solves": [
+    "max",
+    "min"
+   ],
+   "sweeponly_correct": true,
+   "sweeponly_declined": false,
+   "sweeponly_note": "",
+   "b_random": {
+    "probe:swap": {
+     "n_candidates": 0,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": null
+    },
+    "probe:fold": {
+     "n_candidates": 0,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": null
+    },
+    "input_dependent:swap": {
+     "n_candidates": 0,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": null
+    },
+    "input_dependent:fold": {
+     "n_candidates": 0,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": null
+    },
+    "sweeponly:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "sweeponly:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    }
+   },
+   "heldout_of_prediction": {},
+   "heldout_of_sweeponly": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "S3_counting_preaudit",
+   "adapter": "lang",
+   "task": "bal",
+   "stream": "none",
+   "acc_fold": "add",
+   "second_fold": null,
+   "contains_solution": true,
+   "known_repair": [],
+   "repair_family_truth": null,
+   "defect_kind": null,
+   "n_nodes": 84,
+   "n_fired_nodes": 42,
+   "d_fired": true,
+   "d_site": "m15",
+   "d_rule": "constant node",
+   "d_site_distinct": 1,
+   "d_fired_input_dependent": true,
+   "d_site_input_dependent": "m15",
+   "terminal_site": "acc15",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": 1.0,
+   "train_majority_constant": 0.625,
+   "probe_family": null,
+   "probe_operators": [],
+   "probe_train": null,
+   "probe_solves": [],
+   "probe_correct": null,
+   "probe_declined": null,
+   "probe_note": "solvable scaffold: no repair is the right answer",
+   "input_dependent_family": null,
+   "input_dependent_operators": [],
+   "input_dependent_train": null,
+   "input_dependent_solves": [],
+   "input_dependent_correct": null,
+   "input_dependent_declined": null,
+   "input_dependent_note": "solvable scaffold: no repair is the right answer",
+   "sweeponly_family": "swap",
+   "sweeponly_operators": [
+    "add",
+    "sub"
+   ],
+   "sweeponly_train": 1.0,
+   "sweeponly_solves": [
+    "add",
+    "sub"
+   ],
+   "sweeponly_correct": null,
+   "sweeponly_declined": null,
+   "sweeponly_note": "solvable scaffold: no repair is the right answer",
+   "b_random": {
+    "probe:swap": {
+     "n_candidates": 0,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": null
+    },
+    "probe:fold": {
+     "n_candidates": 0,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": null
+    },
+    "input_dependent:swap": {
+     "n_candidates": 0,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": null
+    },
+    "input_dependent:fold": {
+     "n_candidates": 0,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": null
+    },
+    "sweeponly:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "sweeponly:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 5,
+     "p_uniform_draw_repairs": 0.5555555555555556
+    }
+   },
+   "heldout_of_prediction": {},
+   "heldout_of_sweeponly": {
+    "add": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5666666666666667,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 0.9986187845303868,
+      "n": 724,
+      "majority_constant": 0.5483425414364641,
+      "random": 0.5
+     }
+    },
+    "sub": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5666666666666667,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 724,
+      "majority_constant": 0.5483425414364641,
+      "random": 0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "C_bal_add",
+   "adapter": "lang",
+   "task": "bal",
+   "stream": "context_free_language",
+   "acc_fold": "add",
+   "second_fold": "add",
+   "contains_solution": false,
+   "known_repair": [
+    "min",
+    "max"
+   ],
+   "repair_family_truth": "swap",
+   "defect_kind": "fold hole pinned to `add`",
+   "n_nodes": 138,
+   "n_fired_nodes": 57,
+   "d_fired": true,
+   "d_site": "total_ok",
+   "d_rule": "constant node",
+   "d_site_distinct": 1,
+   "d_fired_input_dependent": true,
+   "d_site_input_dependent": "total_ok",
+   "terminal_site": "lo21",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": 0.75,
+   "train_majority_constant": 0.5,
+   "probe_family": null,
+   "probe_operators": [],
+   "probe_train": null,
+   "probe_solves": [],
+   "probe_correct": false,
+   "probe_declined": true,
+   "probe_note": "no candidate proposed",
+   "input_dependent_family": null,
+   "input_dependent_operators": [],
+   "input_dependent_train": null,
+   "input_dependent_solves": [],
+   "input_dependent_correct": false,
+   "input_dependent_declined": true,
+   "input_dependent_note": "no candidate proposed",
+   "sweeponly_family": "swap",
+   "sweeponly_operators": [
+    "max",
+    "min"
+   ],
+   "sweeponly_train": 1.0,
+   "sweeponly_solves": [
+    "max",
+    "min"
+   ],
+   "sweeponly_correct": true,
+   "sweeponly_declined": false,
+   "sweeponly_note": "",
+   "b_random": {
+    "probe:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "probe:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "sweeponly:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "sweeponly:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    }
+   },
+   "heldout_of_prediction": {},
+   "heldout_of_sweeponly": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "C_bal_idiv",
+   "adapter": "lang",
+   "task": "bal",
+   "stream": "context_free_language",
+   "acc_fold": "add",
+   "second_fold": "idiv",
+   "contains_solution": false,
+   "known_repair": [
+    "min",
+    "max"
+   ],
+   "repair_family_truth": "swap",
+   "defect_kind": "fold hole pinned to `idiv`",
+   "n_nodes": null,
+   "n_fired_nodes": null,
+   "d_fired": true,
+   "d_site": "lo0",
+   "d_rule": "D0 no usable member",
+   "d_site_distinct": null,
+   "d_fired_input_dependent": null,
+   "d_site_input_dependent": null,
+   "terminal_site": "lo21",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": null,
+   "train_majority_constant": 0.5,
+   "probe_family": "swap",
+   "probe_operators": [
+    "max",
+    "min"
+   ],
+   "probe_train": 1.0,
+   "probe_solves": [
+    "max",
+    "min"
+   ],
+   "probe_correct": true,
+   "probe_declined": false,
+   "probe_note": "",
+   "input_dependent_family": null,
+   "input_dependent_operators": [],
+   "input_dependent_train": null,
+   "input_dependent_solves": [],
+   "input_dependent_correct": false,
+   "input_dependent_declined": true,
+   "input_dependent_note": "no candidate proposed",
+   "sweeponly_family": "swap",
+   "sweeponly_operators": [
+    "max",
+    "min"
+   ],
+   "sweeponly_train": 1.0,
+   "sweeponly_solves": [
+    "max",
+    "min"
+   ],
+   "sweeponly_correct": true,
+   "sweeponly_declined": false,
+   "sweeponly_note": "",
+   "b_random": {
+    "probe:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "probe:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "sweeponly:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "sweeponly:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    }
+   },
+   "heldout_of_prediction": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    }
+   },
+   "heldout_of_sweeponly": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "C_bal_max",
+   "adapter": "lang",
+   "task": "bal",
+   "stream": "context_free_language",
+   "acc_fold": "add",
+   "second_fold": "max",
+   "contains_solution": true,
+   "known_repair": [],
+   "repair_family_truth": null,
+   "defect_kind": null,
+   "n_nodes": 138,
+   "n_fired_nodes": 61,
+   "d_fired": true,
+   "d_site": "total_ok",
+   "d_rule": "constant node",
+   "d_site_distinct": 1,
+   "d_fired_input_dependent": true,
+   "d_site_input_dependent": "total_ok",
+   "terminal_site": "lo21",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": 1.0,
+   "train_majority_constant": 0.5,
+   "probe_family": null,
+   "probe_operators": [],
+   "probe_train": null,
+   "probe_solves": [],
+   "probe_correct": null,
+   "probe_declined": null,
+   "probe_note": "solvable scaffold: no repair is the right answer",
+   "input_dependent_family": null,
+   "input_dependent_operators": [],
+   "input_dependent_train": null,
+   "input_dependent_solves": [],
+   "input_dependent_correct": null,
+   "input_dependent_declined": null,
+   "input_dependent_note": "solvable scaffold: no repair is the right answer",
+   "sweeponly_family": "swap",
+   "sweeponly_operators": [
+    "max",
+    "min"
+   ],
+   "sweeponly_train": 1.0,
+   "sweeponly_solves": [
+    "max",
+    "min"
+   ],
+   "sweeponly_correct": null,
+   "sweeponly_declined": null,
+   "sweeponly_note": "solvable scaffold: no repair is the right answer",
+   "b_random": {
+    "probe:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "probe:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "sweeponly:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "sweeponly:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    }
+   },
+   "heldout_of_prediction": {},
+   "heldout_of_sweeponly": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "C_bal_min",
+   "adapter": "lang",
+   "task": "bal",
+   "stream": "context_free_language",
+   "acc_fold": "add",
+   "second_fold": "min",
+   "contains_solution": true,
+   "known_repair": [],
+   "repair_family_truth": null,
+   "defect_kind": null,
+   "n_nodes": 138,
+   "n_fired_nodes": 61,
+   "d_fired": true,
+   "d_site": "total_ok",
+   "d_rule": "constant node",
+   "d_site_distinct": 1,
+   "d_fired_input_dependent": true,
+   "d_site_input_dependent": "total_ok",
+   "terminal_site": "lo21",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": 1.0,
+   "train_majority_constant": 0.5,
+   "probe_family": null,
+   "probe_operators": [],
+   "probe_train": null,
+   "probe_solves": [],
+   "probe_correct": null,
+   "probe_declined": null,
+   "probe_note": "solvable scaffold: no repair is the right answer",
+   "input_dependent_family": null,
+   "input_dependent_operators": [],
+   "input_dependent_train": null,
+   "input_dependent_solves": [],
+   "input_dependent_correct": null,
+   "input_dependent_declined": null,
+   "input_dependent_note": "solvable scaffold: no repair is the right answer",
+   "sweeponly_family": "swap",
+   "sweeponly_operators": [
+    "max",
+    "min"
+   ],
+   "sweeponly_train": 1.0,
+   "sweeponly_solves": [
+    "max",
+    "min"
+   ],
+   "sweeponly_correct": null,
+   "sweeponly_declined": null,
+   "sweeponly_note": "solvable scaffold: no repair is the right answer",
+   "b_random": {
+    "probe:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "probe:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "sweeponly:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "sweeponly:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    }
+   },
+   "heldout_of_prediction": {},
+   "heldout_of_sweeponly": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "C_bal_mod",
+   "adapter": "lang",
+   "task": "bal",
+   "stream": "context_free_language",
+   "acc_fold": "add",
+   "second_fold": "mod",
+   "contains_solution": false,
+   "known_repair": [
+    "min",
+    "max"
+   ],
+   "repair_family_truth": "swap",
+   "defect_kind": "fold hole pinned to `mod`",
+   "n_nodes": null,
+   "n_fired_nodes": null,
+   "d_fired": true,
+   "d_site": "lo0",
+   "d_rule": "D0 no usable member",
+   "d_site_distinct": null,
+   "d_fired_input_dependent": null,
+   "d_site_input_dependent": null,
+   "terminal_site": "lo21",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": null,
+   "train_majority_constant": 0.5,
+   "probe_family": "swap",
+   "probe_operators": [
+    "max",
+    "min"
+   ],
+   "probe_train": 1.0,
+   "probe_solves": [
+    "max",
+    "min"
+   ],
+   "probe_correct": true,
+   "probe_declined": false,
+   "probe_note": "",
+   "input_dependent_family": null,
+   "input_dependent_operators": [],
+   "input_dependent_train": null,
+   "input_dependent_solves": [],
+   "input_dependent_correct": false,
+   "input_dependent_declined": true,
+   "input_dependent_note": "no candidate proposed",
+   "sweeponly_family": "swap",
+   "sweeponly_operators": [
+    "max",
+    "min"
+   ],
+   "sweeponly_train": 1.0,
+   "sweeponly_solves": [
+    "max",
+    "min"
+   ],
+   "sweeponly_correct": true,
+   "sweeponly_declined": false,
+   "sweeponly_note": "",
+   "b_random": {
+    "probe:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "probe:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "sweeponly:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "sweeponly:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    }
+   },
+   "heldout_of_prediction": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    }
+   },
+   "heldout_of_sweeponly": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "C_bal_mul",
+   "adapter": "lang",
+   "task": "bal",
+   "stream": "context_free_language",
+   "acc_fold": "add",
+   "second_fold": "mul",
+   "contains_solution": false,
+   "known_repair": [
+    "min",
+    "max"
+   ],
+   "repair_family_truth": "swap",
+   "defect_kind": "fold hole pinned to `mul`",
+   "n_nodes": 138,
+   "n_fired_nodes": 81,
+   "d_fired": true,
+   "d_site": "min_ok",
+   "d_rule": "constant node",
+   "d_site_distinct": 1,
+   "d_fired_input_dependent": true,
+   "d_site_input_dependent": "min_ok",
+   "terminal_site": "lo21",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": 0.75,
+   "train_majority_constant": 0.5,
+   "probe_family": null,
+   "probe_operators": [],
+   "probe_train": null,
+   "probe_solves": [],
+   "probe_correct": false,
+   "probe_declined": true,
+   "probe_note": "no candidate proposed",
+   "input_dependent_family": null,
+   "input_dependent_operators": [],
+   "input_dependent_train": null,
+   "input_dependent_solves": [],
+   "input_dependent_correct": false,
+   "input_dependent_declined": true,
+   "input_dependent_note": "no candidate proposed",
+   "sweeponly_family": "swap",
+   "sweeponly_operators": [
+    "max",
+    "min"
+   ],
+   "sweeponly_train": 1.0,
+   "sweeponly_solves": [
+    "max",
+    "min"
+   ],
+   "sweeponly_correct": true,
+   "sweeponly_declined": false,
+   "sweeponly_note": "",
+   "b_random": {
+    "probe:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "probe:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "sweeponly:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "sweeponly:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    }
+   },
+   "heldout_of_prediction": {},
+   "heldout_of_sweeponly": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "C_bal_shl",
+   "adapter": "lang",
+   "task": "bal",
+   "stream": "context_free_language",
+   "acc_fold": "add",
+   "second_fold": "shl",
+   "contains_solution": false,
+   "known_repair": [
+    "min",
+    "max"
+   ],
+   "repair_family_truth": "swap",
+   "defect_kind": "fold hole pinned to `shl`",
+   "n_nodes": 138,
+   "n_fired_nodes": 81,
+   "d_fired": true,
+   "d_site": "min_ok",
+   "d_rule": "constant node",
+   "d_site_distinct": 1,
+   "d_fired_input_dependent": true,
+   "d_site_input_dependent": "min_ok",
+   "terminal_site": "lo21",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": 0.75,
+   "train_majority_constant": 0.5,
+   "probe_family": null,
+   "probe_operators": [],
+   "probe_train": null,
+   "probe_solves": [],
+   "probe_correct": false,
+   "probe_declined": true,
+   "probe_note": "no candidate proposed",
+   "input_dependent_family": null,
+   "input_dependent_operators": [],
+   "input_dependent_train": null,
+   "input_dependent_solves": [],
+   "input_dependent_correct": false,
+   "input_dependent_declined": true,
+   "input_dependent_note": "no candidate proposed",
+   "sweeponly_family": "swap",
+   "sweeponly_operators": [
+    "max",
+    "min"
+   ],
+   "sweeponly_train": 1.0,
+   "sweeponly_solves": [
+    "max",
+    "min"
+   ],
+   "sweeponly_correct": true,
+   "sweeponly_declined": false,
+   "sweeponly_note": "",
+   "b_random": {
+    "probe:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "probe:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "sweeponly:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "sweeponly:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    }
+   },
+   "heldout_of_prediction": {},
+   "heldout_of_sweeponly": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "C_bal_shr",
+   "adapter": "lang",
+   "task": "bal",
+   "stream": "context_free_language",
+   "acc_fold": "add",
+   "second_fold": "shr",
+   "contains_solution": false,
+   "known_repair": [
+    "min",
+    "max"
+   ],
+   "repair_family_truth": "swap",
+   "defect_kind": "fold hole pinned to `shr`",
+   "n_nodes": 138,
+   "n_fired_nodes": 81,
+   "d_fired": true,
+   "d_site": "min_ok",
+   "d_rule": "constant node",
+   "d_site_distinct": 1,
+   "d_fired_input_dependent": true,
+   "d_site_input_dependent": "min_ok",
+   "terminal_site": "lo21",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": 0.75,
+   "train_majority_constant": 0.5,
+   "probe_family": null,
+   "probe_operators": [],
+   "probe_train": null,
+   "probe_solves": [],
+   "probe_correct": false,
+   "probe_declined": true,
+   "probe_note": "no candidate proposed",
+   "input_dependent_family": null,
+   "input_dependent_operators": [],
+   "input_dependent_train": null,
+   "input_dependent_solves": [],
+   "input_dependent_correct": false,
+   "input_dependent_declined": true,
+   "input_dependent_note": "no candidate proposed",
+   "sweeponly_family": "swap",
+   "sweeponly_operators": [
+    "max",
+    "min"
+   ],
+   "sweeponly_train": 1.0,
+   "sweeponly_solves": [
+    "max",
+    "min"
+   ],
+   "sweeponly_correct": true,
+   "sweeponly_declined": false,
+   "sweeponly_note": "",
+   "b_random": {
+    "probe:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "probe:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "sweeponly:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "sweeponly:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    }
+   },
+   "heldout_of_prediction": {},
+   "heldout_of_sweeponly": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "C_bal_sub",
+   "adapter": "lang",
+   "task": "bal",
+   "stream": "context_free_language",
+   "acc_fold": "add",
+   "second_fold": "sub",
+   "contains_solution": false,
+   "known_repair": [
+    "min",
+    "max"
+   ],
+   "repair_family_truth": "swap",
+   "defect_kind": "fold hole pinned to `sub`",
+   "n_nodes": 138,
+   "n_fired_nodes": 57,
+   "d_fired": true,
+   "d_site": "total_ok",
+   "d_rule": "constant node",
+   "d_site_distinct": 1,
+   "d_fired_input_dependent": true,
+   "d_site_input_dependent": "total_ok",
+   "terminal_site": "lo21",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": 0.75,
+   "train_majority_constant": 0.5,
+   "probe_family": null,
+   "probe_operators": [],
+   "probe_train": null,
+   "probe_solves": [],
+   "probe_correct": false,
+   "probe_declined": true,
+   "probe_note": "no candidate proposed",
+   "input_dependent_family": null,
+   "input_dependent_operators": [],
+   "input_dependent_train": null,
+   "input_dependent_solves": [],
+   "input_dependent_correct": false,
+   "input_dependent_declined": true,
+   "input_dependent_note": "no candidate proposed",
+   "sweeponly_family": "swap",
+   "sweeponly_operators": [
+    "max",
+    "min"
+   ],
+   "sweeponly_train": 1.0,
+   "sweeponly_solves": [
+    "max",
+    "min"
+   ],
+   "sweeponly_correct": true,
+   "sweeponly_declined": false,
+   "sweeponly_note": "",
+   "b_random": {
+    "probe:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "probe:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "sweeponly:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "sweeponly:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    }
+   },
+   "heldout_of_prediction": {},
+   "heldout_of_sweeponly": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.5333333333333333,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.5261932479627474,
+      "random": 0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "C_max2_add",
+   "adapter": "lang",
+   "task": "max2",
+   "stream": "context_free_language",
+   "acc_fold": "add",
+   "second_fold": "add",
+   "contains_solution": false,
+   "known_repair": [
+    "max"
+   ],
+   "repair_family_truth": "swap",
+   "defect_kind": "fold hole pinned to `add`",
+   "n_nodes": 138,
+   "n_fired_nodes": 58,
+   "d_fired": true,
+   "d_site": "total_ok",
+   "d_rule": "constant node",
+   "d_site_distinct": 1,
+   "d_fired_input_dependent": true,
+   "d_site_input_dependent": "total_ok",
+   "terminal_site": "lo21",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": 0.9583333333333334,
+   "train_majority_constant": 0.7083333333333334,
+   "probe_family": null,
+   "probe_operators": [],
+   "probe_train": null,
+   "probe_solves": [],
+   "probe_correct": false,
+   "probe_declined": true,
+   "probe_note": "no candidate proposed",
+   "input_dependent_family": null,
+   "input_dependent_operators": [],
+   "input_dependent_train": null,
+   "input_dependent_solves": [],
+   "input_dependent_correct": false,
+   "input_dependent_declined": true,
+   "input_dependent_note": "no candidate proposed",
+   "sweeponly_family": "swap",
+   "sweeponly_operators": [
+    "max",
+    "min"
+   ],
+   "sweeponly_train": 1.0,
+   "sweeponly_solves": [
+    "max",
+    "min"
+   ],
+   "sweeponly_correct": false,
+   "sweeponly_declined": false,
+   "sweeponly_note": "",
+   "b_random": {
+    "probe:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "probe:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "sweeponly:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "sweeponly:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    }
+   },
+   "heldout_of_prediction": {},
+   "heldout_of_sweeponly": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.675,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 0.8265424912689173,
+      "n": 859,
+      "majority_constant": 0.7334109429569267,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.675,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.7334109429569267,
+      "random": 0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "C_max2_idiv",
+   "adapter": "lang",
+   "task": "max2",
+   "stream": "context_free_language",
+   "acc_fold": "add",
+   "second_fold": "idiv",
+   "contains_solution": false,
+   "known_repair": [
+    "max"
+   ],
+   "repair_family_truth": "swap",
+   "defect_kind": "fold hole pinned to `idiv`",
+   "n_nodes": null,
+   "n_fired_nodes": null,
+   "d_fired": true,
+   "d_site": "lo0",
+   "d_rule": "D0 no usable member",
+   "d_site_distinct": null,
+   "d_fired_input_dependent": null,
+   "d_site_input_dependent": null,
+   "terminal_site": "lo21",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": null,
+   "train_majority_constant": 0.7083333333333334,
+   "probe_family": "swap",
+   "probe_operators": [
+    "max",
+    "min"
+   ],
+   "probe_train": 1.0,
+   "probe_solves": [
+    "max",
+    "min"
+   ],
+   "probe_correct": false,
+   "probe_declined": false,
+   "probe_note": "",
+   "input_dependent_family": null,
+   "input_dependent_operators": [],
+   "input_dependent_train": null,
+   "input_dependent_solves": [],
+   "input_dependent_correct": false,
+   "input_dependent_declined": true,
+   "input_dependent_note": "no candidate proposed",
+   "sweeponly_family": "swap",
+   "sweeponly_operators": [
+    "max",
+    "min"
+   ],
+   "sweeponly_train": 1.0,
+   "sweeponly_solves": [
+    "max",
+    "min"
+   ],
+   "sweeponly_correct": false,
+   "sweeponly_declined": false,
+   "sweeponly_note": "",
+   "b_random": {
+    "probe:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "probe:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "sweeponly:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "sweeponly:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    }
+   },
+   "heldout_of_prediction": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.675,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 0.8265424912689173,
+      "n": 859,
+      "majority_constant": 0.7334109429569267,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.675,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.7334109429569267,
+      "random": 0.5
+     }
+    }
+   },
+   "heldout_of_sweeponly": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.675,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 0.8265424912689173,
+      "n": 859,
+      "majority_constant": 0.7334109429569267,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.675,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.7334109429569267,
+      "random": 0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "C_max2_max",
+   "adapter": "lang",
+   "task": "max2",
+   "stream": "context_free_language",
+   "acc_fold": "add",
+   "second_fold": "max",
+   "contains_solution": true,
+   "known_repair": [],
+   "repair_family_truth": null,
+   "defect_kind": null,
+   "n_nodes": 138,
+   "n_fired_nodes": 56,
+   "d_fired": true,
+   "d_site": "total_ok",
+   "d_rule": "constant node",
+   "d_site_distinct": 1,
+   "d_fired_input_dependent": true,
+   "d_site_input_dependent": "total_ok",
+   "terminal_site": "lo21",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": 1.0,
+   "train_majority_constant": 0.7083333333333334,
+   "probe_family": null,
+   "probe_operators": [],
+   "probe_train": null,
+   "probe_solves": [],
+   "probe_correct": null,
+   "probe_declined": null,
+   "probe_note": "solvable scaffold: no repair is the right answer",
+   "input_dependent_family": null,
+   "input_dependent_operators": [],
+   "input_dependent_train": null,
+   "input_dependent_solves": [],
+   "input_dependent_correct": null,
+   "input_dependent_declined": null,
+   "input_dependent_note": "solvable scaffold: no repair is the right answer",
+   "sweeponly_family": "swap",
+   "sweeponly_operators": [
+    "max",
+    "min"
+   ],
+   "sweeponly_train": 1.0,
+   "sweeponly_solves": [
+    "max",
+    "min"
+   ],
+   "sweeponly_correct": null,
+   "sweeponly_declined": null,
+   "sweeponly_note": "solvable scaffold: no repair is the right answer",
+   "b_random": {
+    "probe:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "probe:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "sweeponly:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "sweeponly:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    }
+   },
+   "heldout_of_prediction": {},
+   "heldout_of_sweeponly": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.675,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 0.8265424912689173,
+      "n": 859,
+      "majority_constant": 0.7334109429569267,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.675,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.7334109429569267,
+      "random": 0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "C_max2_min",
+   "adapter": "lang",
+   "task": "max2",
+   "stream": "context_free_language",
+   "acc_fold": "add",
+   "second_fold": "min",
+   "contains_solution": false,
+   "known_repair": [
+    "max"
+   ],
+   "repair_family_truth": "swap",
+   "defect_kind": "fold hole pinned to `min`",
+   "n_nodes": 138,
+   "n_fired_nodes": 56,
+   "d_fired": true,
+   "d_site": "total_ok",
+   "d_rule": "constant node",
+   "d_site_distinct": 1,
+   "d_fired_input_dependent": true,
+   "d_site_input_dependent": "total_ok",
+   "terminal_site": "lo21",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": 1.0,
+   "train_majority_constant": 0.7083333333333334,
+   "probe_family": null,
+   "probe_operators": [],
+   "probe_train": null,
+   "probe_solves": [],
+   "probe_correct": false,
+   "probe_declined": true,
+   "probe_note": "no candidate proposed",
+   "input_dependent_family": null,
+   "input_dependent_operators": [],
+   "input_dependent_train": null,
+   "input_dependent_solves": [],
+   "input_dependent_correct": false,
+   "input_dependent_declined": true,
+   "input_dependent_note": "no candidate proposed",
+   "sweeponly_family": "swap",
+   "sweeponly_operators": [
+    "max",
+    "min"
+   ],
+   "sweeponly_train": 1.0,
+   "sweeponly_solves": [
+    "max",
+    "min"
+   ],
+   "sweeponly_correct": false,
+   "sweeponly_declined": false,
+   "sweeponly_note": "",
+   "b_random": {
+    "probe:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "probe:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "sweeponly:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "sweeponly:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    }
+   },
+   "heldout_of_prediction": {},
+   "heldout_of_sweeponly": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.675,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 0.8265424912689173,
+      "n": 859,
+      "majority_constant": 0.7334109429569267,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.675,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.7334109429569267,
+      "random": 0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "C_max2_mod",
+   "adapter": "lang",
+   "task": "max2",
+   "stream": "context_free_language",
+   "acc_fold": "add",
+   "second_fold": "mod",
+   "contains_solution": false,
+   "known_repair": [
+    "max"
+   ],
+   "repair_family_truth": "swap",
+   "defect_kind": "fold hole pinned to `mod`",
+   "n_nodes": null,
+   "n_fired_nodes": null,
+   "d_fired": true,
+   "d_site": "lo0",
+   "d_rule": "D0 no usable member",
+   "d_site_distinct": null,
+   "d_fired_input_dependent": null,
+   "d_site_input_dependent": null,
+   "terminal_site": "lo21",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": null,
+   "train_majority_constant": 0.7083333333333334,
+   "probe_family": "swap",
+   "probe_operators": [
+    "max",
+    "min"
+   ],
+   "probe_train": 1.0,
+   "probe_solves": [
+    "max",
+    "min"
+   ],
+   "probe_correct": false,
+   "probe_declined": false,
+   "probe_note": "",
+   "input_dependent_family": null,
+   "input_dependent_operators": [],
+   "input_dependent_train": null,
+   "input_dependent_solves": [],
+   "input_dependent_correct": false,
+   "input_dependent_declined": true,
+   "input_dependent_note": "no candidate proposed",
+   "sweeponly_family": "swap",
+   "sweeponly_operators": [
+    "max",
+    "min"
+   ],
+   "sweeponly_train": 1.0,
+   "sweeponly_solves": [
+    "max",
+    "min"
+   ],
+   "sweeponly_correct": false,
+   "sweeponly_declined": false,
+   "sweeponly_note": "",
+   "b_random": {
+    "probe:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "probe:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "sweeponly:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "sweeponly:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    }
+   },
+   "heldout_of_prediction": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.675,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 0.8265424912689173,
+      "n": 859,
+      "majority_constant": 0.7334109429569267,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.675,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.7334109429569267,
+      "random": 0.5
+     }
+    }
+   },
+   "heldout_of_sweeponly": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.675,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 0.8265424912689173,
+      "n": 859,
+      "majority_constant": 0.7334109429569267,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.675,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.7334109429569267,
+      "random": 0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "C_max2_mul",
+   "adapter": "lang",
+   "task": "max2",
+   "stream": "context_free_language",
+   "acc_fold": "add",
+   "second_fold": "mul",
+   "contains_solution": false,
+   "known_repair": [
+    "max"
+   ],
+   "repair_family_truth": "swap",
+   "defect_kind": "fold hole pinned to `mul`",
+   "n_nodes": 138,
+   "n_fired_nodes": 78,
+   "d_fired": true,
+   "d_site": "min_ok",
+   "d_rule": "constant node",
+   "d_site_distinct": 1,
+   "d_fired_input_dependent": true,
+   "d_site_input_dependent": "min_ok",
+   "terminal_site": "lo21",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": 0.8333333333333334,
+   "train_majority_constant": 0.7083333333333334,
+   "probe_family": null,
+   "probe_operators": [],
+   "probe_train": null,
+   "probe_solves": [],
+   "probe_correct": false,
+   "probe_declined": true,
+   "probe_note": "no candidate proposed",
+   "input_dependent_family": null,
+   "input_dependent_operators": [],
+   "input_dependent_train": null,
+   "input_dependent_solves": [],
+   "input_dependent_correct": false,
+   "input_dependent_declined": true,
+   "input_dependent_note": "no candidate proposed",
+   "sweeponly_family": "swap",
+   "sweeponly_operators": [
+    "max",
+    "min"
+   ],
+   "sweeponly_train": 1.0,
+   "sweeponly_solves": [
+    "max",
+    "min"
+   ],
+   "sweeponly_correct": false,
+   "sweeponly_declined": false,
+   "sweeponly_note": "",
+   "b_random": {
+    "probe:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "probe:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "sweeponly:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "sweeponly:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    }
+   },
+   "heldout_of_prediction": {},
+   "heldout_of_sweeponly": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.675,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 0.8265424912689173,
+      "n": 859,
+      "majority_constant": 0.7334109429569267,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.675,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.7334109429569267,
+      "random": 0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "C_max2_shl",
+   "adapter": "lang",
+   "task": "max2",
+   "stream": "context_free_language",
+   "acc_fold": "add",
+   "second_fold": "shl",
+   "contains_solution": false,
+   "known_repair": [
+    "max"
+   ],
+   "repair_family_truth": "swap",
+   "defect_kind": "fold hole pinned to `shl`",
+   "n_nodes": 138,
+   "n_fired_nodes": 124,
+   "d_fired": true,
+   "d_site": "answer",
+   "d_rule": "constant node",
+   "d_site_distinct": 1,
+   "d_fired_input_dependent": true,
+   "d_site_input_dependent": "answer",
+   "terminal_site": "lo21",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": 0.7083333333333334,
+   "train_majority_constant": 0.7083333333333334,
+   "probe_family": null,
+   "probe_operators": [],
+   "probe_train": null,
+   "probe_solves": [],
+   "probe_correct": false,
+   "probe_declined": true,
+   "probe_note": "no candidate proposed",
+   "input_dependent_family": null,
+   "input_dependent_operators": [],
+   "input_dependent_train": null,
+   "input_dependent_solves": [],
+   "input_dependent_correct": false,
+   "input_dependent_declined": true,
+   "input_dependent_note": "no candidate proposed",
+   "sweeponly_family": "swap",
+   "sweeponly_operators": [
+    "max",
+    "min"
+   ],
+   "sweeponly_train": 1.0,
+   "sweeponly_solves": [
+    "max",
+    "min"
+   ],
+   "sweeponly_correct": false,
+   "sweeponly_declined": false,
+   "sweeponly_note": "",
+   "b_random": {
+    "probe:swap": {
+     "n_candidates": 7,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "probe:fold": {
+     "n_candidates": 7,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:swap": {
+     "n_candidates": 7,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:fold": {
+     "n_candidates": 7,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "sweeponly:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "sweeponly:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    }
+   },
+   "heldout_of_prediction": {},
+   "heldout_of_sweeponly": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.675,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 0.8265424912689173,
+      "n": 859,
+      "majority_constant": 0.7334109429569267,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.675,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.7334109429569267,
+      "random": 0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "C_max2_shr",
+   "adapter": "lang",
+   "task": "max2",
+   "stream": "context_free_language",
+   "acc_fold": "add",
+   "second_fold": "shr",
+   "contains_solution": false,
+   "known_repair": [
+    "max"
+   ],
+   "repair_family_truth": "swap",
+   "defect_kind": "fold hole pinned to `shr`",
+   "n_nodes": 138,
+   "n_fired_nodes": 58,
+   "d_fired": true,
+   "d_site": "min_ok",
+   "d_rule": "constant node",
+   "d_site_distinct": 1,
+   "d_fired_input_dependent": true,
+   "d_site_input_dependent": "min_ok",
+   "terminal_site": "lo21",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": 0.7916666666666666,
+   "train_majority_constant": 0.7083333333333334,
+   "probe_family": null,
+   "probe_operators": [],
+   "probe_train": null,
+   "probe_solves": [],
+   "probe_correct": false,
+   "probe_declined": true,
+   "probe_note": "no candidate proposed",
+   "input_dependent_family": null,
+   "input_dependent_operators": [],
+   "input_dependent_train": null,
+   "input_dependent_solves": [],
+   "input_dependent_correct": false,
+   "input_dependent_declined": true,
+   "input_dependent_note": "no candidate proposed",
+   "sweeponly_family": "swap",
+   "sweeponly_operators": [
+    "max",
+    "min"
+   ],
+   "sweeponly_train": 1.0,
+   "sweeponly_solves": [
+    "max",
+    "min"
+   ],
+   "sweeponly_correct": false,
+   "sweeponly_declined": false,
+   "sweeponly_note": "",
+   "b_random": {
+    "probe:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "probe:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "sweeponly:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "sweeponly:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    }
+   },
+   "heldout_of_prediction": {},
+   "heldout_of_sweeponly": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.675,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 0.8265424912689173,
+      "n": 859,
+      "majority_constant": 0.7334109429569267,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.675,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.7334109429569267,
+      "random": 0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "C_max2_sub",
+   "adapter": "lang",
+   "task": "max2",
+   "stream": "context_free_language",
+   "acc_fold": "add",
+   "second_fold": "sub",
+   "contains_solution": false,
+   "known_repair": [
+    "max"
+   ],
+   "repair_family_truth": "swap",
+   "defect_kind": "fold hole pinned to `sub`",
+   "n_nodes": 138,
+   "n_fired_nodes": 57,
+   "d_fired": true,
+   "d_site": "total_ok",
+   "d_rule": "constant node",
+   "d_site_distinct": 1,
+   "d_fired_input_dependent": true,
+   "d_site_input_dependent": "total_ok",
+   "terminal_site": "lo21",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": 0.9583333333333334,
+   "train_majority_constant": 0.7083333333333334,
+   "probe_family": null,
+   "probe_operators": [],
+   "probe_train": null,
+   "probe_solves": [],
+   "probe_correct": false,
+   "probe_declined": true,
+   "probe_note": "no candidate proposed",
+   "input_dependent_family": null,
+   "input_dependent_operators": [],
+   "input_dependent_train": null,
+   "input_dependent_solves": [],
+   "input_dependent_correct": false,
+   "input_dependent_declined": true,
+   "input_dependent_note": "no candidate proposed",
+   "sweeponly_family": "swap",
+   "sweeponly_operators": [
+    "max",
+    "min"
+   ],
+   "sweeponly_train": 1.0,
+   "sweeponly_solves": [
+    "max",
+    "min"
+   ],
+   "sweeponly_correct": false,
+   "sweeponly_declined": false,
+   "sweeponly_note": "",
+   "b_random": {
+    "probe:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "probe:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:swap": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:fold": {
+     "n_candidates": 5,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "sweeponly:swap": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 2,
+     "p_uniform_draw_repairs": 0.2222222222222222
+    },
+    "sweeponly:fold": {
+     "n_candidates": 9,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    }
+   },
+   "heldout_of_prediction": {},
+   "heldout_of_sweeponly": {
+    "max": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.675,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 0.8265424912689173,
+      "n": 859,
+      "majority_constant": 0.7334109429569267,
+      "random": 0.5
+     }
+    },
+    "min": {
+     "heldout_seen_lengths": {
+      "accuracy": 1.0,
+      "n": 120,
+      "majority_constant": 0.675,
+      "random": 0.5
+     },
+     "heldout_unseen_lengths": {
+      "accuracy": 1.0,
+      "n": 859,
+      "majority_constant": 0.7334109429569267,
+      "random": 0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "R2_tight_flat",
+   "adapter": "bool",
+   "task": "maj(a,b,c) xor maj(d,e,f)",
+   "stream": "complete truth table (64 rows), no sampling",
+   "acc_fold": null,
+   "second_fold": null,
+   "contains_solution": false,
+   "known_repair": [
+    "MAJ3"
+   ],
+   "repair_family_truth": "module",
+   "defect_kind": "missing abstraction; three 2-input gates reach at most 4 of the 6 inputs, so no operator swap can repair it",
+   "n_nodes": 3,
+   "n_fired_nodes": 2,
+   "d_fired": true,
+   "d_site": "n2",
+   "d_rule": "zero label information",
+   "d_site_distinct": 2,
+   "d_fired_input_dependent": true,
+   "d_site_input_dependent": "n2",
+   "terminal_site": "y",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": 0.625,
+   "train_majority_constant": 0.5,
+   "probe_family": "swap",
+   "probe_operators": [
+    "and",
+    "eq",
+    "nand",
+    "nor",
+    "or",
+    "xnor",
+    "xor"
+   ],
+   "probe_train": 0.625,
+   "probe_solves": [],
+   "probe_correct": false,
+   "probe_declined": true,
+   "probe_note": "no candidate reaches train 1.000",
+   "input_dependent_family": "swap",
+   "input_dependent_operators": [
+    "and",
+    "eq",
+    "nand",
+    "nor",
+    "or",
+    "xnor",
+    "xor"
+   ],
+   "input_dependent_train": 0.625,
+   "input_dependent_solves": [],
+   "input_dependent_correct": false,
+   "input_dependent_declined": true,
+   "input_dependent_note": "no candidate reaches train 1.000",
+   "sweeponly_family": "swap",
+   "sweeponly_operators": [
+    "and",
+    "eq",
+    "or",
+    "xnor",
+    "xor"
+   ],
+   "sweeponly_train": 0.625,
+   "sweeponly_solves": [],
+   "sweeponly_correct": false,
+   "sweeponly_declined": true,
+   "sweeponly_note": "no candidate reaches train 1.000",
+   "b_random": {
+    "probe:swap": {
+     "n_candidates": 7,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:swap": {
+     "n_candidates": 7,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "sweeponly:swap": {
+     "n_candidates": 7,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    }
+   },
+   "heldout_of_prediction": {},
+   "heldout_of_sweeponly": {}
+  },
+  {
+   "id": "R3_tight_wrong_module",
+   "adapter": "bool",
+   "task": "maj(a,b,c) xor maj(d,e,f)",
+   "stream": "complete truth table (64 rows), no sampling",
+   "acc_fold": null,
+   "second_fold": null,
+   "contains_solution": false,
+   "known_repair": [
+    "MAJ3"
+   ],
+   "repair_family_truth": "module",
+   "defect_kind": "wrong module inherited",
+   "n_nodes": 3,
+   "n_fired_nodes": 0,
+   "d_fired": false,
+   "d_site": null,
+   "d_rule": null,
+   "d_site_distinct": null,
+   "d_fired_input_dependent": false,
+   "d_site_input_dependent": null,
+   "terminal_site": "y",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": 0.65625,
+   "train_majority_constant": 0.5,
+   "probe_family": null,
+   "probe_operators": [],
+   "probe_train": null,
+   "probe_solves": [],
+   "probe_correct": false,
+   "probe_declined": true,
+   "probe_note": "no candidate proposed",
+   "input_dependent_family": null,
+   "input_dependent_operators": [],
+   "input_dependent_train": null,
+   "input_dependent_solves": [],
+   "input_dependent_correct": false,
+   "input_dependent_declined": true,
+   "input_dependent_note": "no candidate proposed",
+   "sweeponly_family": "swap",
+   "sweeponly_operators": [
+    "xor"
+   ],
+   "sweeponly_train": 0.65625,
+   "sweeponly_solves": [],
+   "sweeponly_correct": false,
+   "sweeponly_declined": true,
+   "sweeponly_note": "no candidate reaches train 1.000",
+   "b_random": {
+    "sweeponly:swap": {
+     "n_candidates": 7,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    }
+   },
+   "heldout_of_prediction": {},
+   "heldout_of_sweeponly": {}
+  },
+  {
+   "id": "S2_tight_maj3",
+   "adapter": "bool",
+   "task": "maj(a,b,c) xor maj(d,e,f)",
+   "stream": "complete truth table (64 rows), no sampling",
+   "acc_fold": null,
+   "second_fold": null,
+   "contains_solution": true,
+   "known_repair": [],
+   "repair_family_truth": null,
+   "defect_kind": null,
+   "n_nodes": 3,
+   "n_fired_nodes": 2,
+   "d_fired": true,
+   "d_site": "n2",
+   "d_rule": "zero label information",
+   "d_site_distinct": 2,
+   "d_fired_input_dependent": true,
+   "d_site_input_dependent": "n2",
+   "terminal_site": "y",
+   "site_equals_terminal": false,
+   "best_train_accuracy_of_failed_scaffold": 1.0,
+   "train_majority_constant": 0.5,
+   "probe_family": "swap",
+   "probe_operators": [
+    "and",
+    "or"
+   ],
+   "probe_train": 0.75,
+   "probe_solves": [],
+   "probe_correct": null,
+   "probe_declined": null,
+   "probe_note": "solvable scaffold: no repair is the right answer",
+   "input_dependent_family": "swap",
+   "input_dependent_operators": [
+    "and",
+    "or"
+   ],
+   "input_dependent_train": 0.75,
+   "input_dependent_solves": [],
+   "input_dependent_correct": null,
+   "input_dependent_declined": null,
+   "input_dependent_note": "solvable scaffold: no repair is the right answer",
+   "sweeponly_family": "swap",
+   "sweeponly_operators": [
+    "xor"
+   ],
+   "sweeponly_train": 1.0,
+   "sweeponly_solves": [
+    "xor"
+   ],
+   "sweeponly_correct": null,
+   "sweeponly_declined": null,
+   "sweeponly_note": "solvable scaffold: no repair is the right answer",
+   "b_random": {
+    "probe:swap": {
+     "n_candidates": 7,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "input_dependent:swap": {
+     "n_candidates": 7,
+     "n_that_solve_on_train": 0,
+     "p_uniform_draw_repairs": 0.0
+    },
+    "sweeponly:swap": {
+     "n_candidates": 7,
+     "n_that_solve_on_train": 1,
+     "p_uniform_draw_repairs": 0.14285714285714285
+    }
+   },
+   "heldout_of_prediction": {},
+   "heldout_of_sweeponly": {}
+  }
+ ]
+}

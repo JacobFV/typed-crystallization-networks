@@ -6,7 +6,14 @@ the probe's commitment to a prediction is enforced by construction rather than b
 intention.  Every entry names where the answer comes from in the record.
 """
 from __future__ import annotations
+import json as _json, os as _os
 from cases import FOLDS
+
+# Addendum A2: the repair set for family C2 is decided by the exhaustive sweep in
+# `establish_c2.py`, written to `out/c2_answer.json` before `score.py` is run.
+_C2 = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), 'out', 'c2_answer.json')
+C2_SOLVING = (frozenset(_json.load(open(_C2))['folds_that_conform_on_train'])
+              if _os.path.exists(_C2) else frozenset(('add',)))
 
 TRUTH = {
     'R1_counting_postaudit': {
@@ -50,10 +57,29 @@ for _f in FOLDS:
         'repair_family': None if _f in ('min', 'max') else 'swap',
         'repair': [] if _f in ('min', 'max') else ['min', 'max'],
         'source': 'FINDINGS §47 Q3c, re-derived here'}
+    # ADDENDUM A1.  The pre-registration declared `max2`'s repair as {max} "by
+    # construction" and said the nine-fold sweep would establish it.  The sweep
+    # establishes {min, max}: with the step values sign-flipped, a running minimum
+    # of the negated prefix sums IS a running maximum of the prefix sums, so `min`
+    # conforms on 527 training members exactly as `max` does.  The declared answer
+    # was wrong; the enumeration is the authority and the correction is recorded
+    # in PREREGISTRATION.md (addendum A1) and in RESULTS.md.
     TRUTH[f'C_max2_{_f}'] = {
-        'contains_solution': _f == 'max',
-        'certificate': 'established here by the same exhaustive nine-fold sweep',
-        'defect_kind': None if _f == 'max' else f'fold hole pinned to `{_f}`',
-        'repair_family': None if _f == 'max' else 'swap',
-        'repair': [] if _f == 'max' else ['max'],
-        'source': 'construction: `ge 2` on a running maximum, plus the sweep'}
+        'contains_solution': _f in ('min', 'max'),
+        'certificate': 'exhaustive nine-fold sweep here: 527 conforming on '
+                       'training for each of min and max, 0 for the rest',
+        'defect_kind': None if _f in ('min', 'max') else f'fold hole pinned to `{_f}`',
+        'repair_family': None if _f in ('min', 'max') else 'swap',
+        'repair': [] if _f in ('min', 'max') else ['min', 'max'],
+        'source': 'the exhaustive sweep here; the pre-registered "{max} by '
+                  'construction" was wrong -- addendum A1'}
+    # ADDENDUM A2.  The defect in the FIRST accumulator, `second_fold` pinned to
+    # `min`.  The declared answer is whatever the exhaustive sweep returns, written
+    # to out/c2_answer.json before `score.py` is run against family C2.
+    TRUTH[f'C2_bal_{_f}'] = {
+        'contains_solution': _f in C2_SOLVING,
+        'certificate': 'exhaustive nine-fold sweep over the acc_fold hole here',
+        'defect_kind': None if _f in C2_SOLVING else f'acc hole pinned to `{_f}`',
+        'repair_family': None if _f in C2_SOLVING else 'swap',
+        'repair': [] if _f in C2_SOLVING else sorted(C2_SOLVING),
+        'source': 'established by enumeration in out/c2_answer.json'}

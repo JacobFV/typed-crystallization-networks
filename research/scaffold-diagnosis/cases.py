@@ -142,6 +142,11 @@ for _t in ('bal', 'max2'):
     for _f in FOLDS:
         CASES[f'C_{_t}_{_f}'] = _lang_case(
             f'C_{_t}_{_f}', 'add', _f, POSITIONS, common.STREAM_POST_AUDIT, _t)
+# Addendum A2: the defect moved to the FIRST accumulator, so that not every
+# failed language scaffold has the same correct answer.
+for _f in FOLDS:
+    CASES[f'C2_bal_{_f}'] = _lang_case(
+        f'C2_bal_{_f}', _f, 'min', POSITIONS, common.STREAM_POST_AUDIT, 'bal')
 CASES['R2_tight_flat'] = _bool_case('R2_tight_flat', 'arm1_none')
 CASES['R3_tight_wrong_module'] = _bool_case('R3_tight_wrong_module', 'arm4_wrong_authored')
 CASES['S2_tight_maj3'] = _bool_case('S2_tight_maj3', 'arm3_authored')

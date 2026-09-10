@@ -33,9 +33,11 @@ def opens_cache(eps, positions):
     return [sim2.opens(e, positions) for e in eps]
 
 
-def sweep(eps, labels, positions, opens, acc_fold='add', second_fold=None):
+def sweep(eps, labels, positions, opens, acc_fold='add', second_fold=None,
+          collect_conforming=False):
     """Decide the whole family on `eps`, in the scaffold's own enumeration order."""
     n = len(eps)
+    members = []
     full = (1 << n) - 1
     lab = mask(labels)
     two = second_fold is not None
@@ -63,7 +65,10 @@ def sweep(eps, labels, positions, opens, acc_fold='add', second_fold=None):
                             best_acc, best_member, tied = a, (ci, pi, mi, ti), 1
                         elif a == best_acc:
                             tied += 1
-                        conforming += (a == n)
+                        if a == n:
+                            conforming += 1
+                            if collect_conforming:
+                                members.append((ci, pi, mi, ti))
                 else:
                     fmask = [mask([sim2.rule(op, v, y) for _, y in vs]) for op, v in RULES]
                     for ti, tm in enumerate(tmask):
@@ -73,7 +78,10 @@ def sweep(eps, labels, positions, opens, acc_fold='add', second_fold=None):
                                 best_acc, best_member, tied = a, (ci, pi, mi, ti, fi), 1
                             elif a == best_acc:
                                 tied += 1
-                            conforming += (a == n)
+                            if a == n:
+                                conforming += 1
+                                if collect_conforming:
+                                    members.append((ci, pi, mi, ti, fi))
     space = len(SUB) * 5 * 5 * per_member
     return {'acc_fold': acc_fold, 'second_fold': second_fold,
             'space_size': space, 'evaluated': space, 'exhausted': True,
@@ -83,7 +91,8 @@ def sweep(eps, labels, positions, opens, acc_fold='add', second_fold=None):
             'members_tied_at_best_train': tied,
             'conforming_on_train': conforming,
             'best_member': list(best_member) if best_member else None,
-            'best_member_readable': _readable(best_member, two)}
+            'best_member_readable': _readable(best_member, two),
+            'conforming_members': members if collect_conforming else None}
 
 
 def _readable(m, two):

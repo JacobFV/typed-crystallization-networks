@@ -247,3 +247,58 @@ least two independent tasks with different correct answers.
   `lt`'s past 17, and §47 measured `symbols`' first-step gradient as exactly 0.0.
   No gradient arm is run here, and no claim about search is made where a dead
   surrogate is the available explanation.
+
+---
+
+# Addendum, written after the pre-registered arm ran and **before any arm below**
+
+`out/predictions.json` was committed at `66ad7fd` before `score.py` existed, so
+the pre-registered arm is closed and nothing below can change it.  Four things
+the first arm made necessary are recorded here rather than edited in silently.
+
+**A1 — a corrected answer for the constructed `max2` task, forced by
+enumeration, not by the probe.** The pre-registration declared `max2`'s known
+repair as `{max}` "fixed by construction", and said the nine-fold sweep would
+"establish it by enumeration rather than by assertion".  The sweep establishes
+`{min, max}`: with the step values sign-flipped (`plus=-1, minus=+1`) a running
+**minimum** of the negated prefix sums *is* a running maximum of the prefix
+sums, so `min` conforms too — 527 members on training, exactly as `max` does.
+The declared answer was wrong and is corrected to `{min, max}` in `answers.py`,
+with `C_max2_min` reclassified from a failed scaffold to a **solvable control**.
+The correction is recorded here, in `RESULTS.md`, and in the commit message; it
+comes from the exhaustive sweep, which is the authority, and it makes the case
+set *weaker*, not stronger, because both constructed tasks now have the same
+repair set.
+
+**A2 — a third case family, to restore answer diversity.** Because A1 collapses
+`bal` and `max2` onto the same repair `{min, max}`, every failed language
+scaffold so far has the same correct answer, and a probe that always said
+"`min` or `max`" would score perfectly for the wrong reason.  Family **C2**
+fixes that: the same template with the defect moved to the **first**
+accumulator — `acc_fold` ranging over the same nine core operators with
+`second_fold` pinned to `min`, on task `bal`.  Its expected repair is `{add}`
+(and possibly `sub`, which is `add` with the step values flipped); the sweep
+decides it, and whatever the sweep returns is the declared answer, stated before
+the probe is scored on it.  Nine more scaffolds, of which the solvable ones are
+further false-positive controls.
+
+**A3 — reproduce §47's own configuration, as verification.** The pre-registered
+Stage D selects the failed scaffold's **best member on the training episodes**.
+§47's Q3 table was computed at §45's *semantically honest* counting program
+(`c=101, plus=+1, minus=-1`), which is **not** the best-training member
+(`c=110`, train 0.75).  Arm A3 runs the identical Stage D at §47's member and
+reports whether `acc21` comes back constant with 0.0 bits, i.e. whether §47's
+recorded number reproduces.  This is verification of a recorded number, not a
+second chance for the probe: both arms are reported side by side and the
+pre-registered one is the one scored.
+
+**A4 — held-out spread across the conforming set.** §47 reported that the
+`reduce_min` tie set spread 0.9953–1.000 on held-out data while the failed
+counting family's tie set spread 0.4738–0.7031, and argued that this is what
+decides whether training can *act* on the sweep's answer.  A4 computes the same
+spread for every fold that conforms on training, on every task here, so that
+"conforms on 24 training episodes" is never reported as "solves the task".
+
+Falsification criteria F1–F5 are **unchanged**.  Family C2 is scored under the
+same rules, and A3 and A4 are reported as verification and as spread, never as
+the probe's score.
