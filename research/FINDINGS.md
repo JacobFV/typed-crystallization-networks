@@ -2811,6 +2811,12 @@ shape as §52's open problem and as `research/algorithm-resynthesis/DESIGN.md` �
 
 ## 54. A ranking objective that transfers — and it does not fix §41
 
+**[BOUNDED BY §57 — read that before citing this section.]** These numbers stand
+on the MAJ3 family and were independently re-derived there. On a second family
+(§57) the breadth-weighted objective **ties** the incumbent and the frequency
+baseline that helped 0 of 5 here helps on both bands. **The ranking result is
+family-specific.**
+
 `research/reuse-ranking/RESULTS.md`, branch `research/reuse-ranking` (`0a69617`),
 **not merged at time of writing**; `tcn/` and `generators/` untouched.
 `PREREGISTRATION.md` at `69da5f8` before any arm. §52 localised the defect to the
@@ -2991,4 +2997,66 @@ unexplained factor in it. It also relocates the work: the next gain is in
 `tcn/compile.py`'s emitter (guard elimination where the type system already
 proves the bound), not in the resynthesizer. That is a smaller, better-understood
 job than algorithm discovery.
+
+## 57. Second family: §52 replicates with a boundary condition, §54 does NOT — the frequency control flips
+
+`research/second-family/RESULTS.md`, branch `worktree-agent-a72857902ded2d05a`
+(`f3bb35c`), **not merged at time of writing**; `tcn/` and `generators/`
+untouched. `PREREGISTRATION.md` at `9737072` before any arm. §54's own closing
+caveat was *"one family, seven tasks — anecdote-strength on breadth."* This is
+the replication that decides it. Verified here from raw JSON.
+
+**The family is a fair test, not a rerun.** `W4(w,x,y,z) = (w⊕x)∧(y⊕z)` over five
+Boolean inputs — **arity 4** (not 3), non-monotone, non-threshold, hole-symmetry
+group of order 8 rather than all of S3, a 16-row pooling key. Seven in-family
+tasks, six pairings, one never mined, plus an off-family twin `X4` and two further
+controls. **All 164 enumerations exhausted**, every one `evaluated == space_size`,
+certificate `complete` — verified here across all 54 arm rows.
+
+**§52 replicates, with a boundary condition that is itself the finding.** On the
+in-family target task:
+
+| band | no library | syntactic | **semantic pooling** | ceiling | 4 wrong-module arms |
+|---|---|---|---|---|---|
+| **C-trace** (136 entries) | 0 | **0** | **48** | 48 | **all 0** |
+| **C-minall** (10 entries) | 0 | **48** | **0** | 48 | all 0 |
+
+On `C-trace` — §52's geometry — pooling reaches the hand-authored ceiling **under
+a different digest**, and all wrong-module arms including three distinct semantic
+classes score 0. **On `C-minall` it inverts**: plain digest identity wins and
+pooling fails. **Pooling buys rank in proportion to fragmentation**, and where the
+competitor is itself the fragmented class it loses. That boundary condition is new
+and was not visible on family 1.
+
+*(The nonzero wrong-module rows in the raw file are all on the off-family controls
+`H_x4` and `H_par5` — the X4 module legitimately solving the X4 task, which is the
+live-control property §52 required. Checked; no contradiction.)*
+
+**§54 does NOT replicate, and the control I flagged hardest is what breaks it.**
+
+| band | O1 incumbent | **O2 breadth-weighted** | **B1 frequency baseline** |
+|---|---|---|---|
+| C-trace | 10 of 10 | **10 of 10 — a tie** | **10 of 10** |
+| C-minall | 11 of 15 | **11 of 15 — a tie** | **10 of 10** |
+
+**O2 ties O1 on both bands** — the incumbent never flips here, tightest margin
+6.47% against §54's 0.85%. And **B1, which helped 0 of 5 on family 1 and was the
+control proving breadth-weighting did real work, now helps on both bands** and
+beats O2 on one. The window is rank 1 at **every α from 0 to 10**, against §54's
+narrow `[0.08, 3]`.
+
+So §54's dispatch brief named this exact outcome as the thing to check hardest —
+*"if the frequency baseline matches O2 here, the breadth term was doing nothing
+and frequency was enough"* — and it fired. **§54's ranking result is
+family-specific.** §54 is not withdrawn: its numbers stand on family 1 and were
+independently re-derived there. What is refuted is the generalisation.
+
+**Disclosed by the track:** B1's rank 1 is **always tie-broken**, and on `C-trace`
+the rejected alternative helps only 1 of 5 — so B1's apparent success is
+partly an artifact of tie-break order, which weakens B1 as much as it weakens O2.
+
+**What the library-induction claim now rests on:** 14 in-family tasks across two
+families, 4 off-family controls, 6 distinct semantic wrong-module classes. Pooling
+helps where fragmentation is high and hurts where it is not; **no ranking
+objective has been shown to beat the incumbent on more than one family.**
 
