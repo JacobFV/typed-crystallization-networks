@@ -1,0 +1,10056 @@
+{
+ "max_nodes": 5,
+ "max_holes": 4,
+ "exhaust_cap": 1048576,
+ "dyck_digest_reproduced": "4d0ce927662af9fe54799de0",
+ "artifacts": {
+  "V_same": {
+   "domain": "visual",
+   "nodes": 15,
+   "program_digest": "b409b71ea0e41d77abb7cb9c",
+   "fragments_with_registry": 55,
+   "fragments_mine_py_exact": 55,
+   "distinct_D_with_registry": 31,
+   "distinct_D_mine_py_exact": 31,
+   "seconds": 4.027664007968269
+  },
+  "V_corner": {
+   "domain": "visual",
+   "nodes": 22,
+   "program_digest": "6804983bda88826441cba10d",
+   "fragments_with_registry": 47,
+   "fragments_mine_py_exact": 43,
+   "distinct_D_with_registry": 26,
+   "distinct_D_mine_py_exact": 24,
+   "seconds": 0.9879029900184833
+  },
+  "V_rect": {
+   "domain": "visual",
+   "nodes": 586,
+   "program_digest": "009b0bc80630eb8fcf02493e",
+   "fragments_with_registry": 1316,
+   "fragments_mine_py_exact": 1068,
+   "distinct_D_with_registry": 56,
+   "distinct_D_mine_py_exact": 52,
+   "seconds": 89.5316176909837
+  },
+  "V_assembly": {
+   "domain": "visual",
+   "nodes": 4,
+   "program_digest": "1626ea475ff615bada1a741a",
+   "fragments_with_registry": 10,
+   "fragments_mine_py_exact": 3,
+   "distinct_D_with_registry": 10,
+   "distinct_D_mine_py_exact": 3,
+   "seconds": 1.602554382989183
+  },
+  "L_stage_a": {
+   "domain": "language",
+   "nodes": 5,
+   "program_digest": "8063993bfeee7393683e47b3",
+   "fragments_with_registry": 17,
+   "fragments_mine_py_exact": 17,
+   "distinct_D_with_registry": 17,
+   "distinct_D_mine_py_exact": 17,
+   "seconds": 0.049829132040031254
+  },
+  "L_stage_b16": {
+   "domain": "language",
+   "nodes": 84,
+   "program_digest": "3df671c3620c80fb4221ae9e",
+   "fragments_with_registry": 162,
+   "fragments_mine_py_exact": 130,
+   "distinct_D_with_registry": 17,
+   "distinct_D_mine_py_exact": 15,
+   "seconds": 0.2516321629518643
+  },
+  "L_dyck22": {
+   "domain": "language",
+   "nodes": 138,
+   "program_digest": "4d0ce927662af9fe54799de0",
+   "fragments_with_registry": 254,
+   "fragments_mine_py_exact": 210,
+   "distinct_D_with_registry": 26,
+   "distinct_D_mine_py_exact": 24,
+   "seconds": 0.18952160404296592
+  },
+  "C_agent": {
+   "domain": "computer",
+   "nodes": 23,
+   "program_digest": "4000a975cc7b84585d304fdf",
+   "fragments_with_registry": 67,
+   "fragments_mine_py_exact": 67,
+   "distinct_D_with_registry": 63,
+   "distinct_D_mine_py_exact": 63,
+   "seconds": 2.0635383920161985
+  }
+ },
+ "n_D_classes": 217,
+ "classes": [
+  {
+   "digest": "888ed8700df66e9cda030357",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "eq",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u8[byte]#2ae091eca550",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 3,
+    "L_stage_a": 1,
+    "C_agent": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "0e296e34d02c94a986910dbd",
+   "S_domain_rows": 65536,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "9baa2264e83db7076d3e6783",
+   "Sstar_reason": null,
+   "domains": [
+    "computer",
+    "language",
+    "visual"
+   ]
+  },
+  {
+   "digest": "9e8092e7bdb684bb47a3cc29",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "and",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_corner": 4,
+    "V_rect": 122,
+    "L_dyck22": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "421e96045d7e3b262856980c",
+   "S_domain_rows": 4,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "0d20328d16ebaa0e51b43568",
+   "Sstar_reason": null,
+   "domains": [
+    "language",
+    "visual"
+   ]
+  },
+  {
+   "digest": "00413686200bb07229acd1c8",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "truth_7",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "3c78f9ac3ba9243d6b7b38a5",
+   "S_domain_rows": 4,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "c52b56a3cf149c7dfea5db1b",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "01358a7d189959728b48c915",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x0",
+      "x2"
+     ]
+    ],
+    [
+     "tuple",
+     "n2",
+     [
+      "n0",
+      "x3",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "(3xu8[byte])#c8fbbe908941",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "019b7c0a8ea378a6a627b6ff",
+   "nodes": 1,
+   "arity": 3,
+   "body": [
+    [
+     "tuple",
+     "n0",
+     [
+      "x0",
+      "x1",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u8[byte]#2ae091eca550",
+    "u8[byte]#2ae091eca550",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "(3xu8[byte])#c8fbbe908941",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "w=4: output product type (3 fields)",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "019f6a6165d60c9686638e9b",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "sub",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u32<=128#bddc58da646c",
+    "u32<=128#bddc58da646c"
+   ],
+   "output_type": "u32<=128#bddc58da646c",
+   "occurrences": {
+    "L_stage_b16": 1,
+    "L_dyck22": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "f8b29eb508e3bc3a193727d2",
+   "S_domain_rows": 16641,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "deab88eaec7650328c343ba8",
+   "Sstar_reason": null,
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "01bdba4ea511ef18241ecb9b",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "eq",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ],
+    [
+     "truth_7",
+     "n2",
+     [
+      "x3",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "0482ec2eaeaa590c5864d53c",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "mod",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "u16#6d9b48b4a73e",
+   "occurrences": {
+    "V_corner": 3,
+    "V_rect": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "8c1a981f397b9828a1b7e512",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "05f3177ae1b09f3b3258dd4e",
+   "nodes": 1,
+   "arity": 1,
+   "body": [
+    [
+     "filter",
+     "n0",
+     [
+      "x0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "set#e3946ab25ad7"
+   ],
+   "output_type": "set#e3946ab25ad7",
+   "occurrences": {
+    "V_assembly": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "set type",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input set not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "05f3bc47de7b8c2197eca4cf",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "pair",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "set#69f392e9a565",
+    "set#186738ba6dc6"
+   ],
+   "output_type": "set#e3946ab25ad7",
+   "occurrences": {
+    "V_assembly": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "set type",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input set not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "06d1d498f0a4dd07bd3f39fc",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "eq",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ],
+    [
+     "truth_7",
+     "n2",
+     [
+      "n1",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "08a858a2fa14914669447a14",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "ge",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "and",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "L_dyck22": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": "061efc2ef2179ab8789998ce",
+   "Sstar_reason": null,
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "0945ec933defc481abf5390a",
+   "nodes": 4,
+   "arity": 3,
+   "body": [
+    [
+     "identity",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x1",
+      "n0"
+     ]
+    ],
+    [
+     "eq",
+     "n2",
+     [
+      "n1",
+      "x2"
+     ]
+    ],
+    [
+     "not",
+     "n3",
+     [
+      "n2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u32<=4096#6af9ba73bb4b",
+    "(4096xu8[byte])#349f0a05a816",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (4096 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "0949b8c4b6fde0825b770cb5",
+   "nodes": 2,
+   "arity": 2,
+   "body": [
+    [
+     "max",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "sub",
+     "n1",
+     [
+      "n0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "u16#6d9b48b4a73e",
+   "occurrences": {
+    "V_corner": 2,
+    "V_rect": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": "71c80706b663f4200d8885ba",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "0cdf2a4d1eba6fbccc87d787",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "eq",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "truth_2",
+     "n2",
+     [
+      "x3",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "0fc17dbc6dae672cc0676cc6",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "idiv",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "u16#6d9b48b4a73e",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "66f53a1c264ce76d44a0ac6a",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "108350d35d8d27cac24977e7",
+   "nodes": 1,
+   "arity": 1,
+   "body": [
+    [
+     "identity",
+     "n0",
+     [
+      "x0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u32<=4096#6af9ba73bb4b"
+   ],
+   "output_type": "u32<=4096#6af9ba73bb4b",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "55828952fd529816343ea8c1",
+   "S_domain_rows": 4097,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "282a948e99a714f931601966",
+   "Sstar_reason": null,
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "12991eed6460a213e7d72c20",
+   "nodes": 2,
+   "arity": 4,
+   "body": [
+    [
+     "mux",
+     "n0",
+     [
+      "x0",
+      "x1",
+      "x2"
+     ]
+    ],
+    [
+     "add",
+     "n1",
+     [
+      "x3",
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "BOOL#429cad1b3521",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8"
+   ],
+   "output_type": "i16#7504ce4b5bd8",
+   "occurrences": {
+    "L_stage_b16": 15,
+    "L_dyck22": 21
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "133b884c3346ecc25767ccfd",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "tuple",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(4xf32)#35843c0707ce",
+    "(1022xf32)#22443797f11b"
+   ],
+   "output_type": "(2x(4xf32))#8bd73c6ee60b",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (4 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "15294043f649ced4f297a14e",
+   "nodes": 1,
+   "arity": 1,
+   "body": [
+    [
+     "sum",
+     "n0",
+     [
+      "x0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(31xu16)#c512e49e724b"
+   ],
+   "output_type": "u16#6d9b48b4a73e",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (31 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "19bbf8ebab2f7d90312691d1",
+   "nodes": 3,
+   "arity": 3,
+   "body": [
+    [
+     "sub",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "log",
+     "n1",
+     [
+      "n0"
+     ]
+    ],
+    [
+     "sub",
+     "n2",
+     [
+      "x2",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "f32#efa57e603259",
+    "f32#efa57e603259",
+    "f32#efa57e603259"
+   ],
+   "output_type": "f32#efa57e603259",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "non-integer encoding (float)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input int not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "1aaef9a9efe0e28037eb04e3",
+   "nodes": 2,
+   "arity": 4,
+   "body": [
+    [
+     "lt",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "mux",
+     "n1",
+     [
+      "n0",
+      "x2",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u32<=128#bddc58da646c",
+    "u32<=128#bddc58da646c",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8"
+   ],
+   "output_type": "i16#7504ce4b5bd8",
+   "occurrences": {
+    "L_stage_b16": 16,
+    "L_dyck22": 22
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "1db832400d46e81dabad3cb9",
+   "nodes": 2,
+   "arity": 2,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "n0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(2xu32<=128)#b63f9139f13a",
+    "u32<=128#bddc58da646c"
+   ],
+   "output_type": "u8[byte]#2ae091eca550",
+   "occurrences": {
+    "L_stage_a": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (2 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "1e6b5f1e97bcc27f9c2dcd8c",
+   "nodes": 5,
+   "arity": 4,
+   "body": [
+    [
+     "sub",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "unpack",
+     "n2",
+     [
+      "n1"
+     ]
+    ],
+    [
+     "project",
+     "n3",
+     [
+      "n2"
+     ]
+    ],
+    [
+     "add",
+     "n4",
+     [
+      "n3",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u32<=4096#6af9ba73bb4b",
+    "u32<=4096#6af9ba73bb4b",
+    "(4096xu8[byte])#349f0a05a816",
+    "u8#94aa264b5f79"
+   ],
+   "output_type": "u8#94aa264b5f79",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "1eae75e8e5170c08907ac738",
+   "nodes": 2,
+   "arity": 2,
+   "body": [
+    [
+     "pair",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "filter",
+     "n1",
+     [
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "set#69f392e9a565",
+    "set#186738ba6dc6"
+   ],
+   "output_type": "set#e3946ab25ad7",
+   "occurrences": {
+    "V_assembly": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "set type",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input set not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "1f86c911e2ee3208af6aece3",
+   "nodes": 2,
+   "arity": 2,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "sub",
+     "n1",
+     [
+      "n0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(2xu32<=128)#b63f9139f13a",
+    "u32<=128#bddc58da646c"
+   ],
+   "output_type": "u32<=128#bddc58da646c",
+   "occurrences": {
+    "L_stage_b16": 1,
+    "L_dyck22": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (2 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "202e853f233b6fce4e8a8f3d",
+   "nodes": 5,
+   "arity": 3,
+   "body": [
+    [
+     "log",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "sub",
+     "n1",
+     [
+      "x1",
+      "x0"
+     ]
+    ],
+    [
+     "log",
+     "n2",
+     [
+      "n1"
+     ]
+    ],
+    [
+     "sub",
+     "n3",
+     [
+      "n0",
+      "n2"
+     ]
+    ],
+    [
+     "mul",
+     "n4",
+     [
+      "n3",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "f32#efa57e603259",
+    "f32#efa57e603259",
+    "f32#efa57e603259"
+   ],
+   "output_type": "f32#efa57e603259",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "non-integer encoding (float)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input int not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "20c6342473843131a290b5b4",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "sub",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "u16#6d9b48b4a73e",
+   "occurrences": {
+    "V_corner": 2,
+    "V_rect": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "deab88eaec7650328c343ba8",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "21a9a6a75e464e5ece98f7b7",
+   "nodes": 3,
+   "arity": 3,
+   "body": [
+    [
+     "identity",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "add",
+     "n1",
+     [
+      "n0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n2",
+     [
+      "x2",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u32<=128#bddc58da646c",
+    "u32<=128#bddc58da646c",
+    "(128xu8[byte])#12bbb68aadac"
+   ],
+   "output_type": "u8[byte]#2ae091eca550",
+   "occurrences": {
+    "L_stage_a": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (128 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "229e6357d15df3cfbdf4ffe5",
+   "nodes": 2,
+   "arity": 2,
+   "body": [
+    [
+     "log",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "sub",
+     "n1",
+     [
+      "n0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "f32#efa57e603259",
+    "f32#efa57e603259"
+   ],
+   "output_type": "f32#efa57e603259",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "non-integer encoding (float)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input int not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "2335f85f337fab6a8e26d22f",
+   "nodes": 4,
+   "arity": 4,
+   "body": [
+    [
+     "sub",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "log",
+     "n1",
+     [
+      "n0"
+     ]
+    ],
+    [
+     "sub",
+     "n2",
+     [
+      "x2",
+      "n1"
+     ]
+    ],
+    [
+     "mul",
+     "n3",
+     [
+      "n2",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "f32#efa57e603259",
+    "f32#efa57e603259",
+    "f32#efa57e603259",
+    "f32#efa57e603259"
+   ],
+   "output_type": "f32#efa57e603259",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "non-integer encoding (float)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input int not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "2359492100385c1804fc2d70",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u32<=128#bddc58da646c",
+    "u32<=128#bddc58da646c"
+   ],
+   "output_type": "u32<=128#bddc58da646c",
+   "occurrences": {
+    "L_stage_a": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "706efdfa7d1e41dbc3ab9ffe",
+   "S_domain_rows": 16641,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "f82d25299e4c794dbda2516c",
+   "Sstar_reason": null,
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "23eb79eee55a2461c09b88ba",
+   "nodes": 2,
+   "arity": 2,
+   "body": [
+    [
+     "eq",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "not",
+     "n1",
+     [
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u8[byte]#2ae091eca550",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "9703c8f40a420d4106b9c360",
+   "S_domain_rows": 65536,
+   "trivial": false,
+   "trivial_reason": "non-trivial",
+   "Sstar_class": "0e1d274e538405839174a887",
+   "Sstar_reason": null,
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "28006e7a8e82c8b7d78c708d",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u8#94aa264b5f79",
+    "u8#94aa264b5f79"
+   ],
+   "output_type": "u8#94aa264b5f79",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "7be13ff03043d184f69a8f3b",
+   "S_domain_rows": 65536,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "f82d25299e4c794dbda2516c",
+   "Sstar_reason": null,
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "292ae9ef6fc1a55b8866c757",
+   "nodes": 3,
+   "arity": 3,
+   "body": [
+    [
+     "and",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "and",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "encode",
+     "n2",
+     [
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "u16#6d9b48b4a73e",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "2fc7ba581992e99666ab1b2a",
+   "S_domain_rows": 8,
+   "trivial": false,
+   "trivial_reason": "non-trivial",
+   "Sstar_class": null,
+   "Sstar_reason": "re-resolve failed: TypeError",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "298e7cb452f2e63c1f85c899",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "eq",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "eq",
+     "n1",
+     [
+      "x2",
+      "x3"
+     ]
+    ],
+    [
+     "truth_7",
+     "n2",
+     [
+      "n0",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u8[byte]#2ae091eca550",
+    "u8[byte]#2ae091eca550",
+    "u8[byte]#2ae091eca550",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "29f390a479c39fab2a51c693",
+   "nodes": 2,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "tuple",
+     "n1",
+     [
+      "n0",
+      "x2",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "(3xu8[byte])#c8fbbe908941",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "2a2e186fe3be2a6932598e72",
+   "nodes": 3,
+   "arity": 2,
+   "body": [
+    [
+     "unpack",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "project",
+     "n1",
+     [
+      "n0"
+     ]
+    ],
+    [
+     "add",
+     "n2",
+     [
+      "n1",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u8[byte]#2ae091eca550",
+    "u8#94aa264b5f79"
+   ],
+   "output_type": "u8#94aa264b5f79",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "492df4659730ac9683df9936",
+   "S_domain_rows": 65536,
+   "trivial": false,
+   "trivial_reason": "non-trivial",
+   "Sstar_class": null,
+   "Sstar_reason": "re-resolve failed: TypeError",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "2e259487e5c3fe30aba2b51e",
+   "nodes": 1,
+   "arity": 1,
+   "body": [
+    [
+     "log",
+     "n0",
+     [
+      "x0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "f32#efa57e603259"
+   ],
+   "output_type": "f32#efa57e603259",
+   "occurrences": {
+    "C_agent": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "non-integer encoding (float)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input int not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "2e53a233653336284fafbf89",
+   "nodes": 4,
+   "arity": 4,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x2",
+      "x0"
+     ]
+    ],
+    [
+     "index",
+     "n2",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "tuple",
+     "n3",
+     [
+      "n1",
+      "x3",
+      "n2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "(3xu8[byte])#c8fbbe908941",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "2e9f6a058cea0c0b3b5a4a1c",
+   "nodes": 2,
+   "arity": 2,
+   "body": [
+    [
+     "identity",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "add",
+     "n1",
+     [
+      "n0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u32<=128#bddc58da646c",
+    "u32<=128#bddc58da646c"
+   ],
+   "output_type": "u32<=128#bddc58da646c",
+   "occurrences": {
+    "L_stage_a": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "706efdfa7d1e41dbc3ab9ffe",
+   "S_domain_rows": 16641,
+   "trivial": false,
+   "trivial_reason": "non-trivial",
+   "Sstar_class": "f82d25299e4c794dbda2516c",
+   "Sstar_reason": null,
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "2ed169ca5e29add2641de61c",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "tuple",
+     "n1",
+     [
+      "x2",
+      "x3",
+      "n0"
+     ]
+    ],
+    [
+     "pack",
+     "n2",
+     [
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "u24#fa22490c0f65",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "31948b72a6d54853d1e33bf1",
+   "nodes": 4,
+   "arity": 4,
+   "body": [
+    [
+     "identity",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "add",
+     "n1",
+     [
+      "n0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n2",
+     [
+      "x2",
+      "n1"
+     ]
+    ],
+    [
+     "eq",
+     "n3",
+     [
+      "n2",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u32<=128#bddc58da646c",
+    "u32<=128#bddc58da646c",
+    "(128xu8[byte])#12bbb68aadac",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "L_stage_a": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (128 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "31bf98835ba4a7f2e49ca70f",
+   "nodes": 5,
+   "arity": 4,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "add",
+     "n2",
+     [
+      "x3",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n3",
+     [
+      "x2",
+      "n2"
+     ]
+    ],
+    [
+     "eq",
+     "n4",
+     [
+      "n1",
+      "n3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "324b06a761761ee2730351d0",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "eq",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "truth_7",
+     "n2",
+     [
+      "n1",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "32edb7e7cfbaf1f53de96d6c",
+   "nodes": 5,
+   "arity": 4,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x2",
+      "x0"
+     ]
+    ],
+    [
+     "index",
+     "n2",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "index",
+     "n3",
+     [
+      "x2",
+      "x3"
+     ]
+    ],
+    [
+     "tuple",
+     "n4",
+     [
+      "n1",
+      "n2",
+      "n3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "(3xu8[byte])#c8fbbe908941",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "36e8fcebfd8298a33ef638db",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "gt",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "f32#efa57e603259",
+    "f32#efa57e603259"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "non-integer encoding (float)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input int not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "37489dfade6797177215f189",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "sub",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "mul",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "f32#efa57e603259",
+    "f32#efa57e603259",
+    "f32#efa57e603259"
+   ],
+   "output_type": "f32#efa57e603259",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "non-integer encoding (float)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input int not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "38417c3eb75b9165c84ae7d8",
+   "nodes": 4,
+   "arity": 3,
+   "body": [
+    [
+     "min",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "eq",
+     "n1",
+     [
+      "x1",
+      "x2"
+     ]
+    ],
+    [
+     "ge",
+     "n2",
+     [
+      "n0",
+      "x2"
+     ]
+    ],
+    [
+     "and",
+     "n3",
+     [
+      "n1",
+      "n2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "L_dyck22": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "3883263750c98d3aa33a0e00",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "lt",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u32<=128#bddc58da646c",
+    "u32<=128#bddc58da646c"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "L_stage_b16": 16,
+    "L_dyck22": 22
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "16e625bd92957a5ab7e2d91f",
+   "S_domain_rows": 16641,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "d18f56664188de746ad36cec",
+   "Sstar_reason": null,
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "38c4f7856f478f7a1dfb041e",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "not",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "mux",
+     "n1",
+     [
+      "n0",
+      "x1",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "BOOL#429cad1b3521",
+    "(3xf32)#792b14b91203",
+    "(3xf32)#792b14b91203"
+   ],
+   "output_type": "(3xf32)#792b14b91203",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "396af498c34ecaefc241464b",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "tuple",
+     "n1",
+     [
+      "n0",
+      "x2",
+      "x3"
+     ]
+    ],
+    [
+     "pack",
+     "n2",
+     [
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "u24#fa22490c0f65",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "396ef7e06a5cb50dc20507b5",
+   "nodes": 4,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x0",
+      "x2"
+     ]
+    ],
+    [
+     "index",
+     "n2",
+     [
+      "x0",
+      "x3"
+     ]
+    ],
+    [
+     "tuple",
+     "n3",
+     [
+      "n0",
+      "n1",
+      "n2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "(3xu8[byte])#c8fbbe908941",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "3de529288416282d2b5a84f1",
+   "nodes": 2,
+   "arity": 2,
+   "body": [
+    [
+     "identity",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x1",
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u32<=4096#6af9ba73bb4b",
+    "(4096xu8[byte])#349f0a05a816"
+   ],
+   "output_type": "u8[byte]#2ae091eca550",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (4096 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "3df3f78e5e4884b6eb7681d8",
+   "nodes": 5,
+   "arity": 3,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "unpack",
+     "n1",
+     [
+      "n0"
+     ]
+    ],
+    [
+     "project",
+     "n2",
+     [
+      "n1"
+     ]
+    ],
+    [
+     "add",
+     "n3",
+     [
+      "n2",
+      "x2"
+     ]
+    ],
+    [
+     "decode",
+     "n4",
+     [
+      "n3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(4096xu8[byte])#349f0a05a816",
+    "u32<=4096#6af9ba73bb4b",
+    "u8#94aa264b5f79"
+   ],
+   "output_type": "f32#efa57e603259",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (4096 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "412544466cd0ce752685a72e",
+   "nodes": 2,
+   "arity": 4,
+   "body": [
+    [
+     "mul",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "tuple",
+     "n1",
+     [
+      "x2",
+      "x3",
+      "n0",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "f32#efa57e603259",
+    "f32#efa57e603259",
+    "f32#efa57e603259",
+    "f32#efa57e603259"
+   ],
+   "output_type": "(4xf32)#35843c0707ce",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "non-integer encoding (float)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input int not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "414d3be26e33176652a33490",
+   "nodes": 5,
+   "arity": 3,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "sub",
+     "n1",
+     [
+      "n0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n2",
+     [
+      "x2",
+      "n1"
+     ]
+    ],
+    [
+     "unpack",
+     "n3",
+     [
+      "n2"
+     ]
+    ],
+    [
+     "project",
+     "n4",
+     [
+      "n3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(2xu32<=4096)#b79aa286f22f",
+    "u32<=4096#6af9ba73bb4b",
+    "(4096xu8[byte])#349f0a05a816"
+   ],
+   "output_type": "u8#94aa264b5f79",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (2 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "43912ed7345974ab4c4def7c",
+   "nodes": 4,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x0",
+      "x2"
+     ]
+    ],
+    [
+     "eq",
+     "n2",
+     [
+      "n0",
+      "n1"
+     ]
+    ],
+    [
+     "truth_7",
+     "n3",
+     [
+      "x3",
+      "n2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "4a29f235086e1c833a4bcbed",
+   "nodes": 4,
+   "arity": 4,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "index",
+     "n2",
+     [
+      "x2",
+      "x3"
+     ]
+    ],
+    [
+     "eq",
+     "n3",
+     [
+      "n1",
+      "n2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "4b5ff486d83979cbb514d3da",
+   "nodes": 2,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "tuple",
+     "n1",
+     [
+      "x2",
+      "n0",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "(3xu8[byte])#c8fbbe908941",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "4ba4402d490b97c77b7c59ec",
+   "nodes": 1,
+   "arity": 1,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(2xu32<=128)#b63f9139f13a"
+   ],
+   "output_type": "(128xu8[byte])#12bbb68aadac",
+   "occurrences": {
+    "L_stage_a": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (2 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "4e99cbe0a0ba72a4734c7bde",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "module:8063993bfeee7393683e47b3",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(2xu32<=128)#b63f9139f13a",
+    "u32<=128#bddc58da646c"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "L_stage_b16": 16,
+    "L_dyck22": 22
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (2 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "50cae48e12d56c467e773be9",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "tuple",
+     "n0",
+     [
+      "x0",
+      "x1",
+      "x2"
+     ]
+    ],
+    [
+     "pack",
+     "n1",
+     [
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u8[byte]#2ae091eca550",
+    "u8[byte]#2ae091eca550",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "u24#fa22490c0f65",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "re-resolve failed: TypeError",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "510af10123f49a85aa16b6c2",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "mul",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "f32#efa57e603259",
+    "f32#efa57e603259"
+   ],
+   "output_type": "f32#efa57e603259",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "non-integer encoding (float)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input int not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "5110ad244aa9f7bc609ab82a",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "le",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "and",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_corner": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": "5768761c27f7b89e216777ce",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "5111060e5ba6fa95b374b26a",
+   "nodes": 4,
+   "arity": 4,
+   "body": [
+    [
+     "lt",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "and",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "and",
+     "n2",
+     [
+      "x3",
+      "n1"
+     ]
+    ],
+    [
+     "encode",
+     "n3",
+     [
+      "n2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "u16#6d9b48b4a73e",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "re-resolve failed: TypeError",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "512c32852931a66e6cd379aa",
+   "nodes": 3,
+   "arity": 2,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "unpack",
+     "n1",
+     [
+      "n0"
+     ]
+    ],
+    [
+     "project",
+     "n2",
+     [
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(4096xu8[byte])#349f0a05a816",
+    "u32<=4096#6af9ba73bb4b"
+   ],
+   "output_type": "u8#94aa264b5f79",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (4096 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "54643ee968270b2bcd037311",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "min",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ],
+    [
+     "module:b409b71ea0e41d77abb7cb9c",
+     "n2",
+     [
+      "n1",
+      "x0",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "(3072xu8[byte])#64ea6010dbdf"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_rect": 62
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "58964af521fb9ecc63b18ddd",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "and",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "and",
+     "n1",
+     [
+      "x2",
+      "x3"
+     ]
+    ],
+    [
+     "truth_1",
+     "n2",
+     [
+      "n0",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_corner": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "42394645865ba3b5b8c0495f",
+   "S_domain_rows": 16,
+   "trivial": false,
+   "trivial_reason": "non-trivial",
+   "Sstar_class": "d45282b11e5e06b8d90ae2d5",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "58a2f405344cb3427dcef5f8",
+   "nodes": 4,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x0",
+      "x2"
+     ]
+    ],
+    [
+     "eq",
+     "n2",
+     [
+      "n0",
+      "n1"
+     ]
+    ],
+    [
+     "truth_7",
+     "n3",
+     [
+      "n2",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "58b9d21f7c0f820242ff2049",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "mul",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "add",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "min",
+     "n2",
+     [
+      "n1",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "u16#6d9b48b4a73e",
+   "occurrences": {
+    "V_rect": 62
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "590f457cf0aafd5b616e9173",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "mul",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "add",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "u16#6d9b48b4a73e",
+   "occurrences": {
+    "V_rect": 62
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "5a759cc6ebe5532744c2ddc0",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x0",
+      "x2"
+     ]
+    ],
+    [
+     "tuple",
+     "n2",
+     [
+      "x3",
+      "n0",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "(3xu8[byte])#c8fbbe908941",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "5c24f08e0a638993749fe744",
+   "nodes": 3,
+   "arity": 3,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "sub",
+     "n1",
+     [
+      "n0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n2",
+     [
+      "x2",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(2xu32<=4096)#b79aa286f22f",
+    "u32<=4096#6af9ba73bb4b",
+    "(4096xu8[byte])#349f0a05a816"
+   ],
+   "output_type": "u8[byte]#2ae091eca550",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (2 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "5ca24f0704e9c5b7cf6e740a",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "min",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "min",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ],
+    [
+     "ge",
+     "n2",
+     [
+      "n1",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "L_dyck22": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "6131c74dcbf586c3faf1c297",
+   "nodes": 4,
+   "arity": 2,
+   "body": [
+    [
+     "unpack",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "project",
+     "n1",
+     [
+      "n0"
+     ]
+    ],
+    [
+     "add",
+     "n2",
+     [
+      "n1",
+      "x1"
+     ]
+    ],
+    [
+     "decode",
+     "n3",
+     [
+      "n2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u8[byte]#2ae091eca550",
+    "u8#94aa264b5f79"
+   ],
+   "output_type": "f32#efa57e603259",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "34d94a1c0805ffd4d353952c",
+   "S_domain_rows": 65536,
+   "trivial": false,
+   "trivial_reason": "non-trivial",
+   "Sstar_class": null,
+   "Sstar_reason": "re-resolve failed: TypeError",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "6244cbf29158d8155f97310c",
+   "nodes": 3,
+   "arity": 2,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "add",
+     "n1",
+     [
+      "n0",
+      "x1"
+     ]
+    ],
+    [
+     "decode",
+     "n2",
+     [
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(1xu8)#e056127e1635",
+    "u8#94aa264b5f79"
+   ],
+   "output_type": "f32#efa57e603259",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (1 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "638c0b8bb74e9a7d1bdb14b1",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "lt",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "and",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_rect": 62
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": "e7f838654aa73c0dcadca546",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "651eef64b7294240ea9a2412",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "mod",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "le",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_corner": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "656b79709e7bbef0a64b5447",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(128xu8[byte])#12bbb68aadac",
+    "u32<=128#bddc58da646c"
+   ],
+   "output_type": "u8[byte]#2ae091eca550",
+   "occurrences": {
+    "L_stage_a": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (128 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "663f1dafaa7f0fc4e482972b",
+   "nodes": 4,
+   "arity": 4,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x2",
+      "x0"
+     ]
+    ],
+    [
+     "index",
+     "n2",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "tuple",
+     "n3",
+     [
+      "n1",
+      "n2",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "(3xu8[byte])#c8fbbe908941",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "666b07fadec4c3f6e2100b8d",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "min",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "min",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ],
+    [
+     "min",
+     "n2",
+     [
+      "n1",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8"
+   ],
+   "output_type": "i16#7504ce4b5bd8",
+   "occurrences": {
+    "L_dyck22": 20
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "69218a92470a26af2d0b1e79",
+   "nodes": 1,
+   "arity": 1,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(2xu32<=128)#b63f9139f13a"
+   ],
+   "output_type": "u32<=128#bddc58da646c",
+   "occurrences": {
+    "L_stage_b16": 1,
+    "L_dyck22": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (2 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "69b8014dcb96567b30896c0d",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "min",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "ge",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "L_dyck22": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "6a5279b3471dc1b95527b48b",
+   "nodes": 2,
+   "arity": 1,
+   "body": [
+    [
+     "filter",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "map",
+     "n1",
+     [
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "set#e3946ab25ad7"
+   ],
+   "output_type": "set#41014d419769",
+   "occurrences": {
+    "V_assembly": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "set type",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input set not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "6cc297b689485a1e7db390cc",
+   "nodes": 3,
+   "arity": 2,
+   "body": [
+    [
+     "pair",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "filter",
+     "n1",
+     [
+      "n0"
+     ]
+    ],
+    [
+     "map",
+     "n2",
+     [
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "set#69f392e9a565",
+    "set#186738ba6dc6"
+   ],
+   "output_type": "set#41014d419769",
+   "occurrences": {
+    "V_assembly": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "set type",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input set not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "6ce8621698e95d3bdb8b9ab6",
+   "nodes": 3,
+   "arity": 3,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "eq",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ],
+    [
+     "not",
+     "n2",
+     [
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(4096xu8[byte])#349f0a05a816",
+    "u32<=4096#6af9ba73bb4b",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (4096 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "6e8435e756d0c504a31b170c",
+   "nodes": 2,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "tuple",
+     "n1",
+     [
+      "x2",
+      "x3",
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "(3xu8[byte])#c8fbbe908941",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "7669c10c7a1602010a7282b5",
+   "nodes": 2,
+   "arity": 2,
+   "body": [
+    [
+     "and",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "encode",
+     "n1",
+     [
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "u16#6d9b48b4a73e",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "ce4443d03bef28a308f9dbc3",
+   "S_domain_rows": 4,
+   "trivial": false,
+   "trivial_reason": "non-trivial",
+   "Sstar_class": null,
+   "Sstar_reason": "re-resolve failed: TypeError",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "76ec9ff90efc929e4f0534fb",
+   "nodes": 2,
+   "arity": 2,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "unpack",
+     "n1",
+     [
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(4096xu8[byte])#349f0a05a816",
+    "u32<=4096#6af9ba73bb4b"
+   ],
+   "output_type": "(1xu8)#e056127e1635",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (4096 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "773bef07cb1c097f35530b44",
+   "nodes": 1,
+   "arity": 3,
+   "body": [
+    [
+     "tuple",
+     "n0",
+     [
+      "x0",
+      "x1",
+      "x2",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "f32#efa57e603259",
+    "f32#efa57e603259",
+    "f32#efa57e603259"
+   ],
+   "output_type": "(4xf32)#35843c0707ce",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "non-integer encoding (float)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input int not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "786564a1a6515c852f9d9e68",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "and",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "and",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_corner": 2,
+    "V_rect": 60
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "b0bd382015d52d2ffd270700",
+   "S_domain_rows": 8,
+   "trivial": false,
+   "trivial_reason": "non-trivial",
+   "Sstar_class": "02d0ee3e4f6c1dc007280af1",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "7a3439581009f22aa7ab3b30",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "eq",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "truth_7",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u8[byte]#2ae091eca550",
+    "u8[byte]#2ae091eca550",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "42968a670b7ff6a5d16d7148",
+   "S_domain_rows": 131072,
+   "trivial": false,
+   "trivial_reason": "non-trivial",
+   "Sstar_class": "505b966ac950f70078a0d767",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "7d78b6bd5e73d6eb18bbeb25",
+   "nodes": 5,
+   "arity": 4,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x2",
+      "x0"
+     ]
+    ],
+    [
+     "index",
+     "n2",
+     [
+      "x2",
+      "x3"
+     ]
+    ],
+    [
+     "index",
+     "n3",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "tuple",
+     "n4",
+     [
+      "n1",
+      "n2",
+      "n3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "(3xu8[byte])#c8fbbe908941",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "7da3bcfdea5c9866798c6250",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "eq",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "truth_7",
+     "n2",
+     [
+      "x3",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "7dbecd96487d2d63f1247cea",
+   "nodes": 4,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "add",
+     "n1",
+     [
+      "x2",
+      "x3"
+     ]
+    ],
+    [
+     "index",
+     "n2",
+     [
+      "x0",
+      "n1"
+     ]
+    ],
+    [
+     "eq",
+     "n3",
+     [
+      "n0",
+      "n2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "7ec5271a80c4859d2c05953b",
+   "nodes": 4,
+   "arity": 3,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "sub",
+     "n1",
+     [
+      "n0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n2",
+     [
+      "x2",
+      "n1"
+     ]
+    ],
+    [
+     "unpack",
+     "n3",
+     [
+      "n2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(2xu32<=4096)#b79aa286f22f",
+    "u32<=4096#6af9ba73bb4b",
+    "(4096xu8[byte])#349f0a05a816"
+   ],
+   "output_type": "(1xu8)#e056127e1635",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (2 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "7f2522cfb7b6d25dc7dfb2d3",
+   "nodes": 5,
+   "arity": 4,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "min",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "eq",
+     "n2",
+     [
+      "n0",
+      "x3"
+     ]
+    ],
+    [
+     "ge",
+     "n3",
+     [
+      "n1",
+      "x3"
+     ]
+    ],
+    [
+     "and",
+     "n4",
+     [
+      "n2",
+      "n3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "L_dyck22": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "7f3157f5065c6dfaed299dfd",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "eq",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "truth_7",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "truth_2",
+     "n2",
+     [
+      "n1",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u8[byte]#2ae091eca550",
+    "u8[byte]#2ae091eca550",
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "9d370b031dd6cf15b1ef639b",
+   "S_domain_rows": 262144,
+   "trivial": false,
+   "trivial_reason": "non-trivial",
+   "Sstar_class": "2d50df48cfbbf49e183af987",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "8028bc9195f4190f14c21ca9",
+   "nodes": 4,
+   "arity": 3,
+   "body": [
+    [
+     "sub",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "unpack",
+     "n2",
+     [
+      "n1"
+     ]
+    ],
+    [
+     "project",
+     "n3",
+     [
+      "n2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u32<=4096#6af9ba73bb4b",
+    "u32<=4096#6af9ba73bb4b",
+    "(4096xu8[byte])#349f0a05a816"
+   ],
+   "output_type": "u8#94aa264b5f79",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "8056fde2750a300bfb63c3c9",
+   "nodes": 2,
+   "arity": 4,
+   "body": [
+    [
+     "module:b409b71ea0e41d77abb7cb9c",
+     "n0",
+     [
+      "x0",
+      "x1",
+      "x2"
+     ]
+    ],
+    [
+     "and",
+     "n1",
+     [
+      "n0",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "(3072xu8[byte])#64ea6010dbdf",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_corner": 2,
+    "V_rect": 62
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "8105f1ef141cbb88d4bfa4d0",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "eq",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "L_stage_b16": 1,
+    "L_dyck22": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "bd6170a475ca75064113a1dc",
+   "Sstar_reason": null,
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "818419efe48eb328ac75b536",
+   "nodes": 2,
+   "arity": 4,
+   "body": [
+    [
+     "tuple",
+     "n0",
+     [
+      "x0",
+      "x1",
+      "x2",
+      "x1"
+     ]
+    ],
+    [
+     "tuple",
+     "n1",
+     [
+      "n0",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "f32#efa57e603259",
+    "f32#efa57e603259",
+    "f32#efa57e603259",
+    "(1022xf32)#22443797f11b"
+   ],
+   "output_type": "(2x(4xf32))#8bd73c6ee60b",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "non-integer encoding (float)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input int not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "835dbb69c9893f4cb27dc7a5",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "min",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "ge",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ],
+    [
+     "and",
+     "n2",
+     [
+      "x3",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "L_dyck22": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "84ccdc2c3f98f615c425bcd2",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "(3072xu8[byte])#64ea6010dbdf"
+   ],
+   "output_type": "u8[byte]#2ae091eca550",
+   "occurrences": {
+    "V_same": 4,
+    "V_rect": 4
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "85572fc714b3db32730e2af9",
+   "nodes": 2,
+   "arity": 2,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "gt",
+     "n1",
+     [
+      "n0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3xf32)#792b14b91203",
+    "f32#efa57e603259"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "85a56c13db43c7508268f53d",
+   "nodes": 5,
+   "arity": 4,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x2",
+      "x0"
+     ]
+    ],
+    [
+     "index",
+     "n2",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "tuple",
+     "n3",
+     [
+      "n1",
+      "n2",
+      "x3"
+     ]
+    ],
+    [
+     "pack",
+     "n4",
+     [
+      "n3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "u24#fa22490c0f65",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "87225de45b6d6d85a5f5773f",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "le",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "and",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "and",
+     "n2",
+     [
+      "x3",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_corner": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": "9005968d6c444d3b3f33f5de",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "8800ed3f0ed9e531819a90a8",
+   "nodes": 3,
+   "arity": 3,
+   "body": [
+    [
+     "sub",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "unpack",
+     "n2",
+     [
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u32<=4096#6af9ba73bb4b",
+    "u32<=4096#6af9ba73bb4b",
+    "(4096xu8[byte])#349f0a05a816"
+   ],
+   "output_type": "(1xu8)#e056127e1635",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "89e69506855997d59ab7ffa9",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "eq",
+     "n2",
+     [
+      "x3",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "8a39ae9d04700bcd67a26de2",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "add",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8"
+   ],
+   "output_type": "i16#7504ce4b5bd8",
+   "occurrences": {
+    "L_stage_b16": 14
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "8bd60f217447c9e05eff0abf",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "min",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "min",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8"
+   ],
+   "output_type": "i16#7504ce4b5bd8",
+   "occurrences": {
+    "L_dyck22": 21
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "8eb2768c14e0351b1e7b6b57",
+   "nodes": 1,
+   "arity": 1,
+   "body": [
+    [
+     "identity",
+     "n0",
+     [
+      "x0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "u16#6d9b48b4a73e",
+   "occurrences": {
+    "V_corner": 2,
+    "V_rect": 2
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "2251fd3683dd046e72393c23",
+   "S_domain_rows": 65536,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "282a948e99a714f931601966",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "8f4b725413db302ce995ecc2",
+   "nodes": 4,
+   "arity": 3,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "identity",
+     "n1",
+     [
+      "x1"
+     ]
+    ],
+    [
+     "add",
+     "n2",
+     [
+      "n1",
+      "x2"
+     ]
+    ],
+    [
+     "index",
+     "n3",
+     [
+      "n0",
+      "n2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(2xu32<=128)#b63f9139f13a",
+    "u32<=128#bddc58da646c",
+    "u32<=128#bddc58da646c"
+   ],
+   "output_type": "u8[byte]#2ae091eca550",
+   "occurrences": {
+    "L_stage_a": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (2 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "902513ff446586dc9dccbacd",
+   "nodes": 3,
+   "arity": 3,
+   "body": [
+    [
+     "insert",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "pair",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "filter",
+     "n2",
+     [
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "set#186738ba6dc6",
+    "(3072xu8[byte])#64ea6010dbdf",
+    "set#69f392e9a565"
+   ],
+   "output_type": "set#e3946ab25ad7",
+   "occurrences": {
+    "V_assembly": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "set type",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input set not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "913e7bbc28f739dd09f0e415",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "and",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "truth_1",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_corner": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "1c6eef55812cd6b72eb2e866",
+   "S_domain_rows": 8,
+   "trivial": false,
+   "trivial_reason": "non-trivial",
+   "Sstar_class": "c81f898f6fe4fa33fdaac5cf",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "9161151fd0970404c040f438",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "max",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "u16#6d9b48b4a73e",
+   "occurrences": {
+    "V_corner": 2,
+    "V_rect": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "e2fe4c78b49623da7d97cfce",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "92255306cbffc6c623591fa0",
+   "nodes": 3,
+   "arity": 3,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "add",
+     "n1",
+     [
+      "x1",
+      "x2"
+     ]
+    ],
+    [
+     "index",
+     "n2",
+     [
+      "n0",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(2xu32<=128)#b63f9139f13a",
+    "u32<=128#bddc58da646c",
+    "u32<=128#bddc58da646c"
+   ],
+   "output_type": "u8[byte]#2ae091eca550",
+   "occurrences": {
+    "L_stage_a": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (2 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "9390e226f2b48cec33995094",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "insert",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "pair",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "set#186738ba6dc6",
+    "(3072xu8[byte])#64ea6010dbdf",
+    "set#69f392e9a565"
+   ],
+   "output_type": "set#e3946ab25ad7",
+   "occurrences": {
+    "V_assembly": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "set type",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input set not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "958f405f67ea7619a2e774c6",
+   "nodes": 3,
+   "arity": 3,
+   "body": [
+    [
+     "log",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "sub",
+     "n1",
+     [
+      "x1",
+      "n0"
+     ]
+    ],
+    [
+     "mul",
+     "n2",
+     [
+      "n1",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "f32#efa57e603259",
+    "f32#efa57e603259",
+    "f32#efa57e603259"
+   ],
+   "output_type": "f32#efa57e603259",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "non-integer encoding (float)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input int not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "960dd63e9f25020fd04406e5",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "u8[byte]#2ae091eca550",
+   "occurrences": {
+    "V_same": 6,
+    "V_rect": 6
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "97cb79dd5d5112d73726d0f0",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "min",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8"
+   ],
+   "output_type": "i16#7504ce4b5bd8",
+   "occurrences": {
+    "L_dyck22": 22
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "873b348c0c9b6ca590357bb2",
+   "Sstar_reason": null,
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "989f03f3a10a03afd78f5f9d",
+   "nodes": 2,
+   "arity": 1,
+   "body": [
+    [
+     "unpack",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "project",
+     "n1",
+     [
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "u8#94aa264b5f79",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "a5e9556fa38ddfa96ebaf3ed",
+   "S_domain_rows": 256,
+   "trivial": true,
+   "trivial_reason": "projection x0",
+   "Sstar_class": null,
+   "Sstar_reason": "re-resolve failed: TypeError",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "9a1e127c7b70c2a48d78ab92",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(4096xu8[byte])#349f0a05a816",
+    "u32<=4096#6af9ba73bb4b"
+   ],
+   "output_type": "u8[byte]#2ae091eca550",
+   "occurrences": {
+    "C_agent": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (4096 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "9a44ad9bf37fdb8157db6763",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "eq",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "L_stage_b16": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "9a62ee528c698500438f91ae",
+   "nodes": 3,
+   "arity": 3,
+   "body": [
+    [
+     "identity",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x1",
+      "n0"
+     ]
+    ],
+    [
+     "eq",
+     "n2",
+     [
+      "n1",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u32<=4096#6af9ba73bb4b",
+    "(4096xu8[byte])#349f0a05a816",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (4096 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "9abcd93cd07c388f6d5ada9f",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "le",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_corner": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "50a0ca193c2a5793713943bd",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "9b8f2c33e01f05ded798f130",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8"
+   ],
+   "output_type": "i16#7504ce4b5bd8",
+   "occurrences": {
+    "L_stage_b16": 15,
+    "L_dyck22": 21
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "beb01d574741f0161927f0ca",
+   "Sstar_reason": null,
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "9bb6eeb860fdf495a6f9951d",
+   "nodes": 1,
+   "arity": 1,
+   "body": [
+    [
+     "decode",
+     "n0",
+     [
+      "x0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u8#94aa264b5f79"
+   ],
+   "output_type": "f32#efa57e603259",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "95d884eb31478739d024b0a9",
+   "S_domain_rows": 256,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "re-resolve failed: TypeError",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "9bc0b0f81c7f9b522096fa19",
+   "nodes": 5,
+   "arity": 4,
+   "body": [
+    [
+     "min",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "min",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ],
+    [
+     "eq",
+     "n2",
+     [
+      "x2",
+      "x3"
+     ]
+    ],
+    [
+     "ge",
+     "n3",
+     [
+      "n1",
+      "x3"
+     ]
+    ],
+    [
+     "and",
+     "n4",
+     [
+      "n2",
+      "n3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "L_dyck22": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "9c0353d4fb4aa5bfbe6f1a0b",
+   "nodes": 3,
+   "arity": 3,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "n0",
+      "x1"
+     ]
+    ],
+    [
+     "eq",
+     "n2",
+     [
+      "n1",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(2xu32<=128)#b63f9139f13a",
+    "u32<=128#bddc58da646c",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "L_stage_a": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (2 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "9d186b272c854bf5e1ae1896",
+   "nodes": 2,
+   "arity": 2,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "decode",
+     "n1",
+     [
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u8#94aa264b5f79",
+    "u8#94aa264b5f79"
+   ],
+   "output_type": "f32#efa57e603259",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "f74b46616e833c4bdfbf4d82",
+   "S_domain_rows": 65536,
+   "trivial": false,
+   "trivial_reason": "non-trivial",
+   "Sstar_class": null,
+   "Sstar_reason": "re-resolve failed: TypeError",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "9d1c9fe70f174fb62582c36d",
+   "nodes": 3,
+   "arity": 2,
+   "body": [
+    [
+     "log",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "log",
+     "n1",
+     [
+      "x1"
+     ]
+    ],
+    [
+     "sub",
+     "n2",
+     [
+      "n0",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "f32#efa57e603259",
+    "f32#efa57e603259"
+   ],
+   "output_type": "f32#efa57e603259",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "non-integer encoding (float)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input int not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "9d3eccac37f48fb41db4eecf",
+   "nodes": 2,
+   "arity": 4,
+   "body": [
+    [
+     "gt",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "mux",
+     "n1",
+     [
+      "n0",
+      "x2",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "f32#efa57e603259",
+    "f32#efa57e603259",
+    "(3xf32)#792b14b91203",
+    "(3xf32)#792b14b91203"
+   ],
+   "output_type": "(3xf32)#792b14b91203",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "non-integer encoding (float)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input int not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "9ef466a6708f886dc318506a",
+   "nodes": 1,
+   "arity": 1,
+   "body": [
+    [
+     "identity",
+     "n0",
+     [
+      "x0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "i16#7504ce4b5bd8"
+   ],
+   "output_type": "i16#7504ce4b5bd8",
+   "occurrences": {
+    "L_stage_b16": 2,
+    "L_dyck22": 2
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "38d2355ccc066d82cf852e4b",
+   "S_domain_rows": 65536,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "4b243b82af7cdb2e748e29ce",
+   "Sstar_reason": null,
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "9f4bbd240d7c9785561c9734",
+   "nodes": 4,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x0",
+      "x2"
+     ]
+    ],
+    [
+     "tuple",
+     "n2",
+     [
+      "n0",
+      "x3",
+      "n1"
+     ]
+    ],
+    [
+     "pack",
+     "n3",
+     [
+      "n2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "u24#fa22490c0f65",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "a4d944e4a6cfd09cdb53fb8a",
+   "nodes": 4,
+   "arity": 3,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "unpack",
+     "n1",
+     [
+      "n0"
+     ]
+    ],
+    [
+     "project",
+     "n2",
+     [
+      "n1"
+     ]
+    ],
+    [
+     "add",
+     "n3",
+     [
+      "n2",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(4096xu8[byte])#349f0a05a816",
+    "u32<=4096#6af9ba73bb4b",
+    "u8#94aa264b5f79"
+   ],
+   "output_type": "u8#94aa264b5f79",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (4096 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "a4e4ee0756e695a51cb1a061",
+   "nodes": 1,
+   "arity": 1,
+   "body": [
+    [
+     "not",
+     "n0",
+     [
+      "x0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "adc42290124dc3b3ff1a1f7e",
+   "S_domain_rows": 2,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "5b4bca54600a14b8ee05c712",
+   "Sstar_reason": null,
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "a524f827ec55edfbc9715bcd",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "ge",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "and",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_corner": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": "05076000135757fa7231bbc0",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "a555f78fd1929a609305dd1c",
+   "nodes": 2,
+   "arity": 2,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "add",
+     "n1",
+     [
+      "n0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(1xu8)#e056127e1635",
+    "u8#94aa264b5f79"
+   ],
+   "output_type": "u8#94aa264b5f79",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (1 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "a69fc2da0cb7dc38aaa7885c",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "eq",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(4096xu8[byte])#349f0a05a816",
+    "u32<=4096#6af9ba73bb4b",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (4096 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "a7dbfced7abd994f3dc60e62",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "lt",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ],
+    [
+     "and",
+     "n2",
+     [
+      "x3",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_rect": 62
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "a81ccb83fc5d4d0a744ad17c",
+   "nodes": 1,
+   "arity": 1,
+   "body": [
+    [
+     "pack",
+     "n0",
+     [
+      "x0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3xu8[byte])#c8fbbe908941"
+   ],
+   "output_type": "u24#fa22490c0f65",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "ac0cd3c65bed00503f310cc8",
+   "nodes": 1,
+   "arity": 3,
+   "body": [
+    [
+     "module:b409b71ea0e41d77abb7cb9c",
+     "n0",
+     [
+      "x0",
+      "x1",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "(3072xu8[byte])#64ea6010dbdf"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_corner": 2,
+    "V_rect": 62
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "acc7ff7c0f39d5e2e355b2b3",
+   "nodes": 1,
+   "arity": 1,
+   "body": [
+    [
+     "encode",
+     "n0",
+     [
+      "x0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "u16#6d9b48b4a73e",
+   "occurrences": {
+    "V_rect": 62
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "911b50147adc65f8555b0ce2",
+   "S_domain_rows": 2,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "re-resolve failed: TypeError",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "ae508d96af09df5ae84dc28f",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "add",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ],
+    [
+     "eq",
+     "n2",
+     [
+      "n1",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "L_stage_b16": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "b1747e78345f8fecb1e317fc",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "and",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "truth_1",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_corner": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "1c6eef55812cd6b72eb2e866",
+   "S_domain_rows": 8,
+   "trivial": false,
+   "trivial_reason": "non-trivial",
+   "Sstar_class": "c81f898f6fe4fa33fdaac5cf",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "b3386d8d631cae16ae2267e5",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "ge",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "L_dyck22": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "4a3b63c36a20b938956783d7",
+   "Sstar_reason": null,
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "b3e25ae9d2c0469e931a31a1",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "eq",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "and",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "L_dyck22": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": "c43d75eb40152acba19d1130",
+   "Sstar_reason": null,
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "b845ddd3ccd2b317ca2dda5e",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x0",
+      "x2"
+     ]
+    ],
+    [
+     "tuple",
+     "n2",
+     [
+      "n0",
+      "n1",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "(3xu8[byte])#c8fbbe908941",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "b8a0b9d397d5a0da1bfebe6a",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "truth_1",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_corner": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "1b60fa51458eca66d8803499",
+   "S_domain_rows": 4,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "3d10c7f7abaca57d49997ccf",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "b97722694d2bb695987ced67",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "ge",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_corner": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "4e3f9dac42ac710450261f2f",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "b9af473d3985e974d6fc74f5",
+   "nodes": 1,
+   "arity": 1,
+   "body": [
+    [
+     "map",
+     "n0",
+     [
+      "x0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "set#e3946ab25ad7"
+   ],
+   "output_type": "set#41014d419769",
+   "occurrences": {
+    "V_assembly": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "set type",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input set not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "b9b8afa9beebf835e506e1da",
+   "nodes": 5,
+   "arity": 4,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "identity",
+     "n1",
+     [
+      "x1"
+     ]
+    ],
+    [
+     "add",
+     "n2",
+     [
+      "n1",
+      "x2"
+     ]
+    ],
+    [
+     "index",
+     "n3",
+     [
+      "n0",
+      "n2"
+     ]
+    ],
+    [
+     "eq",
+     "n4",
+     [
+      "n3",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(2xu32<=128)#b63f9139f13a",
+    "u32<=128#bddc58da646c",
+    "u32<=128#bddc58da646c",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "L_stage_a": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (2 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "b9cfedb96da9914bf6b3ff0d",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "sub",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "f32#efa57e603259",
+    "f32#efa57e603259"
+   ],
+   "output_type": "f32#efa57e603259",
+   "occurrences": {
+    "C_agent": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "non-integer encoding (float)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input int not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "b9f1d040720bf13bfb39a0d1",
+   "nodes": 5,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x0",
+      "x2"
+     ]
+    ],
+    [
+     "index",
+     "n2",
+     [
+      "x0",
+      "x3"
+     ]
+    ],
+    [
+     "tuple",
+     "n3",
+     [
+      "n0",
+      "n1",
+      "n2"
+     ]
+    ],
+    [
+     "pack",
+     "n4",
+     [
+      "n3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "u24#fa22490c0f65",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "baab02b059e2b14858f7a47e",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "eq",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "not",
+     "n1",
+     [
+      "n0"
+     ]
+    ],
+    [
+     "mux",
+     "n2",
+     [
+      "n1",
+      "x2",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u8[byte]#2ae091eca550",
+    "u8[byte]#2ae091eca550",
+    "(3xf32)#792b14b91203",
+    "(3xf32)#792b14b91203"
+   ],
+   "output_type": "(3xf32)#792b14b91203",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "be68df7154420a692469f9b8",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "sub",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u32<=4096#6af9ba73bb4b",
+    "u32<=4096#6af9ba73bb4b"
+   ],
+   "output_type": "u32<=4096#6af9ba73bb4b",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "deab88eaec7650328c343ba8",
+   "Sstar_reason": null,
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "beb553680f40db739d13c673",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "min",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "u16#6d9b48b4a73e",
+   "occurrences": {
+    "V_rect": 62
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "609c2d8dd067b9b6c6dc96a0",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "bf9fc6cb2a0ef5b1b3ef0258",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u32<=128#bddc58da646c",
+    "u32<=128#bddc58da646c",
+    "(128xu8[byte])#12bbb68aadac"
+   ],
+   "output_type": "u8[byte]#2ae091eca550",
+   "occurrences": {
+    "L_stage_a": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (128 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "bfa4fd596b18b927644552f8",
+   "nodes": 2,
+   "arity": 2,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "sub",
+     "n1",
+     [
+      "n0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(2xu32<=4096)#b79aa286f22f",
+    "u32<=4096#6af9ba73bb4b"
+   ],
+   "output_type": "u32<=4096#6af9ba73bb4b",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (2 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "c0df145744feea6f5dd4c8b4",
+   "nodes": 5,
+   "arity": 2,
+   "body": [
+    [
+     "decode",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "log",
+     "n1",
+     [
+      "n0"
+     ]
+    ],
+    [
+     "sub",
+     "n2",
+     [
+      "x1",
+      "n0"
+     ]
+    ],
+    [
+     "log",
+     "n3",
+     [
+      "n2"
+     ]
+    ],
+    [
+     "sub",
+     "n4",
+     [
+      "n1",
+      "n3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u8#94aa264b5f79",
+    "f32#efa57e603259"
+   ],
+   "output_type": "f32#efa57e603259",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "non-integer encoding (float)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input int not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "c49916f188b3c83bdc3c39dd",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "and",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "and",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "truth_1",
+     "n2",
+     [
+      "n1",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_corner": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "a5f097aac52f17116dfbe0f2",
+   "S_domain_rows": 16,
+   "trivial": false,
+   "trivial_reason": "non-trivial",
+   "Sstar_class": "f61060d3ca53a6e546156723",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "c4b402dc9b4d5b97e0ef9ee9",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "lt",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "and",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "and",
+     "n2",
+     [
+      "x3",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_rect": 60
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": "bd1d8f7016c44df46f7ec372",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "c69f7d0028d468c0dcc1dcef",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "ge",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "le",
+     "n1",
+     [
+      "x2",
+      "x3"
+     ]
+    ],
+    [
+     "and",
+     "n2",
+     [
+      "n0",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_corner": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "c7065ead128e0dc21f2f345f",
+   "nodes": 1,
+   "arity": 1,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(2xu32<=4096)#b79aa286f22f"
+   ],
+   "output_type": "(4096xu8[byte])#349f0a05a816",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (2 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "c716e9a10ac0f23acf5724fd",
+   "nodes": 1,
+   "arity": 1,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3xf32)#792b14b91203"
+   ],
+   "output_type": "f32#efa57e603259",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "c9522d87ebb54e07deacb402",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "eq",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(128xu8[byte])#12bbb68aadac",
+    "u32<=128#bddc58da646c",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "L_stage_a": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (128 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "c99797979b71d0f18c5d7803",
+   "nodes": 1,
+   "arity": 1,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(2xu16)#dc30366fb6e4"
+   ],
+   "output_type": "(3072xu8[byte])#64ea6010dbdf",
+   "occurrences": {
+    "V_corner": 1,
+    "V_rect": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (2 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "caac1ac01d05941637f6eb93",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "eq",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "truth_7",
+     "n1",
+     [
+      "x2",
+      "x3"
+     ]
+    ],
+    [
+     "truth_2",
+     "n2",
+     [
+      "n1",
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u8[byte]#2ae091eca550",
+    "u8[byte]#2ae091eca550",
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "9d370b031dd6cf15b1ef639b",
+   "S_domain_rows": 262144,
+   "trivial": false,
+   "trivial_reason": "non-trivial",
+   "Sstar_class": "2d50df48cfbbf49e183af987",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "cbc413da8925d4a7b204b52e",
+   "nodes": 1,
+   "arity": 1,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(2xu32<=4096)#b79aa286f22f"
+   ],
+   "output_type": "u32<=4096#6af9ba73bb4b",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (2 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "cc6f4552f0b590481fd7a6d4",
+   "nodes": 3,
+   "arity": 3,
+   "body": [
+    [
+     "eq",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "ge",
+     "n1",
+     [
+      "x2",
+      "x1"
+     ]
+    ],
+    [
+     "and",
+     "n2",
+     [
+      "n0",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "L_dyck22": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "cfa60a6c0e11ee342cf9a136",
+   "nodes": 4,
+   "arity": 2,
+   "body": [
+    [
+     "log",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "sub",
+     "n1",
+     [
+      "x1",
+      "x0"
+     ]
+    ],
+    [
+     "log",
+     "n2",
+     [
+      "n1"
+     ]
+    ],
+    [
+     "sub",
+     "n3",
+     [
+      "n0",
+      "n2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "f32#efa57e603259",
+    "f32#efa57e603259"
+   ],
+   "output_type": "f32#efa57e603259",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "non-integer encoding (float)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input int not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "cfe1bcd5b642341a4d94b813",
+   "nodes": 1,
+   "arity": 1,
+   "body": [
+    [
+     "identity",
+     "n0",
+     [
+      "x0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u32<=128#bddc58da646c"
+   ],
+   "output_type": "u32<=128#bddc58da646c",
+   "occurrences": {
+    "L_stage_a": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "418b9dd12d972bbcb3d84abc",
+   "S_domain_rows": 129,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "282a948e99a714f931601966",
+   "Sstar_reason": null,
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "d108d42334c322a993159205",
+   "nodes": 3,
+   "arity": 3,
+   "body": [
+    [
+     "log",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "sub",
+     "n1",
+     [
+      "n0",
+      "x1"
+     ]
+    ],
+    [
+     "mul",
+     "n2",
+     [
+      "n1",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "f32#efa57e603259",
+    "f32#efa57e603259",
+    "f32#efa57e603259"
+   ],
+   "output_type": "f32#efa57e603259",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "non-integer encoding (float)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input int not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "d21a55bff1eccd1187c9c73f",
+   "nodes": 1,
+   "arity": 1,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(1xu8)#e056127e1635"
+   ],
+   "output_type": "u8#94aa264b5f79",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (1 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "d45d873ac8679ac726014d6a",
+   "nodes": 2,
+   "arity": 4,
+   "body": [
+    [
+     "min",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "module:b409b71ea0e41d77abb7cb9c",
+     "n1",
+     [
+      "n0",
+      "x2",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "(3072xu8[byte])#64ea6010dbdf"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_rect": 62
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "d8f8cebace205ff9128b95b0",
+   "nodes": 2,
+   "arity": 2,
+   "body": [
+    [
+     "sub",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "log",
+     "n1",
+     [
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "f32#efa57e603259",
+    "f32#efa57e603259"
+   ],
+   "output_type": "f32#efa57e603259",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "non-integer encoding (float)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input int not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "d92069f3345c259603589015",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "truth_7",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "truth_2",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "b0bd382015d52d2ffd270700",
+   "S_domain_rows": 8,
+   "trivial": false,
+   "trivial_reason": "non-trivial",
+   "Sstar_class": "02d0ee3e4f6c1dc007280af1",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "d99f4455e97e7cfdee9a1594",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "eq",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "truth_7",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ],
+    [
+     "truth_2",
+     "n2",
+     [
+      "n1",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u8[byte]#2ae091eca550",
+    "u8[byte]#2ae091eca550",
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "9d370b031dd6cf15b1ef639b",
+   "S_domain_rows": 262144,
+   "trivial": false,
+   "trivial_reason": "non-trivial",
+   "Sstar_class": "2d50df48cfbbf49e183af987",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "da10c5141486da7b6dc81281",
+   "nodes": 4,
+   "arity": 3,
+   "body": [
+    [
+     "insert",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "pair",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "filter",
+     "n2",
+     [
+      "n1"
+     ]
+    ],
+    [
+     "map",
+     "n3",
+     [
+      "n2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "set#186738ba6dc6",
+    "(3072xu8[byte])#64ea6010dbdf",
+    "set#69f392e9a565"
+   ],
+   "output_type": "set#41014d419769",
+   "occurrences": {
+    "V_assembly": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "set type",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input set not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "db59f9b09bb730340219425c",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "eq",
+     "n2",
+     [
+      "n1",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u32<=128#bddc58da646c",
+    "u32<=128#bddc58da646c",
+    "(128xu8[byte])#12bbb68aadac",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "L_stage_a": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (128 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "dc6e1d77780c0638bfc58fd5",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "eq",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "truth_2",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u8[byte]#2ae091eca550",
+    "u8[byte]#2ae091eca550",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "b967a945099809f1aa5bd43a",
+   "S_domain_rows": 131072,
+   "trivial": false,
+   "trivial_reason": "non-trivial",
+   "Sstar_class": "b65c3108647d8be6a3ef1b66",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "dccf10270c52c4bbd8dd3a29",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "ge",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "and",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ],
+    [
+     "and",
+     "n2",
+     [
+      "x3",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_corner": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": "d143d1c473f221bd6306411f",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "de70053d7a2d3b83094fa122",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "eq",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ],
+    [
+     "truth_2",
+     "n2",
+     [
+      "x3",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "dfb2fdd0e9e295e5856fd97d",
+   "nodes": 1,
+   "arity": 1,
+   "body": [
+    [
+     "unpack",
+     "n0",
+     [
+      "x0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "(1xu8)#e056127e1635",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "output product type (1 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "re-resolve failed: TypeError",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "e1a1baf8ea327915b17f96ab",
+   "nodes": 3,
+   "arity": 3,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x0",
+      "x2"
+     ]
+    ],
+    [
+     "eq",
+     "n2",
+     [
+      "n0",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 3
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "e354b44e30a2fdd67e146c11",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "mod",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "le",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ],
+    [
+     "and",
+     "n2",
+     [
+      "x3",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_corner": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "e369582183d37d1e95d65590",
+   "nodes": 2,
+   "arity": 2,
+   "body": [
+    [
+     "log",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "sub",
+     "n1",
+     [
+      "x1",
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "f32#efa57e603259",
+    "f32#efa57e603259"
+   ],
+   "output_type": "f32#efa57e603259",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "non-integer encoding (float)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input int not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "e36befb1bc112d340cf848c8",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "lt",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_rect": 62
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "e38275a68420b419d27fb9dc",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "eq",
+     "n2",
+     [
+      "n1",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "e4c6833ad07323fde0873891",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "lt",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_rect": 62
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "d18f56664188de746ad36cec",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "e51327e5baa3fd3df95e4d4e",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "mul",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "u16#6d9b48b4a73e",
+   "occurrences": {
+    "V_rect": 62
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "fd7bb66e84ff003fddc31d70",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "e65ba55ee6003a5c84034a21",
+   "nodes": 2,
+   "arity": 2,
+   "body": [
+    [
+     "sum",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "add",
+     "n1",
+     [
+      "n0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(31xu16)#c512e49e724b",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "u16#6d9b48b4a73e",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (31 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "e7ca0393c44a754d1d7d74c1",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "tuple",
+     "n1",
+     [
+      "x2",
+      "n0",
+      "x3"
+     ]
+    ],
+    [
+     "pack",
+     "n2",
+     [
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "u24#fa22490c0f65",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "e9c567a1bd002fcbcd6b0e6c",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "gt",
+     "n1",
+     [
+      "n0",
+      "x1"
+     ]
+    ],
+    [
+     "mux",
+     "n2",
+     [
+      "n1",
+      "x2",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3xf32)#792b14b91203",
+    "f32#efa57e603259",
+    "(3xf32)#792b14b91203",
+    "(3xf32)#792b14b91203"
+   ],
+   "output_type": "(3xf32)#792b14b91203",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "eb3ba1089b4e0fc7cdaa0df9",
+   "nodes": 1,
+   "arity": 1,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(2xu16)#dc30366fb6e4"
+   ],
+   "output_type": "u16#6d9b48b4a73e",
+   "occurrences": {
+    "V_corner": 1,
+    "V_rect": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (2 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "eb6fb920a3b432e7191342da",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "insert",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "set#186738ba6dc6",
+    "(3072xu8[byte])#64ea6010dbdf"
+   ],
+   "output_type": "set#186738ba6dc6",
+   "occurrences": {
+    "V_assembly": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "set type",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input set not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "eb76d38709d730f5cc04a4e9",
+   "nodes": 2,
+   "arity": 4,
+   "body": [
+    [
+     "mux",
+     "n0",
+     [
+      "x0",
+      "x1",
+      "x2"
+     ]
+    ],
+    [
+     "add",
+     "n1",
+     [
+      "n0",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "BOOL#429cad1b3521",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8"
+   ],
+   "output_type": "i16#7504ce4b5bd8",
+   "occurrences": {
+    "L_stage_b16": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "ebfbdf722134ae5cce63bff3",
+   "nodes": 2,
+   "arity": 4,
+   "body": [
+    [
+     "module:8063993bfeee7393683e47b3",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "mux",
+     "n1",
+     [
+      "n0",
+      "x2",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(2xu32<=128)#b63f9139f13a",
+    "u32<=128#bddc58da646c",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8"
+   ],
+   "output_type": "i16#7504ce4b5bd8",
+   "occurrences": {
+    "L_stage_b16": 16,
+    "L_dyck22": 22
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (2 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "ed42523f4f8d2ed4963baa37",
+   "nodes": 4,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x0",
+      "x2"
+     ]
+    ],
+    [
+     "tuple",
+     "n2",
+     [
+      "x3",
+      "n0",
+      "n1"
+     ]
+    ],
+    [
+     "pack",
+     "n3",
+     [
+      "n2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "u24#fa22490c0f65",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "edef60c89e4fe7e5ccd2ecb7",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "add",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ],
+    [
+     "add",
+     "n2",
+     [
+      "n1",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8"
+   ],
+   "output_type": "i16#7504ce4b5bd8",
+   "occurrences": {
+    "L_stage_b16": 13
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "ee1680d60bb1ec2b5f491038",
+   "nodes": 1,
+   "arity": 3,
+   "body": [
+    [
+     "mux",
+     "n0",
+     [
+      "x0",
+      "x1",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "BOOL#429cad1b3521",
+    "(3xf32)#792b14b91203",
+    "(3xf32)#792b14b91203"
+   ],
+   "output_type": "(3xf32)#792b14b91203",
+   "occurrences": {
+    "C_agent": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "ef41f5ad37e7284f401839de",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "eq",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 3
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "efb52fd87cd577f2734ce31b",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "eq",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "truth_7",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u8[byte]#2ae091eca550",
+    "u8[byte]#2ae091eca550",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "42968a670b7ff6a5d16d7148",
+   "S_domain_rows": 131072,
+   "trivial": false,
+   "trivial_reason": "non-trivial",
+   "Sstar_class": "505b966ac950f70078a0d767",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "f0eef004f0be24a98558e654",
+   "nodes": 4,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x0",
+      "x2"
+     ]
+    ],
+    [
+     "eq",
+     "n2",
+     [
+      "n0",
+      "n1"
+     ]
+    ],
+    [
+     "truth_2",
+     "n3",
+     [
+      "x3",
+      "n2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "f1ec3f8e5a3124c262db906b",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "sub",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u32<=4096#6af9ba73bb4b",
+    "u32<=4096#6af9ba73bb4b",
+    "(4096xu8[byte])#349f0a05a816"
+   ],
+   "output_type": "u8[byte]#2ae091eca550",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "f368653835a736e21c5cb978",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "truth_2",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "3687598e1331fd204a1faa32",
+   "S_domain_rows": 4,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "c8b644341753007536eb5c5c",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "f4e2f22bbe70bf155938669b",
+   "nodes": 4,
+   "arity": 3,
+   "body": [
+    [
+     "log",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "log",
+     "n1",
+     [
+      "x1"
+     ]
+    ],
+    [
+     "sub",
+     "n2",
+     [
+      "n0",
+      "n1"
+     ]
+    ],
+    [
+     "mul",
+     "n3",
+     [
+      "n2",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "f32#efa57e603259",
+    "f32#efa57e603259",
+    "f32#efa57e603259"
+   ],
+   "output_type": "f32#efa57e603259",
+   "occurrences": {
+    "C_agent": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "non-integer encoding (float)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input int not abstractable",
+   "domains": [
+    "computer"
+   ]
+  },
+  {
+   "digest": "f5195e34519d2021ded48dfc",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "min",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "u16#6d9b48b4a73e",
+   "occurrences": {
+    "V_rect": 62
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "w=8: joint domain > cap (1048576)",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "f7385d9f1965fc674d7575a7",
+   "nodes": 3,
+   "arity": 4,
+   "body": [
+    [
+     "and",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "and",
+     "n1",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "truth_1",
+     "n2",
+     [
+      "x3",
+      "n1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521",
+    "BOOL#429cad1b3521"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_corner": 1
+   },
+   "S_exhaustible": true,
+   "S_reason": null,
+   "S_class": "a5f097aac52f17116dfbe0f2",
+   "S_domain_rows": 16,
+   "trivial": false,
+   "trivial_reason": "non-trivial",
+   "Sstar_class": "f61060d3ca53a6e546156723",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "f88f2a1f665579e500ecb59c",
+   "nodes": 5,
+   "arity": 4,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x2",
+      "x0"
+     ]
+    ],
+    [
+     "index",
+     "n2",
+     [
+      "x2",
+      "n0"
+     ]
+    ],
+    [
+     "tuple",
+     "n3",
+     [
+      "n1",
+      "x3",
+      "n2"
+     ]
+    ],
+    [
+     "pack",
+     "n4",
+     [
+      "n3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "u24#fa22490c0f65",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "fa1314da8c9b9f1f1762e2ef",
+   "nodes": 1,
+   "arity": 3,
+   "body": [
+    [
+     "mux",
+     "n0",
+     [
+      "x0",
+      "x1",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "BOOL#429cad1b3521",
+    "i16#7504ce4b5bd8",
+    "i16#7504ce4b5bd8"
+   ],
+   "output_type": "i16#7504ce4b5bd8",
+   "occurrences": {
+    "L_stage_b16": 32,
+    "L_dyck22": 44
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "ba68b9677421343655e62295",
+   "Sstar_reason": null,
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "fa7725dfc8e7d144784cdcc4",
+   "nodes": 2,
+   "arity": 3,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "eq",
+     "n1",
+     [
+      "n0",
+      "x2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "V_same": 3
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "fc380efd7c4bae0ec084b04d",
+   "nodes": 4,
+   "arity": 4,
+   "body": [
+    [
+     "project",
+     "n0",
+     [
+      "x0"
+     ]
+    ],
+    [
+     "add",
+     "n1",
+     [
+      "x1",
+      "x2"
+     ]
+    ],
+    [
+     "index",
+     "n2",
+     [
+      "n0",
+      "n1"
+     ]
+    ],
+    [
+     "eq",
+     "n3",
+     [
+      "n2",
+      "x3"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(2xu32<=128)#b63f9139f13a",
+    "u32<=128#bddc58da646c",
+    "u32<=128#bddc58da646c",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "BOOL#429cad1b3521",
+   "occurrences": {
+    "L_stage_a": 1
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (2 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "language"
+   ]
+  },
+  {
+   "digest": "fe50c074a9dea2ecabcaf461",
+   "nodes": 4,
+   "arity": 4,
+   "body": [
+    [
+     "index",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ],
+    [
+     "index",
+     "n1",
+     [
+      "x0",
+      "x2"
+     ]
+    ],
+    [
+     "tuple",
+     "n2",
+     [
+      "n0",
+      "n1",
+      "x3"
+     ]
+    ],
+    [
+     "pack",
+     "n3",
+     [
+      "n2"
+     ]
+    ]
+   ],
+   "input_types": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550"
+   ],
+   "output_type": "u24#fa22490c0f65",
+   "occurrences": {
+    "V_rect": 2
+   },
+   "S_exhaustible": false,
+   "S_reason": "product type (3072 fields)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": false,
+   "trivial_reason": "multi-node, signature unavailable",
+   "Sstar_class": null,
+   "Sstar_reason": "input tuple not abstractable",
+   "domains": [
+    "visual"
+   ]
+  },
+  {
+   "digest": "ff554fbb1db19e0a48d6d5eb",
+   "nodes": 1,
+   "arity": 2,
+   "body": [
+    [
+     "add",
+     "n0",
+     [
+      "x0",
+      "x1"
+     ]
+    ]
+   ],
+   "input_types": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e"
+   ],
+   "output_type": "u16#6d9b48b4a73e",
+   "occurrences": {
+    "V_same": 4,
+    "V_rect": 130
+   },
+   "S_exhaustible": false,
+   "S_reason": "joint domain > cap (1048576)",
+   "S_class": null,
+   "S_domain_rows": null,
+   "trivial": true,
+   "trivial_reason": "single node",
+   "Sstar_class": "f82d25299e4c794dbda2516c",
+   "Sstar_reason": null,
+   "domains": [
+    "visual"
+   ]
+  }
+ ],
+ "seconds": 175.24352432700107
+}

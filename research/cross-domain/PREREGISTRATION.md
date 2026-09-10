@@ -172,4 +172,38 @@ Any of F1–F4 firing is a result, not a failure of the track.
 
 ## Amendments
 
-*(none at the time of writing)*
+Recorded with what each replaces, per house discipline.
+
+**A1 — partiality convention (added during implementation, before any table was
+read).** The original text said "exhaustive input/output map" without saying what
+an input on which the fragment *raises* contributes. Operators here are partial
+(unsigned `sub` underflow, `idiv` by zero, `log` of a non-positive). Such a row
+is recorded as the distinguished symbol `ERR`, not dropped, so the map stays
+total over the carrier and the identity stays exact. Replaces nothing; it fills a
+gap.
+
+**A2 — class-level triviality reads `any`, not `all`.** The first implementation
+marked a semantic class NON-TRIVIAL when *every* canonical representative was
+non-trivial. That labelled the class of `add` non-trivial merely because one of
+its four representatives is the 2-node spelling `add(identity(x0), x1)`, which
+denotes the same primitive. The rule is now: **a class is TRIVIAL if any of its
+canonical representatives is trivial** — a class that can be spelled with one
+primitive *is* that primitive. This is the conservative direction: it can only
+reduce the count of non-trivial shared classes, never inflate it. Replaces the
+`all` reading; the `all` reading would have reported `add` as a non-trivial
+cross-domain class, which would have been an overclaim of exactly the kind §46
+and §50 corrected.
+
+**A3 — two bounds added, neither replacing anything.** `run_bounds.py` adds
+
+* **B1, the type-signature bound.** Two fragments can be S-equal only if their
+  type signatures are equal, and the type signature is exact for *every*
+  fragment, exhaustible or not. The count of type signatures occurring in more
+  than one domain is therefore an exact **upper bound** on cross-domain S
+  classes *at any cap*. This is what keeps `EXHAUST_CAP` from being a place to
+  hide a negative result: it shows what the cap can and cannot be concealing.
+* **B2, the operator-shape relation T** — the canonical fragment with all types
+  erased. T is **not** semantic and no claim here treats it as such; it answers
+  the separate question of whether any recurring *motif* exists across domains
+  that the type system forbids identifying. A T match is reported as a
+  structural coincidence, never as a shared abstraction.

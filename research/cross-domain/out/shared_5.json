@@ -1,0 +1,447 @@
+{
+ "max_nodes": 5,
+ "n_D_classes": 217,
+ "exactness": {
+  "S exact": 37,
+  "S* exact": 54,
+  "S not exhaustible": 180,
+  "S* not computable": 163
+ },
+ "S_unexhaustible_reasons": {
+  "product type (3072 fields)": 28,
+  "joint domain > cap (1048576)": 72,
+  "set type": 10,
+  "product type (4096 fields)": 10,
+  "product type (4 fields)": 1,
+  "product type (31 fields)": 2,
+  "non-integer encoding (float)": 21,
+  "product type (2 fields)": 19,
+  "product type (128 fields)": 6,
+  "product type (3 fields)": 7,
+  "product type (1 fields)": 3,
+  "output product type (1 fields)": 1
+ },
+ "cross_domain_D": [
+  {
+   "key": "888ed8700df66e9cda030357",
+   "domains": [
+    "computer",
+    "language",
+    "visual"
+   ],
+   "members": [
+    {
+     "digest": "888ed8700df66e9cda030357",
+     "nodes": 1,
+     "arity": 2,
+     "spell": "eq(x0, x1)",
+     "in_types": [
+      "u8[byte]",
+      "u8[byte]"
+     ],
+     "out_type": "BOOL",
+     "occurrences": {
+      "V_same": 3,
+      "L_stage_a": 1,
+      "C_agent": 1
+     },
+     "trivial": true,
+     "trivial_reason": "single node"
+    }
+   ],
+   "all_trivial": true
+  },
+  {
+   "key": "9e8092e7bdb684bb47a3cc29",
+   "domains": [
+    "language",
+    "visual"
+   ],
+   "members": [
+    {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "nodes": 1,
+     "arity": 2,
+     "spell": "and(x0, x1)",
+     "in_types": [
+      "BOOL",
+      "BOOL"
+     ],
+     "out_type": "BOOL",
+     "occurrences": {
+      "V_corner": 4,
+      "V_rect": 122,
+      "L_dyck22": 1
+     },
+     "trivial": true,
+     "trivial_reason": "single node"
+    }
+   ],
+   "all_trivial": true
+  }
+ ],
+ "n_cross_domain_D": 2,
+ "n_cross_domain_D_nontrivial": 0,
+ "cross_domain_S": [
+  {
+   "key": "0e296e34d02c94a986910dbd",
+   "domains": [
+    "computer",
+    "language",
+    "visual"
+   ],
+   "members": [
+    {
+     "digest": "888ed8700df66e9cda030357",
+     "nodes": 1,
+     "arity": 2,
+     "spell": "eq(x0, x1)",
+     "in_types": [
+      "u8[byte]",
+      "u8[byte]"
+     ],
+     "out_type": "BOOL",
+     "occurrences": {
+      "V_same": 3,
+      "L_stage_a": 1,
+      "C_agent": 1
+     },
+     "trivial": true,
+     "trivial_reason": "single node"
+    }
+   ],
+   "all_trivial": true
+  },
+  {
+   "key": "421e96045d7e3b262856980c",
+   "domains": [
+    "language",
+    "visual"
+   ],
+   "members": [
+    {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "nodes": 1,
+     "arity": 2,
+     "spell": "and(x0, x1)",
+     "in_types": [
+      "BOOL",
+      "BOOL"
+     ],
+     "out_type": "BOOL",
+     "occurrences": {
+      "V_corner": 4,
+      "V_rect": 122,
+      "L_dyck22": 1
+     },
+     "trivial": true,
+     "trivial_reason": "single node"
+    }
+   ],
+   "all_trivial": true
+  }
+ ],
+ "n_cross_domain_S": 2,
+ "n_cross_domain_S_nontrivial": 0,
+ "cross_domain_Sstar": [
+  {
+   "key": "9baa2264e83db7076d3e6783",
+   "domains": [
+    "computer",
+    "language",
+    "visual"
+   ],
+   "members": [
+    {
+     "digest": "888ed8700df66e9cda030357",
+     "nodes": 1,
+     "arity": 2,
+     "spell": "eq(x0, x1)",
+     "in_types": [
+      "u8[byte]",
+      "u8[byte]"
+     ],
+     "out_type": "BOOL",
+     "occurrences": {
+      "V_same": 3,
+      "L_stage_a": 1,
+      "C_agent": 1
+     },
+     "trivial": true,
+     "trivial_reason": "single node"
+    }
+   ],
+   "all_trivial": true
+  },
+  {
+   "key": "deab88eaec7650328c343ba8",
+   "domains": [
+    "computer",
+    "language",
+    "visual"
+   ],
+   "members": [
+    {
+     "digest": "019f6a6165d60c9686638e9b",
+     "nodes": 1,
+     "arity": 2,
+     "spell": "sub(x0, x1)",
+     "in_types": [
+      "u32<=128",
+      "u32<=128"
+     ],
+     "out_type": "u32<=128",
+     "occurrences": {
+      "L_stage_b16": 1,
+      "L_dyck22": 1
+     },
+     "trivial": true,
+     "trivial_reason": "single node"
+    },
+    {
+     "digest": "20c6342473843131a290b5b4",
+     "nodes": 1,
+     "arity": 2,
+     "spell": "sub(x0, x1)",
+     "in_types": [
+      "u16",
+      "u16"
+     ],
+     "out_type": "u16",
+     "occurrences": {
+      "V_corner": 2,
+      "V_rect": 1
+     },
+     "trivial": true,
+     "trivial_reason": "single node"
+    },
+    {
+     "digest": "be68df7154420a692469f9b8",
+     "nodes": 1,
+     "arity": 2,
+     "spell": "sub(x0, x1)",
+     "in_types": [
+      "u32<=4096",
+      "u32<=4096"
+     ],
+     "out_type": "u32<=4096",
+     "occurrences": {
+      "C_agent": 1
+     },
+     "trivial": true,
+     "trivial_reason": "single node"
+    }
+   ],
+   "all_trivial": true
+  },
+  {
+   "key": "282a948e99a714f931601966",
+   "domains": [
+    "computer",
+    "language",
+    "visual"
+   ],
+   "members": [
+    {
+     "digest": "108350d35d8d27cac24977e7",
+     "nodes": 1,
+     "arity": 1,
+     "spell": "identity(x0)",
+     "in_types": [
+      "u32<=4096"
+     ],
+     "out_type": "u32<=4096",
+     "occurrences": {
+      "C_agent": 1
+     },
+     "trivial": true,
+     "trivial_reason": "single node"
+    },
+    {
+     "digest": "8eb2768c14e0351b1e7b6b57",
+     "nodes": 1,
+     "arity": 1,
+     "spell": "identity(x0)",
+     "in_types": [
+      "u16"
+     ],
+     "out_type": "u16",
+     "occurrences": {
+      "V_corner": 2,
+      "V_rect": 2
+     },
+     "trivial": true,
+     "trivial_reason": "single node"
+    },
+    {
+     "digest": "cfe1bcd5b642341a4d94b813",
+     "nodes": 1,
+     "arity": 1,
+     "spell": "identity(x0)",
+     "in_types": [
+      "u32<=128"
+     ],
+     "out_type": "u32<=128",
+     "occurrences": {
+      "L_stage_a": 1
+     },
+     "trivial": true,
+     "trivial_reason": "single node"
+    }
+   ],
+   "all_trivial": true
+  },
+  {
+   "key": "f82d25299e4c794dbda2516c",
+   "domains": [
+    "computer",
+    "language",
+    "visual"
+   ],
+   "members": [
+    {
+     "digest": "2359492100385c1804fc2d70",
+     "nodes": 1,
+     "arity": 2,
+     "spell": "add(x0, x1)",
+     "in_types": [
+      "u32<=128",
+      "u32<=128"
+     ],
+     "out_type": "u32<=128",
+     "occurrences": {
+      "L_stage_a": 1
+     },
+     "trivial": true,
+     "trivial_reason": "single node"
+    },
+    {
+     "digest": "28006e7a8e82c8b7d78c708d",
+     "nodes": 1,
+     "arity": 2,
+     "spell": "add(x0, x1)",
+     "in_types": [
+      "u8",
+      "u8"
+     ],
+     "out_type": "u8",
+     "occurrences": {
+      "C_agent": 1
+     },
+     "trivial": true,
+     "trivial_reason": "single node"
+    },
+    {
+     "digest": "2e9f6a058cea0c0b3b5a4a1c",
+     "nodes": 2,
+     "arity": 2,
+     "spell": "add(identity(x0), x1)",
+     "in_types": [
+      "u32<=128",
+      "u32<=128"
+     ],
+     "out_type": "u32<=128",
+     "occurrences": {
+      "L_stage_a": 1
+     },
+     "trivial": false,
+     "trivial_reason": "non-trivial"
+    },
+    {
+     "digest": "ff554fbb1db19e0a48d6d5eb",
+     "nodes": 1,
+     "arity": 2,
+     "spell": "add(x0, x1)",
+     "in_types": [
+      "u16",
+      "u16"
+     ],
+     "out_type": "u16",
+     "occurrences": {
+      "V_same": 4,
+      "V_rect": 130
+     },
+     "trivial": true,
+     "trivial_reason": "single node"
+    }
+   ],
+   "all_trivial": true
+  },
+  {
+   "key": "0d20328d16ebaa0e51b43568",
+   "domains": [
+    "language",
+    "visual"
+   ],
+   "members": [
+    {
+     "digest": "9e8092e7bdb684bb47a3cc29",
+     "nodes": 1,
+     "arity": 2,
+     "spell": "and(x0, x1)",
+     "in_types": [
+      "BOOL",
+      "BOOL"
+     ],
+     "out_type": "BOOL",
+     "occurrences": {
+      "V_corner": 4,
+      "V_rect": 122,
+      "L_dyck22": 1
+     },
+     "trivial": true,
+     "trivial_reason": "single node"
+    }
+   ],
+   "all_trivial": true
+  },
+  {
+   "key": "d18f56664188de746ad36cec",
+   "domains": [
+    "language",
+    "visual"
+   ],
+   "members": [
+    {
+     "digest": "3883263750c98d3aa33a0e00",
+     "nodes": 1,
+     "arity": 2,
+     "spell": "lt(x0, x1)",
+     "in_types": [
+      "u32<=128",
+      "u32<=128"
+     ],
+     "out_type": "BOOL",
+     "occurrences": {
+      "L_stage_b16": 16,
+      "L_dyck22": 22
+     },
+     "trivial": true,
+     "trivial_reason": "single node"
+    },
+    {
+     "digest": "e4c6833ad07323fde0873891",
+     "nodes": 1,
+     "arity": 2,
+     "spell": "lt(x0, x1)",
+     "in_types": [
+      "u16",
+      "u16"
+     ],
+     "out_type": "BOOL",
+     "occurrences": {
+      "V_rect": 62
+     },
+     "trivial": true,
+     "trivial_reason": "single node"
+    }
+   ],
+   "all_trivial": true
+  }
+ ],
+ "n_cross_domain_Sstar": 6,
+ "n_cross_domain_Sstar_nontrivial": 0,
+ "n_all_three_D": 1,
+ "n_all_three_S": 1,
+ "n_all_three_Sstar": 4
+}

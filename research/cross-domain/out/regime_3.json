@@ -1,0 +1,53 @@
+{
+ "max_nodes": 3,
+ "per_artifact": {
+  "V_same": {
+   "D_classes": 25,
+   "D_classes_exhaustible": 10,
+   "S_classes": 7,
+   "collapse_ratio": 1.429
+  },
+  "L_stage_a": {
+   "D_classes": 13,
+   "D_classes_exhaustible": 4,
+   "S_classes": 3,
+   "collapse_ratio": 1.333
+  },
+  "C_agent": {
+   "D_classes": 50,
+   "D_classes_exhaustible": 9,
+   "S_classes": 9,
+   "collapse_ratio": 1.0
+  },
+  "V_corner": {
+   "D_classes": 26,
+   "D_classes_exhaustible": 9,
+   "S_classes": 7,
+   "collapse_ratio": 1.286
+  },
+  "V_rect": {
+   "D_classes": 44,
+   "D_classes_exhaustible": 6,
+   "S_classes": 6,
+   "collapse_ratio": 1.0
+  },
+  "L_dyck22": {
+   "D_classes": 23,
+   "D_classes_exhaustible": 4,
+   "S_classes": 4,
+   "collapse_ratio": 1.0
+  },
+  "L_stage_b16": {
+   "D_classes": 17,
+   "D_classes_exhaustible": 3,
+   "S_classes": 3,
+   "collapse_ratio": 1.0
+  },
+  "V_assembly": {
+   "D_classes": 9,
+   "D_classes_exhaustible": 0,
+   "S_classes": 0,
+   "collapse_ratio": null
+  }
+ }
+}
