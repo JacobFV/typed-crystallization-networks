@@ -2598,3 +2598,62 @@ was wrong and enumeration corrected it; the one wrong all-holes answer is a
 training overfit (0.7485 held-out against a 0.7334 majority). Tests 324 pass / 13
 fail, identical with the track's own directory removed.
 
+## 51. The expected-work gain does reach wall clock — and bounds what laziness can ever be worth
+
+`research/lazy-latency/RESULTS.md`, branch `lazy-latency` (`7045162`), **not
+merged at time of writing**; `tcn/` and `generators/` untouched.
+`PREREGISTRATION.md` committed at `95dec33` before any timing arm.
+§49 closed by asking "whether the expected-work gain survives translation to wall
+clock given the bytecode regression". It does. Verified here from raw JSON.
+
+**The predicted negative did not fire.** On the shipped visual parser's S2
+subroutine, batch-one warm latency, every timing gated on bit-identical output
+first:
+
+| distribution | A compiled spec | B resynthesized | **A ÷ B** | C hand-written | A ÷ C |
+|---|---|---|---|---|---|
+| **deployment** (54 corner records) | 39.043 µs | **18.781 µs** | **2.079×** CI [2.055, 2.095] | 3.025 µs | **12.908×** |
+| uniform held out | 38.031 µs | 10.576 µs | 3.596× | 1.532 µs | 24.820× |
+| **worst case** | 37.025 µs | 40.892 µs | **0.905× — B is 1.105× slower** | 5.749 µs | 6.440× |
+
+No confidence interval contains 1. Replicated at 1.853× in a separate
+stdlib-only Python 3.12 process. §49's modelled 2.48×/4.42× attenuate to
+**2.08×/3.60×** in real time.
+
+**The bound is the more valuable half, and it is the negative the brief asked
+for, quantified.** The hand-written reference is **12.908×** faster than the
+compiled specification on the deployment distribution. Laziness recovers
+**2.079×** of that — **28.6% in log terms**. So **≈6.2× is not addressable by
+early exit at all** (12.908 ÷ 2.079 = 6.21). Whatever closes the remaining gap is
+not a lazy conditional, and the resynthesis programme should not be sold as if it
+were.
+
+**The worst case is a real penalty**, as §49 predicted, but *smaller* than the
+bytecode regression implied: 0.905× on stage 3, 1.250× and 1.361× on the
+miniatures, against bytecode-predicted 1.198×, 1.499× and 1.577× — because arm
+B's bytecodes cost 7.7–17.2% less each. §49's 0.67× and 0.63× bytecode figures
+reproduce exactly over all 65,536 inputs. **Fewer primitives is not fewer
+bytecodes, and fewer bytecodes is not less time**; all three had to be measured
+separately and they disagree in both directions.
+
+**Crossover — the reusable number.** On the parser subroutine laziness stops
+paying at `w + h ≈ 42` of a possible 62; on the guard miniature at a predicate
+hit rate of **0.798**. Deployment sits at mean 18.8 and 0.021, far below both,
+which is *why* B wins there. That crossover, not the 2.08×, is what transfers to
+other tasks.
+
+**Also:** B is **40.2× smaller on disk** and cold-starts **3.9× faster**.
+
+**Method note, and it is why this result is believable.** The track recorded
+**five amendments to its own pre-registration, each with the number it replaced,
+and states that all five move against its hypothesis.** Two are worth naming: a
+stride-16 subsample silently pinned the last input digit at 0 so one position
+could never fire (which had made B look *better*), and binning the crossover by
+`max(w,h)` instead of `w+h` had hidden B losing entirely. Three instrumentation
+traps are documented, **two of which had produced confidently wrong numbers in
+the hypothesis's favour**. This is the behaviour that separates a measurement
+from a demonstration.
+
+Tests 336 passed / 1 failed, identical to the pre-existing worktree baseline;
+fixture reproduces 0.248836 → 0.002231 at 4/4.
+
