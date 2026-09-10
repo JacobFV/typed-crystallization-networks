@@ -275,6 +275,32 @@ for r in J("first_generalizing_gap0.json") or []:
         claim(f"post-hoc {r['arm']}: 48-episode tier sizes equal the arm's training tier sizes",
               all(t["S"] == u["S"] for t, u in zip(r["tiers"], d_["tiers"])))
 
+# the gap-1 mechanism, from the episodes alone (no engine): which schema STEP
+# candidates can land a click in the target, given the TRUE anchor extent?
+_e1 = J("episodes_gap1.json")
+if _e1 is not None:
+    _W = 16
+    _pool = [(op, base, off) for op in ("add", "sub") for base in ("lo", "hi")
+             for off in (6, 3 * _W + 3, 3, 3 * _W, 9)]
+
+    def _hits(r, op, base, off):
+        x, y, w, h = r["widgets"][r["anchor"]]["rect"]
+        lo, hi = 3 * (y * _W + x), 3 * ((y + h - 1) * _W + x + w - 1)
+        b = lo if base == "lo" else hi
+        c = (b + off if op == "add" else b - off) % 65536
+        q = c // 3
+        return q < _W * _W and r["owner"][q] == r["target"]
+    _above = [r for r in _e1["episodes"] if r["relation"] == "above"]
+    _side = [r for r in _e1["episodes"] if r["relation"] != "above"]
+    claim("gap-1 mechanism: no schema STEP candidate reaches the target on any 'above' episode",
+          _above and all(not any(_hits(r, *c) for c in _pool) for r in _above), f"{len(_above)} episodes")
+    claim("gap-1 mechanism: the two-row step lo-96 (absent from the pool) reaches it on every 'above' episode",
+          _above and all(_hits(r, "sub", "lo", 6 * _W) for r in _above))
+    claim("gap-1 mechanism: 96 is absent from the STEP pool (6, 3W+3, 3, 3W, 9) and present in the flat 1..128",
+          6 * _W not in {c[2] for c in _pool} and 6 * _W in family.STEP_FLAT_OFFSETS)
+    claim("gap-1 mechanism: every left/right episode has a schema STEP candidate that reaches the target",
+          all(any(_hits(r, *c) for c in _pool) for r in _side), f"{len(_side)} episodes")
+
 # KO_LIT (N'' with LIT uniform) is not run: it is the same search as OCC_1.
 # Tiers compare scores only within a slot, so any uniform LIT rule gives the
 # same restrictions; checked here byte for byte rather than argued.

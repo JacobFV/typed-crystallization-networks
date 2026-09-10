@@ -73,9 +73,17 @@ address and literal preferences, and §9.4 gives programs to the first *generali
 arm, post-hoc. Scope: one seed set, one palette, one relation vocabulary, `gap 0`; the STEP
 estimator rests on 20 rows; `gap 1` is §2's second table.
 
-**The post-hoc gap-0 generalization finding does not replicate at the pre-registered second
-configuration.** At `gap 1`, N″'s sampled first solutions generalize none of the time (§2's
-second table): the result that its first hit generalizes is a `gap 0` result only.
+**The post-hoc gap-0 generalization result does not replicate at the pre-registered second
+configuration, because the inherited schema cannot express the `gap 1` answer.** At `gap 1` the
+schema space holds no program that conforms on all 48 episodes (exact, §9.1): it fits training but
+cannot express the answer. The mechanism is confirmed from the episodes by `verify.py`: a correct
+`above` click must step two rows, and that offset is absent from the STEP schema's pool
+`(6, 3W+3, 3, 3W, 9)`, while every left/right episode is reachable from it. So N″'s failure to
+generalize at `gap 1` is **not** a failure of the learned prior to transfer — no order over that
+pool could generalize. It is recorded as a counterexample against the STEP schema class (its
+offset pool), found only by the full episode set, which is the stricter CEGIS check proposed in
+§9.5. At `gap 1` only the flat arms N and P, whose pool holds the two-row step, could reach a
+generalizing program at all.
 
 **F6 and the `gap 1` prediction, resolved strictly as pre-registered.** F6 is defined as "0
 conforming, exhausted"; the `gap 1` schema space has training-conforming programs, so **F6 is not
@@ -109,7 +117,11 @@ Primary configuration (`gap 0`):
 Second configuration (`gap 1`):
 
 <!-- BEGIN:criteria_gap1 -->
-
+- **C1 (material saving, ≥10× in programs and episodes):** N″/N = 1.78×10^6 → **FAIL** (episodes are programs × 12, so the same ratio).
+- **C2 (the matched distractor does not reach 10×):** D': cost/N = 8.03×10^8 → **PASS**.
+- **C3 (a solution, not a fit):** the worst of 400 sampled N″ first solutions scores 0.2500 held out (evaluator; live check in the instrumentation table) against the best baseline 0.5833 → **FAIL**.
+- **N′ vs N:** N′/N = 2,158.93 → schema is organisational reuse (within 10×).
+- **N″ vs N′ (does the prior earn its name, ≤ N′/10?):** N″/N′ = 824.38 → **no**.
 <!-- END:criteria_gap1 -->
 
 ## 2. Every arm, exact
@@ -157,6 +169,12 @@ Second configuration (`gap 1`):
 <!-- BEGIN:arms_gap1 -->
 | arm | full space S | conformers K | certificate | first solvable tier | expected programs to first solution | expected episodes | saving vs N | first solution generalizes (of sampled) | held-out accuracy of first solution |
 |---|---|---|---|---|---|---|---|---|---|
+| N — flat, uniform | 5.03×10^29 | 1.36×10^21 | `complete` | 0 | 3.68×10^8 | 4.42×10^9 | 1× | 0/400 (95% 0.000–0.010) | 0.3660 |
+| N′ — schema, uniform | 2.08×10^23 | 2.62×10^11 | `complete` | 0 | 7.95×10^11 | 9.54×10^12 | 4.63×10^-4× | 0/400 (95% 0.000–0.010) | 0.5249 |
+| N″ — schema + learned prior | 2.08×10^23 | 2.62×10^11 | `complete` | 3 | 6.56×10^14 | 7.87×10^15 | 5.62×10^-7× | 0/400 (95% 0.000–0.010) | 0.3985 |
+| P — flat + learned prior | 5.03×10^29 | 1.36×10^21 | `complete` | 2 | 4.27×10^17 | 5.12×10^18 | 8.63×10^-10× | 0/400 (95% 0.000–0.010) | 0.3507 |
+| D′ — distractor schemas, uniform | 2.08×10^23 | 7.03×10^5 | `complete` | 0 | 2.96×10^17 | 3.55×10^18 | 1.25×10^-9× | 0/400 (95% 0.000–0.010) | 0.1946 |
+| U — N″'s features, UNFITTED gentle 2× rule (post-hoc control) | 2.08×10^23 | 2.62×10^11 | `complete` | 0 | 7.35×10^8 | 8.82×10^9 | 0.50× | 0/400 (95% 0.000–0.010) | 0.5138 |
 <!-- END:arms_gap1 -->
 
 ## 3. The saving against the space size (F3)
@@ -170,7 +188,11 @@ Second configuration (`gap 1`):
 <!-- END:f3_gap0 -->
 
 <!-- BEGIN:f3_gap1 -->
-(N not run)
+| arm | space ratio S_N / S_arm | solution retention K_arm / K_N | saving N / arm (expected programs) | saving vs space ratio |
+|---|---|---|---|---|
+| N′ — schema, uniform | 2.42×10^6 | 1.92×10^-10 | 4.63×10^-4 | 1.92×10^-10 |
+| N″ — schema + learned prior | 2.42×10^6 | 1.92×10^-10 | 5.62×10^-7 | 2.33×10^-13 |
+| P — flat + learned prior | 1 | 1 | 8.63×10^-10 | 8.63×10^-10 |
 <!-- END:f3_gap1 -->
 
 ## 4. The learned prior's tiers
@@ -307,7 +329,19 @@ Rows per kind (rows / survivors): ADDR 233/23, GROUND 0/0, LIT 424/22, STEP 20/6
 <!-- END:extras_gap0 -->
 
 <!-- BEGIN:extras_gap1 -->
-(not run)
+| quantity | value |
+|---|---|
+| hard-transferred vector H: training accuracy | 0.0833 |
+| H: held-out accuracy | 0.1667 |
+| best constant click (chosen on training) held-out | 0.3056 |
+| oracle constant click (chosen on held-out) | 0.5833 |
+| uniform random pixel, held-out (exact) | 0.2704 |
+| uniform random child widget, held-out (exact) | 0.3889 |
+| widgets per screen (48 episodes) | {'3': 19, '4': 29} |
+| rejection draws per episode (min / median / max) | 1 / 9 / 43 |
+| instruction lengths (bytes) | [23, 24, 25, 26, 32, 33, 34, 35, 36] |
+| target area in pixels (min / max) | 42 / 140 |
+| H's selection | cpos ('sub', 'length', 'k1'), lc1 97, lc2 97, lc3 97, K1 0, K2 0, K3 0, K4 0, ra ('sub', 'length', 'k1'), lr1 97, lr2 97, M (1, 2, 7, 2), X1 ('add', 'lo', 3), X2 ('add', 'lo', 48), X3 ('add', 'lo', 48) |
 <!-- END:extras_gap1 -->
 
 ## 6. Why — instrumentation of the found programs
@@ -323,6 +357,7 @@ Rows per kind (rows / survivors): ADDR 233/23, GROUND 0/0, LIT 424/22, STEP 20/6
 |---|---|
 | V2 counter = brute force, gap 0 | 35/35 sub-spaces agree on S and K; 10 contain conformers |
 | V2 counter = `tcn.search.enumerate_prefix` | steps_and_relation: S 192, K 12, tcn `complete` 12; grounding_and_steps: S 64, K 1, tcn `unique` 1; matcher_and_literals: S 32, K 2, tcn `complete` 2 — 3/3 agree |
+| V1 evaluator = `Program.execute` (click node, 48 episodes each) | 171/171 programs agree (schema 57, flat 57, distractor 57) |
 <!-- END:validation -->
 
 ## 8. Resources
@@ -364,15 +399,23 @@ Rows per kind (rows / survivors): ADDR 233/23, GROUND 0/0, LIT 424/22, STEP 20/6
 | `arm_gap0_V_100` | 0.27 | 3:32.60 | 0 |
 | `arm_gap0_V_3` | 0.27 | 2:25.93 | 0 |
 | `arm_gap0_extras` | 0.24 | 0:01.64 | 0 |
+| `arm_gap1_Dp` | 0.26 | 0:44.40 | 0 |
+| `arm_gap1_N` | 2.18 | 1:11.40 | 0 |
+| `arm_gap1_Np` | 0.26 | 0:24.82 | 0 |
+| `arm_gap1_Npp` | 0.27 | 1:37.84 | 0 |
+| `arm_gap1_P` | 0.62 | 5:13.26 | 0 |
+| `arm_gap1_U_feat` | 0.27 | 0:40.26 | 0 |
+| `arm_gap1_extras` | 0.24 | 0:01.85 | 0 |
 | `cache` | 0.22 | 0:24.52 | 0 |
 | `diag_v1` | 0.25 | 2:29.91 | 0 |
 | `first_generalizing_gap0` | 0.38 | 20:40.25 | 0 |
 | `generalize_gap0` | 0.39 | 5:31.25 | 0 |
 | `sources` | 0.28 | 1:30.87 | 0 |
+| `v1_shard0` | 0.29 | 1:34:57 | 0 |
 | `v2brute_gap0` | 0.49 | 0:41.46 | 0 |
 | `v2tcn_gap0` | 0.30 | 7:04.85 | 0 |
 
-Memory floor: 52 capped starts logged in `out/memory_floor.log`; MemAvailable at start ranged 33.3–42.2 GB; phases refused by the 25 GB floor: 0.
+Memory floor: 60 capped starts logged in `out/memory_floor.log`; MemAvailable at start ranged 31.1–102.3 GB; phases refused by the 25 GB floor: 0.
 <!-- END:resources -->
 
 ---
@@ -419,6 +462,7 @@ well as training"), not counted as F6 having fired. If some programs do generali
 reached a spurious one first.
 
 <!-- BEGIN:generalize_gap1 -->
+(not run)
 <!-- END:generalize_gap1 -->
 
 **What it shows (post-hoc, not F6):** at `gap 1` the schema space holds **no** program that conforms
