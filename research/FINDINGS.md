@@ -2169,12 +2169,16 @@ and testing against `MAJ3` and `M` over **all ordered 3-subsets of the 4 inputs*
 - a `MAJ3` body survives in **1 of 6** solved programs;
 - an `M` body survives in **4 of 6**, matching the rule's own site count.
 
-So the rule mined exactly what recurs. **Exact minimisation is adversarial to
-abstraction mining:** each task's minimum-gate program factors differently, and
-`MAJ3` — the fragment that would have paid — is fused into its wrapper in five of
-six. The frequency statistics any such rule reads never see it. This is a
-property of minimised corpora, not of this particular rule, and it is the useful
-finding.
+So the rule mined exactly what recurs. **CORRECTED BY §46 — read that before
+citing this paragraph.** The claim made here was that "exact minimisation is
+adversarial to abstraction mining", each task's minimum factoring differently so
+that `MAJ3` is fused into its wrapper. §46 measured that this is wrong in an
+important way: `MAJ3` *is* present in the minimum-length programs — 15
+occurrences across 5 of 6 tasks — and the "1 of 6" here is an artifact of
+retaining **one** minimum per task, i.e. the **tie-break among equal-length
+minima**. The second half of the cause is that the surviving occurrences realise
+`MAJ3` as 8 to 12 distinct `Program.digest`s with identical truth tables, so
+syntactic identity splits one abstraction into a dozen low-count fragments.
 
 **An unplanned second negative:** the shipped gradient path solves **1 of 6** of
 the earlier tasks at 3,000 steps, so the corpus this rule mines from had to be
@@ -2258,4 +2262,79 @@ minimum", and §42/§41, where the algebra is provably total and eager so
 early-exit is inexpressible. See
 `research/algorithm-resynthesis/DESIGN.md` for the design study that follows from
 the pair.
+
+## 46. CORRECTION to §44: the tie-break destroyed the abstraction, not minimisation — and semantic pooling recovers it
+
+`research/premin-abstraction/RESULTS.md`, branch `research/premin-abstraction`
+(`734d17a`), **not merged at time of writing**; `tcn/` and `generators/`
+untouched. `PREREGISTRATION.md` was committed at `89307ee` **before any arm
+ran**. Every number below was re-derived here from raw JSON.
+
+**The pre-registered hypothesis failed.** Mining from non-minimised corpora does
+**not** change the rank-1 proposal. `C-minall` (all 130 minimum-length programs),
+`C-plus1` (166 at k+1) and `C-trace` (296 from the search trace) all publish
+`module:ec516b3808ddef7e7d0e7d22` — §44's digest exactly. Arm 2′ therefore ties
+arm 2 **by identity**: 0 of 2,709,504 conforming, exhausted, certificate
+`complete`; 0/24 tight, 0/8 wide. It ties both wrong-module controls and loses
+0 vs 144 and 0/24 vs 18/24 to the hand-authored arm. All three pre-registered
+falsification criteria fire.
+
+**But §44's stated cause was wrong, and this is a correction to my own
+write-up.** §44 concluded "exact minimisation is adversarial to abstraction
+mining". The real mechanism is narrower. Verified from `out/proposal_*.json`,
+counting over all 24 ordered 3-subsets:
+
+| corpus | entries | MAJ3 rank (syntactic) | distinct digests realising MAJ3 | identical truth tables | max occurrences |
+|---|---|---|---|---|---|
+| `C-min` (§44's: one minimum per task) | 6 | **never proposed** | 0 | — | 0 |
+| `C-minall` (all minima) | 130 | 11 | **8** | **yes** | 15 |
+| `C-plus1` | 166 | 65 | 4 | yes | 2 |
+| `C-trace` | 296 | 18 | **12** | **yes** | 16 |
+
+`MAJ3` **is** present in the minimum-length programs — 15 occurrences across 5
+of 6 tasks. §44's "1 of 6" was an artifact of keeping **one** minimum per task,
+i.e. **the tie-break among equal-length minima**, not of minimisation itself.
+15 of 27 minima per task hold a `MAJ3` body. Retention rises from 1/6 programs
+to **134/296 and 5/6 tasks**.
+
+The second half of the mechanism is that those 134 realise `MAJ3` as **8 to 12
+distinct `Program.digest`s with identical truth tables**, so syntactic counting
+splits one abstraction into a dozen low-count fragments and none ranks first.
+
+**Exploratory, NOT pre-registered, and therefore not established.** Pooling
+fragments by `(arity, truth table)` instead of `digest` — the §6.1 proposal in
+`research/algorithm-resynthesis/DESIGN.md` — moves `MAJ3` to **rank 1** and
+reaches the hand-authored ceiling:
+
+| arm | conforming | exhausted | certificate | gradient tight | wide | median acc (constant 0.5, random 0.5) |
+|---|---|---|---|---|---|---|
+| arm 2 / 2′ (syntactic, any corpus) | 0 | true | `complete` | 0/24 | 0/8 | 0.7812 |
+| arm 3 hand-authored | 144 | true | `complete` | 18/24 | 8/8 | 1.0000 |
+| **arm 2s semantic pooling** | **144** | true | `complete` | **18/24** | **8/8** | **1.0000** |
+
+**It is discovery, not rediscovery.** The published module is
+`module:165bc290d9c82b70a8ea3cc2`; the hand-authored one is
+`module:8ceedf7b792a7116514f90ab`. **Different digests, identical ceiling.** The
+rule found a *different implementation of the same semantic class* and it performs
+identically — which is precisely the distinction §5 of the design study argues
+should be represented.
+
+**Both changes are required; neither suffices.** Semantic pooling on `C-min`
+still ranks `MAJ3` nowhere (`rank1_computes_maj3: false`) because the abstraction
+is absent from that corpus. A richer corpus under syntactic identity still ranks
+it 11th to 18th. Only retaining multiple minima **and** pooling semantically
+reaches rank 1.
+
+**Cost, reported honestly.** 7.6× DFS nodes and 12.9× CPU overall — but the half
+that mattered, `C-minall`, was **cheaper** than §44's own corpus build, while the
+k+1 half cost **79×** more and fragmented identity further (54 digests, largest
+2). So the useful change is the cheap one.
+
+**What is and is not established.** Established: §44's causal claim is wrong in
+the way stated above, the pre-registered corpus hypothesis fails, and retention
+counts rise as tabled. **Not established:** the semantic-pooling result, which
+was exploratory. It needs a pre-registered replication with its own wrong-module
+control before being treated as a capability — a rule that reaches the ceiling on
+the one task whose answer we already know is exactly the shape of result this
+project has learned to distrust.
 

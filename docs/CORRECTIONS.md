@@ -26,6 +26,7 @@ surfaced because someone reported a number that contradicted a recorded one
 | 12 | Section 19's language result, unqualified | Reproduces **only** on the pre-audit stream; §24's re-draw moved lengths 2–16 → 10–22 and emptied its training split | A track reported 0.44 against a recorded 0.9986 and said so | §39 |
 | 13 | The stranded-set guard fix works (from §37, "7 of 8") | On main it **does not** raise the completion rate; the block trial fires and is refused for degradation | A/B against the unfixed arm, same seeds | §38 |
 | 14 | `synthesis.fit` "has no cost term" (standing priority item, repeated in a brief) | `mdl_weight` has been there since §14 merged | The agent it was briefed to corrected it | §41 |
+| 15 | "Exact minimisation is adversarial to abstraction mining" (my own §44 write-up) | Wrong mechanism. `MAJ3` **is** in the minimum-length programs (15 occurrences, 5 of 6 tasks); the loss came from the **tie-break** keeping one minimum per task, plus syntactic identity splitting it into 8–12 digests with identical truth tables | A follow-on track tested the premise, found retention rises 1/6 → 134/296, and said the conclusion did not follow | §46 |
 
 ## Process failures, not measurement failures
 
