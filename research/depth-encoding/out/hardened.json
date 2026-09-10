@@ -1,0 +1,43 @@
+{
+  "selection": {
+    "relation": 16,
+    "goal_relation": 6
+  },
+  "frozen_digest": "aa29e3e3bad03fb8546f199d",
+  "hardened_at_depth": 1,
+  "offered": {
+    "1": {
+      "raised": false
+    },
+    "2": {
+      "raised": true,
+      "type": "TypeError",
+      "message": "input representation mismatch",
+      "at": "tcn/graph.py:99"
+    },
+    "3": {
+      "raised": true,
+      "type": "TypeError",
+      "message": "input representation mismatch",
+      "at": "tcn/graph.py:99"
+    },
+    "4": {
+      "raised": true,
+      "type": "TypeError",
+      "message": "input representation mismatch",
+      "at": "tcn/graph.py:99"
+    },
+    "6": {
+      "raised": true,
+      "type": "TypeError",
+      "message": "input representation mismatch",
+      "at": "tcn/graph.py:99"
+    },
+    "8": {
+      "raised": true,
+      "type": "TypeError",
+      "message": "input representation mismatch",
+      "at": "tcn/graph.py:99"
+    }
+  }
+}
