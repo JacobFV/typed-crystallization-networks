@@ -1,0 +1,138 @@
+{
+  "constants": [],
+  "format": "tcn.program/1",
+  "input_depths": [],
+  "inputs": [
+    [
+      "x0",
+      {
+        "kind": "bool"
+      }
+    ],
+    [
+      "x1",
+      {
+        "kind": "bool"
+      }
+    ],
+    [
+      "x2",
+      {
+        "kind": "bool"
+      }
+    ],
+    [
+      "x3",
+      {
+        "kind": "bool"
+      }
+    ]
+  ],
+  "nodes": [
+    {
+      "candidates": [
+        {
+          "operator": {
+            "inputs": [
+              {
+                "kind": "bool"
+              },
+              {
+                "kind": "bool"
+              }
+            ],
+            "name": "or",
+            "output": {
+              "kind": "bool"
+            },
+            "parameters": {}
+          },
+          "sources": [
+            "x0",
+            "x1"
+          ]
+        }
+      ],
+      "depth": 1,
+      "name": "n0",
+      "output": {
+        "kind": "bool"
+      },
+      "region": "core",
+      "selected": 0
+    },
+    {
+      "candidates": [
+        {
+          "operator": {
+            "inputs": [
+              {
+                "kind": "bool"
+              },
+              {
+                "kind": "bool"
+              }
+            ],
+            "name": "and",
+            "output": {
+              "kind": "bool"
+            },
+            "parameters": {}
+          },
+          "sources": [
+            "n0",
+            "x2"
+          ]
+        }
+      ],
+      "depth": 2,
+      "name": "n1",
+      "output": {
+        "kind": "bool"
+      },
+      "region": "core",
+      "selected": 0
+    },
+    {
+      "candidates": [
+        {
+          "operator": {
+            "inputs": [
+              {
+                "kind": "bool"
+              },
+              {
+                "kind": "bool"
+              }
+            ],
+            "name": "or",
+            "output": {
+              "kind": "bool"
+            },
+            "parameters": {}
+          },
+          "sources": [
+            "x3",
+            "n1"
+          ]
+        }
+      ],
+      "depth": 3,
+      "name": "n2",
+      "output": {
+        "kind": "bool"
+      },
+      "region": "core",
+      "selected": 0
+    }
+  ],
+  "outputs": [
+    [
+      "out",
+      "n2"
+    ]
+  ],
+  "state": [],
+  "trainable_constants": [],
+  "version": 1
+}

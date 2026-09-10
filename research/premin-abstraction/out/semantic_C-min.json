@@ -1,0 +1,692 @@
+{
+  "best_maj3_rank": null,
+  "eligible": 13,
+  "entries": 6,
+  "identity": "(arity, truth table)",
+  "rank1_computes_maj3": false,
+  "ranked": [
+    {
+      "baseline_bits": 69680,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ]
+      ],
+      "circuits_pooled": 1,
+      "computes_maj3": false,
+      "definition_bits": 6048,
+      "digest": "ec516b3808ddef7e7d0e7d22",
+      "entries": 4,
+      "holes": 3,
+      "nodes": 2,
+      "occurrences": 6,
+      "rank": 1,
+      "rewritten_bits": 59984,
+      "saving_bits": 3648,
+      "saving_per_entry": 912.0,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "baseline_bits": 69680,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n2",
+          [
+            "x2",
+            "n0"
+          ]
+        ],
+        [
+          "and",
+          "n3",
+          [
+            "x3",
+            "n1"
+          ]
+        ],
+        [
+          "or",
+          "n4",
+          [
+            "n2",
+            "n3"
+          ]
+        ]
+      ],
+      "circuits_pooled": 2,
+      "computes_maj3": false,
+      "definition_bits": 12360,
+      "digest": "71517b39d3883ba95aab2c09",
+      "entries": 2,
+      "holes": 4,
+      "nodes": 5,
+      "occurrences": 2,
+      "rank": 2,
+      "rewritten_bits": 54656,
+      "saving_bits": 2664,
+      "saving_per_entry": 1332.0,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        false,
+        false,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "baseline_bits": 69680,
+      "body": [
+        [
+          "or",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ]
+      ],
+      "circuits_pooled": 2,
+      "computes_maj3": false,
+      "definition_bits": 6048,
+      "digest": "b22e2ef14a32a68f1224304f",
+      "entries": 4,
+      "holes": 3,
+      "nodes": 2,
+      "occurrences": 5,
+      "rank": 3,
+      "rewritten_bits": 61600,
+      "saving_bits": 2032,
+      "saving_per_entry": 508.0,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        false,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "baseline_bits": 69680,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "x3",
+            "n1"
+          ]
+        ]
+      ],
+      "circuits_pooled": 2,
+      "computes_maj3": false,
+      "definition_bits": 8296,
+      "digest": "039ceb0251b84a1c1fa72173",
+      "entries": 2,
+      "holes": 4,
+      "nodes": 3,
+      "occurrences": 2,
+      "rank": 4,
+      "rewritten_bits": 62752,
+      "saving_bits": -1368,
+      "saving_per_entry": -684.0,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d"
+      ],
+      "truth_table": [
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "baseline_bits": 69680,
+      "body": [
+        [
+          "or",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "x2",
+            "x3"
+          ]
+        ],
+        [
+          "or",
+          "n2",
+          [
+            "n0",
+            "n1"
+          ]
+        ]
+      ],
+      "circuits_pooled": 1,
+      "computes_maj3": false,
+      "definition_bits": 8288,
+      "digest": "04836a99b2d8aede09731c33",
+      "entries": 2,
+      "holes": 4,
+      "nodes": 3,
+      "occurrences": 2,
+      "rank": 5,
+      "rewritten_bits": 62768,
+      "saving_bits": -1376,
+      "saving_per_entry": -688.0,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "baseline_bits": 69680,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ],
+        [
+          "or",
+          "n2",
+          [
+            "n1",
+            "x3"
+          ]
+        ]
+      ],
+      "circuits_pooled": 1,
+      "computes_maj3": false,
+      "definition_bits": 8288,
+      "digest": "3efb148901704e3f651af597",
+      "entries": 2,
+      "holes": 4,
+      "nodes": 3,
+      "occurrences": 2,
+      "rank": 6,
+      "rewritten_bits": 62768,
+      "saving_bits": -1376,
+      "saving_per_entry": -688.0,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        false,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "baseline_bits": 69680,
+      "body": [
+        [
+          "or",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ],
+        [
+          "or",
+          "n2",
+          [
+            "x3",
+            "n1"
+          ]
+        ]
+      ],
+      "circuits_pooled": 1,
+      "computes_maj3": false,
+      "definition_bits": 8288,
+      "digest": "54c65e80ae31de10fb375f4e",
+      "entries": 2,
+      "holes": 4,
+      "nodes": 3,
+      "occurrences": 2,
+      "rank": 7,
+      "rewritten_bits": 62768,
+      "saving_bits": -1376,
+      "saving_per_entry": -688.0,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "baseline_bits": 69680,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ]
+      ],
+      "circuits_pooled": 2,
+      "computes_maj3": false,
+      "definition_bits": 6056,
+      "digest": "82b93e4bc7b294ff04c8f289",
+      "entries": 2,
+      "holes": 3,
+      "nodes": 2,
+      "occurrences": 2,
+      "rank": 8,
+      "rewritten_bits": 66432,
+      "saving_bits": -2808,
+      "saving_per_entry": -1404.0,
+      "tasks": [
+        "t4_maj_acd_xor_b",
+        "t6_maj_abc_xor_maj_bcd"
+      ],
+      "truth_table": [
+        false,
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "baseline_bits": 69680,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ]
+      ],
+      "circuits_pooled": 1,
+      "computes_maj3": false,
+      "definition_bits": 6056,
+      "digest": "9b18de8474a91ff0fd4424e8",
+      "entries": 2,
+      "holes": 3,
+      "nodes": 2,
+      "occurrences": 2,
+      "rank": 9,
+      "rewritten_bits": 66432,
+      "saving_bits": -2808,
+      "saving_per_entry": -1404.0,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t4_maj_acd_xor_b"
+      ],
+      "truth_table": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "baseline_bits": 69680,
+      "body": [
+        [
+          "or",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "n0",
+            "x2"
+          ]
+        ]
+      ],
+      "circuits_pooled": 1,
+      "computes_maj3": false,
+      "definition_bits": 6040,
+      "digest": "9377511d043e722cd2fdd8b7",
+      "entries": 2,
+      "holes": 3,
+      "nodes": 2,
+      "occurrences": 2,
+      "rank": 10,
+      "rewritten_bits": 66464,
+      "saving_bits": -2824,
+      "saving_per_entry": -1412.0,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "baseline_bits": 69680,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ]
+      ],
+      "circuits_pooled": 1,
+      "computes_maj3": false,
+      "definition_bits": 3808,
+      "digest": "85aa887f3e90a3903b9fa709",
+      "entries": 3,
+      "holes": 2,
+      "nodes": 1,
+      "occurrences": 7,
+      "rank": 11,
+      "rewritten_bits": 71248,
+      "saving_bits": -5376,
+      "saving_per_entry": -1792.0,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t4_maj_acd_xor_b",
+        "t6_maj_abc_xor_maj_bcd"
+      ],
+      "truth_table": [
+        false,
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "baseline_bits": 69680,
+      "body": [
+        [
+          "or",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ]
+      ],
+      "circuits_pooled": 1,
+      "computes_maj3": false,
+      "definition_bits": 3800,
+      "digest": "5e50f17066eb3de5049f4ed5",
+      "entries": 4,
+      "holes": 2,
+      "nodes": 1,
+      "occurrences": 10,
+      "rank": 12,
+      "rewritten_bits": 72000,
+      "saving_bits": -6120,
+      "saving_per_entry": -1530.0,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        false,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "baseline_bits": 69680,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ]
+      ],
+      "circuits_pooled": 1,
+      "computes_maj3": false,
+      "definition_bits": 3808,
+      "digest": "9e8092e7bdb684bb47a3cc29",
+      "entries": 6,
+      "holes": 2,
+      "nodes": 1,
+      "occurrences": 11,
+      "rank": 13,
+      "rewritten_bits": 72144,
+      "saving_bits": -6272,
+      "saving_per_entry": -1045.3333333333333,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t4_maj_acd_xor_b",
+        "t5_maj_abd_or_c",
+        "t6_maj_abc_xor_maj_bcd"
+      ],
+      "truth_table": [
+        false,
+        false,
+        false,
+        true
+      ]
+    }
+  ],
+  "variant": "C-min"
+}

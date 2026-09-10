@@ -1,0 +1,72 @@
+{
+  "arm": "arm2s_semantic_trace",
+  "beam": null,
+  "best_return": null,
+  "candidates_per_node": [
+    336,
+    336,
+    24
+  ],
+  "certificate": "complete",
+  "chosen": {
+    "n1": {
+      "operator": "module:165bc290d9c82b70a8ea3cc2",
+      "sources": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    "n2": {
+      "operator": "module:165bc290d9c82b70a8ea3cc2",
+      "sources": [
+        "d",
+        "e",
+        "f"
+      ]
+    },
+    "y": {
+      "operator": "xor",
+      "sources": [
+        "n1",
+        "n2"
+      ]
+    }
+  },
+  "conforming": 144,
+  "continuous": [],
+  "declared_space_size": 2709504,
+  "description": "EXPLORATORY, not pre-registered: rank-1 of the semantic-identity rule on C-trace",
+  "description_bits": 19568,
+  "description_bits_call_sites_only": 9440,
+  "description_bits_pruned": 19568,
+  "discarded": 0,
+  "episodes": 0,
+  "evaluated": 2709504,
+  "exact_max_error": 0.0,
+  "execution_cost": 9.0,
+  "execution_cost_pruned": 9.0,
+  "exhausted": true,
+  "live_nodes": 3,
+  "max_programs": 16777216,
+  "mode": "fit",
+  "module": "module:165bc290d9c82b70a8ea3cc2",
+  "module_on_output_path": true,
+  "node_evaluations": 520224768,
+  "ranked_by": "order",
+  "scaffold": "tight",
+  "seconds": 277.48401889402885,
+  "selections": {
+    "n1": 128,
+    "n2": 257,
+    "y": 9
+  },
+  "settle_window": 0,
+  "solved": true,
+  "space_size": 2709504,
+  "steps": 0,
+  "threshold": null,
+  "ticks": 0,
+  "unique": false,
+  "wall_seconds": 277.49195687798783
+}
