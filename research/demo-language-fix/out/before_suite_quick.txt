@@ -1,0 +1,53 @@
+== synthesis ...
+   PASS  held-out max |err| 5.9e-08 on 584 unfitted points
+   baseline: enumeration: unique of 96 in 2.7 ms (gradient 1 s, same program); matched MLP
+   1.8e-02
+== joint ...
+   PASS  frozen program 4.00/4, prediction loss 0.24884 -> 0.00223
+   baseline: best constant 2.38/4 over 64 episodes (3.00/4 over the 16 the record scores),
+   uniform random 1.91/4, oracle 4.00/4
+== structure ...
+   PASS  unseen pool 3.25/4 (seen 3.25/4), interpreter candidate chosen from 17: True
+   baseline: best constant 2.25/4; the recorded scaffold measures 1.95-2.03 and cannot exceed
+   2.00
+== depth ...
+   PASS  exact frozen program d1 4.00, d2 4.00, d3 4.00, d4 4.00, d6 4.00, d8 4.00
+   baseline: best constant d1 2.00, d2 2.25, d3 2.50, d4 2.75, d6 2.25, d8 2.00
+== abstraction ...
+   PASS  arm B conformant at step 20, module on output path True, 3 live nodes
+   baseline: arm A (no module) and arm C (distractor) both fail; the flat space of 230,400
+   programs is exhausted with no solution, and 144 of the 144 solutions in 2,709,504 use the
+   module
+== positional ...
+   PASS  1,024 positions over a 3,072-value observation with 3 caller nodes, exact apply correct (8 s)
+   baseline: 17 structural symbols shared against 109 per-position and 257 inlined at 32
+   positions, at 0.91x the execution cost
+== segmentation ...
+   PASS  held-out max |err| 0.0 on 48 unseen episodes
+   baseline: unique among 65,536 programs in 2.2 s; constant predictor 0.854 accuracy
+== edge ...
+   PASS  held-out max |err| 0.0, accuracy 1.000
+   baseline: unique among 48 staged programs in 0.5 s; undecomposed 4.9e10 programs (7.6 years
+   projected); constant predictor 0.844
+== control ...
+   PASS  replay and restore identical, max |state delta| 0 after 8 further steps
+   baseline: scripted controller reaches upright 0.9994 where zero torque never exceeds -1.0000
+== language ...
+   FAIL  raised ValueError: training examples required
+   baseline:
+
+demo         measured                                                           baseline                                                                                     verdict
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+synthesis    held-out max |err| 5.9e-08 on 584 unfitted points                  enumeration: unique of 96 in 2.7 ms (gradient 1 s, same program); matched MLP 1.8e-02        PASS
+joint        frozen program 4.00/4, prediction loss 0.24884 -> 0.00223          best constant 2.38/4 over 64 episodes (3.00/4 over the 16 the record scores), uniform rando… PASS
+structure    unseen pool 3.25/4 (seen 3.25/4), interpreter candidate chosen fr… best constant 2.25/4; the recorded scaffold measures 1.95-2.03 and cannot exceed 2.00        PASS
+depth        exact frozen program d1 4.00, d2 4.00, d3 4.00, d4 4.00, d6 4.00,… best constant d1 2.00, d2 2.25, d3 2.50, d4 2.75, d6 2.25, d8 2.00                           PASS
+abstraction  arm B conformant at step 20, module on output path True, 3 live n… arm A (no module) and arm C (distractor) both fail; the flat space of 230,400 programs is e… PASS
+positional   1,024 positions over a 3,072-value observation with 3 caller node… 17 structural symbols shared against 109 per-position and 257 inlined at 32 positions, at 0… PASS
+segmentation held-out max |err| 0.0 on 48 unseen episodes                       unique among 65,536 programs in 2.2 s; constant predictor 0.854 accuracy                     PASS
+edge         held-out max |err| 0.0, accuracy 1.000                             unique among 48 staged programs in 0.5 s; undecomposed 4.9e10 programs (7.6 years projected… PASS
+control      replay and restore identical, max |state delta| 0 after 8 further… scripted controller reaches upright 0.9994 where zero torque never exceeds -1.0000           PASS
+language     raised ValueError: training examples required                                                                                                                   FAIL
+
+9/10 demonstrations reproduced in 58 s; artifacts under research/demo-language-fix/out/demo-before-full-suite
+exit=1

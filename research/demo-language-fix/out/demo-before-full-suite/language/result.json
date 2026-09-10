@@ -1,0 +1,14 @@
+{
+  "baseline": "",
+  "claim": "",
+  "command": "tcn demo --only language",
+  "demo": "language",
+  "detail": {
+    "traceback": "Traceback (most recent call last):\n  File \"/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-af26d6fec4b924403/tcn/cli.py\", line 658, in demo\n    row=_DEMO_RUNNERS[name](target,quick)\n  File \"/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-af26d6fec4b924403/tcn/cli.py\", line 576, in _demo_language\n    found=enumerate_fit(lexical,position_examples(train),signals,registry,tolerance=1e-6,max_programs=1<<20)\n  File \"/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-af26d6fec4b924403/tcn/search.py\", line 162, in enumerate_fit\n    if not examples: raise ValueError('training examples required')\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: training examples required\n"
+  },
+  "evidence": "see traceback",
+  "measured": "raised ValueError: training examples required",
+  "ok": false,
+  "seconds": 0.0,
+  "verdict": "FAIL"
+}

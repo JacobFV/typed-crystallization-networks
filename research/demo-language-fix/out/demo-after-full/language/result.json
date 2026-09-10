@@ -1,0 +1,139 @@
+{
+  "baseline": "post-audit majority constant 0.5262, random 0.500, best fitted feature 0.4738, training-string lookup 0.4738, and section 19's own counting program 0.5262 on this stream; pre-audit majority constant 0.5483, best fitted feature 0.6478; gradient descent conforms 0 of 64 runs on the post-audit space and 0 of 44 pre-audit",
+  "claim": "balancedness and its lexical unit learned from raw prompt bytes",
+  "command": "tcn demo --only language",
+  "demo": "language",
+  "detail": {
+    "caveats": [
+      "The headline is the post-audit stream. The pre-audit row is section 19's historical claim on a lesson the audit of FINDINGS 24 found exploitable -- nearest-neighbour scored 1.000 on it and 71% of its prompts repeated -- and it is reported only with that said.",
+      "Section 19 demonstrated counting, not balancedness: on the shipped stream its own program scores exactly the majority (0.5262 against 0.5262), because the hardened negative is a transposition and preserves the bracket multiset.",
+      "Stage B is applied from a recorded selection, not searched here; the search certificates that produced it are in detail['recorded'] and cost 431 s, 1,266 s and 363 s respectively. Stage A is searched live.",
+      "The Dyck window enumeration returns 110 conforming programs, never `unique`: on this stream the running minimum is never positive, so eq(lo,0) and ge(lo,0) are the same function here.",
+      "Ten programs conform on the pre-audit training episodes and split 4 at 1.000 / 6 at 0.9986 on the held-out lengths. Training accuracy cannot separate them, so the recorded member is reported and not the best of the tie; the 1.000 this demo used to print was the top of it.",
+      "Only 6 of 179 lessons have prompts byte-predictable at a fixed offset, which bounds this method to a small corner of the catalogue.",
+      "construction fails to determine answer in 39 of 179 lessons, so dense staging is not uniformly available.",
+      "Accuracy is 1.000 up to the scaffold's declared 22-position capacity and chance beyond it. Depth is generalized up to a declared capacity."
+    ],
+    "recorded": {
+      "gradient_on_the_dyck_space": "0 of 64 runs conform, median held-out 0.4738 -- below both the 0.5262 majority and random (FINDINGS 47)",
+      "gradient_on_the_pre_audit_spaces": "0 of 44 runs conform",
+      "stage_b_post_audit_counting_scaffold": "45,375 programs exhausted, 0 conforming, certificate complete -- no program in section 19's scaffold fits the post-audit training episodes",
+      "stage_b_post_audit_dyck_full": "680,625 programs exhausted, 110 conforming, certificate complete (FINDINGS 47); the selected member sits 84.0% through the enumeration order",
+      "stage_b_post_audit_dyck_window": "84,375 programs exhausted over c in [95,110), 110 conforming, certificate complete, 1,266 s",
+      "stage_b_pre_audit": "45,375 programs in 363 s, 10 conforming, not unique",
+      "undecomposed_space": 476256000
+    },
+    "reproduces": {
+      "post_audit_recorded": {
+        "accuracy": 1.0,
+        "majority_constant": 0.5261932479627474,
+        "n": 859,
+        "source": "research/language-post-audit/dyck_witness.json, FINDINGS 45"
+      },
+      "pre_audit_recorded": {
+        "accuracy": 0.9986187845303868,
+        "majority_constant": 0.5483425414364641,
+        "n": 724,
+        "source": "research/language-capability/final_eval.json, FINDINGS 43/45"
+      }
+    },
+    "stage_a": {
+      "certificate": "unique",
+      "evaluated": 10496,
+      "exhausted": true,
+      "held_out_position_max_error": 0.0,
+      "reading": "base 14, open byte 40 = ASCII \"(\" -- searched, not supplied",
+      "seconds": 1.3054700900102034,
+      "selections": {
+        "addr": 0,
+        "base": 14,
+        "byte": 0,
+        "bytes": 0,
+        "open": 40
+      },
+      "space_size": 10496,
+      "stream": "context_free_language",
+      "unique": true
+    },
+    "stage_b_post_audit": {
+      "best_fitted_feature": 0.47380675203725264,
+      "counting_oracle": 0.5261932479627474,
+      "dyck_oracle": 1.0,
+      "episodes": 859,
+      "fitted_features": {
+        "bigram_multiset": 0.47380675203725264,
+        "constant": 0.47380675203725264,
+        "first_and_last": 0.47380675203725264,
+        "first_symbol": 0.47380675203725264,
+        "last_symbol": 0.47380675203725264,
+        "length": 0.47380675203725264,
+        "open_count_and_length": 0.47380675203725264
+      },
+      "held_out_seen_length_accuracy": 1.0,
+      "held_out_unseen_length_accuracy": 1.0,
+      "majority_constant": 0.5261932479627474,
+      "per_length": {
+        "16": 1.0,
+        "18": 1.0,
+        "20": 1.0,
+        "22": 1.0
+      },
+      "random": 0.5,
+      "reading": "symbols = length - 101, +1 on \"(\" and -1 on \")\", answer = and(eq(total,0), ge(running_min,0))",
+      "scaffold": "stage_b_dyck",
+      "section_19_counting_program_here": 0.5261932479627474,
+      "selection": {
+        "min_ok": 7,
+        "minus": 1,
+        "plus": 3,
+        "symbols": 101,
+        "total_ok": 6
+      },
+      "space_size": 680625,
+      "stream": "context_free_language",
+      "train_episodes": 24,
+      "train_lengths": [
+        10,
+        12,
+        14
+      ],
+      "train_max_error": 0.0,
+      "training_string_lookup": 0.47380675203725264
+    },
+    "stage_b_pre_audit": {
+      "best_fitted_feature": 0.6477900552486188,
+      "episodes": 724,
+      "held_out_unseen_length_accuracy": 0.9986187845303868,
+      "majority_constant": 0.5483425414364641,
+      "per_length": {
+        "8": 1.0,
+        "10": 1.0,
+        "12": 1.0,
+        "14": 1.0,
+        "16": 0.5
+      },
+      "random": 0.5,
+      "scaffold": "stage_b",
+      "selection": {
+        "answer": 12,
+        "minus": 3,
+        "plus": 1,
+        "symbols": 99
+      },
+      "space_size": 45375,
+      "stream": "none",
+      "this_is": "FINDINGS 19 reproduced on its own stream, from the selection recorded in research/language-capability/final_eval.json",
+      "training_string_lookup": 0.5483425414364641
+    },
+    "streams": {
+      "control": "pre-audit, hardening='none' -- bit-identical to the catalogue before the audit; the stream FINDINGS 19 was measured on",
+      "headline": "post-audit, hardening='context_free_language' -- the hardened draw of FINDINGS 24, which is what an unconfigured generator emits today",
+      "why": "FINDINGS 39 exists because a language accuracy was quoted without its stream. Every episode drawn here pins hardening by name."
+    }
+  },
+  "evidence": "research/language-post-audit/RESULTS.md, research/language-capability/RESULTS.md",
+  "measured": "post-audit stream (hardening='context_free_language', the shipped default): stage A unique among 10,496 (base 14, open byte 40), held-out position error 0.0; stage B 1.000 on 859 held-out episodes at lengths 16-22 never trained on. Pre-audit stream (hardening='none', section 19's): 0.9986187845 on 724",
+  "ok": true,
+  "seconds": 14.69,
+  "verdict": "PASS"
+}
