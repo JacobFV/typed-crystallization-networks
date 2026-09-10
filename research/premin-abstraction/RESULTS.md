@@ -97,8 +97,8 @@ Everything in [`PREREGISTRATION.md`](PREREGISTRATION.md) was honoured. Nothing
 was re-tuned; the one parameter sweep was declared in advance as
 reported-regardless and is in §7.
 
-Two §44 numbers were nominated as reproduction checks. Both reproduce here, on
-this branch, with this track's own machinery:
+The pre-registration nominated `arm2_earned` at 0 conforming as the gate for
+continuing. Every §44 figure this track leans on is checked, not assumed:
 
 | check | §44 | here |
 |---|---|---|
@@ -450,7 +450,6 @@ falsification condition, unchanged from §44.
 worst of them: 0.7812 on every seed, below `arm2_earned`'s 0.7930 mean, in a
 scaffold whose candidate lists it inflates by a factor of twelve.
 
-<!--GRAD_WIDE-->
 
 ## 7. Sensitivity of the rule to its own parameters
 
@@ -529,11 +528,10 @@ content digest, across this corpus* — and the answer to that question is not
 the answer to *which subprogram will make the next task easy*.
 
 Nothing was re-tuned after seeing this. The parameter sweep in §7 was declared
-in advance as reported-regardless and is reported in full; the one arm added
-after the fact (`arm3p_mined_maj3`) is labelled exploratory everywhere and is
-counted toward no criterion.
+in advance as reported-regardless and is reported in full; the two arms added
+after the fact (`arm3p_mined_maj3` and `arm2s_semantic_trace`) and the whole of
+§10 are labelled exploratory everywhere and are counted toward no criterion.
 
-<!--CRITERIA-->
 
 ## 10. Exploratory: the identity relation, not the corpus
 
