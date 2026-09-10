@@ -353,6 +353,17 @@ def v3(n_random, seed, extra=()):
     ref = reference(pool)
     keep = {"X1": [ref["X1"], 0, 5], "lr2": [ref["lr2"], 0]}
     sub = {s: [pool[s][i] for i in keep.get(s, [ref[s]])] for s in SLOTS}
+    # The counter needs the arm's full pools (X1..X3 share one step pool), so the
+    # sub-space is expressed as a Restriction over them; `sub` builds the tcn program.
+    masks, occ, ab = {}, {}, {}
+    for s in SLOTS:
+        m = np.zeros(len(pool[s]), dtype=bool)
+        m[keep.get(s, [ref[s]])] = True
+        if KIND[s] == "LIT":
+            occ[s] = ab[s] = m
+        else:
+            masks[s] = m
+    sub_restriction = engine.Restriction(pool, masks, occ, ab)
     prog, reg = family.build(sub, head="agent")
     cfg = agent_config()
     task = EnvironmentTask(generator="integrated", observations=cfg.observations,
@@ -362,8 +373,8 @@ def v3(n_random, seed, extra=()):
                            indices=tuple(range(len(records))), horizon=1, split="train")
     t0 = time.perf_counter()
     res = enumerate_environment(prog, task, reg, threshold=1.0, ledger=env.Ledger())
-    Ts = engine.Tables(eps, sub)
-    K = engine.count(Ts, engine.Restriction(sub))
+    Ts = engine.Tables(eps, pool)
+    K = engine.count(Ts, sub_restriction)
     envrow = {"space": res.space_size, "tcn": res.to_dict(), "K_counter": K,
               "agree": res.conforming == K and res.exhausted, "seconds": time.perf_counter() - t0}
     print({k: v for k, v in envrow.items() if k != "tcn"}, flush=True)
