@@ -218,4 +218,27 @@ well as A2, the arm structure is not discriminating and no claim is made from it
 
 ## Amendments
 
-*(none at time of commit)*
+*(none at time of commit; three recorded during the track, in full in
+`RESULTS.md` §10)*
+
+* **A1** — replaces §2 step 4's single held-out task. `T_C1` ran as registered
+  and is reported in full; its discriminating byte turned out to sit at a
+  constant address, so it cannot separate a transferred address computation from
+  a constant lookup. `T_C2` is added, same domain, same generator, same arms,
+  same falsifications, with an address that **cannot** be a constant. `T_C1` is
+  not withdrawn; F3 is evaluated against `T_C2`. Recorded after `T_C1` was
+  scored and before `T_C2` was built.
+* **A2** — replaces §2 step 4's arm A3. The registered wording asked for the same
+  node count, arity *and* signature. The natural same-signature control (the same
+  schema with `n0 = sub`) is not a control on `T_C1`, because the available
+  address constants let `sub` reach the same address as `add`. A3 is instead
+  `V_same`'s own motif at width 4,096 — same node count, drawn from a real
+  artifact, arity 3 rather than 4, so the signature match is **not** met and that
+  is recorded rather than glossed. A3b adds §30's wrong-width control. Recorded
+  before any transfer arm was scored.
+* **A3** — records the one field `schema.freeze` normalises. §1 defines
+  bit-identity as `Program.digest` equality with nothing weaker; `harden`
+  increments the provenance counter `version` while a canonical fragment is built
+  fresh at `version = 1`, so `freeze` normalises `version` and only `version`.
+  The field-by-field `to_dict()` diff is reported per row and is empty
+  everywhere. Recorded before step 2 was gated.

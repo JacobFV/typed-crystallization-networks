@@ -33,10 +33,27 @@ LANGUAGE_BASE = 14        # `p14`, the PREFIX offset `L_stage_a` selects
 VISUAL_OFFSETS = (1, 2)   # `one`, `two`: the green and blue channel offsets
 
 
+def _load(name, path):
+    """Load a track's `common.py` under a distinct module name.
+
+    Three of the tracks ship a module called `common`; importing them by name
+    would silently hand the second caller the first one's module. This binds each
+    to its own key in `sys.modules`.
+    """
+    import importlib.util
+    if name in sys.modules:
+        return sys.modules[name]
+    spec = importlib.util.spec_from_file_location(name, path)
+    mod = importlib.util.module_from_spec(spec)
+    sys.modules[name] = mod
+    spec.loader.exec_module(mod)
+    return mod
+
+
 def language_buffers(n, seed0=0, split="train"):
     """`n` real prompts as 128-byte buffers."""
     sys.path.insert(0, str(LANG))
-    import common as LC
+    LC = _load("_mu_lang_common", LANG / "common.py")
     out = []
     for i in range(n):
         e = LC.episode(seed0 + i, split)
@@ -48,7 +65,7 @@ def language_buffers(n, seed0=0, split="train"):
 def visual_buffers(n, seed0=0, split="train"):
     """`n` real FLAT screens as 3,072-byte rasters."""
     sys.path.insert(0, str(VISUAL))
-    import common as VC
+    VC = _load("_mu_visual_common", VISUAL / "common.py")
     out = []
     for i in range(n):
         e = VC.episode(seed0 + i, split, **VC.FLAT)

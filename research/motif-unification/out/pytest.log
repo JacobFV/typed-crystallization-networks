@@ -1,0 +1,732 @@
+........................................................................ [ 21%]
+....................................................FF....F.F........... [ 42%]
+.....................................................................F.F [ 64%]
+FFFFFFF................................................................. [ 85%]
+.................................................                        [100%]
+=================================== FAILURES ===================================
+_________ test_common_contract_replay_restore_and_visibility[computer] _________
+
+name = 'computer'
+tmp_path = PosixPath('/tmp/pytest-of-brandonin/pytest-374/test_common_contract_replay_re11')
+
+    @pytest.mark.parametrize('name',['logic','arithmetic','relations','signal','language','raster_text','geometry','world_2d','world_3d','computer','embodied_world'])
+    def test_common_contract_replay_restore_and_visibility(name,tmp_path):
+>       h=Host.create(name,seed=7,configuration={'resolution':16,'horizon':3});h.step(dt=.03)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_generators.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tcn/generation.py:139: in create
+    return cls(g,Address(name,seed,index,split),configuration,objective)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tcn/generation.py:134: in __init__
+    self.state=generator.initialize(address,self.configuration | {"objective":self.objective})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:166: in initialize
+    result=execute(seed,events,0,request,transport)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+seed = 1090254995
+events = [{'kind': 'write', 'path': '/home/agent/task.txt', 'text': 'count = 7', 'time': 0}]
+time = 0, probe = None, transport = None
+
+    def execute(seed,events,time,probe=None,transport=None):
+        request={'seed':seed,'events':events,'time':time}
+        if probe is not None:request['probe']=probe
+        if transport is not None:return session(transport).call(request)
+        root=Path(__file__).parent/'engine'
+        cmd=['node','--import','tsx',str(root/'bridge.ts')]
+        p=subprocess.run(cmd,input=json.dumps(request),text=True,capture_output=True,cwd=root,timeout=90)
+>       if p.returncode:raise RuntimeError('computer transition failed: '+p.stderr[-2000:])
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: computer transition failed: node:internal/modules/package_json_reader:331
+E         throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+E               ^
+E       
+E       Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'tsx' imported from /home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a4a82f2a201419e0d/generators/computer/engine/
+E           at Object.getPackageJSONURL (node:internal/modules/package_json_reader:331:9)
+E           at packageResolve (node:internal/modules/esm/resolve:784:25)
+E           at moduleResolve (node:internal/modules/esm/resolve:873:18)
+E           at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+E           at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+E           at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+E           at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+E           at #resolve (node:internal/modules/esm/loader:687:17)
+E           at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+E           at node:internal/modules/esm/loader:636:32 {
+E         code: 'ERR_MODULE_NOT_FOUND'
+E       }
+E       
+E       Node.js v24.21.0
+
+generators/computer/generator.py:106: RuntimeError
+______ test_common_contract_replay_restore_and_visibility[embodied_world] ______
+
+name = 'embodied_world'
+tmp_path = PosixPath('/tmp/pytest-of-brandonin/pytest-374/test_common_contract_replay_re12')
+
+    @pytest.mark.parametrize('name',['logic','arithmetic','relations','signal','language','raster_text','geometry','world_2d','world_3d','computer','embodied_world'])
+    def test_common_contract_replay_restore_and_visibility(name,tmp_path):
+>       h=Host.create(name,seed=7,configuration={'resolution':16,'horizon':3});h.step(dt=.03)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_generators.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tcn/generation.py:139: in create
+    return cls(g,Address(name,seed,index,split),configuration,objective)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tcn/generation.py:134: in __init__
+    self.state=generator.initialize(address,self.configuration | {"objective":self.objective})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/embodied_world/generator.py:12: in initialize
+    return super().initialize(address,defaults|configuration)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/world_3d/generator.py:27: in initialize
+    state['computer']=Computer().initialize(address,{'interface':'keyboard','horizon':100000,'document':configuration.get('document','7')})
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:166: in initialize
+    result=execute(seed,events,0,request,transport)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+seed = 481886948
+events = [{'kind': 'write', 'path': '/home/agent/task.txt', 'text': '7', 'time': 0}]
+time = 0, probe = None, transport = None
+
+    def execute(seed,events,time,probe=None,transport=None):
+        request={'seed':seed,'events':events,'time':time}
+        if probe is not None:request['probe']=probe
+        if transport is not None:return session(transport).call(request)
+        root=Path(__file__).parent/'engine'
+        cmd=['node','--import','tsx',str(root/'bridge.ts')]
+        p=subprocess.run(cmd,input=json.dumps(request),text=True,capture_output=True,cwd=root,timeout=90)
+>       if p.returncode:raise RuntimeError('computer transition failed: '+p.stderr[-2000:])
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: computer transition failed: node:internal/modules/package_json_reader:331
+E         throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+E               ^
+E       
+E       Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'tsx' imported from /home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a4a82f2a201419e0d/generators/computer/engine/
+E           at Object.getPackageJSONURL (node:internal/modules/package_json_reader:331:9)
+E           at packageResolve (node:internal/modules/esm/resolve:784:25)
+E           at moduleResolve (node:internal/modules/esm/resolve:873:18)
+E           at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+E           at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+E           at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+E           at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+E           at #resolve (node:internal/modules/esm/loader:687:17)
+E           at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+E           at node:internal/modules/esm/loader:636:32 {
+E         code: 'ERR_MODULE_NOT_FOUND'
+E       }
+E       
+E       Node.js v24.21.0
+
+generators/computer/generator.py:106: RuntimeError
+______________ test_computer_quoted_shell_write_read_and_keyboard ______________
+
+    def test_computer_quoted_shell_write_read_and_keyboard():
+        from generators.computer.generator import TEXT,PATH,KEY
+>       h=Host.create('computer',configuration={'horizon':6})
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_generators.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tcn/generation.py:139: in create
+    return cls(g,Address(name,seed,index,split),configuration,objective)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tcn/generation.py:134: in __init__
+    self.state=generator.initialize(address,self.configuration | {"objective":self.objective})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:166: in initialize
+    result=execute(seed,events,0,request,transport)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+seed = 850537762
+events = [{'kind': 'write', 'path': '/home/agent/task.txt', 'text': 'count = 7', 'time': 0}]
+time = 0, probe = None, transport = None
+
+    def execute(seed,events,time,probe=None,transport=None):
+        request={'seed':seed,'events':events,'time':time}
+        if probe is not None:request['probe']=probe
+        if transport is not None:return session(transport).call(request)
+        root=Path(__file__).parent/'engine'
+        cmd=['node','--import','tsx',str(root/'bridge.ts')]
+        p=subprocess.run(cmd,input=json.dumps(request),text=True,capture_output=True,cwd=root,timeout=90)
+>       if p.returncode:raise RuntimeError('computer transition failed: '+p.stderr[-2000:])
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: computer transition failed: node:internal/modules/package_json_reader:331
+E         throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+E               ^
+E       
+E       Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'tsx' imported from /home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a4a82f2a201419e0d/generators/computer/engine/
+E           at Object.getPackageJSONURL (node:internal/modules/package_json_reader:331:9)
+E           at packageResolve (node:internal/modules/esm/resolve:784:25)
+E           at moduleResolve (node:internal/modules/esm/resolve:873:18)
+E           at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+E           at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+E           at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+E           at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+E           at #resolve (node:internal/modules/esm/loader:687:17)
+E           at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+E           at node:internal/modules/esm/loader:636:32 {
+E         code: 'ERR_MODULE_NOT_FOUND'
+E       }
+E       
+E       Node.js v24.21.0
+
+generators/computer/generator.py:106: RuntimeError
+____________ test_paper_and_computer_share_embodied_action_contract ____________
+
+    def test_paper_and_computer_share_embodied_action_contract():
+        from generators.world_3d.generator import TEXT
+>       h=Host.create('embodied_world',configuration={'resolution':12,'horizon':8})
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_generators.py:67: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tcn/generation.py:139: in create
+    return cls(g,Address(name,seed,index,split),configuration,objective)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tcn/generation.py:134: in __init__
+    self.state=generator.initialize(address,self.configuration | {"objective":self.objective})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/embodied_world/generator.py:12: in initialize
+    return super().initialize(address,defaults|configuration)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/world_3d/generator.py:27: in initialize
+    state['computer']=Computer().initialize(address,{'interface':'keyboard','horizon':100000,'document':configuration.get('document','7')})
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:166: in initialize
+    result=execute(seed,events,0,request,transport)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+seed = 1810189923
+events = [{'kind': 'write', 'path': '/home/agent/task.txt', 'text': '7', 'time': 0}]
+time = 0, probe = None, transport = None
+
+    def execute(seed,events,time,probe=None,transport=None):
+        request={'seed':seed,'events':events,'time':time}
+        if probe is not None:request['probe']=probe
+        if transport is not None:return session(transport).call(request)
+        root=Path(__file__).parent/'engine'
+        cmd=['node','--import','tsx',str(root/'bridge.ts')]
+        p=subprocess.run(cmd,input=json.dumps(request),text=True,capture_output=True,cwd=root,timeout=90)
+>       if p.returncode:raise RuntimeError('computer transition failed: '+p.stderr[-2000:])
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: computer transition failed: node:internal/modules/package_json_reader:331
+E         throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+E               ^
+E       
+E       Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'tsx' imported from /home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a4a82f2a201419e0d/generators/computer/engine/
+E           at Object.getPackageJSONURL (node:internal/modules/package_json_reader:331:9)
+E           at packageResolve (node:internal/modules/esm/resolve:784:25)
+E           at moduleResolve (node:internal/modules/esm/resolve:873:18)
+E           at defaultResolve (node:internal/modules/esm/resolve:1006:11)
+E           at #cachedDefaultResolve (node:internal/modules/esm/loader:705:20)
+E           at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:725:38)
+E           at ModuleLoader.resolveSync (node:internal/modules/esm/loader:763:56)
+E           at #resolve (node:internal/modules/esm/loader:687:17)
+E           at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:607:35)
+E           at node:internal/modules/esm/loader:636:32 {
+E         code: 'ERR_MODULE_NOT_FOUND'
+E       }
+E       
+E       Node.js v24.21.0
+
+generators/computer/generator.py:106: RuntimeError
+________ test_panel_menu_and_default_shell_menu_are_disjoint_and_stable ________
+
+    def test_panel_menu_and_default_shell_menu_are_disjoint_and_stable():
+>       shell=Host.create('computer',configuration={'horizon':2,'session':'tests'})
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_panel_interface.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tcn/generation.py:139: in create
+    return cls(g,Address(name,seed,index,split),configuration,objective)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tcn/generation.py:134: in __init__
+    self.state=generator.initialize(address,self.configuration | {"objective":self.objective})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:166: in initialize
+    result=execute(seed,events,0,request,transport)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:102: in execute
+    if transport is not None:return session(transport).call(request)
+                                    ^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:96: in session
+    if name not in SESSIONS:SESSIONS[name]=Session()
+                                           ^^^^^^^^^
+generators/computer/generator.py:75: in __init__
+    if json.loads(self.process.stdout.readline()).get('ready') is not True:raise RuntimeError('computer session did not start')
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/__init__.py:352: in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/decoder.py:345: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.decoder.JSONDecoder object at 0xf1a88cb2bcb0>, s = '', idx = 0
+
+    def raw_decode(self, s, idx=0):
+        """Decode a JSON document from ``s`` (a ``str`` beginning with
+        a JSON document) and return a 2-tuple of the Python
+        representation and the index in ``s`` where the document ended.
+    
+        This can be used to decode a JSON document from a string that may
+        have extraneous data at the end.
+    
+        """
+        try:
+            obj, end = self.scan_once(s, idx)
+        except StopIteration as err:
+>           raise JSONDecodeError("Expecting value", s, err.value) from None
+E           json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/decoder.py:363: JSONDecodeError
+_____________________ test_reward_is_delayed_and_terminal ______________________
+
+    def test_reward_is_delayed_and_terminal():
+>       host=Host.create('computer',seed=3,index=1,configuration=PANEL)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_panel_interface.py:60: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tcn/generation.py:139: in create
+    return cls(g,Address(name,seed,index,split),configuration,objective)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tcn/generation.py:134: in __init__
+    self.state=generator.initialize(address,self.configuration | {"objective":self.objective})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:166: in initialize
+    result=execute(seed,events,0,request,transport)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:102: in execute
+    if transport is not None:return session(transport).call(request)
+                                    ^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:96: in session
+    if name not in SESSIONS:SESSIONS[name]=Session()
+                                           ^^^^^^^^^
+generators/computer/generator.py:75: in __init__
+    if json.loads(self.process.stdout.readline()).get('ready') is not True:raise RuntimeError('computer session did not start')
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/__init__.py:352: in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/decoder.py:345: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.decoder.JSONDecoder object at 0xf1a88cb2bcb0>, s = '', idx = 0
+
+    def raw_decode(self, s, idx=0):
+        """Decode a JSON document from ``s`` (a ``str`` beginning with
+        a JSON document) and return a 2-tuple of the Python
+        representation and the index in ``s`` where the document ended.
+    
+        This can be used to decode a JSON document from a string that may
+        have extraneous data at the end.
+    
+        """
+        try:
+            obj, end = self.scan_once(s, idx)
+        except StopIteration as err:
+>           raise JSONDecodeError("Expecting value", s, err.value) from None
+E           json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/decoder.py:363: JSONDecodeError
+______________ test_commit_reads_the_filesystem_not_the_register _______________
+
+    def test_commit_reads_the_filesystem_not_the_register():
+        """A wrong dial commits a wrong file, and the reward is read back off it."""
+>       host=Host.create('computer',seed=3,index=2,configuration=PANEL)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_panel_interface.py:72: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tcn/generation.py:139: in create
+    return cls(g,Address(name,seed,index,split),configuration,objective)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tcn/generation.py:134: in __init__
+    self.state=generator.initialize(address,self.configuration | {"objective":self.objective})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:166: in initialize
+    result=execute(seed,events,0,request,transport)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:102: in execute
+    if transport is not None:return session(transport).call(request)
+                                    ^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:96: in session
+    if name not in SESSIONS:SESSIONS[name]=Session()
+                                           ^^^^^^^^^
+generators/computer/generator.py:75: in __init__
+    if json.loads(self.process.stdout.readline()).get('ready') is not True:raise RuntimeError('computer session did not start')
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/__init__.py:352: in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/decoder.py:345: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.decoder.JSONDecoder object at 0xf1a88cb2bcb0>, s = '', idx = 0
+
+    def raw_decode(self, s, idx=0):
+        """Decode a JSON document from ``s`` (a ``str`` beginning with
+        a JSON document) and return a 2-tuple of the Python
+        representation and the index in ``s`` where the document ended.
+    
+        This can be used to decode a JSON document from a string that may
+        have extraneous data at the end.
+    
+        """
+        try:
+            obj, end = self.scan_once(s, idx)
+        except StopIteration as err:
+>           raise JSONDecodeError("Expecting value", s, err.value) from None
+E           json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/decoder.py:363: JSONDecodeError
+_______________ test_a_myopic_commit_scores_far_below_the_oracle _______________
+
+    def test_a_myopic_commit_scores_far_below_the_oracle():
+        myopic=0.;oracle=0.
+        for index in range(12):
+>           host=Host.create('computer',seed=0,index=index,split='test',configuration=PANEL)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_panel_interface.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tcn/generation.py:139: in create
+    return cls(g,Address(name,seed,index,split),configuration,objective)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tcn/generation.py:134: in __init__
+    self.state=generator.initialize(address,self.configuration | {"objective":self.objective})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:166: in initialize
+    result=execute(seed,events,0,request,transport)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:102: in execute
+    if transport is not None:return session(transport).call(request)
+                                    ^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:96: in session
+    if name not in SESSIONS:SESSIONS[name]=Session()
+                                           ^^^^^^^^^
+generators/computer/generator.py:75: in __init__
+    if json.loads(self.process.stdout.readline()).get('ready') is not True:raise RuntimeError('computer session did not start')
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/__init__.py:352: in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/decoder.py:345: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.decoder.JSONDecoder object at 0xf1a88cb2bcb0>, s = '', idx = 0
+
+    def raw_decode(self, s, idx=0):
+        """Decode a JSON document from ``s`` (a ``str`` beginning with
+        a JSON document) and return a 2-tuple of the Python
+        representation and the index in ``s`` where the document ended.
+    
+        This can be used to decode a JSON document from a string that may
+        have extraneous data at the end.
+    
+        """
+        try:
+            obj, end = self.scan_once(s, idx)
+        except StopIteration as err:
+>           raise JSONDecodeError("Expecting value", s, err.value) from None
+E           json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/decoder.py:363: JSONDecodeError
+________________ test_panel_probes_are_not_visible_to_the_actor ________________
+
+    def test_panel_probes_are_not_visible_to_the_actor():
+>       host=Host.create('computer',configuration=PANEL)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_panel_interface.py:95: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tcn/generation.py:139: in create
+    return cls(g,Address(name,seed,index,split),configuration,objective)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tcn/generation.py:134: in __init__
+    self.state=generator.initialize(address,self.configuration | {"objective":self.objective})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:166: in initialize
+    result=execute(seed,events,0,request,transport)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:102: in execute
+    if transport is not None:return session(transport).call(request)
+                                    ^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:96: in session
+    if name not in SESSIONS:SESSIONS[name]=Session()
+                                           ^^^^^^^^^
+generators/computer/generator.py:75: in __init__
+    if json.loads(self.process.stdout.readline()).get('ready') is not True:raise RuntimeError('computer session did not start')
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/__init__.py:352: in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/decoder.py:345: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.decoder.JSONDecoder object at 0xf1a88cb2bcb0>, s = '', idx = 0
+
+    def raw_decode(self, s, idx=0):
+        """Decode a JSON document from ``s`` (a ``str`` beginning with
+        a JSON document) and return a 2-tuple of the Python
+        representation and the index in ``s`` where the document ended.
+    
+        This can be used to decode a JSON document from a string that may
+        have extraneous data at the end.
+    
+        """
+        try:
+            obj, end = self.scan_once(s, idx)
+        except StopIteration as err:
+>           raise JSONDecodeError("Expecting value", s, err.value) from None
+E           json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/decoder.py:363: JSONDecodeError
+___________________ test_panel_episode_replays_and_restores ____________________
+
+    def test_panel_episode_replays_and_restores():
+>       host=Host.create('computer',seed=5,index=4,configuration=PANEL)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_panel_interface.py:105: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tcn/generation.py:139: in create
+    return cls(g,Address(name,seed,index,split),configuration,objective)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tcn/generation.py:134: in __init__
+    self.state=generator.initialize(address,self.configuration | {"objective":self.objective})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:166: in initialize
+    result=execute(seed,events,0,request,transport)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:102: in execute
+    if transport is not None:return session(transport).call(request)
+                                    ^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:96: in session
+    if name not in SESSIONS:SESSIONS[name]=Session()
+                                           ^^^^^^^^^
+generators/computer/generator.py:75: in __init__
+    if json.loads(self.process.stdout.readline()).get('ready') is not True:raise RuntimeError('computer session did not start')
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/__init__.py:352: in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/decoder.py:345: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.decoder.JSONDecoder object at 0xf1a88cb2bcb0>, s = '', idx = 0
+
+    def raw_decode(self, s, idx=0):
+        """Decode a JSON document from ``s`` (a ``str`` beginning with
+        a JSON document) and return a 2-tuple of the Python
+        representation and the index in ``s`` where the document ended.
+    
+        This can be used to decode a JSON document from a string that may
+        have extraneous data at the end.
+    
+        """
+        try:
+            obj, end = self.scan_once(s, idx)
+        except StopIteration as err:
+>           raise JSONDecodeError("Expecting value", s, err.value) from None
+E           json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/decoder.py:363: JSONDecodeError
+____________________ test_session_transport_is_transparent _____________________
+
+    def test_session_transport_is_transparent():
+        """`engine/session.ts` and `engine/bridge.ts` produce identical episodes."""
+        import json
+        plan=(look(2),dial(6),COMMIT)
+        records=[]
+        for configuration in (PANEL,BRIDGE):
+>           host=Host.create('computer',seed=2,index=9,configuration=configuration)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_panel_interface.py:118: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tcn/generation.py:139: in create
+    return cls(g,Address(name,seed,index,split),configuration,objective)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tcn/generation.py:134: in __init__
+    self.state=generator.initialize(address,self.configuration | {"objective":self.objective})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:166: in initialize
+    result=execute(seed,events,0,request,transport)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:102: in execute
+    if transport is not None:return session(transport).call(request)
+                                    ^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:96: in session
+    if name not in SESSIONS:SESSIONS[name]=Session()
+                                           ^^^^^^^^^
+generators/computer/generator.py:75: in __init__
+    if json.loads(self.process.stdout.readline()).get('ready') is not True:raise RuntimeError('computer session did not start')
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/__init__.py:352: in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/decoder.py:345: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.decoder.JSONDecoder object at 0xf1a88cb2bcb0>, s = '', idx = 0
+
+    def raw_decode(self, s, idx=0):
+        """Decode a JSON document from ``s`` (a ``str`` beginning with
+        a JSON document) and return a 2-tuple of the Python
+        representation and the index in ``s`` where the document ended.
+    
+        This can be used to decode a JSON document from a string that may
+        have extraneous data at the end.
+    
+        """
+        try:
+            obj, end = self.scan_once(s, idx)
+        except StopIteration as err:
+>           raise JSONDecodeError("Expecting value", s, err.value) from None
+E           json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/decoder.py:363: JSONDecodeError
+__________________ test_panel_draws_on_its_own_random_stream ___________________
+
+    def test_panel_draws_on_its_own_random_stream():
+        """Enabling the panel must not move any draw a shell configuration makes."""
+>       a=Host.create('computer',seed=11,index=3,configuration={'horizon':1,'session':'tests'})
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_panel_interface.py:128: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tcn/generation.py:139: in create
+    return cls(g,Address(name,seed,index,split),configuration,objective)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tcn/generation.py:134: in __init__
+    self.state=generator.initialize(address,self.configuration | {"objective":self.objective})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:166: in initialize
+    result=execute(seed,events,0,request,transport)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:102: in execute
+    if transport is not None:return session(transport).call(request)
+                                    ^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:96: in session
+    if name not in SESSIONS:SESSIONS[name]=Session()
+                                           ^^^^^^^^^
+generators/computer/generator.py:75: in __init__
+    if json.loads(self.process.stdout.readline()).get('ready') is not True:raise RuntimeError('computer session did not start')
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/__init__.py:352: in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/decoder.py:345: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.decoder.JSONDecoder object at 0xf1a88cb2bcb0>, s = '', idx = 0
+
+    def raw_decode(self, s, idx=0):
+        """Decode a JSON document from ``s`` (a ``str`` beginning with
+        a JSON document) and return a 2-tuple of the Python
+        representation and the index in ``s`` where the document ended.
+    
+        This can be used to decode a JSON document from a string that may
+        have extraneous data at the end.
+    
+        """
+        try:
+            obj, end = self.scan_once(s, idx)
+        except StopIteration as err:
+>           raise JSONDecodeError("Expecting value", s, err.value) from None
+E           json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/decoder.py:363: JSONDecodeError
+____________ test_out_of_range_slot_is_an_observable_failed_attempt ____________
+
+    def test_out_of_range_slot_is_an_observable_failed_attempt():
+>       host=Host.create('computer',configuration=PANEL|{'panel_slots':2})
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_panel_interface.py:134: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tcn/generation.py:139: in create
+    return cls(g,Address(name,seed,index,split),configuration,objective)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tcn/generation.py:134: in __init__
+    self.state=generator.initialize(address,self.configuration | {"objective":self.objective})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:166: in initialize
+    result=execute(seed,events,0,request,transport)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:102: in execute
+    if transport is not None:return session(transport).call(request)
+                                    ^^^^^^^^^^^^^^^^^^
+generators/computer/generator.py:96: in session
+    if name not in SESSIONS:SESSIONS[name]=Session()
+                                           ^^^^^^^^^
+generators/computer/generator.py:75: in __init__
+    if json.loads(self.process.stdout.readline()).get('ready') is not True:raise RuntimeError('computer session did not start')
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/__init__.py:352: in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/decoder.py:345: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.decoder.JSONDecoder object at 0xf1a88cb2bcb0>, s = '', idx = 0
+
+    def raw_decode(self, s, idx=0):
+        """Decode a JSON document from ``s`` (a ``str`` beginning with
+        a JSON document) and return a 2-tuple of the Python
+        representation and the index in ``s`` where the document ended.
+    
+        This can be used to decode a JSON document from a string that may
+        have extraneous data at the end.
+    
+        """
+        try:
+            obj, end = self.scan_once(s, idx)
+        except StopIteration as err:
+>           raise JSONDecodeError("Expecting value", s, err.value) from None
+E           json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+../../../../../.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/json/decoder.py:363: JSONDecodeError
+=========================== short test summary info ============================
+FAILED tests/test_generators.py::test_common_contract_replay_restore_and_visibility[computer]
+FAILED tests/test_generators.py::test_common_contract_replay_restore_and_visibility[embodied_world]
+FAILED tests/test_generators.py::test_computer_quoted_shell_write_read_and_keyboard
+FAILED tests/test_generators.py::test_paper_and_computer_share_embodied_action_contract
+FAILED tests/test_panel_interface.py::test_panel_menu_and_default_shell_menu_are_disjoint_and_stable
+FAILED tests/test_panel_interface.py::test_reward_is_delayed_and_terminal - j...
+FAILED tests/test_panel_interface.py::test_commit_reads_the_filesystem_not_the_register
+FAILED tests/test_panel_interface.py::test_a_myopic_commit_scores_far_below_the_oracle
+FAILED tests/test_panel_interface.py::test_panel_probes_are_not_visible_to_the_actor
+FAILED tests/test_panel_interface.py::test_panel_episode_replays_and_restores
+FAILED tests/test_panel_interface.py::test_session_transport_is_transparent
+FAILED tests/test_panel_interface.py::test_panel_draws_on_its_own_random_stream
+FAILED tests/test_panel_interface.py::test_out_of_range_slot_is_an_observable_failed_attempt
+13 failed, 324 passed in 36.22s

@@ -1,0 +1,305 @@
+{
+ "baselines": {
+  "train_label_rate": 0.333333,
+  "best_constant_train": 0.666667,
+  "test_label_rate": 0.333333,
+  "best_constant_test": 0.666667,
+  "n_train": 15,
+  "n_test": 30
+ },
+ "arms": [
+  {
+   "solved": false,
+   "selections": null,
+   "exact_max_error": 0.0,
+   "evaluated": 1680,
+   "space_size": 1680,
+   "exhausted": true,
+   "unique": false,
+   "seconds": 15.28,
+   "continuous": [],
+   "conforming": 0,
+   "ranked_by": "order",
+   "description_bits": null,
+   "execution_cost": null,
+   "certificate": "complete",
+   "mode": "fit",
+   "node_evaluations": 126000,
+   "episodes": 0,
+   "steps": 0,
+   "ticks": 0,
+   "settle_window": 0,
+   "best_return": null,
+   "threshold": null,
+   "beam": null,
+   "discarded": 0,
+   "arm": "A1_budget1",
+   "nodes": 5,
+   "free_nodes": [
+    [
+     "detect",
+     105
+    ],
+    [
+     "answer",
+     16
+    ]
+   ],
+   "achieved_difficulty": 0.0,
+   "held_out": null
+  },
+  {
+   "solved": true,
+   "selections": {
+    "data": 0,
+    "prev": 0,
+    "wrote": 0,
+    "d0": 0,
+    "detect": 0,
+    "answer": 1
+   },
+   "exact_max_error": 0.0,
+   "evaluated": 320,
+   "space_size": 320,
+   "exhausted": true,
+   "unique": false,
+   "seconds": 4.19,
+   "continuous": [],
+   "conforming": 6,
+   "ranked_by": "order",
+   "description_bits": 21178552,
+   "execution_cost": 6.0,
+   "certificate": "complete",
+   "mode": "fit",
+   "node_evaluations": 28800,
+   "episodes": 0,
+   "steps": 0,
+   "ticks": 0,
+   "settle_window": 0,
+   "best_return": null,
+   "threshold": null,
+   "beam": null,
+   "discarded": 0,
+   "arm": "A1_budget2",
+   "nodes": 6,
+   "free_nodes": [
+    [
+     "d0",
+     4
+    ],
+    [
+     "detect",
+     5
+    ],
+    [
+     "answer",
+     16
+    ]
+   ],
+   "achieved_difficulty": 0.01875,
+   "held_out": 1.0
+  },
+  {
+   "solved": true,
+   "selections": {
+    "data": 0,
+    "prev": 0,
+    "wrote": 0,
+    "d0": 0,
+    "d1": 0,
+    "detect": 0,
+    "answer": 1
+   },
+   "exact_max_error": 0.0,
+   "evaluated": 6400,
+   "space_size": 6400,
+   "exhausted": true,
+   "unique": false,
+   "seconds": 74.88,
+   "continuous": [],
+   "conforming": 106,
+   "ranked_by": "order",
+   "description_bits": 21184336,
+   "execution_cost": 7.0,
+   "certificate": "complete",
+   "mode": "fit",
+   "node_evaluations": 672000,
+   "episodes": 0,
+   "steps": 0,
+   "ticks": 0,
+   "settle_window": 0,
+   "best_return": null,
+   "threshold": null,
+   "beam": null,
+   "discarded": 0,
+   "arm": "A1_budget3",
+   "nodes": 7,
+   "free_nodes": [
+    [
+     "d0",
+     80
+    ],
+    [
+     "detect",
+     5
+    ],
+    [
+     "answer",
+     16
+    ]
+   ],
+   "achieved_difficulty": 0.0165625,
+   "held_out": 1.0
+  },
+  {
+   "solved": true,
+   "selections": {
+    "data": 0,
+    "prev": 0,
+    "wrote": 0,
+    "detect": 0,
+    "answer": 1
+   },
+   "exact_max_error": 0.0,
+   "evaluated": 1280,
+   "space_size": 1280,
+   "exhausted": true,
+   "unique": false,
+   "seconds": 19.11,
+   "continuous": [],
+   "conforming": 14,
+   "ranked_by": "order",
+   "description_bits": 29649024,
+   "execution_cost": 7.0,
+   "certificate": "complete",
+   "mode": "fit",
+   "node_evaluations": 96000,
+   "episodes": 0,
+   "steps": 0,
+   "ticks": 0,
+   "settle_window": 0,
+   "best_return": null,
+   "threshold": null,
+   "beam": null,
+   "discarded": 0,
+   "arm": "A2_class",
+   "nodes": 5,
+   "free_nodes": [
+    [
+     "detect",
+     80
+    ],
+    [
+     "answer",
+     16
+    ]
+   ],
+   "achieved_difficulty": 0.0109375,
+   "held_out": 1.0
+  },
+  {
+   "solved": false,
+   "selections": null,
+   "exact_max_error": 0.0,
+   "evaluated": 256,
+   "space_size": 256,
+   "exhausted": true,
+   "unique": false,
+   "seconds": 4.01,
+   "continuous": [],
+   "conforming": 0,
+   "ranked_by": "order",
+   "description_bits": null,
+   "execution_cost": null,
+   "certificate": "complete",
+   "mode": "fit",
+   "node_evaluations": 19200,
+   "episodes": 0,
+   "steps": 0,
+   "ticks": 0,
+   "settle_window": 0,
+   "best_return": null,
+   "threshold": null,
+   "beam": null,
+   "discarded": 0,
+   "arm": "A3_wrong_motif",
+   "nodes": 5,
+   "free_nodes": [
+    [
+     "detect",
+     16
+    ],
+    [
+     "answer",
+     16
+    ]
+   ],
+   "achieved_difficulty": 0.0,
+   "held_out": null
+  },
+  {
+   "solved": true,
+   "selections": {
+    "data": 0,
+    "prev": 0,
+    "wrote": 0,
+    "detect": 0,
+    "answer": 1
+   },
+   "exact_max_error": 0.0,
+   "evaluated": 1280,
+   "space_size": 1280,
+   "exhausted": true,
+   "unique": false,
+   "seconds": 18.46,
+   "continuous": [],
+   "conforming": 14,
+   "ranked_by": "order",
+   "description_bits": 29649120,
+   "execution_cost": 7.0,
+   "certificate": "complete",
+   "mode": "fit",
+   "node_evaluations": 96000,
+   "episodes": 0,
+   "steps": 0,
+   "ticks": 0,
+   "settle_window": 0,
+   "best_return": null,
+   "threshold": null,
+   "beam": null,
+   "discarded": 0,
+   "arm": "A4_hand",
+   "nodes": 5,
+   "free_nodes": [
+    [
+     "detect",
+     80
+    ],
+    [
+     "answer",
+     16
+    ]
+   ],
+   "achieved_difficulty": 0.0109375,
+   "held_out": 1.0
+  }
+ ],
+ "class_module_digest": "538ff495bdc967864b09dc5f",
+ "hand_module_digest": "7a012f5971b0ed81f32dc6d8",
+ "class_equals_hand_authored": false,
+ "class_hand_structurally_identical": true,
+ "structural_normalises": [
+  "node names",
+  "output port name",
+  "version"
+ ],
+ "class_id": "schema/f72db2cf6eca/a491efadcab4",
+ "class_certified_widths": [
+  128,
+  3072
+ ],
+ "A3b_wrong_width": {
+  "constructed": false,
+  "error": "TypeError: module:db59f9b09bb730340219425c: operator signature mismatch"
+ }
+}

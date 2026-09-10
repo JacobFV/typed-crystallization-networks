@@ -1,0 +1,266 @@
+{
+ "baselines": {
+  "n_train": 20,
+  "n_test": 20,
+  "train_label_rate": 0.5,
+  "best_constant_train": 0.5,
+  "test_label_rate": 0.5,
+  "best_constant_test": 0.5
+ },
+ "arms": [
+  {
+   "solved": false,
+   "selections": null,
+   "exact_max_error": 0.0,
+   "evaluated": 30,
+   "space_size": 30,
+   "exhausted": true,
+   "unique": false,
+   "seconds": 0.5,
+   "continuous": [],
+   "conforming": 0,
+   "ranked_by": "order",
+   "description_bits": null,
+   "execution_cost": null,
+   "certificate": "complete",
+   "mode": "fit",
+   "node_evaluations": 2400,
+   "episodes": 0,
+   "steps": 0,
+   "ticks": 0,
+   "settle_window": 0,
+   "best_return": null,
+   "threshold": null,
+   "beam": null,
+   "discarded": 0,
+   "arm": "A1_budget2",
+   "free_nodes": [
+    [
+     "d0",
+     5
+    ],
+    [
+     "answer",
+     6
+    ]
+   ],
+   "achieved_difficulty": 0.0,
+   "held_out": null,
+   "chosen_operator": null
+  },
+  {
+   "solved": true,
+   "selections": {
+    "blen": 0,
+    "data": 0,
+    "d0": 27,
+    "d1": 0,
+    "answer": 5
+   },
+   "exact_max_error": 0.0,
+   "evaluated": 750,
+   "space_size": 750,
+   "exhausted": true,
+   "unique": true,
+   "seconds": 7.18,
+   "continuous": [],
+   "conforming": 1,
+   "ranked_by": "order",
+   "description_bits": 25401808,
+   "execution_cost": 5.0,
+   "certificate": "unique",
+   "mode": "fit",
+   "node_evaluations": 75000,
+   "episodes": 0,
+   "steps": 0,
+   "ticks": 0,
+   "settle_window": 0,
+   "best_return": null,
+   "threshold": null,
+   "beam": null,
+   "discarded": 0,
+   "arm": "A1_budget3",
+   "free_nodes": [
+    [
+     "d0",
+     125
+    ],
+    [
+     "answer",
+     6
+    ]
+   ],
+   "achieved_difficulty": 0.0013333333333333333,
+   "held_out": 1.0,
+   "chosen_operator": "eq(d1, b53)"
+  },
+  {
+   "solved": false,
+   "selections": null,
+   "exact_max_error": 0.0,
+   "evaluated": 150,
+   "space_size": 150,
+   "exhausted": true,
+   "unique": false,
+   "seconds": 6.95,
+   "continuous": [],
+   "conforming": 0,
+   "ranked_by": "order",
+   "description_bits": null,
+   "execution_cost": null,
+   "certificate": "complete",
+   "mode": "fit",
+   "node_evaluations": 9000,
+   "episodes": 0,
+   "steps": 0,
+   "ticks": 0,
+   "settle_window": 0,
+   "best_return": null,
+   "threshold": null,
+   "beam": null,
+   "discarded": 0,
+   "arm": "A2_class",
+   "free_nodes": [
+    [
+     "answer",
+     150
+    ]
+   ],
+   "achieved_difficulty": 0.0,
+   "held_out": null,
+   "chosen_operator": null
+  },
+  {
+   "solved": true,
+   "selections": {
+    "blen": 0,
+    "data": 0,
+    "answer": 167
+   },
+   "exact_max_error": 0.0,
+   "evaluated": 750,
+   "space_size": 750,
+   "exhausted": true,
+   "unique": true,
+   "seconds": 29.89,
+   "continuous": [],
+   "conforming": 1,
+   "ranked_by": "order",
+   "description_bits": 33866496,
+   "execution_cost": 5.0,
+   "certificate": "unique",
+   "mode": "fit",
+   "node_evaluations": 45000,
+   "episodes": 0,
+   "steps": 0,
+   "ticks": 0,
+   "settle_window": 0,
+   "best_return": null,
+   "threshold": null,
+   "beam": null,
+   "discarded": 0,
+   "arm": "A2b_schema",
+   "free_nodes": [
+    [
+     "answer",
+     750
+    ]
+   ],
+   "achieved_difficulty": 0.0013333333333333333,
+   "held_out": 1.0,
+   "chosen_operator": "module:0cf38f0599e2b3e353984d78(blen, p1, data, b53)"
+  },
+  {
+   "solved": false,
+   "selections": null,
+   "exact_max_error": 0.0,
+   "evaluated": 25,
+   "space_size": 25,
+   "exhausted": true,
+   "unique": false,
+   "seconds": 1.54,
+   "continuous": [],
+   "conforming": 0,
+   "ranked_by": "order",
+   "description_bits": null,
+   "execution_cost": null,
+   "certificate": "complete",
+   "mode": "fit",
+   "node_evaluations": 1500,
+   "episodes": 0,
+   "steps": 0,
+   "ticks": 0,
+   "settle_window": 0,
+   "best_return": null,
+   "threshold": null,
+   "beam": null,
+   "discarded": 0,
+   "arm": "A3_wrong_motif",
+   "free_nodes": [
+    [
+     "answer",
+     25
+    ]
+   ],
+   "achieved_difficulty": 0.0,
+   "held_out": null,
+   "chosen_operator": null
+  },
+  {
+   "solved": false,
+   "selections": null,
+   "exact_max_error": 0.0,
+   "evaluated": 150,
+   "space_size": 150,
+   "exhausted": true,
+   "unique": false,
+   "seconds": 6.51,
+   "continuous": [],
+   "conforming": 0,
+   "ranked_by": "order",
+   "description_bits": null,
+   "execution_cost": null,
+   "certificate": "complete",
+   "mode": "fit",
+   "node_evaluations": 9000,
+   "episodes": 0,
+   "steps": 0,
+   "ticks": 0,
+   "settle_window": 0,
+   "best_return": null,
+   "threshold": null,
+   "beam": null,
+   "discarded": 0,
+   "arm": "A4_hand",
+   "free_nodes": [
+    [
+     "answer",
+     150
+    ]
+   ],
+   "achieved_difficulty": 0.0,
+   "held_out": null,
+   "chosen_operator": null
+  }
+ ],
+ "class_module_digest": "538ff495bdc967864b09dc5f",
+ "class_id": "schema/f72db2cf6eca/a491efadcab4",
+ "class_certified_widths": [
+  128,
+  3072
+ ],
+ "schema_family_digests": [
+  "538ff495bdc967864b09dc5f",
+  "0cf38f0599e2b3e353984d78",
+  "85fe81747beb7a672e7e2f33",
+  "c7141acfc345c6828929de3b",
+  "0378432f62b0269d505c30c5"
+ ],
+ "schema_family_operators": [
+  "add",
+  "sub",
+  "mul",
+  "min",
+  "max"
+ ]
+}
