@@ -71,8 +71,10 @@ def instrument_arm(gap, arm):
     d = cache.load(gap)
     records = d["episodes"]
     eps = engine.Episodes(records)
-    T = engine.Tables(eps, one)
-    _, hits = engine.evaluate_batch(T, np.array([[0] * len(SLOTS)]))
+    # The evaluator needs the arm's full pools (X1..X3 share one step pool); the
+    # one-candidate pools above are used only to build the frozen tcn program.
+    T = engine.Tables(eps, pool)
+    _, hits = engine.evaluate_batch(T, np.array([[sel[s] for s in SLOTS]]))
     engine_hits = [bool(h) for h in hits[0]]
     t0 = time.perf_counter()
     live = []
