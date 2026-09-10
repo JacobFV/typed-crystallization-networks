@@ -152,3 +152,42 @@ falsification above fires.
 * Surrogates are dead at operating distance (§16): `eq` is exactly 0.0 past
   |a−b| ≥ 11, `lt` past 17. Enumeration is the primary method here for that
   reason; any gradient arm is secondary and reported as such.
+
+---
+
+## Amendment 1 — three further controls (appended after the step-2 arms ran,
+## before arms F, G and H were written or run)
+
+Nothing above is edited or withdrawn. Arms A1, A2, B, C, D and E ran as
+pre-registered and their outputs are committed at `59477f3`. This amendment
+**adds** three arms; it replaces no criterion.
+
+Why: A1/A2 passed with certificate `unique` at every depth, so the step-2
+falsification did not fire. That makes the *reason* it passed the thing that now
+needs a control. The transfer succeeded because the **schema** is depth-parametric
+in a semantics-preserving way, and a passing result cannot by itself show that
+this was load-bearing rather than automatic.
+
+* **Arm F — wrong-schema control.** An interpreter variant identical in every
+  respect except that `relation`'s 17th candidate reads `gate_0` instead of
+  `gate_{d-1}`. At depth 1 those are the same node, so the depth-1 fit **cannot
+  distinguish** the two schemas: it must return the same selection with the same
+  certificate. Pre-registered expectation: F fits at depth 1 at 4.00 with
+  certificate `unique` and the same vector `{relation: 16, goal_relation: 6}`,
+  and then **collapses toward the baseline at every `d′ ≥ 2`**. If it does, then
+  "the vector is applicable at another width" demonstrably does **not** imply
+  "the capability transfers", and depth-1 evidence alone cannot certify a
+  schema. If instead F also scores 4.00 at every `d′`, the depth-8 task is not
+  discriminating and arms A1/A2 are correspondingly weakened; that would be
+  reported as a defect in this track's task, not as a success.
+* **Arm G — achieved difficulty, measured rather than requested.** Per depth,
+  over the 64 held-out episodes: distinct circuits, distinct final-gate truth
+  tables, achieved `relevant_inputs` counts, and the fraction of episodes whose
+  answer differs from the majority answer. Reported instead of the requested
+  configuration.
+* **Arm H — what the width-invariant part actually costs.** Per depth:
+  `Program.description_bits` and node count of the frozen artifact, against the
+  bit length of the selection vector (`log2(17) + log2(16)`). This quantifies the
+  ergonomic claim rather than asserting it.
+
+No `tcn/` change is contemplated by any of these.
