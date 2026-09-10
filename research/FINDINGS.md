@@ -2731,3 +2731,81 @@ improvement to abstraction *identity*, not as a demonstrated capability for
 library induction. The open question it hands forward is a ranking objective that
 does not penalise breadth.
 
+## 53. Width-polymorphism is already reachable without weakening typing — and certifying at one width proves nothing
+
+`research/depth-encoding/RESULTS.md`, branch `worktree-agent-a8d788159e4f7d7a0`
+(`a6547f5`), **not merged at time of writing**; `tcn/` and `generators/`
+untouched and **no core change proposed**. `PREREGISTRATION.md` at `1e439a1`
+before any arm, amendment at `5f8aa4f` before arms F–H. This closes the last
+genuinely open item on the standing priority list — the `program` observation
+width is `3 × depth`, so a fixed-width typed program cannot accept an unseen
+depth. Verified here from raw JSON.
+
+**Where width actually enters: 31 sites, and there is nothing to abstract over.**
+16 type equalities, 7 derivations, 3 value equalities, 2 definitions, 1 storage,
+2 origins — each cited `file:line` and resolved by source-text matching so the
+citations cannot drift. All 16 equalities are the **same structural `==` on
+`Type`** reached from different callers, because `items` and `capacity`
+(`tcn/types.py:58,64`) *are* the width. There is no width *parameter* in the type
+to make polymorphic. Two details worth carrying: the enumerator's `project`
+family is **sized by arity** (`graph.py:184` — 3 settings at d1, 6 at d2), and
+`map`'s declared capacity is copied into both its output type and its charged
+cost (`operators.py:117,118`).
+
+**Selections transfer completely — the cheap outcome, and it is the answer.**
+A depth-parametric schema over the width-varying channel keeps candidate counts
+(17, 16), space 272, at every depth. Exhausting depth 1 gives certificate
+`unique`; that vector then scores **4.00 / 4** on 64 held-out episodes at depths
+**1, 2, 3, 4, 6, 8** — widths 3 to 24, five of them unseen by the fit.
+
+Verified across all six depths independently:
+
+| depth | width | space | evaluated | exhausted | conforming | certificate | selections |
+|---|---|---|---|---|---|---|---|
+| 1 | 3 | 272 | 272 | true | 1 | `unique` | `{relation:16, goal_relation:6}` |
+| 2 | 6 | 272 | 272 | true | 1 | `unique` | **identical** |
+| 3 | 9 | 272 | 272 | true | 1 | `unique` | **identical** |
+| 4 | 12 | 272 | 272 | true | 1 | `unique` | **identical** |
+| 6 | 18 | 272 | 272 | true | 1 | `unique` | **identical** |
+| 8 | 24 | 272 | 272 | true | 1 | `unique` | **identical** |
+
+Against best constant 2.06–2.50, uniform random ~1.84–2.06, whole-space mean
+2.00, and second-best-of-272 at 3.06–3.44. Fitting at depth 2 returns the same
+vector.
+
+**The hardened artifact still does not cross**, exactly as §30 said: offered at
+any depth ≠ 1 it raises `TypeError: input representation mismatch` at
+`tcn/graph.py:99`, with six distinct digests and 169 kbit → 1.30 Mbit. **The
+invariant content is 8.09 bits.** So §30's "what transfers is the selections" is
+now measured end to end, and the barrier is **ergonomic, not type-theoretic**:
+generic schema plus instantiated artifacts already works, no type check was
+relaxed, and no `tcn/` change was needed.
+
+**The caution is the more useful half, and it is new.** Arm F takes a
+*deliberately wrong* schema with the same selection vector:
+
+| arm F, wrong schema | space | exhausted | conforming | certificate |
+|---|---|---|---|---|
+| depth 1 | 272 | true | **1** | **`unique`** |
+| depths 2, 3, 4, 6, 8 | 272 | true | **0** | `complete` |
+
+**A wrong schema is indistinguishable from the right one at a single width** —
+same space, same `unique` certificate — and collapses to zero conforming at every
+other width. **A `unique` certificate at one width is not evidence of a correct
+schema.** Any future width-polymorphic claim must certify at two or more widths,
+and this repository has been treating single-width `unique` as strong evidence.
+
+**Disclosed by the track, not by me:** pre-registered criterion 4 ("arm B stays
+at or below its best constant at every `d′`") **failed as written** — 4 of 24
+cells sit above by 0.0625–0.1875 on a 0–4 scale at n=64, margins of one or two
+episodes' reward, with arm B's spread straddling the constant in both directions.
+The criterion was too tight for a control with that per-episode variance; the
+substantive claim is unaffected, and the failure is recorded rather than
+reinterpreted.
+
+**What remains is storage, not typing:** a schema and its certified widths have
+nowhere to live. `tcn/library.py` stores artifacts by digest, and §30's
+width-specificity means each width is a different artifact. That is the same
+shape as §52's open problem and as `research/algorithm-resynthesis/DESIGN.md` §7
+— class identity beside artifact identity.
+
