@@ -1,0 +1,100 @@
+distractor {'S_all_episodes': '208109705341645619200000', 'K_generalizing': '0', 'certificate': 'complete', 'expected_programs_to_first_generalizing_uniform': None, 'seconds': 160.1527699850012}
+schema {'S_all_episodes': '208109705341645619200000', 'K_generalizing': '0', 'certificate': 'complete', 'expected_programs_to_first_generalizing_uniform': None, 'seconds': 88.06798975200218}
+{
+ "gap": 1,
+ "episodes_all": 48,
+ "direct_equals_transform_on_train": {
+  "distractor": {
+   "transform": "703488",
+   "direct": "703488"
+  },
+  "schema": {
+   "transform": "261654545280",
+   "direct": "261654545280"
+  }
+ },
+ "distractor_addresses_equal_length_minus_5": [],
+ "distractor_address_pool_size": 1445,
+ "distractor": {
+  "S_all_episodes": "208109705341645619200000",
+  "K_generalizing": "0",
+  "certificate": "complete",
+  "expected_programs_to_first_generalizing_uniform": null,
+  "seconds": 160.1527699850012
+ },
+ "schema": {
+  "S_all_episodes": "208109705341645619200000",
+  "K_generalizing": "0",
+  "certificate": "complete",
+  "expected_programs_to_first_generalizing_uniform": null,
+  "seconds": 88.06798975200218
+ },
+ "N''_tiers_generalizing": [
+  {
+   "tier": 0,
+   "S": "262144",
+   "K48": "0"
+  },
+  {
+   "tier": 1,
+   "S": "1029292687360",
+   "K48": "0"
+  },
+  {
+   "tier": 2,
+   "S": "655678834212864",
+   "K48": "0"
+  },
+  {
+   "tier": 3,
+   "S": "10244981784576000",
+   "K48": "0"
+  },
+  {
+   "tier": 4,
+   "S": "10244981784576000",
+   "K48": "0"
+  },
+  {
+   "tier": 5,
+   "S": "25612454461440000",
+   "K48": "0"
+  },
+  {
+   "tier": 6,
+   "S": "71825908826112000",
+   "K48": "0"
+  },
+  {
+   "tier": 7,
+   "S": "449800790605824000",
+   "K48": "0"
+  },
+  {
+   "tier": 8,
+   "S": "456797749510144000",
+   "K48": "0"
+  },
+  {
+   "tier": 9,
+   "S": "1044109141737472000",
+   "K48": "0"
+  },
+  {
+   "tier": 10,
+   "S": "1044109141737472000",
+   "K48": "0"
+  },
+  {
+   "tier": 11,
+   "S": "1044109141737472000",
+   "K48": "0"
+  },
+  {
+   "tier": 12,
+   "S": "208109705341645619200000",
+   "K48": "0"
+  }
+ ],
+ "N''_expected_programs_to_first_generalizing": null
+}
