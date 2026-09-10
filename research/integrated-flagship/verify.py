@@ -319,6 +319,7 @@ claim("every capped job peaked under the 20 GB cap", peaks and max(peaks) < 20 *
 # ------------------------------------------ layer 3: numbers in prose
 prose = re.sub(r"<!-- BEGIN:(\w+) -->.*?<!-- END:\1 -->", "", RESULTS, flags=re.S)
 prose = re.sub(r"`[^`]*`", "", prose)
+prose = re.sub(r"(?m)^#+ .*$", "", prose)      # headings carry section numbering, not claims
 block_text = " ".join(re.findall(r"<!-- BEGIN:\w+ -->(.*?)<!-- END", RESULTS, flags=re.S))
 ALLOWED = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "15", "16",
            "20", "25", "26", "36", "48", "64", "100", "128", "256", "400", "500", "1,280", "1,445",

@@ -82,6 +82,7 @@ Primary configuration (`gap 0`):
 <!-- BEGIN:criteria_gap0 -->
 - **C1 (material saving, ≥10× in programs and episodes):** N″/N = 10,925.41 → **FAIL** (episodes are programs × 12, so the same ratio).
 - **C2 (the matched distractor does not reach 10×):** D''_0: cost/N = 1.30×10^6; D''_1: cost/N = 3.24×10^7; D''_2: cost/N = 1.30×10^6; D''_3: cost/N = 3.24×10^7; D''_4: cost/N = 2.14×10^14; D': cost/N = 1.96×10^6 → **PASS**.
+- **C3 (a solution, not a fit):** the worst of 400 sampled N″ first solutions scores 1.0000 held out (evaluator; live check in the instrumentation table) against the best baseline 0.6944 → **PASS**.
 - **N′ vs N:** N′/N = 1.88 → schema is organisational reuse (within 10×).
 - **N″ vs N′ (does the prior earn its name, ≤ N′/10?):** N″/N′ = 5,806.89 → **no**.
 <!-- END:criteria_gap0 -->
@@ -112,6 +113,24 @@ Second configuration (`gap 1`):
 | R — right schemas + permuted prior (seed 1) | 2.08×10^23 | 1.16×10^15 | `complete` | 2 | 5.47×10^13 | 6.56×10^14 | 1.74×10^-6× | 400/400 (95% 0.990–1.000) | 1.0000 |
 | R — right schemas + permuted prior (seed 2) | 2.08×10^23 | 1.16×10^15 | `complete` | 3 | 3.53×10^19 | 4.24×10^20 | 2.69×10^-12× | 0/400 (95% 0.000–0.010) | 0.6162 |
 | R — right schemas + permuted prior (seed 3) | 2.08×10^23 | 1.16×10^15 | `complete` | 3 | 3.64×10^20 | 4.37×10^21 | 2.61×10^-13× | 2/400 (95% 0.001–0.018) | 0.4510 |
+| R — right schemas + permuted prior (seed 4) | 2.08×10^23 | 1.16×10^15 | `complete` | 4 | 1.30×10^22 | 1.56×10^23 | 7.30×10^-15× | 0/400 (95% 0.000–0.010) | 0.6172 |
+| U — N″'s features, UNFITTED gentle 2× rule (post-hoc control) | 2.08×10^23 | 1.16×10^15 | `complete` | 0 | 2.04×10^6 | 2.45×10^7 | 46.62× | 0/400 (95% 0.000–0.010) | 0.5999 |
+| U_steep — hand rules at N″'s steepness, nothing fitted (post-hoc control) | 2.08×10^23 | 1.16×10^15 | `complete` | 0 | 2.04×10^6 | 2.45×10^7 | 46.62× | 0/400 (95% 0.000–0.010) | 0.5999 |
+| U_Vonly — one hand rule, V 10:1, all else uniform, nothing fitted (post-hoc control) | 2.08×10^23 | 1.16×10^15 | `complete` | 0 | 4.41×10^7 | 5.29×10^8 | 2.15× | 0/400 (95% 0.000–0.010) | 0.6138 |
+| KO_ADDR — N″ with ADDR (§19/§23 rows) knocked out to hand V 10:1 (post-hoc) | 2.08×10^23 | 1.16×10^15 | `complete` | 1 | 3.05×10^13 | 3.66×10^14 | 3.11×10^-6× | 400/400 (95% 0.990–1.000) | 1.0000 |
+| KO_TRUTH — N″ with TRUTH (§33 rows) knocked out to uniform (post-hoc) | 2.08×10^23 | 1.16×10^15 | `complete` | 2 | 3.77×10^13 | 4.52×10^14 | 2.52×10^-6× | 400/400 (95% 0.990–1.000) | 1.0000 |
+| KO_STEP — N″ with STEP (§33 rows) knocked out to uniform (post-hoc) | 2.08×10^23 | 1.16×10^15 | `complete` | 2 | 1.61×10^13 | 1.93×10^14 | 5.91×10^-6× | 8/400 (95% 0.010–0.039) | 0.4636 |
+| STEP_only — only the fitted STEP estimator (20 §33 rows), all else uniform (post-hoc) | 2.08×10^23 | 1.16×10^15 | `complete` | 1 | 1.66×10^21 | 2.00×10^22 | 5.71×10^-14× | 400/400 (95% 0.990–1.000) | 1.0000 |
+| STEP_hand — hand rule: pixel or row offsets 1, else 0.1; all else uniform (post-hoc) | 2.08×10^23 | 1.16×10^15 | `complete` | 0 | 3.30×10^16 | 3.96×10^17 | 2.88×10^-9× | 400/400 (95% 0.990–1.000) | 1.0000 |
+| N″, occurs ratio pinned at 1 — sensitivity, set on the target task, not inherited | 2.08×10^23 | 1.16×10^15 | `complete` | 2 | 5.51×10^17 | 6.62×10^18 | 1.72×10^-10× | 400/400 (95% 0.990–1.000) | 1.0000 |
+| N″, occurs ratio pinned at 3 — sensitivity, set on the target task, not inherited | 2.08×10^23 | 1.16×10^15 | `complete` | 2 | 4.50×10^15 | 5.40×10^16 | 2.11×10^-8× | 400/400 (95% 0.990–1.000) | 1.0000 |
+| N″, occurs ratio pinned at 10 — sensitivity, set on the target task, not inherited | 2.08×10^23 | 1.16×10^15 | `complete` | 2 | 1.04×10^12 | 1.25×10^13 | 9.15×10^-5× | 400/400 (95% 0.990–1.000) | 1.0000 |
+| N″, occurs ratio pinned at 100 — sensitivity, set on the target task, not inherited | 2.08×10^23 | 1.16×10^15 | `complete` | 2 | 1.04×10^12 | 1.25×10^13 | 9.15×10^-5× | 400/400 (95% 0.990–1.000) | 1.0000 |
+| N″, occurs ratio pinned at 3500 — sensitivity, set on the target task, not inherited | 2.08×10^23 | 1.16×10^15 | `complete` | 2 | 1.04×10^12 | 1.25×10^13 | 9.15×10^-5× | 400/400 (95% 0.990–1.000) | 1.0000 |
+| N″, V ratio pinned at 1 — sensitivity, set on the target task, not inherited | 2.08×10^23 | 1.16×10^15 | `complete` | 2 | 1.69×10^12 | 2.03×10^13 | 5.62×10^-5× | 400/400 (95% 0.990–1.000) | 1.0000 |
+| N″, V ratio pinned at 3 — sensitivity, set on the target task, not inherited | 2.08×10^23 | 1.16×10^15 | `complete` | 1 | 1.96×10^10 | 2.35×10^11 | 4.84×10^-3× | 400/400 (95% 0.990–1.000) | 1.0000 |
+| N″, V ratio pinned at 10 — sensitivity, set on the target task, not inherited | 2.08×10^23 | 1.16×10^15 | `complete` | 1 | 1.96×10^10 | 2.35×10^11 | 4.84×10^-3× | 400/400 (95% 0.990–1.000) | 1.0000 |
+| N″, V ratio pinned at 100 — sensitivity, set on the target task, not inherited | 2.08×10^23 | 1.16×10^15 | `complete` | 1 | 1.96×10^10 | 2.35×10^11 | 4.84×10^-3× | 400/400 (95% 0.990–1.000) | 1.0000 |
 <!-- END:arms_gap0 -->
 
 `gap 1`:
@@ -253,7 +272,19 @@ Rows per kind (rows / survivors): ADDR 233/23, GROUND 0/0, LIT 424/22, STEP 20/6
 ## 5. Hard-transferred vector, baselines, achieved difficulty
 
 <!-- BEGIN:extras_gap0 -->
-(not run)
+| quantity | value |
+|---|---|
+| hard-transferred vector H: training accuracy | 0.2500 |
+| H: held-out accuracy | 0.1389 |
+| best constant click (chosen on training) held-out | 0.5000 |
+| oracle constant click (chosen on held-out) | 0.6944 |
+| uniform random pixel, held-out (exact) | 0.3099 |
+| uniform random child widget, held-out (exact) | 0.4259 |
+| widgets per screen (48 episodes) | {'3': 24, '4': 24} |
+| rejection draws per episode (min / median / max) | 1 / 6 / 78 |
+| instruction lengths (bytes) | [23, 24, 25, 26, 32, 33, 34, 35, 36] |
+| target area in pixels (min / max) | 42 / 140 |
+| H's selection | cpos ('sub', 'length', 'k1'), lc1 97, lc2 97, lc3 97, K1 0, K2 0, K3 0, K4 0, ra ('sub', 'length', 'k1'), lr1 97, lr2 97, M (1, 2, 7, 2), X1 ('add', 'lo', 3), X2 ('add', 'lo', 48), X3 ('add', 'lo', 48) |
 <!-- END:extras_gap0 -->
 
 <!-- BEGIN:extras_gap1 -->
@@ -287,21 +318,41 @@ Rows per kind (rows / survivors): ADDR 233/23, GROUND 0/0, LIT 424/22, STEP 20/6
 | `arm_gap0_Dpp_2` | 0.29 | 2:22.74 | 0 |
 | `arm_gap0_Dpp_3` | 0.27 | 1:44.46 | 0 |
 | `arm_gap0_Dpp_4` | 0.27 | 1:38.02 | 0 |
+| `arm_gap0_KO_ADDR` | 0.27 | 1:53.18 | 0 |
+| `arm_gap0_KO_STEP` | 0.27 | 2:23.89 | 0 |
+| `arm_gap0_KO_TRUTH` | 0.27 | 2:19.11 | 0 |
 | `arm_gap0_N` | 4.23 | 1:38.80 | 0 |
 | `arm_gap0_Np` | 0.31 | 0:30.33 | 0 |
 | `arm_gap0_Npp` | 0.27 | 2:17.59 | 0 |
+| `arm_gap0_OCC_1` | 0.27 | 1:59.38 | 0 |
+| `arm_gap0_OCC_10` | 0.27 | 2:07.31 | 0 |
+| `arm_gap0_OCC_100` | 0.27 | 1:56.55 | 0 |
+| `arm_gap0_OCC_3` | 0.27 | 1:58.98 | 0 |
+| `arm_gap0_OCC_3500` | 0.27 | 2:19.62 | 0 |
 | `arm_gap0_P` | 0.82 | 7:05.20 | 0 |
 | `arm_gap0_R_0` | 0.27 | 1:31.89 | 0 |
 | `arm_gap0_R_1` | 0.27 | 1:20.11 | 0 |
 | `arm_gap0_R_2` | 0.27 | 2:06.01 | 0 |
 | `arm_gap0_R_3` | 0.27 | 1:44.80 | 0 |
+| `arm_gap0_R_4` | 0.28 | 1:13.48 | 0 |
+| `arm_gap0_STEP_hand` | 0.26 | 0:52.31 | 0 |
+| `arm_gap0_STEP_only` | 0.27 | 1:16.81 | 0 |
+| `arm_gap0_U_Vonly` | 0.31 | 0:53.04 | 0 |
+| `arm_gap0_U_feat` | 0.31 | 0:59.10 | 0 |
+| `arm_gap0_U_steep` | 0.30 | 1:19.06 | 0 |
+| `arm_gap0_V_1` | 0.27 | 1:56.70 | 0 |
+| `arm_gap0_V_10` | 0.27 | 2:49.43 | 0 |
+| `arm_gap0_V_100` | 0.27 | 3:32.60 | 0 |
+| `arm_gap0_V_3` | 0.27 | 2:25.93 | 0 |
+| `arm_gap0_extras` | 0.24 | 0:01.64 | 0 |
 | `cache` | 0.22 | 0:24.52 | 0 |
 | `diag_v1` | 0.25 | 2:29.91 | 0 |
+| `generalize_gap0` | 0.39 | 5:31.25 | 0 |
 | `sources` | 0.28 | 1:30.87 | 0 |
 | `v2brute_gap0` | 0.49 | 0:41.46 | 0 |
 | `v2tcn_gap0` | 0.30 | 7:04.85 | 0 |
 
-Memory floor: 29 capped starts logged in `out/memory_floor.log`; MemAvailable at start ranged 33.3–42.2 GB; phases refused by the 25 GB floor: 0.
+Memory floor: 52 capped starts logged in `out/memory_floor.log`; MemAvailable at start ranged 33.3–42.2 GB; phases refused by the 25 GB floor: 0.
 <!-- END:resources -->
 
 ---
@@ -339,6 +390,16 @@ Everything in this section is **post-hoc** unless it says otherwise. None of it 
 Exact counts over all 48 episodes (training and held-out together):
 
 <!-- BEGIN:generalize_gap0 -->
+| space | programs | conform on all 48 episodes (train + held-out) | certificate | expected programs to first generalizing, uniform order |
+|---|---|---|---|---|
+| distractor pools (D′, D″) | 2.08×10^23 | 0 | `complete` | no generalizing program exists |
+| schema pools (N′) | 2.08×10^23 | 6.87×10^8 | `complete` | 3.03×10^14 |
+
+N″'s tiered order, to its first generalizing program: 1.04×10^12 programs.
+Distractor address expressions equal to `length−5` on every episode: 0 of 1445.
+Direct 48-episode counting equals the transform on the 12 training episodes: True.
+
+**The pre-registered distractor could not succeed**: its space contains no program that conforms on all 48 episodes, so D′/D″'s failure to generalize is true by construction and says nothing about the library. The matched-distractor role is carried by R (right schemas, permuted prior) and U (unfitted weights).
 <!-- END:generalize_gap0 -->
 
 ### 9.2 The pre-sweep prediction, tested
@@ -356,7 +417,30 @@ setting for this task.** It was fitted on the earlier domains' survival rates, a
 that fitting guarantees a cost-optimal steepness on a new task; the V curve shows it is not.
 
 <!-- BEGIN:sweep -->
+| sweep point | predicted (pre-sweep) | observed generalizing / sampled (95% Wilson) | expected programs | verdict |
+|---|---|---|---|---|
+| OCC_1 | does not | 400/400 (0.990–1.000) | 5.51×10^17 | **FALSIFIES clause (b)** |
+| OCC_3 | — | 400/400 (0.990–1.000) | 4.50×10^15 | undetermined by the prediction |
+| OCC_10 | generalizes | 400/400 (0.990–1.000) | 1.04×10^12 | as predicted |
+| OCC_100 | generalizes | 400/400 (0.990–1.000) | 1.04×10^12 | as predicted |
+| OCC_3500 | generalizes | 400/400 (0.990–1.000) | 1.04×10^12 | as predicted |
+| V_1 | does not | 400/400 (0.990–1.000) | 1.69×10^12 | **FALSIFIES clause (a)** |
+| V_3 | generalizes | 400/400 (0.990–1.000) | 1.96×10^10 | as predicted |
+| V_10 | generalizes | 400/400 (0.990–1.000) | 1.96×10^10 | as predicted |
+| V_100 | generalizes | 400/400 (0.990–1.000) | 1.96×10^10 | as predicted |
+
+A point counts as generalizing when more than half its sampled first solutions conform on all 36 held-out episodes. Falsified at: OCC_1, V_1.
 <!-- END:sweep -->
+
+**The pre-sweep prediction is falsified on both clauses.** Clause (b) — an occurs ratio above a
+threshold is required — falls at OCC_1, which generalizes with no occurs preference at all.
+Clause (a) — a positive V preference is required — falls at V_1, which generalizes with the V
+penalty removed. Every point predicted to generalize does. So, over the ranges tried and with the
+rest of N″'s fitted content held fixed, **generalization is insensitive to both the occurs ratio
+and the V penalty; only the cost moves.** That agrees with the per-kind knockouts (§9.3): the
+step preference decides whether the first hit generalizes, and the address and literal
+preferences set how many programs it takes. The prediction was a conjecture drawn from three R
+seeds and crude statistics, and it is reported as falsified rather than revised.
 
 ### 9.3 What the prior prefers, against how often its first solution generalizes
 
@@ -365,6 +449,40 @@ U_feat (N″'s features with **unfitted** weights) is the primary clean control.
 preferences without destroying them, so it is not a "content destroyed" control.
 
 <!-- BEGIN:mechanism -->
+| arm | pools | LIT occurs ratio | ADDR mean V=True / V=False | rank of `sub(length,5)` in cpos | best rank of an address = 13 in ra | absent letters enter at tier | generalizing / 400 | expected programs |
+|---|---|---|---|---|---|---|---|---|
+| N'' | schema | 3,510.87 | 0.206 / 0.020 | 57 | 2 | 12 | 400 | 1.04×10^12 |
+| P | flat | 3,510.87 | 0.206 / 0.020 | — | — | — | 0 | 4.27×10^17 |
+| R_0 | schema | 2.45 | 0.171 / 0.079 | 57 | 2 | 2 | 0 | 1.73×10^21 |
+| R_1 | schema | 3.87 | 0.183 / 0.129 | 2 | 214 | 2 | 400 | 5.47×10^13 |
+| R_2 | schema | 3.87 | 0.101 / 0.158 | 2 | 214 | 2 | 0 | 3.53×10^19 |
+| R_3 | schema | 3.11 | 0.086 / 0.118 | 202 | 213 | 2 | 2 | 3.64×10^20 |
+| R_4 | schema | 1.85 | 0.136 / 0.047 | 1 | 12 | 1 | 0 | 1.30×10^22 |
+| D''_0 | distractor | 2.45 | 0.171 / 0.079 | — | — | — | 0 | 1.23×10^14 |
+| D''_1 | distractor | 3.87 | 0.183 / 0.129 | — | — | — | 0 | 3.08×10^15 |
+| D''_2 | distractor | 3.87 | 0.101 / 0.158 | — | — | — | 0 | 1.23×10^14 |
+| D''_3 | distractor | 3.11 | 0.086 / 0.118 | — | — | — | 0 | 3.08×10^15 |
+| D''_4 | distractor | 1.85 | 0.136 / 0.047 | — | — | — | 0 | 2.03×10^22 |
+| U_feat | schema | 2 | rule | 1 | 1 | 1 | 0 | 2.04×10^6 |
+| U_steep | schema | 2 | rule | 1 | 1 | 12 | 0 | 2.04×10^6 |
+| U_Vonly | schema | 1 | rule | 1 | 1 | 0 | 0 | 4.41×10^7 |
+| KO_ADDR | schema | 3,510.87 | rule | 1 | 1 | 12 | 400 | 3.05×10^13 |
+| KO_TRUTH | schema | 3,510.87 | 0.206 / 0.020 | 57 | 2 | 12 | 400 | 3.77×10^13 |
+| KO_STEP | schema | 3,510.87 | 0.206 / 0.020 | 57 | 2 | 12 | 8 | 1.61×10^13 |
+| STEP_only | schema | 1 | rule | 1 | 1 | 0 | 400 | 1.66×10^21 |
+| STEP_hand | schema | 1 | rule | 1 | 1 | 0 | 400 | 3.30×10^16 |
+| A_noobs | schema | 1 | rule | 1125 | 2 | 0 | 1 | 5.04×10^20 |
+| OCC_1 | schema | 1 | 0.206 / 0.020 | 57 | 2 | 0 | 400 | 5.51×10^17 |
+| OCC_3 | schema | 3 | 0.206 / 0.020 | 57 | 2 | 2 | 400 | 4.50×10^15 |
+| OCC_10 | schema | 10 | 0.206 / 0.020 | 57 | 2 | 4 | 400 | 1.04×10^12 |
+| OCC_100 | schema | 100 | 0.206 / 0.020 | 57 | 2 | 7 | 400 | 1.04×10^12 |
+| OCC_3500 | schema | 3,500.00 | 0.206 / 0.020 | 57 | 2 | 12 | 400 | 1.04×10^12 |
+| V_1 | schema | 3,510.87 | 0.206 / 0.020 | 258 | 2 | 12 | 400 | 1.69×10^12 |
+| V_3 | schema | 3,510.87 | 0.206 / 0.020 | 56 | 1 | 12 | 400 | 1.96×10^10 |
+| V_10 | schema | 3,510.87 | 0.206 / 0.020 | 56 | 1 | 12 | 400 | 1.96×10^10 |
+| V_100 | schema | 3,510.87 | 0.206 / 0.020 | 56 | 1 | 12 | 400 | 1.96×10^10 |
+
+Over the 24 schema-pool arms, Spearman(log occurs ratio, generalizing) = 0.458; Spearman(−colour-address rank, generalizing) = -0.227.
 <!-- END:mechanism -->
 
 ### 9.4 Programs to the first GENERALIZING program — exploratory, not a verdict
@@ -376,11 +494,48 @@ over 48 episodes; a Wilson-interval bound from exact uniform samples for the fla
 where the space holds no generalizing program.
 
 <!-- BEGIN:first_generalizing_gap0 -->
+| arm | programs to first training-conforming (pre-registered metric) | programs to first GENERALIZING program (post-hoc) | how obtained |
+|---|---|---|---|
+| N — flat, uniform | 9.50×10^7 | pending | — |
+| N′ — schema, uniform | 1.79×10^8 | pending | — |
+| N″ — schema + learned prior | 1.04×10^12 | pending | — |
+| P — flat + learned prior | 4.27×10^17 | pending | — |
+| D′ — distractor schemas, uniform | 1.86×10^14 | ∞ — no generalizing program exists | exact, 48-episode count |
+| N″ without observation features | 5.04×10^20 | pending | — |
+| D″ — distractor schemas + permuted prior (seed 0) | 1.23×10^14 | ∞ — no generalizing program exists | exact, 48-episode count |
+| D″ — distractor schemas + permuted prior (seed 1) | 3.08×10^15 | ∞ — no generalizing program exists | exact, 48-episode count |
+| D″ — distractor schemas + permuted prior (seed 2) | 1.23×10^14 | ∞ — no generalizing program exists | exact, 48-episode count |
+| D″ — distractor schemas + permuted prior (seed 3) | 3.08×10^15 | ∞ — no generalizing program exists | exact, 48-episode count |
+| D″ — distractor schemas + permuted prior (seed 4) | 2.03×10^22 | ∞ — no generalizing program exists | exact, 48-episode count |
+| R — right schemas + permuted prior (seed 0) | 1.73×10^21 | pending | — |
+| R — right schemas + permuted prior (seed 1) | 5.47×10^13 | pending | — |
+| R — right schemas + permuted prior (seed 2) | 3.53×10^19 | pending | — |
+| R — right schemas + permuted prior (seed 3) | 3.64×10^20 | pending | — |
+| R — right schemas + permuted prior (seed 4) | 1.30×10^22 | pending | — |
+| U — N″'s features, UNFITTED gentle 2× rule (post-hoc control) | 2.04×10^6 | pending | — |
+| U_steep — hand rules at N″'s steepness, nothing fitted (post-hoc control) | 2.04×10^6 | pending | — |
+| U_Vonly — one hand rule, V 10:1, all else uniform, nothing fitted (post-hoc control) | 4.41×10^7 | pending | — |
+| KO_ADDR — N″ with ADDR (§19/§23 rows) knocked out to hand V 10:1 (post-hoc) | 3.05×10^13 | pending | — |
+| KO_TRUTH — N″ with TRUTH (§33 rows) knocked out to uniform (post-hoc) | 3.77×10^13 | pending | — |
+| KO_STEP — N″ with STEP (§33 rows) knocked out to uniform (post-hoc) | 1.61×10^13 | pending | — |
+| STEP_only — only the fitted STEP estimator (20 §33 rows), all else uniform (post-hoc) | 1.66×10^21 | pending | — |
+| STEP_hand — hand rule: pixel or row offsets 1, else 0.1; all else uniform (post-hoc) | 3.30×10^16 | pending | — |
+| N″, occurs ratio pinned at 1 — sensitivity, set on the target task, not inherited | 5.51×10^17 | pending | — |
+| N″, occurs ratio pinned at 3 — sensitivity, set on the target task, not inherited | 4.50×10^15 | pending | — |
+| N″, occurs ratio pinned at 10 — sensitivity, set on the target task, not inherited | 1.04×10^12 | pending | — |
+| N″, occurs ratio pinned at 100 — sensitivity, set on the target task, not inherited | 1.04×10^12 | pending | — |
+| N″, occurs ratio pinned at 3500 — sensitivity, set on the target task, not inherited | 1.04×10^12 | pending | — |
+| N″, V ratio pinned at 1 — sensitivity, set on the target task, not inherited | 1.69×10^12 | pending | — |
+| N″, V ratio pinned at 3 — sensitivity, set on the target task, not inherited | 1.96×10^10 | pending | — |
+| N″, V ratio pinned at 10 — sensitivity, set on the target task, not inherited | 1.96×10^10 | pending | — |
+| N″, V ratio pinned at 100 — sensitivity, set on the target task, not inherited | 1.96×10^10 | pending | — |
 <!-- END:first_generalizing_gap0 -->
 
 Sampled first-shell conformers, for the arms whose first hit does not always generalize:
 
 <!-- BEGIN:posthoc_gap0 -->
+| arm | exact cost to a training-conforming program | sampled first-shell conformers that generalize | cost to a first generalizing program (estimate / bounds) | exact, from 48-episode counts |
+|---|---|---|---|---|
 <!-- END:posthoc_gap0 -->
 
 ### 9.5 Proposed follow-up pre-registration (a proposal, not run here)
