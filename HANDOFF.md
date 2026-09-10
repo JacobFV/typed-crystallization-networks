@@ -19,9 +19,9 @@ git clone <repo> && cd typed-crystallization-networks
 
 | you want | read |
 |---|---|
-| what was measured, authoritatively | [`research/FINDINGS.md`](research/FINDINGS.md) — ~~44~~ 63 numbered sections (the number 14 is headed §14a and §14b; §42 is a tombstone); supersedes everything else, and `research/record-audit/verify.py --gate` checks it against the artifacts |
+| what was measured, authoritatively | [`research/FINDINGS.md`](research/FINDINGS.md) — ~~44~~ numbered sections (the number 14 is headed §14a and §14b; §42 is a tombstone); supersedes everything else, and `research/record-audit/verify.py --gate` checks it against the artifacts |
 | **how the project got here, chronologically** | [`docs/PROJECT-LOG.md`](docs/PROJECT-LOG.md) — five phases, with commit SHAs |
-| **what we believed and got wrong** | [`docs/CORRECTIONS.md`](docs/CORRECTIONS.md) — ~~14~~ 34 reversals and corrections, plus process failures |
+| **what we believed and got wrong** | [`docs/CORRECTIONS.md`](docs/CORRECTIONS.md) — ~~14~~ every reversal and corrections, plus process failures |
 | what a given session did | [`docs/handoffs/`](docs/handoffs/) — one dated file per session, never edited after the fact |
 | the short hostile summary | [`STATUS.md`](STATUS.md) |
 | the constitutional spec | [`ARCHITECTURE.md`](ARCHITECTURE.md) — §5 (commitment), §8.1 (four costs, three sizes) |
@@ -90,6 +90,55 @@ a checked claim is reworded away, a section is cited that does not exist, or a
 reason**. Writing a section now means adding its check. Quote headline figures from
 `research/record-audit/HEADLINES.md`, which is generated from the artifacts. The
 slow audit (`verify.py --demo --tests`) is separate and is not run by pytest.
+
+## Direction update, 2026-09-10 (after §64)
+
+**Index documents do not quote counts** of FINDINGS sections or CORRECTIONS rows;
+those drifted silently while the numerical claims stayed verified. Read the files.
+
+**Schemas are falsifiable conjectures — CEGIS over schemas.** A schema is a
+conjectured parametric program family; each certified instance is evidence, not
+proof. At a new width or domain: instantiate, conformance-check, and on failure
+treat it as a counterexample — refine or split the schema class. §64 is the
+textbook case: a wrong schema passed two-width certification and failed above the
+certified range. Never extrapolate a finite-width certificate to a universal
+claim. For finite shape domains, exhaust the parameter values; theorem proving
+earns a role only for genuinely parametric families.
+
+**Five levels of reusable knowledge — none of them is "the module":** semantic
+transformation → parametric structural schema → specialization policy / prior →
+concrete selection vector → frozen implementation. §60 + §64 locate transfer:
+within a domain at a new width, schema *and* vector transfer; across domains, the
+schema transfers and the vector does not. So cross-domain reuse needs a
+**learned specialization prior**, not a copied hard vector.
+
+**Inherited knowledge must earn its name.** Measure programs/episodes to solution
+for: no library (N), schema only (N′), schema + learned specialization prior (N″),
+and the quality of a hard-transferred vector. If N′ = N the schema is
+organisational reuse, not learned intelligence; N″ ≪ N on a genuinely held-out
+domain is what begins to count as transfer.
+
+**The library is evidence-carrying and Pareto-shaped, not scored.** Per class:
+semantic identity, schemas, implementations, observed domains and widths,
+downstream reuse successes and failures, specialisation / execution / description
+cost. Let later task evidence decide usefulness. **Stop searching for a universal
+scalar ranking objective** — each candidate so far was corpus- or family-specific
+(§57).
+
+**Priority order:** (1) the integrated flagship, before any further Boolean-family
+study; (2) make inherited knowledge earn its name, per the ladder above; (3)
+schemas as falsifiable conjectures; (4) scaffold induction as a cross-domain outer
+loop — typed edits enumerated without knowing the repair; (5) keep semantic class
+→ schema → implementation separate; (6) keep the evidence gate boring and
+automatic — no new audit research program; (7) resource-cap everything heavy, with
+*available* memory as the budget.
+
+**Flagship success criterion:** the inherited library makes a previously unseen
+integrated visual-language-computer task materially cheaper to acquire than the
+same substrate without it, **while a matched distractor library does not** —
+instrumented for which schema/class was selected, how much re-specialisation it
+needed, how many candidate programs and environment episodes disappeared, and
+whether compiled execution got cheaper.
 
 ## State as of 2026-09-09
 
@@ -162,7 +211,7 @@ recently in the reversible form its third refutation asked for (~~§7, §12, §3
 ## Working discipline that keeps paying
 
 Independently spot-check every headline against **raw data**, not against a
-summary. That has caught ~~nine~~ most of the 34 rows in `docs/CORRECTIONS.md`. Two were caught only because an
+summary. That has caught ~~nine~~ most of the rows in `docs/CORRECTIONS.md`. Two were caught only because an
 agent reported a number contradicting a recorded one *instead of routing around
 it* — ask for that behaviour explicitly in briefs. Enumeration beside every
 synthesis number; constant and random baselines beside every return; probes are
