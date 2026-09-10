@@ -49,6 +49,7 @@ surfaced because someone reported a number that contradicted a recorded one
 | 33 | §2 and `STATUS.md`: dense supervision reaches 88–94% "at 2,120 candidates per node"; §7 "9.7e-2 at depth 6" | **Found by the gate, not the audit.** No committed `n_candidates` list contains 2,120 — the widest node is 5,776 in `FD_supervision.json` — and the depth-6 density is 9.6e-2 in the committed JSON. Both figures came from track prose that disagrees with the track's own raw files | The gate's per-section coverage pass, spot-checked independently | §2, §7 |
 | 34 | The §62 audit itself: "§53's arm F and §61 both established" that a single-width `unique` certificate is not evidence | The section that established it is **§60** — a deliberately wrong schema earns the same `unique` at width 128 — and §61 is the refinement bound | The gate re-derived the audit's citations before applying them | §62 |
 | 35 | §62 audit's strike of README's "persistent module library" claim as not holding up | **The strike was itself an overcorrection.** §25 was the wrong citation and the library has no FINDINGS section, but it holds within a domain: `research/module-library/RESULTS.md` measured stage 2 given stage 1 at 48 programs, exhausted and `unique`, held-out error 0.0, against 4.9e10 programs without; `tcn/library.py` is on main (`60616f7`) and tested. The strike relied on a `STATUS.md` B1 line written before that merge | Supervising-session review of the audit branch before merge, checking the library's ancestry on main and B1's edit timestamp | README, STATUS B1, §62 |
+| 36 | §55's two-width soundness rule, and this file's standing caution to "certify at two or more widths", as sufficient | **Necessary but not sufficient.** §64 built a frozen-span schema that is only wrong above the certified range; it passes both the two-width rule and vector agreement at widths 24 and 32, and would ship a wrong artifact (0.96) at 40 and 48 unless conformance is re-checked at every instantiation | The width-reuse track's pre-registered arm F, which deliberately constructed a schema wrong only outside the certified range | §55, §64 |
 
 ## Process failures, not measurement failures
 
@@ -67,8 +68,9 @@ surfaced because someone reported a number that contradicted a recorded one
   schema.** §53's arm F: a deliberately *wrong* schema is indistinguishable from
   the right one at depth 1 — same 272-program space, same `unique` certificate —
   and collapses to **0 conforming** at every other depth. This repository has
-  been treating single-width `unique` as strong evidence. Certify at two or more
-  widths.
+  been treating single-width `unique` as strong evidence. Certify at two or more widths — **necessary but not sufficient** (§64): a
+  schema that is wrong only outside the certified range passes two widths.
+  Re-check conformance at every instantiation.
 - **`description_bits` selects wrongly whenever it is used to rank.** §41: it
   picks the bytecode-*maximal* program. §52: summed over entries it penalises
   broad fragments, so removing a task flips rank 1 to a fragment present in only

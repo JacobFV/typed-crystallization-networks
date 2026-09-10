@@ -196,3 +196,4 @@ these figures is checked against this value by the gate (`verify.py --gate`). Qu
 | §62 | `§62/inproc-agreement` | 7 | `research/inference-cost/out/inproc.json` |
 | §63 | `§63/counting-on-shipped-stream` | 0.526193 | `research/demo-language-fix/out/demo-after-quick/summary.json` |
 | §63 | `§63/ten-of-ten` | 10 | `research/demo-language-fix/out/demo-after-suite/summary.json` |
+| §64 | `§64/verifier-pass` | 141 | `research/visual-width-reuse/out/verify.json` |

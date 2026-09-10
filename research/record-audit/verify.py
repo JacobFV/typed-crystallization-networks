@@ -1307,6 +1307,22 @@ def checks_early_sections() -> None:
     claim("§63/ten-of-ten", sec_ids(63), s63, r"now reaches (\d+) of 10, exit 0", lambda: J(da)["passed"], da)
     claim("§63/counting-on-shipped-stream", sec_ids(63), s63, r"scores ([\d.]+), exactly the majority",
           lambda: dig(J(dq), "demos.0.detail.stage_b_post_audit.section_19_counting_program_here"), dq)
+    # §64 -- within-domain width reuse on the shipped visual parser
+    s64 = S("64")
+    wv, wa, wc = ("research/visual-width-reuse/out/verify.json",
+                  "research/visual-width-reuse/out/armf.json",
+                  "research/visual-width-reuse/out/check.json")
+    claim("§64/verifier-pass", sec_ids(64), s64, r"`verify\.py` reports (\d+) PASS, 0 FAIL",
+          lambda: J(wv)["pass"], wv)
+    fact("§64/frozen-span-admitted", sec_ids(64), s64, r"frozen-span schema is admitted",
+         lambda: (J(wa)["format"]["frozen_span/F2_two_widths"]["admitted"] is True,
+                  "frozen_span F2_two_widths admitted=%s" % J(wa)["format"]["frozen_span/F2_two_widths"]["admitted"]), wa)
+    fact("§64/frozen-offsets-refused", sec_ids(64), s64, r"frozen-offsets schema is refused",
+         lambda: (J(wa)["format"]["frozen_offsets/F2_two_widths"]["admitted"] is False,
+                  "frozen_offsets F2_two_widths admitted=%s" % J(wa)["format"]["frozen_offsets/F2_two_widths"]["admitted"]), wa)
+    fact("§64/vector-transfers", sec_ids(64), s64, r"digest for digest",
+         lambda: (all(r["with_digest"] == r["without_digest"] for r in J(wc)["rows"]),
+                  "%d rows, every with_digest == without_digest" % len(J(wc)["rows"])), wc)
     cp, dw = "research/language-post-audit/control_preaudit.json", "research/language-post-audit/dyck_p22_c95-110.json"
     s45 = S("45")
     claim("§45/window-conforming", sec_ids(45), s45, r"exhausted, (\d+) conforming, certificate `complete`", lambda: _enum(J(dw))["conforming"], dw)

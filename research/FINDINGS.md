@@ -3666,3 +3666,50 @@ after** (the known environmental worktree failure); fixture **0.248836 →
 and `docs/VALIDATION.md` §5 were brought level — VALIDATION's prose still carried
 the retracted unqualified 1.000 that §62 had only partly caught.
 
+## 64. Within one domain the certified vector transfers across widths — and the two-width soundness rule admits a wrong schema
+
+`research/visual-width-reuse/RESULTS.md`, merged as `6b40140`; `tcn/` and
+`generators/` untouched. `PREREGISTRATION.md` committed before any arm. This is
+the first track under the new evidence standard: every figure in its RESULTS is
+rendered from `out/` by script, and `verify.py` reports 141 PASS, 0 FAIL.
+Verified here from raw JSON.
+
+**Width axis: raster resolution.** The parser's input type has 3·W·H+1
+components, so it changes with resolution; scaffold span changes node count but
+no type. Certified at 24 and 32, held out 16, 40 and 48.
+
+**The certified vector transfers within a domain — the reverse of §60.**
+Exhaustive search at each of the five resolutions independently returns the same
+index vector for all three stages, and the vector certified at two widths
+rebuilds, at the three unseen widths, the exact artifact enumeration selects
+there, digest for digest — every row of `out/check.json` has `with_digest ==
+without_digest` — with the parse equal component for component. §60 found that
+across domains the schema crosses and the frozen vector does not; within one
+domain across widths, the vector itself transfers. **Single-configuration: one
+seed set, one palette, square screens only.** §33's certificates and its 227/227
+parse reproduce exactly at 32.
+
+**The saving never exceeds the space size, so §55's caveat stands.** 227× in
+programs, 324–344× in row-evaluations, 1.8–4.4× in wall clock, and 15–22× against
+the shipped search — none exceeds the largest stage space (400), so
+pre-registered F-c fires. A wrong program fails on an early row here, so the
+skipped search was never expensive. The class still yields a conformance check,
+never a uniqueness certificate.
+
+**The two-width soundness rule admits a wrong schema — a correction to §55.** The
+frozen-offsets schema is refused at one width and at two (R2: conforming 0 at
+width 24). But the frozen-span schema is **admitted** at 24 and 32, because it is
+only wrong above 32 — `out/armf.json` records `format.frozen_span.F2_two_widths.
+admitted` as true. Only the conformance check run at every instantiation catches
+it, at 40 and 48, where it would otherwise ship an artifact scoring 0.96 that is
+wrong. Pre-registered F-d fires and criterion C4 fails as written.
+
+So §55's two-width rule, and the standing caution in `docs/CORRECTIONS.md` to
+certify at two or more widths, is **necessary but not sufficient**: a schema that
+is wrong only outside the certified range passes it. Soundness needs conformance
+re-checked at every instantiation — which is exactly why the class gives a
+conformance check rather than a certificate.
+
+**Resources.** Every job ran inside the capped scope; peak memory stayed under
+1 GB per job.
+
