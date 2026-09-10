@@ -1,0 +1,128 @@
+{
+ "arm_d_bytecodes": [
+  58859,
+  54833,
+  55316
+ ],
+ "arm_d_time": {
+  "median_ms": 0.19059848273172975,
+  "min_ms": 0.18791801994666457
+ },
+ "rows": [
+  {
+   "bytecodes": [
+    630626,
+    630400,
+    588497
+   ],
+   "bytecodes_over_arm_d": 10.714181348646767,
+   "identical_to_arm_d": true,
+   "rect_module": {
+    "description_bits": 243521968,
+    "execution_cost": 1361.0,
+    "nodes": 549,
+    "operators": 16
+   },
+   "rects": [
+    19,
+    19,
+    16
+   ],
+   "source_bytes": 162128,
+   "span": 30,
+   "stats": {
+    "boundary_encoders": 2,
+    "boundary_identity_guards": 1,
+    "emitted_per_scope": {
+     "module:117c596cccfb573f606e8d7f": 7,
+     "module:b409b71ea0e41d77abb7cb9c": 15,
+     "module:d231f48ca879e5b2c5d7242a": 489,
+     "run": 4
+    },
+    "module_function": {
+     "module:117c596cccfb573f606e8d7f": "_m0",
+     "module:b409b71ea0e41d77abb7cb9c": "_m1",
+     "module:d231f48ca879e5b2c5d7242a": "_m2"
+    },
+    "modules_emitted": 3,
+    "nodes_emitted": 515,
+    "nodes_folded": 60,
+    "nodes_pruned_dead": 0,
+    "scalar_canonicalisations": 250,
+    "source_bytes": 162128,
+    "source_lines": 1448,
+    "structural_canonicalisations_elided": 85,
+    "type_table_entries": 12,
+    "widest_static_type": 2954114
+   },
+   "time_complete": {
+    "median_ms": 5.210925010032952,
+    "min_ms": 5.121500988025218
+   },
+   "time_program_only": {
+    "median_ms": 5.208636983297765,
+    "min_ms": 5.169421026948839
+   }
+  },
+  {
+   "bytecodes": [
+    650571,
+    650343,
+    605293
+   ],
+   "bytecodes_over_arm_d": 11.053042015664554,
+   "identical_to_arm_d": true,
+   "rect_module": {
+    "description_bits": 256364352,
+    "execution_cost": 1453.0,
+    "nodes": 585,
+    "operators": 16
+   },
+   "rects": [
+    19,
+    19,
+    16
+   ],
+   "source_bytes": 171232,
+   "span": 32,
+   "stats": {
+    "boundary_encoders": 2,
+    "boundary_identity_guards": 1,
+    "emitted_per_scope": {
+     "module:117c596cccfb573f606e8d7f": 7,
+     "module:b409b71ea0e41d77abb7cb9c": 15,
+     "module:c79e712699a5aa1716f3f65c": 521,
+     "run": 4
+    },
+    "module_function": {
+     "module:117c596cccfb573f606e8d7f": "_m0",
+     "module:b409b71ea0e41d77abb7cb9c": "_m1",
+     "module:c79e712699a5aa1716f3f65c": "_m2"
+    },
+    "modules_emitted": 3,
+    "nodes_emitted": 547,
+    "nodes_folded": 64,
+    "nodes_pruned_dead": 0,
+    "scalar_canonicalisations": 266,
+    "source_bytes": 171232,
+    "source_lines": 1533,
+    "structural_canonicalisations_elided": 89,
+    "type_table_entries": 12,
+    "widest_static_type": 2954114
+   },
+   "time_complete": {
+    "median_ms": 5.163165973499417,
+    "min_ms": 5.156653001904488
+   },
+   "time_program_only": {
+    "median_ms": 5.160221015103161,
+    "min_ms": 5.116236978210509
+   }
+  }
+ ],
+ "seeds": [
+  200,
+  201,
+  202
+ ]
+}
