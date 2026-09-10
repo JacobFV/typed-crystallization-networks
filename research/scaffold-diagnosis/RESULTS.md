@@ -362,11 +362,11 @@ the same sweep on a different label returning a tie set training cannot resolve:
 
 | criterion | outcome |
 |---|---|
-| **F1** — fires only on literally-constant nodes → a narrow constant-detector | **Fires far more widely than that**, on 42–124 nodes per scaffold, including chosen constants, unreached padding positions and vacuous readouts. 25 of 32 selected sites are constant nodes; **none** is a defect site. It is not even a constant-detector — it is a *constancy enumerator*. |
+| **F1** — fires only on literally-constant nodes → a narrow constant-detector | **Fires far more widely than that**, on 42–124 nodes per scaffold, including chosen constants, unreached padding positions and vacuous readouts. 25 of 32 selected sites are constant nodes and **none of those 25** is a defect site; the only 4 sites that *are* the defect chain come from rule D0, where the scaffold does not run at all and no information is measured. It is not even a constant-detector — it is a *constancy enumerator*. |
 | **F2** — flags scaffolds that already contain a solution → unusable as a gate | **Fires on 8 of 8 solvable controls**, including §44 arm 3 with 144 conforming programs and certificate `complete`, for the structural reason in §3. **Fires.** |
 | **F3** — the sweep, not the diagnosis, is doing the work | **4** (probe) vs **5.17** (random) vs **15** (sweep, no diagnosis) vs **21** (sweep every hole). **Fires, decisively.** |
 | **F4** — only one or two tasks → anecdote | **Two recorded tasks** with independently established repairs; 30 further scaffolds constructed on one template with three distinct answers. Reported as anecdote. |
-| **F5** — site localisation adds nothing | Stage D's site differs from "blame the output-adjacent accumulator" in **32 of 32** cases, and is **worse** at every one. **Fires.** |
+| **F5** — site localisation adds nothing | Stage D's site differs from "blame the output-adjacent accumulator" in **32 of 32** cases (in one, `R3`, by not firing at all), and the sites it picks yield **4** repairs against the terminal node's **15**. It does not merely add nothing; it subtracts. **Fires.** |
 
 **What would have supported the hypothesis** — firing on failures and not on
 solvable scaffolds, localising better than the terminal-node heuristic, and
