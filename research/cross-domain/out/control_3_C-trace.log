@@ -1,0 +1,20 @@
+P1 band=C-trace max_nodes=3  D-classes=37
+   within MAJ3, S:          14 shared,   11 NON-TRIVIAL
+   MAJ3 vs W4, D:           12 shared,   10 NON-TRIVIAL
+   MAJ3 vs W4, S:            7 shared,    5 NON-TRIVIAL
+        NON-TRIVIAL 3n xor(and(x2, xor(x0, x1)), x3)
+        NON-TRIVIAL 3n xor(and(x0, x1), xor(x2, x3))
+        NON-TRIVIAL 2n xor(x2, and(x0, x1))
+        NON-TRIVIAL 2n and(x2, xor(x0, x1))
+        NON-TRIVIAL 2n xor(x2, xor(x0, x1))
+        TRIV        1n and(x0, x1)
+P2 within-domain sharing across a domain's own frozen programs:
+   visual    D   14 shared (4 non-trivial)   S    3 shared (1 non-trivial)
+        NON-TRIVIAL 2n truth_2(truth_7(x0, x1), x2)
+        TRIV        1n identity(x0)
+        TRIV        1n and(x0, x1)
+   language  D   12 shared (4 non-trivial)   S    3 shared (0 non-trivial)
+        TRIV        1n sub(x0, x1)
+        TRIV        1n identity(x0)
+        TRIV        1n lt(x0, x1)
+   computer  one program only

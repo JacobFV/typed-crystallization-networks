@@ -1,0 +1,1732 @@
+{
+ "P1_boolean_control": {
+  "band": "C-trace",
+  "max_nodes": 3,
+  "tasks": {
+   "boolMAJ3": [
+    "t1_maj_abc_xor_d#min000",
+    "t1_maj_abc_xor_d#min001",
+    "t1_maj_abc_xor_d#min002",
+    "t1_maj_abc_xor_d#min003",
+    "t1_maj_abc_xor_d#min004",
+    "t1_maj_abc_xor_d#min005",
+    "t1_maj_abc_xor_d#min006",
+    "t1_maj_abc_xor_d#min007"
+   ],
+   "boolW4": [
+    "u1_w_abcd_xor_e#min000",
+    "u1_w_abcd_xor_e#plus1000",
+    "u1_w_abcd_xor_e#plus1001",
+    "u1_w_abcd_xor_e#plus1002",
+    "u1_w_abcd_xor_e#plus1003",
+    "u1_w_abcd_xor_e#plus1004",
+    "u1_w_abcd_xor_e#plus1005",
+    "u1_w_abcd_xor_e#plus1006"
+   ]
+  },
+  "n_D_classes": 37,
+  "cross_family_D": {
+   "n": 12,
+   "n_nontrivial": 10,
+   "rows": [
+    {
+     "key": "3f8d3747b5613285240dad4f",
+     "domains": [
+      "boolMAJ3",
+      "boolW4"
+     ],
+     "trivial": false,
+     "nodes": 3,
+     "spell": "xor(and(x0, x1), xor(x2, x3))",
+     "members": [
+      {
+       "digest": "3f8d3747b5613285240dad4f",
+       "nodes": 3,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min002": 1,
+        "maj/t1_maj_abc_xor_d#min003": 1,
+        "w4/u1_w_abcd_xor_e#plus1000": 1,
+        "w4/u1_w_abcd_xor_e#plus1001": 1,
+        "w4/u1_w_abcd_xor_e#plus1005": 1,
+        "w4/u1_w_abcd_xor_e#plus1006": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "d08809475b9ea905b77b19af",
+     "domains": [
+      "boolMAJ3",
+      "boolW4"
+     ],
+     "trivial": false,
+     "nodes": 3,
+     "spell": "xor(x3, xor(x2, and(x0, x1)))",
+     "members": [
+      {
+       "digest": "d08809475b9ea905b77b19af",
+       "nodes": 3,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min002": 1,
+        "maj/t1_maj_abc_xor_d#min003": 1,
+        "maj/t1_maj_abc_xor_d#min005": 1,
+        "maj/t1_maj_abc_xor_d#min007": 1,
+        "w4/u1_w_abcd_xor_e#plus1000": 1,
+        "w4/u1_w_abcd_xor_e#plus1001": 1,
+        "w4/u1_w_abcd_xor_e#plus1002": 1,
+        "w4/u1_w_abcd_xor_e#plus1005": 1,
+        "w4/u1_w_abcd_xor_e#plus1006": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "836fd02c66f50399e2bf8f0f",
+     "domains": [
+      "boolMAJ3",
+      "boolW4"
+     ],
+     "trivial": false,
+     "nodes": 3,
+     "spell": "xor(x3, and(x2, xor(x0, x1)))",
+     "members": [
+      {
+       "digest": "836fd02c66f50399e2bf8f0f",
+       "nodes": 3,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min003": 1,
+        "maj/t1_maj_abc_xor_d#min005": 1,
+        "maj/t1_maj_abc_xor_d#min006": 1,
+        "w4/u1_w_abcd_xor_e#min000": 1,
+        "w4/u1_w_abcd_xor_e#plus1003": 1,
+        "w4/u1_w_abcd_xor_e#plus1004": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "a88f01a1a1015aa399a35908",
+     "domains": [
+      "boolMAJ3",
+      "boolW4"
+     ],
+     "trivial": false,
+     "nodes": 3,
+     "spell": "xor(x3, xor(and(x0, x1), x2))",
+     "members": [
+      {
+       "digest": "a88f01a1a1015aa399a35908",
+       "nodes": 3,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min005": 1,
+        "w4/u1_w_abcd_xor_e#plus1002": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "9860483338238a0f102cd07d",
+     "domains": [
+      "boolMAJ3",
+      "boolW4"
+     ],
+     "trivial": false,
+     "nodes": 3,
+     "spell": "xor(x3, and(xor(x0, x1), x2))",
+     "members": [
+      {
+       "digest": "9860483338238a0f102cd07d",
+       "nodes": 3,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min006": 1,
+        "w4/u1_w_abcd_xor_e#min000": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "9b18de8474a91ff0fd4424e8",
+     "domains": [
+      "boolMAJ3",
+      "boolW4"
+     ],
+     "trivial": false,
+     "nodes": 2,
+     "spell": "xor(x2, and(x0, x1))",
+     "members": [
+      {
+       "digest": "9b18de8474a91ff0fd4424e8",
+       "nodes": 2,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min000": 1,
+        "maj/t1_maj_abc_xor_d#min002": 1,
+        "maj/t1_maj_abc_xor_d#min003": 1,
+        "maj/t1_maj_abc_xor_d#min005": 1,
+        "maj/t1_maj_abc_xor_d#min006": 1,
+        "maj/t1_maj_abc_xor_d#min007": 1,
+        "w4/u1_w_abcd_xor_e#min000": 1,
+        "w4/u1_w_abcd_xor_e#plus1000": 1,
+        "w4/u1_w_abcd_xor_e#plus1001": 1,
+        "w4/u1_w_abcd_xor_e#plus1002": 1,
+        "w4/u1_w_abcd_xor_e#plus1003": 2,
+        "w4/u1_w_abcd_xor_e#plus1004": 2,
+        "w4/u1_w_abcd_xor_e#plus1005": 1,
+        "w4/u1_w_abcd_xor_e#plus1006": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "82b93e4bc7b294ff04c8f289",
+     "domains": [
+      "boolMAJ3",
+      "boolW4"
+     ],
+     "trivial": false,
+     "nodes": 2,
+     "spell": "and(x2, xor(x0, x1))",
+     "members": [
+      {
+       "digest": "82b93e4bc7b294ff04c8f289",
+       "nodes": 2,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min002": 1,
+        "maj/t1_maj_abc_xor_d#min003": 1,
+        "maj/t1_maj_abc_xor_d#min004": 1,
+        "maj/t1_maj_abc_xor_d#min005": 1,
+        "maj/t1_maj_abc_xor_d#min006": 1,
+        "maj/t1_maj_abc_xor_d#min007": 1,
+        "w4/u1_w_abcd_xor_e#min000": 1,
+        "w4/u1_w_abcd_xor_e#plus1003": 1,
+        "w4/u1_w_abcd_xor_e#plus1004": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "189383c67d3107d82f7f924b",
+     "domains": [
+      "boolMAJ3",
+      "boolW4"
+     ],
+     "trivial": false,
+     "nodes": 2,
+     "spell": "xor(and(x0, x1), x2)",
+     "members": [
+      {
+       "digest": "189383c67d3107d82f7f924b",
+       "nodes": 2,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min002": 1,
+        "maj/t1_maj_abc_xor_d#min003": 1,
+        "maj/t1_maj_abc_xor_d#min005": 1,
+        "w4/u1_w_abcd_xor_e#plus1000": 1,
+        "w4/u1_w_abcd_xor_e#plus1001": 1,
+        "w4/u1_w_abcd_xor_e#plus1002": 1,
+        "w4/u1_w_abcd_xor_e#plus1005": 1,
+        "w4/u1_w_abcd_xor_e#plus1006": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "dad3eda516779daaf8248dc9",
+     "domains": [
+      "boolMAJ3",
+      "boolW4"
+     ],
+     "trivial": false,
+     "nodes": 2,
+     "spell": "xor(x2, xor(x0, x1))",
+     "members": [
+      {
+       "digest": "dad3eda516779daaf8248dc9",
+       "nodes": 2,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min002": 1,
+        "maj/t1_maj_abc_xor_d#min003": 1,
+        "maj/t1_maj_abc_xor_d#min005": 1,
+        "maj/t1_maj_abc_xor_d#min007": 1,
+        "w4/u1_w_abcd_xor_e#plus1000": 1,
+        "w4/u1_w_abcd_xor_e#plus1001": 1,
+        "w4/u1_w_abcd_xor_e#plus1002": 1,
+        "w4/u1_w_abcd_xor_e#plus1005": 1,
+        "w4/u1_w_abcd_xor_e#plus1006": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "a5924e78fc802761b11a5822",
+     "domains": [
+      "boolMAJ3",
+      "boolW4"
+     ],
+     "trivial": false,
+     "nodes": 2,
+     "spell": "and(xor(x0, x1), x2)",
+     "members": [
+      {
+       "digest": "a5924e78fc802761b11a5822",
+       "nodes": 2,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min006": 1,
+        "maj/t1_maj_abc_xor_d#min007": 1,
+        "w4/u1_w_abcd_xor_e#min000": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "9e8092e7bdb684bb47a3cc29",
+     "domains": [
+      "boolMAJ3",
+      "boolW4"
+     ],
+     "trivial": true,
+     "nodes": 1,
+     "spell": "and(x0, x1)",
+     "members": [
+      {
+       "digest": "9e8092e7bdb684bb47a3cc29",
+       "nodes": 1,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min000": 2,
+        "maj/t1_maj_abc_xor_d#min001": 2,
+        "maj/t1_maj_abc_xor_d#min002": 2,
+        "maj/t1_maj_abc_xor_d#min003": 2,
+        "maj/t1_maj_abc_xor_d#min004": 2,
+        "maj/t1_maj_abc_xor_d#min005": 2,
+        "maj/t1_maj_abc_xor_d#min006": 1,
+        "maj/t1_maj_abc_xor_d#min007": 1,
+        "w4/u1_w_abcd_xor_e#min000": 1,
+        "w4/u1_w_abcd_xor_e#plus1000": 2,
+        "w4/u1_w_abcd_xor_e#plus1001": 2,
+        "w4/u1_w_abcd_xor_e#plus1002": 2,
+        "w4/u1_w_abcd_xor_e#plus1003": 2,
+        "w4/u1_w_abcd_xor_e#plus1004": 2,
+        "w4/u1_w_abcd_xor_e#plus1005": 2,
+        "w4/u1_w_abcd_xor_e#plus1006": 2
+       }
+      }
+     ]
+    },
+    {
+     "key": "85aa887f3e90a3903b9fa709",
+     "domains": [
+      "boolMAJ3",
+      "boolW4"
+     ],
+     "trivial": true,
+     "nodes": 1,
+     "spell": "xor(x0, x1)",
+     "members": [
+      {
+       "digest": "85aa887f3e90a3903b9fa709",
+       "nodes": 1,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min000": 1,
+        "maj/t1_maj_abc_xor_d#min001": 1,
+        "maj/t1_maj_abc_xor_d#min002": 3,
+        "maj/t1_maj_abc_xor_d#min003": 3,
+        "maj/t1_maj_abc_xor_d#min004": 2,
+        "maj/t1_maj_abc_xor_d#min005": 3,
+        "maj/t1_maj_abc_xor_d#min006": 4,
+        "maj/t1_maj_abc_xor_d#min007": 4,
+        "w4/u1_w_abcd_xor_e#min000": 3,
+        "w4/u1_w_abcd_xor_e#plus1000": 3,
+        "w4/u1_w_abcd_xor_e#plus1001": 3,
+        "w4/u1_w_abcd_xor_e#plus1002": 3,
+        "w4/u1_w_abcd_xor_e#plus1003": 3,
+        "w4/u1_w_abcd_xor_e#plus1004": 3,
+        "w4/u1_w_abcd_xor_e#plus1005": 3,
+        "w4/u1_w_abcd_xor_e#plus1006": 3
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "cross_family_S": {
+   "n": 7,
+   "n_nontrivial": 5,
+   "rows": [
+    {
+     "key": "f4cc2bc1e2eb1d3838027322",
+     "domains": [
+      "boolMAJ3",
+      "boolW4"
+     ],
+     "trivial": false,
+     "nodes": 3,
+     "spell": "xor(and(x2, xor(x0, x1)), x3)",
+     "members": [
+      {
+       "digest": "326c107145958c643ba251f2",
+       "nodes": 3,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min002": 1
+       }
+      },
+      {
+       "digest": "836fd02c66f50399e2bf8f0f",
+       "nodes": 3,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min003": 1,
+        "maj/t1_maj_abc_xor_d#min005": 1,
+        "maj/t1_maj_abc_xor_d#min006": 1,
+        "w4/u1_w_abcd_xor_e#min000": 1,
+        "w4/u1_w_abcd_xor_e#plus1003": 1,
+        "w4/u1_w_abcd_xor_e#plus1004": 1
+       }
+      },
+      {
+       "digest": "9860483338238a0f102cd07d",
+       "nodes": 3,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min006": 1,
+        "w4/u1_w_abcd_xor_e#min000": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "97a7a1b5ba4c0785caa9ef9e",
+     "domains": [
+      "boolMAJ3",
+      "boolW4"
+     ],
+     "trivial": false,
+     "nodes": 3,
+     "spell": "xor(and(x0, x1), xor(x2, x3))",
+     "members": [
+      {
+       "digest": "3f8d3747b5613285240dad4f",
+       "nodes": 3,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min002": 1,
+        "maj/t1_maj_abc_xor_d#min003": 1,
+        "w4/u1_w_abcd_xor_e#plus1000": 1,
+        "w4/u1_w_abcd_xor_e#plus1001": 1,
+        "w4/u1_w_abcd_xor_e#plus1005": 1,
+        "w4/u1_w_abcd_xor_e#plus1006": 1
+       }
+      },
+      {
+       "digest": "d08809475b9ea905b77b19af",
+       "nodes": 3,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min002": 1,
+        "maj/t1_maj_abc_xor_d#min003": 1,
+        "maj/t1_maj_abc_xor_d#min005": 1,
+        "maj/t1_maj_abc_xor_d#min007": 1,
+        "w4/u1_w_abcd_xor_e#plus1000": 1,
+        "w4/u1_w_abcd_xor_e#plus1001": 1,
+        "w4/u1_w_abcd_xor_e#plus1002": 1,
+        "w4/u1_w_abcd_xor_e#plus1005": 1,
+        "w4/u1_w_abcd_xor_e#plus1006": 1
+       }
+      },
+      {
+       "digest": "a88f01a1a1015aa399a35908",
+       "nodes": 3,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min005": 1,
+        "w4/u1_w_abcd_xor_e#plus1002": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "981508f3082efb63d8669240",
+     "domains": [
+      "boolMAJ3",
+      "boolW4"
+     ],
+     "trivial": false,
+     "nodes": 2,
+     "spell": "xor(x2, and(x0, x1))",
+     "members": [
+      {
+       "digest": "9b18de8474a91ff0fd4424e8",
+       "nodes": 2,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min000": 1,
+        "maj/t1_maj_abc_xor_d#min002": 1,
+        "maj/t1_maj_abc_xor_d#min003": 1,
+        "maj/t1_maj_abc_xor_d#min005": 1,
+        "maj/t1_maj_abc_xor_d#min006": 1,
+        "maj/t1_maj_abc_xor_d#min007": 1,
+        "w4/u1_w_abcd_xor_e#min000": 1,
+        "w4/u1_w_abcd_xor_e#plus1000": 1,
+        "w4/u1_w_abcd_xor_e#plus1001": 1,
+        "w4/u1_w_abcd_xor_e#plus1002": 1,
+        "w4/u1_w_abcd_xor_e#plus1003": 2,
+        "w4/u1_w_abcd_xor_e#plus1004": 2,
+        "w4/u1_w_abcd_xor_e#plus1005": 1,
+        "w4/u1_w_abcd_xor_e#plus1006": 1
+       }
+      },
+      {
+       "digest": "189383c67d3107d82f7f924b",
+       "nodes": 2,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min002": 1,
+        "maj/t1_maj_abc_xor_d#min003": 1,
+        "maj/t1_maj_abc_xor_d#min005": 1,
+        "w4/u1_w_abcd_xor_e#plus1000": 1,
+        "w4/u1_w_abcd_xor_e#plus1001": 1,
+        "w4/u1_w_abcd_xor_e#plus1002": 1,
+        "w4/u1_w_abcd_xor_e#plus1005": 1,
+        "w4/u1_w_abcd_xor_e#plus1006": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "fa81952af27b865141ad46c7",
+     "domains": [
+      "boolMAJ3",
+      "boolW4"
+     ],
+     "trivial": false,
+     "nodes": 2,
+     "spell": "and(x2, xor(x0, x1))",
+     "members": [
+      {
+       "digest": "82b93e4bc7b294ff04c8f289",
+       "nodes": 2,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min002": 1,
+        "maj/t1_maj_abc_xor_d#min003": 1,
+        "maj/t1_maj_abc_xor_d#min004": 1,
+        "maj/t1_maj_abc_xor_d#min005": 1,
+        "maj/t1_maj_abc_xor_d#min006": 1,
+        "maj/t1_maj_abc_xor_d#min007": 1,
+        "w4/u1_w_abcd_xor_e#min000": 1,
+        "w4/u1_w_abcd_xor_e#plus1003": 1,
+        "w4/u1_w_abcd_xor_e#plus1004": 1
+       }
+      },
+      {
+       "digest": "a5924e78fc802761b11a5822",
+       "nodes": 2,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min006": 1,
+        "maj/t1_maj_abc_xor_d#min007": 1,
+        "w4/u1_w_abcd_xor_e#min000": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "8ed0d89b63134826e7e8109c",
+     "domains": [
+      "boolMAJ3",
+      "boolW4"
+     ],
+     "trivial": false,
+     "nodes": 2,
+     "spell": "xor(x2, xor(x0, x1))",
+     "members": [
+      {
+       "digest": "dad3eda516779daaf8248dc9",
+       "nodes": 2,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min002": 1,
+        "maj/t1_maj_abc_xor_d#min003": 1,
+        "maj/t1_maj_abc_xor_d#min005": 1,
+        "maj/t1_maj_abc_xor_d#min007": 1,
+        "w4/u1_w_abcd_xor_e#plus1000": 1,
+        "w4/u1_w_abcd_xor_e#plus1001": 1,
+        "w4/u1_w_abcd_xor_e#plus1002": 1,
+        "w4/u1_w_abcd_xor_e#plus1005": 1,
+        "w4/u1_w_abcd_xor_e#plus1006": 1
+       }
+      },
+      {
+       "digest": "9bece8adea14be47cd9bde66",
+       "nodes": 2,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min006": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "421e96045d7e3b262856980c",
+     "domains": [
+      "boolMAJ3",
+      "boolW4"
+     ],
+     "trivial": true,
+     "nodes": 1,
+     "spell": "and(x0, x1)",
+     "members": [
+      {
+       "digest": "9e8092e7bdb684bb47a3cc29",
+       "nodes": 1,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min000": 2,
+        "maj/t1_maj_abc_xor_d#min001": 2,
+        "maj/t1_maj_abc_xor_d#min002": 2,
+        "maj/t1_maj_abc_xor_d#min003": 2,
+        "maj/t1_maj_abc_xor_d#min004": 2,
+        "maj/t1_maj_abc_xor_d#min005": 2,
+        "maj/t1_maj_abc_xor_d#min006": 1,
+        "maj/t1_maj_abc_xor_d#min007": 1,
+        "w4/u1_w_abcd_xor_e#min000": 1,
+        "w4/u1_w_abcd_xor_e#plus1000": 2,
+        "w4/u1_w_abcd_xor_e#plus1001": 2,
+        "w4/u1_w_abcd_xor_e#plus1002": 2,
+        "w4/u1_w_abcd_xor_e#plus1003": 2,
+        "w4/u1_w_abcd_xor_e#plus1004": 2,
+        "w4/u1_w_abcd_xor_e#plus1005": 2,
+        "w4/u1_w_abcd_xor_e#plus1006": 2
+       }
+      }
+     ]
+    },
+    {
+     "key": "c6ab86a7a3c11e54c7dcd27f",
+     "domains": [
+      "boolMAJ3",
+      "boolW4"
+     ],
+     "trivial": true,
+     "nodes": 1,
+     "spell": "xor(x0, x1)",
+     "members": [
+      {
+       "digest": "85aa887f3e90a3903b9fa709",
+       "nodes": 1,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min000": 1,
+        "maj/t1_maj_abc_xor_d#min001": 1,
+        "maj/t1_maj_abc_xor_d#min002": 3,
+        "maj/t1_maj_abc_xor_d#min003": 3,
+        "maj/t1_maj_abc_xor_d#min004": 2,
+        "maj/t1_maj_abc_xor_d#min005": 3,
+        "maj/t1_maj_abc_xor_d#min006": 4,
+        "maj/t1_maj_abc_xor_d#min007": 4,
+        "w4/u1_w_abcd_xor_e#min000": 3,
+        "w4/u1_w_abcd_xor_e#plus1000": 3,
+        "w4/u1_w_abcd_xor_e#plus1001": 3,
+        "w4/u1_w_abcd_xor_e#plus1002": 3,
+        "w4/u1_w_abcd_xor_e#plus1003": 3,
+        "w4/u1_w_abcd_xor_e#plus1004": 3,
+        "w4/u1_w_abcd_xor_e#plus1005": 3,
+        "w4/u1_w_abcd_xor_e#plus1006": 3
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "within_MAJ3_S": {
+   "n": 14,
+   "n_nontrivial": 11,
+   "rows": [
+    {
+     "key": "8f8bedfacc35c5aa726aacf3",
+     "domains": [
+      "maj/t1_maj_abc_xor_d#min001",
+      "maj/t1_maj_abc_xor_d#min004"
+     ],
+     "trivial": false,
+     "nodes": 3,
+     "spell": "or(and(x0, x1), and(x2, x3))",
+     "members": [
+      {
+       "digest": "71c2ba99d9d0c3f0ec80cef2",
+       "nodes": 3,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min001": 1,
+        "maj/t1_maj_abc_xor_d#min004": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "8b039a91671b0b0f4c175461",
+     "domains": [
+      "maj/t1_maj_abc_xor_d#min001",
+      "maj/t1_maj_abc_xor_d#min004"
+     ],
+     "trivial": false,
+     "nodes": 3,
+     "spell": "xor(x3, or(x2, and(x0, x1)))",
+     "members": [
+      {
+       "digest": "d31e38a17f790de767c8fccb",
+       "nodes": 3,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min001": 1,
+        "maj/t1_maj_abc_xor_d#min004": 1
+       }
+      },
+      {
+       "digest": "e1ee2e6fb8973ca8db12ed1a",
+       "nodes": 3,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min001": 1,
+        "maj/t1_maj_abc_xor_d#min004": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "f4cc2bc1e2eb1d3838027322",
+     "domains": [
+      "maj/t1_maj_abc_xor_d#min002",
+      "maj/t1_maj_abc_xor_d#min003",
+      "maj/t1_maj_abc_xor_d#min005",
+      "maj/t1_maj_abc_xor_d#min006"
+     ],
+     "trivial": false,
+     "nodes": 3,
+     "spell": "xor(and(x2, xor(x0, x1)), x3)",
+     "members": [
+      {
+       "digest": "326c107145958c643ba251f2",
+       "nodes": 3,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min002": 1
+       }
+      },
+      {
+       "digest": "836fd02c66f50399e2bf8f0f",
+       "nodes": 3,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min003": 1,
+        "maj/t1_maj_abc_xor_d#min005": 1,
+        "maj/t1_maj_abc_xor_d#min006": 1
+       }
+      },
+      {
+       "digest": "9860483338238a0f102cd07d",
+       "nodes": 3,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min006": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "97a7a1b5ba4c0785caa9ef9e",
+     "domains": [
+      "maj/t1_maj_abc_xor_d#min002",
+      "maj/t1_maj_abc_xor_d#min003",
+      "maj/t1_maj_abc_xor_d#min005",
+      "maj/t1_maj_abc_xor_d#min007"
+     ],
+     "trivial": false,
+     "nodes": 3,
+     "spell": "xor(and(x0, x1), xor(x2, x3))",
+     "members": [
+      {
+       "digest": "3f8d3747b5613285240dad4f",
+       "nodes": 3,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min002": 1,
+        "maj/t1_maj_abc_xor_d#min003": 1
+       }
+      },
+      {
+       "digest": "d08809475b9ea905b77b19af",
+       "nodes": 3,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min002": 1,
+        "maj/t1_maj_abc_xor_d#min003": 1,
+        "maj/t1_maj_abc_xor_d#min005": 1,
+        "maj/t1_maj_abc_xor_d#min007": 1
+       }
+      },
+      {
+       "digest": "a88f01a1a1015aa399a35908",
+       "nodes": 3,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min005": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "18a2a11dbfaee79db8c5f31d",
+     "domains": [
+      "maj/t1_maj_abc_xor_d#min006",
+      "maj/t1_maj_abc_xor_d#min007"
+     ],
+     "trivial": false,
+     "nodes": 3,
+     "spell": "and(xor(x0, x1), xor(x0, x2))",
+     "members": [
+      {
+       "digest": "6c03b0c92369e55e979b4493",
+       "nodes": 3,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min006": 1,
+        "maj/t1_maj_abc_xor_d#min007": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "9ff45a1eef6b5c82d5566f59",
+     "domains": [
+      "maj/t1_maj_abc_xor_d#min000",
+      "maj/t1_maj_abc_xor_d#min001",
+      "maj/t1_maj_abc_xor_d#min004"
+     ],
+     "trivial": false,
+     "nodes": 2,
+     "spell": "or(x2, and(x0, x1))",
+     "members": [
+      {
+       "digest": "ec516b3808ddef7e7d0e7d22",
+       "nodes": 2,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min000": 1,
+        "maj/t1_maj_abc_xor_d#min001": 1,
+        "maj/t1_maj_abc_xor_d#min004": 1
+       }
+      },
+      {
+       "digest": "ca785ec948250acbf39b8f66",
+       "nodes": 2,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min001": 1,
+        "maj/t1_maj_abc_xor_d#min004": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "fb0d30a30549e575000828eb",
+     "domains": [
+      "maj/t1_maj_abc_xor_d#min000",
+      "maj/t1_maj_abc_xor_d#min001"
+     ],
+     "trivial": false,
+     "nodes": 2,
+     "spell": "and(x2, or(x0, x1))",
+     "members": [
+      {
+       "digest": "b22e2ef14a32a68f1224304f",
+       "nodes": 2,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min000": 1,
+        "maj/t1_maj_abc_xor_d#min001": 1
+       }
+      },
+      {
+       "digest": "e28476a8d70b1d8860479711",
+       "nodes": 2,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min000": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "981508f3082efb63d8669240",
+     "domains": [
+      "maj/t1_maj_abc_xor_d#min000",
+      "maj/t1_maj_abc_xor_d#min002",
+      "maj/t1_maj_abc_xor_d#min003",
+      "maj/t1_maj_abc_xor_d#min005",
+      "maj/t1_maj_abc_xor_d#min006",
+      "maj/t1_maj_abc_xor_d#min007"
+     ],
+     "trivial": false,
+     "nodes": 2,
+     "spell": "xor(x2, and(x0, x1))",
+     "members": [
+      {
+       "digest": "9b18de8474a91ff0fd4424e8",
+       "nodes": 2,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min000": 1,
+        "maj/t1_maj_abc_xor_d#min002": 1,
+        "maj/t1_maj_abc_xor_d#min003": 1,
+        "maj/t1_maj_abc_xor_d#min005": 1,
+        "maj/t1_maj_abc_xor_d#min006": 1,
+        "maj/t1_maj_abc_xor_d#min007": 1
+       }
+      },
+      {
+       "digest": "189383c67d3107d82f7f924b",
+       "nodes": 2,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min002": 1,
+        "maj/t1_maj_abc_xor_d#min003": 1,
+        "maj/t1_maj_abc_xor_d#min005": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "58ed5612134c5efe0dab5eec",
+     "domains": [
+      "maj/t1_maj_abc_xor_d#min001",
+      "maj/t1_maj_abc_xor_d#min004"
+     ],
+     "trivial": false,
+     "nodes": 2,
+     "spell": "xor(x2, or(x0, x1))",
+     "members": [
+      {
+       "digest": "aa065468e3fb40a12b501ef2",
+       "nodes": 2,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min001": 1,
+        "maj/t1_maj_abc_xor_d#min004": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "fa81952af27b865141ad46c7",
+     "domains": [
+      "maj/t1_maj_abc_xor_d#min002",
+      "maj/t1_maj_abc_xor_d#min003",
+      "maj/t1_maj_abc_xor_d#min004",
+      "maj/t1_maj_abc_xor_d#min005",
+      "maj/t1_maj_abc_xor_d#min006",
+      "maj/t1_maj_abc_xor_d#min007"
+     ],
+     "trivial": false,
+     "nodes": 2,
+     "spell": "and(x2, xor(x0, x1))",
+     "members": [
+      {
+       "digest": "82b93e4bc7b294ff04c8f289",
+       "nodes": 2,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min002": 1,
+        "maj/t1_maj_abc_xor_d#min003": 1,
+        "maj/t1_maj_abc_xor_d#min004": 1,
+        "maj/t1_maj_abc_xor_d#min005": 1,
+        "maj/t1_maj_abc_xor_d#min006": 1,
+        "maj/t1_maj_abc_xor_d#min007": 1
+       }
+      },
+      {
+       "digest": "a5924e78fc802761b11a5822",
+       "nodes": 2,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min006": 1,
+        "maj/t1_maj_abc_xor_d#min007": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "8ed0d89b63134826e7e8109c",
+     "domains": [
+      "maj/t1_maj_abc_xor_d#min002",
+      "maj/t1_maj_abc_xor_d#min003",
+      "maj/t1_maj_abc_xor_d#min005",
+      "maj/t1_maj_abc_xor_d#min006",
+      "maj/t1_maj_abc_xor_d#min007"
+     ],
+     "trivial": false,
+     "nodes": 2,
+     "spell": "xor(x2, xor(x0, x1))",
+     "members": [
+      {
+       "digest": "dad3eda516779daaf8248dc9",
+       "nodes": 2,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min002": 1,
+        "maj/t1_maj_abc_xor_d#min003": 1,
+        "maj/t1_maj_abc_xor_d#min005": 1,
+        "maj/t1_maj_abc_xor_d#min007": 1
+       }
+      },
+      {
+       "digest": "9bece8adea14be47cd9bde66",
+       "nodes": 2,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min006": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "421e96045d7e3b262856980c",
+     "domains": [
+      "maj/t1_maj_abc_xor_d#min000",
+      "maj/t1_maj_abc_xor_d#min001",
+      "maj/t1_maj_abc_xor_d#min002",
+      "maj/t1_maj_abc_xor_d#min003",
+      "maj/t1_maj_abc_xor_d#min004",
+      "maj/t1_maj_abc_xor_d#min005",
+      "maj/t1_maj_abc_xor_d#min006",
+      "maj/t1_maj_abc_xor_d#min007"
+     ],
+     "trivial": true,
+     "nodes": 1,
+     "spell": "and(x0, x1)",
+     "members": [
+      {
+       "digest": "9e8092e7bdb684bb47a3cc29",
+       "nodes": 1,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min000": 2,
+        "maj/t1_maj_abc_xor_d#min001": 2,
+        "maj/t1_maj_abc_xor_d#min002": 2,
+        "maj/t1_maj_abc_xor_d#min003": 2,
+        "maj/t1_maj_abc_xor_d#min004": 2,
+        "maj/t1_maj_abc_xor_d#min005": 2,
+        "maj/t1_maj_abc_xor_d#min006": 1,
+        "maj/t1_maj_abc_xor_d#min007": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "834123986e4a460b33409972",
+     "domains": [
+      "maj/t1_maj_abc_xor_d#min000",
+      "maj/t1_maj_abc_xor_d#min001",
+      "maj/t1_maj_abc_xor_d#min004"
+     ],
+     "trivial": true,
+     "nodes": 1,
+     "spell": "or(x0, x1)",
+     "members": [
+      {
+       "digest": "5e50f17066eb3de5049f4ed5",
+       "nodes": 1,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min000": 2,
+        "maj/t1_maj_abc_xor_d#min001": 2,
+        "maj/t1_maj_abc_xor_d#min004": 1
+       }
+      }
+     ]
+    },
+    {
+     "key": "c6ab86a7a3c11e54c7dcd27f",
+     "domains": [
+      "maj/t1_maj_abc_xor_d#min000",
+      "maj/t1_maj_abc_xor_d#min001",
+      "maj/t1_maj_abc_xor_d#min002",
+      "maj/t1_maj_abc_xor_d#min003",
+      "maj/t1_maj_abc_xor_d#min004",
+      "maj/t1_maj_abc_xor_d#min005",
+      "maj/t1_maj_abc_xor_d#min006",
+      "maj/t1_maj_abc_xor_d#min007"
+     ],
+     "trivial": true,
+     "nodes": 1,
+     "spell": "xor(x0, x1)",
+     "members": [
+      {
+       "digest": "85aa887f3e90a3903b9fa709",
+       "nodes": 1,
+       "occurrences": {
+        "maj/t1_maj_abc_xor_d#min000": 1,
+        "maj/t1_maj_abc_xor_d#min001": 1,
+        "maj/t1_maj_abc_xor_d#min002": 3,
+        "maj/t1_maj_abc_xor_d#min003": 3,
+        "maj/t1_maj_abc_xor_d#min004": 2,
+        "maj/t1_maj_abc_xor_d#min005": 3,
+        "maj/t1_maj_abc_xor_d#min006": 4,
+        "maj/t1_maj_abc_xor_d#min007": 4
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "seconds": 0.0659659699886106
+ },
+ "P2_within_domain": {
+  "visual": {
+   "n_programs": 4,
+   "n_D_classes": 90,
+   "shared_across_programs_D": {
+    "n": 14,
+    "n_nontrivial": 4,
+    "rows": [
+     {
+      "key": "84ccdc2c3f98f615c425bcd2",
+      "domains": [
+       "V_rect",
+       "V_same"
+      ],
+      "trivial": false,
+      "nodes": 2,
+      "spell": "index(x2, add(x0, x1))",
+      "members": [
+       {
+        "digest": "84ccdc2c3f98f615c425bcd2",
+        "nodes": 2,
+        "occurrences": {
+         "V_same": 4,
+         "V_rect": 4
+        }
+       }
+      ]
+     },
+     {
+      "key": "0949b8c4b6fde0825b770cb5",
+      "domains": [
+       "V_corner",
+       "V_rect"
+      ],
+      "trivial": false,
+      "nodes": 2,
+      "spell": "sub(max(x0, x1), x1)",
+      "members": [
+       {
+        "digest": "0949b8c4b6fde0825b770cb5",
+        "nodes": 2,
+        "occurrences": {
+         "V_corner": 2,
+         "V_rect": 1
+        }
+       }
+      ]
+     },
+     {
+      "key": "8056fde2750a300bfb63c3c9",
+      "domains": [
+       "V_corner",
+       "V_rect"
+      ],
+      "trivial": false,
+      "nodes": 2,
+      "spell": "and(module:b409b71ea0e41d77abb7cb9c(x0, x1, x2), x3)",
+      "members": [
+       {
+        "digest": "8056fde2750a300bfb63c3c9",
+        "nodes": 2,
+        "occurrences": {
+         "V_corner": 2,
+         "V_rect": 62
+        }
+       }
+      ]
+     },
+     {
+      "key": "786564a1a6515c852f9d9e68",
+      "domains": [
+       "V_corner",
+       "V_rect"
+      ],
+      "trivial": false,
+      "nodes": 2,
+      "spell": "and(x2, and(x0, x1))",
+      "members": [
+       {
+        "digest": "786564a1a6515c852f9d9e68",
+        "nodes": 2,
+        "occurrences": {
+         "V_corner": 2,
+         "V_rect": 60
+        }
+       }
+      ]
+     },
+     {
+      "key": "ff554fbb1db19e0a48d6d5eb",
+      "domains": [
+       "V_rect",
+       "V_same"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "add(x0, x1)",
+      "members": [
+       {
+        "digest": "ff554fbb1db19e0a48d6d5eb",
+        "nodes": 1,
+        "occurrences": {
+         "V_same": 4,
+         "V_rect": 130
+        }
+       }
+      ]
+     },
+     {
+      "key": "960dd63e9f25020fd04406e5",
+      "domains": [
+       "V_rect",
+       "V_same"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "index(x0, x1)",
+      "members": [
+       {
+        "digest": "960dd63e9f25020fd04406e5",
+        "nodes": 1,
+        "occurrences": {
+         "V_same": 6,
+         "V_rect": 6
+        }
+       }
+      ]
+     },
+     {
+      "key": "eb3ba1089b4e0fc7cdaa0df9",
+      "domains": [
+       "V_corner",
+       "V_rect"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "project(x0)",
+      "members": [
+       {
+        "digest": "eb3ba1089b4e0fc7cdaa0df9",
+        "nodes": 1,
+        "occurrences": {
+         "V_corner": 1,
+         "V_rect": 1
+        }
+       }
+      ]
+     },
+     {
+      "key": "c99797979b71d0f18c5d7803",
+      "domains": [
+       "V_corner",
+       "V_rect"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "project(x0)",
+      "members": [
+       {
+        "digest": "c99797979b71d0f18c5d7803",
+        "nodes": 1,
+        "occurrences": {
+         "V_corner": 1,
+         "V_rect": 1
+        }
+       }
+      ]
+     },
+     {
+      "key": "0482ec2eaeaa590c5864d53c",
+      "domains": [
+       "V_corner",
+       "V_rect"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "mod(x0, x1)",
+      "members": [
+       {
+        "digest": "0482ec2eaeaa590c5864d53c",
+        "nodes": 1,
+        "occurrences": {
+         "V_corner": 3,
+         "V_rect": 1
+        }
+       }
+      ]
+     },
+     {
+      "key": "8eb2768c14e0351b1e7b6b57",
+      "domains": [
+       "V_corner",
+       "V_rect"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "identity(x0)",
+      "members": [
+       {
+        "digest": "8eb2768c14e0351b1e7b6b57",
+        "nodes": 1,
+        "occurrences": {
+         "V_corner": 2,
+         "V_rect": 2
+        }
+       }
+      ]
+     },
+     {
+      "key": "9161151fd0970404c040f438",
+      "domains": [
+       "V_corner",
+       "V_rect"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "max(x0, x1)",
+      "members": [
+       {
+        "digest": "9161151fd0970404c040f438",
+        "nodes": 1,
+        "occurrences": {
+         "V_corner": 2,
+         "V_rect": 1
+        }
+       }
+      ]
+     },
+     {
+      "key": "20c6342473843131a290b5b4",
+      "domains": [
+       "V_corner",
+       "V_rect"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "sub(x0, x1)",
+      "members": [
+       {
+        "digest": "20c6342473843131a290b5b4",
+        "nodes": 1,
+        "occurrences": {
+         "V_corner": 2,
+         "V_rect": 1
+        }
+       }
+      ]
+     },
+     {
+      "key": "9e8092e7bdb684bb47a3cc29",
+      "domains": [
+       "V_corner",
+       "V_rect"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "and(x0, x1)",
+      "members": [
+       {
+        "digest": "9e8092e7bdb684bb47a3cc29",
+        "nodes": 1,
+        "occurrences": {
+         "V_corner": 4,
+         "V_rect": 122
+        }
+       }
+      ]
+     },
+     {
+      "key": "ac0cd3c65bed00503f310cc8",
+      "domains": [
+       "V_corner",
+       "V_rect"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "module:b409b71ea0e41d77abb7cb9c(x0, x1, x2)",
+      "members": [
+       {
+        "digest": "ac0cd3c65bed00503f310cc8",
+        "nodes": 1,
+        "occurrences": {
+         "V_corner": 2,
+         "V_rect": 62
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "shared_across_programs_S": {
+    "n": 3,
+    "n_nontrivial": 1,
+    "rows": [
+     {
+      "key": "b0bd382015d52d2ffd270700",
+      "domains": [
+       "V_corner",
+       "V_rect",
+       "V_same"
+      ],
+      "trivial": false,
+      "nodes": 2,
+      "spell": "truth_2(truth_7(x0, x1), x2)",
+      "members": [
+       {
+        "digest": "d92069f3345c259603589015",
+        "nodes": 2,
+        "occurrences": {
+         "V_same": 1
+        }
+       },
+       {
+        "digest": "786564a1a6515c852f9d9e68",
+        "nodes": 2,
+        "occurrences": {
+         "V_corner": 2,
+         "V_rect": 60
+        }
+       }
+      ]
+     },
+     {
+      "key": "2251fd3683dd046e72393c23",
+      "domains": [
+       "V_corner",
+       "V_rect"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "identity(x0)",
+      "members": [
+       {
+        "digest": "8eb2768c14e0351b1e7b6b57",
+        "nodes": 1,
+        "occurrences": {
+         "V_corner": 2,
+         "V_rect": 2
+        }
+       }
+      ]
+     },
+     {
+      "key": "421e96045d7e3b262856980c",
+      "domains": [
+       "V_corner",
+       "V_rect"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "and(x0, x1)",
+      "members": [
+       {
+        "digest": "9e8092e7bdb684bb47a3cc29",
+        "nodes": 1,
+        "occurrences": {
+         "V_corner": 4,
+         "V_rect": 122
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  "language": {
+   "n_programs": 3,
+   "n_D_classes": 41,
+   "shared_across_programs_D": {
+    "n": 12,
+    "n_nontrivial": 4,
+    "rows": [
+     {
+      "key": "1f86c911e2ee3208af6aece3",
+      "domains": [
+       "L_dyck22",
+       "L_stage_b16"
+      ],
+      "trivial": false,
+      "nodes": 2,
+      "spell": "sub(project(x0), x1)",
+      "members": [
+       {
+        "digest": "1f86c911e2ee3208af6aece3",
+        "nodes": 2,
+        "occurrences": {
+         "L_stage_b16": 1,
+         "L_dyck22": 1
+        }
+       }
+      ]
+     },
+     {
+      "key": "ebfbdf722134ae5cce63bff3",
+      "domains": [
+       "L_dyck22",
+       "L_stage_b16"
+      ],
+      "trivial": false,
+      "nodes": 2,
+      "spell": "mux(module:8063993bfeee7393683e47b3(x0, x1), x2, x3)",
+      "members": [
+       {
+        "digest": "ebfbdf722134ae5cce63bff3",
+        "nodes": 2,
+        "occurrences": {
+         "L_stage_b16": 16,
+         "L_dyck22": 22
+        }
+       }
+      ]
+     },
+     {
+      "key": "1aaef9a9efe0e28037eb04e3",
+      "domains": [
+       "L_dyck22",
+       "L_stage_b16"
+      ],
+      "trivial": false,
+      "nodes": 2,
+      "spell": "mux(lt(x0, x1), x2, x3)",
+      "members": [
+       {
+        "digest": "1aaef9a9efe0e28037eb04e3",
+        "nodes": 2,
+        "occurrences": {
+         "L_stage_b16": 16,
+         "L_dyck22": 22
+        }
+       }
+      ]
+     },
+     {
+      "key": "12991eed6460a213e7d72c20",
+      "domains": [
+       "L_dyck22",
+       "L_stage_b16"
+      ],
+      "trivial": false,
+      "nodes": 2,
+      "spell": "add(x3, mux(x0, x1, x2))",
+      "members": [
+       {
+        "digest": "12991eed6460a213e7d72c20",
+        "nodes": 2,
+        "occurrences": {
+         "L_stage_b16": 15,
+         "L_dyck22": 21
+        }
+       }
+      ]
+     },
+     {
+      "key": "69218a92470a26af2d0b1e79",
+      "domains": [
+       "L_dyck22",
+       "L_stage_b16"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "project(x0)",
+      "members": [
+       {
+        "digest": "69218a92470a26af2d0b1e79",
+        "nodes": 1,
+        "occurrences": {
+         "L_stage_b16": 1,
+         "L_dyck22": 1
+        }
+       }
+      ]
+     },
+     {
+      "key": "019f6a6165d60c9686638e9b",
+      "domains": [
+       "L_dyck22",
+       "L_stage_b16"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "sub(x0, x1)",
+      "members": [
+       {
+        "digest": "019f6a6165d60c9686638e9b",
+        "nodes": 1,
+        "occurrences": {
+         "L_stage_b16": 1,
+         "L_dyck22": 1
+        }
+       }
+      ]
+     },
+     {
+      "key": "9ef466a6708f886dc318506a",
+      "domains": [
+       "L_dyck22",
+       "L_stage_b16"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "identity(x0)",
+      "members": [
+       {
+        "digest": "9ef466a6708f886dc318506a",
+        "nodes": 1,
+        "occurrences": {
+         "L_stage_b16": 2,
+         "L_dyck22": 2
+        }
+       }
+      ]
+     },
+     {
+      "key": "4e99cbe0a0ba72a4734c7bde",
+      "domains": [
+       "L_dyck22",
+       "L_stage_b16"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "module:8063993bfeee7393683e47b3(x0, x1)",
+      "members": [
+       {
+        "digest": "4e99cbe0a0ba72a4734c7bde",
+        "nodes": 1,
+        "occurrences": {
+         "L_stage_b16": 16,
+         "L_dyck22": 22
+        }
+       }
+      ]
+     },
+     {
+      "key": "3883263750c98d3aa33a0e00",
+      "domains": [
+       "L_dyck22",
+       "L_stage_b16"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "lt(x0, x1)",
+      "members": [
+       {
+        "digest": "3883263750c98d3aa33a0e00",
+        "nodes": 1,
+        "occurrences": {
+         "L_stage_b16": 16,
+         "L_dyck22": 22
+        }
+       }
+      ]
+     },
+     {
+      "key": "fa1314da8c9b9f1f1762e2ef",
+      "domains": [
+       "L_dyck22",
+       "L_stage_b16"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "mux(x0, x1, x2)",
+      "members": [
+       {
+        "digest": "fa1314da8c9b9f1f1762e2ef",
+        "nodes": 1,
+        "occurrences": {
+         "L_stage_b16": 32,
+         "L_dyck22": 44
+        }
+       }
+      ]
+     },
+     {
+      "key": "9b8f2c33e01f05ded798f130",
+      "domains": [
+       "L_dyck22",
+       "L_stage_b16"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "add(x0, x1)",
+      "members": [
+       {
+        "digest": "9b8f2c33e01f05ded798f130",
+        "nodes": 1,
+        "occurrences": {
+         "L_stage_b16": 15,
+         "L_dyck22": 21
+        }
+       }
+      ]
+     },
+     {
+      "key": "8105f1ef141cbb88d4bfa4d0",
+      "domains": [
+       "L_dyck22",
+       "L_stage_b16"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "eq(x0, x1)",
+      "members": [
+       {
+        "digest": "8105f1ef141cbb88d4bfa4d0",
+        "nodes": 1,
+        "occurrences": {
+         "L_stage_b16": 1,
+         "L_dyck22": 1
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "shared_across_programs_S": {
+    "n": 3,
+    "n_nontrivial": 0,
+    "rows": [
+     {
+      "key": "f8b29eb508e3bc3a193727d2",
+      "domains": [
+       "L_dyck22",
+       "L_stage_b16"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "sub(x0, x1)",
+      "members": [
+       {
+        "digest": "019f6a6165d60c9686638e9b",
+        "nodes": 1,
+        "occurrences": {
+         "L_stage_b16": 1,
+         "L_dyck22": 1
+        }
+       }
+      ]
+     },
+     {
+      "key": "38d2355ccc066d82cf852e4b",
+      "domains": [
+       "L_dyck22",
+       "L_stage_b16"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "identity(x0)",
+      "members": [
+       {
+        "digest": "9ef466a6708f886dc318506a",
+        "nodes": 1,
+        "occurrences": {
+         "L_stage_b16": 2,
+         "L_dyck22": 2
+        }
+       }
+      ]
+     },
+     {
+      "key": "16e625bd92957a5ab7e2d91f",
+      "domains": [
+       "L_dyck22",
+       "L_stage_b16"
+      ],
+      "trivial": true,
+      "nodes": 1,
+      "spell": "lt(x0, x1)",
+      "members": [
+       {
+        "digest": "3883263750c98d3aa33a0e00",
+        "nodes": 1,
+        "occurrences": {
+         "L_stage_b16": 16,
+         "L_dyck22": 22
+        }
+       }
+      ]
+     }
+    ]
+   }
+  },
+  "computer": {
+   "n_programs": 1,
+   "note": "one program only"
+  }
+ }
+}
