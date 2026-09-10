@@ -2537,3 +2537,64 @@ bar on the distribution that matters. Both belong in any citation of this result
 survives translation to wall clock given the bytecode regression. That needs the
 measured-latency arm of DESIGN §11, which this track did not run.
 
+## 50. CORRECTION to §47 Q3: the probe does not generalise — the operator sweep was doing the work
+
+`research/scaffold-diagnosis/RESULTS.md`, branch `research/scaffold-diagnosis`
+(`9bfcd9d`), **not merged at time of writing**; `tcn/` and `generators/`
+untouched. Pre-registered before the arms. §47 Q3 reported a cheap pre-hoc signal
+that identified a scaffold's defect without knowing the answer, and recorded that
+"whether the same probe generalises beyond a constant-node diagnosis is untested
+and should not be assumed." It does not. Verified here from raw JSON.
+
+**32 cases: 24 failed scaffolds, 8 that provably contain a solution, across 3
+independent tasks** with three distinct correct answers (`{min,max}`,
+`{add,sub}`, `{MAJ3}`). Task count is anecdote-strength and the track says so —
+but the negative does not depend on it.
+
+| arm | repairs found of 24 | declined | false positives on solvable scaffolds |
+|---|---|---|---|
+| §47's probe (information + sweep) | **4** | 20 | **8 / 8** |
+| input-dependent variant | 0 | 24 | 8 / 8 |
+| uniform random draw (generous) | ~5.17 expected | — | — |
+| **same sweep, diagnosis deleted** | **15** | 9 | 8 / 8 |
+| **every hole, no diagnosis at all** | **21** | 2 | 8 / 8 |
+
+**The pre-registered falsification I flagged as most likely fired.** The probe
+scores **4**; deleting the diagnosis and keeping only the sweep scores **15**.
+The information stage is not merely inert — it is **actively harmful**, declining
+20 of 24 cases the sweep alone would have repaired. And all four of its successes
+are cases where **no member of the scaffold runs at all**, so the "diagnosis" is
+a crash, not an information measurement. On every failed scaffold that executes,
+the information stage contributed **zero** repairs.
+
+**It false-positives on every solvable scaffold, for a structural reason.** In
+§44's arm 3 — 144 conforming, certificate `complete` — the two operands of the
+final `xor` each carry **exactly 0.0 bits** of label information while the output
+carries 1.000. **Zero mutual information with the label is what a correct
+XOR-structured program looks like.** §47's `acc21` had 0 bits and was a defect;
+§44's `n1`, `n2` have 0 bits and are the solution. **Nothing local to a node
+distinguishes them.** The probe also missed a real failure (§44 arm 4, 0 of
+2,709,504).
+
+**§47's numbers themselves reproduce exactly** and are not withdrawn — the
+constant `acc21` at 0.0 bits, 110 conforming, first member at index 571,746 of
+680,625 = 84.00%, and 1.000 on n=859 against a 0.5262 majority, all on the real
+program. What fails is the *generalisation*, and one further detail explains why:
+the constant-node observation is **not selection-invariant**. `acc21` is constant
+at §45's semantically honest member (`c=101`), **not** at the best-on-training
+member (`c=110`), and even there 59 of 114 nodes fire with **nine tied at exactly
+0.0 bits**. A diagnostic that depends on already having chosen the right member
+cannot be run before choosing one.
+
+**So the honest statement is narrower again.** A cheap operator sweep over holes
+in a failed scaffold **does** find repairs — 21 of 24 with no diagnosis at all,
+which is a genuinely useful and previously unrecorded result. The *information-
+theoretic framing* around it adds nothing and costs coverage. §47's Q3 conclusion
+that "this repair needed seconds of evidence, not the answer" survives; the
+implied mechanism does not.
+
+**Disclosures the track made itself:** its own constructed answer for one family
+was wrong and enumeration corrected it; the one wrong all-holes answer is a
+training overfit (0.7485 held-out against a 0.7334 majority). Tests 324 pass / 13
+fail, identical with the track's own directory removed.
+
