@@ -109,13 +109,20 @@ def main():
         {k: v for k, v in p["parse_with"].items() if k != "seconds"} for p in pipeline)
     # The with-arm's program *is* the without-arm's program (C1), so the
     # whole-space comparison is made on the rows the whole-space sweep scored.
+    # PREREGISTRATION §3 C3, as written: best constant, uniform random over the
+    # selection space, and the whole-space mean.  (The uniform-random expectation
+    # *is* the exhaustive whole-space mean.)  An earlier version of this check also
+    # required beating the second-best program; that was never pre-registered and
+    # fails by construction at S0 and S1', whose spaces each hold two conforming
+    # programs.  It is reported beside C3 as information, not as a criterion.
     verdict["C3 beats constant / random / whole-space mean"] = all(
         r["with_held_accuracy"] > r["best_constant"]
-        and (r["whole_space_mean"] is None or
-             (r["chosen_accuracy_same_rows"] > r["whole_space_mean"]
-              and r["chosen_accuracy_same_rows"] > r["whole_space_second_best"]
-              and r["chosen_accuracy_same_rows"] > r["best_constant_same_rows"]))
+        and r["chosen_accuracy_same_rows"] > r["whole_space_mean"]
+        and r["chosen_accuracy_same_rows"] > r["best_constant_same_rows"]
         for r in rows)
+    verdict["(info) second-best ties the chosen program exactly where two programs conform"] = all(
+        (r["whole_space_second_best"] == r["chosen_accuracy_same_rows"])
+        == (r["without_conforming"] >= 2) for r in rows)
     # C4 is resolved per wrong schema, because the two payloads are wrong in
     # different ways and a single boolean would hide which.
     fo = armf["schemas"]["frozen_offsets"]["per_resolution"]

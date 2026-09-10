@@ -165,15 +165,27 @@ def check_claims():
         for st in STAGES:
             sa, sb = enum[w]["stages"][st], with_[w]["stages"][st]
             ws = sa["whole_space_held"]
-            claim(f"res {w} {st}: accuracy beats best constant, uniform-random mean and the "
-                  f"second-best program",
+            claim(f"res {w} {st}: accuracy beats best constant and the uniform-random "
+                  f"(exact whole-space) mean",
                   sb["held_accuracy"] > sb["best_constant"]["accuracy"]
                   and ws["exhaustive"]
                   and ws["chosen_accuracy_same_rows"] > ws["mean"]
-                  and ws["chosen_accuracy_same_rows"] > ws["second_best"]
                   and ws["chosen_accuracy_same_rows"] > ws["best_constant_same_rows"],
                   f"{sb['held_accuracy']:.4f} vs const {sb['best_constant']['accuracy']:.4f}, "
-                  f"mean {ws['mean']:.4f}, 2nd {ws['second_best']:.4f}")
+                  f"mean {ws['mean']:.4f}")
+            conf = sa["walk"]["conforming"]
+            claim(f"res {w} {st}: second-best ties the chosen program iff the space holds two "
+                  f"conforming programs",
+                  (ws["second_best"] == ws["chosen_accuracy_same_rows"]) == (conf >= 2),
+                  f"conforming {conf}, 2nd {ws['second_best']:.4f}")
+        s2w, s2c = enum[w]["stages"]["s2"], with_[w]["stages"]["s2"]
+        claim(f"res {w}: at S2' the same-path walk over the whole space costs under twice one "
+              f"full check (wrong programs fail on an early row)",
+              s2w["walk"]["seconds"] < 2 * s2c["check"]["seconds"],
+              f"{s2w['walk']['seconds']:.1f}s walk vs {s2c['check']['seconds']:.1f}s check")
+        claim(f"res {w}: the shipped prefix search does not exceed the largest stage space either",
+              enum[w]["pipeline"]["prefix_seconds"] / with_[w]["pipeline"]["check_seconds"]
+              <= max(enum[w]["stages"][st]["space_size"] for st in STAGES))
 
     # the saving and the space size
     for w in HELD_OUT:
@@ -244,8 +256,11 @@ def check_claims():
 
     # resources
     for p in sorted(OUT.glob("*.time")):
+        if p.stem in report.SELF_LOGS:
+            continue
         t = report.timelog(p.stem)
-        if p.stem == "verify":
+        if t is None:
+            claim(f"resource: `{p.stem}` log is complete", False, "no exit status")
             continue
         claim(f"resource: `{p.stem}` exited 0 with peak RSS under 30 GB",
               t["exit"] == 0 and t["peak_rss_kb"] < 30 * 1048576,
@@ -271,6 +286,7 @@ def check_prose(text, rendered):
     prose = report.BLOCK.sub("", text)
     prose = re.sub(r"```.*?```", "", prose, flags=re.S)           # code
     prose = re.sub(r"`[^`\n]*`", "", prose)                        # inline code: paths, ids
+    prose = re.sub(r"(?m)^#+\s+\d+(\.\d+)*\.?", "", prose)          # heading numbers
     prose = re.sub(r"§\s?\d+(\.\d+)?", "", prose)                   # section references
     prose = re.sub(r"\b[0-9a-f]{7,40}\b", "", prose)                # commit SHAs
     prose = re.sub(r"\b(20\d\d-\d\d-\d\d)\b", "", prose)            # dates

@@ -25,6 +25,9 @@ HELD_OUT = (16, 40, 48)
 ALL = (16, 24, 32, 40, 48)
 STAGES = ("s0", "s1", "s2")
 STAGE_NAME = {"s0": "S0 `same`", "s1": "S1' `corner`", "s2": "S2' `rect`"}
+# The renderer and the verifier log their own resource use while they run, so
+# their logs are never complete when read; the table is about the arms.
+SELF_LOGS = {"report", "verify", "check"}
 
 
 # ----------------------------------------------------------------- loading
@@ -43,6 +46,8 @@ def timelog(name):
     def grab(label):
         m = re.search(rf"{re.escape(label)}:\s*(.+)", text)
         return m.group(1).strip() if m else None
+    if grab("Exit status") is None:          # the job is still running (or is this one)
+        return None
     return {"peak_rss_kb": int(grab("Maximum resident set size (kbytes)")),
             "elapsed": grab("Elapsed (wall clock) time (h:mm:ss or m:ss)"),
             "exit": int(grab("Exit status"))}
@@ -377,7 +382,11 @@ def render(F=None):
         f"{nl['spread_fraction'] * 100:.1f}% of the median.")
     rows = []
     for p in sorted(OUT.glob("*.time")):
+        if p.stem in SELF_LOGS:
+            continue
         t = timelog(p.stem)
+        if t is None:
+            continue
         rows.append([f"`{p.stem}`", f"{t['peak_rss_kb'] / 1048576:.2f}", t["elapsed"], t["exit"]])
     B["resource_table"] = table(["capped job", "peak RSS (GB)", "wall clock", "exit"], rows)
 
@@ -426,10 +435,12 @@ def headline(F):
         f"stage space by construction. On same-path wall clock, "
         f"{'no' if max(walk) <= largest else 'yes'} — and at S2' alone the same-path ratio is "
         f"{' / '.join(r1(x) for x in s2_walk)} against a space of 25, because a wrong program "
-        f"fails on its first row and the right one must run every row. Only against the shipped "
-        f"`enumerate_prefix` does the ratio "
-        f"{'exceed' if min(pref) > largest else 'not uniformly exceed'} {largest}, and that is "
-        f"interpreter overhead in the search, not search difficulty.",
+        f"fails on an early row and the right one must run every row. "
+        + (f"Even against the shipped `enumerate_prefix` search the ratio stays below "
+           f"{largest}." if max(pref) <= largest else
+           f"Against the shipped `enumerate_prefix` search the ratio exceeds {largest} at "
+           f"{sum(x > largest for x in pref)} of {len(pref)} resolutions — interpreter overhead "
+           f"in that search, not search difficulty."),
     ]
     fmt = F["armf"]["format"]
     fs = F["armf"]["schemas"]["frozen_span"]["per_resolution"]
@@ -456,11 +467,15 @@ def headline(F):
 
 # ------------------------------------------------------------------ writing
 
-BLOCK = re.compile(r"(<!-- BEGIN:(\w+) -->\n)(.*?)(\n<!-- END:\2 -->)", re.S)
+# The body carries its own trailing newline, so an empty block
+# ("BEGIN -->\n<!-- END") matches too -- the first version required a newline on
+# both sides and silently matched none of the placeholders.
+BLOCK = re.compile(r"(<!-- BEGIN:(\w+) -->\n)(.*?)(<!-- END:\2 -->)", re.S)
 
 
 def blocks_in(text):
-    return {m.group(2): m.group(3) for m in BLOCK.finditer(text)}
+    return {m.group(2): m.group(3)[:-1] if m.group(3).endswith("\n") else m.group(3)
+            for m in BLOCK.finditer(text)}
 
 
 def main():
@@ -471,7 +486,7 @@ def main():
     unknown = sorted(set(present) - set(B))
     if unknown:
         sys.exit(f"RESULTS.md has blocks the renderer does not produce: {unknown}")
-    text = BLOCK.sub(lambda m: m.group(1) + B[m.group(2)] + m.group(4), text)
+    text = BLOCK.sub(lambda m: m.group(1) + B[m.group(2)] + "\n" + m.group(4), text)
     RESULTS.write_text(text)
     print(f"rendered {len(present)} blocks into RESULTS.md"
           + (f"; NOT PLACED (no marker): {missing}" if missing else ""))
