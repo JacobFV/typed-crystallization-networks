@@ -71,7 +71,7 @@ def build_bool():
              Node("y", BOOL, tuple(y), "core", 2))
     prog = Program(inputs, nodes, (("out", "y"),)).validate(r)
     rows = later.later_examples()
-    train = [rows[i] for i in range(0, 64, 2)][:24]
+    train = [rows[i] for i in range(0, 64, 2)]
     heldout = [rows[i] for i in range(1, 64, 2)]
     sig = [Signal("y", "out", ("core",), BOOL, "bce")]
     return {"name": "bool", "registry": r, "program": prog, "signals": sig,
@@ -108,7 +108,7 @@ def build_arith():
                                        ("is_add", "v0", "inner")),), "core", 4),
     ]
     prog = Program(inputs, tuple(nodes), (("out", "answer"),), consts).validate(r)
-    train = _episodes_from("arithmetic", range(0, 24), "train", {})
+    train = _episodes_from("arithmetic", range(0, 32), "train", {})
     heldout = _episodes_from("arithmetic", range(1000, 1032), "test", {})
     sig = [Signal("answer", "target", ("core",), I16, "mse")]
     return {"name": "arith", "registry": r, "program": prog, "signals": sig,
@@ -124,9 +124,8 @@ EDGE = product(E3, E3)
 EDGES = setof(EDGE, 64)
 
 
-def _pair_module(r):
+def _pair_module(r, pp):
     """(p) -> (p[0][0], p[1][1]): the composition of two chained edges."""
-    pp = product(EDGE, EDGE)
     nodes = (
         Node("l", EDGE, (Candidate(r.resolve("project", (pp,), EDGE, {"index": 0}),
                                    ("p",)),), "core", 1, 0),
@@ -143,36 +142,60 @@ def _pair_module(r):
     return r.register_module(prog)
 
 
+BOOLCOMB = ("and", "or", "xor", "nand", "nor", "xnor", "eq", "not", "identity")
+
+
 def build_rel():
+    """Reachability over a 3-entity digraph: one, two and three edge steps.
+
+    Three steps is what the closure needs at three entities -- a simple path
+    between distinct vertices is at most two edges and a cycle at most three --
+    so the base scaffold can express the task exactly.  That is checked, not
+    assumed: `run_domain.py` records the base's certificate on all episodes.
+    """
     r = Registry()
-    mod = _pair_module(r)
     inputs = (("edges", EDGES), ("query", EDGE))
-    joined = setof(product(EDGE, EDGE), 64 * 64)
-    join_cands = [Candidate(r.resolve("join", (EDGES, EDGES), joined,
-                                      {"left": lft, "right": rgt}), ("edges", "edges"))
-                  for lft in (0, 1) for rgt in (0, 1)]
-    two = r.resolve("map", (joined,), None, {"module": mod})
-    step2_t = two.output
+
+    def chain(src_t, src_name, other_t, other_name, depth, name):
+        out_t = setof(product(src_t.items[0], other_t.items[0]),
+                      src_t.capacity * other_t.capacity)
+        cands = [Candidate(r.resolve("join", (src_t, other_t), out_t,
+                                     {"left": lf, "right": rg}),
+                           (src_name, other_name))
+                 for lf in (0, 1) for rg in (0, 1)]
+        return Node(name, out_t, tuple(cands), "core", depth), out_t
+
+    c2, c2t = chain(EDGES, "edges", EDGES, "edges", 1, "chain2")
+    map2 = r.resolve("map", (c2t,), None, {"module": _pair_module(r, c2t.items[0])})
+    s2t = map2.output
+    c3, c3t = chain(s2t, "step2", EDGES, "edges", 3, "chain3")
+    map3 = r.resolve("map", (c3t,), None, {"module": _pair_module(r, c3t.items[0])})
+    s3t = map3.output
     nodes = (
-        Node("chain", joined, tuple(join_cands), "core", 1),
-        Node("step2", step2_t, (Candidate(two, ("chain",)),), "core", 2),
+        c2,
+        Node("step2", s2t, (Candidate(map2, ("chain2",)),), "core", 2),
+        c3,
+        Node("step3", s3t, (Candidate(map3, ("chain3",)),), "core", 4),
         Node("m1", BOOL, (Candidate(r.resolve("member", (EDGES, EDGE)),
                                     ("edges", "query")),), "core", 1),
-        Node("m2", BOOL, (Candidate(r.resolve("member", (step2_t, EDGE)),
+        Node("m2", BOOL, (Candidate(r.resolve("member", (s2t, EDGE)),
                                     ("step2", "query")),), "core", 3),
-        Node("ans", BOOL, tuple(legal_candidates(
-            r, ("and", "or", "xor", "nand", "nor", "xnor", "eq", "not", "identity"),
-            {"m1": BOOL, "m2": BOOL}, BOOL, arities=(1, 2))), "core", 4),
+        Node("m3", BOOL, (Candidate(r.resolve("member", (s3t, EDGE)),
+                                    ("step3", "query")),), "core", 5),
+        Node("o1", BOOL, tuple(legal_candidates(r, BOOLCOMB, {"m1": BOOL, "m2": BOOL},
+                                                BOOL, arities=(1, 2))), "core", 4),
+        Node("ans", BOOL, tuple(legal_candidates(r, BOOLCOMB, {"o1": BOOL, "m3": BOOL},
+                                                 BOOL, arities=(1, 2))), "core", 6),
     )
     prog = Program(inputs, nodes, (("out", "ans"),)).validate(r)
-    cfg = {"entities": 4}
-    train = _episodes_from("relations", range(0, 24), "train", cfg)
-    heldout = _episodes_from("relations", range(1000, 1064), "test", cfg)
+    cfg = {"entities": 3}
+    train = _episodes_from("relations", range(0, 96), "train", cfg)
+    heldout = _episodes_from("relations", range(1000, 1096), "test", cfg)
     sig = [Signal("ans", "target", ("core",), BOOL, "bce")]
     return {"name": "rel", "registry": r, "program": prog, "signals": sig,
             "train": train, "heldout": heldout,
-            "sites": ["chain", "ans"],
-            "note": "generators/relations, two-step reachability"}
+            "sites": ["chain2", "chain3", "o1", "ans"],
+            "note": "generators/relations at 3 entities, one/two/three edge steps"}
 
 
 # ------------------------------------------------------------------- lang
@@ -183,7 +206,7 @@ def _lang_rows(eps, positions):
              "targets": {"answer": Value.of(BOOL, bool(e["label"]))}} for e in eps]
 
 
-def build_lang(positions=22):
+def build_lang(positions=12, stream="none"):
     """Bracket grammaticality, section 45's family, at a reduced width."""
     sys.path.insert(0, str(kit.ROOT / "research" / "scaffold-diagnosis"))
     sys.path.insert(0, str(kit.ROOT / "research" / "language-capability"))
@@ -192,16 +215,19 @@ def build_lang(positions=22):
     from run_stage_b import build_module
     module, registry, _frozen = build_module()
     prog, sig = scaffolds2.stage_b_gen(module, registry, positions=positions,
-                                       sub_range=range(0, 17),
+                                       sub_range=range(0, positions + 1),
                                        acc_fold="add", second_fold="min")
-    s = splits_mod.build(hardening="context_free_language", n_train=24,
-                         train_lengths=(10, 12), heldout_lengths=(14, 16))
+    lens = ((4, 6), (8, 10, 12)) if stream == "none" else ((10, 12), (14, 16))
+    s = splits_mod.build(hardening=stream, n_train=32,
+                         train_lengths=lens[0], heldout_lengths=lens[1])
     train = _lang_rows(s["train"], positions)
     heldout = _lang_rows(s["heldout_unseen_lengths"][:32], positions)
+    _ = stream
     return {"name": "lang", "registry": registry, "program": prog, "signals": sig,
             "train": train, "heldout": heldout,
             "sites": [nd.name for nd in prog.nodes if len(nd.candidates) > 1],
-            "note": "section 45's family at positions=8"}
+            "note": f"section 45's family at positions={positions}, "
+                    f"stream={stream!r}"}
 
 
 BUILDERS = {"bool": build_bool, "arith": build_arith, "rel": build_rel,

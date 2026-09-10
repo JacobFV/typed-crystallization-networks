@@ -141,7 +141,7 @@ def enumerate_defects(base, registry, sites):
             out.append(("drop_operator", site, op))
         for port in ports:
             out.append(("drop_source", site, port))
-        for k in (1, 2):
+        for k in (1, 2, 3, 4, 6, 8):
             out.append(("keep_prefix", site, k))
         out.append(("delete_node", site, None))
     return out
@@ -179,7 +179,7 @@ def main():
               "rejected_solvable_on_train": 0, "rejected_no_repair": 0,
               "rejected_invalid": 0, "cases": []}
 
-    defects = enumerate_defects(base, r, d["sites"])
+    defects = enumerate_defects(base, r, [nd.name for nd in base.nodes])
     report["defects_tried"] = len(defects)
     mine = [x for i, x in enumerate(defects) if i % a.of == a.shard]
 
@@ -200,9 +200,16 @@ def main():
         rows = []
         for edit, edited in es:
             on_all = decide(edited, allep, sig, r)
-            on_train = (decide(edited, train, sig, r) if on_all["decided"]
-                        else {"decided": False, "conforming": None,
-                              "certificate": "undecided"})
+            if not on_all["decided"]:
+                on_train = {"decided": False, "conforming": None,
+                            "certificate": "undecided"}
+            elif on_all["conforming"]:
+                # a member conforming on every episode conforms on the training
+                # ones, so the second decision is skipped, not guessed
+                on_train = {"decided": True, "conforming": True,
+                            "certificate": "implied by the all-episode witness"}
+            else:
+                on_train = decide(edited, train, sig, r)
             rows.append({
                 "key": edit.key, **edit.to_dict(),
                 "space": on_all["space"], "decided": on_all["decided"],
