@@ -85,7 +85,7 @@ def expected_cost(tiers):
     before = 0
     for s, k in tiers:
         if k > 0:
-            return Fraction(before) + Fraction(s - k + 1, k + 1)
+            return Fraction(before) + Fraction(s + 1, k + 1)
         before += s
     return None                      # no repair anywhere in the ordering
 

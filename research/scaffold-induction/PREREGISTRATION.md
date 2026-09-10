@@ -289,9 +289,10 @@ disagreement, not routed around.
 `A` on case `c`. An arm supplies a **tiered** order: a sequence of tiers, uniform
 within each. With `s_i` edits and `k_i` repairs in tier `i`,
 
-    E = Σ_{j < i*} s_j  +  (s_{i*} − k_{i*} + 1) / (k_{i*} + 1),   i* = first tier with k_i > 0
+    E = Σ_{j < i*} s_j  +  (s_{i*} + 1) / (k_{i*} + 1),   i* = first tier with k_i > 0
 
-which is the flagship's exact formula. **Every count is exact**: the edit space is
+which is the flagship's exact formula — the expected number of draws to the
+first of `k` good items among `s`, drawn uniformly without replacement. **Every count is exact**: the edit space is
 enumerated in full and every edit is decided, so no arm's cost is sampled and no
 0/N bound is quoted (§65's failure to separate N″ from N came from exactly that).
 The corpus figure is the mean of `E(A, c)` over admitted cases, reported with its

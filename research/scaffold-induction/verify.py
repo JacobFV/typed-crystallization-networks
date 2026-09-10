@@ -80,7 +80,7 @@ def expectation(order_keys, repairs):
         s = len(idx)
         k = sum(1 for i in idx if repairs[i])
         if k > 0:
-            return Fraction(before) + Fraction(s - k + 1, k + 1)
+            return Fraction(before) + Fraction(s + 1, k + 1)
         before += s
     return None
 
@@ -194,6 +194,9 @@ def main():
     for r in a["cases"]:
         d, x = by_case[r["case_id"]]
         est = a["estimators"][d]
+        if "error" in est:
+            claim(f"{r['case_id']}: a case is costed but its estimator errored", False)
+            continue
         edits = x["edits"]
         rows = [disc(e["features"]) for e in edits]
         for arm in ARMS:
@@ -291,8 +294,10 @@ def main():
         allow = set(ALLOWED)
         inside = "\n".join(rendered.values())
         prose = re.sub(r"<!-- BEGIN:\w+ -->\n.*?\n<!-- END:\w+ -->", "", text, flags=re.S)
-        prose = re.sub(r"`[^`]*`", "", prose)
-        stray = [t for t in re.findall(r"\d[\d,.]*", prose)
+        prose = re.sub(r"`[^`]*`", "", prose)          # code spans carry formulae
+        prose = re.sub(r"§\s*\d[\d.]*", "", prose)     # citations of other sections
+        prose = re.sub(r"\*\*A\d+ —", "**", prose)     # amendment numbers
+        stray = [t for t in re.findall(r"\d+(?:,\d{3})*(?:\.\d+)?", prose)
                  if t not in allow and t not in inside]
         claim("no number in RESULTS.md prose is outside a block or the allow-list",
               not stray, ", ".join(sorted(set(stray))[:20]))
@@ -301,10 +306,10 @@ def main():
 
 
 ALLOWED = {
-    # section numbers and pre-registered structural constants
-    "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "12", "16", "20", "21",
-    "24", "44", "45", "46", "47", "48", "50", "55", "57", "58", "60", "64", "65",
-    "400,000", "48", "1e-6", "0", "2.2", "3", "1.0",
+    # the only numbers allowed in RESULTS.md prose: structural constants fixed
+    # by the pre-registration or by an amendment.  Nothing measured belongs here.
+    "1", "2", "3", "4", "6", "8",          # keep_prefix's k values (amendment A3)
+    "48", "12", "400,000",                 # MAX_NEW, MAX_NEW_NODE, MAX_SPACE
 }
 
 

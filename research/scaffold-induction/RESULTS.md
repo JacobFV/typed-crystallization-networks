@@ -14,6 +14,58 @@ stated — the same disclosure §50 made about its own task count.
 
 ---
 
+## Amendments to the pre-registration
+
+Every change to `PREREGISTRATION.md` after it was committed, in order, with what
+it replaces. **All of them were made during corpus construction, before any arm
+ordering or arm cost was computed**, and none of them moves a number that had
+already been measured — the arms had not run. They are listed anyway, because a
+pre-registration that is quietly re-read is not one.
+
+**A1 — `rel` is a three-step scaffold over three entities, replacing §2.1's
+"two-step reachability relation of a 4-entity directed graph".** The generator's
+target is membership in the full transitive closure. A two-step scaffold cannot
+express it: the base scaffold itself was decided as having **no** conforming
+member over all episodes, exhausted, certificate `complete`, so no edit of any
+defect of it could have been a repair and the domain would have contributed
+nothing. Three edge steps is what the closure needs at three entities (a simple
+path between distinct vertices is at most two edges, a cycle at most three). The
+base's certificate on all episodes is recorded in `out/cases_rel.json` and
+checked by `verify.py`.
+
+**A2 — `rel` uses more episodes than the pre-registered seed ranges, and `bool`
+trains on every even row rather than a subset.** With the smaller splits, almost
+every defect still had a member conforming on the training episodes and the
+domain admitted one case. The admission rule (§2.3) is unchanged; only the
+episode counts moved. Both counts are rendered in the corpus block.
+
+**A3 — `keep_prefix`'s `k` values are {1, 2, 3, 4, 6, 8}, and defects are
+enumerated over every node of the base scaffold.** §2.2 fixed neither. Stated
+here so the defect enumeration is reproducible from the document.
+
+**A4 — the `lang` domain is dropped**, under §2.1's own drop clause. The reason
+is in the corpus section below.
+
+**A5 — the training-only decision is skipped when the all-episode decision
+returns a witness.** A member conforming on every episode conforms on the
+training ones, so the second decision would be redundant; the field records that
+it was implied by the witness rather than measured. No metric changes.
+
+**A6 — §3.4's edit-space sizes were probe figures and `rel`'s has moved** with
+A1. The measured sizes are in the corpus block; nothing in §3.4 is a criterion.
+
+**A7 — §6.1's expectation formula was written down wrong and is corrected.** The
+document said `(s − k + 1)/(k + 1)` for a uniform tier; the expected number of
+draws to the first of `k` good items among `s`, without replacement, is
+`(s + 1)/(k + 1)` — the formula §6.1 also named as "the flagship's". The typo
+was in the pre-registration and in the first draft of both `analyse.py` and
+`verify.py`, which is exactly the failure mode a verifier that shares a
+mis-derivation cannot catch; it was found by checking the degenerate case
+(`s = k = 1` must cost one draw, not a half) before any arm was costed. No
+measured number changes, because none had been produced.
+
+---
+
 ## The pre-registered verdict
 
 <!-- BEGIN:criteria -->

@@ -71,9 +71,14 @@ def decide(program, examples, signals, registry):
     res = enumerate_prefix(program, examples, signals, registry, tolerance=TOL,
                            max_programs=MAX_PROGRAMS, stop_at_first=True)
     got = res.conforming > 0
+    # `certificate_of` refuses `complete` whenever `stop_at_first` is set, because
+    # a search that stopped early cannot claim to report the whole conforming set.
+    # When nothing was found *and* the walk exhausted, nothing was cut short: the
+    # conforming set is empty and complete, so non-existence is proved, not merely
+    # unobserved.  Existence, when it holds, is proved by the witness itself.
+    cert = "witness" if got else ("complete" if res.exhausted else res.certificate)
     return {"space": s, "decided": True, "conforming": bool(got),
-            "exhausted": bool(res.exhausted),
-            "certificate": "witness" if got else res.certificate,
+            "exhausted": bool(res.exhausted), "certificate": cert,
             "witness": res.selections if got else None}
 
 
@@ -145,6 +150,10 @@ def enumerate_defects(base, registry, sites):
             out.append(("keep_prefix", site, k))
         out.append(("delete_node", site, None))
     return out
+
+
+def name_for(a):
+    return f"cases_{a.domain}" + (f"_s{a.shard}" if a.of > 1 else "")
 
 
 APPLY = {"drop_operator": lambda p, r, s, a: E.drop_operator(p, r, s, a),
@@ -240,12 +249,19 @@ def main():
             "n_train_conforming": sum(1 for x in rows if x["train_conforming"]),
             "edits": rows})
         print(f"  {case_id}: {len(rows)} edits, {n_rep} repairs, "
-              f"{report['cases'][-1]['n_undecided']} undecided", flush=True)
+              f"{report['cases'][-1]['n_undecided']} undecided "
+              f"[{time.perf_counter() - t0:.0f}s]", flush=True)
+        # Written after every admitted case, so a run that is stopped early
+        # still leaves a usable, self-describing corpus.
+        report["seconds"] = time.perf_counter() - t0
+        report["peak_rss_gb"] = round(kit.peak_rss_gb(), 3)
+        report["complete"] = False
+        kit.dump(name_for(a), report)
 
     report["seconds"] = time.perf_counter() - t0
     report["peak_rss_gb"] = round(kit.peak_rss_gb(), 3)
-    name = f"cases_{a.domain}" + (f"_s{a.shard}" if a.of > 1 else "")
-    print("wrote", kit.dump(name, report))
+    report["complete"] = True
+    print("wrote", kit.dump(name_for(a), report))
 
 
 if __name__ == "__main__":
