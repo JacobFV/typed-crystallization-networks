@@ -1,0 +1,172 @@
+{
+ "inherited_interpreter_link": {
+  "source": "research/lazy-latency/out/equivalence.json",
+  "claim": "arm A (compiled spec), arm B and arm C are bit-identical to each other on all 2,883 uniform + 54 deploy + worst records, and arm A is bit-identical to the typed interpreter on a 32-record stratified sample"
+ },
+ "records": {
+  "uniform": 2883,
+  "deploy": 54,
+  "worst": 1
+ },
+ "reference_digests": {
+  "uniform": "6702ffe55eb0950151c781f098c49a12cd52c3e511a6f61cdd51d015666493da",
+  "deploy": "40e966eac94377c63eaf64b648294dbc1f973f09fa89daa98055a2fd60f55540",
+  "worst": "97f4a534621c6cd602cd65188ced87c2bafdc44d7f2b378a3b96c19f2ddb9029"
+ },
+ "rungs": {
+  "R0": {
+   "label": "arm B verbatim (research/lazy-guard/out/stage3_algorithm.py)",
+   "class": "baseline",
+   "source_bytes": 3291,
+   "digests": {
+    "uniform": "6702ffe55eb0950151c781f098c49a12cd52c3e511a6f61cdd51d015666493da",
+    "deploy": "40e966eac94377c63eaf64b648294dbc1f973f09fa89daa98055a2fd60f55540",
+    "worst": "97f4a534621c6cd602cd65188ced87c2bafdc44d7f2b378a3b96c19f2ddb9029"
+   },
+   "mismatches": {
+    "uniform": 0,
+    "deploy": 0,
+    "worst": 0
+   },
+   "error": null,
+   "passed": true
+  },
+  "R1": {
+   "label": "+ guard-call inlining (_ck/_ix/_dz/_dzi)",
+   "class": "representational",
+   "source_bytes": 5908,
+   "digests": {
+    "uniform": "6702ffe55eb0950151c781f098c49a12cd52c3e511a6f61cdd51d015666493da",
+    "deploy": "40e966eac94377c63eaf64b648294dbc1f973f09fa89daa98055a2fd60f55540",
+    "worst": "97f4a534621c6cd602cd65188ced87c2bafdc44d7f2b378a3b96c19f2ddb9029"
+   },
+   "mismatches": {
+    "uniform": 0,
+    "deploy": 0,
+    "worst": 0
+   },
+   "error": null,
+   "passed": true
+  },
+  "R2": {
+   "label": "+ module-call inlining (_m0)",
+   "class": "representational",
+   "source_bytes": 7555,
+   "digests": {
+    "uniform": "6702ffe55eb0950151c781f098c49a12cd52c3e511a6f61cdd51d015666493da",
+    "deploy": "40e966eac94377c63eaf64b648294dbc1f973f09fa89daa98055a2fd60f55540",
+    "worst": "97f4a534621c6cd602cd65188ced87c2bafdc44d7f2b378a3b96c19f2ddb9029"
+   },
+   "mismatches": {
+    "uniform": 0,
+    "deploy": 0,
+    "worst": 0
+   },
+   "error": null,
+   "passed": true
+  },
+  "R3": {
+   "label": "+ loop-invariant code motion and CSE",
+   "class": "representational",
+   "source_bytes": 4481,
+   "digests": {
+    "uniform": "6702ffe55eb0950151c781f098c49a12cd52c3e511a6f61cdd51d015666493da",
+    "deploy": "40e966eac94377c63eaf64b648294dbc1f973f09fa89daa98055a2fd60f55540",
+    "worst": "97f4a534621c6cd602cd65188ced87c2bafdc44d7f2b378a3b96c19f2ddb9029"
+   },
+   "mismatches": {
+    "uniform": 0,
+    "deploy": 0,
+    "worst": 0
+   },
+   "error": null,
+   "passed": true
+  },
+  "R4": {
+   "label": "+ short-circuiting the truth-table conjunction",
+   "class": "structural",
+   "source_bytes": 4185,
+   "digests": {
+    "uniform": "6702ffe55eb0950151c781f098c49a12cd52c3e511a6f61cdd51d015666493da",
+    "deploy": "40e966eac94377c63eaf64b648294dbc1f973f09fa89daa98055a2fd60f55540",
+    "worst": "97f4a534621c6cd602cd65188ced87c2bafdc44d7f2b378a3b96c19f2ddb9029"
+   },
+   "mismatches": {
+    "uniform": 0,
+    "deploy": 0,
+    "worst": 0
+   },
+   "error": null,
+   "passed": true
+  },
+  "R5": {
+   "label": "+ typed-guard elimination, clamp retained",
+   "class": "representational",
+   "source_bytes": 895,
+   "digests": {
+    "uniform": "6702ffe55eb0950151c781f098c49a12cd52c3e511a6f61cdd51d015666493da",
+    "deploy": "40e966eac94377c63eaf64b648294dbc1f973f09fa89daa98055a2fd60f55540",
+    "worst": "97f4a534621c6cd602cd65188ced87c2bafdc44d7f2b378a3b96c19f2ddb9029"
+   },
+   "mismatches": {
+    "uniform": 0,
+    "deploy": 0,
+    "worst": 0
+   },
+   "error": null,
+   "passed": true
+  },
+  "R6": {
+   "label": "+ loop-bound strength reduction (bound test first, while form)",
+   "class": "representational",
+   "source_bytes": 640,
+   "digests": {
+    "uniform": "6702ffe55eb0950151c781f098c49a12cd52c3e511a6f61cdd51d015666493da",
+    "deploy": "40e966eac94377c63eaf64b648294dbc1f973f09fa89daa98055a2fd60f55540",
+    "worst": "97f4a534621c6cd602cd65188ced87c2bafdc44d7f2b378a3b96c19f2ddb9029"
+   },
+   "mismatches": {
+    "uniform": 0,
+    "deploy": 0,
+    "worst": 0
+   },
+   "error": null,
+   "passed": true
+  },
+  "R7": {
+   "label": "arm C verbatim (research/compiled-runtime/fixtures.py reference)",
+   "class": "unaccounted",
+   "source_bytes": 510,
+   "digests": {
+    "uniform": "6702ffe55eb0950151c781f098c49a12cd52c3e511a6f61cdd51d015666493da",
+    "deploy": "40e966eac94377c63eaf64b648294dbc1f973f09fa89daa98055a2fd60f55540",
+    "worst": "97f4a534621c6cd602cd65188ced87c2bafdc44d7f2b378a3b96c19f2ddb9029"
+   },
+   "mismatches": {
+    "uniform": 0,
+    "deploy": 0,
+    "worst": 0
+   },
+   "error": null,
+   "passed": true
+  },
+  "R5a": {
+   "label": "+ typed-guard elimination INCLUDING the min(.,3069) index clamp",
+   "class": "baseline",
+   "source_bytes": 873,
+   "digests": {
+    "uniform": "6ddc7f4353733ba85215f4381b3129032bb9e5292bdf0fc24d3ad71da9056923",
+    "deploy": "40e966eac94377c63eaf64b648294dbc1f973f09fa89daa98055a2fd60f55540",
+    "worst": "97f4a534621c6cd602cd65188ced87c2bafdc44d7f2b378a3b96c19f2ddb9029"
+   },
+   "mismatches": {
+    "uniform": 243,
+    "deploy": 0,
+    "worst": 0
+   },
+   "error": "IndexError: tuple index out of range (record 13)",
+   "passed": false
+  }
+ },
+ "ladder_gate_passed": true
+}
