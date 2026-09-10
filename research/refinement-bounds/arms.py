@@ -1,9 +1,13 @@
-"""The four arms of PREREGISTRATION section 2.1, built from one place.
+"""The arms of PREREGISTRATION section 2.1, built from one place.
 
     A0   `IDX` (no refinement bound), clamp as `min(pos + d, last)`   -- section 59's artifact
     A1   `IDX`,  clamp as `pos + min(d, last - pos)`                  -- isolates the rewrite
     B    `ADDR = bounds(0, 3071)`, reformulated clamp                 -- isolates the bound
     N    A0 again, compiled a second time                             -- the null control
+
+`B+` is not an arm here: it is arm `B` compiled with `inline_bounded=True`, the
+conditional core change of PREREGISTRATION section 2.4 P2.3.  `measure.py` and
+`attribute.py` name it; `build` does not, because the *program* is arm B's.
 
 Every arm freezes the **same selections** found by `research/visual-ladder`'s
 exhaustive sweeps (`out/rung3.json`); nothing is searched or re-selected here.

@@ -126,6 +126,43 @@ delivers materially less than the finding that motivated it.
 1.10× and the size reduction, both of which are solid.
 
 
+### `research/refinement-bounds` (worktree-agent-a0350f1fdeac805b2) — verified, CORRECT, merge is a judgement call
+
+**Builds on `research/emitter-guards`** (its three commits are cherry-picked in),
+so merging this without that one makes no sense. `tcn/compile.py` gains **52
+lines**, about half comment: `_fast_kind` stops refusing the inline range-test
+path to a carrier that declares `Type.bounds`, and `_emit_scalar` emits
+`_canon_body`'s two tests in `_canon_body`'s order with `_canon_body`'s
+exceptions, dropping each where the interval discharges it. **Behind
+`compile_program(..., inline_bounded=False)`, off by default.**
+
+**Byte-inert with the flag off, and checked rather than asserted:**
+`research/refinement-bounds/inert.py` reads `tcn/compile.py` out of git at
+`ee15cb4` and compares SHA-256 of the emitted source on three arms —
+`all_identical: true`.
+
+**Gated:** 144 differential comparisons against the reference artifact on 24
+held-out screenshots under both `validate` settings, plus 18 typed-interpreter
+checks, zero mismatches, digests equal. 348 of 349 tests pass (the one known
+worktree failure); fixture reproduces 0.248836 → 0.002231 at 4.0 / 4.0.
+`tests/test_compile.py` gains 5 tests (33 → 38).
+
+**The case for:** it is what makes `Type.bounds` usable in hot code at all.
+Without it a declared bound costs `visual` **1.90× the bytecodes and 29 % more
+wall clock**; with it the same declaration is **1.3222× fewer bytecodes and
+1.084× wall clock** against a null control reading within 0.33 %. No certificate
+moves — search spaces, sweep certificates and §33's 227/227 links and 12/12 trees
+are unchanged.
+
+**The case against:** measured on **one** artifact. `inline_bounded` also changes
+how `language`'s and `computer`'s already-bounded carriers compile, and this
+track did not measure them. That is the reason the flag exists and the reason it
+is off. Measure those two before turning it on.
+
+**The scaffold changes under `research/visual-ladder/` are separate and are
+themselves off by default** (`addr=None`, `reformulated_clamp=False`), so they
+can merge on their own without changing any existing artifact.
+
 ### `seasons` (afb4191) — refuted, preserved deliberately, DO NOT MERGE
 
 Four independent tracks agree the progressive scheduler should not be used

@@ -1,4 +1,4 @@
-"""PREREGISTRATION section 2.3 -- three cost measures on the four arms.
+"""PREREGISTRATION section 2.3 -- three cost measures on every arm.
 
 Timing protocol is `research/lazy-latency/latency.py`'s, reached through
 `research/emitter-guards/measure.py` so that no third harness is built: the

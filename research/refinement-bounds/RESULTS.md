@@ -41,12 +41,13 @@ flag-gated, off-by-default change to that refusal turns the same declaration int
 * **`(0, 3071)` is also unsound for the scaffold as written**, and not marginally:
   `rect_scaffold` evaluates `pos + k·step` **before** the `min(·, 3069)` clamp,
   which reaches **6,138** in principle and **5,529 measured on real
-  screenshots**, with `ha31`'s *minimum* over 24 screenshots already 2,976.
+  screenshots**, where `ha31`'s *minimum* over 24 screenshots is already 3,075
+  (2,976 in the root variant) — i.e. **out of range on essentially every call**.
   **The clamp is load-bearing exactly here.**  This is §56's R5a in a new dress.
 * **Gates: 3 arms × 48 differential comparisons against arm A0 on 24 held-out
-  screenshots (23,064 interior positions each), both `validate` settings, value
-  or exception at the identical edge, plus 6 typed-interpreter checks per arm —
-  zero mismatches, digests equal.**
+  screenshots (961 interior positions each, 23,064 in total), both `validate`
+  settings, value or exception at the identical edge, plus 6 typed-interpreter
+  checks per arm — zero mismatches, digests equal.**
 * **Six of `_m1`'s ten guards discharge; the other four are exchanged, one for
   one, for a refinement-bound check of the same shape.  §59's prediction is half
   right**: the six index guards go, the four range guards do not — `add`'s output
@@ -90,8 +91,9 @@ meet at one value, and it is not the clamp's.**
 
 ### 1.2 The clamp is load-bearing, measured
 
-`out/soundness.json`, from the frozen program on 24 held-out screenshots
-(23,064 corner calls, 431 rect calls):
+`out/soundness.json`, from the frozen program run node by node on 24 held-out
+screenshots — **23,064 corner calls and 431 rect calls** in the widgets variant,
+**24,576 and 455** in the root variant:
 
 | | widgets variant | root variant |
 |---|---|---|
@@ -122,9 +124,12 @@ spelling never leaves `[0, L]`.  `soundness.py::clamp_identity` checks it
 | reachable, all 1,024 positions × 155 deltas | 124,928 | **0** | 6,138 | **3,069** |
 | the whole rectangle `[0, 3069]²` | **9,424,900** | **0** | 6,138 | **3,069** |
 
-It is one extra node — `room = sub(last, pos)`, hoisted out of both loops — and
-`{tag}a{k}` changes from `add(pos, wd_k)` to `min(wd_k, room)`.  It is
-**off by default** (`reformulated_clamp=False`).
+It is **one extra node** — `room = sub(last, pos)`, hoisted out of both loops.
+Per multiplier, `{tag}a{k} = add(pos, {tag}d{k})` then `{tag}c{k} = min(·, last)`
+becomes `{tag}p{k} = min({tag}d{k}, room)` then `{tag}c{k} = add(pos, ·)`: the
+same two nodes, in the other order.  It is **off by default**
+(`reformulated_clamp=False`), so every other track that imports this scaffold
+builds the program it always built.
 
 ### 1.4 The static certificate: every address-typed node, every candidate
 
@@ -209,8 +214,9 @@ not discharge in either** — in B they leave the inline path for a function cal
 in B+ they are replaced one-for-one by a bounds check.  **P2.1 confirmed;
 §59 §6.2's "all four range guards" is wrong, and was pre-registered as wrong.**
 
-The emitted source is in `out/emitted_m1.txt`.  The three spellings of the same
-two lines:
+The whole emitted body of `_m1` in each arm is in `out/emitted_m1.txt`.  Excerpt
+— the same two nodes, `a_g := add(a, one)` and `a_r_v := index(obs, a)`, in
+emission order with the generated comments stripped:
 
 ```python
 # A0                                  10 inline checks in the function
@@ -278,6 +284,17 @@ accounted for.**  It is +0.030 %.
 A0's 602,748.3 is **§59's `visual` figure to the decimal**, which is the
 cross-check that these are the same artifact.
 
+Two derived figures, so nobody has to compute them:
+
+* **against arm A1** — i.e. the bound alone, with the reformulation already in
+  both arms — B+ is **1.3228×** in bytecodes and **1.0866 / 1.0860 / 1.0863×**
+  in wall clock.  The reformulation contributes nothing either way, so the whole
+  effect is the declared bound.
+* **against the emitter before §59** — §59 §4.2 records `visual` at
+  **635,400.3** bytecodes without its guard elimination, so A0 → B+ compounds to
+  **635,400.3 ÷ 455,868.3 = 1.394×** on that measure.  §59's own elimination is
+  1.0542× of that; **the declared bound is the larger half.**
+
 Bytecodes by code object, one screenshot:
 
 | function | calls | A0 | B | B+ | B+ ÷ A0 |
@@ -288,10 +305,22 @@ Bytecodes by code object, one screenshot:
 | `_c3` | 0 / 19,281 / 0 | — | **829,083** | — | — |
 | `<genexpr>` | — | 21,363 | 21,363 | 21,363 | 0 |
 
-`_m0`'s +33 % is the honest cost of the bound: `back_a = sub(pos, off)` has an
-interval of `[−3071, 3068]`, which discharges **neither** the width check nor the
-bound check, so that node pays **two** inline tests where it used to pay one.
-It is 961 calls against `_m1`'s 3,100 and the net is still strongly positive.
+`_m0`'s **+33 %** is the honest cost of the bound, and it is worth stating
+plainly.  `back_a = sub(pos, off3)` has an interval of `[−3, 3068]` and
+`back_b = sub(pos, off96)` one of `[−96, 3068]`; a negative lower endpoint
+discharges **neither** the width check nor the bound check, so each of those two
+nodes pays **two** inline tests where it used to pay one:
+
+```python
+# B+, _m0                             two checks where A0 emitted one
+v10 = v8 - _k4
+if not 0 <= v10 <= 3071: raise ValueError('value outside semantic bounds')
+if not 0 <= v10 <= 65535: _ovf(v10, 0, 65535)
+```
+
+`_m0` is 961 calls against `_m1`'s 3,100, so the net is still strongly positive —
+but see §7.8: the second of those two lines is **provably unreachable given the
+first**, and this pass does not notice, by design.
 
 #### 2.4.3 Wall clock, batch-one warm, µs per screenshot
 
@@ -346,10 +375,12 @@ if t.kind != "int" or t.bounds is not None:
 ```
 
 `_fast_kind` refused the inline range-test path to **any** carrier declaring a
-refinement bound, sending it to `_canon_fn` — a Python call with six tests in it.
+refinement bound, sending it to `_canon_fn` — a Python call with **five tests and
+an `int()`** in it, and a frame to build and tear down.
 **That one line is why a declared bound cost 1.90× the bytecodes it saved.**
 
-The change is ~30 lines and is **behind `compile_program(..., inline_bounded=False)`,
+The change is **52 added and 11 removed lines** in `tcn/compile.py` — about half
+of them comment — and is **behind `compile_program(..., inline_bounded=False)`,
 off by default**:
 
 * `_fast_kind` accepts a bounded integer-encoded carrier when the flag is set;
@@ -419,16 +450,54 @@ external boundary unchanged.
 | `rung3_root`, bounded | **256** | **400** | **25** |
 
 **Unchanged, as registered.**  A refinement bound narrows the *carrier*; it does
-not touch a choice node or its candidate list.  Node counts move by exactly one —
-S2 586 → 587 (`room`), S1 unchanged — which is the reformulation, not the bound.
+not touch a choice node or its candidate list.  Node counts move by **exactly
+one**, and only in S2 — `rung3_widgets` 585 → 586, `rung3_root` 586 → 587 — which
+is `room`, i.e. the reformulation, not the bound.  S0 (15) and S1 (7 / 22) are
+unchanged.
 
 ### 3.2 The exhaustive sweeps and their certificates
 
-*(filled from `out/certificates_search.json`)*
+Every sweep re-run in both arms, on both scaffolds, with
+`common.sweep` → `tcn.search.enumerate_prefix`; **12 sweeps, ~48 minutes**.
 
-### 3.3 §33's parse
+| scaffold / arm | stage | space | evaluated | conforming | certificate | exhausted | unique | chosen |
+|---|---|---|---|---|---|---|---|---|
+| **reference** `out/rung3.json` | S0 | 256 | 256 | 2 | complete | — | false | `rg 7, same 2` |
+| `rung3_widgets`, `IDX` | S0 | 256 | 256 | 2 | complete | true | false | `rg 7, same 2` |
+| `rung3_widgets`, **bounded** | S0 | **256** | **256** | **2** | **complete** | **true** | **false** | **`rg 7, same 2`** |
+| **reference** `out/rung3.json` | S1 | 400 | 400 | 2 | complete | — | false | `back_a 2, back_b 3, corner 1` |
+| `rung3_widgets`, `IDX` | S1 | 400 | 400 | 2 | complete | true | false | same |
+| `rung3_widgets`, **bounded** | S1 | **400** | **400** | **2** | **complete** | **true** | **false** | **same** |
+| **reference** `out/rung3.json` | S2 | 25 | 25 | **1** | **unique** | — | true | `step_w 2, step_h 3` |
+| `rung3_widgets`, `IDX` | S2 | 25 | 25 | 1 | unique | true | true | same |
+| `rung3_widgets`, **bounded** | S2 | **25** | **25** | **1** | **unique** | **true** | **true** | **same** |
+| `rung3_root`, `IDX` | S1 / S2 | 400 / 25 | 400 / 25 | 2 / **1** | complete / **unique** | true | false / true | as `out/rung3_root.json` |
+| `rung3_root`, **bounded** | S1 / S2 | **400 / 25** | **400 / 25** | **2 / 1** | **complete / unique** | **true** | **false / true** | **as `out/rung3_root.json`** |
 
-*(filled from `out/certificates_parse.json`)*
+**Nothing moves.**  `node_evaluations` is identical to the reference to the unit
+in every stage but S2, where it is **1,605,195 → 1,605,306 (+111)** on
+`rung3_widgets` and **1,694,889 → 1,695,006 (+117)** on `rung3_root`.  Those are
+exactly the **111** and **117** training records: the reformulation's single
+`room` node is evaluated once per record in the shared prefix.  **The whole
+difference in the enumeration is one node, and it is accounted for to the unit.**
+
+### 3.3 §33's parse — the certificate that matters most
+
+`rung3_root.py`'s parser, re-frozen in each arm from the same stored selections
+and run through the **typed interpreter** (not the compiler) on the 12 held-out
+flat screens, scored with `rung3_root.score_with_root`:
+
+| arm | screens | rectangles | screens exact | roots | parent links | links wrong | **exact trees** |
+|---|---|---|---|---|---|---|---|
+| `IDX` (as `main`) | 12 | **227 / 227** | 12 / 12 | 12 | **227 / 227** | **0** | **12 / 12** |
+| **bounded + reformulated** | 12 | **227 / 227** | 12 / 12 | 12 | **227 / 227** | **0** | **12 / 12** |
+
+**§33's result is reproduced exactly and is unmoved by the declared bound.**
+`out/certificates_parse.json` carries the per-screen rows; every one has
+`rects_exact: true`, `parent_links_wrong: 0`, `tree_exact: true`,
+`roots_predicted: 1` in both arms.
+
+**F6 did not fire.  No certificate moves.**
 
 ---
 
@@ -457,9 +526,11 @@ Three separate corrections, all of them pre-registered before measurement:
    compiler, is what stands between `visual` and the rest of this win."*  On
    measurement it is **the other way round**: the error contract is *identical*
    at `(0, 3071)` — 48 differential comparisons on 24 screenshots, both validate
-   settings, zero mismatches — and the `_canon_fn` fallback is **the entire
-   cost**, worth 1.90× in bytecodes.  It is a compiler problem, and one line of
-   compiler fixes it.
+   settings, zero mismatches — and the `_canon_fn` fallback is **the whole of the
+   cost**.  Removing it moves the same declared bound from **0.776× to 1.084×**
+   wall clock, a **1.40× swing**, and from 1.90× the bytecodes to 0.756×.  It is
+   a compiler problem, and 52 flag-gated lines in `_fast_kind` and
+   `_emit_scalar` fix it.
 
 ---
 
@@ -470,7 +541,12 @@ Three separate corrections, all of them pre-registered before measurement:
   `tests/test_compile.py` (33 → 38).  The single failure is
   `tests/test_panel_interface.py::test_panel_episode_replays_and_restores`, the
   known worktree-only replay divergence (FINDINGS §41, §59,
-  `research/MERGE-QUEUE.md`).
+  `research/MERGE-QUEUE.md`).  **Verified environmental here, not assumed**: with
+  `tcn/compile.py` restored to `main` at `59252fc` — i.e. without even §59's
+  lattice — `pytest tests/test_panel_interface.py` still gives `1 failed,
+  9 passed`.  The thirteen-failure mode is the *missing*
+  `generators/computer/engine/node_modules` symlink, not its presence; with it
+  restored the count is as above.
 * **Shipped fixture reproduces exactly.**  `.venv/bin/python -m tcn train
   --episodes 160` gives `initial_prediction_loss 0.248835613951087`,
   `final_prediction_loss 0.0022308224288281053`, `fully_frozen true`,
@@ -580,7 +656,7 @@ At the same volume as the results.
 2. **It does not establish that `inline_bounded` should be on by default.**  It
    is one flag-gated path, gated on one artifact plus five unit tests.  §59's
    own verdict — that 247 lines of emitter for 1.10× on one artifact is a
-   judgement call rather than a fact — applies here at 30 lines and 1.084×, and
+   judgement call rather than a fact — applies here at 52 lines and 1.084×, and
    the judgement is again recorded rather than made silently.
 3. **It does not re-open §56's R5a.**  R5a deleted the clamp; this moves it.  The
    clamp is still there, still executed, and `tests/test_compile.py::
@@ -600,6 +676,18 @@ At the same volume as the results.
 7. **Cold start, peak RSS and zipapp bytes were not measured.**  §59 measured and
    then disqualified them on this host; repeating a disqualified column would add
    nothing.
+8. **The obvious next improvement is left undone on purpose, named and priced.**
+   Where both checks are emitted the second is redundant: after
+   `if not 0 <= v <= 3071: ValueError`, the test `if not 0 <= v <= 65535: _ovf`
+   cannot fire, because `[0, 3071] ⊂ [0, 65535]`.  `_emit_scalar` decides the two
+   independently from the *expression's* interval and never from the state after
+   the first check, so both are written.  **Price: only 6 nodes in the whole
+   artifact emit the width check at all — 2 in `_m0` at 961 calls per screenshot
+   and 4 in `_m2` at 19 — so at most 1,998 redundant tests per screenshot, on the
+   order of 3 % of arm B+'s bytecodes.**  It is not done here because
+   `PREREGISTRATION.md` §2.4 P2.3 registered exactly two independently discharged
+   tests, and widening a rule after seeing its residue is precisely §59's
+   AMENDMENT 1 and §56 §9.2's warning.  It should be its own change.
 
 **Difficulty achieved, stated rather than requested.**  The hard part was not the
 emitter line.  It was noticing, before writing any code, that the bound the clamp

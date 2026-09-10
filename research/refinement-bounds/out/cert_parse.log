@@ -1,9 +1,27 @@
-Traceback (most recent call last):
-  File "/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a0350f1fdeac805b2/research/refinement-bounds/certificates.py", line 183, in <module>
-    main(sys.argv)
-    ~~~~^^^^^^^^^^
-  File "/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a0350f1fdeac805b2/research/refinement-bounds/certificates.py", line 170, in main
-    rep = {"space": space, "search": search, "parse": parse}[what](argv[2:])
-  File "/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a0350f1fdeac805b2/research/refinement-bounds/certificates.py", line 122, in parse
-    from common import bytes_type, episode, load
-ModuleNotFoundError: No module named 'common'
+  IDX       seed 200 rects 20/20 exact=True links 20/20 tree_exact=True (19s)
+  IDX       seed 201 rects 20/20 exact=True links 20/20 tree_exact=True (18s)
+  IDX       seed 202 rects 17/17 exact=True links 17/17 tree_exact=True (18s)
+  IDX       seed 203 rects 20/20 exact=True links 20/20 tree_exact=True (19s)
+  IDX       seed 204 rects 20/20 exact=True links 20/20 tree_exact=True (18s)
+  IDX       seed 205 rects 15/15 exact=True links 15/15 tree_exact=True (18s)
+  IDX       seed 206 rects 20/20 exact=True links 20/20 tree_exact=True (18s)
+  IDX       seed 207 rects 20/20 exact=True links 20/20 tree_exact=True (19s)
+  IDX       seed 208 rects 20/20 exact=True links 20/20 tree_exact=True (18s)
+  IDX       seed 209 rects 17/17 exact=True links 17/17 tree_exact=True (18s)
+  IDX       seed 210 rects 18/18 exact=True links 18/18 tree_exact=True (18s)
+  IDX       seed 211 rects 20/20 exact=True links 20/20 tree_exact=True (19s)
+  bounded   seed 200 rects 20/20 exact=True links 20/20 tree_exact=True (45s)
+  bounded   seed 201 rects 20/20 exact=True links 20/20 tree_exact=True (44s)
+  bounded   seed 202 rects 17/17 exact=True links 17/17 tree_exact=True (42s)
+  bounded   seed 203 rects 20/20 exact=True links 20/20 tree_exact=True (44s)
+  bounded   seed 204 rects 20/20 exact=True links 20/20 tree_exact=True (44s)
+  bounded   seed 205 rects 15/15 exact=True links 15/15 tree_exact=True (40s)
+  bounded   seed 206 rects 20/20 exact=True links 20/20 tree_exact=True (44s)
+  bounded   seed 207 rects 20/20 exact=True links 20/20 tree_exact=True (44s)
+  bounded   seed 208 rects 20/20 exact=True links 20/20 tree_exact=True (44s)
+  bounded   seed 209 rects 17/17 exact=True links 17/17 tree_exact=True (42s)
+  bounded   seed 210 rects 18/18 exact=True links 18/18 tree_exact=True (42s)
+  bounded   seed 211 rects 20/20 exact=True links 20/20 tree_exact=True (44s)
+declared_IDX links 227/227  trees 12/12  rects 227  roots 12
+bounded      links 227/227  trees 12/12  rects 227  roots 12
+parse exit=0
