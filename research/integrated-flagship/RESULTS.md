@@ -96,10 +96,15 @@ comes out.
 the first *generalizing* program exactly (§9.4), and restricting to arms whose settings were fixed
 before the target was seen, the cheapest route is not N″: the unfitted hand-feature controls
 U_feat and U_steep reach a generalizing program sooner. N″ does beat the schema-only baseline N′,
-whose figure is exact. **Against the flat substrate N the comparison is not settled**: N's cost to
-a first generalizing program is only bounded below (not one of its sampled first-shell conformers
-generalized, §9.4), and that bound lies *below* N″'s exact figure, so these data do not establish that
-N″ is cheaper than flat search even post-hoc. The inherited library's
+whose figure is exact — that is the **only** supported post-hoc saving. **Against the flat
+substrate N the comparison is inconclusive**: N's cost to a first generalizing program is only
+bounded below (not one of its sampled first-shell conformers generalized, §9.4), and that bound
+lies *below* N″'s exact figure, so these data do not show the library cheaper than flat search on
+this metric either. **And a hand-feature control is cheaper than N″**: U_feat's cost is exact from
+the same 48-episode count and lies below N″'s, with its sampled estimate agreeing; so N″ is not the
+cheapest arm here. In one line: **on the post-hoc first-generalizing metric the learned library
+beats the schema-only arm, is not shown to beat the flat substrate, and is beaten by a hand-feature
+control.** The inherited library's
 measurable contribution here is the schema's pools plus a step preference that a one-line human
 rule reproduces; nothing fitted from the earlier domains' survival rates is shown to be needed.
 
@@ -442,6 +447,7 @@ kernel on all 48 episodes:
 | `instrument_gap0` | 0.26 | 7:33.93 | 0 |
 | `library` | 0.24 | 0:01.16 | 0 |
 | `posthoc_gap0` | 4.25 | 4:19.05 | 0 |
+| `posthoc_gap1` | 2.19 | 2:09.38 | 0 |
 | `sources` | 0.28 | 1:30.87 | 0 |
 | `v1_shard0` | 0.29 | 1:34:57 | 0 |
 | `v1_shard1` | 0.29 | 1:57:04 | 0 |

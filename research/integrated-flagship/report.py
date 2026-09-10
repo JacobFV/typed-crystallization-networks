@@ -507,6 +507,43 @@ def headline():
                 "certificate_schema": g["schema"]["certificate"],
                 "certificate_distractor": g["distractor"]["certificate"]}
     out["step_hand_gap0"] = {"generalize": gen(0, "STEP_hand"), "expected_programs": ep(0, "STEP_hand")}
+    # post-hoc: cost to the first GENERALIZING program, exact where the 48-episode
+    # count reaches it, bounded from exact uniform samples where it does not.
+    fg = {r["arm"]: r for r in (load("first_generalizing_gap0.json") or [])}
+    ph = {r["arm"]: r for r in (load("posthoc_gap0.json") or []) if r.get("samples")}
+    per = {}
+    for a in set(fg) | set(ph):
+        e = (fg.get(a) or {}).get("expected_programs_to_first_generalizing")
+        p = ph.get(a)
+        per[a] = {"exact_log10": (e or {}).get("log10"),
+                  "bound_log10": (p or {}).get("cost_to_generalizing_lower_bound_log10"),
+                  "estimate_log10": (p or {}).get("cost_to_generalizing_estimate_log10"),
+                  "sampled": None if not p else {"generalize": p["generalize_count"],
+                                                 "n": p["samples"], "wilson95": p["wilson95"]}}
+    out["posthoc_first_generalizing_gap0"] = per
+
+    def val(a):
+        return per.get(a, {}).get("exact_log10")
+    n2, n1, uf = val("N''"), val("N'"), val("U_feat")
+    nb = per.get("N", {}).get("bound_log10")
+    out["posthoc_claims_gap0"] = {
+        "n2_vs_flat_inconclusive": {
+            "holds": bool(nb is not None and n2 is not None and nb < n2),
+            "flat_bound_log10": nb, "n2_exact_log10": n2,
+            "reading": "the flat substrate's lower bound lies below N''s exact cost, so these data "
+                       "do not show the library cheaper than flat search on this metric"},
+        "n2_vs_schema_saving": {
+            "holds": bool(n1 is not None and n2 is not None and n1 > n2),
+            "ratio": (10 ** (n1 - n2)) if (n1 is not None and n2 is not None) else None,
+            "schema_exact_log10": n1, "n2_exact_log10": n2},
+        "hand_feature_cheaper_than_n2": {
+            "holds": bool(uf is not None and n2 is not None and uf < n2),
+            "ratio": (10 ** (n2 - uf)) if (uf is not None and n2 is not None) else None,
+            "u_feat_exact_log10": uf, "n2_exact_log10": n2,
+            "sampled_corroboration": per.get("U_feat", {}).get("sampled")},
+        "summary": "on the post-hoc first-generalizing metric the learned library beats the "
+                   "schema-only arm, is not shown to beat the flat substrate, and is beaten by a "
+                   "hand-feature control"}
     return out
 
 

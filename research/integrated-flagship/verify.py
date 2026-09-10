@@ -386,6 +386,28 @@ if h is not None:
         ok &= g_ is not None and v["schema"] == g_["schema"]["K_generalizing"] and \
             v["distractor"] == g_["distractor"]["K_generalizing"]
     claim("headline.json: every value re-derives exactly from the arm and generalize files", ok)
+    # the three post-hoc claims, re-derived from first_generalizing / posthoc files
+    _fg = {r["arm"]: r for r in (J("first_generalizing_gap0.json") or [])}
+    _ph = {r["arm"]: r for r in (J("posthoc_gap0.json") or []) if r.get("samples")}
+    _c = h.get("posthoc_claims_gap0", {})
+    if _c and _fg and _ph:
+        _n2 = _fg["N''"]["expected_programs_to_first_generalizing"]["log10"]
+        _n1 = _fg["N'"]["expected_programs_to_first_generalizing"]["log10"]
+        _uf = _fg["U_feat"]["expected_programs_to_first_generalizing"]["log10"]
+        _nb = _ph["N"]["cost_to_generalizing_lower_bound_log10"]
+        claim("post-hoc claim: N'' vs flat N is inconclusive (flat's bound is below N'''s exact cost)",
+              _c["n2_vs_flat_inconclusive"]["holds"] is (_nb < _n2) and _nb < _n2,
+              f"bound 10^{_nb:.2f} < exact 10^{_n2:.2f}")
+        claim("post-hoc claim: N'' beats the schema-only arm, ratio re-derived",
+              _c["n2_vs_schema_saving"]["holds"] and
+              abs(_c["n2_vs_schema_saving"]["ratio"] / 10 ** (_n1 - _n2) - 1) < 1e-9,
+              f"{10 ** (_n1 - _n2):.0f}x")
+        claim("post-hoc claim: the hand-feature control is cheaper than N'', ratio re-derived",
+              _c["hand_feature_cheaper_than_n2"]["holds"] and
+              abs(_c["hand_feature_cheaper_than_n2"]["ratio"] / 10 ** (_n2 - _uf) - 1) < 1e-9,
+              f"{10 ** (_n2 - _uf):.0f}x")
+        claim("post-hoc: U_feat's sampled estimate corroborates its exact cost (same order)",
+              abs(_ph["U_feat"]["cost_to_generalizing_estimate_log10"] - _uf) < 0.5)
 
 fails = 0
 for ok, name, detail in results:
