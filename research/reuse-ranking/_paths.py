@@ -19,7 +19,16 @@ PM = ROOT / "research" / "premin-abstraction"
 SL = ROOT / "research" / "semantic-library"
 LG = ROOT / "research" / "lazy-guard"
 
-for _p in (ROOT, EA, PM, SL, LG, HERE):
+for _p in (ROOT, EA, PM, SL, LG):
     _s = str(_p)
     if _s not in sys.path:
         sys.path.insert(0, _s)
+
+# This directory must come *first*: §52's `research/semantic-library` contains
+# modules with the same names as some of this track's (`run_heldout`, `tables`),
+# and a script run from here already has this directory on `sys.path`, so the
+# inserts above would otherwise shadow it.
+_here = str(HERE)
+while _here in sys.path:
+    sys.path.remove(_here)
+sys.path.insert(0, _here)

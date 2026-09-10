@@ -1,0 +1,244 @@
+{
+  "cases": [
+    {
+      "inputs": {
+        "x0": {
+          "raw": false,
+          "type": {
+            "kind": "bool"
+          }
+        },
+        "x1": {
+          "raw": false,
+          "type": {
+            "kind": "bool"
+          }
+        },
+        "x2": {
+          "raw": false,
+          "type": {
+            "kind": "bool"
+          }
+        }
+      },
+      "outputs": {
+        "out": {
+          "raw": false,
+          "type": {
+            "kind": "bool"
+          }
+        }
+      }
+    },
+    {
+      "inputs": {
+        "x0": {
+          "raw": false,
+          "type": {
+            "kind": "bool"
+          }
+        },
+        "x1": {
+          "raw": false,
+          "type": {
+            "kind": "bool"
+          }
+        },
+        "x2": {
+          "raw": true,
+          "type": {
+            "kind": "bool"
+          }
+        }
+      },
+      "outputs": {
+        "out": {
+          "raw": false,
+          "type": {
+            "kind": "bool"
+          }
+        }
+      }
+    },
+    {
+      "inputs": {
+        "x0": {
+          "raw": false,
+          "type": {
+            "kind": "bool"
+          }
+        },
+        "x1": {
+          "raw": true,
+          "type": {
+            "kind": "bool"
+          }
+        },
+        "x2": {
+          "raw": false,
+          "type": {
+            "kind": "bool"
+          }
+        }
+      },
+      "outputs": {
+        "out": {
+          "raw": true,
+          "type": {
+            "kind": "bool"
+          }
+        }
+      }
+    },
+    {
+      "inputs": {
+        "x0": {
+          "raw": false,
+          "type": {
+            "kind": "bool"
+          }
+        },
+        "x1": {
+          "raw": true,
+          "type": {
+            "kind": "bool"
+          }
+        },
+        "x2": {
+          "raw": true,
+          "type": {
+            "kind": "bool"
+          }
+        }
+      },
+      "outputs": {
+        "out": {
+          "raw": false,
+          "type": {
+            "kind": "bool"
+          }
+        }
+      }
+    },
+    {
+      "inputs": {
+        "x0": {
+          "raw": true,
+          "type": {
+            "kind": "bool"
+          }
+        },
+        "x1": {
+          "raw": false,
+          "type": {
+            "kind": "bool"
+          }
+        },
+        "x2": {
+          "raw": false,
+          "type": {
+            "kind": "bool"
+          }
+        }
+      },
+      "outputs": {
+        "out": {
+          "raw": true,
+          "type": {
+            "kind": "bool"
+          }
+        }
+      }
+    },
+    {
+      "inputs": {
+        "x0": {
+          "raw": true,
+          "type": {
+            "kind": "bool"
+          }
+        },
+        "x1": {
+          "raw": false,
+          "type": {
+            "kind": "bool"
+          }
+        },
+        "x2": {
+          "raw": true,
+          "type": {
+            "kind": "bool"
+          }
+        }
+      },
+      "outputs": {
+        "out": {
+          "raw": false,
+          "type": {
+            "kind": "bool"
+          }
+        }
+      }
+    },
+    {
+      "inputs": {
+        "x0": {
+          "raw": true,
+          "type": {
+            "kind": "bool"
+          }
+        },
+        "x1": {
+          "raw": true,
+          "type": {
+            "kind": "bool"
+          }
+        },
+        "x2": {
+          "raw": false,
+          "type": {
+            "kind": "bool"
+          }
+        }
+      },
+      "outputs": {
+        "out": {
+          "raw": false,
+          "type": {
+            "kind": "bool"
+          }
+        }
+      }
+    },
+    {
+      "inputs": {
+        "x0": {
+          "raw": true,
+          "type": {
+            "kind": "bool"
+          }
+        },
+        "x1": {
+          "raw": true,
+          "type": {
+            "kind": "bool"
+          }
+        },
+        "x2": {
+          "raw": true,
+          "type": {
+            "kind": "bool"
+          }
+        }
+      },
+      "outputs": {
+        "out": {
+          "raw": true,
+          "type": {
+            "kind": "bool"
+          }
+        }
+      }
+    }
+  ]
+}

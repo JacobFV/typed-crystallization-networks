@@ -1,0 +1,430 @@
+{
+  "entries": [
+    {
+      "description_bits": 10128,
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "execution_cost": 4.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "cls_165bc290d9c8",
+      "nodes": 4,
+      "operator": "module:165bc290d9c82b70a8ea3cc2",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 3,
+        "identity": "(arity, truth table)",
+        "nodes": 4,
+        "preregistered": true,
+        "rule": "mine_semantic pooling, unchanged",
+        "selected_on": "full",
+        "track": "research/reuse-ranking",
+        "truth_table": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 3800,
+      "digest": "5e50f17066eb3de5049f4ed5",
+      "execution_cost": 1.0,
+      "fixture_cases": 4,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "cls_5e50f17066eb",
+      "nodes": 1,
+      "operator": "module:5e50f17066eb3de5049f4ed5",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 2,
+        "identity": "(arity, truth table)",
+        "nodes": 1,
+        "preregistered": true,
+        "rule": "mine_semantic pooling, unchanged",
+        "selected_on": "full",
+        "track": "research/reuse-ranking",
+        "truth_table": [
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 3808,
+      "digest": "9e8092e7bdb684bb47a3cc29",
+      "execution_cost": 1.0,
+      "fixture_cases": 4,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "cls_9e8092e7bdb6",
+      "nodes": 1,
+      "operator": "module:9e8092e7bdb684bb47a3cc29",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 2,
+        "identity": "(arity, truth table)",
+        "nodes": 1,
+        "preregistered": true,
+        "rule": "mine_semantic pooling, unchanged",
+        "selected_on": "full",
+        "track": "research/reuse-ranking",
+        "truth_table": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 6056,
+      "digest": "82b93e4bc7b294ff04c8f289",
+      "execution_cost": 2.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "cls_82b93e4bc7b2",
+      "nodes": 2,
+      "operator": "module:82b93e4bc7b294ff04c8f289",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 3,
+        "identity": "(arity, truth table)",
+        "nodes": 2,
+        "preregistered": true,
+        "rule": "mine_semantic pooling, unchanged",
+        "selected_on": "full",
+        "track": "research/reuse-ranking",
+        "truth_table": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 12360,
+      "digest": "08735e504400bf4879acf0a7",
+      "execution_cost": 5.0,
+      "fixture_cases": 16,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x3",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "cls_08735e504400",
+      "nodes": 5,
+      "operator": "module:08735e504400bf4879acf0a7",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 4,
+        "identity": "(arity, truth table)",
+        "nodes": 5,
+        "preregistered": true,
+        "rule": "mine_semantic pooling, unchanged",
+        "selected_on": "wo_t1",
+        "track": "research/reuse-ranking",
+        "truth_table": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 12384,
+      "digest": "0ba4287a0409988fa2b5eff9",
+      "execution_cost": 5.0,
+      "fixture_cases": 16,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x3",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "cls_0ba4287a0409",
+      "nodes": 5,
+      "operator": "module:0ba4287a0409988fa2b5eff9",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 4,
+        "identity": "(arity, truth table)",
+        "nodes": 5,
+        "preregistered": true,
+        "rule": "mine_semantic pooling, unchanged",
+        "selected_on": "wo_t2",
+        "track": "research/reuse-ranking",
+        "truth_table": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 3808,
+      "digest": "85aa887f3e90a3903b9fa709",
+      "execution_cost": 1.0,
+      "fixture_cases": 4,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "cls_85aa887f3e90",
+      "nodes": 1,
+      "operator": "module:85aa887f3e90a3903b9fa709",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 2,
+        "identity": "(arity, truth table)",
+        "nodes": 1,
+        "preregistered": true,
+        "rule": "mine_semantic pooling, unchanged",
+        "selected_on": "wo_t2",
+        "track": "research/reuse-ranking",
+        "truth_table": [
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    }
+  ],
+  "format": "tcn.library/1"
+}

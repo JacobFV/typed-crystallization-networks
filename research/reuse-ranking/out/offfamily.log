@@ -1,0 +1,105 @@
+wo_s1    O1 rank1=0b7ea9a5a2d4 arity=3 tasks=4 window=True window_rank=1
+wo_s1    O2 rank1=0b7ea9a5a2d4 arity=3 tasks=4 window=True window_rank=1
+wo_s1    O3 rank1=9e8092e7bdb6 arity=2 tasks=5 window=False window_rank=12
+wo_s1    O4 rank1=0b7ea9a5a2d4 arity=3 tasks=4 window=True window_rank=1
+wo_s1    O5 rank1=85aa887f3e90 arity=2 tasks=5 window=False window_rank=14
+wo_s1    B1 rank1=984904fa7d7f arity=3 tasks=5 window=False window_rank=6
+wo_s1    B2 rank1=85aa887f3e90 arity=2 tasks=5 window=False window_rank=8
+  IC1 True
+wo_s2    O1 rank1=0c0ef6cd18c9 arity=4 tasks=2 window=False window_rank=2
+wo_s2    O2 rank1=0b7ea9a5a2d4 arity=3 tasks=4 window=True window_rank=1
+wo_s2    O3 rank1=9e8092e7bdb6 arity=2 tasks=5 window=False window_rank=15
+wo_s2    O4 rank1=0b7ea9a5a2d4 arity=3 tasks=4 window=True window_rank=1
+wo_s2    O5 rank1=85aa887f3e90 arity=2 tasks=5 window=False window_rank=14
+wo_s2    B1 rank1=189383c67d31 arity=3 tasks=5 window=False window_rank=6
+wo_s2    B2 rank1=85aa887f3e90 arity=2 tasks=5 window=False window_rank=7
+  IC1 True
+wo_s3    O1 rank1=0c0ef6cd18c9 arity=4 tasks=2 window=False window_rank=2
+wo_s3    O2 rank1=0b7ea9a5a2d4 arity=3 tasks=4 window=True window_rank=1
+wo_s3    O3 rank1=9e8092e7bdb6 arity=2 tasks=5 window=False window_rank=18
+wo_s3    O4 rank1=0b7ea9a5a2d4 arity=3 tasks=4 window=True window_rank=1
+wo_s3    O5 rank1=85aa887f3e90 arity=2 tasks=5 window=False window_rank=14
+wo_s3    B1 rank1=189383c67d31 arity=3 tasks=5 window=False window_rank=6
+wo_s3    B2 rank1=85aa887f3e90 arity=2 tasks=5 window=False window_rank=8
+  IC1 True
+wo_s4    O1 rank1=0b7ea9a5a2d4 arity=3 tasks=4 window=True window_rank=1
+wo_s4    O2 rank1=0b7ea9a5a2d4 arity=3 tasks=4 window=True window_rank=1
+wo_s4    O3 rank1=9e8092e7bdb6 arity=2 tasks=5 window=False window_rank=12
+wo_s4    O4 rank1=0b7ea9a5a2d4 arity=3 tasks=4 window=True window_rank=1
+wo_s4    O5 rank1=85aa887f3e90 arity=2 tasks=5 window=False window_rank=14
+wo_s4    B1 rank1=189383c67d31 arity=3 tasks=5 window=False window_rank=6
+wo_s4    B2 rank1=85aa887f3e90 arity=2 tasks=5 window=False window_rank=8
+  IC1 True
+wo_s5    O1 rank1=0c0ef6cd18c9 arity=4 tasks=2 window=False window_rank=2
+wo_s5    O2 rank1=0b7ea9a5a2d4 arity=3 tasks=4 window=True window_rank=1
+wo_s5    O3 rank1=9e8092e7bdb6 arity=2 tasks=5 window=False window_rank=18
+wo_s5    O4 rank1=0b7ea9a5a2d4 arity=3 tasks=4 window=True window_rank=1
+wo_s5    O5 rank1=85aa887f3e90 arity=2 tasks=5 window=False window_rank=14
+wo_s5    B1 rank1=189383c67d31 arity=3 tasks=5 window=False window_rank=6
+wo_s5    B2 rank1=85aa887f3e90 arity=2 tasks=5 window=False window_rank=8
+  IC1 True
+H_par                hand:d134              space    25200 conforming     0 exhausted True complete
+H_par                lib:off_0b7ea9a5a2d4   space    25200 conforming     0 exhausted True complete
+H_par                lib:off_0c0ef6cd18c9   space   221520 conforming     0 exhausted True complete
+H_par                lib:off_189383c67d31   space    25200 conforming     0 exhausted True complete
+H_par                lib:off_85aa887f3e90   space     7920 conforming     0 exhausted True complete
+H_par                lib:off_984904fa7d7f   space    25200 conforming     0 exhausted True complete
+H_par                lib:off_9e8092e7bdb6   space     7920 conforming     0 exhausted True complete
+H_par                none                   space     4760 conforming     0 exhausted True complete
+s1_w_abc_xor_d       hand:d134              space    25200 conforming     4 exhausted True complete
+s1_w_abc_xor_d       lib:off_0b7ea9a5a2d4   space    25200 conforming     4 exhausted True complete
+s1_w_abc_xor_d       lib:off_0c0ef6cd18c9   space   221520 conforming   654 exhausted True complete
+s1_w_abc_xor_d       lib:off_189383c67d31   space    25200 conforming     0 exhausted True complete
+s1_w_abc_xor_d       lib:off_85aa887f3e90   space     7920 conforming     0 exhausted True complete
+s1_w_abc_xor_d       lib:off_984904fa7d7f   space    25200 conforming     0 exhausted True complete
+s1_w_abc_xor_d       lib:off_9e8092e7bdb6   space     7920 conforming     0 exhausted True complete
+s1_w_abc_xor_d       none                   space     4760 conforming     0 exhausted True complete
+s2_w_abc_and_d       hand:d134              space    25200 conforming     8 exhausted True complete
+s2_w_abc_and_d       lib:off_0b7ea9a5a2d4   space    25200 conforming     8 exhausted True complete
+s2_w_abc_and_d       lib:off_0c0ef6cd18c9   space   221520 conforming     4 exhausted True complete
+s2_w_abc_and_d       lib:off_189383c67d31   space    25200 conforming     0 exhausted True complete
+s2_w_abc_and_d       lib:off_85aa887f3e90   space     7920 conforming     0 exhausted True complete
+s2_w_abc_and_d       lib:off_984904fa7d7f   space    25200 conforming     0 exhausted True complete
+s2_w_abc_and_d       lib:off_9e8092e7bdb6   space     7920 conforming     0 exhausted True complete
+s2_w_abc_and_d       none                   space     4760 conforming     0 exhausted True complete
+s3_w_bcd_or_a        hand:d134              space    25200 conforming     4 exhausted True complete
+s3_w_bcd_or_a        lib:off_0b7ea9a5a2d4   space    25200 conforming     4 exhausted True complete
+s3_w_bcd_or_a        lib:off_0c0ef6cd18c9   space   221520 conforming     4 exhausted True complete
+s3_w_bcd_or_a        lib:off_189383c67d31   space    25200 conforming     0 exhausted True complete
+s3_w_bcd_or_a        lib:off_85aa887f3e90   space     7920 conforming     0 exhausted True complete
+s3_w_bcd_or_a        lib:off_984904fa7d7f   space    25200 conforming     0 exhausted True complete
+s3_w_bcd_or_a        lib:off_9e8092e7bdb6   space     7920 conforming     0 exhausted True complete
+s3_w_bcd_or_a        none                   space     4760 conforming     0 exhausted True complete
+s4_w_acd_xor_b       hand:d134              space    25200 conforming     4 exhausted True complete
+s4_w_acd_xor_b       lib:off_0b7ea9a5a2d4   space    25200 conforming     4 exhausted True complete
+s4_w_acd_xor_b       lib:off_0c0ef6cd18c9   space   221520 conforming   654 exhausted True complete
+s4_w_acd_xor_b       lib:off_189383c67d31   space    25200 conforming     0 exhausted True complete
+s4_w_acd_xor_b       lib:off_85aa887f3e90   space     7920 conforming     0 exhausted True complete
+s4_w_acd_xor_b       lib:off_984904fa7d7f   space    25200 conforming     0 exhausted True complete
+s4_w_acd_xor_b       lib:off_9e8092e7bdb6   space     7920 conforming     0 exhausted True complete
+s4_w_acd_xor_b       none                   space     4760 conforming     0 exhausted True complete
+s5_w_abd_or_c        hand:d134              space    25200 conforming     4 exhausted True complete
+s5_w_abd_or_c        lib:off_0b7ea9a5a2d4   space    25200 conforming     4 exhausted True complete
+s5_w_abd_or_c        lib:off_0c0ef6cd18c9   space   221520 conforming     4 exhausted True complete
+s5_w_abd_or_c        lib:off_189383c67d31   space    25200 conforming     0 exhausted True complete
+s5_w_abd_or_c        lib:off_85aa887f3e90   space     7920 conforming     0 exhausted True complete
+s5_w_abd_or_c        lib:off_984904fa7d7f   space    25200 conforming     0 exhausted True complete
+s5_w_abd_or_c        lib:off_9e8092e7bdb6   space     7920 conforming     0 exhausted True complete
+s5_w_abd_or_c        none                   space     4760 conforming     0 exhausted True complete
+t1_maj_abc_xor_d     hand:d134              space    25200 conforming     0 exhausted True complete
+t1_maj_abc_xor_d     lib:off_0b7ea9a5a2d4   space    25200 conforming     0 exhausted True complete
+t1_maj_abc_xor_d     lib:off_0c0ef6cd18c9   space   221520 conforming     0 exhausted True complete
+t1_maj_abc_xor_d     lib:off_189383c67d31   space    25200 conforming     0 exhausted True complete
+t1_maj_abc_xor_d     lib:off_85aa887f3e90   space     7920 conforming     0 exhausted True complete
+t1_maj_abc_xor_d     lib:off_984904fa7d7f   space    25200 conforming     0 exhausted True complete
+t1_maj_abc_xor_d     lib:off_9e8092e7bdb6   space     7920 conforming     0 exhausted True complete
+t1_maj_abc_xor_d     none                   space     4760 conforming     0 exhausted True complete
+t3_maj_bcd_or_a      hand:d134              space    25200 conforming     0 exhausted True complete
+t3_maj_bcd_or_a      lib:off_0b7ea9a5a2d4   space    25200 conforming     0 exhausted True complete
+t3_maj_bcd_or_a      lib:off_0c0ef6cd18c9   space   221520 conforming     0 exhausted True complete
+t3_maj_bcd_or_a      lib:off_189383c67d31   space    25200 conforming     0 exhausted True complete
+t3_maj_bcd_or_a      lib:off_85aa887f3e90   space     7920 conforming     0 exhausted True complete
+t3_maj_bcd_or_a      lib:off_984904fa7d7f   space    25200 conforming     0 exhausted True complete
+t3_maj_bcd_or_a      lib:off_9e8092e7bdb6   space     7920 conforming     0 exhausted True complete
+t3_maj_bcd_or_a      none                   space     4760 conforming     0 exhausted True complete
+-> /home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-ab8cda5470a12ec84/research/reuse-ranking/out/offfamily.json
