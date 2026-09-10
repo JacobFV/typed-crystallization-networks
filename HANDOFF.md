@@ -58,6 +58,18 @@ recently in the reversible form its third refutation asked for (§7, §12, §37)
 
 ## Traps that have cost real time
 
+- **The host crashed on 2026-09-10 from memory exhaustion — cap every heavy job.**
+  The machine is an NVIDIA GB10 with **unified memory**: CPU and GPU share one
+  121 GB pool, so exhausting RAM shows up as `NVRM ... NV_ERR_NO_MEMORY` in the
+  kernel log and takes the whole host down. The venv's torch is **CPU-only**
+  (`2.14.0+cpu`), so this was plain RAM, from several agents running parallel
+  enumeration and sweep jobs (up to 11-way shards) alongside pytest. Rules:
+  run **one heavy agent at a time**; wrap heavy jobs in
+  `systemd-run --user --scope -p MemoryMax=40G -p CPUQuota=800% <cmd>` so a
+  runaway job is killed rather than the host; cap worker processes at ~4 with
+  `OMP_NUM_THREADS=1 MKL_NUM_THREADS=1`; never run the full suite concurrently
+  with an agent's heavy phase.
+
 - **`test_panel_interface.py::test_panel_episode_replays_and_restores` fails in
   any git worktree** with `node_modules` symlinked from the main checkout, on
   main's own code, deterministically. It passes in the main checkout. One such
