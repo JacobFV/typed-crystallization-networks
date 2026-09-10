@@ -2338,3 +2338,79 @@ control before being treated as a capability — a rule that reaches the ceiling
 the one task whose answer we already know is exactly the shape of result this
 project has learned to distrust.
 
+## 47. The min-prefix fix is reachable by enumeration, invisible to gradients, and — against my expectation — proposable from pre-hoc evidence
+
+`research/dyck-learnability/RESULTS.md`, branch `dyck-learnability` (`277bbb8`),
+**not merged at time of writing**; `tcn/` and `generators/` untouched.
+`PREREGISTRATION.md` at `98b061f` with an addendum at `fb86892`, both **before
+the arms they govern**. §45 exhibited a repair; this asks whether the *system*
+can reach it or only a human reading the diagnosis. Verified here from raw JSON.
+
+**Q1 — enumeration finds it, and §45's window was luckier than it looked.** The
+full min-prefix space is now **exhausted**: eleven disjoint order-preserving
+shards of 61,875 each, **680,625 evaluated, 110 conforming, certificate
+`complete`**, 5.83 CPU-h at 34.5 min wall. Verified shard by shard — **only** the
+`c ∈ [99,110)` shard contains any conforming member; the other ten are 0.
+
+So §45's hand-chosen `c ∈ [95,110)` contained the **entire** conforming set. Its
+recovery did not depend on knowing the answer for *existence* — but it did for
+*cost*: the first conforming member sits at index **571,746 of 680,625, 84.00%
+through**, projecting 4.9 single-thread hours, which is exactly why §45's run
+stopped at ~52% saw nothing. **A search that halts at half the space proves
+nothing about the other half**, and this is the concrete instance.
+
+**Q2 — the gradient path does not find it, and the control is what proves it.**
+64 runs across both scaffolds × two surrogate scales × two budgets: **0
+conforming**, median held-out **0.4738** against a 0.5262 majority and 0.5 random
+— *below both*. The pre-registered falsification fires.
+
+The control is the point. The `dyck` scaffold carries `solution_exists_in_family:
+true` (110, proved by Q1); the `counting` scaffold carries **`false`** (proved by
+§45). Both produce the **identical** median 0.4738. A path that performs
+identically on a scaffold with 110 solutions and one with provably zero is not
+searching that scaffold at all.
+
+The mechanism is measured, not inferred: `symbols` has a first-step gradient of
+**exactly 0.0**, so both scaffolds select the **identical `c` at every seed**,
+unchanged by 5× the budget, and `min_ok` was correct in **0 of 32** min-prefix
+runs. This is the fourth instance of the §16 family — a surrogate that is
+identically zero at the operating distances — and the track states plainly that
+0/8 alone cannot separate a bad optimiser from an unlucky one; **the seed-for-seed
+identity is what does**.
+
+**Q3 — I predicted a negative here and was wrong.** The brief said "a negative
+here is expected and valuable: if nothing in the system can propose it, scaffold
+design is currently a human input." A pre-hoc signal **does** exist, it is cheap,
+and no shipped component computes it. Evidence used is only: *the failed
+scaffold, its exhaustion certificate, and the 24 training episodes* — no labels
+beyond training, no knowledge of the answer.
+
+| probe, fitted on training only | result |
+|---|---|
+| the failed scaffold's terminal accumulator `acc21` | `distinct_values: [0]` — **literally constant**, **0.0** information bits against 1.0 label entropy |
+| a running minimum over the same nodes | **1.000** bits |
+| sweep core's five reductions over nodes the scaffold already has | `reduce_min` train **1.000**, **held-out unseen 1.000 on n=859** vs 0.5262 majority; `reduce_max` 1.000; `sum` (the counting one) caps at **0.75**; `mean` 0.79; `count` 0.50 |
+| sweep the fold hole over core's nine `CNT×CNT→CNT` operators | returns exactly **`min` and `max`** |
+
+A node whose value is *constant across the whole training batch* while the labels
+carry a full bit is detectable without labels, without search, and in seconds.
+That is a signal pointing at "this accumulator cannot be the discriminator" and
+it is available **before** any of §45's work.
+
+So the honest statement is narrower than the brief's expected negative:
+**scaffold design is a human input today, but this particular repair required
+seconds of evidence rather than the answer.** Whether the same probe generalises
+beyond a constant-node diagnosis is untested and should not be assumed.
+
+**Disclosures the track made itself.** Two simulator defects surfaced during
+validation and **both superseded runs are kept** rather than deleted; the
+simulator was then validated against `Program.execute` on 150 members with **0
+mismatches** over 3,600 episode evaluations. Tests 275 pass / 13 fail, identical
+with the track's own directory removed.
+
+**What this does to §45.** §45 stands. Its window is now known to have held the
+entire conforming set, and its stopped enumeration is now completed. What changes
+is the reading of "the unmodified search recovers it": true, but at 84% through
+an 680,625-program space, so *enumeration order* is doing real work and no
+sensible ordering was shown to find it early.
+
