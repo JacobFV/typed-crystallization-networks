@@ -590,3 +590,44 @@ the file it read it from:
   false-positive.
 - **tests/** — suite result and collected count, tolerating only the documented
   worktree-only failure.
+
+---
+
+## Gate, 2026-09-10
+
+Turning the one-off audit above into a routine gate. Work proceeds in the seven
+steps of the brief; each step is committed separately.
+
+### Step 1 — baseline, re-measured before any change
+
+Branch `worktree-agent-a6181b3776c179a09` from `main` at `cfb993d`, after the
+supervising session had already applied CORRECTIONS rows 8 and 10, §19's
+annotation, §20's withdrawal, §39's 7/12 and `docs/VALIDATION.md`'s 1.000.
+`verify.py` unmodified, run under `systemd-run -p MemoryMax=16G -p CPUQuota=200%`:
+
+| invocation | checks | pass | fail | warn |
+|---|---|---|---|---|
+| `verify.py` (no demo summary in the worktree — the audit's gate configuration) | **27** | **8** | **18** | **1** |
+| `verify.py --demo-from <main checkout>/artifacts/demo/summary.json` | 37 | 10 | 18 | 9 |
+
+The audit's own "49 checks, 25 pass, 23 fail, 1 warn" was taken against a
+ten-demo `summary.json`. The only summary on this host today is a **one-demo**
+file (`language` only, 1/1) left by the demo-language-fix track, which produces
+the second row — and exposes a verifier defect: `pass3/status-ten-capabilities`
+**passes** on `1/1`, because it compares `passed == total` without checking that
+`total` is ten. Fixed in step 2.
+
+The 18 failures at baseline, by check id: `record/no-duplicate-sections`,
+`record/no-missing-sections`, `record/no-dangling-section-refs`,
+`record/cited-paths-exist`, `retracted/language-stream-unqualified-in-README`,
+`status/policy-learning-has-results`, `status/object-identity-placeholders`,
+`status/test-count`, `pass1/§19-exact-at-lengths-8-to-16`,
+`pass1/§39-inproc-agreement-count`, `pass1/§39-inproc-results-corrected`,
+`pass1/§20-joint-constant-baseline`, `pass1/§43-deployment-footprint`,
+`pass1/§48-visual-decomposition`, `pass1/§43-visual-rectangles`,
+`pass1/§41-span-sweep`, `pass1/§47-seed-identity`,
+`pass1/§47-symbols-gradient-zero`.
+
+**Section coverage at baseline: 7 of 63 sections** (§19, §20, §39, §41, §43, §47,
+§48) have at least one check comparing a document claim to a committed artifact.
+63 = sections 1–41 and 43–63, with §14 counted twice because it is two sections.
