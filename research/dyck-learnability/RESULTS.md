@@ -25,7 +25,50 @@ and answers three questions in order. Criteria were written to
 
 ## Verdict, up front
 
-*(filled in below once every arm has a number)*
+**Q1 — the unwindowed enumeration finds it, with a certificate.** The full
+680,625-program min-prefix space is now **exhausted**: evaluated 680,625,
+**110 conforming**, certificate **`complete`**, 5.83 CPU-hours. §45's recovery did
+not depend on knowing the answer for *existence* — but it did for *cost*. The
+first conforming member sits at enumeration index **571,746 of 680,625, 84.00% of
+the way through**, a projected **4.9 single-threaded hours before the first
+success**, which is why §45's run — stopped at ~52% — saw nothing. All 110
+conforming members lie in `c ∈ [99,110)`, so §45's hand-chosen window contained
+the **entire** conforming set; it bought an 8× time saving and cost nothing in
+completeness. §45's windowed arm reproduces here to the digit, description bits
+included.
+
+**Q2 — the gradient path does not find it, and cannot beat its own control.**
+**0 of 64 runs conformed**, on every arm: both scaffolds, both temperatures, both
+step budgets. Median held-out accuracy is **0.4738** against a **0.5262** majority
+and **0.5** random — below both. The min-prefix arm conforms at the *same* rate as
+the counting-only control, where §45 proves no solution exists, so the
+pre-registered falsification fires: this is **noise-fitting, not success**. The
+mechanism is measured, not inferred: `symbols`, the node that decides whether the
+program reads the string at all, has a first-step choice gradient of **exactly
+0.0**, so its argmax is set by initialisation noise — and the two scaffolds
+consequently select the **identical constant `c` at every one of 8 seeds**, on a
+space with 110 solutions and on a space with none. Uniform random selection
+predicts 0.0013 successes in 8 draws; 0/8 is exactly that. The `min_ok` readout is
+**vacuous or wrong in all 16** min-prefix runs at 600 steps and never correct.
+
+**Q3 — yes, a pre-hoc signal exists, it is cheap, and no shipped component
+computes it.** From the failed scaffold and the 24 training episodes alone: the
+scaffold's **output accumulator is constant** across the training batch (one
+distinct value, **0.0 bits** of label information) — detectable with no labels and
+no search, and strictly cheaper than the 45,375-program exhaustion certificate
+that says the same thing; the **running minimum of the same prefix carries the
+full 1.000 bits** of label entropy, against 0.370 for the best sum in the family;
+and sweeping the **five reductions core already declares** over the nodes the
+failed scaffold already materialises, fitted on training episodes only, returns
+`reduce_min` at train **1.000** and held-out **1.000**. Independently, enumerating
+the fold operator over the **nine** operators core declares at `CNT × CNT → CNT`
+returns exactly the two that compute a running extremum, `min` and `max`, both at
+**1.000** on the real program. So the pre-registered negative is **not** the
+outcome: the information was there. What is missing is a **mechanism** — nothing
+in the shipped system watches a node for constancy, measures label information per
+node, or sweeps a template hole. **Scaffold design remains a human input today,
+but this particular repair needed evidence worth seconds of compute, not
+knowledge of the answer.**
 
 ---
 
@@ -162,6 +205,28 @@ by `min_ok = eq(lo21, 0)`, i.e. by the running minimum. That is the §3a finding
 falling out of the enumeration on its own: the sum contributes nothing and the
 minimum contributes everything.
 
+### Arm 1b — §45's recorded window reproduces exactly
+
+`out/q1b_c95-110.json`, the same runner on `c ∈ [95,110)` with
+`rank='description'`, which is §45's own invocation:
+
+| | this run | §45 records |
+|---|---|---|
+| space size | **84,375** | 84,375 |
+| evaluated | **84,375** | 84,375 |
+| exhausted | **true** | true |
+| conforming | **110** | 110 |
+| certificate | **`complete`** | `complete` |
+| selection | `symbols = length − 101`, `plus = +1`, `minus = −1`, `total_ok = eq(acc21, 0)`, `min_ok = eq(lo21, 0)` | identical |
+| description bits | **4,970,296** | 4,970,296 |
+| execution cost | **226.0** | 226.0 |
+| held-out unseen accuracy | **1.0000** (n = 859, majority 0.5262) | 1.000 |
+| seconds | 2,546.7 | 1,265.8 (unloaded machine) |
+
+Every recorded quantity reproduces, to the digit where a digit was recorded. The
+only difference is wall clock, and that is this run sharing 20 cores with eleven
+other shards. **§45's Dyck arm reproduces.**
+
 ### Q1 verdict
 
 **Enumeration finds it without the window.** The pre-registered falsification —
@@ -228,7 +293,117 @@ minimum lies in {0,−1,−2} on this stream, a readout is **correct** iff it eq
 non-constant there, and **vacuous** otherwise — and a vacuous `min_ok` means the
 export has collapsed to the counting program, i.e. into the control's family.
 
-*(numbers pending)*
+### The answer: no, on every arm, and it does not beat its control
+
+`q2_launch.sh` → `out/q2_*.json` → `q2_aggregate.py` → `out/q2_summary.json`.
+Eight arms, 8 seeds each, 64 gradient runs in total.
+
+| scaffold | solution exists? | tau_lt | steps | conforming | median unseen | max unseen | majority | random |
+|---|---|---|---|---|---|---|---|---|
+| **min-prefix** | **yes (110 members)** | 1 | 600 | **0 / 8** | 0.4738 | 0.5262 | 0.5262 | 0.5 |
+| counting-only | **no (proved)** | 1 | 600 | **0 / 8** | 0.4738 | 0.4738 | 0.5262 | 0.5 |
+| **min-prefix** | **yes** | 128 | 600 | **0 / 8** | 0.4738 | 0.4738 | 0.5262 | 0.5 |
+| counting-only | no | 128 | 600 | **0 / 8** | 0.4738 | 0.4738 | 0.5262 | 0.5 |
+| **min-prefix** | **yes** | 1 | **3,000** | **0 / 8** | 0.4738 | 0.5262 | 0.5262 | 0.5 |
+| counting-only | no | 1 | **3,000** | **0 / 8** | 0.4738 | 0.4738 | 0.5262 | 0.5 |
+| **min-prefix** | **yes** | 128 | **3,000** | **0 / 8** | 0.4738 | 0.4738 | 0.5262 | 0.5 |
+| counting-only | no | 128 | **3,000** | **0 / 8** | 0.4738 | 0.4738 | 0.5262 | 0.5 |
+
+**Not one of the 64 runs conformed**, and no run's export beat the majority
+constant on the held-out unseen split; the median arm sits at **0.4738**, which is
+*below* both the 0.5262 majority and 0.5 random — it is the anti-majority
+constant, the export predicting `no` everywhere.
+
+**Steps to first conforming export: never**, on any seed of any arm. The
+pre-registered measurement (argmax export checked every 10 steps by exact
+execution) recorded no conforming export at any checkpoint.
+
+**Five times the budget changes nothing.** At the shipped temperature the
+3,000-step arms are not merely similar to the 600-step arms, they are
+**identical** — same conformance, same medians, same per-seed exports, same
+selected constants. `dyck_ever_beats_control: false` on every pairing. Budget is
+not the binding constraint.
+
+### The `min_ok` readout: vacuous or wrong, never correct
+
+| arm | `min_ok` classification over 8 seeds |
+|---|---|
+| min-prefix, tau_lt 1, 600 steps | **vacuous × 8** |
+| min-prefix, tau_lt 1, 3,000 steps | **vacuous × 8** |
+| min-prefix, tau_lt 128, 600 steps | vacuous × 2, **informative × 6**, correct × 0 |
+| min-prefix, tau_lt 128, 3,000 steps | vacuous × 2, **informative × 6**, correct × 0 |
+| **all 32 min-prefix runs** | **20 vacuous, 12 informative, 0 correct** |
+
+At the shipped temperature the readout is **constant on all 859 unseen episodes
+in every seed** — the export has collapsed into the counting family, which is
+exactly the control's family and provably contains no solution. Widening the `lt`
+surrogate makes 6 of 8 readouts non-constant, so the running minimum starts
+being *read*; none of them is the **correct** readout. **Zero of 32 min-prefix
+runs selected `min_ok` correctly.**
+
+### The measurement that settles it: the two scaffolds make the *same* choice
+
+This was not planned and is the sharpest number in the arm. `symbols` — the node
+choosing the constant `c`, i.e. whether the program reads the string at all — has
+a **first-step choice gradient of exactly 0.0** at the shipped temperature. §19
+measured that defect (`lt`'s surrogate gradient is exactly 0.0 at delta ≥ 17) and
+it reproduces here at delta up to 22. With no gradient, the argmax of that node is
+decided by the initialisation noise alone, and the consequence is directly
+observable:
+
+| seed | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+|---|---|---|---|---|---|---|---|---|
+| `c` chosen, **min-prefix** scaffold, 600 steps | 65 | 44 | 55 | 110 | 13 | 20 | 68 | 6 |
+| `c` chosen, **counting-only** scaffold, 600 steps | 65 | 44 | 55 | 110 | 13 | 20 | 68 | 6 |
+| `c` chosen, **min-prefix**, **3,000** steps | 65 | 44 | 55 | 110 | 13 | 20 | 68 | 6 |
+| `c` chosen, **counting-only**, **3,000** steps | 65 | 44 | 55 | 110 | 13 | 20 | 68 | 6 |
+
+**Identical at every seed, and unchanged by five times the budget.** On a
+scaffold that contains 110 solutions and on a scaffold proved to contain none,
+the gradient path selects the same constant, because that selection is a function
+of the random seed and not of the data. At `tau_lt = 128` the gradient becomes
+1.8e-08 — nonzero, still negligible — and the constants do move, but only to
+`c ∈ {0, 47, 48}`, again the same on both scaffolds. **The correct value is
+`c = 101`; no seed of any arm, at any budget or temperature, chose it.**
+
+### The random-selection null (addendum A2)
+
+`q2_null.py` → `out/q2_null.json`. 2,000 uniform draws from each space, the same
+exact-execution conformance test:
+
+| space | draws | usable | conforming | rate |
+|---|---|---|---|---|
+| min-prefix, 680,625 programs | 2,000 | 1,883 | **0** | 0.0000 |
+| counting-only, 45,375 programs | 2,000 | 1,895 | **0** | 0.0000 |
+
+With 110 conforming members in 680,625, a uniform draw conforms with probability
+**1.6 × 10⁻⁴**, so 8 draws are expected to yield **0.0013** successes. The
+gradient path's 0/8 is therefore **exactly what uniform random selection
+predicts**: over 32 min-prefix runs it extracted no advantage over chance on a
+space where a solution demonstrably exists.
+
+*Stated plainly, and against this track's own interest:* because the null is
+itself ~0, **0/8 alone cannot distinguish a bad optimiser from an unlucky one**.
+What distinguishes them is the seed-for-seed identity above and the dead
+gradient that explains it — a path that were merely unlucky would not make the
+*same* choice on a scaffold with 110 solutions and one with none.
+
+### Q2 verdict
+
+**The pre-registered falsification fires.** It read: *"if the gradient path
+conforms at the same rate on the min-prefix and counting-only scaffolds, it is
+not selecting the `min`; report it as noise-fitting, not success."* Both arms
+conform at **0/8**, on both temperatures and both budgets;
+`dyck_ever_beats_control` is **false**. The pre-registration's other clause also
+applies — *"if both arms conform on 0 seeds, that is a clean negative for the
+gradient path"* — and both readings agree.
+
+So: **the gradient path does not find it, and it does not beat its own control.**
+The cause is not budget and not the scaffold; it is the surrogate gradient §19
+measured and which is still live on this path. This is the third independent
+measurement of the same defect (§19: 0/44; §44: 1 of 6 corpus tasks; here: 0/64),
+and the first on a space where an exhaustive search has *proved* what the path
+was failing to find.
 
 ---
 
@@ -432,6 +607,73 @@ task.
 
 ---
 
+## What this means for the record
+
+1. **§45's Dyck arm reproduces, and its "no certificate" disclosure is now
+   settled.** The full space is exhausted: 110 conforming, `complete`. The window
+   §45 chose by hand turned out to contain every conforming member, so nothing was
+   lost by it — but that could only be known afterwards, and §45 was right not to
+   claim it.
+
+2. **The gap between "reachable" and "reached" is enumeration order, not
+   expressiveness.** The min-prefix scaffold is 84% of the way through the default
+   mixed-radix order before it succeeds, because the constant `c` that makes the
+   program read exactly the string is the *most significant* digit of that order.
+   This is a property the scaffold declares before the search runs: `symbols =
+   length − c` with `c` ranging over 0–120 while only `c ≈ 101` is meaningful. A
+   search that ordered `c` by anything at all — description bits, proximity to the
+   observed prompt length, or simply descending — would find it in minutes rather
+   than hours. **Enumeration order is a cheap, unexploited lever.**
+
+3. **The gradient path's failure here is not about budget.** Five times the steps
+   changes nothing, and the reason is a dead gradient on the one node that
+   matters, which §19 already measured and which is still unfixed on this path.
+   Until that is addressed, "the differentiable backend also searches this space"
+   is true only in the sense that it samples from it: on this task it is
+   indistinguishable from drawing uniformly at random, and the seed-for-seed
+   identity of its choices across two structurally different scaffolds is the
+   evidence.
+
+4. **The useful, transferable half of Q3 is the constancy check.** A live node
+   whose value is identical on every training example is a scaffold bug the system
+   can see for free, without labels, without a certificate, and without a search.
+   Here it points directly at the fix. Whether it generalises beyond
+   degenerate-output failures is untested, and this track measured one task.
+
+5. **What is not claimed.** That the reduction sweep constitutes an automated
+   scaffold-repair mechanism — it does not exist in the system; that the Q3 signal
+   would be as sharp on a scaffold failing less degenerately; or that any of this
+   bears on tasks other than post-audit `context_free_language`. §19 remains
+   correct about the pre-audit stream, §45 remains correct about the post-audit
+   one, and this track adds a certificate, a cost, and a negative.
+
+---
+
+## Deviations from pre-registration
+
+Recorded rather than smoothed over.
+
+1. **Q1 was run as eleven disjoint windows rather than one process**, which the
+   pre-registration states and justifies. It changes wall clock, not the result:
+   the windows partition `[0,121)` exactly, every one is `exhausted`, and total CPU
+   is reported beside wall clock.
+2. **Q3a's collision test was replaced before it was run** (addendum A3, committed
+   before any Q3 number existed), because the test as first written is vacuous on
+   this stream — the counting family's joint statistic determines the string, so no
+   label collision can exist. What replaced it is stated in the addendum.
+3. **Two additional arms were declared in the addendum before running**: the
+   3,000-step gradient budget and the random-selection null. Both can only
+   strengthen a negative.
+4. **The simulator validation harness was rebuilt mid-track**, and the reason was a
+   real bug rather than the harness artifact first suspected (§3c). Both superseded
+   runs are kept in `out/`.
+5. **`Q3` came out positive where a negative was expected.** The pre-registration
+   said a negative would be "expected and valuable"; it is not what the data says,
+   and the stated conclusion is narrowed accordingly rather than reported as the
+   anticipated negative.
+
+---
+
 ## Verification
 
 | obligation | result |
@@ -439,7 +681,7 @@ task.
 | `git diff main...HEAD -- tcn/ generators/` | **empty** |
 | new operators added to core | **none** — `min`, `max` and `and` were already in `tcn/operators.py` |
 | test suite | **275 passed, 13 failed** |
-| the 13 failures are environmental | verified: the identical 13 fail with `research/dyck-learnability/` removed, on main's own code — they are the `computer` and `panel` tests, which spawn `node --import tsx` and need the gitignored `node_modules` tree (`test_panel_interface.py::test_panel_episode_replays_and_restores` among them) |
+| the 13 failures are environmental | **verified by removing the track**: with `research/dyck-learnability/` moved out of the tree, the run is **13 failed, 275 passed** with the **identical 13 test ids** — the `computer` and `panel` tests, which spawn `node --import tsx` and need the gitignored `node_modules` tree (`test_panel_interface.py::test_panel_episode_replays_and_restores` among them). Nothing under `tests/` imports anything from this track. |
 | shipped fixture | `python -m tcn train --episodes 160` → initial prediction loss **0.248835613951087**, final **0.0022308224288281053**, evaluation mean return **4.0**, frozen evaluation mean return **4.0** — reproduces **0.248836 → 0.002231 at 4/4** |
 | large artifacts | the episode pickle and run logs are gitignored; every JSON result is committed |
 | probes | supervision only; no probe is ever packed into a program input |

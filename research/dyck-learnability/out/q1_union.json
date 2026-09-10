@@ -224,5 +224,39 @@
   },
   "description_bits": 4965056,
   "execution_cost": 226.0
+ },
+ "arm_1b_control_section_45_window": {
+  "sub_range": [
+   95,
+   110
+  ],
+  "space_size": 84375,
+  "evaluated": 84375,
+  "exhausted": true,
+  "conforming": 110,
+  "certificate": "complete",
+  "seconds": 2546.6767089920468,
+  "recorded_by_section_45": {
+   "space_size": 84375,
+   "evaluated": 84375,
+   "exhausted": true,
+   "conforming": 110,
+   "certificate": "complete"
+  },
+  "reproduces": true,
+  "heldout_unseen_lengths": {
+   "accuracy": 1.0,
+   "per_length": {
+    "16": 1.0,
+    "18": 1.0,
+    "20": 1.0,
+    "22": 1.0
+   },
+   "n": 859,
+   "constant_yes": 0.5261932479627474,
+   "constant_no": 0.47380675203725264,
+   "majority_constant": 0.5261932479627474,
+   "random": 0.5
+  }
  }
 }
