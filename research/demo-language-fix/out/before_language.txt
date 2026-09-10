@@ -1,0 +1,9 @@
+== language ...
+   FAIL  raised ValueError: training examples required
+   baseline:
+
+demo     measured                                      baseline verdict
+-----------------------------------------------------------------------
+language raised ValueError: training examples required          FAIL
+
+0/1 demonstrations reproduced in 1 s; artifacts under research/demo-language-fix/out/demo-before

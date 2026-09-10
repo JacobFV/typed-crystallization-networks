@@ -404,7 +404,7 @@ land under `artifacts/demo/`.
 | **positional reuse** | one frozen module at 1,024 positions of a 3,072-value observation with 3 caller nodes (2,304 over 6,912 values under `--full`) | 17 structural symbols shared against 3N+13 per-position and 8N+1 inlined, at 0.93× execution cost |
 | **segmentation from raw pixels** | held-out max error 0.0 on 48 unseen episodes, background colour recovered over the full 0–255 alphabet | unique among 65,536 programs; constant predictor 0.854 |
 | **two-position edge detector** | held-out max error 0.0, accuracy 1.000, offset searched | unique among 48 staged programs; undecomposed 4.9e10 programs, 7.6 years projected; constant predictor 0.844 |
-| **a language task from raw prompt bytes** | the lexical unit discovered over the full 0–255 alphabet, unique among 10,496 programs; the grammaticality rule **0.9986** at string lengths never trained on (one error in 724, at length 16), **pre-audit stream only — see FINDINGS §39, §43, §45** | majority constant 0.548, best fitted feature 0.648, random 0.500; gradient descent conforms 0 of 44 runs on the identical spaces |
+| **a language task from raw prompt bytes** | the lexical unit discovered over the full 0–255 alphabet, unique among 10,496 programs; **on the post-audit stream the generator ships**, the balancedness rule **1.000** on **859** held-out episodes at lengths 16–22 never trained on (running `min` beside the running `add`; 680,625 exhausted, 110 conforming, `complete`). **On the pre-audit stream** the grammaticality rule **0.9986187845303868** on 724 (one error, at length 16) — a lesson §24 found exploitable — see FINDINGS §39, §43, §45, §47 | post-audit majority constant 0.5262, best fitted feature 0.4738, training-string lookup 0.4738, random 0.500; pre-audit majority constant 0.548, best fitted feature 0.648; gradient descent conforms 0 of 64 runs post-audit and 0 of 44 pre-audit |
 | **external simulator replay** | replay, snapshot/restore and cross-process reload all bit-identical, max \|Δ\| 0.0 | a scripted energy-pumping controller reaches upright 0.9994 where the zero-torque arm never exceeds −0.99 |
 
 Three further results with no demo, because they are certificates rather than runs:
@@ -514,9 +514,17 @@ program discovers its own lexical unit from raw prompt bytes — which byte open
 bracket, over the full 0–255 alphabet, and where the symbol field starts — unique
 among 10,496 programs, exhausted in 3.5 s, held-out position error 0.0 at lengths
 never trained on. Staged on that frozen module, a grammaticality rule reaches
-**1.000** on 724 held-out episodes at unseen string lengths, against a majority
-constant of 0.548, a best-fitted-feature baseline of 0.648 and random 0.500;
-gradient descent on the identical spaces conforms **0 of 44 runs**. Three limits
+**0.9986187845303868** on 724 held-out episodes at unseen string lengths — one
+error in 724, at length 16, **on the pre-audit stream** (`hardening='none'`) and
+on a lesson FINDINGS §24 found exploitable — against a majority constant of
+0.5483425414364641, a best-fitted-feature baseline of 0.648 and random 0.500;
+gradient descent on the identical spaces conforms **0 of 44 runs**. **On the
+post-audit stream the generator ships**, that rule is not the capability: the
+counting program lands exactly on the majority, and balancedness needs a running
+`min` beside the running `add`, which reaches **1.000 on 859** held-out episodes
+at unseen lengths 16–22 against a **0.5262** majority
+(`research/language-post-audit/RESULTS.md`, FINDINGS §45 and §47). **The demo
+prints both, and names the stream on each.** Three limits
 are certified alongside it: the lesson does not exercise a stack as sampled (its
 negatives always break the bracket count, 20,000 of 20,000 seeds, and the
 exported program agrees with `#( == #)` 1.000 and with Dyck membership 0.429);
