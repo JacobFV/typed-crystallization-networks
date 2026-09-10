@@ -1,0 +1,634 @@
+{
+  "miniature": "sparse_guard",
+  "n": 4,
+  "hit": 15,
+  "domain_size": 65536,
+  "spec_digest": "dc3e23b5ba4f200ce5dd1733",
+  "spec_nodes": 24,
+  "spec_execution_cost_scalar": 84.0,
+  "spec": {
+    "cases": 65536,
+    "worst_ops": 84,
+    "best_ops": 84,
+    "expected_ops": 84.0,
+    "total_ops": 5505024,
+    "histogram": {
+      "84": 65536
+    },
+    "by_operator_expected": {
+      "add": 20.0,
+      "encode": 4.0,
+      "eq": 4.0,
+      "insert": 4.0,
+      "mod": 20.0,
+      "mul": 20.0,
+      "mux": 4.0,
+      "project": 4.0,
+      "tuple": 4.0
+    },
+    "output_digest": "7d2fa3bd3c83792d5fefff60f9114261b9d18d177301aeab4e2e1878d193214d"
+  },
+  "control_lazy_evaluator": {
+    "cases": 65536,
+    "worst_ops": 84,
+    "best_ops": 84,
+    "expected_ops": 84.0,
+    "total_ops": 5505024,
+    "histogram": {
+      "84": 65536
+    },
+    "by_operator_expected": {
+      "add": 20.0,
+      "encode": 4.0,
+      "eq": 4.0,
+      "insert": 4.0,
+      "mod": 20.0,
+      "mul": 20.0,
+      "mux": 4.0,
+      "project": 4.0,
+      "tuple": 4.0
+    },
+    "output_digest": "7d2fa3bd3c83792d5fefff60f9114261b9d18d177301aeab4e2e1878d193214d"
+  },
+  "search": {
+    "trace": [
+      {
+        "binding": "s2",
+        "replacement": "guard(Ref(p2), Ref(j2), Ref(s1))",
+        "sampled_expected_ops": 67.125,
+        "verified_exhaustively": 65536
+      },
+      {
+        "binding": "s1",
+        "replacement": "guard(Ref(p1), Ref(j1), Ref(s0))",
+        "sampled_expected_ops": 50.53125,
+        "verified_exhaustively": 65536
+      },
+      {
+        "binding": "s0",
+        "replacement": "guard(Ref(p0), Ref(j0), Ref(EMPTY))",
+        "sampled_expected_ops": 33.9375,
+        "verified_exhaustively": 65536
+      },
+      {
+        "binding": "s3",
+        "replacement": "guard(Ref(p3), Ref(j3), Ref(s2))",
+        "sampled_expected_ops": 17.484375,
+        "verified_exhaustively": 65536
+      }
+    ],
+    "candidates_considered": 107260,
+    "sample_cases": 131,
+    "rounds": 5,
+    "counterexamples_found": 3,
+    "counterexamples": [
+      [
+        0,
+        0,
+        15,
+        15
+      ],
+      [
+        15,
+        15,
+        0,
+        0
+      ],
+      [
+        0,
+        15,
+        15,
+        0
+      ]
+    ]
+  },
+  "constructs_used": [
+    "Call",
+    "Guard",
+    "Lit",
+    "Prim",
+    "Ref"
+  ],
+  "result_bindings": [
+    "K = Lit(15)",
+    "EMPTY = Lit(frozenset())",
+    "I0 = Lit(0)",
+    "I1 = Lit(1)",
+    "I2 = Lit(2)",
+    "I3 = Lit(3)",
+    "x0 = project(Ref(x))",
+    "p0 = eq(Ref(x0), Ref(K))",
+    "e0 = module:e7eb54(Ref(x0))",
+    "t0 = tuple(Ref(I0), Ref(e0))",
+    "j0 = insert(Ref(EMPTY), Ref(t0))",
+    "s0 = guard(Ref(p0), Ref(j0), Ref(EMPTY))",
+    "x1 = project(Ref(x))",
+    "p1 = eq(Ref(x1), Ref(K))",
+    "e1 = module:e7eb54(Ref(x1))",
+    "t1 = tuple(Ref(I1), Ref(e1))",
+    "j1 = insert(Ref(s0), Ref(t1))",
+    "s1 = guard(Ref(p1), Ref(j1), Ref(s0))",
+    "x2 = project(Ref(x))",
+    "p2 = eq(Ref(x2), Ref(K))",
+    "e2 = module:e7eb54(Ref(x2))",
+    "t2 = tuple(Ref(I2), Ref(e2))",
+    "j2 = insert(Ref(s1), Ref(t2))",
+    "s2 = guard(Ref(p2), Ref(j2), Ref(s1))",
+    "x3 = project(Ref(x))",
+    "p3 = eq(Ref(x3), Ref(K))",
+    "e3 = module:e7eb54(Ref(x3))",
+    "t3 = tuple(Ref(I3), Ref(e3))",
+    "j3 = insert(Ref(s2), Ref(t3))",
+    "s3 = guard(Ref(p3), Ref(j3), Ref(s2))"
+  ],
+  "resynth": {
+    "cases": 65536,
+    "worst_ops": 84,
+    "best_ops": 12,
+    "expected_ops": 16.5,
+    "total_ops": 1081344,
+    "histogram": {
+      "12": 50625,
+      "30": 13500,
+      "48": 1350,
+      "66": 60,
+      "84": 1
+    },
+    "by_operator_expected": {
+      "add": 1.25,
+      "encode": 0.25,
+      "eq": 4.0,
+      "guard": 4.0,
+      "insert": 0.25,
+      "mod": 1.25,
+      "mul": 1.25,
+      "project": 4.0,
+      "tuple": 0.25
+    },
+    "output_digest": "7d2fa3bd3c83792d5fefff60f9114261b9d18d177301aeab4e2e1878d193214d"
+  },
+  "ratios": {
+    "expected_ratio": 5.090909090909091,
+    "worst_ratio": 1.0,
+    "best_ratio": 7.0
+  },
+  "certificate": {
+    "exact": true,
+    "checked": 65536,
+    "counterexample": null,
+    "oracle": "tcn.graph.Program.run (typed interpreter)",
+    "outputs_agree_digest": true
+  },
+  "bytecodes": {
+    "classes": 16,
+    "class_definition": "the pattern of which positions satisfy the predicate",
+    "spec_compiled_expected": 1003.25,
+    "spec_compiled_worst": 1007,
+    "resynth_expected": 157.0,
+    "resynth_worst": 1507,
+    "spec_per_class": {
+      "(0, 0, 0, 0)": {
+        "bytecodes": 1003,
+        "constant_within_class": true,
+        "samples": [
+          1003,
+          1003
+        ]
+      },
+      "(0, 0, 0, 1)": {
+        "bytecodes": 1004,
+        "constant_within_class": true,
+        "samples": [
+          1004,
+          1004
+        ]
+      },
+      "(0, 0, 1, 0)": {
+        "bytecodes": 1004,
+        "constant_within_class": true,
+        "samples": [
+          1004,
+          1004
+        ]
+      },
+      "(0, 0, 1, 1)": {
+        "bytecodes": 1005,
+        "constant_within_class": true,
+        "samples": [
+          1005,
+          1005
+        ]
+      },
+      "(0, 1, 0, 0)": {
+        "bytecodes": 1004,
+        "constant_within_class": true,
+        "samples": [
+          1004,
+          1004
+        ]
+      },
+      "(0, 1, 0, 1)": {
+        "bytecodes": 1005,
+        "constant_within_class": true,
+        "samples": [
+          1005,
+          1005
+        ]
+      },
+      "(0, 1, 1, 0)": {
+        "bytecodes": 1005,
+        "constant_within_class": true,
+        "samples": [
+          1005,
+          1005
+        ]
+      },
+      "(0, 1, 1, 1)": {
+        "bytecodes": 1006,
+        "constant_within_class": true,
+        "samples": [
+          1006,
+          1006
+        ]
+      },
+      "(1, 0, 0, 0)": {
+        "bytecodes": 1004,
+        "constant_within_class": true,
+        "samples": [
+          1004,
+          1004
+        ]
+      },
+      "(1, 0, 0, 1)": {
+        "bytecodes": 1005,
+        "constant_within_class": true,
+        "samples": [
+          1005,
+          1005
+        ]
+      },
+      "(1, 0, 1, 0)": {
+        "bytecodes": 1005,
+        "constant_within_class": true,
+        "samples": [
+          1005,
+          1005
+        ]
+      },
+      "(1, 0, 1, 1)": {
+        "bytecodes": 1006,
+        "constant_within_class": true,
+        "samples": [
+          1006,
+          1006
+        ]
+      },
+      "(1, 1, 0, 0)": {
+        "bytecodes": 1005,
+        "constant_within_class": true,
+        "samples": [
+          1005,
+          1005
+        ]
+      },
+      "(1, 1, 0, 1)": {
+        "bytecodes": 1006,
+        "constant_within_class": true,
+        "samples": [
+          1006,
+          1006
+        ]
+      },
+      "(1, 1, 1, 0)": {
+        "bytecodes": 1006,
+        "constant_within_class": true,
+        "samples": [
+          1006,
+          1006
+        ]
+      },
+      "(1, 1, 1, 1)": {
+        "bytecodes": 1007,
+        "constant_within_class": true,
+        "samples": [
+          1007
+        ]
+      }
+    },
+    "resynth_per_class": {
+      "(0, 0, 0, 0)": {
+        "bytecodes": 67,
+        "constant_within_class": true,
+        "samples": [
+          67,
+          67
+        ]
+      },
+      "(0, 0, 0, 1)": {
+        "bytecodes": 427,
+        "constant_within_class": true,
+        "samples": [
+          427,
+          427
+        ]
+      },
+      "(0, 0, 1, 0)": {
+        "bytecodes": 428,
+        "constant_within_class": true,
+        "samples": [
+          428,
+          428
+        ]
+      },
+      "(0, 0, 1, 1)": {
+        "bytecodes": 788,
+        "constant_within_class": true,
+        "samples": [
+          788,
+          788
+        ]
+      },
+      "(0, 1, 0, 0)": {
+        "bytecodes": 427,
+        "constant_within_class": true,
+        "samples": [
+          427,
+          427
+        ]
+      },
+      "(0, 1, 0, 1)": {
+        "bytecodes": 787,
+        "constant_within_class": true,
+        "samples": [
+          787,
+          787
+        ]
+      },
+      "(0, 1, 1, 0)": {
+        "bytecodes": 788,
+        "constant_within_class": true,
+        "samples": [
+          788,
+          788
+        ]
+      },
+      "(0, 1, 1, 1)": {
+        "bytecodes": 1148,
+        "constant_within_class": true,
+        "samples": [
+          1148,
+          1148
+        ]
+      },
+      "(1, 0, 0, 0)": {
+        "bytecodes": 426,
+        "constant_within_class": true,
+        "samples": [
+          426,
+          426
+        ]
+      },
+      "(1, 0, 0, 1)": {
+        "bytecodes": 786,
+        "constant_within_class": true,
+        "samples": [
+          786,
+          786
+        ]
+      },
+      "(1, 0, 1, 0)": {
+        "bytecodes": 787,
+        "constant_within_class": true,
+        "samples": [
+          787,
+          787
+        ]
+      },
+      "(1, 0, 1, 1)": {
+        "bytecodes": 1147,
+        "constant_within_class": true,
+        "samples": [
+          1147,
+          1147
+        ]
+      },
+      "(1, 1, 0, 0)": {
+        "bytecodes": 786,
+        "constant_within_class": true,
+        "samples": [
+          786,
+          786
+        ]
+      },
+      "(1, 1, 0, 1)": {
+        "bytecodes": 1146,
+        "constant_within_class": true,
+        "samples": [
+          1146,
+          1146
+        ]
+      },
+      "(1, 1, 1, 0)": {
+        "bytecodes": 1147,
+        "constant_within_class": true,
+        "samples": [
+          1147,
+          1147
+        ]
+      },
+      "(1, 1, 1, 1)": {
+        "bytecodes": 1507,
+        "constant_within_class": true,
+        "samples": [
+          1507
+        ]
+      }
+    },
+    "class_weights": {
+      "(0, 0, 0, 0)": 0.7724761962890625,
+      "(0, 0, 0, 1)": 0.0514984130859375,
+      "(0, 0, 1, 0)": 0.0514984130859375,
+      "(0, 0, 1, 1)": 0.0034332275390625,
+      "(0, 1, 0, 0)": 0.0514984130859375,
+      "(0, 1, 0, 1)": 0.0034332275390625,
+      "(0, 1, 1, 0)": 0.0034332275390625,
+      "(0, 1, 1, 1)": 0.0002288818359375,
+      "(1, 0, 0, 0)": 0.0514984130859375,
+      "(1, 0, 0, 1)": 0.0034332275390625,
+      "(1, 0, 1, 0)": 0.0034332275390625,
+      "(1, 0, 1, 1)": 0.0002288818359375,
+      "(1, 1, 0, 0)": 0.0034332275390625,
+      "(1, 1, 0, 1)": 0.0002288818359375,
+      "(1, 1, 1, 0)": 0.0002288818359375,
+      "(1, 1, 1, 1)": 1.52587890625e-05
+    },
+    "expected_ratio": 6.390127388535032,
+    "worst_ratio": 0.66821499668215
+  },
+  "deployment": {
+    "source_path": "/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a8abe05761fdeb94b/research/lazy-guard/out/stage1_algorithm.py",
+    "source_bytes": 2147,
+    "interpreter": "/usr/bin/python3 -I",
+    "returncode": 0,
+    "stdlib_only": true,
+    "generated_digest": "7d2fa3bd3c83792d5fefff60f9114261b9d18d177301aeab4e2e1878d193214d",
+    "spec_digest": "7d2fa3bd3c83792d5fefff60f9114261b9d18d177301aeab4e2e1878d193214d",
+    "bit_identical": true,
+    "cases": 65536,
+    "detail": {
+      "digest": "7d2fa3bd3c83792d5fefff60f9114261b9d18d177301aeab4e2e1878d193214d",
+      "cases": 65536,
+      "modules": []
+    }
+  },
+  "ablation_matrix": {
+    "full": {
+      "solved": true,
+      "expected_ops": 16.5,
+      "worst_ops": 84,
+      "expected_ratio_vs_spec": 5.090909090909091,
+      "constructs_used": [
+        "Call",
+        "Guard",
+        "Lit",
+        "Prim",
+        "Ref"
+      ],
+      "result": [
+        "e3 = module:e7eb54(Ref(x3))",
+        "t3 = tuple(Ref(I3), Ref(e3))",
+        "j3 = insert(Ref(s2), Ref(t3))",
+        "s3 = guard(Ref(p3), Ref(j3), Ref(s2))"
+      ],
+      "candidates_considered": 107260
+    },
+    "minus_Guard": {
+      "solved": true,
+      "expected_ops": 84.0,
+      "worst_ops": 84,
+      "expected_ratio_vs_spec": 1.0,
+      "constructs_used": [
+        "Call",
+        "Lit",
+        "Prim",
+        "Ref"
+      ],
+      "result": [
+        "e3 = module:e7eb54(Ref(x3))",
+        "t3 = tuple(Ref(I3), Ref(e3))",
+        "j3 = insert(Ref(s2), Ref(t3))",
+        "s3 = mux(Ref(p3), Ref(j3), Ref(s2))"
+      ],
+      "candidates_considered": 20300
+    },
+    "minus_Find": {
+      "solved": true,
+      "expected_ops": 16.5,
+      "worst_ops": 84,
+      "expected_ratio_vs_spec": 5.090909090909091,
+      "constructs_used": [
+        "Call",
+        "Guard",
+        "Lit",
+        "Prim",
+        "Ref"
+      ],
+      "result": [
+        "e3 = module:e7eb54(Ref(x3))",
+        "t3 = tuple(Ref(I3), Ref(e3))",
+        "j3 = insert(Ref(s2), Ref(t3))",
+        "s3 = guard(Ref(p3), Ref(j3), Ref(s2))"
+      ],
+      "candidates_considered": 107260
+    },
+    "minus_Scan": {
+      "solved": true,
+      "expected_ops": 16.5,
+      "worst_ops": 84,
+      "expected_ratio_vs_spec": 5.090909090909091,
+      "constructs_used": [
+        "Call",
+        "Guard",
+        "Lit",
+        "Prim",
+        "Ref"
+      ],
+      "result": [
+        "e3 = module:e7eb54(Ref(x3))",
+        "t3 = tuple(Ref(I3), Ref(e3))",
+        "j3 = insert(Ref(s2), Ref(t3))",
+        "s3 = guard(Ref(p3), Ref(j3), Ref(s2))"
+      ],
+      "candidates_considered": 107260
+    },
+    "minus_Let": {
+      "solved": true,
+      "expected_ops": 16.5,
+      "worst_ops": 84,
+      "expected_ratio_vs_spec": 5.090909090909091,
+      "constructs_used": [
+        "Call",
+        "Guard",
+        "Lit",
+        "Prim",
+        "Ref"
+      ],
+      "result": [
+        "e3 = module:e7eb54(Ref(x3))",
+        "t3 = tuple(Ref(I3), Ref(e3))",
+        "j3 = insert(Ref(s2), Ref(t3))",
+        "s3 = guard(Ref(p3), Ref(j3), Ref(s2))"
+      ],
+      "candidates_considered": 107260
+    }
+  },
+  "ablation_summary": {
+    "full_expected_ratio": 5.090909090909091,
+    "threshold": 3.0,
+    "single_removals_that_block": [
+      "Guard"
+    ],
+    "single_removals_that_do_not_block": [
+      "Find",
+      "Scan",
+      "Let"
+    ],
+    "single_blocking": true
+  },
+  "control_target_supplied": {
+    "seeded_with": [
+      "guard(Ref(p0), Ref(j0), Ref(EMPTY))",
+      "guard(Ref(p1), Ref(j1), Ref(s0))",
+      "guard(Ref(p2), Ref(j2), Ref(s1))",
+      "guard(Ref(p3), Ref(j3), Ref(s2))"
+    ],
+    "profile": {
+      "cases": 65536,
+      "worst_ops": 84,
+      "best_ops": 12,
+      "expected_ops": 16.5,
+      "total_ops": 1081344,
+      "histogram": {
+        "12": 50625,
+        "30": 13500,
+        "48": 1350,
+        "66": 60,
+        "84": 1
+      },
+      "by_operator_expected": {
+        "add": 1.25,
+        "encode": 0.25,
+        "eq": 4.0,
+        "guard": 4.0,
+        "insert": 0.25,
+        "mod": 1.25,
+        "mul": 1.25,
+        "project": 4.0,
+        "tuple": 0.25
+      },
+      "output_digest": "7d2fa3bd3c83792d5fefff60f9114261b9d18d177301aeab4e2e1878d193214d"
+    },
+    "expected_ratio_vs_spec": 5.090909090909091,
+    "note": "this row is template instantiation by construction; it is reported so it is distinguishable from the unseeded run"
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "sparse_guard": [
+    {
+      "variant": {
+        "n": 3,
+        "hit": 15,
+        "bits": 4
+      },
+      "domain": 4096,
+      "spec_expected": 63.0,
+      "spec_worst": 63,
+      "alg_expected": 12.375,
+      "alg_worst": 63,
+      "expected_ratio": 5.090909090909091,
+      "worst_ratio": 1.0,
+      "constructs_used": [
+        "Call",
+        "Guard",
+        "Lit",
+        "Prim",
+        "Ref"
+      ],
+      "guards_introduced": 3,
+      "certificate": {
+        "exact": true,
+        "checked": 4096,
+        "counterexample": null,
+        "oracle": "tcn.graph.Program.run (typed interpreter)"
+      },
+      "counterexamples_during_search": 2
+    },
+    {
+      "variant": {
+        "n": 5,
+        "hit": 7,
+        "bits": 3
+      },
+      "domain": 32768,
+      "spec_expected": 105.0,
+      "spec_worst": 105,
+      "alg_expected": 26.25,
+      "alg_worst": 105,
+      "expected_ratio": 4.0,
+      "worst_ratio": 1.0,
+      "constructs_used": [
+        "Call",
+        "Guard",
+        "Lit",
+        "Prim",
+        "Ref"
+      ],
+      "guards_introduced": 5,
+      "certificate": {
+        "exact": true,
+        "checked": 32768,
+        "counterexample": null,
+        "oracle": "tcn.graph.Program.run (typed interpreter)"
+      },
+      "counterexamples_during_search": 0
+    },
+    {
+      "variant": {
+        "n": 4,
+        "hit": 2,
+        "bits": 3,
+        "coeffs": [
+          [
+            3,
+            1
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            7,
+            4
+          ]
+        ]
+      },
+      "domain": 4096,
+      "spec_expected": 60.0,
+      "spec_worst": 60,
+      "alg_expected": 18.0,
+      "alg_worst": 60,
+      "expected_ratio": 3.3333333333333335,
+      "worst_ratio": 1.0,
+      "constructs_used": [
+        "Call",
+        "Guard",
+        "Lit",
+        "Prim",
+        "Ref"
+      ],
+      "guards_introduced": 4,
+      "certificate": {
+        "exact": true,
+        "checked": 4096,
+        "counterexample": null,
+        "oracle": "tcn.graph.Program.run (typed interpreter)"
+      },
+      "counterexamples_during_search": 0
+    },
+    {
+      "variant": {
+        "n": 4,
+        "hit": 0,
+        "bits": 4,
+        "coeffs": [
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      "domain": 65536,
+      "spec_expected": 36.0,
+      "spec_worst": 36,
+      "alg_expected": 13.5,
+      "alg_worst": 36,
+      "expected_ratio": 2.6666666666666665,
+      "worst_ratio": 1.0,
+      "constructs_used": [
+        "Call",
+        "Guard",
+        "Lit",
+        "Prim",
+        "Ref"
+      ],
+      "guards_introduced": 4,
+      "certificate": {
+        "exact": true,
+        "checked": 65536,
+        "counterexample": null,
+        "oracle": "tcn.graph.Program.run (typed interpreter)"
+      },
+      "counterexamples_during_search": 1
+    }
+  ],
+  "find_first": [
+    {
+      "variant": {
+        "n": 4
+      },
+      "domain": 256,
+      "solved": true,
+      "result": "find i in [0,4) where module:8175c6(index(Ref(y), Var(i))) -> Var(i) else Lit(4)",
+      "spec_expected": 36.0,
+      "spec_worst": 36,
+      "alg_expected": 16.875,
+      "alg_worst": 36,
+      "expected_ratio": 2.1333333333333333,
+      "worst_ratio": 1.0,
+      "constructs_used": [
+        "Call",
+        "Find",
+        "Lit",
+        "Prim",
+        "Ref",
+        "Var"
+      ],
+      "certificate": {
+        "exact": true,
+        "checked": 256,
+        "counterexample": null,
+        "oracle": "tcn.graph.Program.run (typed interpreter)"
+      }
+    },
+    {
+      "variant": {
+        "n": 6
+      },
+      "domain": 4096,
+      "solved": true,
+      "result": "find i in [0,6) where module:8175c6(index(Ref(y), Var(i))) -> Var(i) else Lit(6)",
+      "spec_expected": 54.0,
+      "spec_worst": 54,
+      "alg_expected": 17.71875,
+      "alg_worst": 54,
+      "expected_ratio": 3.0476190476190474,
+      "worst_ratio": 1.0,
+      "constructs_used": [
+        "Call",
+        "Find",
+        "Lit",
+        "Prim",
+        "Ref",
+        "Var"
+      ],
+      "certificate": {
+        "exact": true,
+        "checked": 4096,
+        "counterexample": null,
+        "oracle": "tcn.graph.Program.run (typed interpreter)"
+      }
+    },
+    {
+      "variant": {
+        "n": 6,
+        "a": 3,
+        "b": 1,
+        "m": 5,
+        "thr": 2
+      },
+      "domain": 4096,
+      "solved": true,
+      "result": "find i in [0,6) where module:992de4(index(Ref(y), Var(i))) -> Var(i) else Lit(6)",
+      "spec_expected": 54.0,
+      "spec_worst": 54,
+      "alg_expected": 17.71875,
+      "alg_worst": 54,
+      "expected_ratio": 3.0476190476190474,
+      "worst_ratio": 1.0,
+      "constructs_used": [
+        "Call",
+        "Find",
+        "Lit",
+        "Prim",
+        "Ref",
+        "Var"
+      ],
+      "certificate": {
+        "exact": true,
+        "checked": 4096,
+        "counterexample": null,
+        "oracle": "tcn.graph.Program.run (typed interpreter)"
+      }
+    },
+    {
+      "variant": {
+        "n": 7,
+        "a": 7,
+        "b": 2,
+        "m": 11,
+        "thr": 6
+      },
+      "domain": 16384,
+      "solved": true,
+      "result": "find i in [0,7) where module:1a19c8(index(Ref(y), Var(i))) -> Var(i) else Lit(7)",
+      "spec_expected": 63.0,
+      "spec_worst": 63,
+      "alg_expected": 17.859375,
+      "alg_worst": 63,
+      "expected_ratio": 3.52755905511811,
+      "worst_ratio": 1.0,
+      "constructs_used": [
+        "Call",
+        "Find",
+        "Lit",
+        "Prim",
+        "Ref",
+        "Var"
+      ],
+      "certificate": {
+        "exact": true,
+        "checked": 16384,
+        "counterexample": null,
+        "oracle": "tcn.graph.Program.run (typed interpreter)"
+      }
+    }
+  ]
+}

@@ -1,0 +1,465 @@
+{
+  "miniature": "find_first",
+  "n": 8,
+  "domain_size": 65536,
+  "spec_digest": "0d9888f9a5e94d73a402c1c3",
+  "spec_nodes": 24,
+  "spec_execution_cost_scalar": 72.0,
+  "spec": {
+    "cases": 65536,
+    "worst_ops": 72,
+    "best_ops": 72,
+    "expected_ops": 72.0,
+    "total_ops": 4718592,
+    "histogram": {
+      "72": 65536
+    },
+    "by_operator_expected": {
+      "add": 8.0,
+      "encode": 8.0,
+      "ge": 8.0,
+      "mod": 16.0,
+      "mul": 16.0,
+      "mux": 8.0,
+      "project": 8.0
+    },
+    "output_digest": "ce40ef3320879cbe5939410c31f753ff8fa1f84da50632af8a72d15584507f2d"
+  },
+  "control_lazy_evaluator": {
+    "cases": 65536,
+    "worst_ops": 72,
+    "best_ops": 72,
+    "expected_ops": 72.0,
+    "total_ops": 4718592,
+    "histogram": {
+      "72": 65536
+    },
+    "by_operator_expected": {
+      "add": 8.0,
+      "encode": 8.0,
+      "ge": 8.0,
+      "mod": 16.0,
+      "mul": 16.0,
+      "mux": 8.0,
+      "project": 8.0
+    },
+    "output_digest": "ce40ef3320879cbe5939410c31f753ff8fa1f84da50632af8a72d15584507f2d"
+  },
+  "search": {
+    "sampled_expected_ops": 19.265625,
+    "candidates_considered": 10135809,
+    "exact_on_samples": 372,
+    "rejected_by_exhaustive_check": 0,
+    "components": [
+      {
+        "lambda": "index(Ref(y), Var(i))",
+        "arity": 8,
+        "abstracted": "param family 0..7 -> loop variable"
+      },
+      {
+        "lambda": "module:8175c6(index(Ref(y), Var(i)))",
+        "arity": 8,
+        "abstracted": "param family 0..7 -> loop variable"
+      },
+      {
+        "lambda": "Var(i)",
+        "arity": 9,
+        "abstracted": "const family 0..8 -> loop variable"
+      }
+    ]
+  },
+  "result": "find i in [0,8) where module:8175c6(index(Ref(y), Var(i))) -> Var(i) else Lit(8)",
+  "constructs_used": [
+    "Call",
+    "Find",
+    "Lit",
+    "Prim",
+    "Ref",
+    "Var"
+  ],
+  "resynth": {
+    "cases": 65536,
+    "worst_ops": 72,
+    "best_ops": 9,
+    "expected_ops": 17.9296875,
+    "total_ops": 1175040,
+    "histogram": {
+      "9": 32768,
+      "18": 16384,
+      "27": 8192,
+      "36": 4096,
+      "45": 2048,
+      "54": 1024,
+      "63": 512,
+      "72": 512
+    },
+    "by_operator_expected": {
+      "add": 1.9921875,
+      "encode": 1.9921875,
+      "find_test": 1.9921875,
+      "ge": 1.9921875,
+      "index": 1.9921875,
+      "mod": 3.984375,
+      "mul": 3.984375
+    },
+    "output_digest": "ce40ef3320879cbe5939410c31f753ff8fa1f84da50632af8a72d15584507f2d"
+  },
+  "ratios": {
+    "expected_ratio": 4.015686274509804,
+    "worst_ratio": 1.0,
+    "best_ratio": 8.0
+  },
+  "certificate": {
+    "exact": true,
+    "checked": 65536,
+    "counterexample": null,
+    "oracle": "tcn.graph.Program.run (typed interpreter)",
+    "outputs_agree_digest": true
+  },
+  "bytecodes": {
+    "classes": 9,
+    "class_definition": "the index of the first satisfying position (N if none)",
+    "spec_compiled_expected": 820.99609375,
+    "spec_compiled_worst": 821,
+    "resynth_expected": 338.76171875,
+    "resynth_worst": 1303,
+    "spec_per_class": {
+      "8": {
+        "bytecodes": 820,
+        "constant_within_class": true,
+        "samples": [
+          820,
+          820
+        ]
+      },
+      "7": {
+        "bytecodes": 821,
+        "constant_within_class": true,
+        "samples": [
+          821,
+          821
+        ]
+      },
+      "6": {
+        "bytecodes": 821,
+        "constant_within_class": false,
+        "samples": [
+          821,
+          822
+        ]
+      },
+      "5": {
+        "bytecodes": 821,
+        "constant_within_class": false,
+        "samples": [
+          821,
+          822
+        ]
+      },
+      "4": {
+        "bytecodes": 821,
+        "constant_within_class": false,
+        "samples": [
+          821,
+          822
+        ]
+      },
+      "3": {
+        "bytecodes": 821,
+        "constant_within_class": false,
+        "samples": [
+          821,
+          822
+        ]
+      },
+      "2": {
+        "bytecodes": 821,
+        "constant_within_class": false,
+        "samples": [
+          821,
+          822
+        ]
+      },
+      "1": {
+        "bytecodes": 821,
+        "constant_within_class": false,
+        "samples": [
+          821,
+          822
+        ]
+      },
+      "0": {
+        "bytecodes": 821,
+        "constant_within_class": false,
+        "samples": [
+          821,
+          822
+        ]
+      }
+    },
+    "resynth_per_class": {
+      "8": {
+        "bytecodes": 1303,
+        "constant_within_class": true,
+        "samples": [
+          1303,
+          1303
+        ]
+      },
+      "7": {
+        "bytecodes": 1300,
+        "constant_within_class": true,
+        "samples": [
+          1300,
+          1300
+        ]
+      },
+      "6": {
+        "bytecodes": 1140,
+        "constant_within_class": true,
+        "samples": [
+          1140,
+          1140
+        ]
+      },
+      "5": {
+        "bytecodes": 980,
+        "constant_within_class": true,
+        "samples": [
+          980,
+          980
+        ]
+      },
+      "4": {
+        "bytecodes": 820,
+        "constant_within_class": true,
+        "samples": [
+          820,
+          820
+        ]
+      },
+      "3": {
+        "bytecodes": 660,
+        "constant_within_class": true,
+        "samples": [
+          660,
+          660
+        ]
+      },
+      "2": {
+        "bytecodes": 500,
+        "constant_within_class": true,
+        "samples": [
+          500,
+          500
+        ]
+      },
+      "1": {
+        "bytecodes": 340,
+        "constant_within_class": true,
+        "samples": [
+          340,
+          340
+        ]
+      },
+      "0": {
+        "bytecodes": 180,
+        "constant_within_class": true,
+        "samples": [
+          180,
+          180
+        ]
+      }
+    },
+    "class_weights": {
+      "8": 0.00390625,
+      "7": 0.00390625,
+      "6": 0.0078125,
+      "5": 0.015625,
+      "4": 0.03125,
+      "3": 0.0625,
+      "2": 0.125,
+      "1": 0.25,
+      "0": 0.5
+    },
+    "expected_ratio": 2.4235208652837192,
+    "worst_ratio": 0.6300844205679201
+  },
+  "deployment": {
+    "source_path": "/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a8abe05761fdeb94b/research/lazy-guard/out/stage2_algorithm.py",
+    "source_bytes": 1165,
+    "interpreter": "/usr/bin/python3 -I",
+    "returncode": 0,
+    "stdlib_only": true,
+    "generated_digest": "ce40ef3320879cbe5939410c31f753ff8fa1f84da50632af8a72d15584507f2d",
+    "spec_digest": "ce40ef3320879cbe5939410c31f753ff8fa1f84da50632af8a72d15584507f2d",
+    "bit_identical": true,
+    "cases": 65536,
+    "detail": {
+      "digest": "ce40ef3320879cbe5939410c31f753ff8fa1f84da50632af8a72d15584507f2d",
+      "cases": 65536,
+      "modules": []
+    }
+  },
+  "ablation_matrix": {
+    "full": {
+      "solved": true,
+      "expected_ops": 17.9296875,
+      "worst_ops": 72,
+      "expected_ratio_vs_spec": 4.015686274509804,
+      "constructs_used": [
+        "Call",
+        "Find",
+        "Lit",
+        "Prim",
+        "Ref",
+        "Var"
+      ],
+      "result": [
+        "I4 = Lit(4)",
+        "I5 = Lit(5)",
+        "I6 = Lit(6)",
+        "I7 = Lit(7)"
+      ],
+      "candidates_considered": 10135809
+    },
+    "minus_Guard": {
+      "solved": true,
+      "expected_ops": 17.9296875,
+      "worst_ops": 72,
+      "expected_ratio_vs_spec": 4.015686274509804,
+      "constructs_used": [
+        "Call",
+        "Find",
+        "Lit",
+        "Prim",
+        "Ref",
+        "Var"
+      ],
+      "result": [
+        "I4 = Lit(4)",
+        "I5 = Lit(5)",
+        "I6 = Lit(6)",
+        "I7 = Lit(7)"
+      ],
+      "candidates_considered": 10135809
+    },
+    "minus_Find": {
+      "solved": true,
+      "expected_ops": 20.91796875,
+      "worst_ops": 88,
+      "expected_ratio_vs_spec": 3.4420168067226893,
+      "constructs_used": [
+        "Call",
+        "Lit",
+        "Prim",
+        "Ref",
+        "Scan",
+        "Var"
+      ],
+      "result": [
+        "I4 = Lit(4)",
+        "I5 = Lit(5)",
+        "I6 = Lit(6)",
+        "I7 = Lit(7)"
+      ],
+      "candidates_considered": 9947529
+    },
+    "minus_Scan": {
+      "solved": true,
+      "expected_ops": 17.9296875,
+      "worst_ops": 72,
+      "expected_ratio_vs_spec": 4.015686274509804,
+      "constructs_used": [
+        "Call",
+        "Find",
+        "Lit",
+        "Prim",
+        "Ref",
+        "Var"
+      ],
+      "result": [
+        "I4 = Lit(4)",
+        "I5 = Lit(5)",
+        "I6 = Lit(6)",
+        "I7 = Lit(7)"
+      ],
+      "candidates_considered": 188289
+    },
+    "minus_Let": {
+      "solved": true,
+      "expected_ops": 17.9296875,
+      "worst_ops": 72,
+      "expected_ratio_vs_spec": 4.015686274509804,
+      "constructs_used": [
+        "Call",
+        "Find",
+        "Lit",
+        "Prim",
+        "Ref",
+        "Var"
+      ],
+      "result": [
+        "I4 = Lit(4)",
+        "I5 = Lit(5)",
+        "I6 = Lit(6)",
+        "I7 = Lit(7)"
+      ],
+      "candidates_considered": 10135809
+    }
+  },
+  "ablation_summary": {
+    "full_expected_ratio": 4.015686274509804,
+    "threshold": 3.0,
+    "single_removals_that_block": [],
+    "single_removals_that_do_not_block": [
+      "Guard",
+      "Find",
+      "Scan",
+      "Let"
+    ],
+    "single_blocking": false,
+    "joint_removal": {
+      "solved": false,
+      "candidates_considered": 9,
+      "blocked": true
+    },
+    "capability_blocking": true
+  },
+  "ablation_no_find_no_scan": {
+    "solved": false,
+    "candidates_considered": 9
+  },
+  "control_target_supplied": {
+    "seeded_with": "find i in [0,8) where module:8175c6(index(Ref(y), Var(i))) -> Var(i) else Lit(8)",
+    "profile": {
+      "cases": 65536,
+      "worst_ops": 72,
+      "best_ops": 9,
+      "expected_ops": 17.9296875,
+      "total_ops": 1175040,
+      "histogram": {
+        "9": 32768,
+        "18": 16384,
+        "27": 8192,
+        "36": 4096,
+        "45": 2048,
+        "54": 1024,
+        "63": 512,
+        "72": 512
+      },
+      "by_operator_expected": {
+        "add": 1.9921875,
+        "encode": 1.9921875,
+        "find_test": 1.9921875,
+        "ge": 1.9921875,
+        "index": 1.9921875,
+        "mod": 3.984375,
+        "mul": 3.984375
+      },
+      "output_digest": "ce40ef3320879cbe5939410c31f753ff8fa1f84da50632af8a72d15584507f2d"
+    },
+    "expected_ratio_vs_spec": 4.015686274509804,
+    "note": "template instantiation by construction; reported so the unseeded run is distinguishable from it"
+  }
+}
