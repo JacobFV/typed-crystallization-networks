@@ -1,0 +1,178 @@
+{
+ "stage1": {
+  "stage": 1,
+  "distributions": {
+   "uniform": 4096,
+   "deploy": 4096,
+   "worst": 1
+  },
+  "worst_note": {
+   "criterion": "every position hits",
+   "value": 4
+  },
+  "arms": {
+   "A": "compiled specification (tcn/compile.py)",
+   "B": "resynthesized standalone (research/lazy-guard)"
+  },
+  "interpreter_equals_A": {
+   "checked": 1024,
+   "exact": true,
+   "counterexample": null,
+   "sampling": "1,024 inputs of the exhausted domain",
+   "seconds": 0.24
+  },
+  "arm_equivalence": {
+   "uniform": {
+    "records": 4096,
+    "bit_identical": true,
+    "digests": {
+     "A": "2621036d578d3d9888a8ff44f019184e82b7f4eb9c314394e4de4a07eac977a5",
+     "B": "2621036d578d3d9888a8ff44f019184e82b7f4eb9c314394e4de4a07eac977a5"
+    },
+    "counterexample": null
+   },
+   "deploy": {
+    "records": 4096,
+    "bit_identical": true,
+    "digests": {
+     "A": "49cc34ef9738ddfdba83bf245df87c03d1e10d08bc761e0e1d1a2d8e23019c07",
+     "B": "49cc34ef9738ddfdba83bf245df87c03d1e10d08bc761e0e1d1a2d8e23019c07"
+    },
+    "counterexample": null
+   },
+   "worst": {
+    "records": 1,
+    "bit_identical": true,
+    "digests": {
+     "A": "7789783dc0545d6b68b14292b7f52331df61feef2004c46466420de7e772bb47",
+     "B": "7789783dc0545d6b68b14292b7f52331df61feef2004c46466420de7e772bb47"
+    },
+    "counterexample": null
+   },
+   "full_domain": {
+    "records": 65536,
+    "bit_identical": true,
+    "digests": {
+     "A": "7d2fa3bd3c83792d5fefff60f9114261b9d18d177301aeab4e2e1878d193214d",
+     "B": "7d2fa3bd3c83792d5fefff60f9114261b9d18d177301aeab4e2e1878d193214d"
+    },
+    "counterexample": null
+   }
+  },
+  "gate_passed": true,
+  "seconds": 0.95
+ },
+ "stage2": {
+  "stage": 2,
+  "distributions": {
+   "uniform": 4096,
+   "deploy": 0,
+   "worst": 1
+  },
+  "worst_note": {
+   "criterion": "no position satisfies the predicate -- the scan runs all 8 iterations",
+   "value": 8
+  },
+  "arms": {
+   "A": "compiled specification (tcn/compile.py)",
+   "B": "resynthesized standalone (research/lazy-guard)"
+  },
+  "interpreter_equals_A": {
+   "checked": 1024,
+   "exact": true,
+   "counterexample": null,
+   "sampling": "1,024 inputs of the exhausted domain",
+   "seconds": 0.19
+  },
+  "arm_equivalence": {
+   "uniform": {
+    "records": 4096,
+    "bit_identical": true,
+    "digests": {
+     "A": "11de6d408476ebc4ba8088ba1369395afa35662297b4c032e4601280c36634ff",
+     "B": "11de6d408476ebc4ba8088ba1369395afa35662297b4c032e4601280c36634ff"
+    },
+    "counterexample": null
+   },
+   "worst": {
+    "records": 1,
+    "bit_identical": true,
+    "digests": {
+     "A": "aa67a169b0bba217aa0aa88a65346920c84c42447c36ba5f7ea65f422c1fe5d8",
+     "B": "aa67a169b0bba217aa0aa88a65346920c84c42447c36ba5f7ea65f422c1fe5d8"
+    },
+    "counterexample": null
+   },
+   "full_domain": {
+    "records": 65536,
+    "bit_identical": true,
+    "digests": {
+     "A": "ce40ef3320879cbe5939410c31f753ff8fa1f84da50632af8a72d15584507f2d",
+     "B": "ce40ef3320879cbe5939410c31f753ff8fa1f84da50632af8a72d15584507f2d"
+    },
+    "counterexample": null
+   }
+  },
+  "gate_passed": true,
+  "seconds": 0.67
+ },
+ "stage3": {
+  "stage": 3,
+  "distributions": {
+   "uniform": 2883,
+   "deploy": 54,
+   "worst": 1
+  },
+  "worst_note": {
+   "criterion": "max achieved extent max(w,h)",
+   "value": 31
+  },
+  "arms": {
+   "A": "compiled specification (tcn/compile.py)",
+   "B": "resynthesized standalone (research/lazy-guard)",
+   "C": "hand-written reference (research/compiled-runtime/fixtures.py)"
+  },
+  "interpreter_equals_A": {
+   "checked": 32,
+   "exact": true,
+   "counterexample": null,
+   "sampling": "the interpreter costs ~0.45 s per record on the 3,072-byte carrier, so a stratified sample, not the full 2,883",
+   "seconds": 6.73
+  },
+  "arm_equivalence": {
+   "uniform": {
+    "records": 2883,
+    "bit_identical": true,
+    "digests": {
+     "A": "f9b53b8292bc7815802e1e441f01ae7e8e8c4386734c4aef5c7d26d1470e7c0e",
+     "B": "f9b53b8292bc7815802e1e441f01ae7e8e8c4386734c4aef5c7d26d1470e7c0e",
+     "C": "f9b53b8292bc7815802e1e441f01ae7e8e8c4386734c4aef5c7d26d1470e7c0e"
+    },
+    "counterexample": null
+   },
+   "deploy": {
+    "records": 54,
+    "bit_identical": true,
+    "digests": {
+     "A": "b4148088c7ddabd82f281eb3c27fe74dac27d7cb03fcf105746b8fa6e139d10b",
+     "B": "b4148088c7ddabd82f281eb3c27fe74dac27d7cb03fcf105746b8fa6e139d10b",
+     "C": "b4148088c7ddabd82f281eb3c27fe74dac27d7cb03fcf105746b8fa6e139d10b"
+    },
+    "counterexample": null
+   },
+   "worst": {
+    "records": 1,
+    "bit_identical": true,
+    "digests": {
+     "A": "42c3dccf82fe56453759adff2ba1b6488b4f8433117093ed158dcf40fe669ae0",
+     "B": "42c3dccf82fe56453759adff2ba1b6488b4f8433117093ed158dcf40fe669ae0",
+     "C": "42c3dccf82fe56453759adff2ba1b6488b4f8433117093ed158dcf40fe669ae0"
+    },
+    "counterexample": null
+   }
+  },
+  "gate_passed": true,
+  "seconds": 10.84
+ },
+ "all_gates_passed": true
+}

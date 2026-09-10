@@ -1,0 +1,52 @@
+{
+ "stage1": {
+  "cases": 65536,
+  "A_envelope": {
+   "expected": 1000.25,
+   "worst": 1004,
+   "best": 1000,
+   "cases": 65536
+  },
+  "B_bare": {
+   "expected": 155,
+   "worst": 1505,
+   "best": 65,
+   "cases": 65536
+  },
+  "worst_ratio_A_over_B": 0.667109634551495,
+  "expected_ratio_A_over_B": 6.453225806451613,
+  "findings_49_recorded": {
+   "spec_expected": 1003.25,
+   "spec_worst": 1007,
+   "resynth_expected": 157.0,
+   "resynth_worst": 1507,
+   "worst_ratio": 0.67
+  },
+  "worst_ratio_reproduces_to_2dp": true
+ },
+ "stage2": {
+  "cases": 65536,
+  "A_envelope": {
+   "expected": 821,
+   "worst": 825,
+   "best": 817,
+   "cases": 65536
+  },
+  "B_bare": {
+   "expected": 336.76171875,
+   "worst": 1301,
+   "best": 178,
+   "cases": 65536
+  },
+  "worst_ratio_A_over_B": 0.6341275941583397,
+  "expected_ratio_A_over_B": 2.437925554743594,
+  "findings_49_recorded": {
+   "spec_expected": 821.0,
+   "spec_worst": 821,
+   "resynth_expected": 338.76,
+   "resynth_worst": 1303,
+   "worst_ratio": 0.63
+  },
+  "worst_ratio_reproduces_to_2dp": true
+ }
+}
