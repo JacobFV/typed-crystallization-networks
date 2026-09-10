@@ -3060,3 +3060,67 @@ families, 4 off-family controls, 6 distinct semantic wrong-module classes. Pooli
 helps where fragmentation is high and hurts where it is not; **no ranking
 objective has been shown to beat the incumbent on more than one family.**
 
+## 58. No non-trivial abstraction is shared across the real domains, and the blocker is width typing
+
+`research/cross-domain/RESULTS.md`, branch `worktree-agent-a5dd347038d51263e`
+(`9157d15`), **not merged at time of writing**; `tcn/` and `generators/`
+untouched. `PREREGISTRATION.md` at `5d9ce5c` before any arm. Every
+library-induction result to date — §44, §46, §52, §54, §57 — is measured on
+synthetic 4- and 5-input **Boolean** families. This asks whether any of it
+reaches the visual, language and computer artifacts. Verified here from raw JSON.
+
+**The enumerator was validated before it was trusted:** bit-identical to
+`research/earned-abstraction/mine.py` on **862 checks**, `all_identical: true`.
+
+**Inventory: 1,928 fragments across 8 frozen artifacts, 217 canonical classes**
+(1,874 / 178 at `MAX_NODES=3`) — `V_same` 55, `V_corner` 47, `V_rect` 1,316,
+`V_assembly` 10, `L_stage_a` 17, `L_stage_b16` 162, `L_dyck22` 254, `C_agent` 67.
+
+**Shared across domains: 2. Non-trivial: zero.** Verified directly —
+`n_cross_domain_D: 2`, `n_cross_domain_D_nontrivial: **0**`; under carrier
+abstraction `n_cross_domain_Sstar: 6`, non-trivial **0**; `n_all_three_D: 1`.
+Every cross-domain class is a **single universal operator** of
+`tcn/operators.py`. There is nothing to induce, register or rank.
+
+**The positive control is what makes the negative trustworthy.** The same code,
+same identity rule, on two Boolean families finds **10 non-trivial shared classes
+on the `C-trace` band and 7 on `C-minall`** (both stable at `MAX_NODES` 3 and 5).
+*(The track's summary said 5; I measured 7–10 and record the measured figures.)*
+Within the visual domain alone it finds 14 shared classes, 4 non-trivial,
+including `index(x2, add(x0, x1))` shared between `V_rect` and `V_same`. **So the
+method detects non-trivial sharing when it exists — the cross-domain zero is
+real, not a broken enumerator.**
+
+**The blocker is the type system, and it is bounded independently of search.**
+Of **131 type signatures, only 2 cross a domain boundary**: `(u8,u8)→BOOL`
+(`eq`, `not(eq)`, at most 2 nodes) and `(BOOL,BOOL)→BOOL` (at most 1 node). Both
+are trivial by construction, so **cross-domain matches are bounded at any
+exhaustion cap** — raising `MAX_NODES` cannot help.
+
+**The single most illuminating fact in this section.** The motif
+
+```
+eq(index(buffer, add(base, offset)), literal)
+```
+
+**genuinely recurs in all three artifacts** — and is **three distinct semantic
+classes**, because the buffers are declared `(128×u8[byte])`, `(3072×u8[byte])`
+and `(4096×u8[byte])`. Same element type, same computation, three widths, three
+types, three classes. `research/algorithm-resynthesis/DESIGN.md` §8's
+cross-domain story is **confirmed structurally and refuted semantically**.
+
+**This is the width thread again, and it is now the load-bearing one.** §30
+found a hardened module cannot be registered at another width. §53 measured that
+selections transfer and width-polymorphism is reachable as schema plus
+instantiation, without weakening typing. §55 built and gated a class format that
+saves 272× at unseen widths. **§58 shows the same width barrier is what prevents
+abstraction from crossing domains at all** — which makes §53/§55's schema
+mechanism not an ergonomic convenience but the prerequisite for the owner's
+stated objective of reusable factorizations across visual, language and
+computer-use.
+
+**Status of the cross-domain story: unsupported as of now.** The Boolean
+library-induction results do not generalise to the curricula, and no amount of
+search fixes it, because the obstruction is in the type signatures rather than in
+the search space.
+
