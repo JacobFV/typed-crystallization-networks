@@ -32,6 +32,56 @@ git clone <repo> && cd typed-crystallization-networks
 
 Per-track raw data and reproduction scripts are under `research/<track>/`.
 
+## Direction as of 2026-09-10 — supersedes the older lists below
+
+**The bottleneck is now the research process, not the architecture.** Results are
+being produced faster than the evidence layer can absorb them: the §62 audit found
+85 discrepancies in 794 cited figures, and two entries in `CORRECTIONS.md` were
+themselves wrong.
+
+**1. Evidence pipeline first, before more research.**
+- Machine-generate headline numbers from committed artifacts; no hand-transcribed
+  figure where a script can emit it.
+- Every `FINDINGS` section should have a verifier whose pass/fail is computed from
+  committed raw artifacts. `research/record-audit/verify.py` is the start.
+- The record audit is a **routine gate**, not a periodic heroic cleanup.
+- Label single-family / single-width / single-configuration evidence explicitly.
+  The audit found 25 load-bearing claims resting on one, 16 undisclosed.
+
+**2. The current abstraction hypothesis is schema + specialization** (§60, §53).
+The schema crosses domains and widths; the frozen selection vector does not. So
+the reusable unit looks like *semantic class + parametric structural schema +
+domain/task specialization + multiple certified implementations*, not "a frozen
+module". **Keep a hierarchy of identities** — semantic class → structural schemas
+→ implementations — and do not collapse it: semantic equality is information and
+must not erase factorization information. **Do not invent a single "abstraction
+score"** — §57 showed each candidate so far was family-specific. Do not add
+polymorphism to the core type system; the sidecar mechanism already works.
+
+**3. No compiler archaeology.** Individual compiler tricks now yield ~1.1× and an
+obvious-looking bound was unsound (§59, §61). Move effort up, to better algorithms
+and reusable structure.
+
+**4. Scaffold induction is the concrete research loop** (§45, §47, §50): when a
+scaffold has no exact solution, enumerate small typed structural edits, add one
+reduction/state/path/operator family, test exact solvability and held-out
+behaviour, and keep the smallest useful expansion. A dumb typed operator sweep
+already repaired 21 of 24 failed scaffolds (§50). This attacks the biggest
+remaining human prior: someone currently hand-picks the coarse graph.
+
+**5. Flagship, after the cleanup: one integrated benchmark.** Raw screenshot +
+raw textual instruction → identify a relationally-specified widget → act on it in
+the computer environment. Compare flat substrate vs inherited learned library vs a
+wrong/distractor library, measuring task quality, search space, environment
+episodes, compiled work, and which inherited abstractions land on the execution
+path. The question it answers: *does the accumulated instruction set make
+increasingly integrated intelligence cheaper to acquire?* Stay off Boolean-family
+microbenchmarks as the main venue — §58 found zero non-trivial semantic classes
+shared across the real artifacts.
+
+**Operational:** one heavy agent at a time, capped (see Traps). Slow the branching
+rate.
+
 ## State as of 2026-09-09
 
 **Settled:** the inference overhead was *interpreter* overhead, not the typed

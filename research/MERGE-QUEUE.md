@@ -99,6 +99,21 @@ exited: **337 passed, 0 failures** (288 plus 49 tests the branches bring —
 shipped fixture reproduces **0.248836 → 0.002231**, `fully_frozen: true`, **4.0**
 evaluation return and **4.0** from the exact frozen agent.
 
+## Owner decisions, 2026-09-10
+
+- **`demo-language-fix` — MERGED** (see its entry below). It repairs the first
+  public reproduction path and replaces an undisclosed best-of-tie program with
+  the recorded, certified one.
+- **`emitter-guards` — LEAVE OUT.** 247 lines of permanent compiler complexity for
+  a solid but narrow ~1.10× on one artifact is not worth the core surface.
+- **`refinement-bounds` — LEAVE OUT.** It stacks on `emitter-guards` and needs a
+  second off-by-default flag to avoid being a 29% regression; same judgement.
+- **`seasons` — LEAVE OUT.** The negative is preserved; four experiments have now
+  killed that scheduler family.
+
+Compiler work has established its architectural point. Keep compiled latency as a
+*measurement*; do not spend further research effort on individual compiler tricks.
+
 ## Still waiting
 
 ### `demo-language-fix` (9f8c529) — **LANDED on main 2026-09-10**
