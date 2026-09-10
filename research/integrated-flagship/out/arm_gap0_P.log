@@ -1,0 +1,199 @@
+P 0 S=2.359e+06 K= 0 0.0s
+P 1 S=4.271e+17 K= 0 0.1s
+P 2 S=2.407e+22 K= 965009252097428 21.2s
+P 3 S=2.482e+22 K= 998885575068792 18.5s
+P 4 S=2.482e+22 K= 998885575068792 18.2s
+P 5 S=6.206e+22 K= 3485084587278552 39.6s
+P 6 S=1.740e+23 K= 13545445921943112 54.5s
+P 7 S=1.073e+24 K= 78251572161801420 60.3s
+P 8 S=1.090e+24 K= 78357441677331660 60.6s
+P 9 S=2.490e+24 K= 364582174863348480 67.9s
+P 10 S=2.490e+24 K= 364582174863348480 0.2s
+P 11 S=2.490e+24 K= 364582174863348480 0.1s
+P 12 S=5.026e+29 K= 5291430621263841152256 71.8s
+{
+ "arm": "P",
+ "gap": 0,
+ "pool": "flat",
+ "prior": true,
+ "first_solvable_tier": 2,
+ "full_space": {
+  "S": "502613115042775967352225792000",
+  "S_log10": 29.701233816760325,
+  "K": "5291430621263841152256",
+  "certificate": "complete",
+  "exhausted": true
+ },
+ "expected_programs": {
+  "num": "412136993140123060089978228965377",
+  "den": "965009252097429",
+  "float": 4.270808722759406e+17,
+  "log10": 17.63051012106149
+ },
+ "expected_episodes": {
+  "num": "1648547972560492240359912915861508",
+  "den": "321669750699143",
+  "float": 5.124970467311287e+18,
+  "log10": 18.709691367109116
+ },
+ "solution_exists": true,
+ "first_solution_samples": {
+  "n": 400,
+  "train_conform_all": true,
+  "held_out_accuracy_mean": 0.6430555555555556,
+  "held_out_accuracy_min": 0.2777777777777778,
+  "generalize_fraction": 0.0,
+  "generalize_count": 0,
+  "generalize_wilson95": [
+   0.0,
+   0.009512640599680667
+  ],
+  "held_out_accuracy_hist": {
+   "0.2778": 3,
+   "0.3056": 3,
+   "0.3333": 3,
+   "0.3611": 2,
+   "0.3889": 11,
+   "0.4167": 1,
+   "0.4444": 10,
+   "0.4722": 8,
+   "0.5": 6,
+   "0.5278": 17,
+   "0.5556": 13,
+   "0.5833": 18,
+   "0.6111": 26,
+   "0.6389": 63,
+   "0.6667": 76,
+   "0.6944": 28,
+   "0.7222": 18,
+   "0.75": 54,
+   "0.7778": 30,
+   "0.8056": 10
+  }
+ },
+ "first_solution_slots": {
+  "cpos": {
+   "most_common": "('mul', 'k5', 'k5')",
+   "share": 0.04,
+   "distinct": 141,
+   "prior_rank_of_most_common": 78,
+   "prior_score_of_most_common": 0.09871244635193133,
+   "slot_best_score": 0.36623748211731044
+  },
+  "lc1": {
+   "most_common": "101",
+   "share": 0.1625,
+   "distinct": 18
+  },
+  "lc2": {
+   "most_common": "101",
+   "share": 0.1275,
+   "distinct": 17
+  },
+  "lc3": {
+   "most_common": "101",
+   "share": 0.1275,
+   "distinct": 18
+  },
+  "K1": {
+   "most_common": "7",
+   "share": 0.18,
+   "distinct": 8,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "K2": {
+   "most_common": "7",
+   "share": 0.175,
+   "distinct": 8,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "K3": {
+   "most_common": "7",
+   "share": 0.1625,
+   "distinct": 8,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "K4": {
+   "most_common": "7",
+   "share": 0.23,
+   "distinct": 8,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "ra": {
+   "most_common": "('mul', 'k4', 'k4')",
+   "share": 0.0275,
+   "distinct": 144,
+   "prior_rank_of_most_common": 78,
+   "prior_score_of_most_common": 0.09871244635193133,
+   "slot_best_score": 0.36623748211731044
+  },
+  "lr1": {
+   "most_common": "101",
+   "share": 0.215,
+   "distinct": 18
+  },
+  "lr2": {
+   "most_common": "101",
+   "share": 0.22,
+   "distinct": 16
+  },
+  "M": {
+   "most_common": "(2, 1, 7, 7)",
+   "share": 0.265,
+   "distinct": 40,
+   "prior_rank_of_most_common": 64,
+   "prior_score_of_most_common": 0.07619900173611112,
+   "slot_best_score": 0.2767198350694444
+  },
+  "X1": {
+   "most_common": "('add', 'lo', 76)",
+   "share": 0.05,
+   "distinct": 108,
+   "prior_rank_of_most_common": 1023,
+   "prior_score_of_most_common": 0.20909090909090908,
+   "slot_best_score": 0.7666666666666666
+  },
+  "X2": {
+   "most_common": "('add', 'lo', 75)",
+   "share": 0.0275,
+   "distinct": 268,
+   "prior_rank_of_most_common": 1023,
+   "prior_score_of_most_common": 0.20909090909090908,
+   "slot_best_score": 0.7666666666666666
+  },
+  "X3": {
+   "most_common": "('add', 'lo', 76)",
+   "share": 0.0525,
+   "distinct": 151,
+   "prior_rank_of_most_common": 1023,
+   "prior_score_of_most_common": 0.20909090909090908,
+   "slot_best_score": 0.7666666666666666
+  }
+ },
+ "example_first_solution": {
+  "cpos": 320,
+  "lc1": 19,
+  "lc2": 5,
+  "lc3": 4,
+  "K1": 0,
+  "K2": 6,
+  "K3": 7,
+  "K4": 1,
+  "ra": 895,
+  "lr1": 4,
+  "lr2": 7,
+  "M": 273,
+  "X1": 1020,
+  "X2": 437,
+  "X3": 647
+ },
+ "example_first_solution_specs": {
+  "cpos":

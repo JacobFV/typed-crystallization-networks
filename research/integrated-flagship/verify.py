@@ -163,6 +163,48 @@ if v3:
     claim("V3: enumerate_environment charged 12 episodes per program",
           e["tcn"]["episodes"] == 12 * e["tcn"]["evaluated"])
 
+# ------------------------------------------------ LEAKAGE: the prior's data
+# Every labelled row must come from an earlier domain's own search; the
+# integrated task may contribute only UNLABELLED statistics of its 12 TRAINING
+# episodes' observations (V, occurs) at scoring time, and nothing from held-out.
+SOURCE_OK = {"s19_stage_a", "s23_transform", "s23_policy", "s33_s0", "s33_s1", "s33_s2"}
+src = J("sources.json")
+kinds = {k: v for k, v in src.items() if isinstance(v, list) and k != "certificates"}
+claim("LEAKAGE: every prior row comes from an earlier-domain search (§19/§23/§33)",
+      all(r["source"] in SOURCE_OK for v in kinds.values() for r in v),
+      ", ".join(f"{k} {len(v)}" for k, v in kinds.items()))
+claim("LEAKAGE: row counts are ADDR 233, LIT 424, TRUTH 48, STEP 20, GROUND 0",
+      [len(kinds[k]) for k in ("ADDR", "LIT", "TRUTH", "STEP", "GROUND")] == [233, 424, 48, 20, 0])
+claim("LEAKAGE: survivor labels equal the earlier searches' own conforming sets (23/22/5/6)",
+      [sum(r["survive"] for r in kinds[k]) for k in ("ADDR", "LIT", "TRUTH", "STEP")] == [23, 22, 5, 6])
+code_src = (HERE / "sources.py").read_text()
+code_prior = (HERE / "prior.py").read_text()
+claim("LEAKAGE: sources.py and prior.py never import the integrated generator or its episode cache",
+      not any(tok in code_src + code_prior for tok in ("import env", "import cache", "episodes_gap",
+                                                        "import arms", "validate")))
+import numpy as np              # noqa: E402
+import prior as _prior          # noqa: E402
+import engine as _engine        # noqa: E402
+_P = _prior.Prior(_prior.load_sources())
+d = arm(0, "N''")
+if d is not None:
+    claim("LEAKAGE: the prior refitted from sources.json alone reproduces the stored estimator cells",
+          json.loads(json.dumps(_P.describe())) == d["prior_estimators"])
+    ep = J("episodes_gap0.json")["episodes"]
+    train = _engine.Episodes(ep[:12])
+    pool = family.pools("schema")
+    sc = _prior.slot_scores(_P, pool, train, 16)
+    tiers = _prior.tiers(sc, pool)
+    same = len(tiers) == len(d["tiers"]) and all(
+        {s: int(R.m[s].sum()) for s in R.m} == t["sizes"] for R, t in zip(tiers, d["tiers"]))
+    claim("LEAKAGE: N'' tiers rebuild exactly from the 12 training episodes' unlabelled text only", same)
+    heldout = _engine.Episodes(ep[12:])
+    sc_h = _prior.slot_scores(_P, pool, heldout, 16)
+    claim("LEAKAGE: the only target-dependent prior inputs are unlabelled observation features "
+          "(scores differ from training ones only through V on ADDR slots)",
+          all(np.array_equal(np.asarray(sc[s]), np.asarray(sc_h[s])) for s in sc if family.KIND[s] != "ADDR"))
+import numpy as np  # noqa: E402,F811
+
 # sources reproduce the earlier tracks' certificates
 s = J("sources.json")
 cert = {c["source"]: c for c in s["certificates"]}

@@ -41,6 +41,9 @@ def sci(x):
     x = float(x)
     if x == 0:
         return "0"
+    if abs(x) < 0.01:
+        e = math.floor(math.log10(abs(x)))
+        return f"{x / 10 ** e:.2f}×10^{e}"
     if abs(x) < 1e5:
         return f"{x:,.0f}" if x == int(x) else f"{x:,.2f}"
     e = math.floor(math.log10(abs(x)))

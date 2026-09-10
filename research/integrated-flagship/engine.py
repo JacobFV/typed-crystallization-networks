@@ -508,7 +508,7 @@ class Counter:
         assert acc == self.total
         T = self.T
         out = []
-        cache_c, cache_r = {}, {}
+        cache_c, cache_r, cache_l = {}, {}, {}
         for _ in range(n):
             u = rng.randrange(self.total)
             add, tkey, ci, combo, L = self.terms[bisect.bisect_right(cum, u)]
@@ -523,8 +523,10 @@ class Counter:
                 sel[s] = rng.choice(js)
             for s, (sig, kis) in zip(K_SLOTS, combo):
                 sel[s] = rng.choice(kis)
-            prods, hm = self.route_products(L)
-            w = [self.r_w[k] * int(prods[k]) for k in range(len(prods))]
+            if L not in cache_l:
+                prods, hm = self.route_products(L)
+                cache_l[L] = (hm, [self.r_w[k] * int(prods[k]) for k in range(len(prods))])
+            hm, w = cache_l[L]
             k = rng.choices(range(len(w)), weights=w)[0]
             if k not in cache_r:
                 cache_r[k] = self._addr_members("ra", REL_SLOTS, self.route_list[k])
