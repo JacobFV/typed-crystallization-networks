@@ -276,6 +276,9 @@ class Restriction:
                 continue
             self.m[s] = np.ones(len(pools[s]), dtype=bool) if masks is None or s not in masks \
                 else np.asarray(masks[s], dtype=bool)
+        # `occ_mask` picks the episodes on which a letter 'occurs' is decided
+        # (the prior's feature is computed on the training episodes only).
+        self.occ_mask = -1
         self.occ, self.abs = {}, {}
         for s in COLOUR_SLOTS + REL_SLOTS:
             n = len(pools[s])
@@ -293,7 +296,7 @@ def _letter_groups(T, byte_vec, slot, R, E):
         for e in range(E):
             if byte_vec[e] == v:
                 bits |= 1 << e
-        allowed = R.occ[slot][i] if bits else R.abs[slot][i]
+        allowed = R.occ[slot][i] if (bits & R.occ_mask) else R.abs[slot][i]
         if allowed:
             groups[bits] += 1
     return groups
@@ -495,7 +498,7 @@ class Counter:
                     for e in range(E):
                         if bv[e] == v:
                             bits |= 1 << e
-                    if (R.occ[s][j] if bits else R.abs[s][j]):
+                    if (R.occ[s][j] if (bits & R.occ_mask) else R.abs[s][j]):
                         g[bits].append(j)
                 per.append(g)
             for combo in itertools.product(*(list(g.items()) for g in per)):

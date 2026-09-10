@@ -45,11 +45,13 @@ def count(T, R, direct):
     return c.total
 
 
-def tiered_cost(T, tiers):
+def tiered_cost(T, tiers, Ttrain):
     before, prev_S, prev_K, rows = 0, 0, 0, []
     cost = None
     for t, R in enumerate(tiers):
-        S, K = engine.space_size(T, R), count(T, R, True)
+        R.occ_mask = (1 << arms.N_TRAIN) - 1
+        # S is the arm's own (training) space; K counts its programs that conform on all 48
+        S, K = engine.space_size(Ttrain, R), count(T, R, True)
         rows.append({"tier": t, "S": str(S), "K48": str(K)})
         if cost is None and K - prev_K > 0 and prev_K == 0:
             cost = Fraction(before) + Fraction(S - prev_S + 1, K - prev_K + 1)
@@ -101,7 +103,7 @@ def main(gap):
     scores = prior.slot_scores(prior.Prior(src), pool, train, arms.WIDTH)
     tiers = prior.tiers(scores, pool)
     T48 = engine.Tables(allep, pool)
-    cost, rows = tiered_cost(T48, tiers)
+    cost, rows = tiered_cost(T48, tiers, engine.Tables(train, pool))
     out["N''_tiers_generalizing"] = rows
     out["N''_expected_programs_to_first_generalizing"] = (
         {"log10": math.log10(float(cost)), "num": str(cost.numerator), "den": str(cost.denominator)}
@@ -110,7 +112,62 @@ def main(gap):
     print(json.dumps(out, indent=1)[:3000])
 
 
+SCHEMA_ARMS = ["N'", "N''", "A_noobs"] + [f"R_{s}" for s in range(5)] + \
+    ["U_feat", "U_steep", "U_Vonly", "KO_ADDR", "KO_TRUTH", "KO_STEP", "STEP_only", "STEP_hand"] + \
+    [f"OCC_{r}" for r in (1, 3, 10, 100, 3500)] + [f"V_{r}" for r in (1, 3, 10, 100)]
+
+
+def first_generalizing(gap, arm, table, train, T48, Ttrain):
+    """POST-HOC: exact expected programs to the first program conforming on all
+    48 episodes, visiting the arm's own tiers (uniform order inside a shell)."""
+    pool_name, pr = table[arm]
+    pool = family.pools(pool_name, arms.WIDTH)
+    tiers = prior.tiers(prior.slot_scores(pr, pool, train, arms.WIDTH), pool) if pr else \
+        [engine.Restriction(pool)]
+    before, prev_S, prev_K, rows, cost = 0, 0, 0, [], None
+    t0 = time.perf_counter()
+    for t, R in enumerate(tiers):
+        R.occ_mask = (1 << arms.N_TRAIN) - 1   # 'occurs' decided on training, as in the arm
+        S = engine.space_size(Ttrain, R)      # the arm's own (training) space
+        K = count(T48, R, True)
+        rows.append({"tier": t, "S": str(S), "K48": str(K)})
+        if K - prev_K > 0 and prev_K == 0:
+            cost = Fraction(before) + Fraction(S - prev_S + 1, K - prev_K + 1)
+            break
+        before += S - prev_S
+        prev_S, prev_K = S, K
+    return {"arm": arm, "gap": gap, "tiers": rows,
+            "first_generalizing_tier": len(rows) - 1 if cost is not None else None,
+            "expected_programs_to_first_generalizing":
+                ({"num": str(cost.numerator), "den": str(cost.denominator),
+                  "log10": math.log10(cost.numerator) - math.log10(cost.denominator)}
+                 if cost is not None else None),
+            "certificate": "complete", "seconds": time.perf_counter() - t0}
+
+
+def main_all(gap, which):
+    d = cache.load(gap)
+    train = engine.Episodes(d["episodes"][:arms.N_TRAIN])
+    allep = engine.Episodes(d["episodes"])
+    table = arms.arm_table(prior.load_sources())
+    T48 = engine.Tables(allep, family.pools("schema", arms.WIDTH))
+    Ttrain = engine.Tables(train, family.pools("schema", arms.WIDTH))
+    out = []
+    for arm in which:
+        if not (OUT / f"arm_gap{gap}_{arm.replace(chr(39), 'p')}.json").exists():
+            continue
+        r = first_generalizing(gap, arm, table, train, T48, Ttrain)
+        out.append(r)
+        print({k: v for k, v in r.items() if k != "tiers"}, flush=True)
+        (OUT / f"first_generalizing_gap{gap}.json").write_text(json.dumps(out, indent=1))
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--gap", type=int, default=0)
-    main(ap.parse_args().gap)
+    ap.add_argument("--all", action="store_true")
+    a = ap.parse_args()
+    if a.all:
+        main_all(a.gap, SCHEMA_ARMS)
+    else:
+        main(a.gap)

@@ -62,7 +62,7 @@ def brute_count(T, R, chunk=500_000):
         for s in lit_slots:
             allowed = []
             for j, v in enumerate(T.lit[s]):
-                occurs = any(bv[e] == v for e in range(E))
+                occurs = any(bv[e] == v for e in range(E) if R.occ_mask >> e & 1)
                 if (R.occ[s][j] if occurs else R.abs[s][j]):
                     allowed.append(j)
             out.append(allowed)

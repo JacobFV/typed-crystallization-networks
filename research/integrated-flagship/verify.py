@@ -244,6 +244,24 @@ if g is not None:
     claim("analytic: no distractor address expression equals length-5 on every episode",
           g["distractor_addresses_equal_length_minus_5"] == [] or not straw)
 
+# post-hoc: programs to first generalizing, recomputed from each arm's 48-episode tier rows
+for r in J("first_generalizing_gap0.json") or []:
+    before, prev_S, prev_K, c = 0, 0, 0, None
+    for t in r["tiers"]:
+        S, K = int(t["S"]), int(t["K48"])
+        if K - prev_K > 0 and prev_K == 0:
+            c = Fraction(before) + Fraction(S - prev_S + 1, K - prev_K + 1)
+            break
+        before += S - prev_S
+        prev_S, prev_K = S, K
+    e = r["expected_programs_to_first_generalizing"]
+    claim(f"post-hoc {r['arm']}: programs to first generalizing recomputes from its tier rows",
+          (c is None and e is None) or (e is not None and c == Fraction(int(e["num"]), int(e["den"]))))
+    d_ = arm(0, r["arm"])
+    if d_ is not None and r["tiers"]:
+        claim(f"post-hoc {r['arm']}: 48-episode tier sizes equal the arm's training tier sizes",
+              all(t["S"] == u["S"] for t, u in zip(r["tiers"], d_["tiers"])))
+
 # KO_LIT (N'' with LIT uniform) is not run: it is the same search as OCC_1.
 # Tiers compare scores only within a slot, so any uniform LIT rule gives the
 # same restrictions; checked here byte for byte rather than argued.

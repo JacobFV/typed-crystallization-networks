@@ -423,7 +423,41 @@ def block_posthoc(gap):
     return "\n".join(rows) if len(rows) > 2 or exact else "(not run)"
 
 
+def block_first_generalizing(gap):
+    """POST-HOC headline column: programs to the first GENERALIZING program."""
+    fg = {r["arm"]: r for r in (load(f"first_generalizing_gap{gap}.json") or [])}
+    g = load(f"generalize_gap{gap}.json")
+    p = {r["arm"]: r for r in (load(f"posthoc_gap{gap}.json") or []) if r.get("samples")}
+    rows = ["| arm | programs to first training-conforming (pre-registered metric) | "
+            "programs to first GENERALIZING program (post-hoc) | how obtained |", "|---|---|---|---|"]
+    for a in ARMS:
+        d = arm(gap, a)
+        if d is None:
+            continue
+        c = cost(d)
+        pre = sci(float(c)) if c is not None else "no solution"
+        if a in fg and fg[a]["expected_programs_to_first_generalizing"]:
+            val, how = sci(10 ** fg[a]["expected_programs_to_first_generalizing"]["log10"]), \
+                f"exact, 48-episode count, tier {fg[a]['first_generalizing_tier']}"
+        elif a in fg:
+            val, how = "none in the arm's space", "exact, 48-episode count"
+        elif d["pool"] == "distractor" and g and int(g["distractor"]["K_generalizing"]) == 0:
+            val, how = "∞ — no generalizing program exists", "exact, 48-episode count"
+        elif a in p:
+            r = p[a]
+            lb = sci(10 ** r["cost_to_generalizing_lower_bound_log10"])
+            est = (sci(10 ** r["cost_to_generalizing_estimate_log10"])
+                   if r["cost_to_generalizing_estimate_log10"] is not None else "—")
+            val, how = f"≥ {lb} (estimate {est})", \
+                f"bound: {r['generalize_count']}/{r['samples']} sampled first-shell conformers generalize (Wilson 95%)"
+        else:
+            val, how = "pending", "—"
+        rows.append(f"| {LABEL[a]} | {pre} | {val} | {how} |")
+    return "\n".join(rows)
+
+
 BLOCKS = {
+    "first_generalizing_gap0": lambda: block_first_generalizing(0),
     "sweep": block_sweep, "mechanism": block_mechanism,
     "posthoc_gap0": lambda: block_posthoc(0),
     "leakage": block_leakage,
