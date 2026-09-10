@@ -182,21 +182,43 @@ def s50():
     except FileNotFoundError:
         return "S1 was not run."
     s = d["summary"]
+
+    def n_tr(c):
+        return [r["variant"] for r in c["rows"] if r["conforming_on_train"]]
+
+    def n_al(c):
+        return [r["variant"] for r in c["rows"] if r["conforming_on_all"]]
+
+    variants = sum(len(c["rows"]) for c in d["cases"])
+    tr = sum(len(n_tr(c)) for c in d["cases"])
+    al = sum(len(n_al(c)) for c in d["cases"])
+    lost = [c for c in d["cases"] if len(n_tr(c)) != len(n_al(c))]
     rows = [["failed scaffolds re-decided", s["failed_cases"]],
             ["§50's own count, training conformance (recorded)", "21 / 24"],
-            ["a variant conforms on all episodes (a repair exists)",
+            ["cases keeping a repair under the stricter metric",
              f"{s['repair_exists_heldout']} / {s['failed_cases']}"],
             ["the training-stop variant also conforms on all episodes",
              f"{s['training_stop_conforms_heldout']} / {s['failed_cases']}"],
             ["of those, the language cases (the only ones with a held-out split)",
              f"{s['lang_training_stop_conforms_heldout']} / {s['lang_cases']}"],
-            ["variants that conform on training and **fail** on the held-out "
-             "episodes (the section-65 trap, counted over every variant of every "
-             "case)",
-             sum(1 for c in d["cases"] for r in c["rows"]
-                 if r["conforming_on_train"] and not r["conforming_on_all"])],
             ["the Boolean cases, which have no held-out split",
-             f"{s['bool_cases']}, both with no conforming variant at all"]]
+             f"{s['bool_cases']}, both with no conforming variant at all"],
+            ["variants enumerated across every case", variants],
+            ["variants conforming on training", tr],
+            ["variants conforming on training **and** on the held-out episodes", al],
+            ["**variants lost to the stricter metric**", tr - al],
+            ["cases that lose a variant", f"{len(lost)} / {s['failed_cases']}"]]
+    for c in lost:
+        a, b = n_tr(c), n_al(c)
+        rows.append([f"— `{c['case_id']}`, train-conforming → all-conforming",
+                     f"{len(a)} (`{'`, `'.join(a)}`) → "
+                     f"{len(b)} (`{'`, `'.join(b)}`), out of {len(c['rows'])} variants"])
+        for r in c["rows"]:
+            if r["conforming_on_train"]:
+                rows.append([
+                    f"— `{c['case_id']}` variant `{r['variant']}`: family members "
+                    f"conforming on training → on training and held out",
+                    f"{r['conforming_on_train']} → {r['conforming_on_all']}"])
     return table(["S1 — §50's corpus on held-out conformance", "count"], rows)
 
 

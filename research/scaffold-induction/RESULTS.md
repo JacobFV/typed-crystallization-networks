@@ -17,10 +17,24 @@ stated — the same disclosure §50 made about its own task count.
 ## Amendments to the pre-registration
 
 Every change to `PREREGISTRATION.md` after it was committed, in order, with what
-it replaces. **All of them were made during corpus construction, before any arm
-ordering or arm cost was computed**, and none of them moves a number that had
-already been measured — the arms had not run. They are listed anyway, because a
+it replaces and **the commit that made it**, so a reader can check for himself
+that each predates the arms rather than taking this paragraph's word for it.
+The pre-registration is `11d86b4`, the first commit on the track; the amendments
+land in `a73107a` and `0705225`; the first corpus artifact is committed after
+both. **All of them were made during corpus construction, before any arm
+ordering or arm cost was computed**, and none moves a number that had already
+been measured — the arms had not run. They are listed anyway, because a
 pre-registration that is quietly re-read is not one.
+
+| amendment | commit | what it touches |
+|---|---|---|
+| A1 `rel` becomes a three-step scaffold over three entities | `a73107a` | `domains.py` |
+| A2 `rel` and `bool` episode counts | `a73107a` | `domains.py` |
+| A3 `keep_prefix` k values and defect sites | `a73107a` | `run_domain.py` |
+| A4 `lang` dropped | `a73107a` | `domains.py`, `analyse.py` (`DOMAINS`) |
+| A5 the training decision is skipped behind a witness | `0705225` | `run_domain.py` |
+| A6 §3.4's probe sizes moved with A1 | `a73107a` | prose only |
+| A7 the expectation formula corrected | `0705225` | `PREREGISTRATION.md`, `analyse.py`, `verify.py` |
 
 **A1 — `rel` is a three-step scaffold over three entities, replacing §2.1's
 "two-step reachability relation of a 4-entity directed graph".** The generator's
@@ -62,7 +76,62 @@ was in the pre-registration and in the first draft of both `analyse.py` and
 `verify.py`, which is exactly the failure mode a verifier that shares a
 mis-derivation cannot catch; it was found by checking the degenerate case
 (`s = k = 1` must cost one draw, not a half) before any arm was costed. No
-measured number changes, because none had been produced.
+measured number changes, because none had been produced. The cost metric and
+the independent check it now carries are set out in the next section.
+
+---
+
+## The cost metric, and how it is checked without re-using its own derivation
+
+An arm supplies a **tiered** ordering of a case's edits: a sequence of tiers,
+uniform within each. Enumeration draws from the first tier until it is exhausted,
+then the second, and so on. For a tier of `s` edits containing `k` repairs, drawn
+uniformly without replacement, the expected number of draws to the first repair
+is
+
+    (s + 1) / (k + 1)
+
+and the cost of the whole ordering is the sizes of every repair-free tier ahead
+of it, plus that term for the first tier that contains a repair:
+
+    E = Σ_{j < i*} s_j  +  (s_{i*} + 1) / (k_{i*} + 1),   i* = the first tier with k_i > 0
+
+**Worked example**, small enough to check by hand. Three edits in one tier, one
+of them a repair. The repair is equally likely to sit in each position, so the
+number of draws to reach it is one, two or three with probability a third each,
+and the mean is two — which is `(3 + 1) / (1 + 1)`. The formula the
+pre-registration originally carried, `(s − k + 1) / (k + 1)`, gives one and a
+half for the same tier, and gives a half for a single edit that is certainly a
+repair, which is not a possible number of draws.
+
+**Why the verifier's re-derivation is not enough on its own, and what replaces
+it.** `verify.py` re-implements the expectation rather than importing it, but
+re-implementing a formula I had already written down wrong is not an independent
+check — it is the same derivation typed twice, and it is precisely what let the
+error through the first time. So the verifier now checks the closed form against
+a **different route to the same quantity**: it draws uniformly random
+permutations of a tier and averages the position of the first repair, and
+requires the empirical mean to agree with `(s + 1) / (k + 1)`. Simulation shares
+no algebra with the closed form, so a mistake in the algebra shows up as a
+disagreement. The degenerate cases are asserted outright beside it. Both are
+FAIL-able claims in `out/verify.json`, not comments.
+
+**And a second guard that was not guarding, found while writing the above.**
+`verify.py` also refuses any number in RESULTS prose that is neither a declared
+structural constant nor present in a rendered block. Two defects made that check
+close to vacuous. Its block-stripping pattern did not tie the closing marker to
+the opening one and required a newline inside the block, so on an unfilled block
+it ran forward to a later marker and deleted the prose in between; then its
+code-span pattern was allowed to cross newlines, so a single unpaired backtick
+paired across paragraphs. Together they were discarding about ninety-six percent
+of the document before the check ever ran — the check passed because there was
+almost nothing left to check. Both patterns are fixed, the block marker is now
+tied by a backreference, and a **guard on the guard** now fails if the strips
+remove most of the document. A third defect in the same check: it compared each
+prose number against the blocks by substring, so a stray digit passed whenever
+some block happened to contain it inside a longer number. It now compares
+tokens, and that change immediately surfaced two real strays this document had
+been carrying.
 
 ---
 
@@ -153,18 +222,45 @@ irreproducible list would mean nothing.
 ## S1 — re-scoring §50's own corpus on held-out conformance
 
 **The pre-registered prediction F8 was that §50's count would fall. It does
-not.** On every language case in §50's corpus, the variants that conform on the
-training episodes are exactly the variants that conform on the held-out episodes
-too — there is not one training-only fit in the whole family. The operator
-sweep's repairs generalize, and §50's baseline is stronger than this track
-predicted, not weaker. The prediction is kept and marked wrong rather than
-removed.
+not.** Every case that had a repair keeps one under the stricter metric, and the
+variant a training-only protocol stops at conforms on the held-out episodes too.
+§50's baseline is stronger than this track predicted, not weaker. The prediction
+is kept and marked wrong rather than removed.
+
+**But the stricter metric is not inert on §50's own corpus, and the one place it
+bites is the argument for using it.** One case, `C_max2_add`, has three variants
+that conform on its training episodes and only two that conform on all of them:
+`sub/add` fits the training set and fails held out. It is a single variant out of
+the whole corpus, and the block below gives the exact counts — but it is direct
+in-corpus evidence that "conforms on training" admits spurious repairs, the §65
+defect turning up inside §50's own material rather than only in this track's.
+
+**It is worse at the level of family members than at the level of variants.**
+The `sub/add` scaffold does not merely contain a spurious member: **every** member
+of it that conforms on the training episodes fails on the held-out ones, 24 to
+zero. A protocol that accepted that scaffold on training conformance would have
+had nothing to select from, at any tie-break. The two genuine repairs lose
+members too — 527 conforming on training, 324 surviving the held-out check — so
+even where the repair is real, training conformance overstates the conforming set
+by roughly two thirds. That is the same shape §65 recorded and it is here in a
+family this project already believed it understood.
+
+**Two things that single case shows, and one it does not.** It shows the metric
+choice is not academic. It also shows *why* the training-stop column reads
+cleanly: `sub/add` sits in the second half of the variant enumeration, behind
+`add/max`, so the stop rule never reaches it. The 22/22 is therefore a fact about
+the enumeration order as much as about the family — reorder the variants and a
+training-only protocol would accept a variant that does not generalize. What the
+case does **not** show is that §50 was wrong: §50's own scoring compares a tie
+set against a known repair set, which is a different and stricter question than
+"does some variant conform", and its recorded 21 of 24 is not contradicted by
+anything here.
 
 This is worth holding beside the corpus above, where the same protocol on this
-track's own domains produces many edits that fit training and fail held-out. The
-difference is a property of the *family*, not of the method: §50's language
-scaffold family is narrow enough that fitting the training episodes already
-pins the program, while the edit spaces here are wide enough to contain fits
+track's own domains produces far more edits that fit training and fail held out.
+The difference is a property of the *family*, not of the method: §50's language
+scaffold family is narrow enough that fitting the training episodes very nearly
+pins the program, while the edit spaces here are wide enough to contain many fits
 that do not.
 
 <!-- BEGIN:s50 -->

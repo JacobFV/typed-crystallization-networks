@@ -36,6 +36,7 @@ results = []
 ARMS = ["N", "N'", "N''", "H1", "H2", "D1", "D2", "ORACLE"]
 FEATURE_KEYS = ("family", "op_class", "novel", "is_output", "const_site",
                 "added", "space", "arity")
+NUMBER = r"\d+(?:,\d{3})*(?:\.\d+)?"
 
 
 def claim(name, ok, detail=""):
@@ -106,7 +107,42 @@ def arm_key(arm, e, row, table, dtable, fam):
     raise ValueError(arm)
 
 
+def check_expectation():
+    """The closed form, checked against a route that shares no algebra with it.
+
+    Re-implementing `(s + 1) / (k + 1)` here would only be the same derivation
+    typed twice -- and the pre-registration's first draft of it was wrong, so
+    that is exactly the check that failed.  Instead the tier is *simulated*:
+    uniformly random permutations, averaging the position of the first repair.
+    """
+    import random as _r
+    rng = _r.Random(12345)
+    trials = 200_000
+    for s, k in ((1, 1), (3, 1), (5, 1), (6, 2), (10, 3), (8, 8)):
+        idx = list(range(s))
+        total = 0
+        for _ in range(trials):
+            rng.shuffle(idx)
+            total += next(i for i, v in enumerate(idx, start=1) if v < k)
+        empirical = total / trials
+        closed = Fraction(s + 1, k + 1)
+        claim(f"tier (s={s}, k={k}): the closed form matches a simulated draw",
+              abs(empirical - float(closed)) < 0.02,
+              f"simulated {empirical:.4f} vs closed form {float(closed):.4f}")
+    # degenerate cases, asserted outright
+    for keys, reps, want in (
+            ([0], [True], Fraction(1)),
+            ([0, 0], [False, True], Fraction(3, 2)),
+            ([0, 0, 0], [True, True, True], Fraction(1)),
+            ([0, 1], [False, True], Fraction(2)),
+            ([0], [False], None)):
+        got = expectation(keys, reps)
+        claim(f"degenerate tier {keys}/{reps} costs {want}", got == want,
+              f"{got} vs {want}")
+
+
 def main():
+    check_expectation()
     a = J("analysis")
     if a is None:
         claim("out/analysis.json exists", False)
@@ -317,12 +353,26 @@ def main():
         claim("every block report.py can render appears in RESULTS.md",
               set(report.BLOCKS) >= set(rendered))
         allow = set(ALLOWED)
-        inside = "\n".join(rendered.values())
-        prose = re.sub(r"<!-- BEGIN:\w+ -->\n.*?\n<!-- END:\w+ -->", "", text, flags=re.S)
-        prose = re.sub(r"`[^`]*`", "", prose)          # code spans carry formulae
+        # Tokenise the blocks rather than substring-matching them: otherwise a
+        # stray `7` in prose passes merely because some block contains `527`.
+        inside = set(re.findall(NUMBER, "\n".join(rendered.values())))
+        # The block strip must be anchored by a backreference and must tolerate an
+        # empty block, or it spans from one BEGIN to a later END and silently
+        # deletes the prose in between -- which would let unchecked numbers
+        # through.  The code-span strip must not cross a newline, for the same
+        # reason: one unbalanced backtick would otherwise pair across paragraphs.
+        before = len(text)
+        prose = re.sub(r"<!-- BEGIN:(\w+) -->\n?.*?\n?<!-- END:\1 -->", "",
+                       text, flags=re.S)
+        prose = re.sub(r"`[^`\n]*`", "", prose)        # code spans carry formulae
         prose = re.sub(r"§\s*\d[\d.]*", "", prose)     # citations of other sections
-        prose = re.sub(r"\*\*A\d+ —", "**", prose)     # amendment numbers
-        stray = [t for t in re.findall(r"\d+(?:,\d{3})*(?:\.\d+)?", prose)
+        prose = re.sub(r"\bA\d+\b", "", prose)         # amendment identifiers
+        # A guard on the guard: the strips together may not remove most of the
+        # document.  If they do, the prose check is not checking anything.
+        claim("the prose strip leaves most of RESULTS.md to be checked",
+              len(prose) > 0.35 * before,
+              f"{len(prose)} of {before} characters survived the strip")
+        stray = [t for t in re.findall(NUMBER, prose)
                  if t not in allow and t not in inside]
         claim("no number in RESULTS.md prose is outside a block or the allow-list",
               not stray, ", ".join(sorted(set(stray))[:20]))
