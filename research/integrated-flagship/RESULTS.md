@@ -97,8 +97,8 @@ the first *generalizing* program exactly (§9.4), and restricting to arms whose 
 before the target was seen, the cheapest route is not N″: the unfitted hand-feature controls
 U_feat and U_steep reach a generalizing program sooner. N″ does beat the schema-only baseline N′,
 whose figure is exact. **Against the flat substrate N the comparison is not settled**: N's cost to
-a first generalizing program is only bounded below (no sampled first-shell conformer of 20,000
-generalized), and that bound lies *below* N″'s exact figure, so these data do not establish that
+a first generalizing program is only bounded below (not one of its sampled first-shell conformers
+generalized, §9.4), and that bound lies *below* N″'s exact figure, so these data do not establish that
 N″ is cheaper than flat search even post-hoc. The inherited library's
 measurable contribution here is the schema's pools plus a step preference that a one-line human
 rule reproduces; nothing fitted from the earlier domains' survival rates is shown to be needed.
