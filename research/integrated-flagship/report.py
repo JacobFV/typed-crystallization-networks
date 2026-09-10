@@ -272,7 +272,38 @@ def block_resources():
     return "\n".join(rows)
 
 
+def block_generalize(gap):
+    g = load(f"generalize_gap{gap}.json")
+    if g is None:
+        return "(not run)"
+    d, s = g["distractor"], g["schema"]
+    kd = int(d["K_generalizing"])
+    n2 = g.get("N''_expected_programs_to_first_generalizing")
+    ok = all(v["transform"] == v["direct"] for v in g["direct_equals_transform_on_train"].values())
+    lines = [
+        "| space | programs | conform on all 48 episodes (train + held-out) | certificate | expected programs to first generalizing, uniform order |",
+        "|---|---|---|---|---|",
+        f"| distractor pools (D′, D″) | {big(d['S_all_episodes'])} | {big(d['K_generalizing'])} | `{d['certificate']}` | "
+        f"{'no generalizing program exists' if kd == 0 else sci(10 ** d['expected_programs_to_first_generalizing_uniform']['log10'])} |",
+        f"| schema pools (N′) | {big(s['S_all_episodes'])} | {big(s['K_generalizing'])} | `{s['certificate']}` | "
+        f"{sci(10 ** s['expected_programs_to_first_generalizing_uniform']['log10']) if s['expected_programs_to_first_generalizing_uniform'] else '—'} |",
+        "",
+        f"N″'s tiered order, to its first generalizing program: {sci(10 ** n2['log10']) if n2 else 'none found in the tiers counted'} programs.",
+        f"Distractor address expressions equal to `length−5` on every episode: "
+        f"{len(g['distractor_addresses_equal_length_minus_5'])} of {g['distractor_address_pool_size']}.",
+        f"Direct 48-episode counting equals the transform on the 12 training episodes: {ok}.",
+        "",
+        ("**The pre-registered distractor could not succeed**: its space contains no program that conforms on all 48 "
+         "episodes, so D′/D″'s failure to generalize is true by construction and says nothing about the library. "
+         "The matched-distractor role is carried by R (right schemas, permuted prior) and U (unfitted weights)."
+         if kd == 0 else
+         "The distractor space does contain generalizing programs, so D″'s failure to find them first is informative."),
+    ]
+    return "\n".join(lines)
+
+
 BLOCKS = {
+    "generalize_gap0": lambda: block_generalize(0),
     "criteria_gap0": lambda: block_criteria(0), "criteria_gap1": lambda: block_criteria(1),
     "arms_gap0": lambda: block_arms(0), "arms_gap1": lambda: block_arms(1),
     "tiers_npp_gap0": lambda: block_tiers(0, "N''"), "tiers_p_gap0": lambda: block_tiers(0, "P"),

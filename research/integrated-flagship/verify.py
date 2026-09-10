@@ -206,6 +206,24 @@ if d is not None:
           all(np.array_equal(np.asarray(sc[s]), np.asarray(sc_h[s])) for s in sc if family.KIND[s] != "ADDR"))
 import numpy as np  # noqa: E402,F811
 
+# ------------------------------------ the distractor's reach (exact, 48 episodes)
+g = J("generalize_gap0.json")
+if g is not None:
+    claim("direct 48-episode counting equals the zeta transform on the training episodes",
+          all(v["transform"] == v["direct"] for v in g["direct_equals_transform_on_train"].values()))
+    claim("the positive control holds: the schema space contains generalizing programs",
+          int(g["schema"]["K_generalizing"]) > 0, g["schema"]["K_generalizing"])
+    kd = int(g["distractor"]["K_generalizing"])
+    claim("the distractor space's generalizing count is exhausted (certificate complete)",
+          g["distractor"]["certificate"] in ("complete", "unique"), str(kd))
+    straw = kd == 0
+    seg = RESULTS.split("<!-- BEGIN:generalize_gap0 -->")[1].split("<!-- END")[0] \
+        if "<!-- BEGIN:generalize_gap0 -->" in RESULTS else ""
+    claim("RESULTS states the distractor fact that holds (straw man iff 0 generalizing programs)",
+          not seg or (("could not succeed" in seg) == straw))
+    claim("analytic: no distractor address expression equals length-5 on every episode",
+          g["distractor_addresses_equal_length_minus_5"] == [] or not straw)
+
 # sources reproduce the earlier tracks' certificates
 s = J("sources.json")
 cert = {c["source"]: c for c in s["certificates"]}

@@ -397,6 +397,18 @@ class Counter:
 
     def route_products(self, L):
         hm = self._hm(L)
+        if getattr(self, "direct", False) or self.E > 20:
+            # Direct mode for many episodes (no 2^E transform): F_j(S) by testing
+            # every allowed step candidate against every route's episode set.
+            prods = np.ones(len(self.r_keys), dtype=np.int64)
+            for j, s in enumerate(X_SLOTS):
+                h = hm[self.xmask[s]]
+                need = self.r_keys[:, j]
+                F = np.zeros(len(need), dtype=np.int64)
+                for x in h:
+                    F += (x & need) == need
+                prods *= F
+            return prods, hm
         prods = np.ones(len(self.r_keys), dtype=np.int64)
         for j, s in enumerate(X_SLOTS):
             g = np.bincount(hm[self.xmask[s]], minlength=1 << self.E)
