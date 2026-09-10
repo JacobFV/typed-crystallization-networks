@@ -47,9 +47,10 @@ mechanism is measured, not inferred: `symbols`, the node that decides whether th
 program reads the string at all, has a first-step choice gradient of **exactly
 0.0**, so its argmax is set by initialisation noise — and the two scaffolds
 consequently select the **identical constant `c` at every one of 8 seeds**, on a
-space with 110 solutions and on a space with none. Uniform random selection
-predicts 0.0013 successes in 8 draws; 0/8 is exactly that. The `min_ok` readout is
-**vacuous or wrong in all 16** min-prefix runs at 600 steps and never correct.
+space with 110 solutions and on a space with none — unchanged by five times the
+step budget. Uniform random selection predicts 0.0013 successes in 8 draws; 0/8
+is exactly that. The `min_ok` readout is **vacuous or merely non-constant in all
+32** min-prefix runs and **correct in none**.
 
 **Q3 — yes, a pre-hoc signal exists, it is cheap, and no shipped component
 computes it.** From the failed scaffold and the 24 training episodes alone: the
