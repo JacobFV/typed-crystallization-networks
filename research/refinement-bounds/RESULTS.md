@@ -571,8 +571,8 @@ taskset -c 19 .venv/bin/python research/refinement-bounds/measure.py run1   # se
 taskset -c 19 .venv/bin/python research/refinement-bounds/measure.py run2
 taskset -c 19 .venv/bin/python research/refinement-bounds/measure.py run3
 .venv/bin/python research/refinement-bounds/certificates.py space
-.venv/bin/python research/refinement-bounds/certificates.py search   # ~50 min
-.venv/bin/python research/refinement-bounds/certificates.py parse    # ~15 min
+.venv/bin/python research/refinement-bounds/certificates.py search   # 48 min measured
+.venv/bin/python research/refinement-bounds/certificates.py parse    # 13 min measured
 .venv/bin/python research/refinement-bounds/report.py           # every number above
 ```
 
