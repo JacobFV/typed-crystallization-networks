@@ -222,6 +222,57 @@ def s50():
     return table(["S1 — §50's corpus on held-out conformance", "count"], rows)
 
 
+def sweep():
+    d = kit.load("episode_sweep")
+    rows = []
+    for dom in sorted(d["domains"]):
+        info = d["domains"][dom]
+        for r in info["rows"]:
+            mark = " **<- chosen**" if r["budget"] == info["chosen_budget"] else ""
+            rows.append([dom, r["budget"], r["n_train"], r["n_heldout"],
+                         r["defects"], r["invalid"], r["solvable_on_train"],
+                         f"**{r['admissible']}**{mark}"])
+    out = table(["domain", "budget", "train", "held out", "defects", "invalid",
+                 "solvable on train", "admissible"], rows)
+    notes = []
+    for dom in sorted(d["domains"]):
+        notes.append(f"- `{dom}`: {d['domains'][dom]['reason']}")
+    return out + "\n\nRule: " + d["rule"] + ".\n" + "\n".join(notes)
+
+
+def ceilings():
+    a = A()
+    rows = []
+    for dom in a["domains"]:
+        c = C(dom)
+        adm = c["admitted"]
+        rows.append([dom, c["defects_tried"], c["rejected_invalid"],
+                     c["rejected_solvable_on_train"],
+                     c["rejected_invalid"] + c["rejected_solvable_on_train"],
+                     c["defects_tried"] - c["rejected_invalid"]
+                     - c["rejected_solvable_on_train"],
+                     c["rejected_no_repair"], f"**{adm}**"])
+    return table(["domain", "defects enumerated", "invalid",
+                  "solvable on train", "rejected before the edit sweep",
+                  "admissible", "no repair in the edit space",
+                  "admitted cases"], rows)
+
+
+def cost():
+    rows = []
+    for name, label in (("rate_bool_10", "`bool` `keep_prefix:y:8`"),
+                        ("rate_arith_0", "`arith` `delete_node:inner`")):
+        try:
+            v = kit.load(name)
+        except FileNotFoundError:
+            continue
+        rows.append([label, v["episodes_all"], v["n_edits"], v["over_cap"],
+                     v["mean_seconds_per_edit"], v["worst_seconds_per_edit"],
+                     v["projected_minutes_per_case"]])
+    return table(["case", "episodes", "edits", "over cap",
+                  "mean s/edit", "worst s/edit", "**projected min/case**"], rows)
+
+
 def decider():
     rows = []
     for d in A()["domains"]:
@@ -258,7 +309,8 @@ def resources():
     return table(["domain", "corpus seconds", "peak RSS (GB)"], rows)
 
 
-BLOCKS = {"corpus": corpus, "decider": decider, "costs": costs, "criteria": criteria, "ratios": ratios,
+BLOCKS = {"corpus": corpus, "decider": decider, "sweep": sweep,
+          "ceilings": ceilings, "cost": cost, "costs": costs, "criteria": criteria, "ratios": ratios,
           "deployed": deployed, "validity": validity, "estimator": estimator,
           "families": families, "s50": s50, "percase": percase,
           "resources": resources}

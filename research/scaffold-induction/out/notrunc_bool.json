@@ -1,0 +1,324 @@
+{
+ "cases": [
+  {
+   "defect": "delete_node:n1:None",
+   "truncated": {
+    "WIDEN|y|xor": {
+     "certificate": "complete",
+     "decided": true,
+     "is_repair": false,
+     "space": 1540
+    },
+    "max_space": 30720,
+    "median_space": 1600,
+    "n_edits": 111,
+    "n_truncated_edits": 60,
+    "over_cap": 0
+   },
+   "untruncated": {
+    "WIDEN|y|xor": {
+     "certificate": "complete",
+     "decided": true,
+     "is_repair": false,
+     "space": 1540
+    },
+    "max_space": 1016064,
+    "median_space": 1792,
+    "n_edits": 111,
+    "n_truncated_edits": 0,
+    "over_cap": 2
+   }
+  },
+  {
+   "defect": "delete_node:n2:None",
+   "truncated": {
+    "WIDEN|y|xor": {
+     "certificate": "complete",
+     "decided": true,
+     "is_repair": false,
+     "space": 1540
+    },
+    "max_space": 30720,
+    "median_space": 1600,
+    "n_edits": 111,
+    "n_truncated_edits": 60,
+    "over_cap": 0
+   },
+   "untruncated": {
+    "WIDEN|y|xor": {
+     "certificate": "complete",
+     "decided": true,
+     "is_repair": false,
+     "space": 1540
+    },
+    "max_space": 1016064,
+    "median_space": 1792,
+    "n_edits": 111,
+    "n_truncated_edits": 0,
+    "over_cap": 2
+   }
+  },
+  {
+   "defect": "drop_operator:y:xor",
+   "truncated": {
+    "WIDEN|y|xor": {
+     "certificate": "complete",
+     "decided": true,
+     "is_repair": false,
+     "space": 30400
+    },
+    "max_space": 537600,
+    "median_space": 30400,
+    "n_edits": 160,
+    "n_truncated_edits": 83,
+    "over_cap": 17
+   },
+   "untruncated": {
+    "WIDEN|y|xor": {
+     "certificate": "witness",
+     "decided": true,
+     "is_repair": true,
+     "space": 36800
+    },
+    "max_space": 27033600,
+    "median_space": 35200,
+    "n_edits": 160,
+    "n_truncated_edits": 0,
+    "over_cap": 43
+   }
+  },
+  {
+   "defect": "drop_source:y:n1",
+   "truncated": {
+    "WIDEN|y|xor": {
+     "certificate": "complete",
+     "decided": true,
+     "is_repair": false,
+     "space": 22800
+    },
+    "max_space": 273600,
+    "median_space": 10620,
+    "n_edits": 160,
+    "n_truncated_edits": 83,
+    "over_cap": 0
+   },
+   "untruncated": {
+    "WIDEN|y|xor": {
+     "certificate": "witness",
+     "decided": true,
+     "is_repair": true,
+     "space": 28800
+    },
+    "max_space": 26624000,
+    "median_space": 18180,
+    "n_edits": 160,
+    "n_truncated_edits": 0,
+    "over_cap": 31
+   }
+  },
+  {
+   "defect": "drop_source:y:n2",
+   "truncated": {
+    "WIDEN|y|xor": {
+     "certificate": "complete",
+     "decided": true,
+     "is_repair": false,
+     "space": 22800
+    },
+    "max_space": 273600,
+    "median_space": 10620,
+    "n_edits": 160,
+    "n_truncated_edits": 83,
+    "over_cap": 0
+   },
+   "untruncated": {
+    "WIDEN|y|xor": {
+     "certificate": "witness",
+     "decided": true,
+     "is_repair": true,
+     "space": 28800
+    },
+    "max_space": 26624000,
+    "median_space": 18180,
+    "n_edits": 160,
+    "n_truncated_edits": 0,
+    "over_cap": 31
+   }
+  },
+  {
+   "defect": "keep_prefix:y:1",
+   "truncated": {
+    "WIDEN|y|xor": {
+     "certificate": "complete",
+     "decided": true,
+     "is_repair": false,
+     "space": 19600
+    },
+    "max_space": 86400,
+    "median_space": 3600,
+    "n_edits": 160,
+    "n_truncated_edits": 69,
+    "over_cap": 0
+   },
+   "untruncated": {
+    "WIDEN|y|xor": {
+     "certificate": "witness",
+     "decided": true,
+     "is_repair": true,
+     "space": 26000
+    },
+    "max_space": 3686400,
+    "median_space": 3600,
+    "n_edits": 160,
+    "n_truncated_edits": 0,
+    "over_cap": 10
+   }
+  },
+  {
+   "defect": "keep_prefix:y:2",
+   "truncated": {
+    "WIDEN|y|xor": {
+     "certificate": "complete",
+     "decided": true,
+     "is_repair": false,
+     "space": 20000
+    },
+    "max_space": 91200,
+    "median_space": 4000,
+    "n_edits": 160,
+    "n_truncated_edits": 69,
+    "over_cap": 0
+   },
+   "untruncated": {
+    "WIDEN|y|xor": {
+     "certificate": "witness",
+     "decided": true,
+     "is_repair": true,
+     "space": 26400
+    },
+    "max_space": 3891200,
+    "median_space": 4040,
+    "n_edits": 160,
+    "n_truncated_edits": 0,
+    "over_cap": 10
+   }
+  },
+  {
+   "defect": "keep_prefix:y:3",
+   "truncated": {
+    "WIDEN|y|xor": {
+     "certificate": "complete",
+     "decided": true,
+     "is_repair": false,
+     "space": 20400
+    },
+    "max_space": 96000,
+    "median_space": 4400,
+    "n_edits": 160,
+    "n_truncated_edits": 69,
+    "over_cap": 0
+   },
+   "untruncated": {
+    "WIDEN|y|xor": {
+     "certificate": "witness",
+     "decided": true,
+     "is_repair": true,
+     "space": 26800
+    },
+    "max_space": 4096000,
+    "median_space": 6060,
+    "n_edits": 160,
+    "n_truncated_edits": 0,
+    "over_cap": 10
+   }
+  },
+  {
+   "defect": "keep_prefix:y:4",
+   "truncated": {
+    "WIDEN|y|xor": {
+     "certificate": "complete",
+     "decided": true,
+     "is_repair": false,
+     "space": 20800
+    },
+    "max_space": 100800,
+    "median_space": 4800,
+    "n_edits": 160,
+    "n_truncated_edits": 69,
+    "over_cap": 0
+   },
+   "untruncated": {
+    "WIDEN|y|xor": {
+     "certificate": "witness",
+     "decided": true,
+     "is_repair": true,
+     "space": 27200
+    },
+    "max_space": 4300800,
+    "median_space": 8080,
+    "n_edits": 160,
+    "n_truncated_edits": 0,
+    "over_cap": 24
+   }
+  },
+  {
+   "defect": "keep_prefix:y:6",
+   "truncated": {
+    "WIDEN|y|xor": {
+     "certificate": "complete",
+     "decided": true,
+     "is_repair": false,
+     "space": 21600
+    },
+    "max_space": 192000,
+    "median_space": 7080,
+    "n_edits": 160,
+    "n_truncated_edits": 69,
+    "over_cap": 0
+   },
+   "untruncated": {
+    "WIDEN|y|xor": {
+     "certificate": "witness",
+     "decided": true,
+     "is_repair": true,
+     "space": 28000
+    },
+    "max_space": 8192000,
+    "median_space": 12120,
+    "n_edits": 160,
+    "n_truncated_edits": 0,
+    "over_cap": 25
+   }
+  },
+  {
+   "defect": "keep_prefix:y:8",
+   "truncated": {
+    "WIDEN|y|xor": {
+     "certificate": "complete",
+     "decided": true,
+     "is_repair": false,
+     "space": 22400
+    },
+    "max_space": 201600,
+    "median_space": 9440,
+    "n_edits": 160,
+    "n_truncated_edits": 69,
+    "over_cap": 0
+   },
+   "untruncated": {
+    "WIDEN|y|xor": {
+     "certificate": "witness",
+     "decided": true,
+     "is_repair": true,
+     "space": 28800
+    },
+    "max_space": 8601600,
+    "median_space": 16160,
+    "n_edits": 160,
+    "n_truncated_edits": 0,
+    "over_cap": 25
+   }
+  }
+ ],
+ "domain": "bool"
+}

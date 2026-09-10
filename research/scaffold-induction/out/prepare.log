@@ -1,4 +1,0 @@
-train {'n': 24, 'per_length': {10: 3, 12: 11, 14: 10}, 'majority_constant': 0.5, 'fraction_string_seen_in_training': 1.0}
-heldout_seen_lengths {'n': 120, 'per_length': {10: 34, 12: 42, 14: 44}, 'majority_constant': 0.5333333333333333, 'fraction_string_seen_in_training': 0.125}
-heldout_unseen_lengths {'n': 859, 'per_length': {16: 221, 18: 209, 20: 215, 22: 214}, 'majority_constant': 0.5261932479627474, 'fraction_string_seen_in_training': 0.0}
-seconds 2.7 | pickle round-trip identical: True

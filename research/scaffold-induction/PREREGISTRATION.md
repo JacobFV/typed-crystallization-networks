@@ -378,3 +378,110 @@ Heavy jobs run as
 at most **4 workers**, with `MemAvailable` checked against a **25 GB** floor
 before each phase and logged to `out/memory_floor.log`. The other project's GPU
 processes are never touched.
+
+---
+
+# Amendments, written before any arm ran
+
+The sections above are **unaltered**: what they originally said still stands in
+the text, and each amendment below quotes the clause it replaces. All three were
+written before the first arm, and the corpus runs they govern were restarted
+under them. Nothing here is back-dated — where the original wording was wrong it
+is recorded as wrong, not quietly replaced by the wording I now prefer.
+
+## A8 — the training-episode budget is fixed by a stated rule
+
+§2.1 named a seed range per domain and said nothing about how the size of that
+range was chosen. That is a hole: the number of admitted cases depends strongly
+on it — `rel` admits one defect at 96 training episodes and nineteen at 384 — so
+a budget picked after seeing those counts would be a corpus parameter tuned on
+the quantity the corpus exists to measure, and no reader could tell it apart
+from tuning.
+
+**The rule, adopted now and applied identically to every domain:** the training
+budget is the **smallest budget on a doubling ladder whose admissible defect
+*set* — the set itself, not its size — is identical at `B`, `2B` and `4B`.**
+
+The justification is that stability across two consecutive doublings is a
+property of the domain rather than of the budget: it says the admission decision
+has stopped depending on how many episodes were drawn, so a defect still counted
+`solvable on train` is solvable because a conforming program genuinely exists,
+not because too few episodes were drawn to exclude one. Where no budget on the
+ladder is stable, the largest swept budget is used and **the instability is
+reported as a limitation of that domain**, not hidden.
+
+`episode_sweep.py` runs the ladder; `out/episode_sweep.json` records **every**
+budget tried, including those the rule rejects, and the full sweep appears in
+`RESULTS.md`. `bool`'s ladder is bounded by its data: its episodes are rows of a
+complete 64-row truth table, so past half the table the held-out set is smaller
+than the training set, and at the whole table there is no held-out set at all.
+
+## A9 — the 12–24 case floor was unreachable, and that is a pre-registration error
+
+§2.3 set a target of "**12–24 admitted cases per domain**". I set that number
+without checking that §2.2's defect generator could produce it, and for `bool` it
+cannot. Exhaustive enumeration of every defect (`admissible.py`,
+`out/admissible_bool.json`) gives 46 defects, of which 3 are invalid and 32 leave
+the training episodes still solvable, so **11 are admissible at most; 3 of those
+contain no repair, leaving a ceiling of 8**. The ceiling does not move with the
+episode budget — it is 11 at 32, 42 and 48 training rows — so it is a property of
+the scaffold and the defect generator, not of the resources spent on it.
+
+**The floor is amended to: as many cases as the domain admits, up to 24, with the
+exhaustive admissible-defect enumeration reported per domain.** A domain that
+cannot reach twelve is reported at its ceiling together with the enumeration that
+proves the ceiling. This is a weakening of the pre-registration and is recorded
+as one: the original number was not reachable and should not have been written
+without checking that it was.
+
+## A10 — F7 counts domains where it should count cases
+
+**F7** as written reads: "fewer than three domains supply a corpus: the
+cross-domain claim is not made." That counts *domains*, not *cases*, so it would
+have passed unmoved with `rel` contributing a single case — a leave-one-domain-out
+fold resting on one case, which cannot carry a cross-domain claim. The weakness
+is in my wording and is recorded here rather than repaired by pretending a better
+condition had been pre-registered.
+
+**F7 stands as written**, and whether it fires is reported against its original
+text. Beside it, and explicitly **not** as a pre-registered criterion, this track
+states the stronger condition it would use instead: *no cross-domain claim unless
+every domain contributes at least three admitted cases, with the per-domain case
+counts printed beside every cross-domain figure.* Any reading of the results
+against that stronger condition is labelled post-hoc wherever it appears.
+
+## A11 — the candidate-truncation bound is removed, because it was deleting repairs
+
+§3.3 declared `MAX_NEW = 48` candidates addable at a site and `MAX_NEW_NODE = 12`
+for an inserted node, "truncating in `legal_candidates` order", and argued the
+bound was safe because it is "deterministic, applied identically to every arm".
+**That argument was wrong, and the bound was not safe.** Applying the same
+truncation to every arm keeps the *comparison* fair while changing *which program
+family the edit denotes* — the edit stops meaning "widen this site with `xor`"
+and starts meaning "widen it with the first forty-eight `xor` wirings", which is
+not a typed structural edit anyone would propose.
+
+It bit immediately and hard. On `bool`, `WIDEN(y, xor)` needs the wiring
+`(n1, n2)`; `legal_candidates` enumerates the eight-port pool in order and emits
+that wiring at **index 55 of 64**, past the bound. The whole `bool` corpus ran to
+completion under the bound and admitted **2** cases: 9 of its 11 admissible
+defects were recorded "no repair in the edit space" **for that reason alone**.
+Re-deciding them without the bound turns 8 of those 9 into repairs
+(`out/notrunc_bool.json`).
+
+**The bound is removed.** The work is bounded by `MAX_SPACE` alone: an edit whose
+selection space exceeds it is recorded **undecided**, and §6.3 already requires
+every headline to be stated both with undecided edits counted as non-repairs and
+as repairs, so the cost of the remaining bound is visible and two-sided rather
+than silent. Measured price on `bool`: over-cap edits rise from 0–17 per case to
+10–43 of 160, and median edited space rises from about 10³–10⁴ to roughly double.
+Removing the bound invalidates every corpus built under it; all three domains are
+re-run, and the superseded `bool` and `rel` corpora are kept in `out/` rather than
+deleted.
+
+The general lesson, which is the part worth carrying: **a bound that is applied
+uniformly across arms is not thereby harmless.** Uniformity protects the
+comparison between arms; it does nothing to protect the meaning of the object
+being compared. This one was declared in the pre-registration, flagged in the
+code as a risk, and still went unnoticed until a domain returned an implausible
+number of "no repair" verdicts.

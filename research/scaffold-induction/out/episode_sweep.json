@@ -1,0 +1,77 @@
+{
+ "domains": {
+  "bool": {
+   "chosen_budget": 32,
+   "reason": "no budget on the ladder is stable across two doublings; the largest swept budget is used and the instability is reported as a limitation",
+   "rows": [
+    {
+     "admissible": 0,
+     "admissible_set": [],
+     "budget": 8,
+     "defects": 46,
+     "invalid": 3,
+     "n_heldout": 56,
+     "n_train": 8,
+     "seconds": 0.5,
+     "solvable_on_train": 43
+    },
+    {
+     "admissible": 0,
+     "admissible_set": [],
+     "budget": 16,
+     "defects": 46,
+     "invalid": 3,
+     "n_heldout": 48,
+     "n_train": 16,
+     "seconds": 0.1,
+     "solvable_on_train": 43
+    },
+    {
+     "admissible": 11,
+     "admissible_set": [
+      "delete_node:n1:None",
+      "delete_node:n2:None",
+      "drop_operator:y:xor",
+      "drop_source:y:n1",
+      "drop_source:y:n2",
+      "keep_prefix:y:1",
+      "keep_prefix:y:2",
+      "keep_prefix:y:3",
+      "keep_prefix:y:4",
+      "keep_prefix:y:6",
+      "keep_prefix:y:8"
+     ],
+     "budget": 32,
+     "defects": 46,
+     "invalid": 3,
+     "n_heldout": 32,
+     "n_train": 32,
+     "seconds": 1.8,
+     "solvable_on_train": 32
+    }
+   ]
+  }
+ },
+ "ladders": {
+  "arith": [
+   16,
+   32,
+   64,
+   128,
+   256
+  ],
+  "bool": [
+   8,
+   16,
+   32
+  ],
+  "rel": [
+   96,
+   192,
+   384,
+   768,
+   1536
+  ]
+ },
+ "rule": "the smallest budget whose admissible defect SET is identical at B, 2B and 4B"
+}

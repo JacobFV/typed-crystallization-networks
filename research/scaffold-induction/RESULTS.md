@@ -35,6 +35,78 @@ pre-registration that is quietly re-read is not one.
 | A5 the training decision is skipped behind a witness | `0705225` | `run_domain.py` |
 | A6 §3.4's probe sizes moved with A1 | `a73107a` | prose only |
 | A7 the expectation formula corrected | `0705225` | `PREREGISTRATION.md`, `analyse.py`, `verify.py` |
+| A8 the training budget is fixed by a stated rule | `a635469`, `PREREGISTRATION.md` | `episode_sweep.py`, `domains.py` |
+| A9 the 12–24 case floor was unreachable | `PREREGISTRATION.md` | `admissible.py` |
+| A10 F7 counts domains where it should count cases | `PREREGISTRATION.md` | wording only |
+| A11 the candidate-truncation bound removed | `PREREGISTRATION.md` | `edits.py`, all three corpora re-run |
+
+A8 to A11 are written out in full at the end of `PREREGISTRATION.md`, each
+quoting the clause it replaces, and all four were written before the first arm.
+Three of them are corrections to my own pre-registration rather than adaptations
+to results: A9 records a floor I set without checking it was reachable, A10
+records a falsification condition I wrote counting the wrong thing, and A11
+records a declared bound that was deleting the repairs it was supposed to be
+neutral about.
+
+---
+
+## The training-episode budget, fixed by rule
+
+The number of admitted cases depends strongly on how many training episodes are
+drawn — `rel` admits one defect at 96 and nineteen at 384 — so choosing that
+number after seeing those counts would be tuning a corpus parameter on the
+quantity the corpus exists to measure. A8 fixes it by rule instead: **the
+smallest budget on a doubling ladder whose admissible defect *set* is identical
+at `B`, `2B` and `4B`**. Every budget tried is below, including the ones the rule
+rejects.
+
+<!-- BEGIN:sweep -->
+<!-- END:sweep -->
+
+`bool` is the interesting row and the rule earns its keep there: its ladder is
+bounded by its own data — episodes are rows of a complete 64-row truth table, so
+past half the table the held-out set is smaller than the training set and at the
+whole table there is none — and **no budget on that ladder is stable**. The rule
+therefore does not pick a budget for `bool`; it falls back to the largest swept
+value and hands back a disclosure. Had I chosen `bool`'s budget by yield I would
+have written down 32 and said nothing.
+
+---
+
+## What each domain can admit at all
+
+The pre-registration asked for 12–24 admitted cases per domain without checking
+that the defect generator could produce that many. It cannot, and A9 records that
+as a pre-registration error. These are exhaustive enumerations, not samples: every
+defect the generator produces is applied and put through the admission rule.
+
+<!-- BEGIN:ceilings -->
+<!-- END:ceilings -->
+
+---
+
+## Why one domain costs fourteen times another per case
+
+`arith` costs about 89 minutes per case against `bool`'s 6, on the same
+machinery, and the reason is not the size of its space — it is **where its
+supervision sits**. `arith` carries a single probe, on the output node.
+`enumerate_prefix` prunes a prefix only when a *probed* node's value already
+misses its target, so with the only probe at the end of the program there is
+nothing to prune against: every selection in the space is walked to the last node
+before it can be rejected. `bool`'s scaffold is three nodes deep, so the walk is
+short whatever happens; `arith`'s is nine, and every one of them is paid for
+every candidate program.
+
+This is §41 and §45's "dense supervision is what makes search tractable" showing
+up as a wall-clock bill rather than as an argument, and it is worth recording
+because it inverts the usual intuition about cost: the expensive domain here is
+not the one with the biggest space (`bool`'s edited scaffolds reach 2.7×10⁷
+selections, larger than `arith`'s) but the one whose supervision cannot reject a
+partial program. Anyone budgeting an enumeration in this substrate should count
+probed nodes before counting candidates.
+
+<!-- BEGIN:cost -->
+<!-- END:cost -->
 
 **A1 — `rel` is a three-step scaffold over three entities, replacing §2.1's
 "two-step reachability relation of a 4-entity directed graph".** The generator's

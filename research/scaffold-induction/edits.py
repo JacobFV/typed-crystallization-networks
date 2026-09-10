@@ -37,13 +37,19 @@ OP_NAMES = tuple(sorted(set(BINARY) | set(UNARY) | set(COMPARE) | set(LOGIC) |
 
 FAMILIES = ("SUBST", "WIDEN", "REWIRE", "ADD_NODE", "ADD_PATH")
 
-# Declared bounds on how much one edit may enlarge the selection space, so that
-# every edited scaffold stays exhaustible and no arm is compared on a space that
-# could not be decided.  Truncation is deterministic, in `legal_candidates`
-# order, identical for every arm, and the number of truncated edits is reported.
-MAX_NEW = 48           # candidates one edit may add at an existing site
-MAX_NEW_NODE = 12      # candidates the node an ADD_NODE inserts may carry
-TRUNCATED = set()      # edit keys whose candidate list was cut by the bounds
+# PREREGISTRATION A11.  These bounds used to truncate the candidate list an edit
+# adds, in `legal_candidates` order, to keep the edited space exhaustible.  That
+# was wrong: truncation silently changes *which program family an edit denotes*.
+# On `bool` it deleted the repair -- `WIDEN(y, xor)` needs the wiring `(n1, n2)`,
+# which `legal_candidates` emits at index 55 of 64, past a bound of 48 -- and 9
+# of 11 admissible defects were recorded as having no repair for that reason
+# alone.  The work is now bounded by `MAX_SPACE` only: an edit whose space
+# exceeds it is recorded **undecided**, which is honest and is bounded in both
+# directions, rather than silently redefined.  `None` disables truncation; the
+# machinery is kept so the superseded configuration stays reproducible.
+MAX_NEW = None         # candidates one edit may add at an existing site
+MAX_NEW_NODE = None    # candidates the node an ADD_NODE inserts may carry
+TRUNCATED = set()      # edit keys whose candidate list was cut, if bounds are set
 
 
 @dataclasses.dataclass(frozen=True)
@@ -106,7 +112,7 @@ def _cands(registry, op, pool, output, limit=4096):
 
 
 def _cut(key, cands, limit):
-    if len(cands) > limit:
+    if limit is not None and len(cands) > limit:
         TRUNCATED.add(key)
         return tuple(cands[:limit])
     return tuple(cands)

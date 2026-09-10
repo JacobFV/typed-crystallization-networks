@@ -51,7 +51,7 @@ def _maj_module(r):
     return r.register_module(prog)
 
 
-def build_bool(train_every=2):
+def build_bool(n_train=32):                 # budget fixed by A8
     r = Registry()
     mn = _maj_module(r)
     import later
@@ -71,8 +71,12 @@ def build_bool(train_every=2):
              Node("y", BOOL, tuple(y), "core", 2))
     prog = Program(inputs, nodes, (("out", "y"),)).validate(r)
     rows = later.later_examples()
-    train = [rows[i] for i in range(64) if i % train_every]
-    heldout = [rows[i] for i in range(64) if not i % train_every]
+    # `n_train` rows taken at an even stride over the complete 64-row table; the
+    # held-out set is exactly the complement, so the two never overlap.
+    stride = 64 // n_train
+    picked = set(range(0, 64, stride))
+    train = [rows[i] for i in sorted(picked)]
+    heldout = [rows[i] for i in range(64) if i not in picked]
     sig = [Signal("y", "out", ("core",), BOOL, "bce")]
     return {"name": "bool", "registry": r, "program": prog, "signals": sig,
             "train": train, "heldout": heldout,
@@ -82,7 +86,7 @@ def build_bool(train_every=2):
 
 # ------------------------------------------------------------------ arith
 
-def build_arith():
+def build_arith(n_train=16, n_heldout=32):  # budget fixed by A8
     r = Registry()
     goal_t = product(SCALAR, SCALAR, SCALAR)
     inputs = (("x", I16), ("y", I16), ("goal", goal_t))
@@ -108,8 +112,8 @@ def build_arith():
                                        ("is_add", "v0", "inner")),), "core", 4),
     ]
     prog = Program(inputs, tuple(nodes), (("out", "answer"),), consts).validate(r)
-    train = _episodes_from("arithmetic", range(0, 32), "train", {})
-    heldout = _episodes_from("arithmetic", range(1000, 1032), "test", {})
+    train = _episodes_from("arithmetic", range(0, n_train), "train", {})
+    heldout = _episodes_from("arithmetic", range(1000, 1000 + n_heldout), "test", {})
     sig = [Signal("answer", "target", ("core",), I16, "mse")]
     return {"name": "arith", "registry": r, "program": prog, "signals": sig,
             "train": train, "heldout": heldout,
@@ -145,7 +149,7 @@ def _pair_module(r, pp):
 BOOLCOMB = ("and", "or", "xor", "nand", "nor", "xnor", "eq", "not", "identity")
 
 
-def build_rel(n_train=96, n_heldout=96):
+def build_rel(n_train=384, n_heldout=96):   # budget fixed by A8
     """Reachability over a 3-entity digraph: one, two and three edge steps.
 
     Three steps is what the closure needs at three entities -- a simple path

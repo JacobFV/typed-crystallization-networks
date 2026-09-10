@@ -179,6 +179,38 @@ def main():
                   for x in adm for e in x["edits"]
                   if e["decided"] and not e["repair"]))
 
+    # ---- layer 2a2: the episode budgets are the ones the rule chose (A8)
+    sw = J("episode_sweep")
+    if sw is None:
+        claim("out/episode_sweep.json exists (A8's evidence)", False)
+    else:
+        for d in domains:
+            info = sw["domains"].get(d)
+            if info is None:
+                claim(f"A8[{d}]: the domain appears in the sweep", False)
+                continue
+            row = next((r for r in info["rows"]
+                        if r["budget"] == info["chosen_budget"]), None)
+            claim(f"A8[{d}]: the corpus was built at the budget the rule chose",
+                  row is not None and row["n_train"] == cases[d]["n_train"],
+                  f"sweep chose train={row['n_train'] if row else '?'}, "
+                  f"corpus used train={cases[d]['n_train']}")
+            # and the rule's own arithmetic: stability across two doublings
+            by = {r["budget"]: r for r in info["rows"]}
+            b = info["chosen_budget"]
+            two, four = by.get(b * 2), by.get(b * 4)
+            stable = (two is not None and four is not None and
+                      row["admissible_set"] == two["admissible_set"]
+                      == four["admissible_set"])
+            declared = "stable" in info["reason"]
+            claim(f"A8[{d}]: the sweep's stability verdict is re-derived",
+                  stable == declared,
+                  f"recomputed stable={stable}, recorded reason={info['reason'][:60]}")
+        claim("A11: no edit's candidate list was truncated",
+              all(not e.get("truncated") for d in domains
+                  for x in cases[d]["cases"] if x.get("admitted")
+                  for e in x["edits"]))
+
     # ---- layer 2b: the estimator table is consistent with the source rows
     for held, est in a["estimators"].items():
         if "error" in est:

@@ -1,0 +1,10 @@
+== bool
+  bool budget=8 (train=8): admissible 0  [0.5s]
+  bool budget=16 (train=16): admissible 0  [0.1s]
+  bool budget=32 (train=32): admissible 11  [1.8s]
+  -> bool: chosen budget 32 (no budget on the ladder is stable across two doublings; the largest swept budget is used and the instability is reported as a limitation)
+== rel
+  rel budget=96 (train=96): admissible 1  [2.4s]
+  rel budget=192 (train=192): admissible 1  [4.6s]
+  rel budget=384 (train=384): admissible 19  [23.9s]
+  rel budget=768 (train=768): admissible 19  [46.6s]
