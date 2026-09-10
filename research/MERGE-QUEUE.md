@@ -101,6 +101,24 @@ evaluation return and **4.0** from the exact frozen agent.
 
 ## Still waiting
 
+### `worktree-agent-af26d6fec4b924403` (9f8c529) — FIXES A SHIPPED BREAKAGE, merge when quiet
+
+Changes `tcn/cli.py`'s `_demo_language` only, plus a named `hardening` argument
+in `research/language-capability/common.py`. FINDINGS §63.
+
+**This one should merge**, unlike the other two queued core changes: it takes
+`scripts/demo.sh` from **9/10 exit 1** to **10/10 exit 0**, which is the first
+command `README.md` tells a reader to run, and it replaces a shipped constant
+that was **not the recorded selection** — the 1.000-scoring member of a ten-way
+tie — with the certified one.
+
+Verified: tests 336/1 identically before and after; fixture 0.248836 → 0.002231
+at 4/4; the demo prints both streams with their baselines.
+
+Held only because an agent is measuring against main's core and
+`source_fingerprint()` hashes all of `tcn/`.
+
+
 ### `research/emitter-guards` (16e50df) — verified, CORRECT, merge is a judgement call
 
 **The only core change of the 2026-09-09/10 session.** 247 lines in

@@ -3399,3 +3399,61 @@ retained; §19 annotated; `docs/VALIDATION.md`'s stale 1.000 replaced. The
 remaining items are recorded in the audit's own RESULTS with evidence, as
 recommendations rather than silent edits.
 
+## 63. The language demo is fixed — and the number it shipped was never the recorded one
+
+`research/demo-language-fix/RESULTS.md`, branch
+`worktree-agent-af26d6fec4b924403` (`9f8c529`), **not merged at time of
+writing** — it changes `tcn/cli.py` and an agent is measuring against main's
+core. `PREREGISTRATION.md` at `6da16ed` before any change. §62's audit found the
+shipped `language` demo failing outright; `README.md` makes `scripts/demo.sh` a
+new reader's first command and `STATUS.md` promises non-zero exit on any
+non-reproduction, so the repository was failing its own contract. Verified here
+from raw output.
+
+**`scripts/demo.sh` now reaches 10 of 10, exit 0** — 74 s quick (was 9/10,
+exit 1, 58 s), 204 s `--full`, with the `language` row costing 14.8 s. It stays
+usable as a first command.
+
+**Option B was chosen on evidence, with A kept beside it as a control.** Both
+rebuild from committed files and both are cheap, so cost did not decide it. What
+decided it: **B runs on the stream the repository actually ships**, and B
+demonstrates *balancedness* where A demonstrates *counting* — §19's own program,
+measured live on the shipped stream, scores **0.5261932479627474, exactly the
+majority**. §45's "the witness may live outside the repo" falsification did not
+fire.
+
+The demo now prints **two rows, each naming its stream and its baselines**, which
+is the requirement §39 exists to enforce:
+
+- **post-audit** (`hardening='context_free_language'`, shipped default): stage A
+  searched live, 10,496 exhausted, certificate `unique`; stage B **1.000 on
+  n=859** at unseen lengths 16–22 against majority **0.5262**, best fitted
+  feature 0.4738, training-string lookup 0.4738, random 0.500. Matches
+  `dyck_witness.json`.
+- **pre-audit** (`hardening='none'`, §19's): **0.9986187845303868 on n=724**
+  against **0.5483425414364641**, per-length `{8:1, 10:1, 12:1, 14:1, 16:0.5}`.
+  Matches `final_eval.json`.
+
+**The finding beyond the fix, and it is the part that matters.** The shipped
+`_LANGUAGE_RULE` was **not §19's recorded selection**. Verified directly:
+`stage_b.json`'s `enumeration.selections` is
+`{symbols: 99, plus: 1, minus: 3, answer: 12}`; the code shipped
+`{symbols: 101, plus: 0, minus: 4, answer: 6}` — **a different program**. That
+program scores **1.000 on 724**, the best of a **ten-way tie** (4 members at
+1.000, 6 at 0.9986) that training accuracy cannot break.
+
+So the **1.000 that §43 and §62 overturned was not merely a documentation
+error — it was baked into the shipped demo**, which had been running a
+hand-favourable member of a tie rather than the certified one. The demo now
+applies the recorded member and discloses the tie. This is the fourth time this
+project has found a number improved by an undisclosed selection, and the first
+time the selection was in shipped code rather than in prose.
+
+**Nothing else moved:** tests **336 passed / 1 failed identically before and
+after** (the known environmental worktree failure); fixture **0.248836 →
+0.002231, fully frozen, 4.0 / 4.0**. The core change is confined to
+`_demo_language`; `research/language-capability/common.py` gained a named
+`hardening` argument, verified bit-identical over 240 episodes. `STATUS.md` row 9
+and `docs/VALIDATION.md` §5 were brought level — VALIDATION's prose still carried
+the retracted unqualified 1.000 that §62 had only partly caught.
+
