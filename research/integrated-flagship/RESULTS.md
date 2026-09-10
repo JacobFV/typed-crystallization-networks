@@ -95,8 +95,11 @@ comes out.
 **Even on the post-hoc metric, the learned prior does not earn its name.** Counting programs to
 the first *generalizing* program exactly (§9.4), and restricting to arms whose settings were fixed
 before the target was seen, the cheapest route is not N″: the unfitted hand-feature controls
-U_feat and U_steep reach a generalizing program sooner. N″ beats the flat and schema-only
-baselines on that metric, but a hand prior over the same schema beats N″. The inherited library's
+U_feat and U_steep reach a generalizing program sooner. N″ does beat the schema-only baseline N′,
+whose figure is exact. **Against the flat substrate N the comparison is not settled**: N's cost to
+a first generalizing program is only bounded below (no sampled first-shell conformer of 20,000
+generalized), and that bound lies *below* N″'s exact figure, so these data do not establish that
+N″ is cheaper than flat search even post-hoc. The inherited library's
 measurable contribution here is the schema's pools plus a step preference that a one-line human
 rule reproduces; nothing fitted from the earlier domains' survival rates is shown to be needed.
 
@@ -380,8 +383,9 @@ kernel on all 48 episodes:
 | check | result |
 |---|---|
 | V2 counter = brute force, gap 0 | 35/35 sub-spaces agree on S and K; 10 contain conformers |
+| V2 counter = brute force, gap 1 | 33/33 sub-spaces agree on S and K; 3 contain conformers |
 | V2 counter = `tcn.search.enumerate_prefix` | steps_and_relation: S 192, K 12, tcn `complete` 12; grounding_and_steps: S 64, K 1, tcn `unique` 1; matcher_and_literals: S 32, K 2, tcn `complete` 2 — 3/3 agree |
-| V1 evaluator = `Program.execute` (click node, 48 episodes each) | 171/171 programs agree (schema 57, flat 57, distractor 57) |
+| V1 evaluator = `Program.execute` (click node, 48 episodes each) | 510/510 programs agree (schema 170, flat 170, distractor 170) |
 <!-- END:validation -->
 
 ## 8. Resources
@@ -437,12 +441,16 @@ kernel on all 48 episodes:
 | `generalize_gap1` | 0.48 | 15:51.42 | 0 |
 | `instrument_gap0` | 0.26 | 7:33.93 | 0 |
 | `library` | 0.24 | 0:01.16 | 0 |
+| `posthoc_gap0` | 4.25 | 4:19.05 | 0 |
 | `sources` | 0.28 | 1:30.87 | 0 |
 | `v1_shard0` | 0.29 | 1:34:57 | 0 |
+| `v1_shard1` | 0.29 | 1:57:04 | 0 |
+| `v1_shard2` | 0.29 | 1:55:26 | 0 |
 | `v2brute_gap0` | 0.49 | 0:41.46 | 0 |
+| `v2brute_gap1` | 0.49 | 0:20.77 | 0 |
 | `v2tcn_gap0` | 0.30 | 7:04.85 | 0 |
 
-Memory floor: 65 capped starts logged in `out/memory_floor.log`; MemAvailable at start ranged 31.1–108.7 GB; phases refused by the 25 GB floor: 0.
+Memory floor: 68 capped starts logged in `out/memory_floor.log`; MemAvailable at start ranged 31.1–108.7 GB; phases refused by the 25 GB floor: 0.
 <!-- END:resources -->
 
 ---
@@ -625,10 +633,10 @@ cheaper than N″, and N″ cheaper than N′.
 <!-- BEGIN:first_generalizing_gap0 -->
 | arm | programs to first training-conforming (pre-registered metric) | programs to first GENERALIZING program (post-hoc) | how obtained |
 |---|---|---|---|
-| N — flat, uniform | 9.50×10^7 | pending | — |
+| N — flat, uniform | 9.50×10^7 | ≥ 4.95×10^11 (estimate —) | bound: 0/20000 sampled first-shell conformers generalize (Wilson 95%) |
 | N′ — schema, uniform | 1.79×10^8 | 3.03×10^14 | exact, 48-episode count, tier 0 |
 | N″ — schema + learned prior | 1.04×10^12 | 1.04×10^12 | exact, 48-episode count, tier 2 |
-| P — flat + learned prior | 4.27×10^17 | pending | — |
+| P — flat + learned prior | 4.27×10^17 | ≥ 1.51×10^21 (estimate 8.54×10^21) | bound: 1/20000 sampled first-shell conformers generalize (Wilson 95%) |
 | D′ — distractor schemas, uniform | 1.86×10^14 | ∞ — no generalizing program exists | exact, 48-episode count |
 | N″ without observation features | 5.04×10^20 | 5.04×10^20 | exact, 48-episode count, tier 3 |
 | D″ — distractor schemas + permuted prior (seed 0) | 1.23×10^14 | ∞ — no generalizing program exists | exact, 48-episode count |
@@ -665,6 +673,11 @@ Sampled first-shell conformers, for the arms whose first hit does not always gen
 <!-- BEGIN:posthoc_gap0 -->
 | arm | exact cost to a training-conforming program | sampled first-shell conformers that generalize | cost to a first generalizing program (estimate / bounds) | exact, from 48-episode counts |
 |---|---|---|---|---|
+| N | 9.50×10^7 | 0/20000 (0.00000–0.00019) | — (4.95×10^11 – unbounded) | — |
+| N' | 1.79×10^8 | 0/20000 (0.00000–0.00019) | — (9.31×10^11 – unbounded) | 3.03×10^14 |
+| N'' | 1.04×10^12 | 20000/20000 (0.99981–1.00000) | 1.04×10^12 (1.04×10^12 – 1.04×10^12) | 1.04×10^12 |
+| P | 4.27×10^17 | 1/20000 (0.00001–0.00028) | 8.54×10^21 (1.51×10^21 – 4.84×10^22) | — |
+| U_feat | 2.04×10^6 | 1/20000 (0.00001–0.00028) | 4.08×10^10 (7.19×10^9 – 2.31×10^11) | — |
 <!-- END:posthoc_gap0 -->
 
 ### 9.5 Proposed follow-up pre-registration (a proposal, not run here)
