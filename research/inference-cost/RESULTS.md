@@ -178,7 +178,7 @@ identical input, not merely a similar one.
 | artifact | TCN complete path | plain Python | ratio | agreement checked |
 |---|---|---|---|---|
 | mixed | 0.0163 ms | 0.000112 ms | **146×** | **CORRECTED: not 0.0.** The float32 round-trip makes bit-identity impossible; the true discrepancy against `sin(float(a!=b)+x)` is 1.5e-9 to 2.6e-8 on 4 cases. |
-| language | 4.061 ms | 0.000496 ms | **8,187×** | **CORRECTED: 9/12, not 12/12.** This track's own `out/inproc.json` records `language.all_agree: false`; episode 2 disagrees. See FINDINGS section 39 for the cause — the frozen program is being evaluated on a stream the lesson audit re-drew. The *cost* comparison is unaffected: both arms ran the same program on the same inputs. |
+| language | 4.061 ms | 0.000496 ms | **8,187×** | **CORRECTED: 7/12, not 12/12** (this line first said 9/12; five episodes disagree — §62). This track's own `out/inproc.json` records `language.all_agree: false`; episode 2 disagrees. See FINDINGS section 39 for the cause — the frozen program is being evaluated on a stream the lesson audit re-drew. The *cost* comparison is unaffected: both arms ran the same program on the same inputs. |
 | visual | 15,371 ms | 0.170 ms | **90,400×** | identical 19- and 16-rectangle sets on 3 held-out screens |
 | computer *(program only)* | 13.23 ms | 0.000096 ms | **137,800×** | same verb and same written digit |
 | computer *(complete step)* | 981.1 ms | 967.85 ms + 0.0001 ms | **1.014×** | — |

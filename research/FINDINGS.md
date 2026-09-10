@@ -901,7 +901,10 @@ pre-audit stream only; §45 proves no conforming program exists in this scaffold
 on the re-drawn stream, and shows the capability was counting rather than
 balancedness.** Against a 0.548 majority constant, 0.5 random, and a 0.648 best fitted-feature baseline
 whose training-perfect features collapse to the constant off-distribution.
-Trained only on lengths {2,4,6} — twelve distinct strings — it is exact at
+Trained only on lengths {2,4,6} — twelve distinct strings — **[§62: the next
+clause overstates. `final_eval.json` gives `per_length {8:1.0, 10:1.0, 12:1.0,
+14:1.0, 16:0.5}` — the single error in 724 *is* the length-16 case, as §45 notes
+and this section did not.]** it is exact at
 lengths 8 through 16 and at a nesting depth never seen.
 
 **The lexical unit was discovered, not given.** `role="byte"` gives the agent no
@@ -962,7 +965,14 @@ runs `uv sync --locked`, so a fresh environment would not have had it — but it
 means every CLI instruction in the README has been failing on this machine for
 the life of the project.
 
-**Did not reproduce.** The demo track reported that a constant answer scores
+**WITHDRAWN BY §62 — this paragraph is wrong.** Recomputing through
+`_joint_reference` on the recorded protocol gives always-True **3.00**,
+always-False **1.00**: the demo track's 3.00/4 **does** reproduce, and the
+2.00/2.00 recorded below could not be reproduced under any protocol tried. The
+demo track was right and this section's retraction of it was not. Original text
+follows, retained rather than deleted.
+
+~~Did not reproduce.~~ The demo track reported that a constant answer scores
 3.00/4 on the joint result's own 16 test episodes, and used that to argue the
 record's baseline was understated. Measured directly on those same 16 episodes
 with the same objective cycling: **always-True 2.00/4 and always-False 2.00/4**,
@@ -1912,8 +1922,10 @@ distribution**, and until it is, §19's claim must be quoted with its stream.
 
 1. `research/inference-cost/RESULTS.md` claimed `common.balanced` "agrees with
    the program and the label on **12/12** held-out episodes" while that track's
-   own `out/inproc.json` records `language.all_agree: false`. Verified from the
-   raw file: episode 2 disagrees. It is **9/12**. Corrected in place.
+   own `out/inproc.json` records `language.all_agree: false`. Recounted from the
+   raw file for §62: **five** episodes disagree, so it is **7/12**, not the 9/12
+   this section originally recorded — that first correction sampled only the
+   leading three episodes. Corrected in place.
 2. The same file recorded the mixed agreement as "max abs error **0.0**". A
    float32 round-trip cannot be bit-identical to `math.sin`; the true discrepancy
    is 1.5e-9 to 2.6e-8. Corrected in place.
@@ -3314,4 +3326,76 @@ attributed to it in isolation. §56's attribution remains correct for the ladder
 measured; **it has now twice failed to predict the gain from an actual
 implementation**, and that gap between attribution and realisation is the durable
 lesson.
+
+## 62. Audit of the record: 85 discrepancies in 794 cited figures, and two corrections that were themselves wrong
+
+`research/record-audit/RESULTS.md` plus a repeatable `verify.py`, branch
+`worktree-agent-ac33a47df48d50347`, **not merged at time of writing**; `tcn/` and
+`generators/` untouched. Dispatched because the record had grown to 61 sections
+written by a dozen agents with 20 recorded corrections, and an external evaluator
+is expected. **Scope, in real counts: all 61 headings read (60 distinct — §14
+appears twice and §42 never existed in any commit), 794 distinct cited figures
+checked against raw JSON and logs, ~637 matched, 85 discrepancies, 29 further
+differences judged stylistic rather than errors, 39 figures and 3 whole sections
+uncheckable from this branch.**
+
+**Two of the entries in `docs/CORRECTIONS.md` were themselves wrong, and both are
+mine. I verified both independently before accepting them.**
+
+- **Row 10 said the `common.balanced` agreement was 9/12. It is 7/12.**
+  `inproc.json` gives `[T,T,F,F,T,T,F,T,F,F,T,T]` — **five** episodes disagree,
+  not one. My original check printed only the leading three episodes and
+  generalised from the single disagreement it saw.
+- **Row 8 retracted a "3.00/4 constant baseline" as unreproducible, measuring
+  2.00/4. The retraction is backwards.** Recomputed here through
+  `_joint_reference` on the recorded protocol: always-True **3.00**, always-False
+  **1.00**, uniform-random 1.6875. **No protocol produces the 2.00/2.00 that was
+  recorded.** `tcn/cli.py:174` and `docs/VALIDATION.md` both said 3.00 throughout.
+  The demo track was right and §20's retraction of it was not.
+
+Both errors run in the same direction — **too quick, and understating the
+problem**. A correction is a claim like any other and gets no exemption from the
+verify-before-believing rule.
+
+**Five further high-severity items, all verified here:**
+
+- **§14a inverts its own source.** It says requiring exactness on a validation
+  split fixed the tie-break; `tiebreak.json` shows `lexicographic` and
+  `validation_filtered` return the **identical** vector, identical `wrong_slots:
+  3` of 384. The track's own RESULTS says filtering **does not** fix it.
+- **§19 contradicts itself.** "Exact at lengths 8 through 16" against its own
+  `per_length {8:1.0, 10:1.0, 12:1.0, 14:1.0, **16:0.5**}` — the single error in
+  724 *is* the length-16 case, which §45 knows and §19 does not.
+- **§21 dropped a qualifier that made it true**: "advantage exactly 0.0000 at
+  every context" holds for **raw-byte** contexts; the full table is 15×14 with 8,
+  8 and 2 non-zero contexts, up to +0.2018. §21's *structural* permutation
+  certificate is independent and stands.
+- **`docs/VALIDATION.md` still carried the retracted language 1.000.**
+- **The shipped `language` demo fails**, `ValueError: training examples required`
+  — §39's stream defect reaching `scripts/demo.sh`. **9 of 10 demos pass.**
+
+**Twenty-three medium items** include several worth flagging: §36/§43/README's
+"19–60 MB RSS" **silently omits `visual.pyz` at 377.5 MB and 5,179 ms**, which is
+*larger* than the 270.8 MB torch baseline it is compared against; the 27.6× visual
+decomposition **does not multiply to its own total** (11.052 × 2.249 = 24.86) in
+four documents; §41's "certifies `none exists` at spans 4 through 29" enumerated
+**8 of 26** spans; and §52's two "distinct" controls are **one class**, which §55
+found and §52 still does not cross-reference.
+
+**Internal tensions resolved.** §30/§60, §46–52/§57, §55/§58 and §56/§59–61 are
+all **compatible under distinctions the later sections state** — but only §54
+carries a bounding banner; the source sections do not, so a reader arriving at
+§30 or §56 first gets an unqualified claim.
+
+**Robustness inventory: 25 load-bearing claims rest on a single family, width,
+seed set or configuration — 16 of them undisclosed, including nine
+single-configuration `unique` certificates presented as evidence**, which §53's
+arm F and §61 both established is not evidence.
+
+**Applied immediately:** CORRECTIONS rows 8 and 10 rewritten with the true
+figures and with the fact that they were wrong; §39 and `inference-cost/RESULTS`
+corrected to 7/12; §20's retraction withdrawn in place with the original text
+retained; §19 annotated; `docs/VALIDATION.md`'s stale 1.000 replaced. The
+remaining items are recorded in the audit's own RESULTS with evidence, as
+recommendations rather than silent edits.
 

@@ -404,7 +404,7 @@ land under `artifacts/demo/`.
 | **positional reuse** | one frozen module at 1,024 positions of a 3,072-value observation with 3 caller nodes (2,304 over 6,912 values under `--full`) | 17 structural symbols shared against 3N+13 per-position and 8N+1 inlined, at 0.93× execution cost |
 | **segmentation from raw pixels** | held-out max error 0.0 on 48 unseen episodes, background colour recovered over the full 0–255 alphabet | unique among 65,536 programs; constant predictor 0.854 |
 | **two-position edge detector** | held-out max error 0.0, accuracy 1.000, offset searched | unique among 48 staged programs; undecomposed 4.9e10 programs, 7.6 years projected; constant predictor 0.844 |
-| **a language task from raw prompt bytes** | the lexical unit discovered over the full 0–255 alphabet, unique among 10,496 programs; the grammaticality rule 1.000 at string lengths never trained on | majority constant 0.548, best fitted feature 0.648, random 0.500; gradient descent conforms 0 of 44 runs on the identical spaces |
+| **a language task from raw prompt bytes** | the lexical unit discovered over the full 0–255 alphabet, unique among 10,496 programs; the grammaticality rule **0.9986** at string lengths never trained on (one error in 724, at length 16), **pre-audit stream only — see FINDINGS §39, §43, §45** | majority constant 0.548, best fitted feature 0.648, random 0.500; gradient descent conforms 0 of 44 runs on the identical spaces |
 | **external simulator replay** | replay, snapshot/restore and cross-process reload all bit-identical, max \|Δ\| 0.0 | a scripted energy-pumping controller reaches upright 0.9994 where the zero-torque arm never exceeds −0.99 |
 
 Three further results with no demo, because they are certificates rather than runs:
