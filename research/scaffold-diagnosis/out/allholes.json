@@ -1,0 +1,8763 @@
+{
+ "R1_counting_postaudit": {
+  "n_scaffolds_tried": 18,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   }
+  ],
+  "solving": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   }
+  ],
+  "rows": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": null,
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 42000,
+    "best_member": [
+     110,
+     0,
+     3,
+     2
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": null,
+    "best_train_accuracy": 0.6666666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 21600,
+    "best_member": [
+     0,
+     0,
+     1,
+     9
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": null,
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 42000,
+    "best_member": [
+     92,
+     0,
+     0,
+     4
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": null,
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 42000,
+    "best_member": [
+     92,
+     3,
+     3,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": null,
+    "best_train_accuracy": 0.5,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 21600,
+    "best_member": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": null,
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 30375,
+    "best_member": [
+     90,
+     0,
+     3,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": null,
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 8835,
+    "best_member": [
+     110,
+     3,
+     2,
+     13
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": null,
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 15120,
+    "best_member": [
+     110,
+     3,
+     2,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": null,
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 42000,
+    "best_member": [
+     110,
+     0,
+     3,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     99,
+     0,
+     4,
+     1,
+     8
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     0,
+     4,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     3,
+     1,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     110,
+     0,
+     3,
+     2,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     110,
+     2,
+     3,
+     11,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 92700,
+    "best_member": [
+     110,
+     2,
+     3,
+     11,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     99,
+     1,
+     3,
+     1,
+     1
+    ]
+   }
+  ]
+ },
+ "S3_counting_preaudit": {
+  "n_scaffolds_tried": 18,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": null,
+    "operator": null,
+    "conforming_on_train": 10
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": null,
+    "operator": null,
+    "conforming_on_train": 2
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "operator": null,
+    "conforming_on_train": 128
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 113
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 113
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "operator": null,
+    "conforming_on_train": 70
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "operator": null,
+    "conforming_on_train": 90
+   }
+  ],
+  "solving": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": null,
+    "operator": null,
+    "conforming_on_train": 10
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": null,
+    "operator": null,
+    "conforming_on_train": 2
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "operator": null,
+    "conforming_on_train": 128
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 113
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 113
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "operator": null,
+    "conforming_on_train": 70
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "operator": null,
+    "conforming_on_train": 90
+   }
+  ],
+  "rows": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": null,
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 10,
+    "usable_members_on_train": 39000,
+    "best_member": [
+     99,
+     1,
+     3,
+     12
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": null,
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 21120,
+    "best_member": [
+     0,
+     0,
+     3,
+     5
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": null,
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 39000,
+    "best_member": [
+     0,
+     1,
+     0,
+     3
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": null,
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 39000,
+    "best_member": [
+     0,
+     0,
+     1,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": null,
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 21120,
+    "best_member": [
+     0,
+     0,
+     0,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": null,
+    "best_train_accuracy": 0.8333333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 25470,
+    "best_member": [
+     90,
+     0,
+     3,
+     8
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": null,
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 5475,
+    "best_member": [
+     0,
+     3,
+     2,
+     10
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": null,
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 14040,
+    "best_member": [
+     102,
+     2,
+     3,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": null,
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 2,
+    "usable_members_on_train": 39000,
+    "best_member": [
+     101,
+     1,
+     3,
+     0
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 128,
+    "usable_members_on_train": 585000,
+    "best_member": [
+     99,
+     1,
+     3,
+     12,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 113,
+    "usable_members_on_train": 585000,
+    "best_member": [
+     98,
+     0,
+     3,
+     7,
+     14
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 113,
+    "usable_members_on_train": 585000,
+    "best_member": [
+     98,
+     4,
+     1,
+     8,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 70,
+    "usable_members_on_train": 585000,
+    "best_member": [
+     99,
+     1,
+     3,
+     12,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 23850,
+    "best_member": [
+     103,
+     2,
+     3,
+     11,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 82350,
+    "best_member": [
+     0,
+     3,
+     2,
+     10,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 90,
+    "usable_members_on_train": 585000,
+    "best_member": [
+     99,
+     1,
+     3,
+     12,
+     2
+    ]
+   }
+  ]
+ },
+ "C_bal_add": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   }
+  ],
+  "solving": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   }
+  ],
+  "rows": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     99,
+     0,
+     4,
+     1,
+     8
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "add",
+    "best_train_accuracy": 0.8333333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     1,
+     4,
+     1,
+     4
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "add",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     1,
+     2,
+     1,
+     2
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "add",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     3,
+     2,
+     1,
+     13
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "add",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     1,
+     0,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "add",
+    "best_train_accuracy": 0.8333333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 454950,
+    "best_member": [
+     106,
+     1,
+     4,
+     1,
+     14
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "add",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 106875,
+    "best_member": [
+     110,
+     3,
+     2,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "add",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     0,
+     3,
+     2,
+     1,
+     14
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "add",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     110,
+     2,
+     0,
+     14,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     0,
+     4,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     3,
+     1,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     110,
+     0,
+     3,
+     2,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     110,
+     2,
+     3,
+     11,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 92700,
+    "best_member": [
+     110,
+     2,
+     3,
+     11,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     99,
+     1,
+     3,
+     1,
+     1
+    ]
+   }
+  ]
+ },
+ "C_bal_idiv": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   }
+  ],
+  "solving": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   }
+  ],
+  "rows": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     99,
+     0,
+     4,
+     1,
+     8
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     0,
+     4,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     3,
+     1,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     110,
+     0,
+     3,
+     2,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     110,
+     2,
+     3,
+     11,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 92700,
+    "best_member": [
+     110,
+     2,
+     3,
+     11,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     99,
+     1,
+     3,
+     1,
+     1
+    ]
+   }
+  ]
+ },
+ "C_bal_max": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 29
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   }
+  ],
+  "solving": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 29
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   }
+  ],
+  "rows": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     0,
+     4,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "max",
+    "best_train_accuracy": 0.6666666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     1,
+     9,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "max",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     0,
+     0,
+     4,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "max",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     3,
+     3,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "max",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     1,
+     4,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "max",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 455625,
+    "best_member": [
+     110,
+     3,
+     0,
+     1,
+     9
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "max",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 132525,
+    "best_member": [
+     110,
+     3,
+     2,
+     1,
+     13
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "max",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     110,
+     3,
+     2,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 29,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     3,
+     1,
+     1,
+     12
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     99,
+     0,
+     4,
+     1,
+     8
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     3,
+     1,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     110,
+     0,
+     3,
+     2,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     110,
+     2,
+     3,
+     11,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 92700,
+    "best_member": [
+     110,
+     2,
+     3,
+     11,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     99,
+     1,
+     3,
+     1,
+     1
+    ]
+   }
+  ]
+ },
+ "C_bal_min": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 29
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 110
+   }
+  ],
+  "solving": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 29
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 110
+   }
+  ],
+  "rows": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     3,
+     1,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "min",
+    "best_train_accuracy": 0.6666666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     1,
+     9,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     0,
+     0,
+     4,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     3,
+     3,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     3,
+     0,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "min",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 455625,
+    "best_member": [
+     109,
+     1,
+     0,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 132525,
+    "best_member": [
+     110,
+     3,
+     2,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     110,
+     3,
+     2,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 29,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     1,
+     3,
+     0,
+     0
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     99,
+     0,
+     4,
+     1,
+     8
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     0,
+     4,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     110,
+     0,
+     3,
+     2,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     110,
+     2,
+     3,
+     11,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 92700,
+    "best_member": [
+     110,
+     2,
+     3,
+     11,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     99,
+     1,
+     3,
+     1,
+     1
+    ]
+   }
+  ]
+ },
+ "C_bal_mod": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   }
+  ],
+  "solving": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   }
+  ],
+  "rows": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     99,
+     0,
+     4,
+     1,
+     8
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     0,
+     4,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     3,
+     1,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     110,
+     0,
+     3,
+     2,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     110,
+     2,
+     3,
+     11,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 92700,
+    "best_member": [
+     110,
+     2,
+     3,
+     11,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     99,
+     1,
+     3,
+     1,
+     1
+    ]
+   }
+  ]
+ },
+ "C_bal_mul": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   }
+  ],
+  "solving": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   }
+  ],
+  "rows": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     110,
+     0,
+     3,
+     2,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.6666666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     1,
+     9,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     0,
+     0,
+     4,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     3,
+     3,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.5,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 455625,
+    "best_member": [
+     90,
+     0,
+     3,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 132525,
+    "best_member": [
+     110,
+     3,
+     2,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     110,
+     3,
+     2,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     110,
+     0,
+     3,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     99,
+     0,
+     4,
+     1,
+     8
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     0,
+     4,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     3,
+     1,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     110,
+     2,
+     3,
+     11,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 92700,
+    "best_member": [
+     110,
+     2,
+     3,
+     11,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     99,
+     1,
+     3,
+     1,
+     1
+    ]
+   }
+  ]
+ },
+ "C_bal_shl": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   }
+  ],
+  "solving": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   }
+  ],
+  "rows": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     110,
+     2,
+     3,
+     11,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 60750,
+    "best_member": [
+     0,
+     3,
+     4,
+     1,
+     13
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 126000,
+    "best_member": [
+     109,
+     2,
+     3,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 134100,
+    "best_member": [
+     0,
+     3,
+     2,
+     1,
+     13
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 283500,
+    "best_member": [
+     0,
+     1,
+     4,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 154125,
+    "best_member": [
+     0,
+     3,
+     2,
+     1,
+     13
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.5,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 75600,
+    "best_member": [
+     0,
+     2,
+     2,
+     0,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 223650,
+    "best_member": [
+     0,
+     3,
+     2,
+     1,
+     14
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     110,
+     2,
+     0,
+     14,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     99,
+     0,
+     4,
+     1,
+     8
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     0,
+     4,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     3,
+     1,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     110,
+     0,
+     3,
+     2,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 92700,
+    "best_member": [
+     110,
+     2,
+     3,
+     11,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     99,
+     1,
+     3,
+     1,
+     1
+    ]
+   }
+  ]
+ },
+ "C_bal_shr": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   }
+  ],
+  "solving": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   }
+  ],
+  "rows": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 92700,
+    "best_member": [
+     110,
+     2,
+     3,
+     11,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 81000,
+    "best_member": [
+     0,
+     3,
+     4,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 378000,
+    "best_member": [
+     109,
+     2,
+     3,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     111,
+     3,
+     2,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 283500,
+    "best_member": [
+     0,
+     3,
+     4,
+     1,
+     9
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 177075,
+    "best_member": [
+     111,
+     3,
+     2,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 76500,
+    "best_member": [
+     110,
+     3,
+     2,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     0,
+     3,
+     2,
+     1,
+     9
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 37800,
+    "best_member": [
+     110,
+     2,
+     0,
+     14,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     99,
+     0,
+     4,
+     1,
+     8
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     0,
+     4,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     3,
+     1,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     110,
+     0,
+     3,
+     2,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     110,
+     2,
+     3,
+     11,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     99,
+     1,
+     3,
+     1,
+     1
+    ]
+   }
+  ]
+ },
+ "C_bal_sub": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   }
+  ],
+  "solving": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   }
+  ],
+  "rows": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     99,
+     1,
+     3,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.8333333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     4,
+     1,
+     5
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     1,
+     2,
+     1,
+     12
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     3,
+     2,
+     1,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     1,
+     0,
+     1,
+     8
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 454950,
+    "best_member": [
+     106,
+     1,
+     0,
+     1,
+     8
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 106875,
+    "best_member": [
+     110,
+     3,
+     2,
+     13,
+     2
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     0,
+     3,
+     2,
+     1,
+     7
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     110,
+     2,
+     0,
+     14,
+     8
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     99,
+     0,
+     4,
+     1,
+     8
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     0,
+     4,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     3,
+     1,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     110,
+     0,
+     3,
+     2,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     110,
+     2,
+     3,
+     11,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 92700,
+    "best_member": [
+     110,
+     2,
+     3,
+     11,
+     1
+    ]
+   }
+  ]
+ },
+ "C_max2_add": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "add",
+    "operator": null,
+    "conforming_on_train": 24
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 527
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 527
+   }
+  ],
+  "solving": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "add",
+    "operator": null,
+    "conforming_on_train": 24
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 527
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 527
+   }
+  ],
+  "rows": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "best_train_accuracy": 0.9583333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     100,
+     0,
+     4,
+     1,
+     14
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "add",
+    "best_train_accuracy": 0.875,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     1,
+     1,
+     5
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "add",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     90,
+     0,
+     0,
+     0,
+     2
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "add",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     90,
+     3,
+     3,
+     9,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "add",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "add",
+    "best_train_accuracy": 0.875,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 454950,
+    "best_member": [
+     0,
+     0,
+     1,
+     1,
+     10
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "add",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 106875,
+    "best_member": [
+     111,
+     3,
+     2,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "add",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     111,
+     3,
+     2,
+     6,
+     10
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "add",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 24,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     105,
+     0,
+     3,
+     1,
+     4
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 527,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     3,
+     1,
+     2,
+     13
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 527,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     1,
+     3,
+     1,
+     2
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.8333333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     107,
+     0,
+     4,
+     2,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     0,
+     2,
+     2,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 92700,
+    "best_member": [
+     108,
+     4,
+     1,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.9583333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     107,
+     1,
+     3,
+     1,
+     13
+    ]
+   }
+  ]
+ },
+ "C_max2_idiv": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 527
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 527
+   }
+  ],
+  "solving": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 527
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 527
+   }
+  ],
+  "rows": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "best_train_accuracy": 0.9583333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     100,
+     0,
+     4,
+     1,
+     14
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 527,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     3,
+     1,
+     2,
+     13
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 527,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     1,
+     3,
+     1,
+     2
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.8333333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     107,
+     0,
+     4,
+     2,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     0,
+     2,
+     2,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 92700,
+    "best_member": [
+     108,
+     4,
+     1,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.9583333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     107,
+     1,
+     3,
+     1,
+     13
+    ]
+   }
+  ]
+ },
+ "C_max2_max": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 527
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 5
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 527
+   }
+  ],
+  "solving": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 527
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 5
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 527
+   }
+  ],
+  "rows": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 527,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     3,
+     1,
+     2,
+     13
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "max",
+    "best_train_accuracy": 0.875,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     1,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "max",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     90,
+     0,
+     0,
+     0,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "max",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     90,
+     3,
+     3,
+     9,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "max",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     0,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "max",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 455625,
+    "best_member": [
+     111,
+     0,
+     3,
+     1,
+     10
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "max",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 132525,
+    "best_member": [
+     111,
+     3,
+     2,
+     1,
+     13
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "max",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     111,
+     3,
+     2,
+     6,
+     9
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 5,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     105,
+     0,
+     3,
+     1,
+     13
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "best_train_accuracy": 0.9583333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     100,
+     0,
+     4,
+     1,
+     14
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 527,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     1,
+     3,
+     1,
+     2
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.8333333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     107,
+     0,
+     4,
+     2,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     0,
+     2,
+     2,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 92700,
+    "best_member": [
+     108,
+     4,
+     1,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.9583333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     107,
+     1,
+     3,
+     1,
+     13
+    ]
+   }
+  ]
+ },
+ "C_max2_min": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 527
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 5
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 527
+   }
+  ],
+  "solving": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 527
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 5
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 527
+   }
+  ],
+  "rows": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 527,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     1,
+     3,
+     1,
+     2
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "min",
+    "best_train_accuracy": 0.875,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     1,
+     6,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "min",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     90,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "min",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     90,
+     3,
+     3,
+     9,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "min",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "min",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 455625,
+    "best_member": [
+     90,
+     0,
+     1,
+     10,
+     2
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "min",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 132525,
+    "best_member": [
+     111,
+     3,
+     2,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "min",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     108,
+     3,
+     2,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 5,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     105,
+     4,
+     1,
+     8,
+     2
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "best_train_accuracy": 0.9583333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     100,
+     0,
+     4,
+     1,
+     14
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 527,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     3,
+     1,
+     2,
+     13
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.8333333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     107,
+     0,
+     4,
+     2,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     0,
+     2,
+     2,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 92700,
+    "best_member": [
+     108,
+     4,
+     1,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.9583333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     107,
+     1,
+     3,
+     1,
+     13
+    ]
+   }
+  ]
+ },
+ "C_max2_mod": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 527
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 527
+   }
+  ],
+  "solving": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 527
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 527
+   }
+  ],
+  "rows": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "best_train_accuracy": 0.9583333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     100,
+     0,
+     4,
+     1,
+     14
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 527,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     3,
+     1,
+     2,
+     13
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 527,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     1,
+     3,
+     1,
+     2
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.8333333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     107,
+     0,
+     4,
+     2,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     0,
+     2,
+     2,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 92700,
+    "best_member": [
+     108,
+     4,
+     1,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.9583333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     107,
+     1,
+     3,
+     1,
+     13
+    ]
+   }
+  ]
+ },
+ "C_max2_mul": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 527
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 527
+   }
+  ],
+  "solving": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 527
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 527
+   }
+  ],
+  "rows": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.8333333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     107,
+     0,
+     4,
+     2,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.875,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     1,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     90,
+     0,
+     0,
+     0,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     90,
+     3,
+     3,
+     9,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     0,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 455625,
+    "best_member": [
+     90,
+     0,
+     1,
+     10,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 132525,
+    "best_member": [
+     111,
+     3,
+     2,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     108,
+     3,
+     2,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.9583333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     107,
+     0,
+     3,
+     7,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "best_train_accuracy": 0.9583333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     100,
+     0,
+     4,
+     1,
+     14
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 527,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     3,
+     1,
+     2,
+     13
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 527,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     1,
+     3,
+     1,
+     2
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     0,
+     2,
+     2,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 92700,
+    "best_member": [
+     108,
+     4,
+     1,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.9583333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     107,
+     1,
+     3,
+     1,
+     13
+    ]
+   }
+  ]
+ },
+ "C_max2_shl": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 527
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 527
+   }
+  ],
+  "solving": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 527
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 527
+   }
+  ],
+  "rows": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     0,
+     2,
+     2,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 60750,
+    "best_member": [
+     0,
+     3,
+     4,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 126000,
+    "best_member": [
+     0,
+     2,
+     0,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 134100,
+    "best_member": [
+     110,
+     3,
+     3,
+     1,
+     13
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 283500,
+    "best_member": [
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 154125,
+    "best_member": [
+     110,
+     3,
+     3,
+     1,
+     13
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 75600,
+    "best_member": [
+     0,
+     2,
+     2,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 223650,
+    "best_member": [
+     111,
+     3,
+     3,
+     1,
+     9
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     0,
+     2,
+     2,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "best_train_accuracy": 0.9583333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     100,
+     0,
+     4,
+     1,
+     14
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 527,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     3,
+     1,
+     2,
+     13
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 527,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     1,
+     3,
+     1,
+     2
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.8333333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     107,
+     0,
+     4,
+     2,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 92700,
+    "best_member": [
+     108,
+     4,
+     1,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.9583333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     107,
+     1,
+     3,
+     1,
+     13
+    ]
+   }
+  ]
+ },
+ "C_max2_shr": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 527
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 527
+   }
+  ],
+  "solving": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 527
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 527
+   }
+  ],
+  "rows": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 92700,
+    "best_member": [
+     108,
+     4,
+     1,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 81000,
+    "best_member": [
+     0,
+     3,
+     3,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 378000,
+    "best_member": [
+     111,
+     3,
+     0,
+     9,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     90,
+     3,
+     3,
+     9,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 283500,
+    "best_member": [
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 177075,
+    "best_member": [
+     90,
+     3,
+     3,
+     9,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 76500,
+    "best_member": [
+     111,
+     3,
+     2,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     111,
+     4,
+     3,
+     1,
+     10
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 37800,
+    "best_member": [
+     108,
+     1,
+     1,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "best_train_accuracy": 0.9583333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     100,
+     0,
+     4,
+     1,
+     14
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 527,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     3,
+     1,
+     2,
+     13
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 527,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     1,
+     3,
+     1,
+     2
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.8333333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     107,
+     0,
+     4,
+     2,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     0,
+     2,
+     2,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.9583333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     107,
+     1,
+     3,
+     1,
+     13
+    ]
+   }
+  ]
+ },
+ "C_max2_sub": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 527
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 527
+   }
+  ],
+  "solving": [
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 527
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 527
+   }
+  ],
+  "rows": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.9583333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     107,
+     1,
+     3,
+     1,
+     13
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.875,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     1,
+     6,
+     2
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     109,
+     0,
+     1,
+     1,
+     13
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     109,
+     4,
+     3,
+     1,
+     2
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.875,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 454950,
+    "best_member": [
+     102,
+     1,
+     0,
+     1,
+     7
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 106875,
+    "best_member": [
+     111,
+     3,
+     2,
+     13,
+     2
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     111,
+     4,
+     3,
+     1,
+     10
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.9583333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     105,
+     0,
+     3,
+     1,
+     2
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "best_train_accuracy": 0.9583333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     100,
+     0,
+     4,
+     1,
+     14
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 527,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     3,
+     1,
+     2,
+     13
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 527,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     1,
+     3,
+     1,
+     2
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.8333333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     107,
+     0,
+     4,
+     2,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.7083333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     0,
+     2,
+     2,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 92700,
+    "best_member": [
+     108,
+     4,
+     1,
+     13,
+     1
+    ]
+   }
+  ]
+ },
+ "C2_bal_add": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 29
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 110
+   }
+  ],
+  "solving": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 29
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 110
+   }
+  ],
+  "rows": [
+   {
+    "hole": "unchanged",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     3,
+     1,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "min",
+    "best_train_accuracy": 0.6666666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     1,
+     9,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     0,
+     0,
+     4,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     3,
+     3,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     3,
+     0,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "min",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 455625,
+    "best_member": [
+     109,
+     1,
+     0,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 132525,
+    "best_member": [
+     110,
+     3,
+     2,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     110,
+     3,
+     2,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 29,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     1,
+     3,
+     0,
+     0
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "add",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     99,
+     0,
+     4,
+     1,
+     8
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     0,
+     4,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     110,
+     0,
+     3,
+     2,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     110,
+     2,
+     3,
+     11,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 92700,
+    "best_member": [
+     110,
+     2,
+     3,
+     11,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "add",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     99,
+     1,
+     3,
+     1,
+     1
+    ]
+   }
+  ]
+ },
+ "C2_bal_idiv": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 29
+   }
+  ],
+  "solving": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 29
+   }
+  ],
+  "rows": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     3,
+     1,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "unchanged",
+    "acc_fold": "idiv",
+    "second_fold": "min",
+    "best_train_accuracy": 0.6666666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     1,
+     9,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     0,
+     0,
+     4,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     3,
+     3,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     3,
+     0,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "min",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 455625,
+    "best_member": [
+     109,
+     1,
+     0,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 132525,
+    "best_member": [
+     110,
+     3,
+     2,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     110,
+     3,
+     2,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 29,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     1,
+     3,
+     0,
+     0
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "idiv",
+    "second_fold": "add",
+    "best_train_accuracy": 0.8333333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     1,
+     4,
+     1,
+     4
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "idiv",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "idiv",
+    "second_fold": "max",
+    "best_train_accuracy": 0.6666666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     1,
+     9,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "idiv",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "idiv",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.6666666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     1,
+     9,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "idiv",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 60750,
+    "best_member": [
+     0,
+     3,
+     4,
+     1,
+     13
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "idiv",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 81000,
+    "best_member": [
+     0,
+     3,
+     4,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "idiv",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.8333333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     4,
+     1,
+     5
+    ]
+   }
+  ]
+ },
+ "C2_bal_max": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 29
+   }
+  ],
+  "solving": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 29
+   }
+  ],
+  "rows": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     3,
+     1,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "min",
+    "best_train_accuracy": 0.6666666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     1,
+     9,
+     0
+    ]
+   },
+   {
+    "hole": "unchanged",
+    "acc_fold": "max",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     0,
+     0,
+     4,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     3,
+     3,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     3,
+     0,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "min",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 455625,
+    "best_member": [
+     109,
+     1,
+     0,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 132525,
+    "best_member": [
+     110,
+     3,
+     2,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     110,
+     3,
+     2,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 29,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     1,
+     3,
+     0,
+     0
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "max",
+    "second_fold": "add",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     1,
+     2,
+     1,
+     2
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "max",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "max",
+    "second_fold": "max",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     0,
+     0,
+     4,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "max",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "max",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     0,
+     0,
+     4,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "max",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 126000,
+    "best_member": [
+     109,
+     2,
+     3,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "max",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 378000,
+    "best_member": [
+     109,
+     2,
+     3,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "max",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     1,
+     2,
+     1,
+     12
+    ]
+   }
+  ]
+ },
+ "C2_bal_min": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 29
+   }
+  ],
+  "solving": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 29
+   }
+  ],
+  "rows": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     3,
+     1,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "min",
+    "best_train_accuracy": 0.6666666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     1,
+     9,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     0,
+     0,
+     4,
+     0
+    ]
+   },
+   {
+    "hole": "unchanged",
+    "acc_fold": "min",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     3,
+     3,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     3,
+     0,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "min",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 455625,
+    "best_member": [
+     109,
+     1,
+     0,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 132525,
+    "best_member": [
+     110,
+     3,
+     2,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     110,
+     3,
+     2,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 29,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     1,
+     3,
+     0,
+     0
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "min",
+    "second_fold": "add",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     3,
+     2,
+     1,
+     13
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "min",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "min",
+    "second_fold": "max",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     3,
+     3,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "min",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "min",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     3,
+     3,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "min",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 134100,
+    "best_member": [
+     0,
+     3,
+     2,
+     1,
+     13
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "min",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     111,
+     3,
+     2,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "min",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     0,
+     3,
+     2,
+     1,
+     0
+    ]
+   }
+  ]
+ },
+ "C2_bal_mod": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 29
+   }
+  ],
+  "solving": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 29
+   }
+  ],
+  "rows": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     3,
+     1,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "min",
+    "best_train_accuracy": 0.6666666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     1,
+     9,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     0,
+     0,
+     4,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     3,
+     3,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "unchanged",
+    "acc_fold": "mod",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     3,
+     0,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "min",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 455625,
+    "best_member": [
+     109,
+     1,
+     0,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 132525,
+    "best_member": [
+     110,
+     3,
+     2,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     110,
+     3,
+     2,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 29,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     1,
+     3,
+     0,
+     0
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "mod",
+    "second_fold": "add",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     1,
+     0,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "mod",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "mod",
+    "second_fold": "max",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     1,
+     4,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "mod",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "mod",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.5,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "mod",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 283500,
+    "best_member": [
+     0,
+     1,
+     4,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "mod",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 283500,
+    "best_member": [
+     0,
+     3,
+     4,
+     1,
+     9
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "mod",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     1,
+     0,
+     1,
+     8
+    ]
+   }
+  ]
+ },
+ "C2_bal_mul": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 29
+   }
+  ],
+  "solving": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 29
+   }
+  ],
+  "rows": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     3,
+     1,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "min",
+    "best_train_accuracy": 0.6666666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     1,
+     9,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     0,
+     0,
+     4,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     3,
+     3,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     3,
+     0,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "unchanged",
+    "acc_fold": "mul",
+    "second_fold": "min",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 455625,
+    "best_member": [
+     109,
+     1,
+     0,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 132525,
+    "best_member": [
+     110,
+     3,
+     2,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     110,
+     3,
+     2,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 29,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     1,
+     3,
+     0,
+     0
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "mul",
+    "second_fold": "add",
+    "best_train_accuracy": 0.8333333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 454950,
+    "best_member": [
+     106,
+     1,
+     4,
+     1,
+     14
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "mul",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "mul",
+    "second_fold": "max",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 455625,
+    "best_member": [
+     110,
+     3,
+     0,
+     1,
+     9
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "mul",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "mul",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 455625,
+    "best_member": [
+     90,
+     0,
+     3,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "mul",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 154125,
+    "best_member": [
+     0,
+     3,
+     2,
+     1,
+     13
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "mul",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 177075,
+    "best_member": [
+     111,
+     3,
+     2,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "mul",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.7916666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 454950,
+    "best_member": [
+     106,
+     1,
+     0,
+     1,
+     8
+    ]
+   }
+  ]
+ },
+ "C2_bal_shl": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 29
+   }
+  ],
+  "solving": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 29
+   }
+  ],
+  "rows": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     3,
+     1,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "min",
+    "best_train_accuracy": 0.6666666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     1,
+     9,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     0,
+     0,
+     4,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     3,
+     3,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     3,
+     0,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "min",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 455625,
+    "best_member": [
+     109,
+     1,
+     0,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "unchanged",
+    "acc_fold": "shl",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 132525,
+    "best_member": [
+     110,
+     3,
+     2,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     110,
+     3,
+     2,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 29,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     1,
+     3,
+     0,
+     0
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "shl",
+    "second_fold": "add",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 106875,
+    "best_member": [
+     110,
+     3,
+     2,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "shl",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "shl",
+    "second_fold": "max",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 132525,
+    "best_member": [
+     110,
+     3,
+     2,
+     1,
+     13
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "shl",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "shl",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 132525,
+    "best_member": [
+     110,
+     3,
+     2,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "shl",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.5,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 75600,
+    "best_member": [
+     0,
+     2,
+     2,
+     0,
+     0
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "shl",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 76500,
+    "best_member": [
+     110,
+     3,
+     2,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "shl",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 106875,
+    "best_member": [
+     110,
+     3,
+     2,
+     13,
+     2
+    ]
+   }
+  ]
+ },
+ "C2_bal_shr": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 29
+   }
+  ],
+  "solving": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 29
+   }
+  ],
+  "rows": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     3,
+     1,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "min",
+    "best_train_accuracy": 0.6666666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     1,
+     9,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     0,
+     0,
+     4,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     3,
+     3,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     3,
+     0,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "min",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 455625,
+    "best_member": [
+     109,
+     1,
+     0,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 132525,
+    "best_member": [
+     110,
+     3,
+     2,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "unchanged",
+    "acc_fold": "shr",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     110,
+     3,
+     2,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 29,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     1,
+     3,
+     0,
+     0
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "shr",
+    "second_fold": "add",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     0,
+     3,
+     2,
+     1,
+     14
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "shr",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "shr",
+    "second_fold": "max",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     110,
+     3,
+     2,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "shr",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "shr",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     110,
+     3,
+     2,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "shr",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 223650,
+    "best_member": [
+     0,
+     3,
+     2,
+     1,
+     14
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "shr",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     0,
+     3,
+     2,
+     1,
+     9
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "shr",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     0,
+     3,
+     2,
+     1,
+     7
+    ]
+   }
+  ]
+ },
+ "C2_bal_sub": {
+  "n_scaffolds_tried": 17,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "unchanged",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 29
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "sub",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 29
+   }
+  ],
+  "solving": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 110
+   },
+   {
+    "hole": "unchanged",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "operator": null,
+    "conforming_on_train": 29
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "sub",
+    "second_fold": "max",
+    "operator": null,
+    "conforming_on_train": 29
+   }
+  ],
+  "rows": [
+   {
+    "hole": "acc_fold",
+    "acc_fold": "add",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 110,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     3,
+     1,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "idiv",
+    "second_fold": "min",
+    "best_train_accuracy": 0.6666666666666666,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     0,
+     1,
+     9,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "max",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     0,
+     0,
+     4,
+     0
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "min",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     92,
+     3,
+     3,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mod",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 324000,
+    "best_member": [
+     0,
+     3,
+     0,
+     1,
+     6
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "mul",
+    "second_fold": "min",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 455625,
+    "best_member": [
+     109,
+     1,
+     0,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shl",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 132525,
+    "best_member": [
+     110,
+     3,
+     2,
+     13,
+     1
+    ]
+   },
+   {
+    "hole": "acc_fold",
+    "acc_fold": "shr",
+    "second_fold": "min",
+    "best_train_accuracy": 0.5833333333333334,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 226800,
+    "best_member": [
+     110,
+     3,
+     2,
+     6,
+     1
+    ]
+   },
+   {
+    "hole": "unchanged",
+    "acc_fold": "sub",
+    "second_fold": "min",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 29,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     1,
+     3,
+     0,
+     0
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "sub",
+    "second_fold": "add",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     110,
+     2,
+     0,
+     14,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "sub",
+    "second_fold": "idiv",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "sub",
+    "second_fold": "max",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 29,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     101,
+     3,
+     1,
+     1,
+     12
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "sub",
+    "second_fold": "mod",
+    "best_train_accuracy": null,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 0,
+    "best_member": null
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "sub",
+    "second_fold": "mul",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     110,
+     0,
+     3,
+     1,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "sub",
+    "second_fold": "shl",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 32175,
+    "best_member": [
+     110,
+     2,
+     0,
+     14,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "sub",
+    "second_fold": "shr",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 37800,
+    "best_member": [
+     110,
+     2,
+     0,
+     14,
+     1
+    ]
+   },
+   {
+    "hole": "second_fold",
+    "acc_fold": "sub",
+    "second_fold": "sub",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "usable_members_on_train": 630000,
+    "best_member": [
+     110,
+     2,
+     0,
+     14,
+     8
+    ]
+   }
+  ]
+ },
+ "R2_tight_flat": {
+  "n_scaffolds_tried": 21,
+  "best_train_accuracy": 0.625,
+  "winners": [
+   {
+    "hole": "n1",
+    "acc_fold": null,
+    "second_fold": null,
+    "operator": "and",
+    "conforming_on_train": 0
+   },
+   {
+    "hole": "n1",
+    "acc_fold": null,
+    "second_fold": null,
+    "operator": "eq",
+    "conforming_on_train": 0
+   },
+   {
+    "hole": "n1",
+    "acc_fold": null,
+    "second_fold": null,
+    "operator": "nand",
+    "conforming_on_train": 0
+   },
+   {
+    "hole": "n1",
+    "acc_fold": null,
+    "second_fold": null,
+    "operator": "nor",
+    "conforming_on_train": 0
+   },
+   {
+    "hole": "n1",
+    "acc_fold": null,
+    "second_fold": null,
+    "operator": "or",
+    "conforming_on_train": 0
+   },
+   {
+    "hole": "n1",
+    "acc_fold": null,
+    "second_fold": null,
+    "operator": "xnor",
+    "conforming_on_train": 0
+   },
+   {
+    "hole": "n1",
+    "acc_fold": null,
+    "second_fold": null,
+    "operator": "xor",
+    "conforming_on_train": 0
+   },
+   {
+    "hole": "n2",
+    "acc_fold": null,
+    "second_fold": null,
+    "operator": "and",
+    "conforming_on_train": 0
+   },
+   {
+    "hole": "n2",
+    "acc_fold": null,
+    "second_fold": null,
+    "operator": "eq",
+    "conforming_on_train": 0
+   },
+   {
+    "hole": "n2",
+    "acc_fold": null,
+    "second_fold": null,
+    "operator": "nand",
+    "conforming_on_train": 0
+   },
+   {
+    "hole": "n2",
+    "acc_fold": null,
+    "second_fold": null,
+    "operator": "nor",
+    "conforming_on_train": 0
+   },
+   {
+    "hole": "n2",
+    "acc_fold": null,
+    "second_fold": null,
+    "operator": "or",
+    "conforming_on_train": 0
+   },
+   {
+    "hole": "n2",
+    "acc_fold": null,
+    "second_fold": null,
+    "operator": "xnor",
+    "conforming_on_train": 0
+   },
+   {
+    "hole": "n2",
+    "acc_fold": null,
+    "second_fold": null,
+    "operator": "xor",
+    "conforming_on_train": 0
+   },
+   {
+    "hole": "y",
+    "acc_fold": null,
+    "second_fold": null,
+    "operator": "and",
+    "conforming_on_train": 0
+   },
+   {
+    "hole": "y",
+    "acc_fold": null,
+    "second_fold": null,
+    "operator": "eq",
+    "conforming_on_train": 0
+   },
+   {
+    "hole": "y",
+    "acc_fold": null,
+    "second_fold": null,
+    "operator": "or",
+    "conforming_on_train": 0
+   },
+   {
+    "hole": "y",
+    "acc_fold": null,
+    "second_fold": null,
+    "operator": "xnor",
+    "conforming_on_train": 0
+   },
+   {
+    "hole": "y",
+    "acc_fold": null,
+    "second_fold": null,
+    "operator": "xor",
+    "conforming_on_train": 0
+   }
+  ],
+  "solving": [],
+  "rows": [
+   {
+    "hole": "n1",
+    "operator": "and",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 69120
+   },
+   {
+    "hole": "n1",
+    "operator": "eq",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 69120
+   },
+   {
+    "hole": "n1",
+    "operator": "nand",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 69120
+   },
+   {
+    "hole": "n1",
+    "operator": "nor",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 69120
+   },
+   {
+    "hole": "n1",
+    "operator": "or",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 69120
+   },
+   {
+    "hole": "n1",
+    "operator": "xnor",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 69120
+   },
+   {
+    "hole": "n1",
+    "operator": "xor",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 69120
+   },
+   {
+    "hole": "n2",
+    "operator": "and",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 69120
+   },
+   {
+    "hole": "n2",
+    "operator": "eq",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 69120
+   },
+   {
+    "hole": "n2",
+    "operator": "nand",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 69120
+   },
+   {
+    "hole": "n2",
+    "operator": "nor",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 69120
+   },
+   {
+    "hole": "n2",
+    "operator": "or",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 69120
+   },
+   {
+    "hole": "n2",
+    "operator": "xnor",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 69120
+   },
+   {
+    "hole": "n2",
+    "operator": "xor",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 69120
+   },
+   {
+    "hole": "y",
+    "operator": "and",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 57600
+   },
+   {
+    "hole": "y",
+    "operator": "eq",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 57600
+   },
+   {
+    "hole": "y",
+    "operator": "nand",
+    "best_train_accuracy": 0.59375,
+    "conforming_on_train": 0,
+    "space_size": 57600
+   },
+   {
+    "hole": "y",
+    "operator": "nor",
+    "best_train_accuracy": 0.5625,
+    "conforming_on_train": 0,
+    "space_size": 57600
+   },
+   {
+    "hole": "y",
+    "operator": "or",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 57600
+   },
+   {
+    "hole": "y",
+    "operator": "xnor",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 57600
+   },
+   {
+    "hole": "y",
+    "operator": "xor",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 57600
+   }
+  ]
+ },
+ "R3_tight_wrong_module": {
+  "n_scaffolds_tried": 21,
+  "best_train_accuracy": 0.65625,
+  "winners": [
+   {
+    "hole": "y",
+    "acc_fold": null,
+    "second_fold": null,
+    "operator": "xor",
+    "conforming_on_train": 0
+   }
+  ],
+  "solving": [],
+  "rows": [
+   {
+    "hole": "n1",
+    "operator": "and",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n1",
+    "operator": "eq",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n1",
+    "operator": "nand",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n1",
+    "operator": "nor",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n1",
+    "operator": "or",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n1",
+    "operator": "xnor",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n1",
+    "operator": "xor",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n2",
+    "operator": "and",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n2",
+    "operator": "eq",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n2",
+    "operator": "nand",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n2",
+    "operator": "nor",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n2",
+    "operator": "or",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n2",
+    "operator": "xnor",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n2",
+    "operator": "xor",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "y",
+    "operator": "and",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 451584
+   },
+   {
+    "hole": "y",
+    "operator": "eq",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 451584
+   },
+   {
+    "hole": "y",
+    "operator": "nand",
+    "best_train_accuracy": 0.640625,
+    "conforming_on_train": 0,
+    "space_size": 451584
+   },
+   {
+    "hole": "y",
+    "operator": "nor",
+    "best_train_accuracy": 0.59375,
+    "conforming_on_train": 0,
+    "space_size": 451584
+   },
+   {
+    "hole": "y",
+    "operator": "or",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 451584
+   },
+   {
+    "hole": "y",
+    "operator": "xnor",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 451584
+   },
+   {
+    "hole": "y",
+    "operator": "xor",
+    "best_train_accuracy": 0.65625,
+    "conforming_on_train": 0,
+    "space_size": 451584
+   }
+  ]
+ },
+ "S2_tight_maj3": {
+  "n_scaffolds_tried": 21,
+  "best_train_accuracy": 1.0,
+  "winners": [
+   {
+    "hole": "y",
+    "acc_fold": null,
+    "second_fold": null,
+    "operator": "xor",
+    "conforming_on_train": 144
+   }
+  ],
+  "solving": [
+   {
+    "hole": "y",
+    "acc_fold": null,
+    "second_fold": null,
+    "operator": "xor",
+    "conforming_on_train": 144
+   }
+  ],
+  "rows": [
+   {
+    "hole": "n1",
+    "operator": "and",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n1",
+    "operator": "eq",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n1",
+    "operator": "nand",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n1",
+    "operator": "nor",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n1",
+    "operator": "or",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n1",
+    "operator": "xnor",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n1",
+    "operator": "xor",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n2",
+    "operator": "and",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n2",
+    "operator": "eq",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n2",
+    "operator": "nand",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n2",
+    "operator": "nor",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n2",
+    "operator": "or",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n2",
+    "operator": "xnor",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "n2",
+    "operator": "xor",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 290304
+   },
+   {
+    "hole": "y",
+    "operator": "and",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 451584
+   },
+   {
+    "hole": "y",
+    "operator": "eq",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "space_size": 451584
+   },
+   {
+    "hole": "y",
+    "operator": "nand",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "space_size": 451584
+   },
+   {
+    "hole": "y",
+    "operator": "nor",
+    "best_train_accuracy": 0.625,
+    "conforming_on_train": 0,
+    "space_size": 451584
+   },
+   {
+    "hole": "y",
+    "operator": "or",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "space_size": 451584
+   },
+   {
+    "hole": "y",
+    "operator": "xnor",
+    "best_train_accuracy": 0.75,
+    "conforming_on_train": 0,
+    "space_size": 451584
+   },
+   {
+    "hole": "y",
+    "operator": "xor",
+    "best_train_accuracy": 1.0,
+    "conforming_on_train": 144,
+    "space_size": 451584
+   }
+  ]
+ },
+ "seconds": 135.2771167649771
+}

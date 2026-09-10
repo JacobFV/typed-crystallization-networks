@@ -1,0 +1,108 @@
+{
+ "train_lengths": [
+  10,
+  12,
+  14
+ ],
+ "heldout_lengths": [
+  16,
+  18,
+  20,
+  22
+ ],
+ "stream": "context_free_language",
+ "train": {
+  "n": 24,
+  "per_length": {
+   "10": 3,
+   "12": 11,
+   "14": 10
+  },
+  "per_depth": {
+   "1": 4,
+   "2": 9,
+   "3": 5,
+   "4": 6
+  },
+  "lengths": [
+   10,
+   12,
+   14
+  ],
+  "depths": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "distinct_strings": 22,
+  "positive_rate": 0.5,
+  "majority_constant": 0.5,
+  "fraction_string_seen_in_training": 1.0,
+  "counts_match_rate": 1.0
+ },
+ "heldout_seen_lengths": {
+  "n": 120,
+  "per_length": {
+   "10": 34,
+   "12": 42,
+   "14": 44
+  },
+  "per_depth": {
+   "1": 30,
+   "2": 35,
+   "3": 26,
+   "4": 29
+  },
+  "lengths": [
+   10,
+   12,
+   14
+  ],
+  "depths": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "distinct_strings": 93,
+  "positive_rate": 0.4666666666666667,
+  "majority_constant": 0.5333333333333333,
+  "fraction_string_seen_in_training": 0.125,
+  "counts_match_rate": 1.0
+ },
+ "heldout_unseen_lengths": {
+  "n": 859,
+  "per_length": {
+   "16": 221,
+   "18": 209,
+   "20": 215,
+   "22": 214
+  },
+  "per_depth": {
+   "1": 207,
+   "2": 216,
+   "3": 213,
+   "4": 223
+  },
+  "lengths": [
+   16,
+   18,
+   20,
+   22
+  ],
+  "depths": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "distinct_strings": 700,
+  "positive_rate": 0.5261932479627474,
+  "majority_constant": 0.5261932479627474,
+  "fraction_string_seen_in_training": 0.0,
+  "counts_match_rate": 1.0
+ },
+ "seconds": 2.933486872992944,
+ "stream_pinned": "context_free_language"
+}
