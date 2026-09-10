@@ -21,17 +21,31 @@ both rank the majority class first on **all six** corpora — the full one and a
 five leave-one-outs — and their rank-1 module then helps **5 of 5** held-out
 tasks, equal to the hand-authored ceiling, against the incumbent's 2 of 5. Every
 enumeration exhausts with certificate `complete`. §52's framing was not
-optimistic.
+optimistic. The counterpoint, which belongs in the headline: on the **two** tasks
+where the incumbent's module does apply, it is the *better* module — 24 of 24
+gradient seeds at accuracy 1.0000 against the winners' 4 of 24 at 0.8750,
+because a 4-ary module absorbs the whole task body (§3.1).
 
 **The frequency baseline is not the result, and the data says so sharply.** Both
 trivial frequency counts help **0 of 5**. The majority class is *never* the most
 frequent class in any corpus — under a pure task count it is **rank 4**, behind
 three classes that occur in strictly more tasks, so no tie-break could rescue a
 frequency count. And sweeping the breadth exponent `α` in `|T|^α · Σ s_e − D`
-shows **both endpoints failing**: `α = 0` is the incumbent and picks the wrong
-narrow class; `α = 10` is a pure frequency count and picks the wrong broad one.
-The right class holds the interior, `α ∈ [0.08, 3]`, on every corpus. **Neither
-factor alone selects it; the product does.** F2 does not fire.
+shows **both endpoints failing**: `α = 0` **is** the incumbent and picks the
+wrong narrow class; at `α = 10` breadth swamps the saving and it picks the wrong
+broad one — the same class B1 picks. The right class holds the interior,
+`α ∈ [0.08, 3]` on every corpus. **Neither factor alone selects it; the product
+does.** F2 does not fire.
+
+**An exploratory replication on a second family agrees, with one caveat that
+must travel with it.** On `F′` — §52's six task shapes with the majority window
+replaced by the §44 distractor — O2 and O4 select `F′`'s **own** window class
+(different digest *and* different truth table) at rank 1 on all five
+leave-one-outs and match the hand-authored ceiling; both frequency baselines
+stay at 0 of 5. But on `F′` the **incumbent also reaches 5 of 5**, so that
+family corroborates the *selection* result and does **not** reproduce the
+transfer failure. It was added after the primary table was complete
+(Amendment 1) and counts toward no criterion.
 
 **The win is half a fix, and the other half belongs to a different objective.**
 On §41's ten-program language family, O2 and O4 are *degenerate* — with one task
@@ -166,6 +180,48 @@ sat in its table:
 `165bc290d9c82b70a8ea3cc2` is the digest §46 published, §52 reproduced, and §52
 could only reach with an *oracle* selector that knew the target function. **O2
 and O4 reach it with no oracle**: they read the mining corpus and nothing else.
+
+### 3.1 Gradient beside the enumeration — and one place the incumbent wins
+
+`later.gradient_search` unchanged, 24 seeds, 400 steps, the same rows.
+Seeds conforming / median exact accuracy:
+
+| objective | t1 | t2 | t3 | t4 | t5 | `H_par` | `H_d134` |
+|---|---|---|---|---|---|---|---|
+| **O1** | 0/24 · .7500 | 0/24 · .8750 | **24/24 · 1.0000** | 0/24 · .7500 | **24/24 · 1.0000** | 0/24 · .5000 | 0/24 · .6250 |
+| **O2** | **4/24** · .7500 | **7/24** · .8750 | **4/24** · .8750 | **7/24** · .7500 | **3/24** · .8750 | 0/24 · .5000 | 0/24 · .6250 |
+| **O3** | 0/24 · .7500 | 0/24 · .8750 | 0/24 · .8750 | 0/24 · .7500 | 0/24 · .8750 | 0/24 · .5000 | 0/24 · .6250 |
+| **O4** | **4/24** · .7500 | **7/24** · .8750 | **4/24** · .8750 | **7/24** · .7500 | **3/24** · .8750 | 0/24 · .5000 | 0/24 · .6250 |
+| **O5** | 0/24 · .7500 | 0/24 · .8750 | 0/24 · .8750 | 0/24 · .7500 | 0/24 · .8750 | 0/24 · .5000 | 0/24 · .6250 |
+| **B1** | 0/24 · .7500 | 0/24 · .8750 | 0/24 · .8750 | 0/24 · .7500 | 0/24 · .8750 | 0/24 · .5000 | 0/24 · .6250 |
+| **B2** | 0/24 · .7500 | 0/24 · .8750 | 0/24 · .8750 | 0/24 · .7500 | 0/24 · .8750 | 0/24 · .5000 | 0/24 · .6250 |
+| *ceiling* `MAJ3` | 4/24 · .7500 | 7/24 · .8750 | 4/24 · .8750 | 7/24 · .7500 | 3/24 · .8750 | 0/24 · .5000 | 0/24 · .6250 |
+| *floor*, none | 0/24 · .7500 | 0/24 · .8750 | 0/24 · .8750 | 0/24 · .7500 | 0/24 · .8750 | 0/24 · .5000 | 0/24 · .6250 |
+| *wrong* `D134` | 0/24 · .7500 | 0/24 · .8750 | 0/24 · .8750 | 0/24 · .7500 | 0/24 · .8750 | 0/24 · .8750 | **15/24 · 1.0000** |
+| *constant baseline* | .5000 | .7500 | .7500 | .5000 | .7500 | .5000 | .5000 |
+| *random baseline* | .5000 | .5000 | .5000 | .5000 | .5000 | .5000 | .5000 |
+
+Three things, and the second is a point against the winners.
+
+**O2 and O4 match the hand-authored ceiling row for row** — 4, 7, 4, 7, 3 of 24
+seeds — because they select the same class, and every one of their conforming
+seeds puts the module on the output path. Every §52 row this overlaps reproduces
+exactly.
+
+**Where the incumbent does solve a task, it solves it far more easily.** On `t3`
+and `t5` O1's 4-ary module reaches **24/24 at median accuracy 1.0000** against
+the winners' 4/24 and 3/24 at 0.8750, because a 4-ary module absorbs the whole
+task body and leaves the gradient almost nothing to search. §52 recorded the
+same effect. So the honest reading of the two tables together is: **the
+incumbent's module is the better module on the two tasks where it happens to
+apply, and applies to two tasks of five; the winners' module applies to all
+five and is harder to learn on each.** The enumeration certificate is the
+decisive measurement because it is the one that separates "no solution exists in
+this space" from "gradient search failed" — but it is not the only fact.
+
+**The gradient controls fire in both directions.** `D134` reaches 15/24 at
+1.0000 on `H_d134` and 0/24 everywhere else; no majority-family arm exceeds its
+constant baseline on either control.
 
 ## 4. Why the incumbent fails and what the two winners change
 
@@ -390,13 +446,13 @@ experiment, not as a result.
 
 | stage | cost |
 |---|---|
-| one instrumented pool (`C-minall`, 130 entries) | 0.55 s |
-| O4's five cross-validation folds, per corpus | ≈ 2.5 s (five further mines) |
-| O5's measured cost, per corpus, 40 classes | ≈ 4 s (all exhaustive over 16 rows) |
-| all six corpora × seven objectives, published | 51 s total |
+| one instrumented pool (`C-minall`, 130 entries), measured alone | 0.55 s |
+| pool + IC1 + O4's five folds + O5's measurement, per corpus | 7.0 – 11.6 s (`out/ranked.json`) |
+| all six corpora × seven objectives, scored and published | 51 s total |
 | held-out enumeration, majority family | 70 runs, **4 006 520** programs, 64 s wall at 12 workers |
 | held-out enumeration, `F′` (exploratory) | 64 runs, **2 743 360** programs |
 | §52 §8's parameter grid, 162 cells | 450 s, single-threaded |
+| gradient, 7 tasks × 10 modules × 24 seeds × 400 steps | 1 680 runs, ≈ 36 000 CPU-s — **the dominant cost of the track**, and it decides nothing the enumeration has not already certified |
 | §41 cross-check | a file read; nothing re-enumerated |
 
 **O2 is essentially free**: it is one multiplication per class on numbers the
@@ -494,11 +550,19 @@ solely so §6's grid could be *reported*; every declared arm uses the defaults
   size, `exhausted: true`, certificate `complete`, `evaluated` reported
   separately from `space_size` and equal to it in all 134 runs.
 * **Every published module is a real `tcn.library` entry** with a full
-  truth-table fixture, loaded under `policy="strict"`.
+  truth-table fixture, loaded under `policy="strict"`. `module_on_output_path`
+  is true in every conforming enumeration of the winners' module and in all 25
+  of its conforming gradient seeds.
+* **Both primary runs were repeated after the `sys.path` fix and reproduce.**
+  `run_rank.py` re-run gives a `ranked.json` identical to the first field for
+  field once wall-clock timings are dropped; `run_heldout.py` re-run gives
+  identical rows on every field except timings — same conforming counts, same
+  space sizes, same certificates.
 * **Every accuracy carries its constant and random baselines** (§3 controls,
   §8's 0.5661 majority, the gradient table's per-task constants).
 * **Test suite: 337 tests, and the count that passes depends only on a
-  gitignored symlink.** Measured here in both configurations, as §52 did.
+  gitignored symlink.** Both configurations were measured **in this worktree**,
+  as §52 did, and both match §52's figures exactly.
   * With `generators/computer/engine/node_modules` symlinked from the main
     checkout: **336 passed, 1 failed** —
     `tests/test_panel_interface.py::test_panel_episode_replays_and_restores`,
