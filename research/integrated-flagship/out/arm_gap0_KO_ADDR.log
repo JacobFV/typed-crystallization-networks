@@ -1,0 +1,197 @@
+KO_ADDR 0 S=3.050e+13 K= 0 0.1s
+KO_ADDR 1 S=1.708e+15 K= 75744 4.2s
+KO_ADDR 2 S=3.905e+15 K= 126240 7.4s
+KO_ADDR 3 S=6.101e+16 K= 479040180 7.4s
+KO_ADDR 4 S=6.526e+16 K= 479040180 7.5s
+KO_ADDR 5 S=1.631e+17 K= 714017688 15.2s
+KO_ADDR 6 S=4.568e+17 K= 1019752188 20.5s
+KO_ADDR 7 S=4.568e+17 K= 1019752188 0.1s
+KO_ADDR 8 S=4.568e+17 K= 1019752188 0.1s
+KO_ADDR 9 S=1.044e+18 K= 479086028352 23.2s
+KO_ADDR 10 S=1.044e+18 K= 479086028352 0.1s
+KO_ADDR 11 S=1.044e+18 K= 479086028352 0.1s
+KO_ADDR 12 S=2.081e+23 K= 1164494804749376 24.6s
+{
+ "arm": "KO_ADDR",
+ "gap": 0,
+ "pool": "schema",
+ "prior": true,
+ "first_solvable_tier": 1,
+ "full_space": {
+  "S": "208109705341645619200000",
+  "S_log10": 23.31829233431079,
+  "K": "1164494804749376",
+  "certificate": "complete",
+  "exhausted": true
+ },
+ "expected_programs": {
+  "num": "2312246589443276801",
+  "den": "75745",
+  "float": 30526722416572.406,
+  "log10": 13.484680177609851
+ },
+ "expected_episodes": {
+  "num": "27746959073319321612",
+  "den": "75745",
+  "float": 366320668998868.9,
+  "log10": 14.563861423657476
+ },
+ "solution_exists": true,
+ "first_solution_samples": {
+  "n": 400,
+  "train_conform_all": true,
+  "held_out_accuracy_mean": 1.0,
+  "held_out_accuracy_min": 1.0,
+  "generalize_fraction": 1.0,
+  "generalize_count": 400,
+  "generalize_wilson95": [
+   0.9904873594003194,
+   1.0
+  ],
+  "held_out_accuracy_hist": {
+   "1.0": 400
+  }
+ },
+ "first_solution_slots": {
+  "cpos": {
+   "most_common": "('sub', 'length', 'k5')",
+   "share": 0.505,
+   "distinct": 5,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "lc1": {
+   "most_common": "101",
+   "share": 0.24,
+   "distinct": 10
+  },
+  "lc2": {
+   "most_common": "101",
+   "share": 0.2725,
+   "distinct": 10
+  },
+  "lc3": {
+   "most_common": "101",
+   "share": 0.2525,
+   "distinct": 10
+  },
+  "K1": {
+   "most_common": "2",
+   "share": 0.2425,
+   "distinct": 7,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "K2": {
+   "most_common": "2",
+   "share": 0.2425,
+   "distinct": 7,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "K3": {
+   "most_common": "2",
+   "share": 0.265,
+   "distinct": 7,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "K4": {
+   "most_common": "2",
+   "share": 0.25,
+   "distinct": 7,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "ra": {
+   "most_common": "('sub', 'k14', 'k1')",
+   "share": 0.025,
+   "distinct": 133,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "lr1": {
+   "most_common": "104",
+   "share": 0.26,
+   "distinct": 8
+  },
+  "lr2": {
+   "most_common": "104",
+   "share": 0.275,
+   "distinct": 8
+  },
+  "M": {
+   "most_common": "(1, 2, 2, 8)",
+   "share": 0.3575,
+   "distinct": 3,
+   "prior_rank_of_most_common": 2,
+   "prior_score_of_most_common": 0.1452094184027778,
+   "slot_best_score": 0.2767198350694444
+  },
+  "X1": {
+   "most_common": "('sub', 'lo', 3)",
+   "share": 0.41,
+   "distinct": 3,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 0.7666666666666666,
+   "slot_best_score": 0.7666666666666666
+  },
+  "X2": {
+   "most_common": "('sub', 'lo', 3)",
+   "share": 0.405,
+   "distinct": 3,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 0.7666666666666666,
+   "slot_best_score": 0.7666666666666666
+  },
+  "X3": {
+   "most_common": "('sub', 'lo', 48)",
+   "share": 0.5975,
+   "distinct": 3,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 0.7666666666666666,
+   "slot_best_score": 0.7666666666666666
+  }
+ },
+ "example_first_solution": {
+  "cpos": 295,
+  "lc1": 22,
+  "lc2": 13,
+  "lc3": 4,
+  "K1": 2,
+  "K2": 6,
+  "K3": 5,
+  "K4": 0,
+  "ra": 1396,
+  "lr1": 11,
+  "lr2": 7,
+  "M": 40,
+  "X1": 12,
+  "X2": 13,
+  "X3": 7
+ },
+ "example_first_solution_specs": {
+  "cpos": "('sub', 'length', 'k5')",
+  "lc1": "119",
+  "lc2": "110",
+  "lc3": "101",
+  "K1": "2",
+  "K2": "6",
+  "K3": "5",
+  "K4": "0",
+  "ra": "('max', 'k13', 'k1')",
+  "lr1": "108",
+  "lr2": "104",
+  "M": "(1, 2, 2, 8)",
+  "X1": "('sub', 'lo', 3)",
+  "X2": "('sub', 'lo', 48)",
+  "X3": "('add', 'hi', 3)"
+ },
+ "seconds": 111.8508752609996
+}
