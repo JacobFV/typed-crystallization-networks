@@ -372,17 +372,22 @@ claim("every capped job peaked under the 20 GB cap", peaks and max(peaks) < 20 *
 
 # ------------------------------------------ layer 3: numbers in prose
 prose = re.sub(r"<!-- BEGIN:(\w+) -->.*?<!-- END:\1 -->", "", RESULTS, flags=re.S)
-prose = re.sub(r"`[^`]*`", "", prose)
+prose = re.sub(r"`[^`\n]*`", "", prose)        # code spans never cross a line
 prose = re.sub(r"(?m)^#+ .*$", "", prose)      # headings carry section numbering, not claims
+if len(prose) < 0.25 * len(RESULTS):           # guard on the guard: a runaway strip makes this vacuous
+    claim("layer 3 keeps most of RESULTS.md to check", False,
+          f"prose {len(prose)} of {len(RESULTS)} chars survived stripping")
 block_text = " ".join(re.findall(r"<!-- BEGIN:\w+ -->(.*?)<!-- END", RESULTS, flags=re.S))
+NUM = r"(?<![\w.§/-])\d[\d,]*(?:\.\d+)?(?:×10\^\d+)?"
+block_nums = set(re.findall(NUM, block_text))  # token equality, not substring: 7 must not match 527
 ALLOWED = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "15", "16",
            "20", "25", "26", "36", "48", "64", "100", "128", "256", "400", "500", "1,280", "1,445",
            "1,462", "2,304", "3W", "30", "240", "50", "55", "58", "60", "62", "63", "64", "19", "23",
            "33", "39", "44", "45", "47", "32", "24", "40", "42", "57", "59", "61", "70", "2026",
            "10×", "4", "95"}
 bad = []
-for tok in re.findall(r"(?<![\w.§/-])\d[\d,]*(?:\.\d+)?(?:×10\^\d+)?", prose):
-    if tok in ALLOWED or tok in block_text:
+for tok in re.findall(NUM, prose):
+    if tok in ALLOWED or tok in block_nums:
         continue
     bad.append(tok)
 claim("every number in RESULTS.md prose is structural or appears in a rendered block",
