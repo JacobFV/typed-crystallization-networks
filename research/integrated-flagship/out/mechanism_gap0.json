@@ -1,0 +1,553 @@
+{
+ "rows": [
+  {
+   "arm": "N''",
+   "pool": "schema",
+   "lit_occurs_ratio": 3510.869565217391,
+   "addr_V_mean_true": 0.20634923588379564,
+   "addr_V_mean_false": 0.02001050252327595,
+   "generalize_count": 400,
+   "n": 400,
+   "wilson95": [
+    0.9904873594003194,
+    1.0
+   ],
+   "expected_programs_log10": 12.01609848198369,
+   "first_solvable_tier": 2,
+   "colour_address_rank": 57,
+   "colour_address_score_over_best": 0.4775390625,
+   "relation_address_best_rank": 2,
+   "absent_letters_enter_tier": 12
+  },
+  {
+   "arm": "P",
+   "pool": "flat",
+   "lit_occurs_ratio": 3510.869565217391,
+   "addr_V_mean_true": 0.20634923588379564,
+   "addr_V_mean_false": 0.02001050252327595,
+   "generalize_count": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ],
+   "expected_programs_log10": 17.63051012106149,
+   "first_solvable_tier": 2
+  },
+  {
+   "arm": "R_0",
+   "pool": "schema",
+   "lit_occurs_ratio": 2.4474111491971855,
+   "addr_V_mean_true": 0.1708014503360101,
+   "addr_V_mean_false": 0.07911902965505889,
+   "generalize_count": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ],
+   "expected_programs_log10": 21.238882139679234,
+   "first_solvable_tier": 3,
+   "colour_address_rank": 57,
+   "colour_address_score_over_best": 0.4775390625,
+   "relation_address_best_rank": 2,
+   "absent_letters_enter_tier": 2
+  },
+  {
+   "arm": "R_1",
+   "pool": "schema",
+   "lit_occurs_ratio": 3.8702601065496705,
+   "addr_V_mean_true": 0.1834277129622727,
+   "addr_V_mean_false": 0.12859819632172556,
+   "generalize_count": 400,
+   "n": 400,
+   "wilson95": [
+    0.9904873594003194,
+    1.0
+   ],
+   "expected_programs_log10": 13.737857741361374,
+   "first_solvable_tier": 2,
+   "colour_address_rank": 2,
+   "colour_address_score_over_best": 0.9326171875,
+   "relation_address_best_rank": 214,
+   "absent_letters_enter_tier": 2
+  },
+  {
+   "arm": "R_2",
+   "pool": "schema",
+   "lit_occurs_ratio": 3.8702601065496705,
+   "addr_V_mean_true": 0.10116275569731543,
+   "addr_V_mean_false": 0.15815245988761703,
+   "generalize_count": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ],
+   "expected_programs_log10": 19.54810587735642,
+   "first_solvable_tier": 3,
+   "colour_address_rank": 2,
+   "colour_address_score_over_best": 0.47005208333333337,
+   "relation_address_best_rank": 214,
+   "absent_letters_enter_tier": 2
+  },
+  {
+   "arm": "R_3",
+   "pool": "schema",
+   "lit_occurs_ratio": 3.1145153253523112,
+   "addr_V_mean_true": 0.08568540151028382,
+   "addr_V_mean_false": 0.11755359717851871,
+   "generalize_count": 2,
+   "n": 400,
+   "wilson95": [
+    0.0013722242215711469,
+    0.018045289972112716
+   ],
+   "expected_programs_log10": 20.561173374966955,
+   "first_solvable_tier": 3,
+   "colour_address_rank": 202,
+   "colour_address_score_over_best": 0.9285903550609432,
+   "relation_address_best_rank": 213,
+   "absent_letters_enter_tier": 2
+  },
+  {
+   "arm": "R_4",
+   "pool": "schema",
+   "lit_occurs_ratio": 1.8542166074005066,
+   "addr_V_mean_true": 0.13619045201533433,
+   "addr_V_mean_false": 0.046960599422500755,
+   "generalize_count": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ],
+   "expected_programs_log10": 22.114172351654876,
+   "first_solvable_tier": 4,
+   "colour_address_rank": 1,
+   "colour_address_score_over_best": 1.0,
+   "relation_address_best_rank": 12,
+   "absent_letters_enter_tier": 1
+  },
+  {
+   "arm": "D''_0",
+   "pool": "distractor",
+   "lit_occurs_ratio": 2.4474111491971855,
+   "addr_V_mean_true": 0.1708014503360101,
+   "addr_V_mean_false": 0.07911902965505889,
+   "generalize_count": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ],
+   "expected_programs_log10": 14.090240672489275,
+   "first_solvable_tier": 1
+  },
+  {
+   "arm": "D''_1",
+   "pool": "distractor",
+   "lit_occurs_ratio": 3.8702601065496705,
+   "addr_V_mean_true": 0.1834277129622727,
+   "addr_V_mean_false": 0.12859819632172556,
+   "generalize_count": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ],
+   "expected_programs_log10": 15.488212946912103,
+   "first_solvable_tier": 1
+  },
+  {
+   "arm": "D''_2",
+   "pool": "distractor",
+   "lit_occurs_ratio": 3.8702601065496705,
+   "addr_V_mean_true": 0.10116275569731543,
+   "addr_V_mean_false": 0.15815245988761703,
+   "generalize_count": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ],
+   "expected_programs_log10": 14.090235844222438,
+   "first_solvable_tier": 1
+  },
+  {
+   "arm": "D''_3",
+   "pool": "distractor",
+   "lit_occurs_ratio": 3.1145153253523112,
+   "addr_V_mean_true": 0.08568540151028382,
+   "addr_V_mean_false": 0.11755359717851871,
+   "generalize_count": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ],
+   "expected_programs_log10": 15.488254864049747,
+   "first_solvable_tier": 1
+  },
+  {
+   "arm": "D''_4",
+   "pool": "distractor",
+   "lit_occurs_ratio": 1.8542166074005066,
+   "addr_V_mean_true": 0.13619045201533433,
+   "addr_V_mean_false": 0.046960599422500755,
+   "generalize_count": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ],
+   "expected_programs_log10": 22.307992384516176,
+   "first_solvable_tier": 4
+  },
+  {
+   "arm": "U_feat",
+   "pool": "schema",
+   "lit_occurs_ratio": 2.0,
+   "addr_V_mean_true": null,
+   "addr_V_mean_false": null,
+   "generalize_count": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ],
+   "expected_programs_log10": 6.309101414566076,
+   "first_solvable_tier": 0,
+   "colour_address_rank": 1,
+   "colour_address_score_over_best": 1.0,
+   "relation_address_best_rank": 1,
+   "absent_letters_enter_tier": 1
+  },
+  {
+   "arm": "U_steep",
+   "pool": "schema",
+   "lit_occurs_ratio": 2.0,
+   "addr_V_mean_true": null,
+   "addr_V_mean_false": null,
+   "generalize_count": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ],
+   "expected_programs_log10": 6.309101414566076,
+   "first_solvable_tier": 0,
+   "colour_address_rank": 1,
+   "colour_address_score_over_best": 1.0,
+   "relation_address_best_rank": 1,
+   "absent_letters_enter_tier": 12
+  },
+  {
+   "arm": "U_Vonly",
+   "pool": "schema",
+   "lit_occurs_ratio": 1.0,
+   "addr_V_mean_true": null,
+   "addr_V_mean_false": null,
+   "generalize_count": 0,
+   "n": 400,
+   "wilson95": [
+    0.0,
+    0.009512640599680667
+   ],
+   "expected_programs_log10": 7.644667973286756,
+   "first_solvable_tier": 0,
+   "colour_address_rank": 1,
+   "colour_address_score_over_best": 1.0,
+   "relation_address_best_rank": 1,
+   "absent_letters_enter_tier": 0
+  },
+  {
+   "arm": "KO_ADDR",
+   "pool": "schema",
+   "lit_occurs_ratio": 3510.869565217391,
+   "addr_V_mean_true": null,
+   "addr_V_mean_false": null,
+   "generalize_count": 400,
+   "n": 400,
+   "wilson95": [
+    0.9904873594003194,
+    1.0
+   ],
+   "expected_programs_log10": 13.484680177609851,
+   "first_solvable_tier": 1,
+   "colour_address_rank": 1,
+   "colour_address_score_over_best": 1.0,
+   "relation_address_best_rank": 1,
+   "absent_letters_enter_tier": 12
+  },
+  {
+   "arm": "KO_TRUTH",
+   "pool": "schema",
+   "lit_occurs_ratio": 3510.869565217391,
+   "addr_V_mean_true": 0.20634923588379564,
+   "addr_V_mean_false": 0.02001050252327595,
+   "generalize_count": 400,
+   "n": 400,
+   "wilson95": [
+    0.9904873594003194,
+    1.0
+   ],
+   "expected_programs_log10": 13.576168218725545,
+   "first_solvable_tier": 2,
+   "colour_address_rank": 57,
+   "colour_address_score_over_best": 0.4775390625,
+   "relation_address_best_rank": 2,
+   "absent_letters_enter_tier": 12
+  },
+  {
+   "arm": "KO_STEP",
+   "pool": "schema",
+   "lit_occurs_ratio": 3510.869565217391,
+   "addr_V_mean_true": 0.20634923588379564,
+   "addr_V_mean_false": 0.02001050252327595,
+   "generalize_count": 8,
+   "n": 400,
+   "wilson95": [
+    0.010168264597915496,
+    0.038963870377777945
+   ],
+   "expected_programs_log10": 13.206360473307647,
+   "first_solvable_tier": 2,
+   "colour_address_rank": 57,
+   "colour_address_score_over_best": 0.4775390625,
+   "relation_address_best_rank": 2,
+   "absent_letters_enter_tier": 12
+  },
+  {
+   "arm": "STEP_only",
+   "pool": "schema",
+   "lit_occurs_ratio": 1.0,
+   "addr_V_mean_true": null,
+   "addr_V_mean_false": null,
+   "generalize_count": 400,
+   "n": 400,
+   "wilson95": [
+    0.9904873594003194,
+    1.0
+   ],
+   "expected_programs_log10": 21.221389846719376,
+   "first_solvable_tier": 1,
+   "colour_address_rank": 1,
+   "colour_address_score_over_best": 1.0,
+   "relation_address_best_rank": 1,
+   "absent_letters_enter_tier": 0
+  },
+  {
+   "arm": "STEP_hand",
+   "pool": "schema",
+   "lit_occurs_ratio": 1.0,
+   "addr_V_mean_true": null,
+   "addr_V_mean_false": null,
+   "generalize_count": 400,
+   "n": 400,
+   "wilson95": [
+    0.9904873594003194,
+    1.0
+   ],
+   "expected_programs_log10": 16.518124269039262,
+   "first_solvable_tier": 0,
+   "colour_address_rank": 1,
+   "colour_address_score_over_best": 1.0,
+   "relation_address_best_rank": 1,
+   "absent_letters_enter_tier": 0
+  },
+  {
+   "arm": "A_noobs",
+   "pool": "schema",
+   "lit_occurs_ratio": 1.0,
+   "addr_V_mean_true": null,
+   "addr_V_mean_false": null,
+   "generalize_count": 1,
+   "n": 400,
+   "wilson95": [
+    0.00044143642943440895,
+    0.014023640967247855
+   ],
+   "expected_programs_log10": 20.70214925402044,
+   "first_solvable_tier": 3,
+   "colour_address_rank": 1125,
+   "colour_address_score_over_best": 0.21223958333333334,
+   "relation_address_best_rank": 2,
+   "absent_letters_enter_tier": 0
+  },
+  {
+   "arm": "OCC_1",
+   "pool": "schema",
+   "lit_occurs_ratio": 1.0,
+   "addr_V_mean_true": 0.20634923588379564,
+   "addr_V_mean_false": 0.02001050252327595,
+   "generalize_count": 400,
+   "n": 400,
+   "wilson95": [
+    0.9904873594003194,
+    1.0
+   ],
+   "expected_programs_log10": 17.74152369984752,
+   "first_solvable_tier": 2,
+   "colour_address_rank": 57,
+   "colour_address_score_over_best": 0.4775390625,
+   "relation_address_best_rank": 2,
+   "absent_letters_enter_tier": 0
+  },
+  {
+   "arm": "OCC_3",
+   "pool": "schema",
+   "lit_occurs_ratio": 3.0,
+   "addr_V_mean_true": 0.20634923588379564,
+   "addr_V_mean_false": 0.02001050252327595,
+   "generalize_count": 400,
+   "n": 400,
+   "wilson95": [
+    0.9904873594003194,
+    1.0
+   ],
+   "expected_programs_log10": 15.653336969316669,
+   "first_solvable_tier": 2,
+   "colour_address_rank": 57,
+   "colour_address_score_over_best": 0.4775390625,
+   "relation_address_best_rank": 2,
+   "absent_letters_enter_tier": 2
+  },
+  {
+   "arm": "OCC_10",
+   "pool": "schema",
+   "lit_occurs_ratio": 10.0,
+   "addr_V_mean_true": 0.20634923588379564,
+   "addr_V_mean_false": 0.02001050252327595,
+   "generalize_count": 400,
+   "n": 400,
+   "wilson95": [
+    0.9904873594003194,
+    1.0
+   ],
+   "expected_programs_log10": 12.01609848198369,
+   "first_solvable_tier": 2,
+   "colour_address_rank": 57,
+   "colour_address_score_over_best": 0.4775390625,
+   "relation_address_best_rank": 2,
+   "absent_letters_enter_tier": 4
+  },
+  {
+   "arm": "OCC_100",
+   "pool": "schema",
+   "lit_occurs_ratio": 100.0,
+   "addr_V_mean_true": 0.20634923588379564,
+   "addr_V_mean_false": 0.02001050252327595,
+   "generalize_count": 400,
+   "n": 400,
+   "wilson95": [
+    0.9904873594003194,
+    1.0
+   ],
+   "expected_programs_log10": 12.01609848198369,
+   "first_solvable_tier": 2,
+   "colour_address_rank": 57,
+   "colour_address_score_over_best": 0.4775390625,
+   "relation_address_best_rank": 2,
+   "absent_letters_enter_tier": 7
+  },
+  {
+   "arm": "OCC_3500",
+   "pool": "schema",
+   "lit_occurs_ratio": 3500.0000000000005,
+   "addr_V_mean_true": 0.20634923588379564,
+   "addr_V_mean_false": 0.02001050252327595,
+   "generalize_count": 400,
+   "n": 400,
+   "wilson95": [
+    0.9904873594003194,
+    1.0
+   ],
+   "expected_programs_log10": 12.01609848198369,
+   "first_solvable_tier": 2,
+   "colour_address_rank": 57,
+   "colour_address_score_over_best": 0.4775390625,
+   "relation_address_best_rank": 2,
+   "absent_letters_enter_tier": 12
+  },
+  {
+   "arm": "V_1",
+   "pool": "schema",
+   "lit_occurs_ratio": 3510.869565217391,
+   "addr_V_mean_true": 0.20634923588379564,
+   "addr_V_mean_false": 0.02001050252327595,
+   "generalize_count": 400,
+   "n": 400,
+   "wilson95": [
+    0.9904873594003194,
+    1.0
+   ],
+   "expected_programs_log10": 12.227778347556317,
+   "first_solvable_tier": 2,
+   "colour_address_rank": 258,
+   "colour_address_score_over_best": 0.4775390625,
+   "relation_address_best_rank": 2,
+   "absent_letters_enter_tier": 12
+  },
+  {
+   "arm": "V_3",
+   "pool": "schema",
+   "lit_occurs_ratio": 3510.869565217391,
+   "addr_V_mean_true": 0.20634923588379564,
+   "addr_V_mean_false": 0.02001050252327595,
+   "generalize_count": 400,
+   "n": 400,
+   "wilson95": [
+    0.9904873594003194,
+    1.0
+   ],
+   "expected_programs_log10": 10.292581681383638,
+   "first_solvable_tier": 1,
+   "colour_address_rank": 56,
+   "colour_address_score_over_best": 0.5096645821489483,
+   "relation_address_best_rank": 1,
+   "absent_letters_enter_tier": 12
+  },
+  {
+   "arm": "V_10",
+   "pool": "schema",
+   "lit_occurs_ratio": 3510.869565217391,
+   "addr_V_mean_true": 0.20634923588379564,
+   "addr_V_mean_false": 0.02001050252327595,
+   "generalize_count": 400,
+   "n": 400,
+   "wilson95": [
+    0.9904873594003194,
+    1.0
+   ],
+   "expected_programs_log10": 10.292581681383638,
+   "first_solvable_tier": 1,
+   "colour_address_rank": 56,
+   "colour_address_score_over_best": 0.5096645821489483,
+   "relation_address_best_rank": 1,
+   "absent_letters_enter_tier": 12
+  },
+  {
+   "arm": "V_100",
+   "pool": "schema",
+   "lit_occurs_ratio": 3510.869565217391,
+   "addr_V_mean_true": 0.20634923588379564,
+   "addr_V_mean_false": 0.02001050252327595,
+   "generalize_count": 400,
+   "n": 400,
+   "wilson95": [
+    0.9904873594003194,
+    1.0
+   ],
+   "expected_programs_log10": 10.292581681383638,
+   "first_solvable_tier": 1,
+   "colour_address_rank": 56,
+   "colour_address_score_over_best": 0.5096645821489483,
+   "relation_address_best_rank": 1,
+   "absent_letters_enter_tier": 12
+  }
+ ],
+ "n_schema_arms": 24,
+ "spearman_log_lit_ratio_vs_generalize": 0.4578340219433001,
+ "spearman_colour_rank_vs_generalize": -0.22701425560070293
+}
