@@ -263,6 +263,13 @@ def main():
     claim("V3 every arm orders the identical edit list, so repairs are identical",
           all(r["n_repairs"] == by_case[r["case_id"]][1]["n_repairs"]
               for r in a["cases"]))
+    claim("D1's per-case mean equals the mean of its 20 stored permutations",
+          all(len(r["D1_permutations"]) == 20 and
+              Fraction(r["D1_mean"]) ==
+              sum(Fraction(x) for x in r["D1_permutations"]) / 20
+              for r in a["cases"]))
+    claim("D1's headline ordering is the seed-0 permutation, which is one of the 20",
+          all(r["cost"]["D1"] in r["D1_permutations"] for r in a["cases"]))
 
     # ---- layer 2f: S1
     s = J("s50_rescore")

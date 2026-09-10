@@ -133,6 +133,14 @@ def validity():
             ["undecided edits (space over the declared cap)",
              ", ".join(f"{d}: {a['per_domain'][d]['undecided_fraction']:.4f}"
                        for d in a["domains"] if d in a["per_domain"])]]
+    if a["cases"]:
+        per = [float(Fraction(r["D1_mean"])) for r in a["cases"]]
+        lo = [min(float(Fraction(x)) for x in r["D1_permutations"]) for r in a["cases"]]
+        hi = [max(float(Fraction(x)) for x in r["D1_permutations"]) for r in a["cases"]]
+        rows.append([
+            "D1 over the 20 label permutations (the headline D1 is the seed-0 one)",
+            f"mean of per-case means {_n(sum(per) / len(per))}; "
+            f"per-case range {_n(sum(lo) / len(lo))} to {_n(sum(hi) / len(hi))}"])
     return table(["check", "result"], rows)
 
 

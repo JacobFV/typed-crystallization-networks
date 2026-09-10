@@ -145,6 +145,16 @@ substituted for it.
 
 ## Resources
 
+**A process-management near-miss, recorded rather than tidied away.** Trying to
+keep the worker count at its cap, this track sent `SIGSTOP` to a PID selected by
+`pgrep -f "run_domain.py rel"` — and the pattern matched the shell running the
+command, which stopped itself. This is exactly the failure
+`docs/CORRECTIONS.md` already records ("`pkill` patterns matched the running
+shell; identify processes by PID and `/proc/<pid>/cwd`, never by command-line
+substring"). It cost one hung command and no data. The rule is not new; it was
+not followed. Nothing was paused after that, and the S1 arm was run after a
+corpus job had finished rather than beside four.
+
 Every job ran inside a capped scope (`MemoryMax=20G`, `CPUQuota=100%` per
 worker, single-threaded BLAS, at most four workers), with `MemAvailable` checked
 against the floor before each phase and logged to `out/memory_floor.log`. The
