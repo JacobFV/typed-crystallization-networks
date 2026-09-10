@@ -1,0 +1,43 @@
+{
+  "arm": "arm2s_semantic",
+  "beam": null,
+  "best_return": null,
+  "candidates_per_node": [
+    336,
+    336,
+    24
+  ],
+  "certificate": "complete",
+  "conforming": 144,
+  "continuous": [],
+  "declared_space_size": 2709504,
+  "description": "rank-1 of the rule under (arity, truth table) identity, C-minall",
+  "description_bits": 19568,
+  "discarded": 0,
+  "episodes": 0,
+  "evaluated": 2709504,
+  "exact_max_error": 0.0,
+  "execution_cost": 9.0,
+  "exhausted": true,
+  "live_nodes": 3,
+  "mode": "fit",
+  "module": "module:165bc290d9c82b70a8ea3cc2",
+  "module_on_output_path": true,
+  "node_evaluations": 520224768,
+  "ranked_by": "order",
+  "scaffold": "tight",
+  "seconds": 276.765872311953,
+  "selections": {
+    "n1": 128,
+    "n2": 257,
+    "y": 9
+  },
+  "settle_window": 0,
+  "solved": true,
+  "space_size": 2709504,
+  "steps": 0,
+  "threshold": null,
+  "ticks": 0,
+  "unique": false,
+  "wall_seconds": 276.7750527370372
+}

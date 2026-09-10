@@ -1,0 +1,1429 @@
+{
+  "F3a_cross_family": {
+    "maj_rank1_digest": "165bc290d9c82b70a8ea3cc2",
+    "maj_rank1_truth_table": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "off_rank1_digest": "0b7ea9a5a2d4e4146eb1fa2b",
+    "off_rank1_is_off_window": true,
+    "off_rank1_truth_table": [
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1
+    ],
+    "off_window_truth_table": null,
+    "same_fragment": false,
+    "same_truth_table": false
+  },
+  "mining_cost": {
+    "maj_minall_sem": {
+      "ratio": 1.0801273084253464,
+      "semantic_eligible": 40,
+      "semantic_mine_seconds": 0.5471528160269372,
+      "syntactic_eligible": 94,
+      "syntactic_mine_seconds": 0.5065632650512271
+    },
+    "off_minall_sem": {
+      "ratio": 1.1884558533379925,
+      "semantic_eligible": 41,
+      "semantic_mine_seconds": 0.47550764499465004,
+      "syntactic_eligible": 104,
+      "syntactic_mine_seconds": 0.4001054340042174
+    }
+  },
+  "per_corpus": {
+    "maj_minall_sem": {
+      "best_window_rank": 1,
+      "eligible": 40,
+      "entries": 130,
+      "excluded": [],
+      "f3b_rank1_by_occurrence": {
+        "arity": 2,
+        "digest": "9e8092e7bdb684bb47a3cc29",
+        "is_window": false,
+        "occurrences": 253,
+        "rank_under_mdl": 40,
+        "truth_table": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "f3b_unchanged": false,
+      "family": "maj",
+      "identity": "semantic",
+      "largest_pool": {
+        "circuits_pooled": 16,
+        "digest": "0ba4287a0409988fa2b5eff9",
+        "is_window": false,
+        "rank_under_mdl": 2
+      },
+      "mine_wall_seconds": 0.5471528160269372,
+      "name": "maj_minall_sem",
+      "rank1": {
+        "arity": 3,
+        "body": [
+          [
+            "and",
+            "n0",
+            [
+              "x0",
+              "x1"
+            ]
+          ],
+          [
+            "xor",
+            "n1",
+            [
+              "x0",
+              "x1"
+            ]
+          ],
+          [
+            "and",
+            "n2",
+            [
+              "x2",
+              "n1"
+            ]
+          ],
+          [
+            "or",
+            "n3",
+            [
+              "n0",
+              "n2"
+            ]
+          ]
+        ],
+        "circuits_pooled": 8,
+        "digest": "165bc290d9c82b70a8ea3cc2",
+        "entries": 75,
+        "nodes": 4,
+        "occurrences": 75,
+        "saving_bits": 415872,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t4_maj_acd_xor_b",
+          "t5_maj_abd_or_c"
+        ],
+        "truth_table": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      "rank1_is_largest_pool": false,
+      "rank1_is_window": true,
+      "variant": "C-minall"
+    },
+    "maj_minall_sem_wo_t1": {
+      "best_window_rank": 2,
+      "eligible": 28,
+      "entries": 103,
+      "excluded": [
+        "t1_maj_abc_xor_d"
+      ],
+      "f3b_rank1_by_occurrence": {
+        "arity": 2,
+        "digest": "9e8092e7bdb684bb47a3cc29",
+        "is_window": false,
+        "occurrences": 208,
+        "rank_under_mdl": 28,
+        "truth_table": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "f3b_unchanged": false,
+      "family": "maj",
+      "identity": "semantic",
+      "largest_pool": {
+        "circuits_pooled": 12,
+        "digest": "08735e504400bf4879acf0a7",
+        "is_window": false,
+        "rank_under_mdl": 1
+      },
+      "mine_wall_seconds": 0.3868748669628985,
+      "name": "maj_minall_sem_wo_t1",
+      "rank1": {
+        "arity": 4,
+        "body": [
+          [
+            "and",
+            "n0",
+            [
+              "x0",
+              "x1"
+            ]
+          ],
+          [
+            "or",
+            "n1",
+            [
+              "x0",
+              "x1"
+            ]
+          ],
+          [
+            "and",
+            "n2",
+            [
+              "x2",
+              "n1"
+            ]
+          ],
+          [
+            "or",
+            "n3",
+            [
+              "x3",
+              "n0"
+            ]
+          ],
+          [
+            "or",
+            "n4",
+            [
+              "n2",
+              "n3"
+            ]
+          ]
+        ],
+        "circuits_pooled": 12,
+        "digest": "08735e504400bf4879acf0a7",
+        "entries": 46,
+        "nodes": 5,
+        "occurrences": 46,
+        "saving_bits": 333496,
+        "tasks": [
+          "t3_maj_bcd_or_a",
+          "t5_maj_abd_or_c"
+        ],
+        "truth_table": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "rank1_is_largest_pool": true,
+      "rank1_is_window": false,
+      "variant": "C-minall"
+    },
+    "maj_minall_sem_wo_t2": {
+      "best_window_rank": 3,
+      "eligible": 40,
+      "entries": 109,
+      "excluded": [
+        "t2_maj_abc_and_d"
+      ],
+      "f3b_rank1_by_occurrence": {
+        "arity": 2,
+        "digest": "85aa887f3e90a3903b9fa709",
+        "is_window": false,
+        "occurrences": 200,
+        "rank_under_mdl": 40,
+        "truth_table": [
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      "f3b_unchanged": false,
+      "family": "maj",
+      "identity": "semantic",
+      "largest_pool": {
+        "circuits_pooled": 16,
+        "digest": "0ba4287a0409988fa2b5eff9",
+        "is_window": false,
+        "rank_under_mdl": 1
+      },
+      "mine_wall_seconds": 0.4559215059853159,
+      "name": "maj_minall_sem_wo_t2",
+      "rank1": {
+        "arity": 4,
+        "body": [
+          [
+            "xor",
+            "n0",
+            [
+              "x0",
+              "x1"
+            ]
+          ],
+          [
+            "xor",
+            "n1",
+            [
+              "x1",
+              "x2"
+            ]
+          ],
+          [
+            "and",
+            "n2",
+            [
+              "n0",
+              "n1"
+            ]
+          ],
+          [
+            "xor",
+            "n3",
+            [
+              "x3",
+              "n2"
+            ]
+          ],
+          [
+            "xor",
+            "n4",
+            [
+              "x1",
+              "n3"
+            ]
+          ]
+        ],
+        "circuits_pooled": 16,
+        "digest": "0ba4287a0409988fa2b5eff9",
+        "entries": 48,
+        "nodes": 5,
+        "occurrences": 48,
+        "saving_bits": 349104,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t4_maj_acd_xor_b"
+        ],
+        "truth_table": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0
+        ]
+      },
+      "rank1_is_largest_pool": true,
+      "rank1_is_window": false,
+      "variant": "C-minall"
+    },
+    "maj_minall_sem_wo_t3": {
+      "best_window_rank": 2,
+      "eligible": 31,
+      "entries": 103,
+      "excluded": [
+        "t3_maj_bcd_or_a"
+      ],
+      "f3b_rank1_by_occurrence": {
+        "arity": 2,
+        "digest": "9e8092e7bdb684bb47a3cc29",
+        "is_window": false,
+        "occurrences": 202,
+        "rank_under_mdl": 31,
+        "truth_table": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "f3b_unchanged": false,
+      "family": "maj",
+      "identity": "semantic",
+      "largest_pool": {
+        "circuits_pooled": 16,
+        "digest": "0ba4287a0409988fa2b5eff9",
+        "is_window": false,
+        "rank_under_mdl": 1
+      },
+      "mine_wall_seconds": 0.39689235598780215,
+      "name": "maj_minall_sem_wo_t3",
+      "rank1": {
+        "arity": 4,
+        "body": [
+          [
+            "xor",
+            "n0",
+            [
+              "x0",
+              "x1"
+            ]
+          ],
+          [
+            "xor",
+            "n1",
+            [
+              "x1",
+              "x2"
+            ]
+          ],
+          [
+            "and",
+            "n2",
+            [
+              "n0",
+              "n1"
+            ]
+          ],
+          [
+            "xor",
+            "n3",
+            [
+              "x3",
+              "n2"
+            ]
+          ],
+          [
+            "xor",
+            "n4",
+            [
+              "x1",
+              "n3"
+            ]
+          ]
+        ],
+        "circuits_pooled": 16,
+        "digest": "0ba4287a0409988fa2b5eff9",
+        "entries": 48,
+        "nodes": 5,
+        "occurrences": 48,
+        "saving_bits": 349104,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t4_maj_acd_xor_b"
+        ],
+        "truth_table": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0
+        ]
+      },
+      "rank1_is_largest_pool": true,
+      "rank1_is_window": false,
+      "variant": "C-minall"
+    },
+    "maj_minall_sem_wo_t4": {
+      "best_window_rank": 2,
+      "eligible": 28,
+      "entries": 103,
+      "excluded": [
+        "t4_maj_acd_xor_b"
+      ],
+      "f3b_rank1_by_occurrence": {
+        "arity": 2,
+        "digest": "9e8092e7bdb684bb47a3cc29",
+        "is_window": false,
+        "occurrences": 208,
+        "rank_under_mdl": 28,
+        "truth_table": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "f3b_unchanged": false,
+      "family": "maj",
+      "identity": "semantic",
+      "largest_pool": {
+        "circuits_pooled": 12,
+        "digest": "08735e504400bf4879acf0a7",
+        "is_window": false,
+        "rank_under_mdl": 1
+      },
+      "mine_wall_seconds": 0.40877005498623475,
+      "name": "maj_minall_sem_wo_t4",
+      "rank1": {
+        "arity": 4,
+        "body": [
+          [
+            "and",
+            "n0",
+            [
+              "x0",
+              "x1"
+            ]
+          ],
+          [
+            "or",
+            "n1",
+            [
+              "x0",
+              "x1"
+            ]
+          ],
+          [
+            "and",
+            "n2",
+            [
+              "x2",
+              "n1"
+            ]
+          ],
+          [
+            "or",
+            "n3",
+            [
+              "x3",
+              "n0"
+            ]
+          ],
+          [
+            "or",
+            "n4",
+            [
+              "n2",
+              "n3"
+            ]
+          ]
+        ],
+        "circuits_pooled": 12,
+        "digest": "08735e504400bf4879acf0a7",
+        "entries": 46,
+        "nodes": 5,
+        "occurrences": 46,
+        "saving_bits": 333496,
+        "tasks": [
+          "t3_maj_bcd_or_a",
+          "t5_maj_abd_or_c"
+        ],
+        "truth_table": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "rank1_is_largest_pool": true,
+      "rank1_is_window": false,
+      "variant": "C-minall"
+    },
+    "maj_minall_sem_wo_t5": {
+      "best_window_rank": 2,
+      "eligible": 31,
+      "entries": 103,
+      "excluded": [
+        "t5_maj_abd_or_c"
+      ],
+      "f3b_rank1_by_occurrence": {
+        "arity": 2,
+        "digest": "9e8092e7bdb684bb47a3cc29",
+        "is_window": false,
+        "occurrences": 202,
+        "rank_under_mdl": 31,
+        "truth_table": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "f3b_unchanged": false,
+      "family": "maj",
+      "identity": "semantic",
+      "largest_pool": {
+        "circuits_pooled": 16,
+        "digest": "0ba4287a0409988fa2b5eff9",
+        "is_window": false,
+        "rank_under_mdl": 1
+      },
+      "mine_wall_seconds": 0.3940882919705473,
+      "name": "maj_minall_sem_wo_t5",
+      "rank1": {
+        "arity": 4,
+        "body": [
+          [
+            "xor",
+            "n0",
+            [
+              "x0",
+              "x1"
+            ]
+          ],
+          [
+            "xor",
+            "n1",
+            [
+              "x1",
+              "x2"
+            ]
+          ],
+          [
+            "and",
+            "n2",
+            [
+              "n0",
+              "n1"
+            ]
+          ],
+          [
+            "xor",
+            "n3",
+            [
+              "x3",
+              "n2"
+            ]
+          ],
+          [
+            "xor",
+            "n4",
+            [
+              "x1",
+              "n3"
+            ]
+          ]
+        ],
+        "circuits_pooled": 16,
+        "digest": "0ba4287a0409988fa2b5eff9",
+        "entries": 48,
+        "nodes": 5,
+        "occurrences": 48,
+        "saving_bits": 349104,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t4_maj_acd_xor_b"
+        ],
+        "truth_table": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0
+        ]
+      },
+      "rank1_is_largest_pool": true,
+      "rank1_is_window": false,
+      "variant": "C-minall"
+    },
+    "maj_minall_syn": {
+      "best_window_rank": 11,
+      "eligible": 94,
+      "entries": 130,
+      "excluded": [],
+      "f3b_rank1_by_occurrence": {
+        "arity": 2,
+        "digest": "9e8092e7bdb684bb47a3cc29",
+        "is_window": false,
+        "occurrences": 253,
+        "rank_under_mdl": 94,
+        "truth_table": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "f3b_unchanged": false,
+      "family": "maj",
+      "identity": "syntactic",
+      "largest_pool": {
+        "circuits_pooled": null,
+        "digest": "ec516b3808ddef7e7d0e7d22",
+        "is_window": false,
+        "rank_under_mdl": 1
+      },
+      "mine_wall_seconds": 0.5065632650512271,
+      "name": "maj_minall_syn",
+      "rank1": {
+        "arity": 3,
+        "body": [
+          [
+            "and",
+            "n0",
+            [
+              "x0",
+              "x1"
+            ]
+          ],
+          [
+            "or",
+            "n1",
+            [
+              "x2",
+              "n0"
+            ]
+          ]
+        ],
+        "circuits_pooled": null,
+        "digest": "ec516b3808ddef7e7d0e7d22",
+        "entries": 75,
+        "nodes": 2,
+        "occurrences": 89,
+        "saving_bits": 137776,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t4_maj_acd_xor_b",
+          "t5_maj_abd_or_c"
+        ],
+        "truth_table": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      "rank1_is_largest_pool": true,
+      "rank1_is_window": false,
+      "variant": "C-minall"
+    },
+    "maj_minall_syn_wo_t1": {
+      "best_window_rank": 11,
+      "eligible": 59,
+      "entries": 103,
+      "excluded": [
+        "t1_maj_abc_xor_d"
+      ],
+      "f3b_rank1_by_occurrence": {
+        "arity": 2,
+        "digest": "9e8092e7bdb684bb47a3cc29",
+        "is_window": false,
+        "occurrences": 208,
+        "rank_under_mdl": 59,
+        "truth_table": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "f3b_unchanged": false,
+      "family": "maj",
+      "identity": "syntactic",
+      "largest_pool": {
+        "circuits_pooled": null,
+        "digest": "ec516b3808ddef7e7d0e7d22",
+        "is_window": false,
+        "rank_under_mdl": 1
+      },
+      "mine_wall_seconds": 0.38203900202643126,
+      "name": "maj_minall_syn_wo_t1",
+      "rank1": {
+        "arity": 3,
+        "body": [
+          [
+            "and",
+            "n0",
+            [
+              "x0",
+              "x1"
+            ]
+          ],
+          [
+            "or",
+            "n1",
+            [
+              "x2",
+              "n0"
+            ]
+          ]
+        ],
+        "circuits_pooled": null,
+        "digest": "ec516b3808ddef7e7d0e7d22",
+        "entries": 66,
+        "nodes": 2,
+        "occurrences": 80,
+        "saving_bits": 123232,
+        "tasks": [
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t4_maj_acd_xor_b",
+          "t5_maj_abd_or_c"
+        ],
+        "truth_table": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      "rank1_is_largest_pool": true,
+      "rank1_is_window": false,
+      "variant": "C-minall"
+    },
+    "maj_minall_syn_wo_t2": {
+      "best_window_rank": 11,
+      "eligible": 94,
+      "entries": 109,
+      "excluded": [
+        "t2_maj_abc_and_d"
+      ],
+      "f3b_rank1_by_occurrence": {
+        "arity": 2,
+        "digest": "85aa887f3e90a3903b9fa709",
+        "is_window": false,
+        "occurrences": 200,
+        "rank_under_mdl": 94,
+        "truth_table": [
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      "f3b_unchanged": false,
+      "family": "maj",
+      "identity": "syntactic",
+      "largest_pool": {
+        "circuits_pooled": null,
+        "digest": "ec516b3808ddef7e7d0e7d22",
+        "is_window": false,
+        "rank_under_mdl": 1
+      },
+      "mine_wall_seconds": 0.4495896629523486,
+      "name": "maj_minall_syn_wo_t2",
+      "rank1": {
+        "arity": 3,
+        "body": [
+          [
+            "and",
+            "n0",
+            [
+              "x0",
+              "x1"
+            ]
+          ],
+          [
+            "or",
+            "n1",
+            [
+              "x2",
+              "n0"
+            ]
+          ]
+        ],
+        "circuits_pooled": null,
+        "digest": "ec516b3808ddef7e7d0e7d22",
+        "entries": 60,
+        "nodes": 2,
+        "occurrences": 74,
+        "saving_bits": 113536,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t3_maj_bcd_or_a",
+          "t4_maj_acd_xor_b",
+          "t5_maj_abd_or_c"
+        ],
+        "truth_table": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      "rank1_is_largest_pool": true,
+      "rank1_is_window": false,
+      "variant": "C-minall"
+    },
+    "maj_minall_syn_wo_t3": {
+      "best_window_rank": 8,
+      "eligible": 69,
+      "entries": 103,
+      "excluded": [
+        "t3_maj_bcd_or_a"
+      ],
+      "f3b_rank1_by_occurrence": {
+        "arity": 2,
+        "digest": "9e8092e7bdb684bb47a3cc29",
+        "is_window": false,
+        "occurrences": 202,
+        "rank_under_mdl": 69,
+        "truth_table": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "f3b_unchanged": false,
+      "family": "maj",
+      "identity": "syntactic",
+      "largest_pool": {
+        "circuits_pooled": null,
+        "digest": "82b93e4bc7b294ff04c8f289",
+        "is_window": false,
+        "rank_under_mdl": 1
+      },
+      "mine_wall_seconds": 0.37291686196113005,
+      "name": "maj_minall_syn_wo_t3",
+      "rank1": {
+        "arity": 3,
+        "body": [
+          [
+            "xor",
+            "n0",
+            [
+              "x0",
+              "x1"
+            ]
+          ],
+          [
+            "and",
+            "n1",
+            [
+              "x2",
+              "n0"
+            ]
+          ]
+        ],
+        "circuits_pooled": null,
+        "digest": "82b93e4bc7b294ff04c8f289",
+        "entries": 67,
+        "nodes": 2,
+        "occurrences": 73,
+        "saving_bits": 112496,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t4_maj_acd_xor_b",
+          "t5_maj_abd_or_c",
+          "t6_maj_abc_xor_maj_bcd"
+        ],
+        "truth_table": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      "rank1_is_largest_pool": true,
+      "rank1_is_window": false,
+      "variant": "C-minall"
+    },
+    "maj_minall_syn_wo_t4": {
+      "best_window_rank": 10,
+      "eligible": 59,
+      "entries": 103,
+      "excluded": [
+        "t4_maj_acd_xor_b"
+      ],
+      "f3b_rank1_by_occurrence": {
+        "arity": 2,
+        "digest": "9e8092e7bdb684bb47a3cc29",
+        "is_window": false,
+        "occurrences": 208,
+        "rank_under_mdl": 59,
+        "truth_table": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "f3b_unchanged": false,
+      "family": "maj",
+      "identity": "syntactic",
+      "largest_pool": {
+        "circuits_pooled": null,
+        "digest": "ec516b3808ddef7e7d0e7d22",
+        "is_window": false,
+        "rank_under_mdl": 1
+      },
+      "mine_wall_seconds": 0.36336763500003144,
+      "name": "maj_minall_syn_wo_t4",
+      "rank1": {
+        "arity": 3,
+        "body": [
+          [
+            "and",
+            "n0",
+            [
+              "x0",
+              "x1"
+            ]
+          ],
+          [
+            "or",
+            "n1",
+            [
+              "x2",
+              "n0"
+            ]
+          ]
+        ],
+        "circuits_pooled": null,
+        "digest": "ec516b3808ddef7e7d0e7d22",
+        "entries": 66,
+        "nodes": 2,
+        "occurrences": 80,
+        "saving_bits": 123232,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t5_maj_abd_or_c"
+        ],
+        "truth_table": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      "rank1_is_largest_pool": true,
+      "rank1_is_window": false,
+      "variant": "C-minall"
+    },
+    "maj_minall_syn_wo_t5": {
+      "best_window_rank": 9,
+      "eligible": 69,
+      "entries": 103,
+      "excluded": [
+        "t5_maj_abd_or_c"
+      ],
+      "f3b_rank1_by_occurrence": {
+        "arity": 2,
+        "digest": "9e8092e7bdb684bb47a3cc29",
+        "is_window": false,
+        "occurrences": 202,
+        "rank_under_mdl": 69,
+        "truth_table": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "f3b_unchanged": false,
+      "family": "maj",
+      "identity": "syntactic",
+      "largest_pool": {
+        "circuits_pooled": null,
+        "digest": "82b93e4bc7b294ff04c8f289",
+        "is_window": false,
+        "rank_under_mdl": 1
+      },
+      "mine_wall_seconds": 0.3945004239794798,
+      "name": "maj_minall_syn_wo_t5",
+      "rank1": {
+        "arity": 3,
+        "body": [
+          [
+            "xor",
+            "n0",
+            [
+              "x0",
+              "x1"
+            ]
+          ],
+          [
+            "and",
+            "n1",
+            [
+              "x2",
+              "n0"
+            ]
+          ]
+        ],
+        "circuits_pooled": null,
+        "digest": "82b93e4bc7b294ff04c8f289",
+        "entries": 67,
+        "nodes": 2,
+        "occurrences": 73,
+        "saving_bits": 112496,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t4_maj_acd_xor_b",
+          "t6_maj_abc_xor_maj_bcd"
+        ],
+        "truth_table": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      "rank1_is_largest_pool": true,
+      "rank1_is_window": false,
+      "variant": "C-minall"
+    },
+    "maj_trace_sem": {
+      "best_window_rank": 1,
+      "eligible": 112,
+      "entries": 296,
+      "excluded": [],
+      "f3b_rank1_by_occurrence": {
+        "arity": 2,
+        "digest": "85aa887f3e90a3903b9fa709",
+        "is_window": false,
+        "occurrences": 614,
+        "rank_under_mdl": 112,
+        "truth_table": [
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      "f3b_unchanged": false,
+      "family": "maj",
+      "identity": "semantic",
+      "largest_pool": {
+        "circuits_pooled": 58,
+        "digest": "165bc290d9c82b70a8ea3cc2",
+        "is_window": true,
+        "rank_under_mdl": 1
+      },
+      "mine_wall_seconds": 1.4375407350016758,
+      "name": "maj_trace_sem",
+      "rank1": {
+        "arity": 3,
+        "body": [
+          [
+            "and",
+            "n0",
+            [
+              "x0",
+              "x1"
+            ]
+          ],
+          [
+            "xor",
+            "n1",
+            [
+              "x0",
+              "x1"
+            ]
+          ],
+          [
+            "and",
+            "n2",
+            [
+              "x2",
+              "n1"
+            ]
+          ],
+          [
+            "or",
+            "n3",
+            [
+              "n0",
+              "n2"
+            ]
+          ]
+        ],
+        "circuits_pooled": 58,
+        "digest": "165bc290d9c82b70a8ea3cc2",
+        "entries": 134,
+        "nodes": 4,
+        "occurrences": 134,
+        "saving_bits": 860960,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t4_maj_acd_xor_b",
+          "t5_maj_abd_or_c"
+        ],
+        "truth_table": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      "rank1_is_largest_pool": true,
+      "rank1_is_window": true,
+      "variant": "C-trace"
+    },
+    "off_minall_sem": {
+      "best_window_rank": 1,
+      "eligible": 41,
+      "entries": 117,
+      "excluded": [],
+      "f3b_rank1_by_occurrence": {
+        "arity": 2,
+        "digest": "85aa887f3e90a3903b9fa709",
+        "is_window": false,
+        "occurrences": 298,
+        "rank_under_mdl": 41,
+        "truth_table": [
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      "f3b_unchanged": false,
+      "family": "off",
+      "identity": "semantic",
+      "largest_pool": {
+        "circuits_pooled": 26,
+        "digest": "0c0ef6cd18c9753b54ed2993",
+        "is_window": false,
+        "rank_under_mdl": 2
+      },
+      "mine_wall_seconds": 0.47550764499465004,
+      "name": "off_minall_sem",
+      "rank1": {
+        "arity": 3,
+        "body": [
+          [
+            "or",
+            "n0",
+            [
+              "x0",
+              "x1"
+            ]
+          ],
+          [
+            "xor",
+            "n1",
+            [
+              "x0",
+              "x1"
+            ]
+          ],
+          [
+            "xor",
+            "n2",
+            [
+              "x2",
+              "n1"
+            ]
+          ],
+          [
+            "and",
+            "n3",
+            [
+              "n0",
+              "n2"
+            ]
+          ]
+        ],
+        "circuits_pooled": 12,
+        "digest": "0b7ea9a5a2d4e4146eb1fa2b",
+        "entries": 58,
+        "nodes": 4,
+        "occurrences": 58,
+        "saving_bits": 319464,
+        "tasks": [
+          "s1_w_abc_xor_d",
+          "s2_w_abc_and_d",
+          "s3_w_bcd_or_a",
+          "s4_w_acd_xor_b",
+          "s5_w_abd_or_c"
+        ],
+        "truth_table": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "rank1_is_largest_pool": false,
+      "rank1_is_window": true,
+      "variant": "C-minall"
+    },
+    "off_minall_syn": {
+      "best_window_rank": 29,
+      "eligible": 104,
+      "entries": 117,
+      "excluded": [],
+      "f3b_rank1_by_occurrence": {
+        "arity": 2,
+        "digest": "85aa887f3e90a3903b9fa709",
+        "is_window": false,
+        "occurrences": 298,
+        "rank_under_mdl": 104,
+        "truth_table": [
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      "f3b_unchanged": false,
+      "family": "off",
+      "identity": "syntactic",
+      "largest_pool": {
+        "circuits_pooled": null,
+        "digest": "d08809475b9ea905b77b19af",
+        "is_window": false,
+        "rank_under_mdl": 1
+      },
+      "mine_wall_seconds": 0.4001054340042174,
+      "name": "off_minall_syn",
+      "rank1": {
+        "arity": 4,
+        "body": [
+          [
+            "and",
+            "n0",
+            [
+              "x0",
+              "x1"
+            ]
+          ],
+          [
+            "xor",
+            "n1",
+            [
+              "x2",
+              "n0"
+            ]
+          ],
+          [
+            "xor",
+            "n2",
+            [
+              "x3",
+              "n1"
+            ]
+          ]
+        ],
+        "circuits_pooled": null,
+        "digest": "d08809475b9ea905b77b19af",
+        "entries": 40,
+        "nodes": 3,
+        "occurrences": 40,
+        "saving_bits": 130576,
+        "tasks": [
+          "s1_w_abc_xor_d",
+          "s2_w_abc_and_d",
+          "s3_w_bcd_or_a",
+          "s4_w_acd_xor_b",
+          "s5_w_abd_or_c"
+        ],
+        "truth_table": [
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "rank1_is_largest_pool": true,
+      "rank1_is_window": false,
+      "variant": "C-minall"
+    }
+  }
+}

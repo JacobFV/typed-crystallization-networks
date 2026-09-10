@@ -1,0 +1,181 @@
+>> run_grad.py tight 24
+{"arm": "arm1_none", "best_accuracy": 0.625, "candidates_per_node": [120, 120, 16], "constant_baseline": 0.5, "description": "no library; the flat space", "mean_accuracy": 0.625, "median_accuracy": 0.625, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "scaffold": "tight", "seeds": 24, "solved": 0, "space_size": 230400, "total_wall_seconds": 60.9108350770548}
+{"arm": "arm2_syntactic", "best_accuracy": 0.78125, "candidates_per_node": [336, 336, 24], "constant_baseline": 0.5, "description": "rank-1 of the rule under digest identity, C-minall", "mean_accuracy": 0.6875, "median_accuracy": 0.78125, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "scaffold": "tight", "seeds": 24, "solved": 0, "space_size": 2709504, "total_wall_seconds": 983.291564118932}
+{"arm": "arm2s_semantic", "best_accuracy": 1.0, "candidates_per_node": [336, 336, 24], "constant_baseline": 0.5, "description": "rank-1 of the rule under (arity, truth table) identity, C-minall", "mean_accuracy": 0.875, "median_accuracy": 1.0, "median_steps_to_conformant": 50, "module_on_output_path": 18, "random_baseline": 0.5, "scaffold": "tight", "seeds": 24, "solved": 18, "space_size": 2709504, "total_wall_seconds": 407.7521731451852}
+{"arm": "arm2s_trace", "best_accuracy": 1.0, "candidates_per_node": [336, 336, 24], "constant_baseline": 0.5, "description": "the same, on C-trace -- \u00a746's exact configuration", "mean_accuracy": 0.875, "median_accuracy": 1.0, "median_steps_to_conformant": 50, "module_on_output_path": 18, "random_baseline": 0.5, "scaffold": "tight", "seeds": 24, "solved": 18, "space_size": 2709504, "total_wall_seconds": 415.65546804724727}
+{"arm": "arm3_authored", "best_accuracy": 1.0, "candidates_per_node": [336, 336, 24], "constant_baseline": 0.5, "description": "the hand-authored MAJ3 -- the ceiling", "mean_accuracy": 0.875, "median_accuracy": 1.0, "median_steps_to_conformant": 50, "module_on_output_path": 18, "random_baseline": 0.5, "scaffold": "tight", "seeds": 24, "solved": 18, "space_size": 2709504, "total_wall_seconds": 366.18247947009513}
+{"arm": "arm4_wrong_authored", "best_accuracy": 0.625, "candidates_per_node": [336, 336, 24], "constant_baseline": 0.5, "description": "the hand-authored D134, same size and arity", "mean_accuracy": 0.6145833333333334, "median_accuracy": 0.625, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "scaffold": "tight", "seeds": 24, "solved": 0, "space_size": 2709504, "total_wall_seconds": 1004.9937933299225}
+{"arm": "arm4b_wrong_mined", "best_accuracy": 0.625, "candidates_per_node": [336, 336, 24], "constant_baseline": 0.5, "description": "the syntactic rule's runner-up, same machinery", "mean_accuracy": 0.59375, "median_accuracy": 0.625, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "scaffold": "tight", "seeds": 24, "solved": 0, "space_size": 2709504, "total_wall_seconds": 987.0285463771434}
+{"arm": "arm4s_runnerup", "best_accuracy": 0.78125, "candidates_per_node": [336, 336, 24], "constant_baseline": 0.5, "description": "the top arity-3 non-majority *pooled* class, same corpus", "mean_accuracy": 0.6875, "median_accuracy": 0.78125, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "scaffold": "tight", "seeds": 24, "solved": 0, "space_size": 2709504, "total_wall_seconds": 978.8406514378148}
+{"arm": "arm4s_offfamily", "best_accuracy": 0.625, "candidates_per_node": [336, 336, 24], "constant_baseline": 0.5, "description": "the rank-1 arity-3 pooled class mined from the off-family F'", "mean_accuracy": 0.6145833333333334, "median_accuracy": 0.625, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "scaffold": "tight", "seeds": 24, "solved": 0, "space_size": 2709504, "total_wall_seconds": 1007.0333582898602}
+>> run_grad.py wide 8
+{"arm": "arm1_none", "best_accuracy": 0.6875, "candidates_per_node": [120, 161, 208, 261, 320, 385, 456, 533, 616], "constant_baseline": 0.5, "description": "no library; the flat space", "mean_accuracy": 0.6875, "median_accuracy": 0.6875, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "scaffold": "wide", "seeds": 8, "solved": 0, "space_size": 19346144891452194816000, "total_wall_seconds": 338.8906251549488}
+{"arm": "arm2_syntactic", "best_accuracy": 0.875, "candidates_per_node": [336, 377, 424, 477, 536, 601, 672, 749, 832], "constant_baseline": 0.5, "description": "rank-1 of the rule under digest identity, C-minall", "mean_accuracy": 0.79296875, "median_accuracy": 0.78125, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "scaffold": "wide", "seeds": 8, "solved": 0, "space_size": 3456038262279680122945536, "total_wall_seconds": 1637.460243650945}
+{"arm": "arm2s_semantic", "best_accuracy": 1.0, "candidates_per_node": [336, 377, 424, 477, 536, 601, 672, 749, 832], "constant_baseline": 0.5, "description": "rank-1 of the rule under (arity, truth table) identity, C-minall", "mean_accuracy": 1.0, "median_accuracy": 1.0, "median_steps_to_conformant": 90, "module_on_output_path": 8, "random_baseline": 0.5, "scaffold": "wide", "seeds": 8, "solved": 8, "space_size": 3456038262279680122945536, "total_wall_seconds": 351.55407754000043}
+{"arm": "arm2s_trace", "best_accuracy": 1.0, "candidates_per_node": [336, 377, 424, 477, 536, 601, 672, 749, 832], "constant_baseline": 0.5, "description": "the same, on C-trace -- \u00a746's exact configuration", "mean_accuracy": 1.0, "median_accuracy": 1.0, "median_steps_to_conformant": 90, "module_on_output_path": 8, "random_baseline": 0.5, "scaffold": "wide", "seeds": 8, "solved": 8, "space_size": 3456038262279680122945536, "total_wall_seconds": 350.9150768620311}
+{"arm": "arm3_authored", "best_accuracy": 1.0, "candidates_per_node": [336, 377, 424, 477, 536, 601, 672, 749, 832], "constant_baseline": 0.5, "description": "the hand-authored MAJ3 -- the ceiling", "mean_accuracy": 1.0, "median_accuracy": 1.0, "median_steps_to_conformant": 90, "module_on_output_path": 8, "random_baseline": 0.5, "scaffold": "wide", "seeds": 8, "solved": 8, "space_size": 3456038262279680122945536, "total_wall_seconds": 317.3044767661486}
+{"arm": "arm4_wrong_authored", "best_accuracy": 0.6875, "candidates_per_node": [336, 377, 424, 477, 536, 601, 672, 749, 832], "constant_baseline": 0.5, "description": "the hand-authored D134, same size and arity", "mean_accuracy": 0.6640625, "median_accuracy": 0.6875, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "scaffold": "wide", "seeds": 8, "solved": 0, "space_size": 3456038262279680122945536, "total_wall_seconds": 1751.600379053969}
+{"arm": "arm4b_wrong_mined", "best_accuracy": 0.671875, "candidates_per_node": [336, 377, 424, 477, 536, 601, 672, 749, 832], "constant_baseline": 0.5, "description": "the syntactic rule's runner-up, same machinery", "mean_accuracy": 0.634765625, "median_accuracy": 0.625, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "scaffold": "wide", "seeds": 8, "solved": 0, "space_size": 3456038262279680122945536, "total_wall_seconds": 1666.645407853066}
+{"arm": "arm4s_runnerup", "best_accuracy": 0.875, "candidates_per_node": [336, 377, 424, 477, 536, 601, 672, 749, 832], "constant_baseline": 0.5, "description": "the top arity-3 non-majority *pooled* class, same corpus", "mean_accuracy": 0.79296875, "median_accuracy": 0.78125, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "scaffold": "wide", "seeds": 8, "solved": 0, "space_size": 3456038262279680122945536, "total_wall_seconds": 1773.232948218938}
+{"arm": "arm4s_offfamily", "best_accuracy": 0.6875, "candidates_per_node": [336, 377, 424, 477, 536, 601, 672, 749, 832], "constant_baseline": 0.5, "description": "the rank-1 arity-3 pooled class mined from the off-family F'", "mean_accuracy": 0.6640625, "median_accuracy": 0.6875, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "scaffold": "wide", "seeds": 8, "solved": 0, "space_size": 3456038262279680122945536, "total_wall_seconds": 1588.8512172380579}
+>> run_heldout.py all
+t1_maj_abc_xor_d arm1_none space 4760 conforming 0 exhausted True complete
+t1_maj_abc_xor_d arm2_syntactic space 25200 conforming 0 exhausted True complete
+t1_maj_abc_xor_d arm2s_semantic space 221520 conforming 0 exhausted True complete
+t1_maj_abc_xor_d arm3_authored space 25200 conforming 12 exhausted True complete
+t1_maj_abc_xor_d arm4_wrong_authored space 25200 conforming 0 exhausted True complete
+t1_maj_abc_xor_d arm4s_offfamily space 25200 conforming 0 exhausted True complete
+t1_maj_abc_xor_d arm2s_window space 25200 conforming 12 exhausted True complete
+t2_maj_abc_and_d arm1_none space 4760 conforming 0 exhausted True complete
+t2_maj_abc_and_d arm2_syntactic space 25200 conforming 0 exhausted True complete
+t2_maj_abc_and_d arm2s_semantic space 221520 conforming 0 exhausted True complete
+t2_maj_abc_and_d arm3_authored space 25200 conforming 12 exhausted True complete
+t2_maj_abc_and_d arm4_wrong_authored space 25200 conforming 0 exhausted True complete
+t2_maj_abc_and_d arm4s_offfamily space 25200 conforming 0 exhausted True complete
+t2_maj_abc_and_d arm2s_window space 25200 conforming 12 exhausted True complete
+t3_maj_bcd_or_a arm1_none space 4760 conforming 0 exhausted True complete
+t3_maj_bcd_or_a arm2_syntactic space 25200 conforming 0 exhausted True complete
+t3_maj_bcd_or_a arm2s_semantic space 221520 conforming 12 exhausted True complete
+t3_maj_bcd_or_a arm3_authored space 25200 conforming 12 exhausted True complete
+t3_maj_bcd_or_a arm4_wrong_authored space 25200 conforming 0 exhausted True complete
+t3_maj_bcd_or_a arm4s_offfamily space 25200 conforming 0 exhausted True complete
+t3_maj_bcd_or_a arm2s_window space 25200 conforming 12 exhausted True complete
+t4_maj_acd_xor_b arm1_none space 4760 conforming 0 exhausted True complete
+t4_maj_acd_xor_b arm2_syntactic space 25200 conforming 0 exhausted True complete
+t4_maj_acd_xor_b arm2s_semantic space 221520 conforming 0 exhausted True complete
+t4_maj_acd_xor_b arm3_authored space 25200 conforming 12 exhausted True complete
+t4_maj_acd_xor_b arm4_wrong_authored space 25200 conforming 0 exhausted True complete
+t4_maj_acd_xor_b arm4s_offfamily space 25200 conforming 0 exhausted True complete
+t4_maj_acd_xor_b arm2s_window space 25200 conforming 12 exhausted True complete
+t5_maj_abd_or_c arm1_none space 4760 conforming 0 exhausted True complete
+t5_maj_abd_or_c arm2_syntactic space 25200 conforming 0 exhausted True complete
+t5_maj_abd_or_c arm2s_semantic space 221520 conforming 12 exhausted True complete
+t5_maj_abd_or_c arm3_authored space 25200 conforming 12 exhausted True complete
+t5_maj_abd_or_c arm4_wrong_authored space 25200 conforming 0 exhausted True complete
+t5_maj_abd_or_c arm4s_offfamily space 25200 conforming 0 exhausted True complete
+t5_maj_abd_or_c arm2s_window space 25200 conforming 12 exhausted True complete
+H_par arm1_none space 4760 conforming 0 exhausted True complete
+H_par arm2_syntactic space 25200 conforming 0 exhausted True complete
+H_par arm2s_semantic space 25200 conforming 0 exhausted True complete
+H_par arm3_authored space 25200 conforming 0 exhausted True complete
+H_par arm4_wrong_authored space 25200 conforming 0 exhausted True complete
+H_par arm4s_offfamily space 25200 conforming 0 exhausted True complete
+H_par arm2s_window space 25200 conforming 0 exhausted True complete
+H_d134 arm1_none space 4760 conforming 0 exhausted True complete
+H_d134 arm2_syntactic space 25200 conforming 0 exhausted True complete
+H_d134 arm2s_semantic space 25200 conforming 0 exhausted True complete
+H_d134 arm3_authored space 25200 conforming 0 exhausted True complete
+H_d134 arm4_wrong_authored space 25200 conforming 4 exhausted True complete
+H_d134 arm4s_offfamily space 25200 conforming 4 exhausted True complete
+H_d134 arm2s_window space 25200 conforming 0 exhausted True complete
+{"arm": "arm1_none", "best_accuracy": 0.75, "constant_baseline": 0.5, "mean_accuracy": 0.75, "median_accuracy": 0.75, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t1_maj_abc_xor_d"}
+{"arm": "arm2_syntactic", "best_accuracy": 0.75, "constant_baseline": 0.5, "mean_accuracy": 0.75, "median_accuracy": 0.75, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t1_maj_abc_xor_d"}
+{"arm": "arm2s_semantic", "best_accuracy": 0.75, "constant_baseline": 0.5, "mean_accuracy": 0.75, "median_accuracy": 0.75, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t1_maj_abc_xor_d"}
+{"arm": "arm3_authored", "best_accuracy": 1.0, "constant_baseline": 0.5, "mean_accuracy": 0.78125, "median_accuracy": 0.75, "median_steps_to_conformant": 60, "module_on_output_path": 4, "random_baseline": 0.5, "seeds": 24, "solved": 4, "task": "t1_maj_abc_xor_d"}
+{"arm": "arm4_wrong_authored", "best_accuracy": 0.75, "constant_baseline": 0.5, "mean_accuracy": 0.75, "median_accuracy": 0.75, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t1_maj_abc_xor_d"}
+{"arm": "arm4s_offfamily", "best_accuracy": 0.75, "constant_baseline": 0.5, "mean_accuracy": 0.75, "median_accuracy": 0.75, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t1_maj_abc_xor_d"}
+{"arm": "arm2s_window", "best_accuracy": 1.0, "constant_baseline": 0.5, "mean_accuracy": 0.78125, "median_accuracy": 0.75, "median_steps_to_conformant": 60, "module_on_output_path": 4, "random_baseline": 0.5, "seeds": 24, "solved": 4, "task": "t1_maj_abc_xor_d"}
+{"arm": "arm1_none", "best_accuracy": 0.875, "constant_baseline": 0.75, "mean_accuracy": 0.875, "median_accuracy": 0.875, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t2_maj_abc_and_d"}
+{"arm": "arm2_syntactic", "best_accuracy": 0.9375, "constant_baseline": 0.75, "mean_accuracy": 0.8776041666666666, "median_accuracy": 0.875, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t2_maj_abc_and_d"}
+{"arm": "arm2s_semantic", "best_accuracy": 0.875, "constant_baseline": 0.75, "mean_accuracy": 0.875, "median_accuracy": 0.875, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t2_maj_abc_and_d"}
+{"arm": "arm3_authored", "best_accuracy": 1.0, "constant_baseline": 0.75, "mean_accuracy": 0.9114583333333334, "median_accuracy": 0.875, "median_steps_to_conformant": 130, "module_on_output_path": 7, "random_baseline": 0.5, "seeds": 24, "solved": 7, "task": "t2_maj_abc_and_d"}
+{"arm": "arm4_wrong_authored", "best_accuracy": 0.875, "constant_baseline": 0.75, "mean_accuracy": 0.875, "median_accuracy": 0.875, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t2_maj_abc_and_d"}
+{"arm": "arm4s_offfamily", "best_accuracy": 0.875, "constant_baseline": 0.75, "mean_accuracy": 0.875, "median_accuracy": 0.875, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t2_maj_abc_and_d"}
+{"arm": "arm2s_window", "best_accuracy": 1.0, "constant_baseline": 0.75, "mean_accuracy": 0.9114583333333334, "median_accuracy": 0.875, "median_steps_to_conformant": 130, "module_on_output_path": 7, "random_baseline": 0.5, "seeds": 24, "solved": 7, "task": "t2_maj_abc_and_d"}
+{"arm": "arm1_none", "best_accuracy": 0.875, "constant_baseline": 0.75, "mean_accuracy": 0.875, "median_accuracy": 0.875, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t3_maj_bcd_or_a"}
+{"arm": "arm2_syntactic", "best_accuracy": 0.875, "constant_baseline": 0.75, "mean_accuracy": 0.875, "median_accuracy": 0.875, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t3_maj_bcd_or_a"}
+{"arm": "arm2s_semantic", "best_accuracy": 1.0, "constant_baseline": 0.75, "mean_accuracy": 1.0, "median_accuracy": 1.0, "median_steps_to_conformant": 90, "module_on_output_path": 24, "random_baseline": 0.5, "seeds": 24, "solved": 24, "task": "t3_maj_bcd_or_a"}
+{"arm": "arm3_authored", "best_accuracy": 1.0, "constant_baseline": 0.75, "mean_accuracy": 0.8958333333333334, "median_accuracy": 0.875, "median_steps_to_conformant": 130, "module_on_output_path": 4, "random_baseline": 0.5, "seeds": 24, "solved": 4, "task": "t3_maj_bcd_or_a"}
+{"arm": "arm4_wrong_authored", "best_accuracy": 0.875, "constant_baseline": 0.75, "mean_accuracy": 0.875, "median_accuracy": 0.875, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t3_maj_bcd_or_a"}
+{"arm": "arm4s_offfamily", "best_accuracy": 0.875, "constant_baseline": 0.75, "mean_accuracy": 0.875, "median_accuracy": 0.875, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t3_maj_bcd_or_a"}
+{"arm": "arm2s_window", "best_accuracy": 1.0, "constant_baseline": 0.75, "mean_accuracy": 0.8958333333333334, "median_accuracy": 0.875, "median_steps_to_conformant": 130, "module_on_output_path": 4, "random_baseline": 0.5, "seeds": 24, "solved": 4, "task": "t3_maj_bcd_or_a"}
+{"arm": "arm1_none", "best_accuracy": 0.75, "constant_baseline": 0.5, "mean_accuracy": 0.75, "median_accuracy": 0.75, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t4_maj_acd_xor_b"}
+{"arm": "arm2_syntactic", "best_accuracy": 0.875, "constant_baseline": 0.5, "mean_accuracy": 0.7552083333333334, "median_accuracy": 0.75, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t4_maj_acd_xor_b"}
+{"arm": "arm2s_semantic", "best_accuracy": 0.875, "constant_baseline": 0.5, "mean_accuracy": 0.7708333333333334, "median_accuracy": 0.75, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t4_maj_acd_xor_b"}
+{"arm": "arm3_authored", "best_accuracy": 1.0, "constant_baseline": 0.5, "mean_accuracy": 0.8125, "median_accuracy": 0.75, "median_steps_to_conformant": 70, "module_on_output_path": 7, "random_baseline": 0.5, "seeds": 24, "solved": 7, "task": "t4_maj_acd_xor_b"}
+{"arm": "arm4_wrong_authored", "best_accuracy": 0.75, "constant_baseline": 0.5, "mean_accuracy": 0.75, "median_accuracy": 0.75, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t4_maj_acd_xor_b"}
+{"arm": "arm4s_offfamily", "best_accuracy": 0.75, "constant_baseline": 0.5, "mean_accuracy": 0.75, "median_accuracy": 0.75, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t4_maj_acd_xor_b"}
+{"arm": "arm2s_window", "best_accuracy": 1.0, "constant_baseline": 0.5, "mean_accuracy": 0.8125, "median_accuracy": 0.75, "median_steps_to_conformant": 70, "module_on_output_path": 7, "random_baseline": 0.5, "seeds": 24, "solved": 7, "task": "t4_maj_acd_xor_b"}
+{"arm": "arm1_none", "best_accuracy": 0.875, "constant_baseline": 0.75, "mean_accuracy": 0.875, "median_accuracy": 0.875, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t5_maj_abd_or_c"}
+{"arm": "arm2_syntactic", "best_accuracy": 0.875, "constant_baseline": 0.75, "mean_accuracy": 0.875, "median_accuracy": 0.875, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t5_maj_abd_or_c"}
+{"arm": "arm2s_semantic", "best_accuracy": 1.0, "constant_baseline": 0.75, "mean_accuracy": 1.0, "median_accuracy": 1.0, "median_steps_to_conformant": 100, "module_on_output_path": 24, "random_baseline": 0.5, "seeds": 24, "solved": 24, "task": "t5_maj_abd_or_c"}
+{"arm": "arm3_authored", "best_accuracy": 1.0, "constant_baseline": 0.75, "mean_accuracy": 0.890625, "median_accuracy": 0.875, "median_steps_to_conformant": 120, "module_on_output_path": 3, "random_baseline": 0.5, "seeds": 24, "solved": 3, "task": "t5_maj_abd_or_c"}
+{"arm": "arm4_wrong_authored", "best_accuracy": 0.875, "constant_baseline": 0.75, "mean_accuracy": 0.875, "median_accuracy": 0.875, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t5_maj_abd_or_c"}
+{"arm": "arm4s_offfamily", "best_accuracy": 0.875, "constant_baseline": 0.75, "mean_accuracy": 0.875, "median_accuracy": 0.875, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "t5_maj_abd_or_c"}
+{"arm": "arm2s_window", "best_accuracy": 1.0, "constant_baseline": 0.75, "mean_accuracy": 0.890625, "median_accuracy": 0.875, "median_steps_to_conformant": 120, "module_on_output_path": 3, "random_baseline": 0.5, "seeds": 24, "solved": 3, "task": "t5_maj_abd_or_c"}
+{"arm": "arm1_none", "best_accuracy": 0.875, "constant_baseline": 0.875, "mean_accuracy": 0.65625, "median_accuracy": 0.625, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "H_par"}
+{"arm": "arm2_syntactic", "best_accuracy": 0.875, "constant_baseline": 0.875, "mean_accuracy": 0.75, "median_accuracy": 0.875, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "H_par"}
+{"arm": "arm2s_semantic", "best_accuracy": 0.875, "constant_baseline": 0.875, "mean_accuracy": 0.7604166666666666, "median_accuracy": 0.875, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "H_par"}
+{"arm": "arm3_authored", "best_accuracy": 0.875, "constant_baseline": 0.875, "mean_accuracy": 0.7604166666666666, "median_accuracy": 0.875, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "H_par"}
+{"arm": "arm4_wrong_authored", "best_accuracy": 0.875, "constant_baseline": 0.875, "mean_accuracy": 0.7760416666666666, "median_accuracy": 0.875, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "H_par"}
+{"arm": "arm4s_offfamily", "best_accuracy": 0.875, "constant_baseline": 0.875, "mean_accuracy": 0.7760416666666666, "median_accuracy": 0.875, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "H_par"}
+{"arm": "arm2s_window", "best_accuracy": 0.875, "constant_baseline": 0.875, "mean_accuracy": 0.7604166666666666, "median_accuracy": 0.875, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "H_par"}
+{"arm": "arm1_none", "best_accuracy": 0.625, "constant_baseline": 0.5, "mean_accuracy": 0.625, "median_accuracy": 0.625, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "H_d134"}
+{"arm": "arm2_syntactic", "best_accuracy": 0.625, "constant_baseline": 0.5, "mean_accuracy": 0.625, "median_accuracy": 0.625, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "H_d134"}
+{"arm": "arm2s_semantic", "best_accuracy": 0.625, "constant_baseline": 0.5, "mean_accuracy": 0.625, "median_accuracy": 0.625, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "H_d134"}
+{"arm": "arm3_authored", "best_accuracy": 0.625, "constant_baseline": 0.5, "mean_accuracy": 0.625, "median_accuracy": 0.625, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "H_d134"}
+{"arm": "arm4_wrong_authored", "best_accuracy": 1.0, "constant_baseline": 0.5, "mean_accuracy": 0.953125, "median_accuracy": 1.0, "median_steps_to_conformant": 80, "module_on_output_path": 15, "random_baseline": 0.5, "seeds": 24, "solved": 15, "task": "H_d134"}
+{"arm": "arm4s_offfamily", "best_accuracy": 1.0, "constant_baseline": 0.5, "mean_accuracy": 0.953125, "median_accuracy": 1.0, "median_steps_to_conformant": 80, "module_on_output_path": 15, "random_baseline": 0.5, "seeds": 24, "solved": 15, "task": "H_d134"}
+{"arm": "arm2s_window", "best_accuracy": 0.625, "constant_baseline": 0.5, "mean_accuracy": 0.625, "median_accuracy": 0.625, "median_steps_to_conformant": null, "module_on_output_path": 0, "random_baseline": 0.5, "seeds": 24, "solved": 0, "task": "H_d134"}
+>> run_checks.py
+{
+  "F3a": {
+    "maj_rank1_digest": "165bc290d9c82b70a8ea3cc2",
+    "maj_rank1_truth_table": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "off_rank1_digest": "0b7ea9a5a2d4e4146eb1fa2b",
+    "off_rank1_is_off_window": true,
+    "off_rank1_truth_table": [
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1
+    ],
+    "off_window_truth_table": null,
+    "same_fragment": false,
+    "same_truth_table": false
+  },
+  "cost": {
+    "maj_minall_sem": {
+      "ratio": 1.0801273084253464,
+      "semantic_eligible": 40,
+      "semantic_mine_seconds": 0.5471528160269372,
+      "syntactic_eligible": 94,
+      "syntactic_mine_seconds": 0.5065632650512271
+    },
+    "off_minall_sem": {
+      "ratio": 1.1884558533379925,
+      "semantic_eligible": 41,
+      "semantic_mine_seconds": 0.47550764499465004,
+      "syntactic_eligible": 104,
+      "syntactic_mine_seconds": 0.4001054340042174
+    }
+  }
+}
+maj_minall_syn rank1_is_window False best_window_rank 11 F3b unchanged False rank1 is largest pool True
+maj_minall_sem rank1_is_window True best_window_rank 1 F3b unchanged False rank1 is largest pool False
+maj_trace_sem rank1_is_window True best_window_rank 1 F3b unchanged False rank1 is largest pool True
+off_minall_syn rank1_is_window False best_window_rank 29 F3b unchanged False rank1 is largest pool True
+off_minall_sem rank1_is_window True best_window_rank 1 F3b unchanged False rank1 is largest pool False
+maj_minall_sem_wo_t1 rank1_is_window False best_window_rank 2 F3b unchanged False rank1 is largest pool True
+maj_minall_sem_wo_t2 rank1_is_window False best_window_rank 3 F3b unchanged False rank1 is largest pool True
+maj_minall_sem_wo_t3 rank1_is_window False best_window_rank 2 F3b unchanged False rank1 is largest pool True
+maj_minall_sem_wo_t4 rank1_is_window False best_window_rank 2 F3b unchanged False rank1 is largest pool True
+maj_minall_sem_wo_t5 rank1_is_window False best_window_rank 2 F3b unchanged False rank1 is largest pool True
+maj_minall_syn_wo_t1 rank1_is_window False best_window_rank 11 F3b unchanged False rank1 is largest pool True
+maj_minall_syn_wo_t2 rank1_is_window False best_window_rank 11 F3b unchanged False rank1 is largest pool True
+maj_minall_syn_wo_t3 rank1_is_window False best_window_rank 8 F3b unchanged False rank1 is largest pool True
+maj_minall_syn_wo_t4 rank1_is_window False best_window_rank 10 F3b unchanged False rank1 is largest pool True
+maj_minall_syn_wo_t5 rank1_is_window False best_window_rank 9 F3b unchanged False rank1 is largest pool True
