@@ -1,0 +1,145 @@
+{
+ "artifact_bytes_total": 227412631,
+ "class_store_bytes": 3379,
+ "class_store_bytes_on_disk": 5003,
+ "distinct_digests_per_stage": {
+  "s0": 5,
+  "s1": 5,
+  "s2": 5
+ },
+ "invariant_bits_per_stage": {
+  "s0": 8.0,
+  "s1": 8.643856189774725,
+  "s2": 4.643856189774724
+ },
+ "invariant_bits_total": 21.28771237954945,
+ "per_width": {
+  "16": {
+   "s0": {
+    "description_bits": 5618880,
+    "digest": "727a9d5f2fa56a03dc08d2bc",
+    "execution_cost": 15.0,
+    "nodes": 15,
+    "serialized_bytes": 702360
+   },
+   "s1": {
+    "description_bits": 11263440,
+    "digest": "0274a30b6438b543c9062086",
+    "execution_cost": 50.0,
+    "nodes": 22,
+    "serialized_bytes": 705570
+   },
+   "s2": {
+    "description_bits": 39499576,
+    "digest": "c999cee93879b10f5e6a791c",
+    "execution_cost": 718.0,
+    "nodes": 298,
+    "serialized_bytes": 4235087
+   }
+  },
+  "24": {
+   "s0": {
+    "description_bits": 12553920,
+    "digest": "0db07f4b574b61296a4a762a",
+    "execution_cost": 15.0,
+    "nodes": 15,
+    "serialized_bytes": 1569240
+   },
+   "s1": {
+    "description_bits": 25133520,
+    "digest": "52877e45c7f280abb5908df0",
+    "execution_cost": 50.0,
+    "nodes": 22,
+    "serialized_bytes": 1572450
+   },
+   "s2": {
+    "description_bits": 116231552,
+    "digest": "33124a0ea737bdf447bb5fee",
+    "execution_cost": 1086.0,
+    "nodes": 442,
+    "serialized_bytes": 12959704
+   }
+  },
+  "32": {
+   "s0": {
+    "description_bits": 22262976,
+    "digest": "b409b71ea0e41d77abb7cb9c",
+    "execution_cost": 15.0,
+    "nodes": 15,
+    "serialized_bytes": 2782872
+   },
+   "s1": {
+    "description_bits": 44551632,
+    "digest": "6804983bda88826441cba10d",
+    "execution_cost": 50.0,
+    "nodes": 22,
+    "serialized_bytes": 2786082
+   },
+   "s2": {
+    "description_bits": 256369600,
+    "digest": "009b0bc80630eb8fcf02493e",
+    "execution_cost": 1454.0,
+    "nodes": 586,
+    "serialized_bytes": 29263328
+   }
+  },
+  "40": {
+   "s0": {
+    "description_bits": 34746048,
+    "digest": "6636dab9a907e52defb3d0c7",
+    "execution_cost": 15.0,
+    "nodes": 15,
+    "serialized_bytes": 4343256
+   },
+   "s1": {
+    "description_bits": 69517824,
+    "digest": "0672f2cc49eadbad341bc6cc",
+    "execution_cost": 50.0,
+    "nodes": 22,
+    "serialized_bytes": 4346472
+   },
+   "s2": {
+    "description_bits": 478935592,
+    "digest": "2d7f7a90e5bae6a50c9aa0f5",
+    "execution_cost": 1822.0,
+    "nodes": 730,
+    "serialized_bytes": 55523693
+   }
+  },
+  "48": {
+   "s0": {
+    "description_bits": 50003136,
+    "digest": "0c0e85da1eb5ce067e395984",
+    "execution_cost": 15.0,
+    "nodes": 15,
+    "serialized_bytes": 6250392
+   },
+   "s1": {
+    "description_bits": 100032000,
+    "digest": "878a367422894babff869ae0",
+    "execution_cost": 50.0,
+    "nodes": 22,
+    "serialized_bytes": 6253608
+   },
+   "s2": {
+    "description_bits": 802951272,
+    "digest": "ea79d7a5415e530155d99cd4",
+    "execution_cost": 2190.0,
+    "nodes": 874,
+    "serialized_bytes": 94118517
+   }
+  }
+ },
+ "space_sizes": {
+  "s0": 256,
+  "s1": 400,
+  "s2": 25
+ },
+ "widths": [
+  16,
+  24,
+  32,
+  40,
+  48
+ ]
+}

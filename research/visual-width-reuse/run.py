@@ -508,7 +508,7 @@ def arm_f(resolutions, tag="armf"):
                                       stored, TOL),
                          "best_constant": best_constant(data[stage]["held"], signals)["accuracy"],
                          "digest": S.freeze(program, stored, registry).digest}
-                if resolution in right:
+                if resolution in right and stage in right[resolution].get("stages", {}):
                     entry["right_schema_digest"] = \
                         right[resolution]["stages"][stage]["artifact_digest"]
                     entry["bit_identical_to_right"] = \
