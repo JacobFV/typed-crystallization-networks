@@ -3103,9 +3103,12 @@ exhaustion cap** — raising `MAX_NODES` cannot help.
 eq(index(buffer, add(base, offset)), literal)
 ```
 
-**genuinely recurs in all three artifacts** — and is **three distinct semantic
-classes**, because the buffers are declared `(128×u8[byte])`, `(3072×u8[byte])`
-and `(4096×u8[byte])`. Same element type, same computation, three widths, three
+**recurs across domains** — and is **distinct semantic classes**, because the
+buffers are declared `(128×u8[byte])`, `(3072×u8[byte])` and `(4096×u8[byte])`.
+**[CORRECTED BY §60: this 3-node motif spans *two* domains, language and visual,
+not three; the computer artifact's 3-node instance uses a constant address at
+arity 3. What spans all three is the 2-node `eq(index(buffer, addr), other)`. The
+structural conclusions of this section are unaffected.]** Same element type, same computation, three widths, three
 types, three classes. `research/algorithm-resynthesis/DESIGN.md` §8's
 cross-domain story is **confirmed structurally and refuted semantically**.
 
@@ -3186,4 +3189,69 @@ amendments recorded, one moving a falsification threshold from 51.1% to 73.0%.
 plus 4–6% smaller artifacts on the one artifact where the types prove the most.
 Whether 247 lines of interval lattice in the emitter is worth that is a judgement
 call, recorded rather than made silently — see `research/MERGE-QUEUE.md`.
+
+## 60. The schema crosses the domain boundary; the certified vector does not — and §58's example was overstated
+
+`research/motif-unification/RESULTS.md`, branch
+`worktree-agent-a4a82f2a201419e0d` (`a2e65c4`), **not merged at time of writing**;
+`tcn/` and `generators/` diffs empty. `PREREGISTRATION.md` at `c761882` before
+any arm. §58 identified width typing as what prevents cross-domain abstraction
+and named §53/§55's schema mechanism as the prerequisite. This tests it directly.
+Verified here from raw JSON.
+
+**First, a correction to §58 — which I wrote, two hours ago.** §58's prose says
+the motif `eq(index(buffer, add(base, offset)), literal)` "genuinely recurs in
+all three real artifacts". **It recurs in two.** Verified from `out/step1.json`:
+the 3-node motif spans **language and visual only**; `C_agent`'s 3-node instance
+is `eq(index(x1, identity(x0)), x2)` — a **constant** address, **arity 3**, which
+no 4-hole schema can reach. What spans all three is the **2-node**
+`eq(index(buffer, addr), other)`. The compared value also differs: a literal in
+language (40) and computer (123), but a **second buffer read** in visual.
+
+**§58's structural conclusions survive intact** — 2 cross-domain classes, zero
+non-trivial, only 2 of 131 type signatures crossing, all re-verified there. It is
+the *illustrative example* that overstated its own §6.4 table. §58 is bounded
+accordingly, not withdrawn.
+
+**The schema mechanism works, and works well.** One schema instantiates
+**bit-identically at all three widths** — 5/5 gated instantiations, **zero
+differing `to_dict` keys**, no type check relaxed, no bound widened, `version`
+the only normalised field. **Where the instances do coincide they compute the
+same thing**, verified exhaustively over all 128 / 3,072 / 4,096 addresses with
+per-cell perturbation, **0 failures**.
+
+**And the soundness rule holds under attack.** Both deliberately-wrong schemas
+are **bit-identical to the right one at width 128 and earn the same `unique`
+certificate there** — R1 refuses at one width, R2 at two. Wrong schema F-a then
+collapses to **0 conforming at 3,072**, reproducing §53's arm F exactly. Separately
+the format refused **M2, the only all-three-domain shape**, for having **no free
+nodes at any width**: `eq` is the only comparison the algebra admits on two
+`role="byte"` values, so there is no vector to certify.
+
+**But it does not transfer, and that is the finding.** On `T_C2` — a task in a
+domain the schema was not derived from, whose address cannot be constant:
+
+| arm | conforming | exhausted | certificate | space |
+|---|---|---|---|---|
+| no library, matched node count | **1** | true | **`unique`** | 750 |
+| **the certified class** | **0** | true | `complete` | 150 |
+| hand-authored equivalent | 0 | true | `complete` | 150 |
+| re-selecting the schema's vector | 1 | true | `unique` | **750** |
+
+The certified class **scores zero where no-library succeeds**. The hand-authored
+equivalent also scores 0, so **the failure is the vector, not the structure**.
+Re-selecting the vector on the new domain does solve it (picking `sub`) — and
+enumerates **the identical 750 programs**, buying nothing.
+
+**Verdict, in the track's own words: the schema crosses; the certified vector
+does not.** This refines §30 and §53 in an important way. §53 measured that one
+selection vector holds `unique` across six *widths within one domain*. §60 shows
+that across *domains* the vector does not survive even when the schema does. So
+**what §30 called "the selections transfer" is a within-domain property**, and the
+cross-domain object — if there is one — must be the schema plus a per-domain
+search, which is exactly what buys nothing here.
+
+**Status of the cross-domain objective: still unsupported.** §58 established
+nothing non-trivial is shared; §60 establishes that the one mechanism that could
+have unified it transfers structure without transferring the answer.
 
