@@ -244,6 +244,23 @@ if g is not None:
     claim("analytic: no distractor address expression equals length-5 on every episode",
           g["distractor_addresses_equal_length_minus_5"] == [] or not straw)
 
+# KO_LIT (N'' with LIT uniform) is not run: it is the same search as OCC_1.
+# Tiers compare scores only within a slot, so any uniform LIT rule gives the
+# same restrictions; checked here byte for byte rather than argued.
+if arm(0, "OCC_1") is not None:
+    import arms as _arms  # noqa: E402
+    _src = _prior.load_sources()
+    _ko = _arms.KnockoutPrior.__new__(_arms.KnockoutPrior)
+    _ko.est = dict(_prior.Prior(_src).est)
+    _ko.est["LIT"] = _arms._Rule()
+    _pool = family.pools("schema")
+    _tr = _engine.Episodes(J("episodes_gap0.json")["episodes"][:12])
+    _a = _prior.tiers(_prior.slot_scores(_ko, _pool, _tr, 16), _pool)
+    _b = _prior.tiers(_prior.slot_scores(_arms.OccursRatioPrior(_src, 1), _pool, _tr, 16), _pool)
+    claim("KO_LIT's tiers equal OCC_1's byte for byte (so OCC_1 stands in for KO_LIT)",
+          len(_a) == len(_b) and all(_arms.restriction_key(x) == _arms.restriction_key(y)
+                                     for x, y in zip(_a, _b)))
+
 # sources reproduce the earlier tracks' certificates
 s = J("sources.json")
 cert = {c["source"]: c for c in s["certificates"]}
