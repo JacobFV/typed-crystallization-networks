@@ -1,0 +1,198 @@
+D''_0 0 S=1.231e+14 K= 0 0.2s
+D''_0 1 S=6.893e+15 K= 2473536 10.9s
+D''_0 2 S=1.301e+22 K= 62085696 11.7s
+D''_0 3 S=1.301e+22 K= 62085696 0.1s
+D''_0 4 S=1.301e+22 K= 62085696 0.1s
+D''_0 5 S=3.252e+22 K= 496685568 20.1s
+D''_0 6 S=9.105e+22 K= 574179200 32.9s
+D''_0 7 S=9.105e+22 K= 574179200 0.1s
+D''_0 8 S=9.105e+22 K= 574179200 0.1s
+D''_0 9 S=2.081e+23 K= 1116634624 38.7s
+{
+ "arm": "D''_0",
+ "gap": 0,
+ "pool": "distractor",
+ "prior": true,
+ "first_solvable_tier": 1,
+ "full_space": {
+  "S": "208109705341645619200000",
+  "S_log10": 23.31829233431079,
+  "K": "1116634624",
+  "certificate": "complete",
+  "exhausted": true
+ },
+ "expected_programs": {
+  "num": "304480219174010880001",
+  "den": "2473537",
+  "float": 123095073643131.62,
+  "log10": 14.090240672489275
+ },
+ "expected_episodes": {
+  "num": "3653762630088130560012",
+  "den": "2473537",
+  "float": 1477140883717579.5,
+  "log10": 15.1694219185369
+ },
+ "solution_exists": true,
+ "first_solution_samples": {
+  "n": 400,
+  "train_conform_all": true,
+  "held_out_accuracy_mean": 0.340625,
+  "held_out_accuracy_min": 0.2777777777777778,
+  "generalize_fraction": 0.0,
+  "generalize_count": 0,
+  "generalize_wilson95": [
+   0.0,
+   0.009512640599680667
+  ],
+  "held_out_accuracy_hist": {
+   "0.2778": 44,
+   "0.3056": 63,
+   "0.3333": 48,
+   "0.3611": 234,
+   "0.3889": 11
+  }
+ },
+ "first_solution_slots": {
+  "cpos": {
+   "most_common": "('mul', 'k4', 'k8')",
+   "share": 0.5125,
+   "distinct": 2,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 0.09871244635193133,
+   "slot_best_score": 0.09871244635193133
+  },
+  "lc1": {
+   "most_common": "111",
+   "share": 0.3525,
+   "distinct": 3
+  },
+  "lc2": {
+   "most_common": "120",
+   "share": 0.3625,
+   "distinct": 3
+  },
+  "lc3": {
+   "most_common": "98",
+   "share": 0.3475,
+   "distinct": 3
+  },
+  "K1": {
+   "most_common": "2",
+   "share": 0.3425,
+   "distinct": 4,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "K2": {
+   "most_common": "4",
+   "share": 0.3625,
+   "distinct": 4,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "K3": {
+   "most_common": "2",
+   "share": 0.3525,
+   "distinct": 4,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "K4": {
+   "most_common": "7",
+   "share": 1.0,
+   "distinct": 1,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "ra": {
+   "most_common": "('mul', 'k2', 'k8')",
+   "share": 0.0175,
+   "distinct": 235,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 0.09871244635193133,
+   "slot_best_score": 0.09871244635193133
+  },
+  "lr1": {
+   "most_common": "101",
+   "share": 0.2,
+   "distinct": 16
+  },
+  "lr2": {
+   "most_common": "101",
+   "share": 0.22,
+   "distinct": 18
+  },
+  "M": {
+   "most_common": "(2, 1, 14, 9)",
+   "share": 1.0,
+   "distinct": 1,
+   "prior_rank_of_most_common": 2,
+   "prior_score_of_most_common": 0.1452094184027778,
+   "slot_best_score": 0.2767198350694444
+  },
+  "X1": {
+   "most_common": "('sub', 'hi', 50)",
+   "share": 0.54,
+   "distinct": 8,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 0.3909090909090909,
+   "slot_best_score": 0.3909090909090909
+  },
+  "X2": {
+   "most_common": "('sub', 'hi', 50)",
+   "share": 0.245,
+   "distinct": 20,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 0.3909090909090909,
+   "slot_best_score": 0.3909090909090909
+  },
+  "X3": {
+   "most_common": "('sub', 'hi', 50)",
+   "share": 0.2825,
+   "distinct": 20,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 0.3909090909090909,
+   "slot_best_score": 0.3909090909090909
+  }
+ },
+ "example_first_solution": {
+  "cpos": 94,
+  "lc1": 14,
+  "lc2": 23,
+  "lc3": 1,
+  "K1": 6,
+  "K2": 4,
+  "K3": 2,
+  "K4": 7,
+  "ra": 841,
+  "lr1": 8,
+  "lr2": 8,
+  "M": 233,
+  "X1": 16,
+  "X2": 3,
+  "X3": 0
+ },
+ "example_first_solution_specs": {
+  "cpos": "('mul', 'k4', 'k8')",
+  "lc1": "111",
+  "lc2": "120",
+  "lc3": "98",
+  "K1": "6",
+  "K2": "4",
+  "K3": "2",
+  "K4": "7",
+  "ra": "('max', 'k14', 'k7')",
+  "lr1": "105",
+  "lr2": "105",
+  "M": "(2, 1, 14, 9)",
+  "X1": "('sub', 'hi', 50)",
+  "X2": "('add', 'lo', 47)",
+  "X3": "('add', 'lo', 4)"
+ },
+ "seconds": 116.59973439499663
+}

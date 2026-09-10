@@ -1,0 +1,162 @@
+N 0 S=5.026e+29 K= 1364295822101452375104 63.8s
+{
+ "arm": "N",
+ "gap": 1,
+ "pool": "flat",
+ "prior": false,
+ "first_solvable_tier": 0,
+ "full_space": {
+  "S": "502613115042775967352225792000",
+  "S_log10": 29.701233816760325,
+  "K": "1364295822101452375104",
+  "certificate": "complete",
+  "exhausted": true
+ },
+ "expected_programs": {
+  "num": "502613115042775967352225792001",
+  "den": "1364295822101452375105",
+  "float": 368404789.4162652,
+  "log10": 8.566325267571322
+ },
+ "expected_episodes": {
+  "num": "6031357380513311608226709504012",
+  "den": "1364295822101452375105",
+  "float": 4420857472.995182,
+  "log10": 9.645506513618948
+ },
+ "solution_exists": true,
+ "first_solution_samples": {
+  "n": 400,
+  "train_conform_all": true,
+  "held_out_accuracy_mean": 0.36604166666666665,
+  "held_out_accuracy_min": 0.2777777777777778,
+  "generalize_fraction": 0.0,
+  "generalize_count": 0,
+  "generalize_wilson95": [
+   0.0,
+   0.009512640599680667
+  ],
+  "held_out_accuracy_hist": {
+   "0.2778": 2,
+   "0.3056": 35,
+   "0.3333": 77,
+   "0.3611": 137,
+   "0.3889": 111,
+   "0.4167": 4,
+   "0.4444": 31,
+   "0.4722": 3
+  }
+ },
+ "first_solution_slots": {
+  "cpos": {
+   "most_common": "('add', 'k13', 'k6')",
+   "share": 0.01,
+   "distinct": 334
+  },
+  "lc1": {
+   "most_common": "110",
+   "share": 0.06,
+   "distinct": 26
+  },
+  "lc2": {
+   "most_common": "100",
+   "share": 0.0575,
+   "distinct": 26
+  },
+  "lc3": {
+   "most_common": "100",
+   "share": 0.0575,
+   "distinct": 26
+  },
+  "K1": {
+   "most_common": "1",
+   "share": 0.1375,
+   "distinct": 8
+  },
+  "K2": {
+   "most_common": "2",
+   "share": 0.145,
+   "distinct": 8
+  },
+  "K3": {
+   "most_common": "6",
+   "share": 0.1425,
+   "distinct": 8
+  },
+  "K4": {
+   "most_common": "5",
+   "share": 0.145,
+   "distinct": 8
+  },
+  "ra": {
+   "most_common": "('min', 'length', 'k14')",
+   "share": 0.02,
+   "distinct": 201
+  },
+  "lr1": {
+   "most_common": "102",
+   "share": 0.12,
+   "distinct": 26
+  },
+  "lr2": {
+   "most_common": "102",
+   "share": 0.0925,
+   "distinct": 26
+  },
+  "M": {
+   "most_common": "(2, 1, 14, 6)",
+   "share": 0.085,
+   "distinct": 36
+  },
+  "X1": {
+   "most_common": "('add', 'lo', 72)",
+   "share": 0.0525,
+   "distinct": 222
+  },
+  "X2": {
+   "most_common": "('add', 'lo', 73)",
+   "share": 0.0375,
+   "distinct": 232
+  },
+  "X3": {
+   "most_common": "('add', 'lo', 73)",
+   "share": 0.105,
+   "distinct": 49
+  }
+ },
+ "example_first_solution": {
+  "cpos": 1418,
+  "lc1": 18,
+  "lc2": 14,
+  "lc3": 10,
+  "K1": 7,
+  "K2": 5,
+  "K3": 3,
+  "K4": 7,
+  "ra": 1342,
+  "lr1": 21,
+  "lr2": 6,
+  "M": 1001,
+  "X1": 1090,
+  "X2": 1109,
+  "X3": 72
+ },
+ "example_first_solution_specs": {
+  "cpos": "('max', 'k13', 'k6')",
+  "lc1": "115",
+  "lc2": "111",
+  "lc3": "107",
+  "K1": "7",
+  "K2": "5",
+  "K3": "3",
+  "K4": "7",
+  "ra": "('max', 'k8', 'k15')",
+  "lr1": "118",
+  "lr2": "103",
+  "M": "(2, 1, 14, 9)",
+  "X1": "('max', 'lo', 67)",
+  "X2": "('max', 'lo', 86)",
+  "X3": "('add', 'lo', 73)"
+ },
+ "seconds": 67.62022594099835
+}

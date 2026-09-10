@@ -1,0 +1,56 @@
+distractor {'S_all_episodes': '208109705341645619200000', 'K_generalizing': '0', 'certificate': 'complete', 'expected_programs_to_first_generalizing_uniform': None, 'seconds': 104.7579076630027}
+schema {'S_all_episodes': '208109705341645619200000', 'K_generalizing': '686985984', 'certificate': 'complete', 'expected_programs_to_first_generalizing_uniform': {'log10': 14.481344457075474}, 'seconds': 85.5785228379973}
+{
+ "gap": 0,
+ "episodes_all": 48,
+ "direct_equals_transform_on_train": {
+  "distractor": {
+   "transform": "1116634624",
+   "direct": "1116634624"
+  },
+  "schema": {
+   "transform": "1164494804749376",
+   "direct": "1164494804749376"
+  }
+ },
+ "distractor_addresses_equal_length_minus_5": [],
+ "distractor_address_pool_size": 1445,
+ "distractor": {
+  "S_all_episodes": "208109705341645619200000",
+  "K_generalizing": "0",
+  "certificate": "complete",
+  "expected_programs_to_first_generalizing_uniform": null,
+  "seconds": 104.7579076630027
+ },
+ "schema": {
+  "S_all_episodes": "208109705341645619200000",
+  "K_generalizing": "686985984",
+  "certificate": "complete",
+  "expected_programs_to_first_generalizing_uniform": {
+   "log10": 14.481344457075474
+  },
+  "seconds": 85.5785228379973
+ },
+ "N''_tiers_generalizing": [
+  {
+   "tier": 0,
+   "S": "262144",
+   "K48": "0"
+  },
+  {
+   "tier": 1,
+   "S": "1029292687360",
+   "K48": "0"
+  },
+  {
+   "tier": 2,
+   "S": "655678834212864",
+   "K48": "77280"
+  }
+ ],
+ "N''_expected_programs_to_first_generalizing": {
+  "log10": 12.01609848198369,
+  "num": "80199417713393665",
+  "den": "77281"
+ }
+}

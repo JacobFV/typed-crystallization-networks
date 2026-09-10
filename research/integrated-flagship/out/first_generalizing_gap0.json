@@ -1,0 +1,697 @@
+[
+ {
+  "arm": "N'",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "208109705341645619200000",
+    "K48": "686985984"
+   }
+  ],
+  "first_generalizing_tier": 0,
+  "expected_programs_to_first_generalizing": {
+   "num": "208109705341645619200001",
+   "den": "686985985",
+   "log10": 14.481344457075474
+  },
+  "certificate": "complete",
+  "seconds": 83.32295024099949
+ },
+ {
+  "arm": "N''",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "262144",
+    "K48": "0"
+   },
+   {
+    "tier": 1,
+    "S": "1029292687360",
+    "K48": "0"
+   },
+   {
+    "tier": 2,
+    "S": "655678834212864",
+    "K48": "77280"
+   }
+  ],
+  "first_generalizing_tier": 2,
+  "expected_programs_to_first_generalizing": {
+   "num": "80199417713393665",
+   "den": "77281",
+   "log10": 12.01609848198369
+  },
+  "certificate": "complete",
+  "seconds": 20.21605086999989
+ },
+ {
+  "arm": "A_noobs",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "3114631430144",
+    "K48": "0"
+   },
+   {
+    "tier": 1,
+    "S": "174419360088064",
+    "K48": "0"
+   },
+   {
+    "tier": 2,
+    "S": "503673676504269586432",
+    "K48": "0"
+   },
+   {
+    "tier": 3,
+    "S": "8338796498661670912000",
+    "K48": "122689620"
+   }
+  ],
+  "first_generalizing_tier": 3,
+  "expected_programs_to_first_generalizing": {
+   "num": "61795540313108262598570147841",
+   "den": "122689621",
+   "log10": 20.702149308984367
+  },
+  "certificate": "complete",
+  "seconds": 43.80107043999669
+ },
+ {
+  "arm": "R_0",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "7077888",
+    "K48": "0"
+   },
+   {
+    "tier": 1,
+    "S": "3473862819840",
+    "K48": "0"
+   },
+   {
+    "tier": 2,
+    "S": "1733333504010013900800",
+    "K48": "0"
+   },
+   {
+    "tier": 3,
+    "S": "8038838804150222848000",
+    "K48": "0"
+   },
+   {
+    "tier": 4,
+    "S": "8038838804150222848000",
+    "K48": "0"
+   },
+   {
+    "tier": 5,
+    "S": "20097097010375557120000",
+    "K48": "0"
+   },
+   {
+    "tier": 6,
+    "S": "61645078040764481536000",
+    "K48": "49075848"
+   }
+  ],
+  "first_generalizing_tier": 6,
+  "expected_programs_to_first_generalizing": {
+   "num": "986282139767523304900919296001",
+   "den": "49075849",
+   "log10": 22.3031333471868
+  },
+  "certificate": "complete",
+  "seconds": 112.74533298199822
+ },
+ {
+  "arm": "R_1",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "819200",
+    "K48": "0"
+   },
+   {
+    "tier": 1,
+    "S": "6596198400000",
+    "K48": "0"
+   },
+   {
+    "tier": 2,
+    "S": "1567322685194240000000",
+    "K48": "32593152"
+   }
+  ],
+  "first_generalizing_tier": 2,
+  "expected_programs_to_first_generalizing": {
+   "num": "1782313582267596800001",
+   "den": "32593153",
+   "log10": 13.737857741361374
+  },
+  "certificate": "complete",
+  "seconds": 26.987672224000562
+ },
+ {
+  "arm": "R_2",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "0",
+    "K48": "0"
+   },
+   {
+    "tier": 1,
+    "S": "0",
+    "K48": "0"
+   },
+   {
+    "tier": 2,
+    "S": "35326928338550784000",
+    "K48": "0"
+   },
+   {
+    "tier": 3,
+    "S": "8324388213665824768000",
+    "K48": "24537924"
+   }
+  ],
+  "first_generalizing_tier": 3,
+  "expected_programs_to_first_generalizing": {
+   "num": "866857807113019073757184001",
+   "den": "24537925",
+   "log10": 19.54811003018259
+  },
+  "certificate": "complete",
+  "seconds": 42.02837097099837
+ },
+ {
+  "arm": "R_3",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "108380160000",
+    "K48": "0"
+   },
+   {
+    "tier": 1,
+    "S": "448380665856000",
+    "K48": "0"
+   },
+   {
+    "tier": 2,
+    "S": "364060342503840153600",
+    "K48": "0"
+   },
+   {
+    "tier": 3,
+    "S": "13506638129712332800000",
+    "K48": "24537924"
+   }
+  ],
+  "first_generalizing_tier": 3,
+  "expected_programs_to_first_generalizing": {
+   "num": "8933298522411329109517926401",
+   "den": "24537925",
+   "log10": 20.56117401226179
+  },
+  "certificate": "complete",
+  "seconds": 68.50087152099877
+ },
+ {
+  "arm": "R_4",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "11288700518400",
+    "K48": "0"
+   },
+   {
+    "tier": 1,
+    "S": "9157950794052403200",
+    "K48": "0"
+   },
+   {
+    "tier": 2,
+    "S": "1830095369321368780800",
+    "K48": "0"
+   },
+   {
+    "tier": 3,
+    "S": "13006856583852851200000",
+    "K48": "0"
+   },
+   {
+    "tier": 4,
+    "S": "70358595457457848320000",
+    "K48": "98151696"
+   }
+  ],
+  "first_generalizing_tier": 4,
+  "expected_programs_to_first_generalizing": {
+   "num": "1276645103692519017173483520001",
+   "den": "98151697",
+   "log10": 22.114172371165022
+  },
+  "certificate": "complete",
+  "seconds": 148.806427325002
+ },
+ {
+  "arm": "U_feat",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "976146317443072000",
+    "K48": "29055744"
+   }
+  ],
+  "first_generalizing_tier": 0,
+  "expected_programs_to_first_generalizing": {
+   "num": "976146317443072001",
+   "den": "29055745",
+   "log10": 10.52628290483551
+  },
+  "certificate": "complete",
+  "seconds": 80.83760041099958
+ },
+ {
+  "arm": "U_steep",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "976146317443072000",
+    "K48": "29055744"
+   }
+  ],
+  "first_generalizing_tier": 0,
+  "expected_programs_to_first_generalizing": {
+   "num": "976146317443072001",
+   "den": "29055745",
+   "log10": 10.52628290483551
+  },
+  "certificate": "complete",
+  "seconds": 81.17029770000227
+ },
+ {
+  "arm": "U_Vonly",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "51381352108593774592000",
+    "K48": "686985984"
+   }
+  ],
+  "first_generalizing_tier": 0,
+  "expected_programs_to_first_generalizing": {
+   "num": "51381352108593774592001",
+   "den": "686985985",
+   "log10": 13.873857651374943
+  },
+  "certificate": "complete",
+  "seconds": 84.7454602680009
+ },
+ {
+  "arm": "KO_ADDR",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "30504572420096",
+    "K48": "0"
+   },
+   {
+    "tier": 1,
+    "S": "1708256055525376",
+    "K48": "75744"
+   }
+  ],
+  "first_generalizing_tier": 1,
+  "expected_programs_to_first_generalizing": {
+   "num": "2312246589443276801",
+   "den": "75745",
+   "log10": 13.484680177609851
+  },
+  "certificate": "complete",
+  "seconds": 4.424178674998984
+ },
+ {
+  "arm": "KO_TRUTH",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "67108864",
+    "K48": "0"
+   },
+   {
+    "tier": 1,
+    "S": "37642703994880",
+    "K48": "0"
+   },
+   {
+    "tier": 2,
+    "S": "10490861347405824",
+    "K48": "247296"
+   }
+  ],
+  "first_generalizing_tier": 2,
+  "expected_programs_to_first_generalizing": {
+   "num": "9319380988465250305",
+   "den": "247297",
+   "log10": 13.576168218725545
+  },
+  "certificate": "complete",
+  "seconds": 65.72352943599981
+ },
+ {
+  "arm": "KO_STEP",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "32768000",
+    "K48": "0"
+   },
+   {
+    "tier": 1,
+    "S": "16082698240000",
+    "K48": "0"
+   },
+   {
+    "tier": 2,
+    "S": "10244981784576000",
+    "K48": "5156820"
+   }
+  ],
+  "first_generalizing_tier": 2,
+  "expected_programs_to_first_generalizing": {
+   "num": "82945824919781376001",
+   "den": "5156821",
+   "log10": 13.206412473947683
+  },
+  "certificate": "complete",
+  "seconds": 28.44431591600005
+ },
+ {
+  "arm": "STEP_only",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "1664877642733164953600",
+    "K48": "0"
+   },
+   {
+    "tier": 1,
+    "S": "13319021141865319628800",
+    "K48": "403968"
+   }
+  ],
+  "first_generalizing_tier": 1,
+  "expected_programs_to_first_generalizing": {
+   "num": "672570610600773045295513601",
+   "den": "403969",
+   "log10": 21.221389846719376
+  },
+  "certificate": "complete",
+  "seconds": 143.43044165499668
+ },
+ {
+  "arm": "STEP_hand",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "13319021141865319628800",
+    "K48": "403968"
+   }
+  ],
+  "first_generalizing_tier": 0,
+  "expected_programs_to_first_generalizing": {
+   "num": "13319021141865319628801",
+   "den": "403969",
+   "log10": 16.518124269039262
+  },
+  "certificate": "complete",
+  "seconds": 73.54587713199726
+ },
+ {
+  "arm": "OCC_1",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "3114631430144",
+    "K48": "0"
+   },
+   {
+    "tier": 1,
+    "S": "546979113236168704",
+    "K48": "0"
+   },
+   {
+    "tier": 2,
+    "S": "347784629231961505792",
+    "K48": "77280"
+   }
+  ],
+  "first_generalizing_tier": 2,
+  "expected_programs_to_first_generalizing": {
+   "num": "42618330500123078950913",
+   "den": "77281",
+   "log10": 17.74152369984752
+  },
+  "certificate": "complete",
+  "seconds": 21.225231371998234
+ },
+ {
+  "arm": "OCC_3",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "262144",
+    "K48": "0"
+   },
+   {
+    "tier": 1,
+    "S": "1029292687360",
+    "K48": "0"
+   },
+   {
+    "tier": 2,
+    "S": "347784629231961505792",
+    "K48": "77280"
+   }
+  ],
+  "first_generalizing_tier": 2,
+  "expected_programs_to_first_generalizing": {
+   "num": "347864172970840686593",
+   "den": "77281",
+   "log10": 15.653336969316669
+  },
+  "certificate": "complete",
+  "seconds": 21.565394723998907
+ },
+ {
+  "arm": "OCC_10",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "262144",
+    "K48": "0"
+   },
+   {
+    "tier": 1,
+    "S": "1029292687360",
+    "K48": "0"
+   },
+   {
+    "tier": 2,
+    "S": "655678834212864",
+    "K48": "77280"
+   }
+  ],
+  "first_generalizing_tier": 2,
+  "expected_programs_to_first_generalizing": {
+   "num": "80199417713393665",
+   "den": "77281",
+   "log10": 12.01609848198369
+  },
+  "certificate": "complete",
+  "seconds": 20.751900611001474
+ },
+ {
+  "arm": "OCC_100",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "262144",
+    "K48": "0"
+   },
+   {
+    "tier": 1,
+    "S": "1029292687360",
+    "K48": "0"
+   },
+   {
+    "tier": 2,
+    "S": "655678834212864",
+    "K48": "77280"
+   }
+  ],
+  "first_generalizing_tier": 2,
+  "expected_programs_to_first_generalizing": {
+   "num": "80199417713393665",
+   "den": "77281",
+   "log10": 12.01609848198369
+  },
+  "certificate": "complete",
+  "seconds": 20.68205809600113
+ },
+ {
+  "arm": "OCC_3500",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "262144",
+    "K48": "0"
+   },
+   {
+    "tier": 1,
+    "S": "1029292687360",
+    "K48": "0"
+   },
+   {
+    "tier": 2,
+    "S": "655678834212864",
+    "K48": "77280"
+   }
+  ],
+  "first_generalizing_tier": 2,
+  "expected_programs_to_first_generalizing": {
+   "num": "80199417713393665",
+   "den": "77281",
+   "log10": 12.01609848198369
+  },
+  "certificate": "complete",
+  "seconds": 20.904617211002915
+ },
+ {
+  "arm": "V_1",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "262144",
+    "K48": "0"
+   },
+   {
+    "tier": 1,
+    "S": "1680793927680",
+    "K48": "0"
+   },
+   {
+    "tier": 2,
+    "S": "680553237970944",
+    "K48": "77280"
+   }
+  ],
+  "first_generalizing_tier": 2,
+  "expected_programs_to_first_generalizing": {
+   "num": "130572307969081345",
+   "den": "77281",
+   "log10": 12.227778347556317
+  },
+  "certificate": "complete",
+  "seconds": 20.70892713500143
+ },
+ {
+  "arm": "V_3",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "18232639488",
+    "K48": "0"
+   },
+   {
+    "tier": 1,
+    "S": "3999950438400",
+    "K48": "2880"
+   }
+  ],
+  "first_generalizing_tier": 1,
+  "expected_programs_to_first_generalizing": {
+   "num": "56509952163841",
+   "den": "2881",
+   "log10": 10.292581681383638
+  },
+  "certificate": "complete",
+  "seconds": 1.1395533780014375
+ },
+ {
+  "arm": "V_10",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "18232639488",
+    "K48": "0"
+   },
+   {
+    "tier": 1,
+    "S": "3999950438400",
+    "K48": "2880"
+   }
+  ],
+  "first_generalizing_tier": 1,
+  "expected_programs_to_first_generalizing": {
+   "num": "56509952163841",
+   "den": "2881",
+   "log10": 10.292581681383638
+  },
+  "certificate": "complete",
+  "seconds": 1.145476645000599
+ },
+ {
+  "arm": "V_100",
+  "gap": 0,
+  "tiers": [
+   {
+    "tier": 0,
+    "S": "18232639488",
+    "K48": "0"
+   },
+   {
+    "tier": 1,
+    "S": "3999950438400",
+    "K48": "2880"
+   }
+  ],
+  "first_generalizing_tier": 1,
+  "expected_programs_to_first_generalizing": {
+   "num": "56509952163841",
+   "den": "2881",
+   "log10": 10.292581681383638
+  },
+  "certificate": "complete",
+  "seconds": 1.168283811002766
+ }
+]

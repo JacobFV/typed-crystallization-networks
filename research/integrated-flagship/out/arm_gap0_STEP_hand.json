@@ -1,0 +1,428 @@
+{
+ "arm": "STEP_hand",
+ "gap": 0,
+ "pool": "schema",
+ "prior": true,
+ "tiers": [
+  {
+   "tier": 0,
+   "S": "13319021141865319628800",
+   "S_log10": 22.124472308294678,
+   "K": "403968",
+   "shell_S": "13319021141865319628800",
+   "shell_K": "403968",
+   "sizes": {
+    "cpos": 1445,
+    "K1": 8,
+    "K2": 8,
+    "K3": 8,
+    "K4": 8,
+    "ra": 1445,
+    "M": 256,
+    "X1": 8,
+    "X2": 8,
+    "X3": 8
+   },
+   "lit_occurs_allowed": {
+    "lc1": true,
+    "lc2": true,
+    "lc3": true,
+    "lr1": true,
+    "lr2": true
+   },
+   "lit_absent_allowed": {
+    "lc1": true,
+    "lc2": true,
+    "lc3": true,
+    "lr1": true,
+    "lr2": true
+   },
+   "certificate": "complete",
+   "counter": {
+    "routes": 303,
+    "classes": 1435,
+    "matcher_tables": 88,
+    "distinct_L": 80793
+   },
+   "seconds": 24.208915424002043
+  },
+  {
+   "tier": 1,
+   "S": "13319021141865319628800",
+   "S_log10": 22.124472308294678,
+   "K": "403968",
+   "shell_S": "0",
+   "shell_K": "0",
+   "sizes": {
+    "cpos": 1445,
+    "K1": 8,
+    "K2": 8,
+    "K3": 8,
+    "K4": 8,
+    "ra": 1445,
+    "M": 256,
+    "X1": 8,
+    "X2": 8,
+    "X3": 8
+   },
+   "lit_occurs_allowed": {
+    "lc1": true,
+    "lc2": true,
+    "lc3": true,
+    "lr1": true,
+    "lr2": true
+   },
+   "lit_absent_allowed": {
+    "lc1": true,
+    "lc2": true,
+    "lc3": true,
+    "lr1": true,
+    "lr2": true
+   },
+   "certificate": "complete",
+   "counter": {
+    "routes": 303,
+    "classes": 1435,
+    "matcher_tables": 88,
+    "distinct_L": 80793
+   },
+   "seconds": 0.11889217399948393
+  },
+  {
+   "tier": 2,
+   "S": "13319021141865319628800",
+   "S_log10": 22.124472308294678,
+   "K": "403968",
+   "shell_S": "0",
+   "shell_K": "0",
+   "sizes": {
+    "cpos": 1445,
+    "K1": 8,
+    "K2": 8,
+    "K3": 8,
+    "K4": 8,
+    "ra": 1445,
+    "M": 256,
+    "X1": 8,
+    "X2": 8,
+    "X3": 8
+   },
+   "lit_occurs_allowed": {
+    "lc1": true,
+    "lc2": true,
+    "lc3": true,
+    "lr1": true,
+    "lr2": true
+   },
+   "lit_absent_allowed": {
+    "lc1": true,
+    "lc2": true,
+    "lc3": true,
+    "lr1": true,
+    "lr2": true
+   },
+   "certificate": "complete",
+   "counter": {
+    "routes": 303,
+    "classes": 1435,
+    "matcher_tables": 88,
+    "distinct_L": 80793
+   },
+   "seconds": 0.11409290099982172
+  },
+  {
+   "tier": 3,
+   "S": "13319021141865319628800",
+   "S_log10": 22.124472308294678,
+   "K": "403968",
+   "shell_S": "0",
+   "shell_K": "0",
+   "sizes": {
+    "cpos": 1445,
+    "K1": 8,
+    "K2": 8,
+    "K3": 8,
+    "K4": 8,
+    "ra": 1445,
+    "M": 256,
+    "X1": 8,
+    "X2": 8,
+    "X3": 8
+   },
+   "lit_occurs_allowed": {
+    "lc1": true,
+    "lc2": true,
+    "lc3": true,
+    "lr1": true,
+    "lr2": true
+   },
+   "lit_absent_allowed": {
+    "lc1": true,
+    "lc2": true,
+    "lc3": true,
+    "lr1": true,
+    "lr2": true
+   },
+   "certificate": "complete",
+   "counter": {
+    "routes": 303,
+    "classes": 1435,
+    "matcher_tables": 88,
+    "distinct_L": 80793
+   },
+   "seconds": 0.1134275259973947
+  },
+  {
+   "tier": 4,
+   "S": "208109705341645619200000",
+   "S_log10": 23.31829233431079,
+   "K": "1164494804749376",
+   "shell_S": "194790684199780299571200",
+   "shell_K": "1164494804345408",
+   "sizes": {
+    "cpos": 1445,
+    "K1": 8,
+    "K2": 8,
+    "K3": 8,
+    "K4": 8,
+    "ra": 1445,
+    "M": 256,
+    "X1": 20,
+    "X2": 20,
+    "X3": 20
+   },
+   "lit_occurs_allowed": {
+    "lc1": true,
+    "lc2": true,
+    "lc3": true,
+    "lr1": true,
+    "lr2": true
+   },
+   "lit_absent_allowed": {
+    "lc1": true,
+    "lc2": true,
+    "lc3": true,
+    "lr1": true,
+    "lr2": true
+   },
+   "certificate": "complete",
+   "counter": {
+    "routes": 303,
+    "classes": 1435,
+    "matcher_tables": 88,
+    "distinct_L": 80793
+   },
+   "seconds": 24.000908149999304
+  }
+ ],
+ "first_solvable_tier": 0,
+ "full_space": {
+  "S": "208109705341645619200000",
+  "S_log10": 23.31829233431079,
+  "K": "1164494804749376",
+  "certificate": "complete",
+  "exhausted": true
+ },
+ "expected_programs": {
+  "num": "13319021141865319628801",
+  "den": "403969",
+  "float": 3.2970404020767236e+16,
+  "log10": 16.518124269039262
+ },
+ "expected_episodes": {
+  "num": "159828253702383835545612",
+  "den": "403969",
+  "float": 3.9564484824920685e+17,
+  "log10": 17.597305515086887
+ },
+ "solution_exists": true,
+ "first_solution_samples": {
+  "n": 400,
+  "train_conform_all": true,
+  "held_out_accuracy_mean": 1.0,
+  "held_out_accuracy_min": 1.0,
+  "generalize_fraction": 1.0,
+  "generalize_count": 400,
+  "generalize_wilson95": [
+   0.9904873594003194,
+   1.0
+  ],
+  "held_out_accuracy_hist": {
+   "1.0": 400
+  }
+ },
+ "first_solution_slots": {
+  "cpos": {
+   "most_common": "('sub', 'length', 'k5')",
+   "share": 0.5275,
+   "distinct": 5,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "lc1": {
+   "most_common": "101",
+   "share": 0.215,
+   "distinct": 10
+  },
+  "lc2": {
+   "most_common": "101",
+   "share": 0.2725,
+   "distinct": 10
+  },
+  "lc3": {
+   "most_common": "101",
+   "share": 0.265,
+   "distinct": 10
+  },
+  "K1": {
+   "most_common": "0",
+   "share": 0.1475,
+   "distinct": 8,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "K2": {
+   "most_common": "3",
+   "share": 0.1575,
+   "distinct": 8,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "K3": {
+   "most_common": "5",
+   "share": 0.14,
+   "distinct": 8,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "K4": {
+   "most_common": "5",
+   "share": 0.1725,
+   "distinct": 8,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "ra": {
+   "most_common": "('sub', 'k14', 'k1')",
+   "share": 0.02,
+   "distinct": 137,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "lr1": {
+   "most_common": "104",
+   "share": 0.2625,
+   "distinct": 8
+  },
+  "lr2": {
+   "most_common": "114",
+   "share": 0.2275,
+   "distinct": 8
+  },
+  "M": {
+   "most_common": "(1, 2, 13, 2)",
+   "share": 0.095,
+   "distinct": 16,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "X1": {
+   "most_common": "('sub', 'lo', 3)",
+   "share": 0.415,
+   "distinct": 3,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "X2": {
+   "most_common": "('add', 'hi', 3)",
+   "share": 0.4425,
+   "distinct": 3,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "X3": {
+   "most_common": "('sub', 'lo', 48)",
+   "share": 0.635,
+   "distinct": 3,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  }
+ },
+ "example_first_solution": {
+  "cpos": 295,
+  "lc1": 22,
+  "lc2": 13,
+  "lc3": 4,
+  "K1": 2,
+  "K2": 6,
+  "K3": 5,
+  "K4": 0,
+  "ra": 1396,
+  "lr1": 11,
+  "lr2": 7,
+  "M": 210,
+  "X1": 12,
+  "X2": 13,
+  "X3": 7
+ },
+ "example_first_solution_specs": {
+  "cpos": "('sub', 'length', 'k5')",
+  "lc1": "119",
+  "lc2": "110",
+  "lc3": "101",
+  "K1": "2",
+  "K2": "6",
+  "K3": "5",
+  "K4": "0",
+  "ra": "('max', 'k13', 'k1')",
+  "lr1": "108",
+  "lr2": "104",
+  "M": "(1, 2, 13, 2)",
+  "X1": "('sub', 'lo', 3)",
+  "X2": "('sub', 'lo', 48)",
+  "X3": "('add', 'hi', 3)"
+ },
+ "seconds": 50.46153348700318,
+ "prior_estimators": {
+  "ADDR": {
+   "rule": "uniform",
+   "p0": null,
+   "rows": 0,
+   "features": [],
+   "cells": {}
+  },
+  "LIT": {
+   "rule": "uniform",
+   "p0": null,
+   "rows": 0,
+   "features": [],
+   "cells": {}
+  },
+  "TRUTH": {
+   "rule": "uniform",
+   "p0": null,
+   "rows": 0,
+   "features": [],
+   "cells": {}
+  },
+  "STEP": {
+   "rule": "1 if offset_class in ['pixel', 'row'] else 0.1",
+   "p0": null,
+   "rows": 0,
+   "features": [
+    "offset_class"
+   ],
+   "cells": {}
+  }
+ }
+}

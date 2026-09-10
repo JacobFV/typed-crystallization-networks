@@ -1,0 +1,194 @@
+A_noobs 0 S=3.115e+12 K= 0 0.0s
+A_noobs 1 S=1.744e+14 K= 0 0.0s
+A_noobs 2 S=5.037e+20 K= 0 5.1s
+A_noobs 3 S=8.339e+21 K= 67063528620 7.5s
+A_noobs 4 S=8.339e+21 K= 67063528620 0.1s
+A_noobs 5 S=2.085e+22 K= 96196489260 14.6s
+A_noobs 6 S=6.165e+22 K= 126266585028 20.2s
+A_noobs 7 S=6.165e+22 K= 126266585028 0.1s
+A_noobs 8 S=9.105e+22 K= 277708662684 21.5s
+A_noobs 9 S=2.081e+23 K= 1164494804749376 25.6s
+{
+ "arm": "A_noobs",
+ "gap": 0,
+ "pool": "schema",
+ "prior": true,
+ "first_solvable_tier": 3,
+ "full_space": {
+  "S": "208109705341645619200000",
+  "S_log10": 23.31829233431079,
+  "K": "1164494804749376",
+  "certificate": "complete",
+  "exhausted": true
+ },
+ "expected_programs": {
+  "num": "33778134027723501460539666595841",
+  "den": "67063528621",
+  "float": 5.0367367662110094e+20,
+  "log10": 20.70214925402044
+ },
+ "expected_episodes": {
+  "num": "405337608332682017526475999150092",
+  "den": "67063528621",
+  "float": 6.044084119453212e+21,
+  "log10": 21.781330500068066
+ },
+ "solution_exists": true,
+ "first_solution_samples": {
+  "n": 400,
+  "train_conform_all": true,
+  "held_out_accuracy_mean": 0.45152777777777775,
+  "held_out_accuracy_min": 0.3055555555555556,
+  "generalize_fraction": 0.0025,
+  "generalize_count": 1,
+  "generalize_wilson95": [
+   0.00044143642943440895,
+   0.014023640967247855
+  ],
+  "held_out_accuracy_hist": {
+   "0.3056": 115,
+   "0.4722": 70,
+   "0.5": 116,
+   "0.5278": 46,
+   "0.5556": 43,
+   "0.5833": 9,
+   "1.0": 1
+  }
+ },
+ "first_solution_slots": {
+  "cpos": {
+   "most_common": "('sub', 'length', 'k6')",
+   "share": 0.1975,
+   "distinct": 10,
+   "prior_rank_of_most_common": 1125,
+   "prior_score_of_most_common": 0.07773009060562709,
+   "slot_best_score": 0.36623748211731044
+  },
+  "lc1": {
+   "most_common": "101",
+   "share": 0.15,
+   "distinct": 26
+  },
+  "lc2": {
+   "most_common": "101",
+   "share": 0.1675,
+   "distinct": 26
+  },
+  "lc3": {
+   "most_common": "101",
+   "share": 0.205,
+   "distinct": 26
+  },
+  "K1": {
+   "most_common": "7",
+   "share": 0.1475,
+   "distinct": 8,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "K2": {
+   "most_common": "2",
+   "share": 0.1575,
+   "distinct": 8,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "K3": {
+   "most_common": "2",
+   "share": 0.15,
+   "distinct": 8,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "K4": {
+   "most_common": "1",
+   "share": 0.2175,
+   "distinct": 8,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "ra": {
+   "most_common": "('min', 'k14', 'k15')",
+   "share": 0.0175,
+   "distinct": 204,
+   "prior_rank_of_most_common": 258,
+   "prior_score_of_most_common": 0.09871244635193133,
+   "slot_best_score": 0.36623748211731044
+  },
+  "lr1": {
+   "most_common": "101",
+   "share": 0.1375,
+   "distinct": 26
+  },
+  "lr2": {
+   "most_common": "101",
+   "share": 0.1725,
+   "distinct": 26
+  },
+  "M": {
+   "most_common": "(1, 2, 1, 1)",
+   "share": 0.1575,
+   "distinct": 8,
+   "prior_rank_of_most_common": 8,
+   "prior_score_of_most_common": 0.07619900173611112,
+   "slot_best_score": 0.2767198350694444
+  },
+  "X1": {
+   "most_common": "('sub', 'hi', 51)",
+   "share": 0.3575,
+   "distinct": 20,
+   "prior_rank_of_most_common": 9,
+   "prior_score_of_most_common": 0.09999999999999999,
+   "slot_best_score": 0.7666666666666666
+  },
+  "X2": {
+   "most_common": "('sub', 'hi', 51)",
+   "share": 0.3225,
+   "distinct": 20,
+   "prior_rank_of_most_common": 9,
+   "prior_score_of_most_common": 0.09999999999999999,
+   "slot_best_score": 0.7666666666666666
+  },
+  "X3": {
+   "most_common": "('add', 'lo', 51)",
+   "share": 0.6125,
+   "distinct": 5,
+   "prior_rank_of_most_common": 9,
+   "prior_score_of_most_common": 0.09999999999999999,
+   "slot_best_score": 0.7666666666666666
+  }
+ },
+ "example_first_solution": {
+  "cpos": 295,
+  "lc1": 19,
+  "lc2": 4,
+  "lc3": 22,
+  "K1": 4,
+  "K2": 4,
+  "K3": 6,
+  "K4": 5,
+  "ra": 1122,
+  "lr1": 8,
+  "lr2": 21,
+  "M": 34,
+  "X1": 16,
+  "X2": 17,
+  "X3": 1
+ },
+ "example_first_solution_specs": {
+  "cpos": "('sub', 'length', 'k5')",
+  "lc1": "116",
+  "lc2": "101",
+  "lc3": "119",
+  "K1": "4",
+  "K2": "4",
+  "K3": "6",
+  "K4": "5",
+  "ra": "('min', 'k14', 'length')",
+  "lr1": "105",
+  "lr2": "118",
+  "M": "(1, 

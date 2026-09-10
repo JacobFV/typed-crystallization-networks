@@ -1,0 +1,159 @@
+D' 0 S=2.081e+23 K= 1116634624 39.5s
+{
+ "arm": "D'",
+ "gap": 0,
+ "pool": "distractor",
+ "prior": false,
+ "first_solvable_tier": 0,
+ "full_space": {
+  "S": "208109705341645619200000",
+  "S_log10": 23.31829233431079,
+  "K": "1116634624",
+  "certificate": "complete",
+  "exhausted": true
+ },
+ "expected_programs": {
+  "num": "208109705341645619200001",
+  "den": "1116634625",
+  "float": 186372248076800.97,
+  "log10": 14.270381243831226
+ },
+ "expected_episodes": {
+  "num": "2497316464099747430400012",
+  "den": "1116634625",
+  "float": 2236466976921611.5,
+  "log10": 15.349562489878851
+ },
+ "solution_exists": true,
+ "first_solution_samples": {
+  "n": 400,
+  "train_conform_all": true,
+  "held_out_accuracy_mean": 0.3308333333333333,
+  "held_out_accuracy_min": 0.2777777777777778,
+  "generalize_fraction": 0.0,
+  "generalize_count": 0,
+  "generalize_wilson95": [
+   0.0,
+   0.009512640599680667
+  ],
+  "held_out_accuracy_hist": {
+   "0.2778": 101,
+   "0.3056": 44,
+   "0.3333": 52,
+   "0.3611": 196,
+   "0.3889": 7
+  }
+ },
+ "first_solution_slots": {
+  "cpos": {
+   "most_common": "('mul', 'k4', 'k8')",
+   "share": 0.4825,
+   "distinct": 3
+  },
+  "lc1": {
+   "most_common": "98",
+   "share": 0.3075,
+   "distinct": 19
+  },
+  "lc2": {
+   "most_common": "98",
+   "share": 0.31,
+   "distinct": 21
+  },
+  "lc3": {
+   "most_common": "111",
+   "share": 0.3125,
+   "distinct": 21
+  },
+  "K1": {
+   "most_common": "3",
+   "share": 0.145,
+   "distinct": 8
+  },
+  "K2": {
+   "most_common": "7",
+   "share": 0.1475,
+   "distinct": 8
+  },
+  "K3": {
+   "most_common": "7",
+   "share": 0.14,
+   "distinct": 8
+  },
+  "K4": {
+   "most_common": "0",
+   "share": 0.15,
+   "distinct": 8
+  },
+  "ra": {
+   "most_common": "('mod', 'length', 'k13')",
+   "share": 0.1075,
+   "distinct": 212
+  },
+  "lr1": {
+   "most_common": "101",
+   "share": 0.1075,
+   "distinct": 26
+  },
+  "lr2": {
+   "most_common": "111",
+   "share": 0.1075,
+   "distinct": 26
+  },
+  "M": {
+   "most_common": "(2, 1, 11, 9)",
+   "share": 0.0825,
+   "distinct": 30
+  },
+  "X1": {
+   "most_common": "('sub', 'hi', 50)",
+   "share": 0.2825,
+   "distinct": 20
+  },
+  "X2": {
+   "most_common": "('sub', 'hi', 50)",
+   "share": 0.305,
+   "distinct": 20
+  },
+  "X3": {
+   "most_common": "('sub', 'hi', 50)",
+   "share": 0.465,
+   "distinct": 5
+  }
+ },
+ "example_first_solution": {
+  "cpos": 94,
+  "lc1": 23,
+  "lc2": 14,
+  "lc3": 1,
+  "K1": 1,
+  "K2": 7,
+  "K3": 5,
+  "K4": 2,
+  "ra": 813,
+  "lr1": 22,
+  "lr2": 7,
+  "M": 182,
+  "X1": 17,
+  "X2": 1,
+  "X3": 16
+ },
+ "example_first_solution_specs": {
+  "cpos": "('mul', 'k4', 'k8')",
+  "lc1": "120",
+  "lc2": "111",
+  "lc3": "98",
+  "K1": "1",
+  "K2": "7",
+  "K3": "5",
+  "K4": "2",
+  "ra": "('max', 'k12', 'k13')",
+  "lr1": "119",
+  "lr2": "104",
+  "M": "(2, 1, 11, 6)",
+  "X1": "('sub', 'hi', 5)",
+  "X2": "('add', 'lo', 50)",
+  "X3": "('sub', 'hi', 50)"
+ },
+ "seconds": 41.26439821800159
+}

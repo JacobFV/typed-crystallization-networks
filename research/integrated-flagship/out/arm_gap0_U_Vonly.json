@@ -1,0 +1,435 @@
+{
+ "arm": "U_Vonly",
+ "gap": 0,
+ "pool": "schema",
+ "prior": true,
+ "tiers": [
+  {
+   "tier": 0,
+   "S": "51381352108593774592000",
+   "S_log10": 22.71080552861026,
+   "K": "1164494804749376",
+   "shell_S": "51381352108593774592000",
+   "shell_K": "1164494804749376",
+   "sizes": {
+    "cpos": 718,
+    "K1": 8,
+    "K2": 8,
+    "K3": 8,
+    "K4": 8,
+    "ra": 718,
+    "M": 256,
+    "X1": 20,
+    "X2": 20,
+    "X3": 20
+   },
+   "lit_occurs_allowed": {
+    "lc1": true,
+    "lc2": true,
+    "lc3": true,
+    "lr1": true,
+    "lr2": true
+   },
+   "lit_absent_allowed": {
+    "lc1": true,
+    "lc2": true,
+    "lc3": true,
+    "lr1": true,
+    "lr2": true
+   },
+   "certificate": "complete",
+   "counter": {
+    "routes": 301,
+    "classes": 1432,
+    "matcher_tables": 88,
+    "distinct_L": 80793
+   },
+   "seconds": 24.46135553199929
+  },
+  {
+   "tier": 1,
+   "S": "51381352108593774592000",
+   "S_log10": 22.71080552861026,
+   "K": "1164494804749376",
+   "shell_S": "0",
+   "shell_K": "0",
+   "sizes": {
+    "cpos": 718,
+    "K1": 8,
+    "K2": 8,
+    "K3": 8,
+    "K4": 8,
+    "ra": 718,
+    "M": 256,
+    "X1": 20,
+    "X2": 20,
+    "X3": 20
+   },
+   "lit_occurs_allowed": {
+    "lc1": true,
+    "lc2": true,
+    "lc3": true,
+    "lr1": true,
+    "lr2": true
+   },
+   "lit_absent_allowed": {
+    "lc1": true,
+    "lc2": true,
+    "lc3": true,
+    "lr1": true,
+    "lr2": true
+   },
+   "certificate": "complete",
+   "counter": {
+    "routes": 301,
+    "classes": 1432,
+    "matcher_tables": 88,
+    "distinct_L": 80793
+   },
+   "seconds": 0.07254256300075212
+  },
+  {
+   "tier": 2,
+   "S": "51381352108593774592000",
+   "S_log10": 22.71080552861026,
+   "K": "1164494804749376",
+   "shell_S": "0",
+   "shell_K": "0",
+   "sizes": {
+    "cpos": 718,
+    "K1": 8,
+    "K2": 8,
+    "K3": 8,
+    "K4": 8,
+    "ra": 718,
+    "M": 256,
+    "X1": 20,
+    "X2": 20,
+    "X3": 20
+   },
+   "lit_occurs_allowed": {
+    "lc1": true,
+    "lc2": true,
+    "lc3": true,
+    "lr1": true,
+    "lr2": true
+   },
+   "lit_absent_allowed": {
+    "lc1": true,
+    "lc2": true,
+    "lc3": true,
+    "lr1": true,
+    "lr2": true
+   },
+   "certificate": "complete",
+   "counter": {
+    "routes": 301,
+    "classes": 1432,
+    "matcher_tables": 88,
+    "distinct_L": 80793
+   },
+   "seconds": 0.06034419999923557
+  },
+  {
+   "tier": 3,
+   "S": "51381352108593774592000",
+   "S_log10": 22.71080552861026,
+   "K": "1164494804749376",
+   "shell_S": "0",
+   "shell_K": "0",
+   "sizes": {
+    "cpos": 718,
+    "K1": 8,
+    "K2": 8,
+    "K3": 8,
+    "K4": 8,
+    "ra": 718,
+    "M": 256,
+    "X1": 20,
+    "X2": 20,
+    "X3": 20
+   },
+   "lit_occurs_allowed": {
+    "lc1": true,
+    "lc2": true,
+    "lc3": true,
+    "lr1": true,
+    "lr2": true
+   },
+   "lit_absent_allowed": {
+    "lc1": true,
+    "lc2": true,
+    "lc3": true,
+    "lr1": true,
+    "lr2": true
+   },
+   "certificate": "complete",
+   "counter": {
+    "routes": 301,
+    "classes": 1432,
+    "matcher_tables": 88,
+    "distinct_L": 80793
+   },
+   "seconds": 0.06044820000170148
+  },
+  {
+   "tier": 4,
+   "S": "208109705341645619200000",
+   "S_log10": 23.31829233431079,
+   "K": "1164494804749376",
+   "shell_S": "156728353233051844608000",
+   "shell_K": "0",
+   "sizes": {
+    "cpos": 1445,
+    "K1": 8,
+    "K2": 8,
+    "K3": 8,
+    "K4": 8,
+    "ra": 1445,
+    "M": 256,
+    "X1": 20,
+    "X2": 20,
+    "X3": 20
+   },
+   "lit_occurs_allowed": {
+    "lc1": true,
+    "lc2": true,
+    "lc3": true,
+    "lr1": true,
+    "lr2": true
+   },
+   "lit_absent_allowed": {
+    "lc1": true,
+    "lc2": true,
+    "lc3": true,
+    "lr1": true,
+    "lr2": true
+   },
+   "certificate": "complete",
+   "counter": {
+    "routes": 303,
+    "classes": 1435,
+    "matcher_tables": 88,
+    "distinct_L": 80793
+   },
+   "seconds": 23.95057332700162
+  }
+ ],
+ "first_solvable_tier": 0,
+ "full_space": {
+  "S": "208109705341645619200000",
+  "S_log10": 23.31829233431079,
+  "K": "1164494804749376",
+  "certificate": "complete",
+  "exhausted": true
+ },
+ "expected_programs": {
+  "num": "51381352108593774592001",
+  "den": "1164494804749377",
+  "float": 44123298.703468315,
+  "log10": 7.644667973286756
+ },
+ "expected_episodes": {
+  "num": "205525408434375098368004",
+  "den": "388164934916459",
+  "float": 529479584.44161975,
+  "log10": 8.723849219334381
+ },
+ "solution_exists": true,
+ "first_solution_samples": {
+  "n": 400,
+  "train_conform_all": true,
+  "held_out_accuracy_mean": 0.6138194444444445,
+  "held_out_accuracy_min": 0.4444444444444444,
+  "generalize_fraction": 0.0,
+  "generalize_count": 0,
+  "generalize_wilson95": [
+   0.0,
+   0.009512640599680667
+  ],
+  "held_out_accuracy_hist": {
+   "0.4444": 1,
+   "0.5": 3,
+   "0.5278": 135,
+   "0.5556": 2,
+   "0.5833": 14,
+   "0.6111": 4,
+   "0.6389": 2,
+   "0.6667": 239
+  }
+ },
+ "first_solution_slots": {
+  "cpos": {
+   "most_common": "('add', 'k2', 'k11')",
+   "share": 0.0125,
+   "distinct": 211,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "lc1": {
+   "most_common": "101",
+   "share": 0.1025,
+   "distinct": 26
+  },
+  "lc2": {
+   "most_common": "101",
+   "share": 0.0825,
+   "distinct": 26
+  },
+  "lc3": {
+   "most_common": "105",
+   "share": 0.085,
+   "distinct": 26
+  },
+  "K1": {
+   "most_common": "2",
+   "share": 0.1525,
+   "distinct": 8,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "K2": {
+   "most_common": "2",
+   "share": 0.1625,
+   "distinct": 8,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "K3": {
+   "most_common": "0",
+   "share": 0.155,
+   "distinct": 8,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "K4": {
+   "most_common": "5",
+   "share": 0.14,
+   "distinct": 8,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "ra": {
+   "most_common": "('max', 'k14', 'k1')",
+   "share": 0.015,
+   "distinct": 200,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "lr1": {
+   "most_common": "101",
+   "share": 0.14,
+   "distinct": 26
+  },
+  "lr2": {
+   "most_common": "101",
+   "share": 0.15,
+   "distinct": 26
+  },
+  "M": {
+   "most_common": "(1, 2, 9, 12)",
+   "share": 0.275,
+   "distinct": 4,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "X1": {
+   "most_common": "('sub', 'hi', 51)",
+   "share": 0.395,
+   "distinct": 20,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "X2": {
+   "most_common": "('sub', 'hi', 51)",
+   "share": 0.4575,
+   "distinct": 20,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  },
+  "X3": {
+   "most_common": "('add', 'lo', 51)",
+   "share": 0.8075,
+   "distinct": 2,
+   "prior_rank_of_most_common": 1,
+   "prior_score_of_most_common": 1.0,
+   "slot_best_score": 1.0
+  }
+ },
+ "example_first_solution": {
+  "cpos": 65,
+  "lc1": 18,
+  "lc2": 6,
+  "lc3": 14,
+  "K1": 4,
+  "K2": 7,
+  "K3": 5,
+  "K4": 3,
+  "ra": 202,
+  "lr1": 4,
+  "lr2": 21,
+  "M": 147,
+  "X1": 16,
+  "X2": 17,
+  "X3": 1
+ },
+ "example_first_solution_specs": {
+  "cpos": "('add', 'k2', 'k13')",
+  "lc1": "115",
+  "lc2": "103",
+  "lc3": "111",
+  "K1": "4",
+  "K2": "7",
+  "K3": "5",
+  "K4": "3",
+  "ra": "('add', 'k10', 'k14')",
+  "lr1": "101",
+  "lr2": "118",
+  "M": "(1, 2, 9, 3)",
+  "X1": "('sub', 'hi', 51)",
+  "X2": "('sub', 'hi', 3)",
+  "X3": "('add', 'lo', 51)"
+ },
+ "seconds": 51.12408715499987,
+ "prior_estimators": {
+  "ADDR": {
+   "rule": "1 if V else 0.1",
+   "p0": null,
+   "rows": 0,
+   "features": [
+    "V"
+   ],
+   "cells": {}
+  },
+  "LIT": {
+   "rule": "uniform",
+   "p0": null,
+   "rows": 0,
+   "features": [],
+   "cells": {}
+  },
+  "TRUTH": {
+   "rule": "uniform",
+   "p0": null,
+   "rows": 0,
+   "features": [],
+   "cells": {}
+  },
+  "STEP": {
+   "rule": "uniform",
+   "p0": null,
+   "rows": 0,
+   "features": [],
+   "cells": {}
+  }
+ }
+}

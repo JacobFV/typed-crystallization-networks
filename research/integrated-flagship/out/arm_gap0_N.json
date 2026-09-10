@@ -1,0 +1,206 @@
+{
+ "arm": "N",
+ "gap": 0,
+ "pool": "flat",
+ "prior": false,
+ "tiers": [
+  {
+   "tier": 0,
+   "S": "502613115042775967352225792000",
+   "S_log10": 29.701233816760325,
+   "K": "5291430621263841152256",
+   "shell_S": "502613115042775967352225792000",
+   "shell_K": "5291430621263841152256",
+   "sizes": {
+    "cpos": 1462,
+    "K1": 8,
+    "K2": 8,
+    "K3": 8,
+    "K4": 8,
+    "ra": 1462,
+    "M": 2304,
+    "X1": 1280,
+    "X2": 1280,
+    "X3": 1280
+   },
+   "lit_occurs_allowed": {
+    "lc1": true,
+    "lc2": true,
+    "lc3": true,
+    "lr1": true,
+    "lr2": true
+   },
+   "lit_absent_allowed": {
+    "lc1": true,
+    "lc2": true,
+    "lc3": true,
+    "lr1": true,
+    "lr2": true
+   },
+   "certificate": "complete",
+   "counter": {
+    "routes": 303,
+    "classes": 1435,
+    "matcher_tables": 284,
+    "distinct_L": 202614
+   },
+   "seconds": 90.48739437400218
+  }
+ ],
+ "first_solvable_tier": 0,
+ "full_space": {
+  "S": "502613115042775967352225792000",
+  "S_log10": 29.701233816760325,
+  "K": "5291430621263841152256",
+  "certificate": "complete",
+  "exhausted": true
+ },
+ "expected_programs": {
+  "num": "502613115042775967352225792001",
+  "den": "5291430621263841152257",
+  "float": 94986243.04417856,
+  "log10": 7.977660710524301
+ },
+ "expected_episodes": {
+  "num": "6031357380513311608226709504012",
+  "den": "5291430621263841152257",
+  "float": 1139834916.5301428,
+  "log10": 9.056841956571926
+ },
+ "solution_exists": true,
+ "first_solution_samples": {
+  "n": 400,
+  "train_conform_all": true,
+  "held_out_accuracy_mean": 0.6444444444444445,
+  "held_out_accuracy_min": 0.5,
+  "generalize_fraction": 0.0,
+  "generalize_count": 0,
+  "generalize_wilson95": [
+   0.0,
+   0.009512640599680667
+  ],
+  "held_out_accuracy_hist": {
+   "0.5": 9,
+   "0.5278": 4,
+   "0.5833": 9,
+   "0.6111": 4,
+   "0.6389": 275,
+   "0.6667": 59,
+   "0.6944": 22,
+   "0.7222": 12,
+   "0.75": 6
+  }
+ },
+ "first_solution_slots": {
+  "cpos": {
+   "most_common": "('add', 'k4', 'k3')",
+   "share": 0.0075,
+   "distinct": 342
+  },
+  "lc1": {
+   "most_common": "103",
+   "share": 0.0525,
+   "distinct": 26
+  },
+  "lc2": {
+   "most_common": "114",
+   "share": 0.0575,
+   "distinct": 26
+  },
+  "lc3": {
+   "most_common": "97",
+   "share": 0.0525,
+   "distinct": 26
+  },
+  "K1": {
+   "most_common": "7",
+   "share": 0.1525,
+   "distinct": 8
+  },
+  "K2": {
+   "most_common": "1",
+   "share": 0.15,
+   "distinct": 8
+  },
+  "K3": {
+   "most_common": "0",
+   "share": 0.1475,
+   "distinct": 8
+  },
+  "K4": {
+   "most_common": "4",
+   "share": 0.15,
+   "distinct": 8
+  },
+  "ra": {
+   "most_common": "('add', 'k0', 'k15')",
+   "share": 0.015,
+   "distinct": 202
+  },
+  "lr1": {
+   "most_common": "101",
+   "share": 0.105,
+   "distinct": 26
+  },
+  "lr2": {
+   "most_common": "101",
+   "share": 0.1,
+   "distinct": 26
+  },
+  "M": {
+   "most_common": "(1, 1, 9, 3)",
+   "share": 0.075,
+   "distinct": 70
+  },
+  "X1": {
+   "most_common": "('add', 'lo', 75)",
+   "share": 0.045,
+   "distinct": 227
+  },
+  "X2": {
+   "most_common": "('add', 'lo', 124)",
+   "share": 0.045,
+   "distinct": 225
+  },
+  "X3": {
+   "most_common": "('add', 'lo', 75)",
+   "share": 0.0825,
+   "distinct": 56
+  }
+ },
+ "example_first_solution": {
+  "cpos": 1418,
+  "lc1": 18,
+  "lc2": 14,
+  "lc3": 10,
+  "K1": 7,
+  "K2": 5,
+  "K3": 3,
+  "K4": 2,
+  "ra": 1342,
+  "lr1": 21,
+  "lr2": 6,
+  "M": 822,
+  "X1": 1090,
+  "X2": 124,
+  "X3": 1081
+ },
+ "example_first_solution_specs": {
+  "cpos": "('max', 'k13', 'k6')",
+  "lc1": "115",
+  "lc2": "111",
+  "lc3": "107",
+  "K1": "7",
+  "K2": "5",
+  "K3": "3",
+  "K4": "2",
+  "ra": "('max', 'k8', 'k15')",
+  "lr1": "118",
+  "lr2": "103",
+  "M": "(2, 1, 3, 6)",
+  "X1": "('max', 'lo', 67)",
+  "X2": "('add', 'lo', 125)",
+  "X3": "('max', 'lo', 58)"
+ },
+ "seconds": 95.25186243700227
+}
