@@ -449,6 +449,14 @@ is the reminder that identity without transfer is not a capability.
 .venv/bin/python research/cross-domain/run_control.py --max-nodes 5 --band C-trace
 ```
 
+**Every headline re-derived independently.**
+`.venv/bin/python research/cross-domain/verify_claims.py` re-reads the raw class
+records and recomputes each claim without importing the analysis modules, so a
+bug in `run_shared.py` cannot make its own claim true. **51 checks, all pass** —
+fragment totals, class counts, cross-domain counts under all three relations at
+both configurations, the operator list, the type-signature bound, the carrier
+intersections, all four control cells, the fixture and the test tally.
+
 **Repo constraints.**
 
 * Tests: **324 passed, 13 failed** (`out/pytest.log`). All 13 are the known
