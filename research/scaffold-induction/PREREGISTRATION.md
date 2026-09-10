@@ -1,0 +1,379 @@
+# Pre-registration — scaffold induction as a cross-domain outer loop
+
+Written and committed **before any arm runs** (house standard since §44). Any
+change after the first arm is a numbered amendment in `RESULTS.md` naming the
+item it replaces and the number it moves. Track directory:
+`research/scaffold-induction/`. `tcn/` and `generators/` are **not modified**; if
+a core change proves unavoidable it is reported as the smallest diff and not
+committed.
+
+This is priority 4 of the post-§65 direction. §65's failures are binding on it,
+and each is answered by a numbered clause below: the hand-written baseline is
+mandatory (§4.4, C3), the criterion is **held-out** conformance (§5), the
+distractor is checked to be able to succeed (§4.6, V3), both directions are
+bounded (§6.3), and every figure is script-rendered with a `verify.py` (§10).
+
+---
+
+## 0. What was run before this document, disclosed
+
+Four **schedulability probes** (`probe_timing.py`, committed): for each domain,
+build the base scaffold, enumerate its typed edits, and time one family decision
+on a sample of them. Their purpose was to fix the resource plan and the two
+edit-space bounds of §3.3. Recorded here so the numbers cannot be re-used as
+findings: **no repair label, no arm ordering and no criterion outcome was
+computed, and nothing from those runs is quoted in `RESULTS.md`.** The base
+scaffolds were found to be solvable (a conforming member exists on all
+episodes), which is a precondition of the corpus construction in §2.3 and is
+re-derived there under certificate.
+
+---
+
+## 1. The question and the criterion
+
+> When a scaffold has no exact solution, does an **inherited body of edit
+> knowledge** make the repair cheaper on a **genuinely new domain** — enumerating
+> typed structural edits without knowing the repair in advance?
+
+§50 is the incumbent: a plain operator sweep over the holes of a failed scaffold
+repaired **21 of 24** cases with no diagnosis at all. That result is scored on
+**training** conformance and on a corpus of 3 tasks in 2 domains. This track
+must beat it, or report that it did not.
+
+**The criterion, fixed now.** Let `E(A)` be arm `A`'s **exact expected number of
+typed edits enumerated before the first repair**, averaged over the corpus
+(§6.1), where *repair* is defined by **held-out** conformance (§5). The
+inherited edit prior earns its name iff **all** of:
+
+* **C1 (beats no library).** `E(N″) ≤ E(N)/2` on the held-out domain.
+* **C2 (beats the structure alone).** `E(N″) ≤ E(N′)/2`.
+* **C3 (beats the obvious hand-written prior).** `E(N″) ≤ E(H1)/2` **and**
+  `E(N″) ≤ E(H2)/2`. §65's entire effect vanished against this comparison and it
+  was missing from its pre-registration; it is a criterion here, not a control.
+* **C4 (the distractor does not).** The label-permuted distractor `D1`, run under
+  the identical protocol, does **not** satisfy C1 — and `D1`'s edit space is
+  shown to contain a repair before C4 is read (validity check V3).
+
+Factor 2, not 10: the edit space per scaffold is 10²–10³ (§3.4), so a 10×
+separation is not available at this corpus size and demanding it would make the
+criterion untestable. This is fixed now and is not revisited.
+
+**What a null looks like, stated in advance.** `E(N″) ≈ E(N)` **or**
+`E(N″) ≥ E(H1)` is the null. It is a first-class result and will be reported as
+the finding, with the failed criterion kept and no metric substituted. Given
+§65, §57 and §50, **I expect the null**: the specific prediction recorded here is
+that the hand-written minimality-and-novelty prior H1 is within a factor 2 of the
+learned prior N″, and that the schema-only arm N′ is within a factor 2 of the
+flat arm N.
+
+---
+
+## 2. The corpus
+
+### 2.1 Domains
+
+Four, each a task this repository already runs, none of them a Boolean
+microbenchmark venue in §58's sense (they span four different output types and
+four different input structures):
+
+| id | task | source | held-out episodes |
+|---|---|---|---|
+| `bool` | `maj(a,b,c) xor maj(d,e,f)` over six BOOL inputs | §44/§46's task, `research/earned-abstraction/later.py` | odd rows of the complete 64-row truth table |
+| `arith` | two int16 operands and a one-hot goal selecting add / sub / max | `generators/arithmetic`, unmodified | test-split seeds 1000–1031 |
+| `rel` | membership in the two-step reachability relation of a 4-entity directed graph | `generators/relations`, unmodified | test-split seeds 1000–1063 |
+| `lang` | bracket grammaticality | `generators/language`, §19/§45's family via `research/scaffold-diagnosis/splits.py`, **post-audit stream pinned** (`hardening='context_free_language'`) | unseen lengths 14 and 16 |
+
+Every base scaffold is built here from `tcn.graph` and `legal_candidates`; the
+`bool` scaffold restricts MAJ3's ordered triples to the 20 combinations (MAJ3 is
+symmetric), which is a disclosed scaffold-design choice and is what keeps the
+base space exhaustible. Every edit re-derives its pool from the registry and may
+re-introduce the orderings.
+
+**A domain that cannot supply a corpus under §2.3 is dropped and the reason
+disclosed in `RESULTS.md`,** with its partial numbers kept. Three domains are the
+minimum for the leave-one-domain-out protocol of §4.3; if fewer than three
+survive, the cross-domain claim is not made at all and the track reports the
+within-domain result only.
+
+### 2.2 The defect generator
+
+A **defect** is one of four typed narrowings of a base scaffold, applied at one
+site, enumerated deterministically over the base's own sites and operators:
+
+| defect | what it removes |
+|---|---|
+| `drop_operator(site, op)` | every candidate at `site` whose operator is `op` |
+| `drop_source(site, port)` | every candidate at `site` that reads `port` |
+| `keep_prefix(site, k)` | all but the first `k` candidates at `site` |
+| `delete_node(site)` | the node, re-pointing its consumers at one of its own sources |
+
+`delete_node` is included precisely because its repair is **not** the inverse of
+the defect: re-adding the node is an `ADD_NODE`/`ADD_PATH` edit over a pool the
+defect did not name. The fraction of first repairs that *are* the syntactic
+inverse of the defect is a mandatory corpus-validity disclosure (V1).
+
+### 2.3 Admission
+
+A defective scaffold enters the corpus iff, with `tolerance = 1e-6`:
+
+1. it has **0 members conforming on the training episodes**, `exhausted`,
+   certificate `complete` — this is what "no exact solution" means, and it is a
+   proof, not a timeout; and
+2. its typed edit space (§3) contains **at least one repair** under §5 — else no
+   arm could succeed and the case measures nothing. Cases failing (2) are counted
+   and reported, never silently dropped.
+
+Target: **12–24 admitted cases per domain**, taken in the defect generator's own
+deterministic order, capped at 24 per domain so no domain dominates the mean.
+
+---
+
+## 3. The typed structural edit space
+
+### 3.1 Families
+
+`edits.py`, generic over `tcn.graph.Program`; every produced program is put
+through `Program.validate(registry)` and discarded if it does not type-check, so
+no edit can widen the type system.
+
+| family | what it does |
+|---|---|
+| `SUBST(site, op)` | replace the site's candidate tuple with every legal wiring of `op` over the site's own source pool |
+| `WIDEN(site, op)` | union those candidates into the site's existing tuple |
+| `REWIRE(site, port)` | union in every wiring of the site's **existing** operator names that reads `port` |
+| `ADD_NODE(site, op, t)` | insert a new node of type `t` computing `op` over the pool below `site`, shift the site and everything deeper down one depth, and widen the site to admit the new node |
+| `ADD_PATH(op)` | insert a new output-adjacent node combining the current output with another value in scope, and re-point the program's output at it |
+
+This is materially wider than §50's sweep, which is `SUBST` at two named holes
+only. A site's source pool is derived from the program (inputs, constants and
+nodes of strictly smaller depth), never hand-listed. Operator names are the union
+of `tcn.operators`'s own name sets plus the extras `Registry.resolve` accepts
+(`identity, not, mux`, the five reductions), never a curated per-domain list.
+**Nothing in `edits.py` knows what any scaffold's defect is.**
+
+### 3.2 Order
+
+Edits are enumerated in a fixed lexicographic order — family, then site, then
+operator/port/type, all sorted. This order is a property of the enumerator and is
+identical for every arm; the arms differ only in how they *re-order* it.
+
+### 3.3 Declared bounds
+
+`MAX_NEW = 48` candidates may be added at an existing site by one edit and
+`MAX_NEW_NODE = 12` candidates may be carried by an inserted node, truncating in
+`legal_candidates` order. `MAX_SPACE = 400,000` bounds the selection space of an
+edited scaffold that will be decided. These bounds are deterministic, applied
+identically to every arm, and fixed now. Reported: how many edits were truncated
+and how many exceeded `MAX_SPACE`. An over-`MAX_SPACE` edit is **undecided**, and
+every headline is stated **both** with undecided edits counted as non-repairs and
+with them counted as repairs (§6.3) — the two together bound the truth.
+
+### 3.4 Size, as probed
+
+`bool` 160 edits, `arith` 542, `rel` 118 (schedulability probe, §0). The corpus
+is therefore ~10²–10³ edits per case.
+
+---
+
+## 4. The arms
+
+Every arm searches **the same edit space**; they differ only in the order. A
+library that only re-orders cannot make a repair unreachable, and that is what
+makes the distractor of C4 able to succeed by construction (V3).
+
+### 4.1 `N` — no library
+Uniform random over the whole typed edit space. Exact expected cost
+`(S + 1)/(K + 1)` for `S` edits of which `K` are repairs (§6.1).
+
+### 4.2 `N′` — the structure alone
+The inherited **edit-family class**: the subset of families that repaired
+anything in the source domains, uniform within it, then the rest uniformly. No
+learned content beyond "which of the five families ever works".
+
+### 4.3 `N″` — schema + learned edit prior (the key arm)
+A per-edit score from features that are available in any domain, fitted on the
+**source domains only** under leave-one-domain-out: for a held-out domain `d`,
+the estimator sees `(edit, repaired?)` rows from every domain except `d`, and is
+evaluated only on `d`. The held-out domain contributes **nothing** to the fit —
+not its rows, not its feature statistics, not its corpus size.
+
+Features, all derived from the program and the registry, none of them naming a
+domain or an answer:
+
+1. edit family (one-hot over the five)
+2. `log` of the number of candidates the edit adds, and of the resulting space
+3. the operator's algebraic class, read off `tcn.operators`' name sets:
+   arithmetic / selective (`min`, `max`, the reductions) / logical / comparison /
+   structural / conversion / identity
+4. whether the operator already occurs anywhere in the scaffold (novelty)
+5. the site's depth, normalised by the program's depth, and whether it is the
+   output node
+6. whether the site's value is **constant on the training batch** (§47's probe —
+   §50 showed it does not generalise; it is included so that this track's own
+   measurement of it is on the record, not because it is expected to help)
+7. the arity of the added candidates
+
+Estimator: additive per-feature empirical log-odds of repair (naive Bayes with
+Laplace smoothing), fitted on source-domain rows only. Auditable, and small
+enough that its whole table is committed to `out/`. **No scalar abstraction
+score is computed** (§57, §64): the estimator ranks edits for one slot, it does
+not rank library entries.
+
+### 4.4 `H1` and `H2` — the hand-written priors, mandatory
+Fixed here, before any result, and not tuned afterwards.
+
+* **`H1` (primary), "smallest and newest first"**: order by (candidates added,
+  ascending), then (operator not already in the scaffold, first), then the
+  enumerator's own order. One line of code; a human would write it without
+  looking at any data.
+* **`H2`, "output-adjacent first"**: order by distance from the output node,
+  ascending, then the enumerator's own order. This is the localisation choice
+  §50 deleted, restored as a baseline.
+
+If `E(H1) ≤ E(N″)` the inherited rows add nothing measurable beyond a prior a
+human would write, and that is the finding (§65's lesson, made a criterion).
+
+### 4.5 `ORACLE` — the ceiling
+Rank 1 by construction. Reported so every arm's distance from perfect ordering
+is visible; not a criterion.
+
+### 4.6 `D1`, `D2` — the distractors
+* **`D1`** — the identical estimator on **permuted repair labels** from the same
+  source rows (permutation seed fixed at 0, 20 permutations, mean and spread
+  reported).
+* **`D2`** — the learned estimator, reversed.
+
+Both order the **same** edit space as `N″`, so each contains every repair `N″`
+has. **V3 verifies this by counting repairs in each distractor's space before C4
+is read**; §65's distractor could not have succeeded and this one is checked.
+
+---
+
+## 5. What counts as a repair — held-out, not training
+
+Edit `e` on case `c` is a **repair** iff the edited scaffold has at least one
+member conforming, at `tolerance = 1e-6`, on **every training *and* held-out
+episode of the domain**. Existence is proved by a witness (the first conforming
+member); non-existence is proved by exhaustion, `exhausted = true`, certificate
+`complete`. The decision is made by `tcn.search.enumerate_prefix` — core
+machinery, not a track simulator — so there is no simulator to validate; a
+sample of decisions is nevertheless cross-checked against `tcn.search.enumerate_fit`
+and against `Program.execute` (V2).
+
+**Repair labels are ground truth and are computed in a separate file
+(`truth.py`) that no arm imports.** Priors, orderings and features are computed
+from the base scaffold, the failed scaffold's certificate and the *training*
+episodes only, exactly as §50 did.
+
+**Secondary metric M2 — the deployed protocol.** Enumerate in the arm's order and
+stop at the first edit whose scaffold has a **training** conformer; report
+whether that edit is a repair. This is the §50 protocol and the §65 trap in one
+number: it measures what a system that cannot see held-out data would actually
+accept. M1 (§6.1) is the pre-registered criterion; M2 is reported beside it for
+every arm and is **not** substituted for it.
+
+**Secondary arm S1 — re-scoring §50's own corpus on held-out conformance.**
+§50's `allholes` arm reports 21 of 24 repairs judged on training accuracy 1.000.
+Its cases are re-decided here on held-out conformance with §50's own validated
+decider (`research/scaffold-diagnosis/langfam.py`, `boolfam.py`) and its own
+`answers.py`. Pre-registered prediction: the count **falls**. If it does not, that
+is recorded too. A disagreement with §50's recorded number is reported as a
+disagreement, not routed around.
+
+---
+
+## 6. Costs, certificates and how every number is obtained
+
+### 6.1 The currency
+`E(A, c)` = expected number of edits enumerated before the first repair, for arm
+`A` on case `c`. An arm supplies a **tiered** order: a sequence of tiers, uniform
+within each. With `s_i` edits and `k_i` repairs in tier `i`,
+
+    E = Σ_{j < i*} s_j  +  (s_{i*} − k_{i*} + 1) / (k_{i*} + 1),   i* = first tier with k_i > 0
+
+which is the flagship's exact formula. **Every count is exact**: the edit space is
+enumerated in full and every edit is decided, so no arm's cost is sampled and no
+0/N bound is quoted (§65's failure to separate N″ from N came from exactly that).
+The corpus figure is the mean of `E(A, c)` over admitted cases, reported with its
+per-case table.
+
+### 6.2 Certificates
+`complete` (exhausted, whole conforming set reported), `unique`, `none`, exactly
+`tcn.search.certificate_of`. Every admission decision (§2.3) and every
+non-existence claim carries one.
+
+### 6.3 Bounding both directions
+Undecided edits (over `MAX_SPACE`) are counted as non-repairs in the headline and
+as repairs in a parallel column. A criterion that flips between the two columns
+is reported as **inconclusive**, never as a pass.
+
+---
+
+## 7. Baselines beside every conformance number
+
+For every domain: the majority-constant and uniform-random accuracy on the
+held-out episodes, and the accuracy of the *base* (undefective) scaffold's own
+conforming member. A repaired scaffold that merely reaches the majority constant
+is not a repair — conformance at `1e-6` on every episode already excludes this,
+and the baselines are reported so the exclusion is visible.
+
+---
+
+## 8. Falsification — declared now, honoured whatever happens
+
+* **F1** `E(N″) ≈ E(N)` (within 2×): inherited edit knowledge buys nothing. **The
+  expected outcome, and a first-class result.**
+* **F2** `E(H1) ≤ E(N″)`: the hand-written prior reproduces or beats the learned
+  one. **Also expected**, and it is C3 failing.
+* **F3** `E(N′) ≈ E(N)`: the edit-family class is organisational reuse, not
+  learned intelligence — §64's reading, applied to edits.
+* **F4** `D1` satisfies C1: the effect is the shape of the tiering, not the
+  learned content.
+* **F5** the estimator is flat (no feature separates repairs from non-repairs in
+  the source domains). Reported; no hand prior is substituted for it.
+* **F6** more than 60% of first repairs are the syntactic inverse of the defect
+  (V1): the corpus is easy and **every** arm's number must be read that way. The
+  criterion is then reported as resting on an easy corpus.
+* **F7** fewer than three domains supply a corpus: the cross-domain claim is not
+  made.
+* **F8** §50's 21/24 does **not** fall under held-out conformance (S1).
+
+**Predictions, not criteria** (so a null cannot be re-narrated afterwards): H1
+lands within 2× of N″; N′ lands within 2× of N; feature 6 (§47's constant-node
+probe) carries no weight; `SUBST`/`WIDEN` dominate the repairs and `ADD_NODE`
+repairs only the `delete_node` cases.
+
+---
+
+## 9. Validity checks, run and reported before any criterion is read
+
+* **V1** fraction of first repairs that are the syntactic inverse of the defect,
+  per domain and overall (F6).
+* **V2** the decider: for a sample of 40 (case, edit) pairs per domain,
+  `enumerate_prefix` is checked against `enumerate_fit` for the same conforming
+  set, and each reported witness is re-executed through `Program.execute` on
+  every episode. Mismatches reported; a non-zero count blocks the headline.
+* **V3** the distractor can succeed: repairs counted in `D1`'s and `D2`'s edit
+  space (identical to `N″`'s by construction, and verified equal).
+* **V4** no leakage: the held-out domain's rows, features and corpus size enter
+  no estimator; asserted by a test that re-fits with the held-out domain's rows
+  deleted and compares the estimator tables byte for byte.
+* **V5** `tcn/` and `generators/` diffs against `main` are empty.
+
+---
+
+## 10. Evidence standard and resources
+
+Every figure in `RESULTS.md` is rendered from `out/` by `report.py` inside
+`<!-- BEGIN:x -->` / `<!-- END:x -->` blocks. `verify.py` has two layers: it
+re-renders every block and compares, and it re-derives every headline claim from
+raw JSON **without importing the run or report scripts**; it writes
+`out/verify.json` (`{"pass": N, "fail": M, "claims": [...]}`) and
+`out/headline.json`, and exits non-zero on any FAIL. Single-configuration
+evidence is labelled explicitly wherever it occurs.
+
+Heavy jobs run as
+`systemd-run --user --scope -q -p MemoryMax=20G -p CPUQuota=400% env OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 <cmd>`,
+at most **4 workers**, with `MemAvailable` checked against a **25 GB** floor
+before each phase and logged to `out/memory_floor.log`. The other project's GPU
+processes are never touched.
