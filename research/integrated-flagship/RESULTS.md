@@ -73,6 +73,17 @@ address and literal preferences, and §9.4 gives programs to the first *generali
 arm, post-hoc. Scope: one seed set, one palette, one relation vocabulary, `gap 0`; the STEP
 estimator rests on 20 rows; `gap 1` is §2's second table.
 
+**The post-hoc gap-0 generalization finding does not replicate at the pre-registered second
+configuration.** At `gap 1`, N″'s sampled first solutions generalize none of the time (§2's
+second table): the result that its first hit generalizes is a `gap 0` result only.
+
+**F6 and the `gap 1` prediction, resolved strictly as pre-registered.** F6 is defined as "0
+conforming, exhausted"; the `gap 1` schema space has training-conforming programs, so **F6 is not
+triggered as pre-registered**. The prediction that "N′ and N″ have no solution there" is
+**falsified as stated**: they do have training-conforming solutions. What the exact 48-episode
+count at `gap 1` shows is reported separately in §9.1, post-hoc, and is not F6 whichever way it
+comes out.
+
 **Even on the post-hoc metric, the learned prior does not earn its name.** Counting programs to
 the first *generalizing* program exactly (§9.4), and restricting to arms whose settings were fixed
 before the target was seen, the cheapest route is not N″: the unfitted hand-feature controls
@@ -398,8 +409,14 @@ Everything in this section is **post-hoc** unless it says otherwise. None of it 
 
 Exact counts over all 48 episodes (training and held-out together):
 
-The same count at the second configuration (`gap 1`), where the pre-registration predicted the
-step schema's offset pool lacks the step a correct click needs (F6):
+The same count at the second configuration (`gap 1`). **Post-hoc, and not F6**: F6 is "0
+conforming, exhausted" on the training episodes, and the `gap 1` schema space has training
+conformers, so F6 is not triggered as pre-registered. This count asks a different, stricter
+question — does any program in the space conform on training *and* held-out? If the answer is
+none, the schema fits training but holds nothing that generalizes: weaker than F6's
+counterexample, and proposed as a stricter CEGIS check for next time ("conformance on held-out as
+well as training"), not counted as F6 having fired. If some programs do generalize, N″ simply
+reached a spurious one first.
 
 <!-- BEGIN:generalize_gap1 -->
 <!-- END:generalize_gap1 -->
