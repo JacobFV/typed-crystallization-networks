@@ -1,0 +1,191 @@
+{
+ "A0": {
+  "bytecodes_by_code_object": {
+   "<genexpr>": 21363,
+   "<lambda>": 9,
+   "_m0": 51894,
+   "_m1": 468100,
+   "_m2": 74681,
+   "by_code": 10,
+   "run": 57
+  },
+  "bytecodes_total_measured": 616114,
+  "calls_per_screenshot": {
+   "_c0": 0,
+   "_m0": 961,
+   "_m1": 3100,
+   "_m2": 19
+  },
+  "guard_stats": {
+   "guard_bounds_eliminated": 0,
+   "guard_bounds_emitted": 0,
+   "guard_index_eliminated": 0,
+   "guard_index_emitted": 12,
+   "guard_range_eliminated": 191,
+   "guard_range_emitted": 75,
+   "guard_shift_eliminated": 0,
+   "guard_shift_emitted": 0,
+   "guard_zerodiv_eliminated": 0,
+   "guard_zerodiv_emitted": 0
+  },
+  "guards_eliminated_by_function": {
+   "G1 in _m2": 191
+  },
+  "guards_kept_by_function": {
+   "G1 in _m0": 2,
+   "G1 in _m1": 4,
+   "G1 in _m2": 69,
+   "G2 in _m1": 6,
+   "G2 in _m2": 6
+  },
+  "module_functions": {
+   "module:117c596cccfb573f606e8d7f": "_m0",
+   "module:b409b71ea0e41d77abb7cb9c": "_m1",
+   "module:c79e712699a5aa1716f3f65c": "_m2"
+  },
+  "source_bytes": 161352
+ },
+ "A1": {
+  "bytecodes_by_code_object": {
+   "<genexpr>": 21363,
+   "<lambda>": 9,
+   "_m0": 51894,
+   "_m1": 468100,
+   "_m2": 74947,
+   "by_code": 10,
+   "run": 57
+  },
+  "bytecodes_total_measured": 616380,
+  "calls_per_screenshot": {
+   "_c0": 0,
+   "_m0": 961,
+   "_m1": 3100,
+   "_m2": 19
+  },
+  "guard_stats": {
+   "guard_bounds_eliminated": 0,
+   "guard_bounds_emitted": 0,
+   "guard_index_eliminated": 0,
+   "guard_index_emitted": 12,
+   "guard_range_eliminated": 191,
+   "guard_range_emitted": 76,
+   "guard_shift_eliminated": 0,
+   "guard_shift_emitted": 0,
+   "guard_zerodiv_eliminated": 0,
+   "guard_zerodiv_emitted": 0
+  },
+  "guards_eliminated_by_function": {
+   "G1 in _m2": 191
+  },
+  "guards_kept_by_function": {
+   "G1 in _m0": 2,
+   "G1 in _m1": 4,
+   "G1 in _m2": 70,
+   "G2 in _m1": 6,
+   "G2 in _m2": 6
+  },
+  "module_functions": {
+   "module:09b8179d0eb09df337c270d8": "_m2",
+   "module:117c596cccfb573f606e8d7f": "_m0",
+   "module:b409b71ea0e41d77abb7cb9c": "_m1"
+  },
+  "source_bytes": 161570
+ },
+ "B": {
+  "bytecodes_by_code_object": {
+   "<genexpr>": 21363,
+   "<lambda>": 9,
+   "_c3": 829083,
+   "_m0": 38440,
+   "_m1": 213900,
+   "_m2": 71071,
+   "by_code": 10,
+   "run": 57
+  },
+  "bytecodes_total_measured": 1173933,
+  "calls_per_screenshot": {
+   "_c0": 0,
+   "_c3": 19281,
+   "_m0": 961,
+   "_m1": 3100,
+   "_m2": 19
+  },
+  "guard_stats": {
+   "guard_bounds_eliminated": 0,
+   "guard_bounds_emitted": 0,
+   "guard_index_eliminated": 12,
+   "guard_index_emitted": 0,
+   "guard_range_eliminated": 0,
+   "guard_range_emitted": 0,
+   "guard_shift_eliminated": 0,
+   "guard_shift_emitted": 0,
+   "guard_zerodiv_eliminated": 0,
+   "guard_zerodiv_emitted": 0
+  },
+  "guards_eliminated_by_function": {
+   "G2 in _m1": 6,
+   "G2 in _m2": 6
+  },
+  "guards_kept_by_function": {
+   "Ccall in _m0": 2,
+   "Ccall in _m1": 4,
+   "Ccall in _m2": 261
+  },
+  "module_functions": {
+   "module:41c064401830eb79006db24c": "_m1",
+   "module:473762fbdb9e0370045bf4c2": "_m2",
+   "module:612b126b0e31b35f77420cba": "_m0"
+  },
+  "source_bytes": 158465
+ },
+ "B+": {
+  "bytecodes_by_code_object": {
+   "<genexpr>": 21363,
+   "<lambda>": 9,
+   "_m0": 69192,
+   "_m1": 300700,
+   "_m2": 74548,
+   "by_code": 10,
+   "run": 57
+  },
+  "bytecodes_total_measured": 465879,
+  "calls_per_screenshot": {
+   "_c0": 0,
+   "_m0": 961,
+   "_m1": 3100,
+   "_m2": 19
+  },
+  "guard_stats": {
+   "guard_bounds_eliminated": 191,
+   "guard_bounds_emitted": 76,
+   "guard_index_eliminated": 12,
+   "guard_index_emitted": 0,
+   "guard_range_eliminated": 261,
+   "guard_range_emitted": 6,
+   "guard_shift_eliminated": 0,
+   "guard_shift_emitted": 0,
+   "guard_zerodiv_eliminated": 0,
+   "guard_zerodiv_emitted": 0
+  },
+  "guards_eliminated_by_function": {
+   "G1 in _m1": 4,
+   "G1 in _m2": 257,
+   "G1b in _m2": 191,
+   "G2 in _m1": 6,
+   "G2 in _m2": 6
+  },
+  "guards_kept_by_function": {
+   "G1 in _m0": 2,
+   "G1 in _m2": 4,
+   "G1b in _m0": 2,
+   "G1b in _m1": 4,
+   "G1b in _m2": 70
+  },
+  "module_functions": {
+   "module:41c064401830eb79006db24c": "_m1",
+   "module:473762fbdb9e0370045bf4c2": "_m2",
+   "module:612b126b0e31b35f77420cba": "_m0"
+  },
+  "source_bytes": 163219
+ }
+}

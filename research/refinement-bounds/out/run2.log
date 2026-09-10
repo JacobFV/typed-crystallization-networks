@@ -1,0 +1,8 @@
+null-control pairs (byte-identical source): [['A0', 'N']]
+identity: {'A0': True, 'N': True, 'A1': True, 'B': True, 'B+': True}
+A0   bytecodes   602748.3 (A0/x 1.0000)   wall   4804.73 us   A0/x 1.0000 CI[1.0000, 1.0000]  (contains 1)
+N    bytecodes   602748.3 (A0/x 1.0000)   wall   4820.65 us   A0/x 0.9967 CI[0.9932, 1.0032]  (contains 1)
+A1   bytecodes   603000.3 (A0/x 0.9996)   wall   4818.95 us   A0/x 0.9970 CI[0.9926, 1.0043]  (contains 1)
+B    bytecodes  1143954.3 (A0/x 0.5269)   wall   6190.04 us   A0/x 0.7762 CI[0.7723, 0.7812]
+B+   bytecodes   455868.3 (A0/x 1.3222)   wall   4437.23 us   A0/x 1.0828 CI[1.0768, 1.0917]
+-> /home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a0350f1fdeac805b2/research/refinement-bounds/out/measure_run2.json

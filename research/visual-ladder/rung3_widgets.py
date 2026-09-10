@@ -58,9 +58,9 @@ import time
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
-from common import (BYTE, FLAT, IDX, Builder, Registry, accuracy, all_conforming, bytes_type,
-                    colour_at, dump, episode, exact_error, random_reference, record_type,
-                    report, sweep)
+from common import (BYTE, FLAT, IDX, Builder, Registry, accuracy, address_type, all_conforming,
+                    bytes_type, colour_at, dump, episode, exact_error, random_reference,
+                    record_type, report, sweep)
 from tcn.graph import Candidate, Node, Program, Signal
 from tcn.search import space_size
 from tcn.types import BOOL, Value, integer, product, setof
@@ -72,18 +72,23 @@ POOL = (30, 100, 170)                    # distractor byte constants for the S0 
 # --------------------------------------------------------------------------
 # S0: same(a, b, obs)
 # --------------------------------------------------------------------------
-def same_scaffold(registry, width, height, free=False):
+def same_scaffold(registry, width, height, free=False, addr=None):
     """`(a, b, obs) -> bool`: do two addressed pixels carry the same colour?
 
     Free choices: the two Boolean combinators, and -- under `free` -- each
     channel comparison's second operand, so the operand binding is searched
     rather than supplied.
+
+    `addr` (default `IDX`, unchanged) is the declared address carrier.  Passing
+    `common.address_type(width, height)` declares the refinement bound that
+    `research/refinement-bounds` measures; nothing else in this file changes.
     """
+    A = addr or IDX
     BT = bytes_type(width, height)
-    consts = (("one", Value.of(IDX, 1)), ("two", Value.of(IDX, 2)))
+    consts = (("one", Value.of(A, 1)), ("two", Value.of(A, 2)))
     if free:
         consts += tuple((f"byte_{v}", Value.of(BYTE, v)) for v in POOL)
-    b = Builder(registry, (("a", IDX), ("b", IDX), ("obs", BT)), consts)
+    b = Builder(registry, (("a", A), ("b", A), ("obs", BT)), consts)
     for tag in ("a", "b"):
         b.add(f"{tag}_g", "add", [tag, "one"])
         b.add(f"{tag}_b", "add", [tag, "two"])
@@ -106,7 +111,7 @@ def same_scaffold(registry, width, height, free=False):
     return b.program((("y", "same"),))
 
 
-def same_examples(seeds, split, per_image, seed=0, arbitrary=False, **configuration):
+def same_examples(seeds, split, per_image, seed=0, arbitrary=False, addr=None, **configuration):
     """Four-neighbour pairs, labelled by the `owner` probe.
 
     MEASURED CORRECTION to the draft.  The draft drew *arbitrary* address pairs,
@@ -146,7 +151,8 @@ def same_examples(seeds, split, per_image, seed=0, arbitrary=False, **configurat
                     continue
                 j = (y + dy) * w + (x + dx)
             drawn += 1
-            rows.append({"inputs": {"a": Value.of(IDX, 3 * i), "b": Value.of(IDX, 3 * j),
+            rows.append({"inputs": {"a": Value.of(addr or IDX, 3 * i),
+                                    "b": Value.of(addr or IDX, 3 * j),
                                     "obs": Value(BT, raw)},
                          "targets": {"same": Value.of(BOOL, owner[i] == owner[j])}})
     rng.shuffle(rows)
@@ -179,11 +185,12 @@ def offset_pool(width):
     return (6, 3 * width + 3, 3, 3 * width, 9)
 
 
-def corner_scaffold(registry, width, height, module, offsets):
+def corner_scaffold(registry, width, height, module, offsets, addr=None):
     """`rec -> bool`: two frozen `same` calls at searched offsets, combined."""
+    A = addr or IDX
     BT = bytes_type(width, height)
-    consts = tuple((f"off{k}", Value.of(IDX, k)) for k in offsets)
-    b = Builder(registry, (("rec", record_type(width, height)),), consts)
+    consts = tuple((f"off{k}", Value.of(A, k)) for k in offsets)
+    b = Builder(registry, (("rec", record_type(width, height, addr=A)),), consts)
     b.add("pos", "project", ["rec"], params={"index": 0})
     b.add("obs", "project", ["rec"], params={"index": 1})
     b.choice("back_a", [("sub", ("pos", f"off{k}"), None, None) for k in offsets])
@@ -200,14 +207,14 @@ def interior_positions(ep):
     return tuple(3 * (y * w + x) for y in range(1, h) for x in range(1, w))
 
 
-def corner_examples(seeds, split, per_image=None, seed=0, **configuration):
+def corner_examples(seeds, split, per_image=None, seed=0, addr=None, **configuration):
     import random
     rng = random.Random(seed)
     rows = []
     for s in seeds:
         ep = episode(s, split, **configuration)
         BT = bytes_type(ep["width"], ep["height"])
-        REC = record_type(ep["width"], ep["height"])
+        REC = record_type(ep["width"], ep["height"], addr=addr or IDX)
         raw = Value.of(BT, ep["pixels"]).raw
         corners = {(d["rect"][0], d["rect"][1]) for d in ep["probes"]["hierarchy"]}
         positions = interior_positions(ep)
@@ -230,7 +237,8 @@ def corner_signals():
 # --------------------------------------------------------------------------
 # S2: rect(rec)
 # --------------------------------------------------------------------------
-def rect_scaffold(registry, width, height, module, offsets, span=None):
+def rect_scaffold(registry, width, height, module, offsets, span=None, addr=None,
+                  reformulated_clamp=False):
     """`rec -> (x, y, w, h, key, parent_key)` at a widget's top-left corner.
 
     The extent is a *count*, not a run: `bounds.py` checks that a widget's own
@@ -239,20 +247,32 @@ def rect_scaffold(registry, width, height, module, offsets, span=None):
     over the whole span is the extent and needs no sequential accumulator.  The
     in-bounds mask is what keeps a row count from wrapping into the next row.
     """
+    A = addr or IDX
     BT = bytes_type(width, height)
     span = span or max(width, height)
     last = 3 * width * height - 3
-    consts = (("one", Value.of(IDX, 1)), ("two", Value.of(IDX, 2)),
-              ("three", Value.of(IDX, 3)), ("last", Value.of(IDX, last)),
-              ("width", Value.of(IDX, width)), ("height", Value.of(IDX, height)))
-    consts += tuple((f"off{k}", Value.of(IDX, k)) for k in offsets)
-    consts += tuple((f"k{k}", Value.of(IDX, k)) for k in range(1, span))
-    b = Builder(registry, (("rec", record_type(width, height)),), consts)
+    consts = (("one", Value.of(A, 1)), ("two", Value.of(A, 2)),
+              ("three", Value.of(A, 3)), ("last", Value.of(A, last)),
+              ("width", Value.of(A, width)), ("height", Value.of(A, height)))
+    consts += tuple((f"off{k}", Value.of(A, k)) for k in offsets)
+    consts += tuple((f"k{k}", Value.of(A, k)) for k in range(1, span))
+    b = Builder(registry, (("rec", record_type(width, height, addr=A)),), consts)
     b.add("pos", "project", ["rec"], params={"index": 0})
     b.add("obs", "project", ["rec"], params={"index": 1})
     b.add("linear", "idiv", ["pos", "three"])
     b.add("x", "mod", ["linear", "width"])
     b.add("y", "idiv", ["linear", "width"])
+    if reformulated_clamp:
+        # `min(pos + d, last) == pos + min(d, last - pos)` for `0 <= pos <= last`
+        # and `d >= 0`, verified exhaustively by
+        # `research/refinement-bounds/soundness.py`.  The two spellings compute
+        # the identical address; only the *intermediate* differs, and that is the
+        # whole point -- the left spelling passes through `pos + d`, which
+        # reaches 6,045 on a 3,072-byte raster, so no refinement bound tight
+        # enough to prove the index can be declared on the address carrier while
+        # that intermediate is typed by it.  The right spelling never leaves
+        # `[0, last]`.  Off by default: the emitted program is unchanged.
+        b.add("room", "sub", ["last", "pos"])
     b.choice("step_w", [("identity", (f"off{k}",), None, None) for k in offsets])
     b.choice("step_h", [("identity", (f"off{k}",), None, None) for k in offsets])
     for tag, step, coordinate, limit in (("w", "step_w", "x", "width"),
@@ -260,8 +280,12 @@ def rect_scaffold(registry, width, height, module, offsets, span=None):
         terms, run = [], None
         for k in range(1, span):
             b.add(f"{tag}d{k}", "mul", [step, f"k{k}"])
-            b.add(f"{tag}a{k}", "add", ["pos", f"{tag}d{k}"])
-            b.add(f"{tag}c{k}", "min", [f"{tag}a{k}", "last"])
+            if reformulated_clamp:
+                b.add(f"{tag}p{k}", "min", [f"{tag}d{k}", "room"])
+                b.add(f"{tag}c{k}", "add", ["pos", f"{tag}p{k}"])
+            else:
+                b.add(f"{tag}a{k}", "add", ["pos", f"{tag}d{k}"])
+                b.add(f"{tag}c{k}", "min", [f"{tag}a{k}", "last"])
             b.add(f"{tag}s{k}", module, [f"{tag}c{k}", "pos", "obs"])
             b.add(f"{tag}i{k}", "add", [coordinate, f"k{k}"])
             b.add(f"{tag}m{k}", "lt", [f"{tag}i{k}", limit])
@@ -279,7 +303,7 @@ def rect_scaffold(registry, width, height, module, offsets, span=None):
             # and no recurrence.
             run = (f"{tag}t{k}" if run is None
                    else b.add(f"{tag}r{k}", "and", [run, f"{tag}t{k}"]))
-            terms.append(b.add(f"{tag}e{k}", "encode", [run], out=IDX))
+            terms.append(b.add(f"{tag}e{k}", "encode", [run], out=A))
         b.add(f"{tag}_tuple", "tuple", terms)
         b.add(f"{tag}_count", "sum", [f"{tag}_tuple"])
         b.add(f"{tag}_extent", "add", [f"{tag}_count", "one"])
@@ -299,11 +323,16 @@ def rect_scaffold(registry, width, height, module, offsets, span=None):
 RECT = product(IDX, IDX, IDX, IDX, KEY, KEY)
 
 
-def rect_target(ep, widget):
+def rect_type(addr=None):
+    A = addr or IDX
+    return product(A, A, A, A, KEY, KEY)
+
+
+def rect_target(ep, widget, addr=None):
     x, y, w, h = widget["rect"]
     own = colour_at(ep, x, y)
     parent = colour_at(ep, x - 1, y)
-    return Value.of(RECT, (x, y, w, h, pack_rgb(own), pack_rgb(parent)))
+    return Value.of(rect_type(addr), (x, y, w, h, pack_rgb(own), pack_rgb(parent)))
 
 
 def pack_rgb(colour):
@@ -311,31 +340,32 @@ def pack_rgb(colour):
     return int(r) | (int(g) << 8) | (int(blue) << 16)
 
 
-def rect_examples(seeds, split, **configuration):
+def rect_examples(seeds, split, addr=None, **configuration):
     """One example per non-root widget, at its own corner."""
     rows = []
     for s in seeds:
         ep = episode(s, split, **configuration)
         BT = bytes_type(ep["width"], ep["height"])
-        REC = record_type(ep["width"], ep["height"])
+        REC = record_type(ep["width"], ep["height"], addr=addr or IDX)
         raw = Value.of(BT, ep["pixels"]).raw
         for d in ep["probes"]["hierarchy"]:
             x, y = d["rect"][0], d["rect"][1]
             if x < 1 or y < 1:
                 continue
             rows.append({"inputs": {"rec": Value(REC, (3 * (y * ep["width"] + x), raw))},
-                         "targets": {"rect": rect_target(ep, d)}})
+                         "targets": {"rect": rect_target(ep, d, addr=addr)}})
     return rows
 
 
-def rect_signals():
-    return (Signal("record", "rect", ("core",), RECT, "mse"),)
+def rect_signals(addr=None):
+    return (Signal("record", "rect", ("core",), rect_type(addr), "mse"),)
 
 
 # --------------------------------------------------------------------------
 # S3: the assembly
 # --------------------------------------------------------------------------
-def assembly(registry, observation, positions, corner_module, rect_module, port="observation"):
+def assembly(registry, observation, positions, corner_module, rect_module, port="observation",
+             addr=None):
     """Four caller nodes: hold, pair, filter, map.
 
     `tcn.scaffold.positional_scaffold` supplies three of these; the fourth is the
@@ -345,7 +375,7 @@ def assembly(registry, observation, positions, corner_module, rect_module, port=
     """
     positions = tuple(positions)
     holder = setof(observation, 1)
-    locations = setof(IDX, len(set(positions)))
+    locations = setof(addr or IDX, len(set(positions)))
     hold = registry.resolve("insert", (holder, observation))
     records = registry.resolve("pair", (locations, hold.output))
     kept = registry.resolve("filter", (records.output,), None, {"module": corner_module})

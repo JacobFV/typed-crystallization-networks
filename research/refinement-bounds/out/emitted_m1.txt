@@ -1,0 +1,158 @@
+========================================================================
+arm A0   (161352 source bytes)
+========================================================================
+def _m1(v13, v14, v15):
+    # module:b409b71ea0e41d77abb7cb9c -- 15 nodes
+    # module:b409b71ea0e41d77abb7cb9c/a_g := add(a, one)
+    v16 = v13 + _k7
+    if not 0 <= v16 <= 65535: _ovf(v16, 0, 65535)
+    # module:b409b71ea0e41d77abb7cb9c/a_b := add(a, two)
+    v17 = v13 + _k8
+    if not 0 <= v17 <= 65535: _ovf(v17, 0, 65535)
+    # module:b409b71ea0e41d77abb7cb9c/a_r_v := index(obs, a)
+    if not 0 <= v13 < 3072: raise IndexError('index outside tuple')
+    v18 = v15[v13]
+    # module:b409b71ea0e41d77abb7cb9c/a_g_v := index(obs, a_g)
+    if not 0 <= v16 < 3072: raise IndexError('index outside tuple')
+    v19 = v15[v16]
+    # module:b409b71ea0e41d77abb7cb9c/a_b_v := index(obs, a_b)
+    if not 0 <= v17 < 3072: raise IndexError('index outside tuple')
+    v20 = v15[v17]
+    # module:b409b71ea0e41d77abb7cb9c/b_g := add(b, one)
+    v21 = v14 + _k7
+    if not 0 <= v21 <= 65535: _ovf(v21, 0, 65535)
+    # module:b409b71ea0e41d77abb7cb9c/b_b := add(b, two)
+    v22 = v14 + _k8
+    if not 0 <= v22 <= 65535: _ovf(v22, 0, 65535)
+    # module:b409b71ea0e41d77abb7cb9c/b_r_v := index(obs, b)
+    if not 0 <= v14 < 3072: raise IndexError('index outside tuple')
+    v23 = v15[v14]
+    # module:b409b71ea0e41d77abb7cb9c/b_g_v := index(obs, b_g)
+    if not 0 <= v21 < 3072: raise IndexError('index outside tuple')
+    v24 = v15[v21]
+    # module:b409b71ea0e41d77abb7cb9c/b_b_v := index(obs, b_b)
+    if not 0 <= v22 < 3072: raise IndexError('index outside tuple')
+    v25 = v15[v22]
+    # module:b409b71ea0e41d77abb7cb9c/cmp_r := eq(a_r_v, b_r_v)
+    v26 = v18 == v23
+    # module:b409b71ea0e41d77abb7cb9c/cmp_g := eq(a_g_v, b_g_v)
+    v27 = v19 == v24
+    # module:b409b71ea0e41d77abb7cb9c/cmp_b := eq(a_b_v, b_b_v)
+    v28 = v20 == v25
+    # module:b409b71ea0e41d77abb7cb9c/rg := truth_7(cmp_r, cmp_g)
+    v29 = _k9[2 * v26 + v27]
+    # module:b409b71ea0e41d77abb7cb9c/same := truth_2(rg, cmp_b)
+    v30 = _k10[2 * v29 + v28]
+    return v30
+
+def _c0(x):
+    if not _isfinite(x): _nonfinite()
+    n = int(x)
+    if n != x: raise ValueError('fractional value requires explicit quantization')
+    if not 0 <= n <= 255: raise OverflowError('%s outside [0, 255]' % n)
+    d = n
+    return d
+
+========================================================================
+arm B   (158465 source bytes)
+========================================================================
+def _m1(v13, v14, v15):
+    # module:41c064401830eb79006db24c -- 15 nodes
+    # module:41c064401830eb79006db24c/a_g := add(a, one)
+    v16 = _c3(v13 + _k7)
+    # module:41c064401830eb79006db24c/a_b := add(a, two)
+    v17 = _c3(v13 + _k8)
+    # module:41c064401830eb79006db24c/a_r_v := index(obs, a)
+    v18 = v15[v13]
+    # module:41c064401830eb79006db24c/a_g_v := index(obs, a_g)
+    v19 = v15[v16]
+    # module:41c064401830eb79006db24c/a_b_v := index(obs, a_b)
+    v20 = v15[v17]
+    # module:41c064401830eb79006db24c/b_g := add(b, one)
+    v21 = _c3(v14 + _k7)
+    # module:41c064401830eb79006db24c/b_b := add(b, two)
+    v22 = _c3(v14 + _k8)
+    # module:41c064401830eb79006db24c/b_r_v := index(obs, b)
+    v23 = v15[v14]
+    # module:41c064401830eb79006db24c/b_g_v := index(obs, b_g)
+    v24 = v15[v21]
+    # module:41c064401830eb79006db24c/b_b_v := index(obs, b_b)
+    v25 = v15[v22]
+    # module:41c064401830eb79006db24c/cmp_r := eq(a_r_v, b_r_v)
+    v26 = v18 == v23
+    # module:41c064401830eb79006db24c/cmp_g := eq(a_g_v, b_g_v)
+    v27 = v19 == v24
+    # module:41c064401830eb79006db24c/cmp_b := eq(a_b_v, b_b_v)
+    v28 = v20 == v25
+    # module:41c064401830eb79006db24c/rg := truth_7(cmp_r, cmp_g)
+    v29 = _k9[2 * v26 + v27]
+    # module:41c064401830eb79006db24c/same := truth_2(rg, cmp_b)
+    v30 = _k10[2 * v29 + v28]
+    return v30
+
+def _c3(x):
+    if not _isfinite(x): _nonfinite()
+    if not 0 <= x <= 3071: raise ValueError('value outside semantic bounds')
+    n = int(x)
+    if n != x: raise ValueError('fractional value requires explicit quantization')
+    if not 0 <= n <= 65535: raise OverflowError('%s outside [0, 65535]' % n)
+    d = n
+    if not 0 <= d <= 3071: raise ValueError('encoded value violates domain')
+    return d
+
+def _c0(x):
+    if not _isfinite(x): _nonfinite()
+    n = int(x)
+    if n != x: raise ValueError('fractional value requires explicit quantization')
+    if not 0 <= n <= 255: raise OverflowError('%s outside [0, 255]' % n)
+    d = n
+    return d
+
+========================================================================
+arm B+   (163219 source bytes)
+========================================================================
+def _m1(v13, v14, v15):
+    # module:41c064401830eb79006db24c -- 15 nodes
+    # module:41c064401830eb79006db24c/a_g := add(a, one)
+    v16 = v13 + _k7
+    if not 0 <= v16 <= 3071: raise ValueError('value outside semantic bounds')
+    # module:41c064401830eb79006db24c/a_b := add(a, two)
+    v17 = v13 + _k8
+    if not 0 <= v17 <= 3071: raise ValueError('value outside semantic bounds')
+    # module:41c064401830eb79006db24c/a_r_v := index(obs, a)
+    v18 = v15[v13]
+    # module:41c064401830eb79006db24c/a_g_v := index(obs, a_g)
+    v19 = v15[v16]
+    # module:41c064401830eb79006db24c/a_b_v := index(obs, a_b)
+    v20 = v15[v17]
+    # module:41c064401830eb79006db24c/b_g := add(b, one)
+    v21 = v14 + _k7
+    if not 0 <= v21 <= 3071: raise ValueError('value outside semantic bounds')
+    # module:41c064401830eb79006db24c/b_b := add(b, two)
+    v22 = v14 + _k8
+    if not 0 <= v22 <= 3071: raise ValueError('value outside semantic bounds')
+    # module:41c064401830eb79006db24c/b_r_v := index(obs, b)
+    v23 = v15[v14]
+    # module:41c064401830eb79006db24c/b_g_v := index(obs, b_g)
+    v24 = v15[v21]
+    # module:41c064401830eb79006db24c/b_b_v := index(obs, b_b)
+    v25 = v15[v22]
+    # module:41c064401830eb79006db24c/cmp_r := eq(a_r_v, b_r_v)
+    v26 = v18 == v23
+    # module:41c064401830eb79006db24c/cmp_g := eq(a_g_v, b_g_v)
+    v27 = v19 == v24
+    # module:41c064401830eb79006db24c/cmp_b := eq(a_b_v, b_b_v)
+    v28 = v20 == v25
+    # module:41c064401830eb79006db24c/rg := truth_7(cmp_r, cmp_g)
+    v29 = _k9[2 * v26 + v27]
+    # module:41c064401830eb79006db24c/same := truth_2(rg, cmp_b)
+    v30 = _k10[2 * v29 + v28]
+    return v30
+
+def _c0(x):
+    if not _isfinite(x): _nonfinite()
+    n = int(x)
+    if n != x: raise ValueError('fractional value requires explicit quantization')
+    if not 0 <= n <= 255: raise OverflowError('%s outside [0, 255]' % n)
+    d = n
+    return d

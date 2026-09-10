@@ -1,0 +1,71 @@
+{
+ "all_passed": true,
+ "arms": {
+  "A1": {
+   "comparisons": 48,
+   "gate_A_digest_arm": "63a41b6aa927b7aaeedfe782e43ad9f6e4270737976ed0b63cff4450f5c97fdc",
+   "gate_A_digest_reference": "63a41b6aa927b7aaeedfe782e43ad9f6e4270737976ed0b63cff4450f5c97fdc",
+   "gate_A_examples": [],
+   "gate_A_mismatch_fraction": "0 / 48",
+   "gate_A_mismatches": 0,
+   "gate_A_passed": true,
+   "gate_B_checked": 6,
+   "gate_B_examples": [],
+   "gate_B_mismatches": 0,
+   "gate_B_passed": true,
+   "guards": {
+    "guard_index_eliminated": 0,
+    "guard_index_emitted": 12,
+    "guard_range_eliminated": 191,
+    "guard_range_emitted": 76,
+    "guard_shift_eliminated": 0,
+    "guard_shift_emitted": 0,
+    "guard_zerodiv_eliminated": 0,
+    "guard_zerodiv_emitted": 0
+   },
+   "nodes_in_rect_module": null,
+   "program_digest": "47593f24fc1e749e771e7705",
+   "scalar_canonicalisations": 267,
+   "seconds": 94.1,
+   "source_bytes": 161570,
+   "source_lines": 1345,
+   "source_sha256": "6067d371f44213bac9a6684183bdc2a30a331f6664828f639cc8ddefa7c4fcf8"
+  },
+  "B": {
+   "comparisons": 48,
+   "gate_A_digest_arm": "63a41b6aa927b7aaeedfe782e43ad9f6e4270737976ed0b63cff4450f5c97fdc",
+   "gate_A_digest_reference": "63a41b6aa927b7aaeedfe782e43ad9f6e4270737976ed0b63cff4450f5c97fdc",
+   "gate_A_examples": [],
+   "gate_A_mismatch_fraction": "0 / 48",
+   "gate_A_mismatches": 0,
+   "gate_A_passed": true,
+   "gate_B_checked": 6,
+   "gate_B_examples": [],
+   "gate_B_mismatches": 0,
+   "gate_B_passed": true,
+   "guards": {
+    "guard_index_eliminated": 12,
+    "guard_index_emitted": 0,
+    "guard_range_eliminated": 0,
+    "guard_range_emitted": 0,
+    "guard_shift_eliminated": 0,
+    "guard_shift_emitted": 0,
+    "guard_zerodiv_eliminated": 0,
+    "guard_zerodiv_emitted": 0
+   },
+   "nodes_in_rect_module": null,
+   "program_digest": "2b893c37aeb473b06382c549",
+   "scalar_canonicalisations": 267,
+   "seconds": 94.3,
+   "source_bytes": 158465,
+   "source_lines": 1263,
+   "source_sha256": "f741722292eac568ef65e4a64a5bb94cd2d48b4591121e8ef744f32805205fa0"
+  }
+ },
+ "cases": 24,
+ "gate_domain": "24 held-out test screenshots (seeds 200-223), 961 interior positions each",
+ "raster_pixels_total": 24576,
+ "reference_arm": "A0",
+ "reference_source_sha256": "20e45f6b5e87c9a6e4af99ce8c581fdf125d8b79d92c0bfd2069e01b07861faa",
+ "screenshots": 24
+}

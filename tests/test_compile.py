@@ -37,8 +37,8 @@ def build(inputs, spec, outputs, constants=(), state=(), input_depths=(), regist
     return p.validate(r), r
 
 
-def agree(program, registry, cases, out_keys=None):
-    res = compile_program(program, registry)
+def agree(program, registry, cases, out_keys=None, inline_bounded=False):
+    res = compile_program(program, registry, inline_bounded=inline_bounded)
     mod = res.module()
     types = dict(program.inputs)
     for c in cases:
@@ -440,3 +440,118 @@ def test_guard_elimination_never_changes_the_boundary():
         mod.run({'a': 1.5, 'b': 0})
     with pytest.raises(TypeError):
         mod.run({'a': True, 'b': 0})
+
+
+# ---------------------------------------------------------------------------
+# GUARD CLASS G1b -- the refinement-bound check, inline.
+# `research/refinement-bounds/RESULTS.md`.
+#
+# `_fast_kind` used to refuse every carrier that declares `bounds`, so a bounded
+# scalar node left the inline range-test path for a `_canon_fn` **call** with
+# five tests in it.  On `visual`'s hot module that cost 1.90x the bytecodes the
+# declared bound saved.  `inline_bounded=True` (off by default) puts a bounded
+# carrier back on the inline path, emitting `_canon_body`'s two tests in
+# `_canon_body`'s order with `_canon_body`'s exceptions -- and dropping each one
+# only where the interval already discharges it.
+#
+# Each test drives the carrier to both edges in both directions and to one value
+# past each, and `agree` checks the compiled arm against the interpreter for the
+# identical value *or* the identical exception type at the identical edge.
+# ---------------------------------------------------------------------------
+U16A = integer(16, signed=False, bounds=(0, 7))          # an address into an 8-tuple
+U8N = integer(8, signed=False, bounds=(0, 400))          # a bound the 8-bit carrier
+                                                        # cannot itself enforce
+
+
+def test_inline_bounded_is_off_by_default_and_the_default_source_is_unchanged():
+    """The flag is opt-in; with it off the emitted source is what it always was."""
+    p, r = build((('a', U16A), ('b', U16A)), [('s', 'add', ('a', 'b'), None, None)],
+                 (('s', 's'),))
+    off = compile_program(p, r)
+    assert compile_program(p, r, inline_bounded=False).source == off.source
+    assert 'value outside semantic bounds' not in off.source.split('def run')[-1]
+    assert off.stats['guard_bounds_emitted'] == 0 and off.stats['guard_bounds_eliminated'] == 0
+    on = compile_program(p, r, inline_bounded=True)
+    assert on.source != off.source
+    assert on.stats['guard_bounds_emitted'] == 1
+    cases = [{'a': a, 'b': b} for a in (0, 1, 7) for b in (0, 1, 7)]
+    agree(p, r, cases)
+    agree(p, r, cases, inline_bounded=True)
+
+
+def test_inline_bounded_raises_the_identical_exception_at_the_identical_edge():
+    """A bound is a runtime obligation, not a static fact: `a + b` can leave it."""
+    p, r = build((('a', U16A), ('b', U16A)), [('s', 'add', ('a', 'b'), None, None)],
+                 (('s', 's'),))
+    for inline in (False, True):
+        mod = compile_program(p, r, inline_bounded=inline).module()
+        assert mod.run({'a': 3, 'b': 4})[0] == {'s': 7}          # exactly at the bound
+        with pytest.raises(ValueError) as exc:                   # one past it
+            mod.run({'a': 4, 'b': 4})
+        assert 'semantic bounds' in str(exc.value)
+    # and the interpreter agrees at every one of those edges
+    agree(p, r, [{'a': a, 'b': b} for a in range(8) for b in range(8)])
+    agree(p, r, [{'a': a, 'b': b} for a in range(8) for b in range(8)], inline_bounded=True)
+
+
+def test_inline_bounded_discharges_the_index_guard_the_bound_was_declared_for():
+    """`research/refinement-bounds`: the `visual` hot-path shape, in miniature.
+
+    `_m1(a, b, obs)` reads `obs[a]`, `obs[a + 1]`, `obs[a + 2]`.  A bound on the
+    address discharges the index obligation on `obs[a]` outright; on `obs[a + 1]`
+    it discharges only because the bound is re-established by the check on the
+    addition, which is why the two must be reasoned about together.
+    """
+    T8 = product(*([U8] * 8))
+    p, r = build((('t', T8), ('a', U16A)),
+                 [('g', 'add', ('a', 'k1'), None, None),
+                  ('v0', 'index', ('t', 'a'), None, None),
+                  ('v1', 'index', ('t', 'g'), None, None)],
+                 (('v0', 'v0'), ('v1', 'v1')), constants=(('k1', Value.of(U16A, 1)),))
+    res = compile_program(p, r, inline_bounded=True)
+    g = {k[6:]: v for k, v in res.stats.items() if k.startswith('guard_')}
+    assert g['index_eliminated'] == 2 and g['index_emitted'] == 0
+    assert 'index outside tuple' not in res.source
+    assert g['bounds_emitted'] == 1                       # `a + 1` can still leave (0, 7)
+    assert g['range_eliminated'] == 1                     # but never the 16-bit carrier
+    cases = [{'t': tuple(range(10, 18)), 'a': a} for a in range(8)]
+    agree(p, r, cases)
+    agree(p, r, cases, inline_bounded=True)
+
+
+def test_inline_bounded_keeps_the_width_check_when_the_bound_does_not_subsume_it():
+    """A refinement bound wider than the carrier leaves both obligations alive,
+    and `_canon_body` tests the bound first, so the inline form must too."""
+    p, r = build((('a', U8N), ('b', U8N)), [('s', 'add', ('a', 'b'), None, None)],
+                 (('s', 's'),))
+    res = compile_program(p, r, inline_bounded=True)
+    g = {k[6:]: v for k, v in res.stats.items() if k.startswith('guard_')}
+    assert g['bounds_emitted'] == 1 and g['range_emitted'] == 1
+    body = res.source.split('def run')[-1]
+    assert body.index('semantic bounds') < body.index('_ovf(')     # bound tested first
+    # 200 + 200 = 400 is inside the bound and outside the carrier -> OverflowError;
+    # 250 + 200 = 450 is outside both, and the bound is what must be reported.
+    mod = compile_program(p, r, inline_bounded=True).module()
+    with pytest.raises(OverflowError):
+        mod.run({'a': 200, 'b': 200})
+    with pytest.raises(ValueError) as exc:
+        mod.run({'a': 250, 'b': 200})
+    assert 'semantic bounds' in str(exc.value)
+    cases = [{'a': a, 'b': b} for a in (0, 128, 200, 250, 255) for b in (0, 1, 55, 200, 255)]
+    agree(p, r, cases)
+    agree(p, r, cases, inline_bounded=True)
+
+
+def test_inline_bounded_never_changes_the_boundary():
+    """As with G1-G4: only internal checks move; every input is validated in full."""
+    p, r = build((('a', U16A),), [('m', 'min', ('a', 'k'), None, None)], (('m', 'm'),),
+                 constants=(('k', Value.of(U16A, 5)),))
+    for inline in (False, True):
+        mod = compile_program(p, r, inline_bounded=inline).module()
+        assert mod.run({'a': 7})[0] == {'m': 5}
+        with pytest.raises(ValueError):
+            mod.run({'a': 8})                              # outside the declared bound
+        with pytest.raises(ValueError):
+            mod.run({'a': 1.5})
+        with pytest.raises(TypeError):
+            mod.run({'a': True})

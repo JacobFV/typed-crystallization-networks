@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a0350f1fdeac805b2/research/refinement-bounds/certificates.py", line 183, in <module>
+    main(sys.argv)
+    ~~~~^^^^^^^^^^
+  File "/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a0350f1fdeac805b2/research/refinement-bounds/certificates.py", line 170, in main
+    rep = {"space": space, "search": search, "parse": parse}[what](argv[2:])
+  File "/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a0350f1fdeac805b2/research/refinement-bounds/certificates.py", line 122, in parse
+    from common import bytes_type, episode, load
+ModuleNotFoundError: No module named 'common'

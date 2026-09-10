@@ -37,8 +37,8 @@ import time
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
-from common import (FLAT, IDX, Builder, Registry, bytes_type, colour_at, dump, episode,
-                    load, record_type, report)
+from common import (FLAT, IDX, Builder, Registry, address_type, bytes_type, colour_at, dump,
+                    episode, load, record_type, report)
 from tcn.types import BOOL, Value
 
 import rung3_widgets as R
@@ -52,11 +52,12 @@ def all_positions(ep):
     return tuple(3 * (y * w + x) for y in range(h) for x in range(w))
 
 
-def corner_scaffold_masked(registry, width, height, module, offsets):
+def corner_scaffold_masked(registry, width, height, module, offsets, addr=None):
     """`rec -> bool`, with an off-screen neighbour reading as "different"."""
-    consts = tuple((f"off{k}", Value.of(IDX, k)) for k in offsets)
-    consts += (("stride", Value.of(IDX, 3 * width)),)
-    b = Builder(registry, (("rec", record_type(width, height)),), consts)
+    A = addr or IDX
+    consts = tuple((f"off{k}", Value.of(A, k)) for k in offsets)
+    consts += (("stride", Value.of(A, 3 * width)),)
+    b = Builder(registry, (("rec", record_type(width, height, addr=A)),), consts)
     b.add("pos", "project", ["rec"], params={"index": 0})
     b.add("obs", "project", ["rec"], params={"index": 1})
     b.add("col", "mod", ["pos", "stride"])
@@ -74,13 +75,13 @@ def corner_scaffold_masked(registry, width, height, module, offsets):
     return b.program((("y", "corner"),))
 
 
-def corner_examples_all(seeds, split, per_image=None, seed=0, **configuration):
+def corner_examples_all(seeds, split, per_image=None, seed=0, addr=None, **configuration):
     import random
     rng = random.Random(seed)
     rows = []
     for s in seeds:
         ep = episode(s, split, **configuration)
-        REC = record_type(ep["width"], ep["height"])
+        REC = record_type(ep["width"], ep["height"], addr=addr or IDX)
         raw = Value.of(bytes_type(ep["width"], ep["height"]), ep["pixels"]).raw
         corners = {(d["rect"][0], d["rect"][1]) for d in ep["probes"]["hierarchy"]}
         positions = list(all_positions(ep))
@@ -100,22 +101,26 @@ def corner_examples_all(seeds, split, per_image=None, seed=0, **configuration):
     return rows
 
 
-def rect_scaffold_clamped(registry, width, height, module, offsets, span=None):
+def rect_scaffold_clamped(registry, width, height, module, offsets, span=None, addr=None,
+                          reformulated_clamp=False):
     """`rect_scaffold` with the parent pixel clamped at the origin."""
     # rebuilt rather than patched: the only difference is the clamped `left`.
+    A = addr or IDX
     span = span or max(width, height)
     last = 3 * width * height - 3
-    consts = (("one", Value.of(IDX, 1)), ("two", Value.of(IDX, 2)),
-              ("three", Value.of(IDX, 3)), ("last", Value.of(IDX, last)),
-              ("width", Value.of(IDX, width)), ("height", Value.of(IDX, height)))
-    consts += tuple((f"off{k}", Value.of(IDX, k)) for k in offsets)
-    consts += tuple((f"k{k}", Value.of(IDX, k)) for k in range(1, span))
-    b = Builder(registry, (("rec", record_type(width, height)),), consts)
+    consts = (("one", Value.of(A, 1)), ("two", Value.of(A, 2)),
+              ("three", Value.of(A, 3)), ("last", Value.of(A, last)),
+              ("width", Value.of(A, width)), ("height", Value.of(A, height)))
+    consts += tuple((f"off{k}", Value.of(A, k)) for k in offsets)
+    consts += tuple((f"k{k}", Value.of(A, k)) for k in range(1, span))
+    b = Builder(registry, (("rec", record_type(width, height, addr=A)),), consts)
     b.add("pos", "project", ["rec"], params={"index": 0})
     b.add("obs", "project", ["rec"], params={"index": 1})
     b.add("linear", "idiv", ["pos", "three"])
     b.add("x", "mod", ["linear", "width"])
     b.add("y", "idiv", ["linear", "width"])
+    if reformulated_clamp:
+        b.add("room", "sub", ["last", "pos"])
     b.choice("step_w", [("identity", (f"off{k}",), None, None) for k in offsets])
     b.choice("step_h", [("identity", (f"off{k}",), None, None) for k in offsets])
     for tag, step, coordinate, limit in (("w", "step_w", "x", "width"),
@@ -123,15 +128,19 @@ def rect_scaffold_clamped(registry, width, height, module, offsets, span=None):
         terms, run = [], None
         for k in range(1, span):
             b.add(f"{tag}d{k}", "mul", [step, f"k{k}"])
-            b.add(f"{tag}a{k}", "add", ["pos", f"{tag}d{k}"])
-            b.add(f"{tag}c{k}", "min", [f"{tag}a{k}", "last"])
+            if reformulated_clamp:
+                b.add(f"{tag}p{k}", "min", [f"{tag}d{k}", "room"])
+                b.add(f"{tag}c{k}", "add", ["pos", f"{tag}p{k}"])
+            else:
+                b.add(f"{tag}a{k}", "add", ["pos", f"{tag}d{k}"])
+                b.add(f"{tag}c{k}", "min", [f"{tag}a{k}", "last"])
             b.add(f"{tag}s{k}", module, [f"{tag}c{k}", "pos", "obs"])
             b.add(f"{tag}i{k}", "add", [coordinate, f"k{k}"])
             b.add(f"{tag}m{k}", "lt", [f"{tag}i{k}", limit])
             b.add(f"{tag}t{k}", "and", [f"{tag}s{k}", f"{tag}m{k}"])
             run = (f"{tag}t{k}" if run is None
                    else b.add(f"{tag}r{k}", "and", [run, f"{tag}t{k}"]))
-            terms.append(b.add(f"{tag}e{k}", "encode", [run], out=IDX))
+            terms.append(b.add(f"{tag}e{k}", "encode", [run], out=A))
         b.add(f"{tag}_tuple", "tuple", terms)
         b.add(f"{tag}_count", "sum", [f"{tag}_tuple"])
         b.add(f"{tag}_extent", "add", [f"{tag}_count", "one"])
@@ -149,18 +158,18 @@ def rect_scaffold_clamped(registry, width, height, module, offsets, span=None):
     return b.program((("y", "record"),))
 
 
-def rect_examples_all(seeds, split, **configuration):
+def rect_examples_all(seeds, split, addr=None, **configuration):
     """One example per widget, the root included; its parent pixel is itself."""
     rows = []
     for s in seeds:
         ep = episode(s, split, **configuration)
-        REC = record_type(ep["width"], ep["height"])
+        REC = record_type(ep["width"], ep["height"], addr=addr or IDX)
         raw = Value.of(bytes_type(ep["width"], ep["height"]), ep["pixels"]).raw
         for d in ep["probes"]["hierarchy"]:
             x, y = d["rect"][0], d["rect"][1]
             own = R.pack_rgb(colour_at(ep, x, y))
             par = own if x == 0 else R.pack_rgb(colour_at(ep, x - 1, y))
-            target = Value.of(R.RECT, (x, y, d["rect"][2], d["rect"][3], own, par))
+            target = Value.of(R.rect_type(addr), (x, y, d["rect"][2], d["rect"][3], own, par))
             rows.append({"inputs": {"rec": Value(REC, (3 * (y * ep["width"] + x), raw))},
                          "targets": {"rect": target}})
     return rows

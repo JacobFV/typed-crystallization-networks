@@ -1,0 +1,43 @@
+{
+ "all_passed": true,
+ "arms": {
+  "B": {
+   "comparisons": 48,
+   "gate_A_digest_arm": "63a41b6aa927b7aaeedfe782e43ad9f6e4270737976ed0b63cff4450f5c97fdc",
+   "gate_A_digest_reference": "63a41b6aa927b7aaeedfe782e43ad9f6e4270737976ed0b63cff4450f5c97fdc",
+   "gate_A_examples": [],
+   "gate_A_mismatch_fraction": "0 / 48",
+   "gate_A_mismatches": 0,
+   "gate_A_passed": true,
+   "gate_B_checked": 6,
+   "gate_B_examples": [],
+   "gate_B_mismatches": 0,
+   "gate_B_passed": true,
+   "guards": {
+    "guard_bounds_eliminated": 191,
+    "guard_bounds_emitted": 76,
+    "guard_index_eliminated": 12,
+    "guard_index_emitted": 0,
+    "guard_range_eliminated": 261,
+    "guard_range_emitted": 6,
+    "guard_shift_eliminated": 0,
+    "guard_shift_emitted": 0,
+    "guard_zerodiv_eliminated": 0,
+    "guard_zerodiv_emitted": 0
+   },
+   "nodes_in_rect_module": null,
+   "program_digest": "2b893c37aeb473b06382c549",
+   "scalar_canonicalisations": 267,
+   "seconds": 95.2,
+   "source_bytes": 163219,
+   "source_lines": 1339,
+   "source_sha256": "50e4a0c00a40e3bea201e16f60034f9af3a48317f1f339deb3952a2255de74b8"
+  }
+ },
+ "cases": 24,
+ "gate_domain": "24 held-out test screenshots (seeds 200-223), 961 interior positions each",
+ "raster_pixels_total": 24576,
+ "reference_arm": "A0",
+ "reference_source_sha256": "20e45f6b5e87c9a6e4af99ce8c581fdf125d8b79d92c0bfd2069e01b07861faa",
+ "screenshots": 24
+}

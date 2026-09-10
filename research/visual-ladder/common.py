@@ -82,8 +82,25 @@ def bytes_type(width, height, channels=3):
     return product(*(BYTE for _ in range(channels * width * height)))
 
 
-def record_type(width, height, channels=3):
-    return product(IDX, bytes_type(width, height, channels))
+def address_type(width, height, channels=3):
+    """`IDX` refined to the raster it addresses: exactly the legal byte offsets.
+
+    `research/refinement-bounds` only.  Nothing in this track builds it by
+    default -- every entry point below keeps `IDX` unless an `addr` is passed --
+    so declaring it changes no existing artifact, search or certificate.
+
+    The upper endpoint is the **last byte** `3WH - 1`, not the last *pixel*
+    `3WH - 3`, because `Registry.resolve` gives a binary operator the same output
+    type as its operands, so a bound declared on an address `a` is inherited by
+    the `a + 1` and `a + 2` that `same_scaffold` computes from it.  A bound of
+    `(0, 3WH - 3)` -- the value the `min(., 3069)` clamp enforces -- is violated
+    by `a + 2` on a reachable input.  See `research/refinement-bounds/RESULTS.md`.
+    """
+    return integer(16, signed=False, bounds=(0, channels * width * height - 1))
+
+
+def record_type(width, height, channels=3, addr=None):
+    return product(addr or IDX, bytes_type(width, height, channels))
 
 
 def colour_at(ep, x, y):

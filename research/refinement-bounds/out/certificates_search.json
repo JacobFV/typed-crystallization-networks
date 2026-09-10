@@ -1,0 +1,54 @@
+{
+ "widgets_declared_IDX": {
+  "s0": {
+   "space_size": 256,
+   "evaluated": 256,
+   "conforming": 2,
+   "certificate": "complete",
+   "exhausted": true,
+   "unique": false,
+   "solved": true,
+   "node_evaluations": 10064,
+   "selections": {
+    "a_g": 0,
+    "a_b": 0,
+    "a_r_v": 0,
+    "a_g_v": 0,
+    "a_b_v": 0,
+    "b_g": 0,
+    "b_b": 0,
+    "b_r_v": 0,
+    "b_g_v": 0,
+    "b_b_v": 0,
+    "cmp_r": 0,
+    "cmp_g": 0,
+    "cmp_b": 0,
+    "rg": 7,
+    "same": 2
+   },
+   "train_records": 288,
+   "seconds": 0.8
+  },
+  "s1": {
+   "space_size": 400,
+   "evaluated": 400,
+   "conforming": 2,
+   "certificate": "complete",
+   "exhausted": true,
+   "unique": false,
+   "solved": true,
+   "node_evaluations": 64866,
+   "selections": {
+    "pos": 0,
+    "obs": 0,
+    "back_a": 2,
+    "back_b": 3,
+    "same_a": 0,
+    "same_b": 0,
+    "corner": 1
+   },
+   "train_records": 720,
+   "seconds": 101.0
+  }
+ }
+}

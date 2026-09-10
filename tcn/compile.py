@@ -180,9 +180,10 @@ def _lit(x):
 
 
 class _Compiler:
-    def __init__(self, program, registry, entry="run"):
+    def __init__(self, program, registry, entry="run", inline_bounded=False):
         self.registry = registry
         self.entry = entry
+        self.inline_bounded = inline_bounded
         self.program = program
         self.types = {}            # canonical type key -> index
         self.type_dicts = []       # index -> canonical dict
@@ -203,6 +204,7 @@ class _Compiler:
                       "boundary_encoders": 0, "modules_emitted": 0, "widest_static_type": 0,
                       "boundary_identity_guards": 0,
                       "guard_range_emitted": 0, "guard_range_eliminated": 0,
+                      "guard_bounds_emitted": 0, "guard_bounds_eliminated": 0,
                       "guard_index_emitted": 0, "guard_index_eliminated": 0,
                       "guard_zerodiv_emitted": 0, "guard_zerodiv_eliminated": 0,
                       "guard_shift_emitted": 0, "guard_shift_eliminated": 0}
@@ -563,7 +565,14 @@ class _Compiler:
     def _fast_kind(self, op):
         """Can the encode/decode round trip be inlined as one range test?"""
         t = op.output
-        if t.kind != "int" or t.bounds is not None:
+        if t.kind != "int":
+            return None
+        if t.bounds is not None and not self.inline_bounded:
+            # A refinement bound sends the node to `_canon_fn`, a Python call
+            # with five tests in it, where an unbounded carrier of the same
+            # width gets three inline comparisons.  That one line is what made a
+            # declared bound cost more on `visual`'s hot module than the index
+            # guards it discharged -- `research/refinement-bounds/RESULTS.md`.
             return None
         e = t.encoding
         ins = [i for i in op.inputs if i.kind == "int"]
@@ -610,16 +619,41 @@ class _Compiler:
             hi = M // (2 if t.encoding.signed else 1) - 1
             self.stats["scalar_canonicalisations"] += 1
             span = self._expr_iv(op, s) if s else None
+            checks = []
+            # GUARD CLASS G1b -- the refinement-bound check.  Only ever reached
+            # under `inline_bounded`; without it `_fast_kind` refuses a bounded
+            # carrier and the node goes to `_canon_fn` exactly as before.
+            # `_canon_body` tests the bound BEFORE the width and raises
+            # `ValueError('value outside semantic bounds')`, so the inline form
+            # emits the same two tests in the same order raising the same
+            # exceptions -- and drops each one only where the interval of the
+            # expression already discharges it.
+            if t.bounds is not None:
+                b0, b1 = t.bounds
+                if span is not None and b0 <= span[0] and span[1] <= b1:
+                    self.stats["guard_bounds_eliminated"] += 1
+                else:
+                    self.stats["guard_bounds_emitted"] += 1
+                    checks.append("if not %r <= %s <= %r: raise ValueError("
+                                  "'value outside semantic bounds')" % (b0, dst, b1))
             if span is not None and lo <= span[0] and span[1] <= hi:
                 self.stats["guard_range_eliminated"] += 1
+            else:
+                self.needs.add("ovf")
+                self.stats["guard_range_emitted"] += 1
+                checks.append("if not %d <= %s <= %d: _ovf(%s, %d, %d)"
+                              % (lo, dst, hi, dst, lo, hi))
+            # IV for the result: what the surviving checks and the discharged
+            # ones jointly guarantee -- the expression's own interval met with
+            # the declared type's.  With no refinement bound `_int_interval(t)`
+            # is exactly `(lo, hi)`, so this is the identical bookkeeping
+            # section 59 shipped, byte for byte.
+            dec = _int_interval(t) or (lo, hi)
+            if not checks:
                 self.iv[dst] = span
-                return ["%s = %s" % (dst, expr)]
-            self.needs.add("ovf")
-            self.stats["guard_range_emitted"] += 1
-            if span is not None and max(lo, span[0]) <= min(hi, span[1]):
-                self.iv[dst] = (max(lo, span[0]), min(hi, span[1]))
-            return ["%s = %s" % (dst, expr),
-                    "if not %d <= %s <= %d: _ovf(%s, %d, %d)" % (lo, dst, hi, dst, lo, hi)]
+            elif span is not None and max(dec[0], span[0]) <= min(dec[1], span[1]):
+                self.iv[dst] = (max(dec[0], span[0]), min(dec[1], span[1]))
+            return ["%s = %s" % (dst, expr)] + checks
         if kind == "float64":
             self.needs.add("isfinite")
             self.stats["scalar_canonicalisations"] += 1
@@ -1034,14 +1068,21 @@ class _ScalarOp:
         self.parameters = ()
 
 
-def compile_program(program, registry=None, entry="run"):
+def compile_program(program, registry=None, entry="run", inline_bounded=False):
     """Compile a frozen `Program` to standalone Python source.
 
     Returns a `CompileResult` with `.source`, `.provenance`, `.types`, `.stats`.
     The interpreter is untouched and remains the oracle for equivalence.
+
+    `inline_bounded` (**off by default**) lets a carrier that declares a
+    refinement bound use the same inline range-test path an unbounded integer
+    carrier already uses, instead of a `_canon_fn` call.  See `_fast_kind` and
+    `_emit_scalar`, and `research/refinement-bounds/RESULTS.md` for the
+    measurement that motivates it.  With it off, every byte of emitted source is
+    what it was.
     """
     registry = registry or Registry()
-    c = _Compiler(program, registry, entry)
+    c = _Compiler(program, registry, entry, inline_bounded=inline_bounded)
     source = c.build()
     c.stats["type_table_entries"] = len(c.type_dicts)
     c.stats["source_bytes"] = len(source.encode())
