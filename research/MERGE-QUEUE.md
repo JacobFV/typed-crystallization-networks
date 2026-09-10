@@ -101,7 +101,15 @@ evaluation return and **4.0** from the exact frozen agent.
 
 ## Still waiting
 
-### `worktree-agent-af26d6fec4b924403` (9f8c529) — FIXES A SHIPPED BREAKAGE, merge when quiet
+### `demo-language-fix` (9f8c529) — **LANDED on main 2026-09-10**
+
+Merged after the host-crash recovery; its hold reason no longer applied, since the
+only running agent had already merged it into its own branch. **Verified on main
+in the main checkout: 337 passed, 0 failures; fixture 0.248836 → 0.002231,
+`fully_frozen: true`, 4.0 / 4.0.** Both runs capped under `systemd-run` scopes.
+Original entry retained below.
+
+#### (original) FIXES A SHIPPED BREAKAGE, merge when quiet
 
 Changes `tcn/cli.py`'s `_demo_language` only, plus a named `hardening` argument
 in `research/language-capability/common.py`. FINDINGS §63.
