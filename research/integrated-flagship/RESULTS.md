@@ -73,6 +73,14 @@ address and literal preferences, and §9.4 gives programs to the first *generali
 arm, post-hoc. Scope: one seed set, one palette, one relation vocabulary, `gap 0`; the STEP
 estimator rests on 20 rows; `gap 1` is §2's second table.
 
+**Even on the post-hoc metric, the learned prior does not earn its name.** Counting programs to
+the first *generalizing* program exactly (§9.4), and restricting to arms whose settings were fixed
+before the target was seen, the cheapest route is not N″: the unfitted hand-feature controls
+U_feat and U_steep reach a generalizing program sooner. N″ beats the flat and schema-only
+baselines on that metric, but a hand prior over the same schema beats N″. The inherited library's
+measurable contribution here is the schema's pools plus a step preference that a one-line human
+rule reproduces; nothing fitted from the earlier domains' survival rates is shown to be needed.
+
 ---
 
 ## 1. The pre-registered criteria, resolved
@@ -347,6 +355,7 @@ Rows per kind (rows / survivors): ADDR 233/23, GROUND 0/0, LIT 424/22, STEP 20/6
 | `arm_gap0_extras` | 0.24 | 0:01.64 | 0 |
 | `cache` | 0.22 | 0:24.52 | 0 |
 | `diag_v1` | 0.25 | 2:29.91 | 0 |
+| `first_generalizing_gap0` | 0.38 | 20:40.25 | 0 |
 | `generalize_gap0` | 0.39 | 5:31.25 | 0 |
 | `sources` | 0.28 | 1:30.87 | 0 |
 | `v2brute_gap0` | 0.49 | 0:41.46 | 0 |
@@ -493,42 +502,49 @@ reaching a program that conforms on all 48 episodes. Exact where the arm's tiers
 over 48 episodes; a Wilson-interval bound from exact uniform samples for the flat pools; infinite
 where the space holds no generalizing program.
 
+How to read it. The column assumes a search that checks each candidate against held-out
+conformance, so a spurious training fit is rejected rather than returned; that is the same
+assumption for every arm. Arms whose settings were fixed before the target was seen are the only
+ones whose figures are claims; the OCC_/V_ rows are target-tuned sensitivity points and their
+minimum is not quoted as a result. Among the pre-fixed arms, the hand-feature controls come out
+cheaper than N″, and N″ cheaper than N′.
+
 <!-- BEGIN:first_generalizing_gap0 -->
 | arm | programs to first training-conforming (pre-registered metric) | programs to first GENERALIZING program (post-hoc) | how obtained |
 |---|---|---|---|
 | N — flat, uniform | 9.50×10^7 | pending | — |
-| N′ — schema, uniform | 1.79×10^8 | pending | — |
-| N″ — schema + learned prior | 1.04×10^12 | pending | — |
+| N′ — schema, uniform | 1.79×10^8 | 3.03×10^14 | exact, 48-episode count, tier 0 |
+| N″ — schema + learned prior | 1.04×10^12 | 1.04×10^12 | exact, 48-episode count, tier 2 |
 | P — flat + learned prior | 4.27×10^17 | pending | — |
 | D′ — distractor schemas, uniform | 1.86×10^14 | ∞ — no generalizing program exists | exact, 48-episode count |
-| N″ without observation features | 5.04×10^20 | pending | — |
+| N″ without observation features | 5.04×10^20 | 5.04×10^20 | exact, 48-episode count, tier 3 |
 | D″ — distractor schemas + permuted prior (seed 0) | 1.23×10^14 | ∞ — no generalizing program exists | exact, 48-episode count |
 | D″ — distractor schemas + permuted prior (seed 1) | 3.08×10^15 | ∞ — no generalizing program exists | exact, 48-episode count |
 | D″ — distractor schemas + permuted prior (seed 2) | 1.23×10^14 | ∞ — no generalizing program exists | exact, 48-episode count |
 | D″ — distractor schemas + permuted prior (seed 3) | 3.08×10^15 | ∞ — no generalizing program exists | exact, 48-episode count |
 | D″ — distractor schemas + permuted prior (seed 4) | 2.03×10^22 | ∞ — no generalizing program exists | exact, 48-episode count |
-| R — right schemas + permuted prior (seed 0) | 1.73×10^21 | pending | — |
-| R — right schemas + permuted prior (seed 1) | 5.47×10^13 | pending | — |
-| R — right schemas + permuted prior (seed 2) | 3.53×10^19 | pending | — |
-| R — right schemas + permuted prior (seed 3) | 3.64×10^20 | pending | — |
-| R — right schemas + permuted prior (seed 4) | 1.30×10^22 | pending | — |
-| U — N″'s features, UNFITTED gentle 2× rule (post-hoc control) | 2.04×10^6 | pending | — |
-| U_steep — hand rules at N″'s steepness, nothing fitted (post-hoc control) | 2.04×10^6 | pending | — |
-| U_Vonly — one hand rule, V 10:1, all else uniform, nothing fitted (post-hoc control) | 4.41×10^7 | pending | — |
-| KO_ADDR — N″ with ADDR (§19/§23 rows) knocked out to hand V 10:1 (post-hoc) | 3.05×10^13 | pending | — |
-| KO_TRUTH — N″ with TRUTH (§33 rows) knocked out to uniform (post-hoc) | 3.77×10^13 | pending | — |
-| KO_STEP — N″ with STEP (§33 rows) knocked out to uniform (post-hoc) | 1.61×10^13 | pending | — |
-| STEP_only — only the fitted STEP estimator (20 §33 rows), all else uniform (post-hoc) | 1.66×10^21 | pending | — |
-| STEP_hand — hand rule: pixel or row offsets 1, else 0.1; all else uniform (post-hoc) | 3.30×10^16 | pending | — |
-| N″, occurs ratio pinned at 1 — sensitivity, set on the target task, not inherited | 5.51×10^17 | pending | — |
-| N″, occurs ratio pinned at 3 — sensitivity, set on the target task, not inherited | 4.50×10^15 | pending | — |
-| N″, occurs ratio pinned at 10 — sensitivity, set on the target task, not inherited | 1.04×10^12 | pending | — |
-| N″, occurs ratio pinned at 100 — sensitivity, set on the target task, not inherited | 1.04×10^12 | pending | — |
-| N″, occurs ratio pinned at 3500 — sensitivity, set on the target task, not inherited | 1.04×10^12 | pending | — |
-| N″, V ratio pinned at 1 — sensitivity, set on the target task, not inherited | 1.69×10^12 | pending | — |
-| N″, V ratio pinned at 3 — sensitivity, set on the target task, not inherited | 1.96×10^10 | pending | — |
-| N″, V ratio pinned at 10 — sensitivity, set on the target task, not inherited | 1.96×10^10 | pending | — |
-| N″, V ratio pinned at 100 — sensitivity, set on the target task, not inherited | 1.96×10^10 | pending | — |
+| R — right schemas + permuted prior (seed 0) | 1.73×10^21 | 2.01×10^22 | exact, 48-episode count, tier 6 |
+| R — right schemas + permuted prior (seed 1) | 5.47×10^13 | 5.47×10^13 | exact, 48-episode count, tier 2 |
+| R — right schemas + permuted prior (seed 2) | 3.53×10^19 | 3.53×10^19 | exact, 48-episode count, tier 3 |
+| R — right schemas + permuted prior (seed 3) | 3.64×10^20 | 3.64×10^20 | exact, 48-episode count, tier 3 |
+| R — right schemas + permuted prior (seed 4) | 1.30×10^22 | 1.30×10^22 | exact, 48-episode count, tier 4 |
+| U — N″'s features, UNFITTED gentle 2× rule (post-hoc control) | 2.04×10^6 | 3.36×10^10 | exact, 48-episode count, tier 0 |
+| U_steep — hand rules at N″'s steepness, nothing fitted (post-hoc control) | 2.04×10^6 | 3.36×10^10 | exact, 48-episode count, tier 0 |
+| U_Vonly — one hand rule, V 10:1, all else uniform, nothing fitted (post-hoc control) | 4.41×10^7 | 7.48×10^13 | exact, 48-episode count, tier 0 |
+| KO_ADDR — N″ with ADDR (§19/§23 rows) knocked out to hand V 10:1 (post-hoc) | 3.05×10^13 | 3.05×10^13 | exact, 48-episode count, tier 1 |
+| KO_TRUTH — N″ with TRUTH (§33 rows) knocked out to uniform (post-hoc) | 3.77×10^13 | 3.77×10^13 | exact, 48-episode count, tier 2 |
+| KO_STEP — N″ with STEP (§33 rows) knocked out to uniform (post-hoc) | 1.61×10^13 | 1.61×10^13 | exact, 48-episode count, tier 2 |
+| STEP_only — only the fitted STEP estimator (20 §33 rows), all else uniform (post-hoc) | 1.66×10^21 | 1.66×10^21 | exact, 48-episode count, tier 1 |
+| STEP_hand — hand rule: pixel or row offsets 1, else 0.1; all else uniform (post-hoc) | 3.30×10^16 | 3.30×10^16 | exact, 48-episode count, tier 0 |
+| N″, occurs ratio pinned at 1 — sensitivity, set on the target task, not inherited | 5.51×10^17 | 5.51×10^17 | exact, 48-episode count, tier 2 |
+| N″, occurs ratio pinned at 3 — sensitivity, set on the target task, not inherited | 4.50×10^15 | 4.50×10^15 | exact, 48-episode count, tier 2 |
+| N″, occurs ratio pinned at 10 — sensitivity, set on the target task, not inherited | 1.04×10^12 | 1.04×10^12 | exact, 48-episode count, tier 2 |
+| N″, occurs ratio pinned at 100 — sensitivity, set on the target task, not inherited | 1.04×10^12 | 1.04×10^12 | exact, 48-episode count, tier 2 |
+| N″, occurs ratio pinned at 3500 — sensitivity, set on the target task, not inherited | 1.04×10^12 | 1.04×10^12 | exact, 48-episode count, tier 2 |
+| N″, V ratio pinned at 1 — sensitivity, set on the target task, not inherited | 1.69×10^12 | 1.69×10^12 | exact, 48-episode count, tier 2 |
+| N″, V ratio pinned at 3 — sensitivity, set on the target task, not inherited | 1.96×10^10 | 1.96×10^10 | exact, 48-episode count, tier 1 |
+| N″, V ratio pinned at 10 — sensitivity, set on the target task, not inherited | 1.96×10^10 | 1.96×10^10 | exact, 48-episode count, tier 1 |
+| N″, V ratio pinned at 100 — sensitivity, set on the target task, not inherited | 1.96×10^10 | 1.96×10^10 | exact, 48-episode count, tier 1 |
 <!-- END:first_generalizing_gap0 -->
 
 Sampled first-shell conformers, for the arms whose first hit does not always generalize:
