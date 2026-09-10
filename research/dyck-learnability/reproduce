@@ -1,0 +1,28 @@
+#!/bin/bash
+# Everything in RESULTS.md, in order. Run from the repository root.
+#
+# Wall-clock notes: Q1 is the long pole. As eleven concurrent shards on a 20-core
+# machine it is ~50 min; as one process it is ~5.2 h of CPU (the union reports
+# both numbers). Q2 is ~1 h wall clock as eight concurrent arms. Q3 is ~15 min.
+set -eu
+PY=.venv/bin/python
+D=research/dyck-learnability
+
+$PY $D/prepare.py                      # the split, pickled once; writes splits.json
+
+# Q1 -- the full 680,625-program min-prefix space, as eleven exhausted shards,
+# plus arm 1b, the reproduction control over section 45's window.
+bash $D/q1_launch.sh
+$PY $D/q1_aggregate.py                 # out/q1_union.json
+
+# Q2 -- the gradient path on the min-prefix scaffold and on the counting-only
+# control, both temperature settings, both step budgets, plus the random null.
+bash $D/q2_launch.sh
+$PY $D/q2_aggregate.py                 # out/q2_summary.json
+
+# Q3 -- the pre-hoc signal, and the mechanical operator sweep.
+$PY $D/q3_prehoc.py                    # out/q3_prehoc.json
+$PY $D/q3_operators.py                 # out/q3_operators.json
+
+# Single-shard sanity check quoted in RESULTS.md section 2 (2.5 min).
+$PY $D/q1_enum.py --sub-lo 101 --sub-hi 102 --out $D/out/probe_c101.json

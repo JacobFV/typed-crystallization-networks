@@ -1,0 +1,645 @@
+{
+ "stream": "context_free_language",
+ "positions": 22,
+ "template": "stage_b + a second accumulator folding the prefix sums with X",
+ "hole_candidates_source": "tcn.operators.BINARY resolved at CNT x CNT -> CNT",
+ "hole_candidates": [
+  "add",
+  "idiv",
+  "max",
+  "min",
+  "mod",
+  "mul",
+  "shl",
+  "shr",
+  "sub"
+ ],
+ "folds_with_a_solution": [
+  "max",
+  "min"
+ ],
+ "baselines_heldout_unseen": {
+  "n": 859,
+  "constant_yes": 0.5261932479627474,
+  "constant_no": 0.47380675203725264,
+  "majority_constant": 0.5261932479627474,
+  "random": 0.5
+ },
+ "seconds": 319.22406119300285,
+ "rows": [
+  {
+   "fold": "add",
+   "space_size": 680625,
+   "usable_members_on_train": 630000,
+   "conforming_on_train": 0,
+   "simulator_validation": {
+    "fold": "add",
+    "members_checked": 150,
+    "mismatches": 0,
+    "episode_evaluations_checked": 3600,
+    "episode_evaluations_unusable_in_simulator": 271,
+    "episode_evaluations_unusable_in_real_program": 271,
+    "episodes": 24,
+    "compared_via": "Program.execute, per episode",
+    "mismatch_detail": []
+   },
+   "sweep_seconds": 0.6808411430101842
+  },
+  {
+   "fold": "idiv",
+   "space_size": 680625,
+   "usable_members_on_train": 0,
+   "conforming_on_train": 0,
+   "simulator_validation": {
+    "fold": "idiv",
+    "members_checked": 150,
+    "mismatches": 0,
+    "episode_evaluations_checked": 3600,
+    "episode_evaluations_unusable_in_simulator": 3600,
+    "episode_evaluations_unusable_in_real_program": 3600,
+    "episodes": 24,
+    "compared_via": "Program.execute, per episode",
+    "mismatch_detail": []
+   },
+   "sweep_seconds": 0.05720025202026591
+  },
+  {
+   "fold": "max",
+   "space_size": 680625,
+   "usable_members_on_train": 630000,
+   "conforming_on_train": 110,
+   "simulator_validation": {
+    "fold": "max",
+    "members_checked": 150,
+    "mismatches": 0,
+    "episode_evaluations_checked": 3600,
+    "episode_evaluations_unusable_in_simulator": 271,
+    "episode_evaluations_unusable_in_real_program": 271,
+    "episodes": 24,
+    "compared_via": "Program.execute, per episode",
+    "mismatch_detail": []
+   },
+   "sweep_seconds": 0.4695512430043891,
+   "first_conforming": {
+    "c": 101,
+    "plus": -2,
+    "minus": 2,
+    "total_ok": [
+     "ge",
+     -2
+    ],
+    "min_ok": [
+     "eq",
+     0
+    ],
+    "global_enumeration_index": 569046,
+    "fraction_through_enumeration": 0.83606391184573
+   },
+   "conforming_heldout_unseen": {
+    "min": 0.9953434225844005,
+    "max": 1.0,
+    "mean": 0.9983066991216002,
+    "at_1.000": 70
+   },
+   "real_program_confirmation": {
+    "train_max_error": 0.0,
+    "conforms_on_train": true,
+    "train": {
+     "accuracy": 1.0,
+     "per_length": {
+      "10": 1.0,
+      "12": 1.0,
+      "14": 1.0
+     },
+     "n": 24,
+     "constant_yes": 0.5,
+     "constant_no": 0.5,
+     "majority_constant": 0.5,
+     "random": 0.5
+    },
+    "heldout_seen_lengths": {
+     "accuracy": 1.0,
+     "per_length": {
+      "10": 1.0,
+      "12": 1.0,
+      "14": 1.0
+     },
+     "n": 120,
+     "constant_yes": 0.4666666666666667,
+     "constant_no": 0.5333333333333333,
+     "majority_constant": 0.5333333333333333,
+     "random": 0.5
+    },
+    "heldout_unseen_lengths": {
+     "accuracy": 1.0,
+     "per_length": {
+      "16": 1.0,
+      "18": 1.0,
+      "20": 1.0,
+      "22": 1.0
+     },
+     "n": 859,
+     "constant_yes": 0.5261932479627474,
+     "constant_no": 0.47380675203725264,
+     "majority_constant": 0.5261932479627474,
+     "random": 0.5
+    }
+   }
+  },
+  {
+   "fold": "min",
+   "space_size": 680625,
+   "usable_members_on_train": 630000,
+   "conforming_on_train": 110,
+   "simulator_validation": {
+    "fold": "min",
+    "members_checked": 150,
+    "mismatches": 0,
+    "episode_evaluations_checked": 3600,
+    "episode_evaluations_unusable_in_simulator": 271,
+    "episode_evaluations_unusable_in_real_program": 271,
+    "episodes": 24,
+    "compared_via": "Program.execute, per episode",
+    "mismatch_detail": []
+   },
+   "sweep_seconds": 0.4668967290199362,
+   "first_conforming": {
+    "c": 101,
+    "plus": 1,
+    "minus": -1,
+    "total_ok": [
+     "ge",
+     -2
+    ],
+    "min_ok": [
+     "eq",
+     0
+    ],
+    "global_enumeration_index": 571746,
+    "fraction_through_enumeration": 0.8400308539944904
+   },
+   "conforming_heldout_unseen": {
+    "min": 0.9953434225844005,
+    "max": 1.0,
+    "mean": 0.9983066991216002,
+    "at_1.000": 70
+   },
+   "real_program_confirmation": {
+    "train_max_error": 0.0,
+    "conforms_on_train": true,
+    "train": {
+     "accuracy": 1.0,
+     "per_length": {
+      "10": 1.0,
+      "12": 1.0,
+      "14": 1.0
+     },
+     "n": 24,
+     "constant_yes": 0.5,
+     "constant_no": 0.5,
+     "majority_constant": 0.5,
+     "random": 0.5
+    },
+    "heldout_seen_lengths": {
+     "accuracy": 1.0,
+     "per_length": {
+      "10": 1.0,
+      "12": 1.0,
+      "14": 1.0
+     },
+     "n": 120,
+     "constant_yes": 0.4666666666666667,
+     "constant_no": 0.5333333333333333,
+     "majority_constant": 0.5333333333333333,
+     "random": 0.5
+    },
+    "heldout_unseen_lengths": {
+     "accuracy": 1.0,
+     "per_length": {
+      "16": 1.0,
+      "18": 1.0,
+      "20": 1.0,
+      "22": 1.0
+     },
+     "n": 859,
+     "constant_yes": 0.5261932479627474,
+     "constant_no": 0.47380675203725264,
+     "majority_constant": 0.5261932479627474,
+     "random": 0.5
+    }
+   }
+  },
+  {
+   "fold": "mod",
+   "space_size": 680625,
+   "usable_members_on_train": 0,
+   "conforming_on_train": 0,
+   "simulator_validation": {
+    "fold": "mod",
+    "members_checked": 150,
+    "mismatches": 0,
+    "episode_evaluations_checked": 3600,
+    "episode_evaluations_unusable_in_simulator": 3600,
+    "episode_evaluations_unusable_in_real_program": 3600,
+    "episodes": 24,
+    "compared_via": "Program.execute, per episode",
+    "mismatch_detail": []
+   },
+   "sweep_seconds": 0.05494717101100832
+  },
+  {
+   "fold": "mul",
+   "space_size": 680625,
+   "usable_members_on_train": 630000,
+   "conforming_on_train": 0,
+   "simulator_validation": {
+    "fold": "mul",
+    "members_checked": 150,
+    "mismatches": 0,
+    "episode_evaluations_checked": 3600,
+    "episode_evaluations_unusable_in_simulator": 271,
+    "episode_evaluations_unusable_in_real_program": 271,
+    "episodes": 24,
+    "compared_via": "Program.execute, per episode",
+    "mismatch_detail": []
+   },
+   "sweep_seconds": 0.4540274140308611
+  },
+  {
+   "fold": "shl",
+   "space_size": 680625,
+   "usable_members_on_train": 75600,
+   "conforming_on_train": 0,
+   "simulator_validation": {
+    "fold": "shl",
+    "members_checked": 150,
+    "mismatches": 8,
+    "episode_evaluations_checked": 3600,
+    "episode_evaluations_unusable_in_simulator": 3193,
+    "episode_evaluations_unusable_in_real_program": 3345,
+    "episodes": 24,
+    "compared_via": "Program.execute, per episode",
+    "mismatch_detail": [
+     {
+      "c": 87,
+      "plus": 0,
+      "minus": 1,
+      "total_ok": [
+       "le",
+       0
+      ],
+      "min_ok": [
+       "ge",
+       -2
+      ],
+      "simulator": false,
+      "real_program": null,
+      "string": "()()()()()()"
+     },
+     {
+      "c": 87,
+      "plus": 0,
+      "minus": 1,
+      "total_ok": [
+       "le",
+       0
+      ],
+      "min_ok": [
+       "ge",
+       -2
+      ],
+      "simulator": false,
+      "real_program": null,
+      "string": "(((())(())))"
+     },
+     {
+      "c": 87,
+      "plus": 0,
+      "minus": 1,
+      "total_ok": [
+       "le",
+       0
+      ],
+      "min_ok": [
+       "ge",
+       -2
+      ],
+      "simulator": false,
+      "real_program": null,
+      "string": "((())()))(()"
+     },
+     {
+      "c": 87,
+      "plus": 0,
+      "minus": 1,
+      "total_ok": [
+       "le",
+       0
+      ],
+      "min_ok": [
+       "ge",
+       -2
+      ],
+      "simulator": false,
+      "real_program": null,
+      "string": "())()(()()()"
+     },
+     {
+      "c": 87,
+      "plus": 0,
+      "minus": 1,
+      "total_ok": [
+       "le",
+       0
+      ],
+      "min_ok": [
+       "ge",
+       -2
+      ],
+      "simulator": false,
+      "real_program": null,
+      "string": "()(()()()())"
+     },
+     {
+      "c": 87,
+      "plus": 0,
+      "minus": 1,
+      "total_ok": [
+       "le",
+       0
+      ],
+      "min_ok": [
+       "ge",
+       -2
+      ],
+      "simulator": false,
+      "real_program": null,
+      "string": "())((()(()))"
+     },
+     {
+      "c": 87,
+      "plus": 0,
+      "minus": 1,
+      "total_ok": [
+       "le",
+       0
+      ],
+      "min_ok": [
+       "ge",
+       -2
+      ],
+      "simulator": false,
+      "real_program": null,
+      "string": "())((((())))"
+     },
+     {
+      "c": 87,
+      "plus": 0,
+      "minus": 1,
+      "total_ok": [
+       "le",
+       0
+      ],
+      "min_ok": [
+       "ge",
+       -2
+      ],
+      "simulator": false,
+      "real_program": null,
+      "string": "()()()()()()"
+     },
+     {
+      "c": 87,
+      "plus": 0,
+      "minus": 1,
+      "total_ok": [
+       "le",
+       0
+      ],
+      "min_ok": [
+       "ge",
+       -2
+      ],
+      "simulator": false,
+      "real_program": null,
+      "string": "())()()(()"
+     },
+     {
+      "c": 87,
+      "plus": 0,
+      "minus": 1,
+      "total_ok": [
+       "le",
+       0
+      ],
+      "min_ok": [
+       "ge",
+       -2
+      ],
+      "simulator": false,
+      "real_program": null,
+      "string": "()()()()()()"
+     }
+    ]
+   },
+   "sweep_seconds": 0.10986146400682628
+  },
+  {
+   "fold": "shr",
+   "space_size": 680625,
+   "usable_members_on_train": 230400,
+   "conforming_on_train": 0,
+   "simulator_validation": {
+    "fold": "shr",
+    "members_checked": 150,
+    "mismatches": 34,
+    "episode_evaluations_checked": 3600,
+    "episode_evaluations_unusable_in_simulator": 2195,
+    "episode_evaluations_unusable_in_real_program": 2915,
+    "episodes": 24,
+    "compared_via": "Program.execute, per episode",
+    "mismatch_detail": [
+     {
+      "c": 65,
+      "plus": 1,
+      "minus": 1,
+      "total_ok": [
+       "le",
+       2
+      ],
+      "min_ok": [
+       "eq",
+       2
+      ],
+      "simulator": false,
+      "real_program": null,
+      "string": "()())(()()(())"
+     },
+     {
+      "c": 65,
+      "plus": 1,
+      "minus": 1,
+      "total_ok": [
+       "le",
+       2
+      ],
+      "min_ok": [
+       "eq",
+       2
+      ],
+      "simulator": false,
+      "real_program": null,
+      "string": "(()()())())(()"
+     },
+     {
+      "c": 65,
+      "plus": 1,
+      "minus": 1,
+      "total_ok": [
+       "le",
+       2
+      ],
+      "min_ok": [
+       "eq",
+       2
+      ],
+      "simulator": false,
+      "real_program": null,
+      "string": "((()))())(()()"
+     },
+     {
+      "c": 65,
+      "plus": 1,
+      "minus": 1,
+      "total_ok": [
+       "le",
+       2
+      ],
+      "min_ok": [
+       "eq",
+       2
+      ],
+      "simulator": false,
+      "real_program": null,
+      "string": "()()()()()()"
+     },
+     {
+      "c": 65,
+      "plus": 1,
+      "minus": 1,
+      "total_ok": [
+       "le",
+       2
+      ],
+      "min_ok": [
+       "eq",
+       2
+      ],
+      "simulator": false,
+      "real_program": null,
+      "string": "())()((())()()"
+     },
+     {
+      "c": 65,
+      "plus": 1,
+      "minus": 1,
+      "total_ok": [
+       "le",
+       2
+      ],
+      "min_ok": [
+       "eq",
+       2
+      ],
+      "simulator": false,
+      "real_program": null,
+      "string": "(((())(())))"
+     },
+     {
+      "c": 65,
+      "plus": 1,
+      "minus": 1,
+      "total_ok": [
+       "le",
+       2
+      ],
+      "min_ok": [
+       "eq",
+       2
+      ],
+      "simulator": false,
+      "real_program": null,
+      "string": "(((())())()())"
+     },
+     {
+      "c": 65,
+      "plus": 1,
+      "minus": 1,
+      "total_ok": [
+       "le",
+       2
+      ],
+      "min_ok": [
+       "eq",
+       2
+      ],
+      "simulator": false,
+      "real_program": null,
+      "string": "((())()))(()"
+     },
+     {
+      "c": 65,
+      "plus": 1,
+      "minus": 1,
+      "total_ok": [
+       "le",
+       2
+      ],
+      "min_ok": [
+       "eq",
+       2
+      ],
+      "simulator": false,
+      "real_program": null,
+      "string": "())()(()()()"
+     },
+     {
+      "c": 65,
+      "plus": 1,
+      "minus": 1,
+      "total_ok": [
+       "le",
+       2
+      ],
+      "min_ok": [
+       "eq",
+       2
+      ],
+      "simulator": false,
+      "real_program": null,
+      "string": "()(()()()())"
+     }
+    ]
+   },
+   "sweep_seconds": 0.3163345499779098
+  },
+  {
+   "fold": "sub",
+   "space_size": 680625,
+   "usable_members_on_train": 630000,
+   "conforming_on_train": 0,
+   "simulator_validation": {
+    "fold": "sub",
+    "members_checked": 150,
+    "mismatches": 0,
+    "episode_evaluations_checked": 3600,
+    "episode_evaluations_unusable_in_simulator": 271,
+    "episode_evaluations_unusable_in_real_program": 271,
+    "episodes": 24,
+    "compared_via": "Program.execute, per episode",
+    "mismatch_detail": []
+   },
+   "sweep_seconds": 0.45466445497004315
+  }
+ ]
+}

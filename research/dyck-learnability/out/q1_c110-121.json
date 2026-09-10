@@ -1,0 +1,47 @@
+{
+ "stream": "context_free_language",
+ "scaffold": "stage_b_dyck",
+ "positions": 22,
+ "sub_range": [
+  110,
+  121
+ ],
+ "nodes": 138,
+ "candidate_counts_multi": {
+  "symbols": 11,
+  "plus": 5,
+  "minus": 5,
+  "total_ok": 15,
+  "min_ok": 15
+ },
+ "shard_space_size": 61875,
+ "full_space_size": 680625,
+ "seconds": 1001.886697563983,
+ "seconds_per_program": 0.016192108243458313,
+ "train_episodes": 24,
+ "enumeration": {
+  "solved": false,
+  "exact_max_error": 0.0,
+  "evaluated": 61875,
+  "space_size": 61875,
+  "exhausted": true,
+  "unique": false,
+  "seconds": 1001.8736156309606,
+  "continuous": [],
+  "conforming": 0,
+  "ranked_by": "order",
+  "description_bits": null,
+  "execution_cost": null,
+  "certificate": "complete",
+  "mode": "fit",
+  "node_evaluations": 204930000,
+  "episodes": 0,
+  "steps": 0,
+  "ticks": 0,
+  "settle_window": 0,
+  "best_return": null,
+  "threshold": null,
+  "beam": null,
+  "discarded": 0
+ }
+}
