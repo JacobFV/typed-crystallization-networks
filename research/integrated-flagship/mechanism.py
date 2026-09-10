@@ -27,7 +27,7 @@ import numpy as np          # noqa: E402
 
 OUT = HERE / "out"
 ARMS = ["N''", "P"] + [f"R_{s}" for s in range(5)] + [f"D''_{s}" for s in range(5)] + \
-       ["U_feat", "U_steep", "U_Vonly", "KO_ADDR", "KO_TRUTH", "KO_STEP", "A_noobs"] + [f"OCC_{r}" for r in (1, 3, 10, 100, 3500)] + \
+       ["U_feat", "U_steep", "U_Vonly", "KO_ADDR", "KO_TRUTH", "KO_STEP", "STEP_only", "STEP_hand", "A_noobs"] + [f"OCC_{r}" for r in (1, 3, 10, 100, 3500)] + \
        [f"V_{r}" for r in (1, 3, 10, 100)]
 
 

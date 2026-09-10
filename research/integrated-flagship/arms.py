@@ -182,9 +182,49 @@ class KnockoutPrior:
         return {k: e.describe() for k, e in self.est.items()}
 
 
+class _ClassRule:
+    """Hand STEP rule: 1 if the offset class is one of `good`, else `off`."""
+
+    def __init__(self, good, off):
+        self.good, self.off = set(good), off
+
+    def score(self, row):
+        return 1.0 if row["offset_class"] in self.good else self.off
+
+    def describe(self):
+        return {"rule": f"1 if offset_class in {sorted(self.good)} else {self.off}", "p0": None,
+                "rows": 0, "features": ["offset_class"], "cells": {}}
+
+
+class StepOnlyPrior:
+    """POST-HOC sufficiency test (coordinator-requested): STEP fitted from
+    sources.json (the 20 s33 rows); ADDR, LIT, TRUTH uniform; no V, no occurs."""
+
+    def __init__(self, src):
+        self.est = {"ADDR": _Rule(), "LIT": _Rule(), "TRUTH": _Rule(),
+                    "STEP": prior.Prior(src).est["STEP"]}
+
+    def describe(self):
+        return {k: e.describe() for k, e in self.est.items()}
+
+
+class StepHandPrior:
+    """POST-HOC control (coordinator-requested): the one-line human STEP rule
+    '1 if offset_class in {pixel, row} else 0.1', all else uniform, nothing fitted."""
+
+    def __init__(self):
+        self.est = {"ADDR": _Rule(), "LIT": _Rule(), "TRUTH": _Rule(),
+                    "STEP": _ClassRule(("pixel", "row"), .1)}
+
+    def describe(self):
+        return {k: e.describe() for k, e in self.est.items()}
+
+
 def arm_table(src):
     learned = prior.Prior(src)
     return {
+        "STEP_only": ("schema", StepOnlyPrior(src)),
+        "STEP_hand": ("schema", StepHandPrior()),
         **{f"KO_{k}": ("schema", KnockoutPrior(src, k)) for k in ("ADDR", "TRUTH", "STEP")},
         "U_Vonly": ("schema", VOnlyHandPrior()),
         "U_steep": ("schema", SteepHandPrior()),
