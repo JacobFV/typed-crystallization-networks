@@ -1,0 +1,3751 @@
+{
+  "best_window_rank": 10,
+  "eligible": 59,
+  "entries": 103,
+  "excluded": [
+    "t4_maj_acd_xor_b"
+  ],
+  "family": "maj",
+  "identity": "syntactic",
+  "label": "maj_minall_syn_wo_t4",
+  "max_holes": 4,
+  "max_nodes": 5,
+  "min_tasks": 2,
+  "mine_wall_seconds": 0.36336763500003144,
+  "name": "maj_minall_syn_wo_t4",
+  "rank1_is_window": false,
+  "ranked": [
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ]
+      ],
+      "definition_bits": 6048,
+      "digest": "ec516b3808ddef7e7d0e7d22",
+      "entries": 66,
+      "execution_cost": 2.0,
+      "holes": 3,
+      "is_window": false,
+      "nodes": 2,
+      "occurrences": 80,
+      "rank": 1,
+      "rewritten_bits": 1132672,
+      "saving_bits": 123232,
+      "saving_per_entry": 1867.1515151515152,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ]
+      ],
+      "definition_bits": 6056,
+      "digest": "82b93e4bc7b294ff04c8f289",
+      "entries": 61,
+      "execution_cost": 2.0,
+      "holes": 3,
+      "is_window": false,
+      "nodes": 2,
+      "occurrences": 67,
+      "rank": 2,
+      "rewritten_bits": 1153144,
+      "saving_bits": 102752,
+      "saving_per_entry": 1684.4590163934427,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c",
+        "t6_maj_abc_xor_maj_bcd"
+      ],
+      "truth_table": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "or",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ],
+        [
+          "or",
+          "n2",
+          [
+            "x3",
+            "n1"
+          ]
+        ]
+      ],
+      "definition_bits": 8288,
+      "digest": "54c65e80ae31de10fb375f4e",
+      "entries": 28,
+      "execution_cost": 3.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 28,
+      "rank": 3,
+      "rewritten_bits": 1165184,
+      "saving_bits": 88480,
+      "saving_per_entry": 3160.0,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ],
+        [
+          "or",
+          "n2",
+          [
+            "x3",
+            "n1"
+          ]
+        ]
+      ],
+      "definition_bits": 8288,
+      "digest": "7fda8d53d1b98bc90a01b6f0",
+      "entries": 28,
+      "execution_cost": 3.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 28,
+      "rank": 4,
+      "rewritten_bits": 1165184,
+      "saving_bits": 88480,
+      "saving_per_entry": 3160.0,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "x2",
+            "x3"
+          ]
+        ],
+        [
+          "or",
+          "n2",
+          [
+            "n0",
+            "n1"
+          ]
+        ]
+      ],
+      "definition_bits": 8296,
+      "digest": "71c2ba99d9d0c3f0ec80cef2",
+      "entries": 24,
+      "execution_cost": 3.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 24,
+      "rank": 5,
+      "rewritten_bits": 1178816,
+      "saving_bits": 74840,
+      "saving_per_entry": 3118.3333333333335,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "or",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ]
+      ],
+      "definition_bits": 6048,
+      "digest": "b22e2ef14a32a68f1224304f",
+      "entries": 45,
+      "execution_cost": 2.0,
+      "holes": 3,
+      "is_window": false,
+      "nodes": 2,
+      "occurrences": 48,
+      "rank": 6,
+      "rewritten_bits": 1184384,
+      "saving_bits": 71520,
+      "saving_per_entry": 1589.3333333333333,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ],
+        [
+          "or",
+          "n2",
+          [
+            "x3",
+            "n1"
+          ]
+        ]
+      ],
+      "definition_bits": 8296,
+      "digest": "c8d8149dd5d2645d200ee3fc",
+      "entries": 22,
+      "execution_cost": 3.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 22,
+      "rank": 7,
+      "rewritten_bits": 1185744,
+      "saving_bits": 67912,
+      "saving_per_entry": 3086.909090909091,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ],
+        [
+          "xor",
+          "n2",
+          [
+            "x3",
+            "n1"
+          ]
+        ]
+      ],
+      "definition_bits": 8304,
+      "digest": "836fd02c66f50399e2bf8f0f",
+      "entries": 21,
+      "execution_cost": 3.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 21,
+      "rank": 8,
+      "rewritten_bits": 1189040,
+      "saving_bits": 64608,
+      "saving_per_entry": 3076.5714285714284,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "n0",
+            "x2"
+          ]
+        ]
+      ],
+      "definition_bits": 6048,
+      "digest": "ca785ec948250acbf39b8f66",
+      "entries": 40,
+      "execution_cost": 2.0,
+      "holes": 3,
+      "is_window": false,
+      "nodes": 2,
+      "occurrences": 40,
+      "rank": 9,
+      "rewritten_bits": 1197312,
+      "saving_bits": 58592,
+      "saving_per_entry": 1464.8,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "x2",
+            "n1"
+          ]
+        ],
+        [
+          "xor",
+          "n3",
+          [
+            "n0",
+            "n2"
+          ]
+        ]
+      ],
+      "definition_bits": 10136,
+      "digest": "840ac85876f1e9f660c62c7c",
+      "entries": 12,
+      "execution_cost": 4.0,
+      "holes": 3,
+      "is_window": true,
+      "nodes": 4,
+      "occurrences": 12,
+      "rank": 10,
+      "rewritten_bits": 1193696,
+      "saving_bits": 58120,
+      "saving_per_entry": 4843.333333333333,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "x2",
+            "n1"
+          ]
+        ],
+        [
+          "or",
+          "n3",
+          [
+            "n0",
+            "n2"
+          ]
+        ]
+      ],
+      "definition_bits": 10128,
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "entries": 12,
+      "execution_cost": 4.0,
+      "holes": 3,
+      "is_window": true,
+      "nodes": 4,
+      "occurrences": 12,
+      "rank": 11,
+      "rewritten_bits": 1193792,
+      "saving_bits": 58032,
+      "saving_per_entry": 4836.0,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "x2",
+            "n1"
+          ]
+        ],
+        [
+          "or",
+          "n3",
+          [
+            "n0",
+            "n2"
+          ]
+        ]
+      ],
+      "definition_bits": 10120,
+      "digest": "fff10bba4aa150363b74a5fb",
+      "entries": 12,
+      "execution_cost": 4.0,
+      "holes": 3,
+      "is_window": true,
+      "nodes": 4,
+      "occurrences": 12,
+      "rank": 12,
+      "rewritten_bits": 1193888,
+      "saving_bits": 57944,
+      "saving_per_entry": 4828.666666666667,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ]
+      ],
+      "definition_bits": 6056,
+      "digest": "9b18de8474a91ff0fd4424e8",
+      "entries": 39,
+      "execution_cost": 2.0,
+      "holes": 3,
+      "is_window": false,
+      "nodes": 2,
+      "occurrences": 39,
+      "rank": 13,
+      "rewritten_bits": 1198616,
+      "saving_bits": 57280,
+      "saving_per_entry": 1468.7179487179487,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "x3",
+            "n1"
+          ]
+        ]
+      ],
+      "definition_bits": 8296,
+      "digest": "039ceb0251b84a1c1fa72173",
+      "entries": 17,
+      "execution_cost": 3.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 17,
+      "rank": 14,
+      "rewritten_bits": 1203064,
+      "saving_bits": 50592,
+      "saving_per_entry": 2976.0,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x2",
+            "x3"
+          ]
+        ],
+        [
+          "or",
+          "n2",
+          [
+            "n0",
+            "n1"
+          ]
+        ]
+      ],
+      "definition_bits": 8288,
+      "digest": "3746cad072771091cd5bde6c",
+      "entries": 16,
+      "execution_cost": 3.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 16,
+      "rank": 15,
+      "rewritten_bits": 1206656,
+      "saving_bits": 47008,
+      "saving_per_entry": 2938.0,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "or",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ]
+      ],
+      "definition_bits": 6040,
+      "digest": "5c976d3979923725d9f90eb4",
+      "entries": 28,
+      "execution_cost": 2.0,
+      "holes": 3,
+      "is_window": false,
+      "nodes": 2,
+      "occurrences": 28,
+      "rank": 16,
+      "rewritten_bits": 1216928,
+      "saving_bits": 38984,
+      "saving_per_entry": 1392.2857142857142,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n2",
+          [
+            "x2",
+            "n0"
+          ]
+        ],
+        [
+          "and",
+          "n3",
+          [
+            "n1",
+            "n2"
+          ]
+        ]
+      ],
+      "definition_bits": 10120,
+      "digest": "954b3b5fc45f78a6f801fbec",
+      "entries": 8,
+      "execution_cost": 4.0,
+      "holes": 3,
+      "is_window": true,
+      "nodes": 4,
+      "occurrences": 8,
+      "rank": 17,
+      "rewritten_bits": 1216576,
+      "saving_bits": 35256,
+      "saving_per_entry": 4407.0,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "x2",
+            "x3"
+          ]
+        ],
+        [
+          "xor",
+          "n2",
+          [
+            "n0",
+            "n1"
+          ]
+        ]
+      ],
+      "definition_bits": 8304,
+      "digest": "d26388eac87d195420f79a75",
+      "entries": 12,
+      "execution_cost": 3.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 12,
+      "rank": 18,
+      "rewritten_bits": 1220288,
+      "saving_bits": 33360,
+      "saving_per_entry": 2780.0,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ],
+        [
+          "or",
+          "n2",
+          [
+            "x3",
+            "n1"
+          ]
+        ]
+      ],
+      "definition_bits": 8296,
+      "digest": "bfb6d5d427eb05089162ce62",
+      "entries": 12,
+      "execution_cost": 3.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 12,
+      "rank": 19,
+      "rewritten_bits": 1220384,
+      "saving_bits": 33272,
+      "saving_per_entry": 2772.6666666666665,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "or",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x2",
+            "x3"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "n0",
+            "n1"
+          ]
+        ]
+      ],
+      "definition_bits": 8288,
+      "digest": "c2b2b661e37b832b019070d3",
+      "entries": 12,
+      "execution_cost": 3.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 12,
+      "rank": 20,
+      "rewritten_bits": 1220480,
+      "saving_bits": 33184,
+      "saving_per_entry": 2765.3333333333335,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "n0",
+            "x2"
+          ]
+        ],
+        [
+          "or",
+          "n2",
+          [
+            "x3",
+            "n1"
+          ]
+        ]
+      ],
+      "definition_bits": 8288,
+      "digest": "269a70c0670ca798e89f1c89",
+      "entries": 12,
+      "execution_cost": 3.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 12,
+      "rank": 21,
+      "rewritten_bits": 1220480,
+      "saving_bits": 33184,
+      "saving_per_entry": 2765.3333333333335,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "x2",
+            "n1"
+          ]
+        ],
+        [
+          "xor",
+          "n3",
+          [
+            "n0",
+            "n2"
+          ]
+        ],
+        [
+          "or",
+          "n4",
+          [
+            "x3",
+            "n3"
+          ]
+        ]
+      ],
+      "definition_bits": 12376,
+      "digest": "a6fad24527fa061b2921db89",
+      "entries": 6,
+      "execution_cost": 5.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 5,
+      "occurrences": 6,
+      "rank": 22,
+      "rewritten_bits": 1216784,
+      "saving_bits": 32792,
+      "saving_per_entry": 5465.333333333333,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "x2",
+            "n1"
+          ]
+        ],
+        [
+          "or",
+          "n3",
+          [
+            "x3",
+            "n2"
+          ]
+        ],
+        [
+          "or",
+          "n4",
+          [
+            "n0",
+            "n3"
+          ]
+        ]
+      ],
+      "definition_bits": 12368,
+      "digest": "12a45428c524912f1db52323",
+      "entries": 6,
+      "execution_cost": 5.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 5,
+      "occurrences": 6,
+      "rank": 23,
+      "rewritten_bits": 1216832,
+      "saving_bits": 32752,
+      "saving_per_entry": 5458.666666666667,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "x2",
+            "n1"
+          ]
+        ],
+        [
+          "or",
+          "n3",
+          [
+            "n0",
+            "n2"
+          ]
+        ],
+        [
+          "or",
+          "n4",
+          [
+            "x3",
+            "n3"
+          ]
+        ]
+      ],
+      "definition_bits": 12368,
+      "digest": "312bd9277edc2cc3563a757d",
+      "entries": 6,
+      "execution_cost": 5.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 5,
+      "occurrences": 6,
+      "rank": 24,
+      "rewritten_bits": 1216832,
+      "saving_bits": 32752,
+      "saving_per_entry": 5458.666666666667,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "x2",
+            "n1"
+          ]
+        ],
+        [
+          "or",
+          "n3",
+          [
+            "x3",
+            "n2"
+          ]
+        ],
+        [
+          "or",
+          "n4",
+          [
+            "n0",
+            "n3"
+          ]
+        ]
+      ],
+      "definition_bits": 12360,
+      "digest": "2fbab7de3b5d90c57ef27ab1",
+      "entries": 6,
+      "execution_cost": 5.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 5,
+      "occurrences": 6,
+      "rank": 25,
+      "rewritten_bits": 1216880,
+      "saving_bits": 32712,
+      "saving_per_entry": 5452.0,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "x2",
+            "n1"
+          ]
+        ],
+        [
+          "or",
+          "n3",
+          [
+            "n0",
+            "n2"
+          ]
+        ],
+        [
+          "or",
+          "n4",
+          [
+            "x3",
+            "n3"
+          ]
+        ]
+      ],
+      "definition_bits": 12360,
+      "digest": "61663caa0cf1528f9fa3b317",
+      "entries": 6,
+      "execution_cost": 5.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 5,
+      "occurrences": 6,
+      "rank": 26,
+      "rewritten_bits": 1216880,
+      "saving_bits": 32712,
+      "saving_per_entry": 5452.0,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "n0",
+            "x2"
+          ]
+        ]
+      ],
+      "definition_bits": 6056,
+      "digest": "a5924e78fc802761b11a5822",
+      "entries": 19,
+      "execution_cost": 2.0,
+      "holes": 3,
+      "is_window": false,
+      "nodes": 2,
+      "occurrences": 19,
+      "rank": 27,
+      "rewritten_bits": 1231096,
+      "saving_bits": 24800,
+      "saving_per_entry": 1305.2631578947369,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c",
+        "t6_maj_abc_xor_maj_bcd"
+      ],
+      "truth_table": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "n0",
+            "x2"
+          ]
+        ]
+      ],
+      "definition_bits": 6056,
+      "digest": "189383c67d3107d82f7f924b",
+      "entries": 18,
+      "execution_cost": 2.0,
+      "holes": 3,
+      "is_window": false,
+      "nodes": 2,
+      "occurrences": 18,
+      "rank": 28,
+      "rewritten_bits": 1232720,
+      "saving_bits": 23176,
+      "saving_per_entry": 1287.5555555555557,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "or",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "n0",
+            "x2"
+          ]
+        ]
+      ],
+      "definition_bits": 6048,
+      "digest": "e28476a8d70b1d8860479711",
+      "entries": 18,
+      "execution_cost": 2.0,
+      "holes": 3,
+      "is_window": false,
+      "nodes": 2,
+      "occurrences": 18,
+      "rank": 29,
+      "rewritten_bits": 1232864,
+      "saving_bits": 23040,
+      "saving_per_entry": 1280.0,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "n0",
+            "x2"
+          ]
+        ],
+        [
+          "xor",
+          "n2",
+          [
+            "x1",
+            "n1"
+          ]
+        ]
+      ],
+      "definition_bits": 8096,
+      "digest": "35624c1b635f488f2014e595",
+      "entries": 8,
+      "execution_cost": 3.0,
+      "holes": 3,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 8,
+      "rank": 30,
+      "rewritten_bits": 1232704,
+      "saving_bits": 21152,
+      "saving_per_entry": 2644.0,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ],
+        [
+          "xor",
+          "n2",
+          [
+            "x0",
+            "n1"
+          ]
+        ]
+      ],
+      "definition_bits": 8096,
+      "digest": "7df4031d49b6c225830eb649",
+      "entries": 8,
+      "execution_cost": 3.0,
+      "holes": 3,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 8,
+      "rank": 31,
+      "rewritten_bits": 1232704,
+      "saving_bits": 21152,
+      "saving_per_entry": 2644.0,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "or",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "x2",
+            "x3"
+          ]
+        ],
+        [
+          "or",
+          "n2",
+          [
+            "n0",
+            "n1"
+          ]
+        ]
+      ],
+      "definition_bits": 8288,
+      "digest": "04836a99b2d8aede09731c33",
+      "entries": 8,
+      "execution_cost": 3.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 8,
+      "rank": 32,
+      "rewritten_bits": 1234304,
+      "saving_bits": 19360,
+      "saving_per_entry": 2420.0,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ],
+        [
+          "or",
+          "n2",
+          [
+            "n1",
+            "x3"
+          ]
+        ]
+      ],
+      "definition_bits": 8288,
+      "digest": "3efb148901704e3f651af597",
+      "entries": 8,
+      "execution_cost": 3.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 8,
+      "rank": 33,
+      "rewritten_bits": 1234304,
+      "saving_bits": 19360,
+      "saving_per_entry": 2420.0,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n2",
+          [
+            "x2",
+            "n0"
+          ]
+        ],
+        [
+          "and",
+          "n3",
+          [
+            "n1",
+            "n2"
+          ]
+        ],
+        [
+          "or",
+          "n4",
+          [
+            "x3",
+            "n3"
+          ]
+        ]
+      ],
+      "definition_bits": 12360,
+      "digest": "1e4930dcfbdb008ec7acb9e7",
+      "entries": 4,
+      "execution_cost": 5.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 5,
+      "occurrences": 4,
+      "rank": 34,
+      "rewritten_bits": 1231904,
+      "saving_bits": 17688,
+      "saving_per_entry": 4422.0,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "n1",
+            "x3"
+          ]
+        ]
+      ],
+      "definition_bits": 8296,
+      "digest": "cc2bd04ba590d38a7c5417c5",
+      "entries": 7,
+      "execution_cost": 3.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 7,
+      "rank": 35,
+      "rewritten_bits": 1237704,
+      "saving_bits": 15952,
+      "saving_per_entry": 2278.8571428571427,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "x0",
+            "x2"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "n0",
+            "n1"
+          ]
+        ]
+      ],
+      "definition_bits": 8096,
+      "digest": "6c03b0c92369e55e979b4493",
+      "entries": 6,
+      "execution_cost": 3.0,
+      "holes": 3,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 6,
+      "rank": 36,
+      "rewritten_bits": 1240016,
+      "saving_bits": 13840,
+      "saving_per_entry": 2306.6666666666665,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "x1",
+            "x2"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "n0",
+            "n1"
+          ]
+        ]
+      ],
+      "definition_bits": 8096,
+      "digest": "84c8cfac3c8521a16db87917",
+      "entries": 6,
+      "execution_cost": 3.0,
+      "holes": 3,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 6,
+      "rank": 37,
+      "rewritten_bits": 1240016,
+      "saving_bits": 13840,
+      "saving_per_entry": 2306.6666666666665,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "x2",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "n0",
+            "n1"
+          ]
+        ]
+      ],
+      "definition_bits": 8096,
+      "digest": "a25b1ccc24d348ced6a7aba0",
+      "entries": 6,
+      "execution_cost": 3.0,
+      "holes": 3,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 6,
+      "rank": 38,
+      "rewritten_bits": 1240016,
+      "saving_bits": 13840,
+      "saving_per_entry": 2306.6666666666665,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ]
+      ],
+      "definition_bits": 6048,
+      "digest": "39477c5e8e0722105bdc3a8d",
+      "entries": 12,
+      "execution_cost": 2.0,
+      "holes": 3,
+      "is_window": false,
+      "nodes": 2,
+      "occurrences": 12,
+      "rank": 39,
+      "rewritten_bits": 1242560,
+      "saving_bits": 13344,
+      "saving_per_entry": 1112.0,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "x1",
+            "x2"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "n0",
+            "n1"
+          ]
+        ],
+        [
+          "xor",
+          "n3",
+          [
+            "x1",
+            "n2"
+          ]
+        ]
+      ],
+      "definition_bits": 10136,
+      "digest": "622970233b2c1fc3aa622dbb",
+      "entries": 4,
+      "execution_cost": 4.0,
+      "holes": 3,
+      "is_window": true,
+      "nodes": 4,
+      "occurrences": 4,
+      "rank": 40,
+      "rewritten_bits": 1239200,
+      "saving_bits": 12616,
+      "saving_per_entry": 3154.0,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "x0",
+            "x2"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "n0",
+            "n1"
+          ]
+        ],
+        [
+          "xor",
+          "n3",
+          [
+            "x0",
+            "n2"
+          ]
+        ]
+      ],
+      "definition_bits": 10136,
+      "digest": "cfc6a9e1b971e2c4a349a319",
+      "entries": 4,
+      "execution_cost": 4.0,
+      "holes": 3,
+      "is_window": true,
+      "nodes": 4,
+      "occurrences": 4,
+      "rank": 41,
+      "rewritten_bits": 1239200,
+      "saving_bits": 12616,
+      "saving_per_entry": 3154.0,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "x2",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "n0",
+            "n1"
+          ]
+        ],
+        [
+          "xor",
+          "n3",
+          [
+            "x1",
+            "n2"
+          ]
+        ]
+      ],
+      "definition_bits": 10136,
+      "digest": "d641ba804ed54f7f90fdfdea",
+      "entries": 4,
+      "execution_cost": 4.0,
+      "holes": 3,
+      "is_window": true,
+      "nodes": 4,
+      "occurrences": 4,
+      "rank": 42,
+      "rewritten_bits": 1239200,
+      "saving_bits": 12616,
+      "saving_per_entry": 3154.0,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ],
+        [
+          "or",
+          "n2",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n3",
+          [
+            "n1",
+            "n2"
+          ]
+        ]
+      ],
+      "definition_bits": 10120,
+      "digest": "5c63a8debc929c517c47db5f",
+      "entries": 4,
+      "execution_cost": 4.0,
+      "holes": 3,
+      "is_window": true,
+      "nodes": 4,
+      "occurrences": 4,
+      "rank": 43,
+      "rewritten_bits": 1239264,
+      "saving_bits": 12568,
+      "saving_per_entry": 3142.0,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "n0",
+            "x2"
+          ]
+        ],
+        [
+          "or",
+          "n2",
+          [
+            "x3",
+            "n1"
+          ]
+        ]
+      ],
+      "definition_bits": 8296,
+      "digest": "58feccd997a5e8aa825c30e7",
+      "entries": 6,
+      "execution_cost": 3.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 6,
+      "rank": 44,
+      "rewritten_bits": 1241168,
+      "saving_bits": 12488,
+      "saving_per_entry": 2081.3333333333335,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "or",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "n0",
+            "x2"
+          ]
+        ],
+        [
+          "or",
+          "n2",
+          [
+            "x3",
+            "n1"
+          ]
+        ]
+      ],
+      "definition_bits": 8288,
+      "digest": "26f930da7b619fd563401a8c",
+      "entries": 6,
+      "execution_cost": 3.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 6,
+      "rank": 45,
+      "rewritten_bits": 1241216,
+      "saving_bits": 12448,
+      "saving_per_entry": 2074.6666666666665,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ],
+        [
+          "xor",
+          "n2",
+          [
+            "x0",
+            "n1"
+          ]
+        ],
+        [
+          "or",
+          "n3",
+          [
+            "x3",
+            "n2"
+          ]
+        ]
+      ],
+      "definition_bits": 10336,
+      "digest": "16b28645fe3ea025b5708b19",
+      "entries": 4,
+      "execution_cost": 4.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 4,
+      "occurrences": 4,
+      "rank": 46,
+      "rewritten_bits": 1239968,
+      "saving_bits": 11648,
+      "saving_per_entry": 2912.0,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "n0",
+            "x2"
+          ]
+        ],
+        [
+          "xor",
+          "n2",
+          [
+            "x1",
+            "n1"
+          ]
+        ],
+        [
+          "or",
+          "n3",
+          [
+            "x3",
+            "n2"
+          ]
+        ]
+      ],
+      "definition_bits": 10336,
+      "digest": "3aea9af611fc029e13c8b3be",
+      "entries": 4,
+      "execution_cost": 4.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 4,
+      "occurrences": 4,
+      "rank": 47,
+      "rewritten_bits": 1239968,
+      "saving_bits": 11648,
+      "saving_per_entry": 2912.0,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "or",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "n0",
+            "x2"
+          ]
+        ]
+      ],
+      "definition_bits": 6040,
+      "digest": "9377511d043e722cd2fdd8b7",
+      "entries": 8,
+      "execution_cost": 2.0,
+      "holes": 3,
+      "is_window": false,
+      "nodes": 2,
+      "occurrences": 8,
+      "rank": 48,
+      "rewritten_bits": 1249088,
+      "saving_bits": 6824,
+      "saving_per_entry": 853.0,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "n0",
+            "x2"
+          ]
+        ],
+        [
+          "xor",
+          "n2",
+          [
+            "x0",
+            "n1"
+          ]
+        ]
+      ],
+      "definition_bits": 8096,
+      "digest": "0d00cd4b550f81e166dc8312",
+      "entries": 4,
+      "execution_cost": 3.0,
+      "holes": 3,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 4,
+      "rank": 49,
+      "rewritten_bits": 1247328,
+      "saving_bits": 6528,
+      "saving_per_entry": 1632.0,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 3,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ],
+        [
+          "xor",
+          "n2",
+          [
+            "x1",
+            "n1"
+          ]
+        ]
+      ],
+      "definition_bits": 8096,
+      "digest": "82f9239626d07b415464f93a",
+      "entries": 4,
+      "execution_cost": 3.0,
+      "holes": 3,
+      "is_window": false,
+      "nodes": 3,
+      "occurrences": 4,
+      "rank": 50,
+      "rewritten_bits": 1247328,
+      "saving_bits": 6528,
+      "saving_per_entry": 1632.0,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "x0",
+            "x2"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "n0",
+            "n1"
+          ]
+        ],
+        [
+          "xor",
+          "n3",
+          [
+            "x0",
+            "n2"
+          ]
+        ],
+        [
+          "or",
+          "n4",
+          [
+            "x3",
+            "n3"
+          ]
+        ]
+      ],
+      "definition_bits": 12376,
+      "digest": "26deb7ab1de7495150c67a52",
+      "entries": 2,
+      "execution_cost": 5.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 5,
+      "occurrences": 2,
+      "rank": 51,
+      "rewritten_bits": 1246896,
+      "saving_bits": 2680,
+      "saving_per_entry": 1340.0,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "x1",
+            "x2"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "n0",
+            "n1"
+          ]
+        ],
+        [
+          "xor",
+          "n3",
+          [
+            "x1",
+            "n2"
+          ]
+        ],
+        [
+          "or",
+          "n4",
+          [
+            "x3",
+            "n3"
+          ]
+        ]
+      ],
+      "definition_bits": 12376,
+      "digest": "495aea9c509da34e8f632213",
+      "entries": 2,
+      "execution_cost": 5.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 5,
+      "occurrences": 2,
+      "rank": 52,
+      "rewritten_bits": 1246896,
+      "saving_bits": 2680,
+      "saving_per_entry": 1340.0,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "xor",
+          "n1",
+          [
+            "x2",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n2",
+          [
+            "n0",
+            "n1"
+          ]
+        ],
+        [
+          "xor",
+          "n3",
+          [
+            "x1",
+            "n2"
+          ]
+        ],
+        [
+          "or",
+          "n4",
+          [
+            "x3",
+            "n3"
+          ]
+        ]
+      ],
+      "definition_bits": 12376,
+      "digest": "93c58ac210b927f28ca3de95",
+      "entries": 2,
+      "execution_cost": 5.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 5,
+      "occurrences": 2,
+      "rank": 53,
+      "rewritten_bits": 1246896,
+      "saving_bits": 2680,
+      "saving_per_entry": 1340.0,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "or",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ],
+        [
+          "or",
+          "n2",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n3",
+          [
+            "n1",
+            "n2"
+          ]
+        ],
+        [
+          "or",
+          "n4",
+          [
+            "x3",
+            "n3"
+          ]
+        ]
+      ],
+      "definition_bits": 12360,
+      "digest": "ff8ad2de8f7c60b11361d183",
+      "entries": 2,
+      "execution_cost": 5.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 5,
+      "occurrences": 2,
+      "rank": 54,
+      "rewritten_bits": 1246928,
+      "saving_bits": 2664,
+      "saving_per_entry": 1332.0,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "x2",
+            "n0"
+          ]
+        ],
+        [
+          "xor",
+          "n2",
+          [
+            "x1",
+            "n1"
+          ]
+        ],
+        [
+          "or",
+          "n3",
+          [
+            "x3",
+            "n2"
+          ]
+        ]
+      ],
+      "definition_bits": 10336,
+      "digest": "16b13972092ecc47b48fa07d",
+      "entries": 2,
+      "execution_cost": 4.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 4,
+      "occurrences": 2,
+      "rank": 55,
+      "rewritten_bits": 1250960,
+      "saving_bits": 656,
+      "saving_per_entry": 328.0,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 4,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ],
+        [
+          "and",
+          "n1",
+          [
+            "n0",
+            "x2"
+          ]
+        ],
+        [
+          "xor",
+          "n2",
+          [
+            "x0",
+            "n1"
+          ]
+        ],
+        [
+          "or",
+          "n3",
+          [
+            "x3",
+            "n2"
+          ]
+        ]
+      ],
+      "definition_bits": 10336,
+      "digest": "367c4913beb4db6538f67aed",
+      "entries": 2,
+      "execution_cost": 4.0,
+      "holes": 4,
+      "is_window": false,
+      "nodes": 4,
+      "occurrences": 2,
+      "rank": 56,
+      "rewritten_bits": 1250960,
+      "saving_bits": 656,
+      "saving_per_entry": 328.0,
+      "tasks": [
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 2,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "xor",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ]
+      ],
+      "definition_bits": 3808,
+      "digest": "85aa887f3e90a3903b9fa709",
+      "entries": 67,
+      "execution_cost": 1.0,
+      "holes": 2,
+      "is_window": false,
+      "nodes": 1,
+      "occurrences": 143,
+      "rank": 57,
+      "rewritten_bits": 1293984,
+      "saving_bits": -35840,
+      "saving_per_entry": -534.9253731343283,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c",
+        "t6_maj_abc_xor_maj_bcd"
+      ],
+      "truth_table": [
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "arity": 2,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "or",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ]
+      ],
+      "definition_bits": 3800,
+      "digest": "5e50f17066eb3de5049f4ed5",
+      "entries": 78,
+      "execution_cost": 1.0,
+      "holes": 2,
+      "is_window": false,
+      "nodes": 1,
+      "occurrences": 162,
+      "rank": 58,
+      "rewritten_bits": 1299536,
+      "saving_bits": -41384,
+      "saving_per_entry": -530.5641025641025,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c"
+      ],
+      "truth_table": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "arity": 2,
+      "baseline_bits": 1261952,
+      "body": [
+        [
+          "and",
+          "n0",
+          [
+            "x0",
+            "x1"
+          ]
+        ]
+      ],
+      "definition_bits": 3808,
+      "digest": "9e8092e7bdb684bb47a3cc29",
+      "entries": 103,
+      "execution_cost": 1.0,
+      "holes": 2,
+      "is_window": false,
+      "nodes": 1,
+      "occurrences": 208,
+      "rank": 59,
+      "rewritten_bits": 1308544,
+      "saving_bits": -50400,
+      "saving_per_entry": -489.3203883495146,
+      "tasks": [
+        "t1_maj_abc_xor_d",
+        "t2_maj_abc_and_d",
+        "t3_maj_bcd_or_a",
+        "t5_maj_abd_or_c",
+        "t6_maj_abc_xor_maj_bcd"
+      ],
+      "truth_table": [
+        0,
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "tasks_in_corpus": [
+    "t1_maj_abc_xor_d",
+    "t2_maj_abc_and_d",
+    "t3_maj_bcd_or_a",
+    "t5_maj_abd_or_c",
+    "t6_maj_abc_xor_maj_bcd"
+  ],
+  "variant": "C-minall"
+}

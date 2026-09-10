@@ -1,0 +1,1407 @@
+{
+  "entries": [
+    {
+      "description_bits": 10128,
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "execution_cost": 4.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "sem_minall",
+      "nodes": 4,
+      "operator": "module:165bc290d9c82b70a8ea3cc2",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 3,
+        "corpus": "C-minall",
+        "entries": 75,
+        "excluded": [],
+        "family": "maj",
+        "identity": "semantic",
+        "is_window": true,
+        "preregistered": true,
+        "rank": 1,
+        "rule": "mine_semantic.propose",
+        "saving_bits": 415872,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t4_maj_acd_xor_b",
+          "t5_maj_abd_or_c"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 6048,
+      "digest": "ca785ec948250acbf39b8f66",
+      "execution_cost": 2.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "sem_minall_runnerup",
+      "nodes": 2,
+      "operator": "module:ca785ec948250acbf39b8f66",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 3,
+        "corpus": "C-minall",
+        "entries": 75,
+        "excluded": [],
+        "family": "maj",
+        "identity": "semantic",
+        "is_window": false,
+        "preregistered": true,
+        "rank": 4,
+        "rule": "mine_semantic.propose",
+        "saving_bits": 163632,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t4_maj_acd_xor_b",
+          "t5_maj_abd_or_c"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 10128,
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "execution_cost": 4.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "sem_trace",
+      "nodes": 4,
+      "operator": "module:165bc290d9c82b70a8ea3cc2",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 3,
+        "corpus": "C-trace",
+        "entries": 134,
+        "excluded": [],
+        "family": "maj",
+        "identity": "semantic",
+        "is_window": true,
+        "preregistered": true,
+        "rank": 1,
+        "rule": "mine_semantic.propose",
+        "saving_bits": 860960,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t4_maj_acd_xor_b",
+          "t5_maj_abd_or_c"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 6048,
+      "digest": "ec516b3808ddef7e7d0e7d22",
+      "execution_cost": 2.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "syn_minall",
+      "nodes": 2,
+      "operator": "module:ec516b3808ddef7e7d0e7d22",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 3,
+        "corpus": "C-minall",
+        "entries": 75,
+        "excluded": [],
+        "family": "maj",
+        "identity": "syntactic",
+        "is_window": false,
+        "preregistered": true,
+        "rank": 1,
+        "rule": "mine_multi.propose",
+        "saving_bits": 137776,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t4_maj_acd_xor_b",
+          "t5_maj_abd_or_c"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 6048,
+      "digest": "ec516b3808ddef7e7d0e7d22",
+      "execution_cost": 2.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "syn_minall_runnerup",
+      "nodes": 2,
+      "operator": "module:ec516b3808ddef7e7d0e7d22",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 3,
+        "corpus": "C-minall",
+        "entries": 75,
+        "excluded": [],
+        "family": "maj",
+        "identity": "syntactic",
+        "is_window": false,
+        "preregistered": true,
+        "rank": 1,
+        "rule": "mine_multi.propose",
+        "saving_bits": 137776,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t4_maj_acd_xor_b",
+          "t5_maj_abd_or_c"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 12360,
+      "digest": "08735e504400bf4879acf0a7",
+      "execution_cost": 5.0,
+      "fixture_cases": 16,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x3",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "sem_wo_t1",
+      "nodes": 5,
+      "operator": "module:08735e504400bf4879acf0a7",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 4,
+        "corpus": "C-minall",
+        "entries": 46,
+        "excluded": [
+          "t1_maj_abc_xor_d"
+        ],
+        "family": "maj",
+        "identity": "semantic",
+        "is_window": false,
+        "preregistered": true,
+        "rank": 1,
+        "rule": "mine_semantic.propose",
+        "saving_bits": 333496,
+        "tasks": [
+          "t3_maj_bcd_or_a",
+          "t5_maj_abd_or_c"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 6048,
+      "digest": "ec516b3808ddef7e7d0e7d22",
+      "execution_cost": 2.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "syn_wo_t1",
+      "nodes": 2,
+      "operator": "module:ec516b3808ddef7e7d0e7d22",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 3,
+        "corpus": "C-minall",
+        "entries": 66,
+        "excluded": [
+          "t1_maj_abc_xor_d"
+        ],
+        "family": "maj",
+        "identity": "syntactic",
+        "is_window": false,
+        "preregistered": true,
+        "rank": 1,
+        "rule": "mine_multi.propose",
+        "saving_bits": 123232,
+        "tasks": [
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t4_maj_acd_xor_b",
+          "t5_maj_abd_or_c"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 12384,
+      "digest": "0ba4287a0409988fa2b5eff9",
+      "execution_cost": 5.0,
+      "fixture_cases": 16,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x3",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "sem_wo_t2",
+      "nodes": 5,
+      "operator": "module:0ba4287a0409988fa2b5eff9",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 4,
+        "corpus": "C-minall",
+        "entries": 48,
+        "excluded": [
+          "t2_maj_abc_and_d"
+        ],
+        "family": "maj",
+        "identity": "semantic",
+        "is_window": false,
+        "preregistered": true,
+        "rank": 1,
+        "rule": "mine_semantic.propose",
+        "saving_bits": 349104,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t4_maj_acd_xor_b"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 6048,
+      "digest": "ec516b3808ddef7e7d0e7d22",
+      "execution_cost": 2.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "syn_wo_t2",
+      "nodes": 2,
+      "operator": "module:ec516b3808ddef7e7d0e7d22",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 3,
+        "corpus": "C-minall",
+        "entries": 60,
+        "excluded": [
+          "t2_maj_abc_and_d"
+        ],
+        "family": "maj",
+        "identity": "syntactic",
+        "is_window": false,
+        "preregistered": true,
+        "rank": 1,
+        "rule": "mine_multi.propose",
+        "saving_bits": 113536,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t3_maj_bcd_or_a",
+          "t4_maj_acd_xor_b",
+          "t5_maj_abd_or_c"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 12384,
+      "digest": "0ba4287a0409988fa2b5eff9",
+      "execution_cost": 5.0,
+      "fixture_cases": 16,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x3",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "sem_wo_t3",
+      "nodes": 5,
+      "operator": "module:0ba4287a0409988fa2b5eff9",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 4,
+        "corpus": "C-minall",
+        "entries": 48,
+        "excluded": [
+          "t3_maj_bcd_or_a"
+        ],
+        "family": "maj",
+        "identity": "semantic",
+        "is_window": false,
+        "preregistered": true,
+        "rank": 1,
+        "rule": "mine_semantic.propose",
+        "saving_bits": 349104,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t4_maj_acd_xor_b"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 6056,
+      "digest": "82b93e4bc7b294ff04c8f289",
+      "execution_cost": 2.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "syn_wo_t3",
+      "nodes": 2,
+      "operator": "module:82b93e4bc7b294ff04c8f289",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 3,
+        "corpus": "C-minall",
+        "entries": 67,
+        "excluded": [
+          "t3_maj_bcd_or_a"
+        ],
+        "family": "maj",
+        "identity": "syntactic",
+        "is_window": false,
+        "preregistered": true,
+        "rank": 1,
+        "rule": "mine_multi.propose",
+        "saving_bits": 112496,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t4_maj_acd_xor_b",
+          "t5_maj_abd_or_c",
+          "t6_maj_abc_xor_maj_bcd"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 12360,
+      "digest": "08735e504400bf4879acf0a7",
+      "execution_cost": 5.0,
+      "fixture_cases": 16,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x3",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "sem_wo_t4",
+      "nodes": 5,
+      "operator": "module:08735e504400bf4879acf0a7",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 4,
+        "corpus": "C-minall",
+        "entries": 46,
+        "excluded": [
+          "t4_maj_acd_xor_b"
+        ],
+        "family": "maj",
+        "identity": "semantic",
+        "is_window": false,
+        "preregistered": true,
+        "rank": 1,
+        "rule": "mine_semantic.propose",
+        "saving_bits": 333496,
+        "tasks": [
+          "t3_maj_bcd_or_a",
+          "t5_maj_abd_or_c"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 6048,
+      "digest": "ec516b3808ddef7e7d0e7d22",
+      "execution_cost": 2.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "syn_wo_t4",
+      "nodes": 2,
+      "operator": "module:ec516b3808ddef7e7d0e7d22",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 3,
+        "corpus": "C-minall",
+        "entries": 66,
+        "excluded": [
+          "t4_maj_acd_xor_b"
+        ],
+        "family": "maj",
+        "identity": "syntactic",
+        "is_window": false,
+        "preregistered": true,
+        "rank": 1,
+        "rule": "mine_multi.propose",
+        "saving_bits": 123232,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t5_maj_abd_or_c"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 12384,
+      "digest": "0ba4287a0409988fa2b5eff9",
+      "execution_cost": 5.0,
+      "fixture_cases": 16,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x3",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "sem_wo_t5",
+      "nodes": 5,
+      "operator": "module:0ba4287a0409988fa2b5eff9",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 4,
+        "corpus": "C-minall",
+        "entries": 48,
+        "excluded": [
+          "t5_maj_abd_or_c"
+        ],
+        "family": "maj",
+        "identity": "semantic",
+        "is_window": false,
+        "preregistered": true,
+        "rank": 1,
+        "rule": "mine_semantic.propose",
+        "saving_bits": 349104,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t4_maj_acd_xor_b"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 6056,
+      "digest": "82b93e4bc7b294ff04c8f289",
+      "execution_cost": 2.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "syn_wo_t5",
+      "nodes": 2,
+      "operator": "module:82b93e4bc7b294ff04c8f289",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 3,
+        "corpus": "C-minall",
+        "entries": 67,
+        "excluded": [
+          "t5_maj_abd_or_c"
+        ],
+        "family": "maj",
+        "identity": "syntactic",
+        "is_window": false,
+        "preregistered": true,
+        "rank": 1,
+        "rule": "mine_multi.propose",
+        "saving_bits": 112496,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t4_maj_acd_xor_b",
+          "t6_maj_abc_xor_maj_bcd"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 6056,
+      "digest": "82b93e4bc7b294ff04c8f289",
+      "execution_cost": 2.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "syn_minall_runnerup",
+      "nodes": 2,
+      "operator": "module:82b93e4bc7b294ff04c8f289",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 3,
+        "corpus": "C-minall",
+        "entries": 82,
+        "excluded": [],
+        "family": "maj",
+        "identity": "syntactic",
+        "is_window": false,
+        "preregistered": true,
+        "rank": 2,
+        "rule": "mine_multi.propose",
+        "saving_bits": 136856,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t4_maj_acd_xor_b",
+          "t5_maj_abd_or_c",
+          "t6_maj_abc_xor_maj_bcd"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 2
+    },
+    {
+      "description_bits": 10128,
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "execution_cost": 4.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "sem_wo_t1_win",
+      "nodes": 4,
+      "operator": "module:165bc290d9c82b70a8ea3cc2",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 3,
+        "corpus": "C-minall",
+        "entries": 60,
+        "excluded": [
+          "t1_maj_abc_xor_d"
+        ],
+        "family": "maj",
+        "identity": "semantic",
+        "is_window": true,
+        "preregistered": true,
+        "rank": 2,
+        "rule": "mine_semantic.propose",
+        "saving_bits": 330672,
+        "tasks": [
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t4_maj_acd_xor_b",
+          "t5_maj_abd_or_c"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 10128,
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "execution_cost": 4.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "sem_wo_t2_win",
+      "nodes": 4,
+      "operator": "module:165bc290d9c82b70a8ea3cc2",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 3,
+        "corpus": "C-minall",
+        "entries": 60,
+        "excluded": [
+          "t2_maj_abc_and_d"
+        ],
+        "family": "maj",
+        "identity": "semantic",
+        "is_window": true,
+        "preregistered": true,
+        "rank": 3,
+        "rule": "mine_semantic.propose",
+        "saving_bits": 330672,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t3_maj_bcd_or_a",
+          "t4_maj_acd_xor_b",
+          "t5_maj_abd_or_c"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 10128,
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "execution_cost": 4.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "sem_wo_t3_win",
+      "nodes": 4,
+      "operator": "module:165bc290d9c82b70a8ea3cc2",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 3,
+        "corpus": "C-minall",
+        "entries": 60,
+        "excluded": [
+          "t3_maj_bcd_or_a"
+        ],
+        "family": "maj",
+        "identity": "semantic",
+        "is_window": true,
+        "preregistered": true,
+        "rank": 2,
+        "rule": "mine_semantic.propose",
+        "saving_bits": 330672,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t4_maj_acd_xor_b",
+          "t5_maj_abd_or_c"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 10128,
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "execution_cost": 4.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "sem_wo_t4_win",
+      "nodes": 4,
+      "operator": "module:165bc290d9c82b70a8ea3cc2",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 3,
+        "corpus": "C-minall",
+        "entries": 60,
+        "excluded": [
+          "t4_maj_acd_xor_b"
+        ],
+        "family": "maj",
+        "identity": "semantic",
+        "is_window": true,
+        "preregistered": true,
+        "rank": 2,
+        "rule": "mine_semantic.propose",
+        "saving_bits": 330672,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t5_maj_abd_or_c"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 10128,
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "execution_cost": 4.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "sem_wo_t5_win",
+      "nodes": 4,
+      "operator": "module:165bc290d9c82b70a8ea3cc2",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 3,
+        "corpus": "C-minall",
+        "entries": 60,
+        "excluded": [
+          "t5_maj_abd_or_c"
+        ],
+        "family": "maj",
+        "identity": "semantic",
+        "is_window": true,
+        "preregistered": true,
+        "rank": 2,
+        "rule": "mine_semantic.propose",
+        "saving_bits": 330672,
+        "tasks": [
+          "t1_maj_abc_xor_d",
+          "t2_maj_abc_and_d",
+          "t3_maj_bcd_or_a",
+          "t4_maj_acd_xor_b"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    },
+    {
+      "description_bits": 10128,
+      "digest": "0b7ea9a5a2d4e4146eb1fa2b",
+      "execution_cost": 4.0,
+      "fixture_cases": 8,
+      "inputs": [
+        [
+          "x0",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x1",
+          {
+            "kind": "bool"
+          }
+        ],
+        [
+          "x2",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "name": "sem_off",
+      "nodes": 4,
+      "operator": "module:0b7ea9a5a2d4e4146eb1fa2b",
+      "outputs": [
+        [
+          "out",
+          {
+            "kind": "bool"
+          }
+        ]
+      ],
+      "provenance": {
+        "arity": 3,
+        "corpus": "C-minall",
+        "entries": 58,
+        "excluded": [],
+        "family": "off",
+        "identity": "semantic",
+        "is_window": true,
+        "preregistered": true,
+        "rank": 1,
+        "rule": "mine_semantic.propose",
+        "saving_bits": 319464,
+        "tasks": [
+          "s1_w_abc_xor_d",
+          "s2_w_abc_and_d",
+          "s3_w_bcd_or_a",
+          "s4_w_acd_xor_b",
+          "s5_w_abd_or_c"
+        ]
+      },
+      "requires": [],
+      "revalidated": [],
+      "source": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947",
+      "stale": [],
+      "version": 1
+    }
+  ],
+  "format": "tcn.library/1"
+}

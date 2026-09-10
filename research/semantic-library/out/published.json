@@ -1,0 +1,1361 @@
+{
+  "sem_minall": {
+    "arity": 3,
+    "body": [
+      [
+        "and",
+        "n0",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "xor",
+        "n1",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "and",
+        "n2",
+        [
+          "x2",
+          "n1"
+        ]
+      ],
+      [
+        "or",
+        "n3",
+        [
+          "n0",
+          "n2"
+        ]
+      ]
+    ],
+    "circuits_pooled": 8,
+    "description_bits": 10128,
+    "digest": "165bc290d9c82b70a8ea3cc2",
+    "execution_cost": 4.0,
+    "fixture_cases": 8,
+    "from": "maj_minall_sem",
+    "is_window": true,
+    "label": "sem_minall",
+    "nodes": 4,
+    "operator": "module:165bc290d9c82b70a8ea3cc2",
+    "rank": 1,
+    "reference": "sem_minall@1",
+    "rule": "rank1",
+    "saving_bits": 415872,
+    "tasks": [
+      "t1_maj_abc_xor_d",
+      "t2_maj_abc_and_d",
+      "t3_maj_bcd_or_a",
+      "t4_maj_acd_xor_b",
+      "t5_maj_abd_or_c"
+    ],
+    "truth_table": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1
+    ]
+  },
+  "sem_minall_matched": null,
+  "sem_minall_runnerup": {
+    "arity": 3,
+    "body": [
+      [
+        "and",
+        "n0",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "or",
+        "n1",
+        [
+          "n0",
+          "x2"
+        ]
+      ]
+    ],
+    "circuits_pooled": 2,
+    "description_bits": 6048,
+    "digest": "ca785ec948250acbf39b8f66",
+    "execution_cost": 2.0,
+    "fixture_cases": 8,
+    "from": "maj_minall_sem",
+    "is_window": false,
+    "label": "sem_minall_runnerup",
+    "nodes": 2,
+    "operator": "module:ca785ec948250acbf39b8f66",
+    "rank": 4,
+    "reference": "sem_minall_runnerup@1",
+    "rule": "runnerup",
+    "saving_bits": 163632,
+    "tasks": [
+      "t1_maj_abc_xor_d",
+      "t2_maj_abc_and_d",
+      "t3_maj_bcd_or_a",
+      "t4_maj_acd_xor_b",
+      "t5_maj_abd_or_c"
+    ],
+    "truth_table": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1
+    ]
+  },
+  "sem_off": {
+    "arity": 3,
+    "body": [
+      [
+        "or",
+        "n0",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "xor",
+        "n1",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "xor",
+        "n2",
+        [
+          "x2",
+          "n1"
+        ]
+      ],
+      [
+        "and",
+        "n3",
+        [
+          "n0",
+          "n2"
+        ]
+      ]
+    ],
+    "circuits_pooled": 12,
+    "description_bits": 10128,
+    "digest": "0b7ea9a5a2d4e4146eb1fa2b",
+    "execution_cost": 4.0,
+    "fixture_cases": 8,
+    "from": "off_minall_sem",
+    "is_window": true,
+    "label": "sem_off",
+    "nodes": 4,
+    "operator": "module:0b7ea9a5a2d4e4146eb1fa2b",
+    "rank": 1,
+    "reference": "sem_off@1",
+    "rule": "rank1_arity3",
+    "saving_bits": 319464,
+    "tasks": [
+      "s1_w_abc_xor_d",
+      "s2_w_abc_and_d",
+      "s3_w_bcd_or_a",
+      "s4_w_acd_xor_b",
+      "s5_w_abd_or_c"
+    ],
+    "truth_table": [
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  "sem_trace": {
+    "arity": 3,
+    "body": [
+      [
+        "and",
+        "n0",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "xor",
+        "n1",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "and",
+        "n2",
+        [
+          "x2",
+          "n1"
+        ]
+      ],
+      [
+        "or",
+        "n3",
+        [
+          "n0",
+          "n2"
+        ]
+      ]
+    ],
+    "circuits_pooled": 58,
+    "description_bits": 10128,
+    "digest": "165bc290d9c82b70a8ea3cc2",
+    "execution_cost": 4.0,
+    "fixture_cases": 8,
+    "from": "maj_trace_sem",
+    "is_window": true,
+    "label": "sem_trace",
+    "nodes": 4,
+    "operator": "module:165bc290d9c82b70a8ea3cc2",
+    "rank": 1,
+    "reference": "sem_trace@1",
+    "rule": "rank1",
+    "saving_bits": 860960,
+    "tasks": [
+      "t1_maj_abc_xor_d",
+      "t2_maj_abc_and_d",
+      "t3_maj_bcd_or_a",
+      "t4_maj_acd_xor_b",
+      "t5_maj_abd_or_c"
+    ],
+    "truth_table": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1
+    ]
+  },
+  "sem_wo_t1": {
+    "arity": 4,
+    "body": [
+      [
+        "and",
+        "n0",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "or",
+        "n1",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "and",
+        "n2",
+        [
+          "x2",
+          "n1"
+        ]
+      ],
+      [
+        "or",
+        "n3",
+        [
+          "x3",
+          "n0"
+        ]
+      ],
+      [
+        "or",
+        "n4",
+        [
+          "n2",
+          "n3"
+        ]
+      ]
+    ],
+    "circuits_pooled": 12,
+    "description_bits": 12360,
+    "digest": "08735e504400bf4879acf0a7",
+    "execution_cost": 5.0,
+    "fixture_cases": 16,
+    "from": "maj_minall_sem_wo_t1",
+    "is_window": false,
+    "label": "sem_wo_t1",
+    "nodes": 5,
+    "operator": "module:08735e504400bf4879acf0a7",
+    "rank": 1,
+    "reference": "sem_wo_t1@1",
+    "rule": "rank1",
+    "saving_bits": 333496,
+    "tasks": [
+      "t3_maj_bcd_or_a",
+      "t5_maj_abd_or_c"
+    ],
+    "truth_table": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "sem_wo_t1_win": {
+    "arity": 3,
+    "body": [
+      [
+        "and",
+        "n0",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "xor",
+        "n1",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "and",
+        "n2",
+        [
+          "x2",
+          "n1"
+        ]
+      ],
+      [
+        "or",
+        "n3",
+        [
+          "n0",
+          "n2"
+        ]
+      ]
+    ],
+    "circuits_pooled": 8,
+    "description_bits": 10128,
+    "digest": "165bc290d9c82b70a8ea3cc2",
+    "execution_cost": 4.0,
+    "fixture_cases": 8,
+    "from": "maj_minall_sem_wo_t1",
+    "is_window": true,
+    "label": "sem_wo_t1_win",
+    "nodes": 4,
+    "operator": "module:165bc290d9c82b70a8ea3cc2",
+    "rank": 2,
+    "reference": "sem_wo_t1_win@1",
+    "rule": "best_window",
+    "saving_bits": 330672,
+    "tasks": [
+      "t2_maj_abc_and_d",
+      "t3_maj_bcd_or_a",
+      "t4_maj_acd_xor_b",
+      "t5_maj_abd_or_c"
+    ],
+    "truth_table": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1
+    ]
+  },
+  "sem_wo_t2": {
+    "arity": 4,
+    "body": [
+      [
+        "xor",
+        "n0",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "xor",
+        "n1",
+        [
+          "x1",
+          "x2"
+        ]
+      ],
+      [
+        "and",
+        "n2",
+        [
+          "n0",
+          "n1"
+        ]
+      ],
+      [
+        "xor",
+        "n3",
+        [
+          "x3",
+          "n2"
+        ]
+      ],
+      [
+        "xor",
+        "n4",
+        [
+          "x1",
+          "n3"
+        ]
+      ]
+    ],
+    "circuits_pooled": 16,
+    "description_bits": 12384,
+    "digest": "0ba4287a0409988fa2b5eff9",
+    "execution_cost": 5.0,
+    "fixture_cases": 16,
+    "from": "maj_minall_sem_wo_t2",
+    "is_window": false,
+    "label": "sem_wo_t2",
+    "nodes": 5,
+    "operator": "module:0ba4287a0409988fa2b5eff9",
+    "rank": 1,
+    "reference": "sem_wo_t2@1",
+    "rule": "rank1",
+    "saving_bits": 349104,
+    "tasks": [
+      "t1_maj_abc_xor_d",
+      "t4_maj_acd_xor_b"
+    ],
+    "truth_table": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  "sem_wo_t2_win": {
+    "arity": 3,
+    "body": [
+      [
+        "and",
+        "n0",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "xor",
+        "n1",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "and",
+        "n2",
+        [
+          "x2",
+          "n1"
+        ]
+      ],
+      [
+        "or",
+        "n3",
+        [
+          "n0",
+          "n2"
+        ]
+      ]
+    ],
+    "circuits_pooled": 8,
+    "description_bits": 10128,
+    "digest": "165bc290d9c82b70a8ea3cc2",
+    "execution_cost": 4.0,
+    "fixture_cases": 8,
+    "from": "maj_minall_sem_wo_t2",
+    "is_window": true,
+    "label": "sem_wo_t2_win",
+    "nodes": 4,
+    "operator": "module:165bc290d9c82b70a8ea3cc2",
+    "rank": 3,
+    "reference": "sem_wo_t2_win@1",
+    "rule": "best_window",
+    "saving_bits": 330672,
+    "tasks": [
+      "t1_maj_abc_xor_d",
+      "t3_maj_bcd_or_a",
+      "t4_maj_acd_xor_b",
+      "t5_maj_abd_or_c"
+    ],
+    "truth_table": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1
+    ]
+  },
+  "sem_wo_t3": {
+    "arity": 4,
+    "body": [
+      [
+        "xor",
+        "n0",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "xor",
+        "n1",
+        [
+          "x1",
+          "x2"
+        ]
+      ],
+      [
+        "and",
+        "n2",
+        [
+          "n0",
+          "n1"
+        ]
+      ],
+      [
+        "xor",
+        "n3",
+        [
+          "x3",
+          "n2"
+        ]
+      ],
+      [
+        "xor",
+        "n4",
+        [
+          "x1",
+          "n3"
+        ]
+      ]
+    ],
+    "circuits_pooled": 16,
+    "description_bits": 12384,
+    "digest": "0ba4287a0409988fa2b5eff9",
+    "execution_cost": 5.0,
+    "fixture_cases": 16,
+    "from": "maj_minall_sem_wo_t3",
+    "is_window": false,
+    "label": "sem_wo_t3",
+    "nodes": 5,
+    "operator": "module:0ba4287a0409988fa2b5eff9",
+    "rank": 1,
+    "reference": "sem_wo_t3@1",
+    "rule": "rank1",
+    "saving_bits": 349104,
+    "tasks": [
+      "t1_maj_abc_xor_d",
+      "t4_maj_acd_xor_b"
+    ],
+    "truth_table": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  "sem_wo_t3_win": {
+    "arity": 3,
+    "body": [
+      [
+        "and",
+        "n0",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "xor",
+        "n1",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "and",
+        "n2",
+        [
+          "x2",
+          "n1"
+        ]
+      ],
+      [
+        "or",
+        "n3",
+        [
+          "n0",
+          "n2"
+        ]
+      ]
+    ],
+    "circuits_pooled": 8,
+    "description_bits": 10128,
+    "digest": "165bc290d9c82b70a8ea3cc2",
+    "execution_cost": 4.0,
+    "fixture_cases": 8,
+    "from": "maj_minall_sem_wo_t3",
+    "is_window": true,
+    "label": "sem_wo_t3_win",
+    "nodes": 4,
+    "operator": "module:165bc290d9c82b70a8ea3cc2",
+    "rank": 2,
+    "reference": "sem_wo_t3_win@1",
+    "rule": "best_window",
+    "saving_bits": 330672,
+    "tasks": [
+      "t1_maj_abc_xor_d",
+      "t2_maj_abc_and_d",
+      "t4_maj_acd_xor_b",
+      "t5_maj_abd_or_c"
+    ],
+    "truth_table": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1
+    ]
+  },
+  "sem_wo_t4": {
+    "arity": 4,
+    "body": [
+      [
+        "and",
+        "n0",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "or",
+        "n1",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "and",
+        "n2",
+        [
+          "x2",
+          "n1"
+        ]
+      ],
+      [
+        "or",
+        "n3",
+        [
+          "x3",
+          "n0"
+        ]
+      ],
+      [
+        "or",
+        "n4",
+        [
+          "n2",
+          "n3"
+        ]
+      ]
+    ],
+    "circuits_pooled": 12,
+    "description_bits": 12360,
+    "digest": "08735e504400bf4879acf0a7",
+    "execution_cost": 5.0,
+    "fixture_cases": 16,
+    "from": "maj_minall_sem_wo_t4",
+    "is_window": false,
+    "label": "sem_wo_t4",
+    "nodes": 5,
+    "operator": "module:08735e504400bf4879acf0a7",
+    "rank": 1,
+    "reference": "sem_wo_t4@1",
+    "rule": "rank1",
+    "saving_bits": 333496,
+    "tasks": [
+      "t3_maj_bcd_or_a",
+      "t5_maj_abd_or_c"
+    ],
+    "truth_table": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "sem_wo_t4_win": {
+    "arity": 3,
+    "body": [
+      [
+        "and",
+        "n0",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "xor",
+        "n1",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "and",
+        "n2",
+        [
+          "x2",
+          "n1"
+        ]
+      ],
+      [
+        "or",
+        "n3",
+        [
+          "n0",
+          "n2"
+        ]
+      ]
+    ],
+    "circuits_pooled": 8,
+    "description_bits": 10128,
+    "digest": "165bc290d9c82b70a8ea3cc2",
+    "execution_cost": 4.0,
+    "fixture_cases": 8,
+    "from": "maj_minall_sem_wo_t4",
+    "is_window": true,
+    "label": "sem_wo_t4_win",
+    "nodes": 4,
+    "operator": "module:165bc290d9c82b70a8ea3cc2",
+    "rank": 2,
+    "reference": "sem_wo_t4_win@1",
+    "rule": "best_window",
+    "saving_bits": 330672,
+    "tasks": [
+      "t1_maj_abc_xor_d",
+      "t2_maj_abc_and_d",
+      "t3_maj_bcd_or_a",
+      "t5_maj_abd_or_c"
+    ],
+    "truth_table": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1
+    ]
+  },
+  "sem_wo_t5": {
+    "arity": 4,
+    "body": [
+      [
+        "xor",
+        "n0",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "xor",
+        "n1",
+        [
+          "x1",
+          "x2"
+        ]
+      ],
+      [
+        "and",
+        "n2",
+        [
+          "n0",
+          "n1"
+        ]
+      ],
+      [
+        "xor",
+        "n3",
+        [
+          "x3",
+          "n2"
+        ]
+      ],
+      [
+        "xor",
+        "n4",
+        [
+          "x1",
+          "n3"
+        ]
+      ]
+    ],
+    "circuits_pooled": 16,
+    "description_bits": 12384,
+    "digest": "0ba4287a0409988fa2b5eff9",
+    "execution_cost": 5.0,
+    "fixture_cases": 16,
+    "from": "maj_minall_sem_wo_t5",
+    "is_window": false,
+    "label": "sem_wo_t5",
+    "nodes": 5,
+    "operator": "module:0ba4287a0409988fa2b5eff9",
+    "rank": 1,
+    "reference": "sem_wo_t5@1",
+    "rule": "rank1",
+    "saving_bits": 349104,
+    "tasks": [
+      "t1_maj_abc_xor_d",
+      "t4_maj_acd_xor_b"
+    ],
+    "truth_table": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  "sem_wo_t5_win": {
+    "arity": 3,
+    "body": [
+      [
+        "and",
+        "n0",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "xor",
+        "n1",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "and",
+        "n2",
+        [
+          "x2",
+          "n1"
+        ]
+      ],
+      [
+        "or",
+        "n3",
+        [
+          "n0",
+          "n2"
+        ]
+      ]
+    ],
+    "circuits_pooled": 8,
+    "description_bits": 10128,
+    "digest": "165bc290d9c82b70a8ea3cc2",
+    "execution_cost": 4.0,
+    "fixture_cases": 8,
+    "from": "maj_minall_sem_wo_t5",
+    "is_window": true,
+    "label": "sem_wo_t5_win",
+    "nodes": 4,
+    "operator": "module:165bc290d9c82b70a8ea3cc2",
+    "rank": 2,
+    "reference": "sem_wo_t5_win@1",
+    "rule": "best_window",
+    "saving_bits": 330672,
+    "tasks": [
+      "t1_maj_abc_xor_d",
+      "t2_maj_abc_and_d",
+      "t3_maj_bcd_or_a",
+      "t4_maj_acd_xor_b"
+    ],
+    "truth_table": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1
+    ]
+  },
+  "syn_minall": {
+    "arity": 3,
+    "body": [
+      [
+        "and",
+        "n0",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "or",
+        "n1",
+        [
+          "x2",
+          "n0"
+        ]
+      ]
+    ],
+    "circuits_pooled": null,
+    "description_bits": 6048,
+    "digest": "ec516b3808ddef7e7d0e7d22",
+    "execution_cost": 2.0,
+    "fixture_cases": 8,
+    "from": "maj_minall_syn",
+    "is_window": false,
+    "label": "syn_minall",
+    "nodes": 2,
+    "operator": "module:ec516b3808ddef7e7d0e7d22",
+    "rank": 1,
+    "reference": "syn_minall@1",
+    "rule": "rank1",
+    "saving_bits": 137776,
+    "tasks": [
+      "t1_maj_abc_xor_d",
+      "t2_maj_abc_and_d",
+      "t3_maj_bcd_or_a",
+      "t4_maj_acd_xor_b",
+      "t5_maj_abd_or_c"
+    ],
+    "truth_table": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1
+    ]
+  },
+  "syn_minall_runnerup": {
+    "arity": 3,
+    "body": [
+      [
+        "xor",
+        "n0",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "and",
+        "n1",
+        [
+          "x2",
+          "n0"
+        ]
+      ]
+    ],
+    "circuits_pooled": null,
+    "description_bits": 6056,
+    "digest": "82b93e4bc7b294ff04c8f289",
+    "execution_cost": 2.0,
+    "fixture_cases": 8,
+    "from": "maj_minall_syn",
+    "is_window": false,
+    "label": "syn_minall_runnerup",
+    "nodes": 2,
+    "operator": "module:82b93e4bc7b294ff04c8f289",
+    "rank": 2,
+    "reference": "syn_minall_runnerup@2",
+    "rule": "rank2_arity3",
+    "saving_bits": 136856,
+    "tasks": [
+      "t1_maj_abc_xor_d",
+      "t2_maj_abc_and_d",
+      "t3_maj_bcd_or_a",
+      "t4_maj_acd_xor_b",
+      "t5_maj_abd_or_c",
+      "t6_maj_abc_xor_maj_bcd"
+    ],
+    "truth_table": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  "syn_wo_t1": {
+    "arity": 3,
+    "body": [
+      [
+        "and",
+        "n0",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "or",
+        "n1",
+        [
+          "x2",
+          "n0"
+        ]
+      ]
+    ],
+    "circuits_pooled": null,
+    "description_bits": 6048,
+    "digest": "ec516b3808ddef7e7d0e7d22",
+    "execution_cost": 2.0,
+    "fixture_cases": 8,
+    "from": "maj_minall_syn_wo_t1",
+    "is_window": false,
+    "label": "syn_wo_t1",
+    "nodes": 2,
+    "operator": "module:ec516b3808ddef7e7d0e7d22",
+    "rank": 1,
+    "reference": "syn_wo_t1@1",
+    "rule": "rank1",
+    "saving_bits": 123232,
+    "tasks": [
+      "t2_maj_abc_and_d",
+      "t3_maj_bcd_or_a",
+      "t4_maj_acd_xor_b",
+      "t5_maj_abd_or_c"
+    ],
+    "truth_table": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1
+    ]
+  },
+  "syn_wo_t2": {
+    "arity": 3,
+    "body": [
+      [
+        "and",
+        "n0",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "or",
+        "n1",
+        [
+          "x2",
+          "n0"
+        ]
+      ]
+    ],
+    "circuits_pooled": null,
+    "description_bits": 6048,
+    "digest": "ec516b3808ddef7e7d0e7d22",
+    "execution_cost": 2.0,
+    "fixture_cases": 8,
+    "from": "maj_minall_syn_wo_t2",
+    "is_window": false,
+    "label": "syn_wo_t2",
+    "nodes": 2,
+    "operator": "module:ec516b3808ddef7e7d0e7d22",
+    "rank": 1,
+    "reference": "syn_wo_t2@1",
+    "rule": "rank1",
+    "saving_bits": 113536,
+    "tasks": [
+      "t1_maj_abc_xor_d",
+      "t3_maj_bcd_or_a",
+      "t4_maj_acd_xor_b",
+      "t5_maj_abd_or_c"
+    ],
+    "truth_table": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1
+    ]
+  },
+  "syn_wo_t3": {
+    "arity": 3,
+    "body": [
+      [
+        "xor",
+        "n0",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "and",
+        "n1",
+        [
+          "x2",
+          "n0"
+        ]
+      ]
+    ],
+    "circuits_pooled": null,
+    "description_bits": 6056,
+    "digest": "82b93e4bc7b294ff04c8f289",
+    "execution_cost": 2.0,
+    "fixture_cases": 8,
+    "from": "maj_minall_syn_wo_t3",
+    "is_window": false,
+    "label": "syn_wo_t3",
+    "nodes": 2,
+    "operator": "module:82b93e4bc7b294ff04c8f289",
+    "rank": 1,
+    "reference": "syn_wo_t3@1",
+    "rule": "rank1",
+    "saving_bits": 112496,
+    "tasks": [
+      "t1_maj_abc_xor_d",
+      "t2_maj_abc_and_d",
+      "t4_maj_acd_xor_b",
+      "t5_maj_abd_or_c",
+      "t6_maj_abc_xor_maj_bcd"
+    ],
+    "truth_table": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  "syn_wo_t4": {
+    "arity": 3,
+    "body": [
+      [
+        "and",
+        "n0",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "or",
+        "n1",
+        [
+          "x2",
+          "n0"
+        ]
+      ]
+    ],
+    "circuits_pooled": null,
+    "description_bits": 6048,
+    "digest": "ec516b3808ddef7e7d0e7d22",
+    "execution_cost": 2.0,
+    "fixture_cases": 8,
+    "from": "maj_minall_syn_wo_t4",
+    "is_window": false,
+    "label": "syn_wo_t4",
+    "nodes": 2,
+    "operator": "module:ec516b3808ddef7e7d0e7d22",
+    "rank": 1,
+    "reference": "syn_wo_t4@1",
+    "rule": "rank1",
+    "saving_bits": 123232,
+    "tasks": [
+      "t1_maj_abc_xor_d",
+      "t2_maj_abc_and_d",
+      "t3_maj_bcd_or_a",
+      "t5_maj_abd_or_c"
+    ],
+    "truth_table": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1
+    ]
+  },
+  "syn_wo_t5": {
+    "arity": 3,
+    "body": [
+      [
+        "xor",
+        "n0",
+        [
+          "x0",
+          "x1"
+        ]
+      ],
+      [
+        "and",
+        "n1",
+        [
+          "x2",
+          "n0"
+        ]
+      ]
+    ],
+    "circuits_pooled": null,
+    "description_bits": 6056,
+    "digest": "82b93e4bc7b294ff04c8f289",
+    "execution_cost": 2.0,
+    "fixture_cases": 8,
+    "from": "maj_minall_syn_wo_t5",
+    "is_window": false,
+    "label": "syn_wo_t5",
+    "nodes": 2,
+    "operator": "module:82b93e4bc7b294ff04c8f289",
+    "rank": 1,
+    "reference": "syn_wo_t5@1",
+    "rule": "rank1",
+    "saving_bits": 112496,
+    "tasks": [
+      "t1_maj_abc_xor_d",
+      "t2_maj_abc_and_d",
+      "t3_maj_bcd_or_a",
+      "t4_maj_acd_xor_b",
+      "t6_maj_abc_xor_maj_bcd"
+    ],
+    "truth_table": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0
+    ]
+  }
+}

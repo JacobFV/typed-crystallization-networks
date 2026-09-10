@@ -1,0 +1,67 @@
+off_minall_syn entries 117 eligible 104 rank1_is_window False best_window_rank 29 rank1 arity 4 nodes 3
+off_minall_sem entries 117 eligible 41 rank1_is_window True best_window_rank 1 rank1 arity 3 nodes 4
+sem_off module:0b7ea9a5a2d4e4146eb1fa2b 4 nodes rank 1 arity 3 off-window True
+arm4s_offfamily tight candidates (336, 336, 24) space 2709504
+{"arm": "arm4s_offfamily", "certificate": "complete", "conforming": 0, "evaluated": 2709504, "exhausted": true, "solved": false, "space_size": 2709504, "wall_seconds": 214.59586474002572}
+>> run_grad.py tight 24concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/home/brandonin/.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/concurrent/futures/process.py", line 254, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "/home/brandonin/.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/concurrent/futures/process.py", line 203, in _process_chunk
+    return [fn(*args) for args in chunk]
+            ~~^^^^^^^
+  File "/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a4599bc494b71273d/research/semantic-library/run_grad.py", line 31, in one
+    r, module_name = armlib.build(armlib.l1_spec(arm))
+                     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a4599bc494b71273d/research/semantic-library/armlib.py", line 66, in build
+    _, aliases = Library(LIB).load([name], registry=r, policy=policy)
+                 ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a4599bc494b71273d/tcn/library.py", line 332, in load
+    entry = self.entry(reference)
+  File "/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a4599bc494b71273d/tcn/library.py", line 192, in entry
+    return self.head(reference)
+           ~~~~~~~~~^^^^^^^^^^^
+  File "/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a4599bc494b71273d/tcn/library.py", line 181, in head
+    raise KeyError(f"no module named {name!r} in {self.root}")
+KeyError: "no module named 'sem_minall_matched' in /home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a4599bc494b71273d/research/semantic-library/library"
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a4599bc494b71273d/research/semantic-library/run_grad.py", line 79, in <module>
+    main()
+    ~~~~^^
+  File "/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a4599bc494b71273d/research/semantic-library/run_grad.py", line 50, in main
+    records = list(pool.map(one, jobs))
+  File "/home/brandonin/.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/concurrent/futures/process.py", line 620, in _chain_from_iterable_of_lists
+    for element in iterable:
+                   ^^^^^^^^
+  File "/home/brandonin/.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/concurrent/futures/_base.py", line 625, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/brandonin/.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/concurrent/futures/_base.py", line 318, in _result_or_cancel
+    return fut.result(timeout)
+           ~~~~~~~~~~^^^^^^^^^
+  File "/home/brandonin/.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/concurrent/futures/_base.py", line 453, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/home/brandonin/.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/concurrent/futures/_base.py", line 402, in __get_result
+    raise self._exception
+KeyError: "no module named 'sem_minall_matched' in /home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a4599bc494b71273d/research/semantic-library/library"
+Traceback (most recent call last):
+  File "/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a4599bc494b71273d/research/semantic-library/run_rest.py", line 66, in <module>
+    main()
+    ~~~~^^
+  File "/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a4599bc494b71273d/research/semantic-library/run_rest.py", line 59, in main
+    sh("run_grad.py", "tight", "24")
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a4599bc494b71273d/research/semantic-library/run_rest.py", line 26, in sh
+    subprocess.run([PY, str(HERE / args[0])] + list(args[1:]), check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/brandonin/.local/share/uv/python/cpython-3.13.15-linux-aarch64-gnu/lib/python3.13/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/home/brandonin/Documents/typed-crystallization-networks/.venv/bin/python', '/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-a4599bc494b71273d/research/semantic-library/run_grad.py', 'tight', '24']' returned non-zero exit status 1.
+
