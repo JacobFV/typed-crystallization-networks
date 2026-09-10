@@ -52,8 +52,26 @@ from the earlier visual, language and computer searches. None comes from the int
 No row comes from the integrated task, its training episodes or its held-out episodes; `verify.py` checks this and that the prior refitted from `sources.json` alone reproduces every stored estimator cell and N″'s tiers from the training episodes' unlabelled text. The integrated task contributes only unlabelled features of its training observations (V: does the addressed byte vary; occurs: does the literal appear there). The held-out episodes enter nothing but the generalization score.
 <!-- END:leakage -->
 
-(The remaining verdict items — the distractor, the controls, the sweep's test of the pre-sweep
-prediction — are written in §9 once their arms land.)
+**C2 is met only vacuously.** The pre-registered distractor could not succeed: an exact
+48-episode count finds no program in its space that conforms on training and held-out together,
+and none of its address expressions reaches the colour word (§9.1). Its failure to help is true by
+construction — a straw man — so the "matched distractor does not help" half of the owner's
+criterion is carried instead by the post-hoc controls R, U_feat, U_steep, U_Vonly and the per-kind
+knockouts (§9.3), not by D′/D″.
+
+**What carries the post-hoc generalization, at one width and one task family.** Knocking out one
+learned estimator at a time from N″ leaves the first solution generalizing except when the STEP
+estimator — fitted on the 20 step-offset rows of the §33 visual parse — is removed; STEP fitted
+alone, with every other estimator uniform, is sufficient. But a one-line human rule
+("prefer single-pixel and single-row offsets") does the same, so **those 20 learned rows add
+nothing measurable beyond a prior a human would write**. KO_ADDR rules out the §19/§23 *address*
+rows only; the literal knockout (identical to OCC_1) rules out their literal rows as well.
+Hand features on the address and literal slots — gentle or at N″'s own steepness — never produce
+generalization without a step preference (§9.3). **"Generalizes" and "cheaper" are separate
+claims**: the step preference makes the first hit correct, not cheap; the cost is set by the
+address and literal preferences, and §9.4 gives programs to the first *generalizing* program per
+arm, post-hoc. Scope: one seed set, one palette, one relation vocabulary, `gap 0`; the STEP
+estimator rests on 20 rows; `gap 1` is §2's second table.
 
 ---
 
@@ -341,6 +359,17 @@ preferences without destroying them, so it is not a "content destroyed" control.
 <!-- END:mechanism -->
 
 ### 9.4 Programs to the first GENERALIZING program — exploratory, not a verdict
+
+**Post-hoc throughout; C1's pre-registered failure stands as the first line of this document.**
+One column per arm: the expected programs a search following that arm's order evaluates before
+reaching a program that conforms on all 48 episodes. Exact where the arm's tiers can be counted
+over 48 episodes; a Wilson-interval bound from exact uniform samples for the flat pools; infinite
+where the space holds no generalizing program.
+
+<!-- BEGIN:first_generalizing_gap0 -->
+<!-- END:first_generalizing_gap0 -->
+
+Sampled first-shell conformers, for the arms whose first hit does not always generalize:
 
 <!-- BEGIN:posthoc_gap0 -->
 <!-- END:posthoc_gap0 -->
