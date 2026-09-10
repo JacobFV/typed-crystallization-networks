@@ -1,0 +1,711 @@
+{
+ "pass": 141,
+ "fail": 0,
+ "results": [
+  {
+   "ok": true,
+   "claim": "enum_16 is complete and every stage exhausted (walk and prefix search)",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "enum_24 is complete and every stage exhausted (walk and prefix search)",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "enum_32 is complete and every stage exhausted (walk and prefix search)",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "enum_40 is complete and every stage exhausted (walk and prefix search)",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "enum_48 is complete and every stage exhausted (walk and prefix search)",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "with_16 is complete",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "with_40 is complete",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "with_48 is complete",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 16: certificates S0 complete/2, S1' complete/2, S2' unique/1",
+   "detail": "{'s0': ('complete', 2), 's1': ('complete', 2), 's2': ('unique', 1)}"
+  },
+  {
+   "ok": true,
+   "claim": "res 16: walk and prefix search agree on the conforming count",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 16: S0's two conforming programs are one function",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 24: certificates S0 complete/2, S1' complete/2, S2' unique/1",
+   "detail": "{'s0': ('complete', 2), 's1': ('complete', 2), 's2': ('unique', 1)}"
+  },
+  {
+   "ok": true,
+   "claim": "res 24: walk and prefix search agree on the conforming count",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 24: S0's two conforming programs are one function",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 32: certificates S0 complete/2, S1' complete/2, S2' unique/1",
+   "detail": "{'s0': ('complete', 2), 's1': ('complete', 2), 's2': ('unique', 1)}"
+  },
+  {
+   "ok": true,
+   "claim": "res 32: walk and prefix search agree on the conforming count",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 32: S0's two conforming programs are one function",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 40: certificates S0 complete/2, S1' complete/2, S2' unique/1",
+   "detail": "{'s0': ('complete', 2), 's1': ('complete', 2), 's2': ('unique', 1)}"
+  },
+  {
+   "ok": true,
+   "claim": "res 40: walk and prefix search agree on the conforming count",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 40: S0's two conforming programs are one function",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 48: certificates S0 complete/2, S1' complete/2, S2' unique/1",
+   "detail": "{'s0': ('complete', 2), 's1': ('complete', 2), 's2': ('unique', 1)}"
+  },
+  {
+   "ok": true,
+   "claim": "res 48: walk and prefix search agree on the conforming count",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 48: S0's two conforming programs are one function",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "\u00a733 parse totals reproduce exactly at res 32 (12 screens, seeds 200-211)",
+   "detail": "227/227 links, 12/12 trees"
+  },
+  {
+   "ok": true,
+   "claim": "\u00a733 S0 module digest reproduces bit-exactly at res 32",
+   "detail": "module:b409b71ea0e41d77abb7cb9c"
+  },
+  {
+   "ok": true,
+   "claim": "\u00a733 S1'/S2' certificates and space sizes reproduce at res 32",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "\u00a733 s1 selection vector reproduces at res 32",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "\u00a733 s2 selection vector reproduces at res 32",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "the selected vector is identical at all five resolutions and equals the stored one",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "the class is admitted at exactly the two certified widths, vectors agreeing",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "every stage artifact digest differs across the five resolutions",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 16 s0: rebuilt digest == with-arm digest == enumerated digest",
+   "detail": "727a9d5f2fa56a03dc08d2bc"
+  },
+  {
+   "ok": true,
+   "claim": "res 16 s0: with-arm searched 0 programs and its check conforms",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 16 s1: rebuilt digest == with-arm digest == enumerated digest",
+   "detail": "0274a30b6438b543c9062086"
+  },
+  {
+   "ok": true,
+   "claim": "res 16 s1: with-arm searched 0 programs and its check conforms",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 16 s2: rebuilt digest == with-arm digest == enumerated digest",
+   "detail": "c999cee93879b10f5e6a791c"
+  },
+  {
+   "ok": true,
+   "claim": "res 16 s2: with-arm searched 0 programs and its check conforms",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 40 s0: rebuilt digest == with-arm digest == enumerated digest",
+   "detail": "6636dab9a907e52defb3d0c7"
+  },
+  {
+   "ok": true,
+   "claim": "res 40 s0: with-arm searched 0 programs and its check conforms",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 40 s1: rebuilt digest == with-arm digest == enumerated digest",
+   "detail": "0672f2cc49eadbad341bc6cc"
+  },
+  {
+   "ok": true,
+   "claim": "res 40 s1: with-arm searched 0 programs and its check conforms",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 40 s2: rebuilt digest == with-arm digest == enumerated digest",
+   "detail": "2d7f7a90e5bae6a50c9aa0f5"
+  },
+  {
+   "ok": true,
+   "claim": "res 40 s2: with-arm searched 0 programs and its check conforms",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 48 s0: rebuilt digest == with-arm digest == enumerated digest",
+   "detail": "0c0e85da1eb5ce067e395984"
+  },
+  {
+   "ok": true,
+   "claim": "res 48 s0: with-arm searched 0 programs and its check conforms",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 48 s1: rebuilt digest == with-arm digest == enumerated digest",
+   "detail": "878a367422894babff869ae0"
+  },
+  {
+   "ok": true,
+   "claim": "res 48 s1: with-arm searched 0 programs and its check conforms",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 48 s2: rebuilt digest == with-arm digest == enumerated digest",
+   "detail": "ea79d7a5415e530155d99cd4"
+  },
+  {
+   "ok": true,
+   "claim": "res 48 s2: with-arm searched 0 programs and its check conforms",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 16: the instantiated parse equals the enumerated parse, component for component",
+   "detail": "51/51 rects, 6/6 trees"
+  },
+  {
+   "ok": true,
+   "claim": "res 40: the instantiated parse equals the enumerated parse, component for component",
+   "detail": "119/120 rects, 5/6 trees"
+  },
+  {
+   "ok": true,
+   "claim": "res 48: the instantiated parse equals the enumerated parse, component for component",
+   "detail": "120/120 rects, 6/6 trees"
+  },
+  {
+   "ok": true,
+   "claim": "res 16 s0: accuracy beats best constant and the uniform-random (exact whole-space) mean",
+   "detail": "1.0000 vs const 0.6181, mean 0.5000"
+  },
+  {
+   "ok": true,
+   "claim": "res 16 s0: second-best ties the chosen program iff the space holds two conforming programs",
+   "detail": "conforming 2, 2nd 1.0000"
+  },
+  {
+   "ok": true,
+   "claim": "res 16 s1: accuracy beats best constant and the uniform-random (exact whole-space) mean",
+   "detail": "1.0000 vs const 0.9668, mean 0.5000"
+  },
+  {
+   "ok": true,
+   "claim": "res 16 s1: second-best ties the chosen program iff the space holds two conforming programs",
+   "detail": "conforming 2, 2nd 1.0000"
+  },
+  {
+   "ok": true,
+   "claim": "res 16 s2: accuracy beats best constant and the uniform-random (exact whole-space) mean",
+   "detail": "1.0000 vs const 0.1840, mean 0.7792"
+  },
+  {
+   "ok": true,
+   "claim": "res 16 s2: second-best ties the chosen program iff the space holds two conforming programs",
+   "detail": "conforming 1, 2nd 0.8958"
+  },
+  {
+   "ok": true,
+   "claim": "res 16: at S2' the same-path walk over the whole space costs under twice one full check (wrong programs fail on an early row)",
+   "detail": "1.8s walk vs 1.2s check"
+  },
+  {
+   "ok": true,
+   "claim": "res 16: the shipped prefix search does not exceed the largest stage space either",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 40 s0: accuracy beats best constant and the uniform-random (exact whole-space) mean",
+   "detail": "1.0000 vs const 0.6424, mean 0.5000"
+  },
+  {
+   "ok": true,
+   "claim": "res 40 s0: second-best ties the chosen program iff the space holds two conforming programs",
+   "detail": "conforming 2, 2nd 1.0000"
+  },
+  {
+   "ok": true,
+   "claim": "res 40 s1: accuracy beats best constant and the uniform-random (exact whole-space) mean",
+   "detail": "1.0000 vs const 0.9821, mean 0.5000"
+  },
+  {
+   "ok": true,
+   "claim": "res 40 s1: second-best ties the chosen program iff the space holds two conforming programs",
+   "detail": "conforming 2, 2nd 1.0000"
+  },
+  {
+   "ok": true,
+   "claim": "res 40 s2: accuracy beats best constant and the uniform-random (exact whole-space) mean",
+   "detail": "1.0000 vs const 0.1236, mean 0.7644"
+  },
+  {
+   "ok": true,
+   "claim": "res 40 s2: second-best ties the chosen program iff the space holds two conforming programs",
+   "detail": "conforming 1, 2nd 0.8875"
+  },
+  {
+   "ok": true,
+   "claim": "res 40: at S2' the same-path walk over the whole space costs under twice one full check (wrong programs fail on an early row)",
+   "detail": "49.0s walk vs 42.4s check"
+  },
+  {
+   "ok": true,
+   "claim": "res 40: the shipped prefix search does not exceed the largest stage space either",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 48 s0: accuracy beats best constant and the uniform-random (exact whole-space) mean",
+   "detail": "1.0000 vs const 0.7431, mean 0.5000"
+  },
+  {
+   "ok": true,
+   "claim": "res 48 s0: second-best ties the chosen program iff the space holds two conforming programs",
+   "detail": "conforming 2, 2nd 1.0000"
+  },
+  {
+   "ok": true,
+   "claim": "res 48 s1: accuracy beats best constant and the uniform-random (exact whole-space) mean",
+   "detail": "1.0000 vs const 0.9890, mean 0.5000"
+  },
+  {
+   "ok": true,
+   "claim": "res 48 s1: second-best ties the chosen program iff the space holds two conforming programs",
+   "detail": "conforming 2, 2nd 1.0000"
+  },
+  {
+   "ok": true,
+   "claim": "res 48 s2: accuracy beats best constant and the uniform-random (exact whole-space) mean",
+   "detail": "1.0000 vs const 0.1250, mean 0.7642"
+  },
+  {
+   "ok": true,
+   "claim": "res 48 s2: second-best ties the chosen program iff the space holds two conforming programs",
+   "detail": "conforming 1, 2nd 0.8889"
+  },
+  {
+   "ok": true,
+   "claim": "res 48: at S2' the same-path walk over the whole space costs under twice one full check (wrong programs fail on an early row)",
+   "detail": "86.5s walk vs 73.2s check"
+  },
+  {
+   "ok": true,
+   "claim": "res 48: the shipped prefix search does not exceed the largest stage space either",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 16 s0: program and row ratios equal the stage space exactly",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 16 s1: program and row ratios equal the stage space exactly",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 16 s2: program and row ratios equal the stage space exactly",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 16: pipeline program ratio is 681/3 and below the largest stage space",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 16: pipeline row-evaluation ratio does not exceed the largest stage space",
+   "detail": "343.8 vs 400"
+  },
+  {
+   "ok": true,
+   "claim": "res 16: same-path wall-clock ratio does not exceed the largest stage space",
+   "detail": "4.4 vs 400"
+  },
+  {
+   "ok": true,
+   "claim": "res 40 s0: program and row ratios equal the stage space exactly",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 40 s1: program and row ratios equal the stage space exactly",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 40 s2: program and row ratios equal the stage space exactly",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 40: pipeline program ratio is 681/3 and below the largest stage space",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 40: pipeline row-evaluation ratio does not exceed the largest stage space",
+   "detail": "323.7 vs 400"
+  },
+  {
+   "ok": true,
+   "claim": "res 40: same-path wall-clock ratio does not exceed the largest stage space",
+   "detail": "2.2 vs 400"
+  },
+  {
+   "ok": true,
+   "claim": "res 48 s0: program and row ratios equal the stage space exactly",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 48 s1: program and row ratios equal the stage space exactly",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 48 s2: program and row ratios equal the stage space exactly",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 48: pipeline program ratio is 681/3 and below the largest stage space",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "res 48: pipeline row-evaluation ratio does not exceed the largest stage space",
+   "detail": "323.7 vs 400"
+  },
+  {
+   "ok": true,
+   "claim": "res 48: same-path wall-clock ratio does not exceed the largest stage space",
+   "detail": "1.8 vs 400"
+  },
+  {
+   "ok": true,
+   "claim": "arm F: both wrong schemas are bit-identical to the right one at res 32",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "arm F1 (frozen offsets): 0 conforming, exhausted, at 16/24/40/48 for S1' and S2'",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "arm F2 (frozen span): 0 conforming, exhausted, at 40 and 48 for S2'",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "arm F1 (frozen offsets): refused by R1 at one width",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "arm F1 (frozen offsets): refused by R2 at two widths",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "arm F2 (frozen span): refused by R1 at one width",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "arm F2 (frozen span): ADMITTED at two widths (24, 32) -- F-d fires",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "arm F2 (frozen span): conforms with a `unique` S2' certificate at 16, 24 and 32",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "arm F2 (frozen span): the instantiation-time conformance check rejects it at 40, 48",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "arm F2 (frozen span): what it would ship at 40/48 beats the best constant -- a plausible-looking wrong artifact",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "F-a: the res-32 artifact accepts a res-32 screen",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "F-a: the res-32 artifact refuses a res-16 screen with a TypeError",
+   "detail": "input representation mismatch"
+  },
+  {
+   "ok": true,
+   "claim": "F-a: the res-32 artifact refuses a res-40 screen with a TypeError",
+   "detail": "input representation mismatch"
+  },
+  {
+   "ok": true,
+   "claim": "F-a: the res-32 artifact refuses a res-48 screen with a TypeError",
+   "detail": "input representation mismatch"
+  },
+  {
+   "ok": true,
+   "claim": "the res-40 miss is a parent-colour collision within the span",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "resource: `armf` exited 0 with peak RSS under 30 GB",
+   "detail": "0.62 GB"
+  },
+  {
+   "ok": true,
+   "claim": "resource: `enum_48` exited 0 with peak RSS under 30 GB",
+   "detail": "0.64 GB"
+  },
+  {
+   "ok": true,
+   "claim": "resource: `memprobe_16` exited 0 with peak RSS under 30 GB",
+   "detail": "0.26 GB"
+  },
+  {
+   "ok": true,
+   "claim": "resource: `memprobe_24` exited 0 with peak RSS under 30 GB",
+   "detail": "0.31 GB"
+  },
+  {
+   "ok": true,
+   "claim": "resource: `null` exited 0 with peak RSS under 30 GB",
+   "detail": "0.25 GB"
+  },
+  {
+   "ok": true,
+   "claim": "resource: `refusal` exited 0 with peak RSS under 30 GB",
+   "detail": "0.34 GB"
+  },
+  {
+   "ok": true,
+   "claim": "resource: `size` exited 0 with peak RSS under 30 GB",
+   "detail": "0.63 GB"
+  },
+  {
+   "ok": true,
+   "claim": "resource: `with_16` exited 0 with peak RSS under 30 GB",
+   "detail": "0.25 GB"
+  },
+  {
+   "ok": true,
+   "claim": "resource: `with_40` exited 0 with peak RSS under 30 GB",
+   "detail": "0.44 GB"
+  },
+  {
+   "ok": true,
+   "claim": "resource: `with_48` exited 0 with peak RSS under 30 GB",
+   "detail": "0.59 GB"
+  },
+  {
+   "ok": true,
+   "claim": "block `types_table` in RESULTS.md equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `widths_table` in RESULTS.md equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `cert_table` in RESULTS.md equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `cert_prefix_table` in RESULTS.md equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `s33_table` in RESULTS.md equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `vector_table` in RESULTS.md equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `class_table` in RESULTS.md equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `ww_table` in RESULTS.md equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `acc_table` in RESULTS.md equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `pipe_table` in RESULTS.md equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `parse_table` in RESULTS.md equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `collision_line` in RESULTS.md equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `s55_table` in RESULTS.md equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `armf_table` in RESULTS.md equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `armf_format_table` in RESULTS.md equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `refusal_table` in RESULTS.md equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `null_line` in RESULTS.md equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `resource_table` in RESULTS.md equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `size_line` in RESULTS.md equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `criteria_table` in RESULTS.md equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `headline` in RESULTS.md equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "prose outside generated blocks carries no untraced figure",
+   "detail": ""
+  }
+ ]
+}
