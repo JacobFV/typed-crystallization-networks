@@ -2469,3 +2469,71 @@ the parse ships as a **22.6 KB zipapp** against the 117.7 MB `.pyz` (a factor of
 against 377.5 MB. What now dominates the compiled path is the typed boundary and
 the JSON transport around it — for the computer artifact, **585 us of input
 validation around a 1.12 us program** — which is the next thing worth engineering.
+
+## 49. A resynthesizer recovers `guard` and `find` unaided — and the pre-registered win fails on the deployed distribution
+
+`research/lazy-guard/RESULTS.md`, branch `research/lazy-guard` (`615fc5a`),
+**not merged at time of writing**; `tcn/` and `generators/` untouched. This is the
+§9 experiment of `research/algorithm-resynthesis/DESIGN.md`, with all six criteria
+and four falsification conditions pre-registered. Verified here from raw JSON.
+
+**The precondition earned its place.** DESIGN §0.3 argued the objective cannot
+currently see an early-exit win, so the experiment would be unmeasurable without
+new cost instrumentation. Confirmed empirically: the specification's primitive
+count is a **single-bin histogram over all 65,536 inputs** — worst, expected and
+best coincide — so **criterion 2 was literally unmeasurable before the
+instrumentation existed**. The new `cost.py` reports worst, expected-over-declared-
+distribution, best, and executed bytecodes, never one scalar, and its evaluator is
+certified against `Registry.exact` on every input of both domains.
+
+**The discovery result is real, and the ablation is what establishes it.**
+
+| | stage 1 (`guard`) | stage 2 (`find`) | stage 3 (shipped parser S2) |
+|---|---|---|---|
+| candidates enumerated | 107,260 | 10,135,809 | 62,034 |
+| exactness | **65,536 / 65,536** | **65,536 / 65,536** | 2,883 / 2,883 held out |
+| certificate | exhaustive | exhaustive | *declared-enumerated, **not** exhausted* |
+| expected-work ratio | **5.09×** | **4.02×** | 4.42× held out |
+| **worst-case ratio** | **1.00×** | **1.00×** | 1.015× |
+| **executed bytecodes** | **0.67× — 50% slower** | **0.63×** | — |
+
+Criterion 3 holds by ablation, read from `ablation_matrix`:
+`single_removals_that_block: ["Guard"]` and
+`single_removals_that_do_not_block: ["Find","Scan","Let"]`. Removing `Guard`
+still yields an **exact** program — at `expected_ratio` **1.0**, i.e. zero gain.
+So the construct was composed, not supplied. Stage 2 goes further: **denied
+`find`, the search invented the scan form** (3.44×); removing both leaves no
+exact candidate. Stage 3 ran on the **shipped** visual parser's S2
+`rect_scaffold` — 585 nodes, a fixed-depth 31-term extent — and turned it into
+the hand-written reference's `while` loop, with the loop bound derived by
+anti-unification rather than supplied.
+
+**And a pre-registered criterion fails, which is the more important half.** On
+the distribution the shipped parse *actually feeds* S2 — corner positions, 54 of
+2,883 interior records (**1.87%**, mirroring the parse's 20-of-961 = 2.08%) — the
+expected-work ratio is **2.48×, below the pre-registered 3×**. Corners are
+precisely where the extent is *large*, so the loop runs longer there than at a
+random interior pixel. Quoting the 4.42× held-out figure without this row would
+be exactly the false win criterion 6 exists to prevent, and the track reported it
+itself.
+
+**Two facts that bound the whole direction.** Worst case does **not** improve —
+1.00×, 1.00×, 1.015× — as DESIGN §11 predicted, because early exit changes
+expected cost only. And in **executed CPython bytecodes the resynthesized code is
+worse**: 0.67× and 0.63×, a 1.50× worst-case penalty, because branch tests and
+jumps are paid for nothing when the predicate always hits. **Fewer primitive
+operations is not fewer bytecodes**, and §48's own decomposition of the visual
+gap was in bytecodes. So on this evidence a lazy algorithm reduces *modelled
+work* on the expected case while *increasing* real interpreter work on the worst
+case — and whether it reduces wall clock at deployment is not shown here.
+
+**Verdict.** The architectural claim of DESIGN.md is supported: a semantics-
+preserving resynthesizer can discover control flow absent from the specification
+language, on the shipped artifact, certified exactly, without being given the
+algorithm. The *performance* claim is not yet supported at the pre-registered
+bar on the distribution that matters. Both belong in any citation of this result.
+
+**Not established, and the next question:** whether the expected-work gain
+survives translation to wall clock given the bytecode regression. That needs the
+measured-latency arm of DESIGN §11, which this track did not run.
+
