@@ -275,6 +275,30 @@ def block_resources():
     return "\n".join(rows)
 
 
+def block_leakage():
+    s = load("sources.json")
+    kinds = {k: v for k, v in s.items() if isinstance(v, list) and k != "certificates"}
+    by = {}
+    for k, v in kinds.items():
+        for r in v:
+            by.setdefault((k, r["source"]), [0, 0])
+            by[(k, r["source"])][0] += 1
+            by[(k, r["source"])][1] += int(r["survive"])
+    rows = ["| prior kind | rows | survivors | from which earlier search |", "|---|---|---|---|"]
+    for k in ("ADDR", "LIT", "TRUTH", "STEP", "GROUND"):
+        srcs = [(src, n, p) for (kk, src), (n, p) in sorted(by.items()) if kk == k]
+        rows.append(f"| {k} | {sum(n for _, n, _ in srcs)} | {sum(p for _, _, p in srcs)} | "
+                    + (", ".join(f"{src} ({n})" for src, n, _ in srcs) or "none") + " |")
+    rows.append("")
+    rows.append("No row comes from the integrated task, its training episodes or its held-out episodes; "
+                "`verify.py` checks this and that the prior refitted from `sources.json` alone reproduces "
+                "every stored estimator cell and N″'s tiers from the training episodes' unlabelled text. "
+                "The integrated task contributes only unlabelled features of its training observations "
+                "(V: does the addressed byte vary; occurs: does the literal appear there). The held-out "
+                "episodes enter nothing but the generalization score.")
+    return "\n".join(rows)
+
+
 def block_generalize(gap):
     g = load(f"generalize_gap{gap}.json")
     if g is None:
@@ -306,6 +330,7 @@ def block_generalize(gap):
 
 
 BLOCKS = {
+    "leakage": block_leakage,
     "generalize_gap0": lambda: block_generalize(0),
     "criteria_gap0": lambda: block_criteria(0), "criteria_gap1": lambda: block_criteria(1),
     "arms_gap0": lambda: block_arms(0), "arms_gap1": lambda: block_arms(1),
