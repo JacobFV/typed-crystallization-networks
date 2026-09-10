@@ -39,6 +39,22 @@ surfaced because someone reported a number that contradicted a recorded one
 | A flaky test was written (asserted two stages overlap in wall clock; 1 fail in 3) | Non-deterministic suite | Assertion removed with the reason recorded |
 | `pkill` patterns matched the running shell | Killed own session twice | Identify processes by PID and `/proc/<pid>/cwd`, never by command-line substring |
 
+## Standing methodological cautions
+
+- **A `unique` certificate at a single width is not evidence of a correct
+  schema.** §53's arm F: a deliberately *wrong* schema is indistinguishable from
+  the right one at depth 1 — same 272-program space, same `unique` certificate —
+  and collapses to **0 conforming** at every other depth. This repository has
+  been treating single-width `unique` as strong evidence. Certify at two or more
+  widths.
+- **`description_bits` selects wrongly whenever it is used to rank.** §41: it
+  picks the bytecode-*maximal* program. §52: summed over entries it penalises
+  broad fragments, so removing a task flips rank 1 to a fragment present in only
+  two tasks. Two independent tracks, same defect.
+- **Three cost measures disagree in both directions** (§51): fewer primitives is
+  not fewer bytecodes, and fewer bytecodes is not less time. Measure all three or
+  state which one a claim is about.
+
 ## Patterns worth internalising
 
 1. **`seen` identical to `unseen` has two causes** — the pool bug *and* a
