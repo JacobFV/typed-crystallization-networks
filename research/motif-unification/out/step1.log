@@ -1,0 +1,17 @@
+  behaviour V_same       M2           3072 addresses, 0 failures, 10.11s
+  behaviour V_same       M3           3072 addresses, 0 failures, 11.3s
+  behaviour L_stage_a    M2           128 addresses, 0 failures, 0.05s
+  behaviour L_stage_a    M3           128 addresses, 0 failures, 0.06s
+  behaviour C_agent      M2           4096 addresses, 0 failures, 47.96s
+  behaviour C_agent      M3_identity  4096 addresses, 0 failures, 48.06s
+
+M2           domains=['computer', 'language', 'visual'] occurrences=5 digests=3 widths=[128, 3072, 4096] addr=['u16', 'u32<=128', 'u32<=4096']
+M3           domains=['language', 'visual'] occurrences=3 digests=2 widths=[128, 3072] addr=['u16', 'u32<=128']
+M3_identity  domains=['computer'] occurrences=1 digests=1 widths=[4096] addr=['u32<=4096']
+
+F1 fires: True -- M3 domains: ['language', 'visual']
+   V_same/cmp_r             node = index(obs, b)
+   V_same/cmp_g             node = index(obs, b_g)
+   V_same/cmp_b             node = index(obs, b_b)
+   L_stage_a/open           constant = 40
+   C_agent/brand            constant = 123

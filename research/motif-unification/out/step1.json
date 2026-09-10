@@ -1,0 +1,678 @@
+{
+ "max_nodes": 5,
+ "occurrences": [
+  {
+   "artifact": "V_same",
+   "domain": "visual",
+   "shape": "M2",
+   "root": "cmp_r",
+   "nodes_in_artifact": [
+    "a_r_v",
+    "cmp_r"
+   ],
+   "holes_in_artifact": [
+    "obs",
+    "a",
+    "b_r_v"
+   ],
+   "digest": "fa7725dfc8e7d144784cdcc4",
+   "spell": "eq(index(x0, x1), x2)",
+   "input_type_tags": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550"
+   ],
+   "input_labels": [
+    "(3072xu8[byte])",
+    "u16",
+    "u8[byte]"
+   ],
+   "arity": 3,
+   "output_type_tag": "BOOL#429cad1b3521",
+   "output_label": "BOOL",
+   "type_signature": "809603edfe1305d0",
+   "hole_bindings": [
+    {
+     "hole": "x0",
+     "artifact_port": "obs",
+     "binding": "input port"
+    },
+    {
+     "hole": "x1",
+     "artifact_port": "a",
+     "binding": "input port"
+    },
+    {
+     "hole": "x2",
+     "artifact_port": "b_r_v",
+     "binding": "node = index(obs, b)"
+    }
+   ]
+  },
+  {
+   "artifact": "V_same",
+   "domain": "visual",
+   "shape": "M2",
+   "root": "cmp_g",
+   "nodes_in_artifact": [
+    "a_g_v",
+    "cmp_g"
+   ],
+   "holes_in_artifact": [
+    "obs",
+    "a_g",
+    "b_g_v"
+   ],
+   "digest": "fa7725dfc8e7d144784cdcc4",
+   "spell": "eq(index(x0, x1), x2)",
+   "input_type_tags": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550"
+   ],
+   "input_labels": [
+    "(3072xu8[byte])",
+    "u16",
+    "u8[byte]"
+   ],
+   "arity": 3,
+   "output_type_tag": "BOOL#429cad1b3521",
+   "output_label": "BOOL",
+   "type_signature": "809603edfe1305d0",
+   "hole_bindings": [
+    {
+     "hole": "x0",
+     "artifact_port": "obs",
+     "binding": "input port"
+    },
+    {
+     "hole": "x1",
+     "artifact_port": "a_g",
+     "binding": "node = add(a, one)"
+    },
+    {
+     "hole": "x2",
+     "artifact_port": "b_g_v",
+     "binding": "node = index(obs, b_g)"
+    }
+   ]
+  },
+  {
+   "artifact": "V_same",
+   "domain": "visual",
+   "shape": "M3",
+   "root": "cmp_g",
+   "nodes_in_artifact": [
+    "a_g",
+    "a_g_v",
+    "cmp_g"
+   ],
+   "holes_in_artifact": [
+    "a",
+    "one",
+    "obs",
+    "b_g_v"
+   ],
+   "digest": "e38275a68420b419d27fb9dc",
+   "spell": "eq(index(x2, add(x0, x1)), x3)",
+   "input_type_tags": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u8[byte]#2ae091eca550"
+   ],
+   "input_labels": [
+    "u16",
+    "u16",
+    "(3072xu8[byte])",
+    "u8[byte]"
+   ],
+   "arity": 4,
+   "output_type_tag": "BOOL#429cad1b3521",
+   "output_label": "BOOL",
+   "type_signature": "645db528ba8405f3",
+   "hole_bindings": [
+    {
+     "hole": "x0",
+     "artifact_port": "a",
+     "binding": "input port"
+    },
+    {
+     "hole": "x1",
+     "artifact_port": "one",
+     "binding": "constant = 1"
+    },
+    {
+     "hole": "x2",
+     "artifact_port": "obs",
+     "binding": "input port"
+    },
+    {
+     "hole": "x3",
+     "artifact_port": "b_g_v",
+     "binding": "node = index(obs, b_g)"
+    }
+   ]
+  },
+  {
+   "artifact": "V_same",
+   "domain": "visual",
+   "shape": "M2",
+   "root": "cmp_b",
+   "nodes_in_artifact": [
+    "a_b_v",
+    "cmp_b"
+   ],
+   "holes_in_artifact": [
+    "obs",
+    "a_b",
+    "b_b_v"
+   ],
+   "digest": "fa7725dfc8e7d144784cdcc4",
+   "spell": "eq(index(x0, x1), x2)",
+   "input_type_tags": [
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u16#6d9b48b4a73e",
+    "u8[byte]#2ae091eca550"
+   ],
+   "input_labels": [
+    "(3072xu8[byte])",
+    "u16",
+    "u8[byte]"
+   ],
+   "arity": 3,
+   "output_type_tag": "BOOL#429cad1b3521",
+   "output_label": "BOOL",
+   "type_signature": "809603edfe1305d0",
+   "hole_bindings": [
+    {
+     "hole": "x0",
+     "artifact_port": "obs",
+     "binding": "input port"
+    },
+    {
+     "hole": "x1",
+     "artifact_port": "a_b",
+     "binding": "node = add(a, two)"
+    },
+    {
+     "hole": "x2",
+     "artifact_port": "b_b_v",
+     "binding": "node = index(obs, b_b)"
+    }
+   ]
+  },
+  {
+   "artifact": "V_same",
+   "domain": "visual",
+   "shape": "M3",
+   "root": "cmp_b",
+   "nodes_in_artifact": [
+    "a_b",
+    "a_b_v",
+    "cmp_b"
+   ],
+   "holes_in_artifact": [
+    "a",
+    "two",
+    "obs",
+    "b_b_v"
+   ],
+   "digest": "e38275a68420b419d27fb9dc",
+   "spell": "eq(index(x2, add(x0, x1)), x3)",
+   "input_type_tags": [
+    "u16#6d9b48b4a73e",
+    "u16#6d9b48b4a73e",
+    "(3072xu8[byte])#64ea6010dbdf",
+    "u8[byte]#2ae091eca550"
+   ],
+   "input_labels": [
+    "u16",
+    "u16",
+    "(3072xu8[byte])",
+    "u8[byte]"
+   ],
+   "arity": 4,
+   "output_type_tag": "BOOL#429cad1b3521",
+   "output_label": "BOOL",
+   "type_signature": "645db528ba8405f3",
+   "hole_bindings": [
+    {
+     "hole": "x0",
+     "artifact_port": "a",
+     "binding": "input port"
+    },
+    {
+     "hole": "x1",
+     "artifact_port": "two",
+     "binding": "constant = 2"
+    },
+    {
+     "hole": "x2",
+     "artifact_port": "obs",
+     "binding": "input port"
+    },
+    {
+     "hole": "x3",
+     "artifact_port": "b_b_v",
+     "binding": "node = index(obs, b_b)"
+    }
+   ]
+  },
+  {
+   "artifact": "L_stage_a",
+   "domain": "language",
+   "shape": "M2",
+   "root": "open",
+   "nodes_in_artifact": [
+    "byte",
+    "open"
+   ],
+   "holes_in_artifact": [
+    "bytes",
+    "addr",
+    "b40"
+   ],
+   "digest": "c9522d87ebb54e07deacb402",
+   "spell": "eq(index(x0, x1), x2)",
+   "input_type_tags": [
+    "(128xu8[byte])#12bbb68aadac",
+    "u32<=128#bddc58da646c",
+    "u8[byte]#2ae091eca550"
+   ],
+   "input_labels": [
+    "(128xu8[byte])",
+    "u32<=128",
+    "u8[byte]"
+   ],
+   "arity": 3,
+   "output_type_tag": "BOOL#429cad1b3521",
+   "output_label": "BOOL",
+   "type_signature": "520fee240d8264e7",
+   "hole_bindings": [
+    {
+     "hole": "x0",
+     "artifact_port": "bytes",
+     "binding": "node = project(text)"
+    },
+    {
+     "hole": "x1",
+     "artifact_port": "addr",
+     "binding": "node = add(base, pos)"
+    },
+    {
+     "hole": "x2",
+     "artifact_port": "b40",
+     "binding": "constant = 40"
+    }
+   ]
+  },
+  {
+   "artifact": "L_stage_a",
+   "domain": "language",
+   "shape": "M3",
+   "root": "open",
+   "nodes_in_artifact": [
+    "addr",
+    "byte",
+    "open"
+   ],
+   "holes_in_artifact": [
+    "base",
+    "pos",
+    "bytes",
+    "b40"
+   ],
+   "digest": "db59f9b09bb730340219425c",
+   "spell": "eq(index(x2, add(x0, x1)), x3)",
+   "input_type_tags": [
+    "u32<=128#bddc58da646c",
+    "u32<=128#bddc58da646c",
+    "(128xu8[byte])#12bbb68aadac",
+    "u8[byte]#2ae091eca550"
+   ],
+   "input_labels": [
+    "u32<=128",
+    "u32<=128",
+    "(128xu8[byte])",
+    "u8[byte]"
+   ],
+   "arity": 4,
+   "output_type_tag": "BOOL#429cad1b3521",
+   "output_label": "BOOL",
+   "type_signature": "6c717470feed0e56",
+   "hole_bindings": [
+    {
+     "hole": "x0",
+     "artifact_port": "base",
+     "binding": "node = identity(p14)"
+    },
+    {
+     "hole": "x1",
+     "artifact_port": "pos",
+     "binding": "input port"
+    },
+    {
+     "hole": "x2",
+     "artifact_port": "bytes",
+     "binding": "node = project(text)"
+    },
+    {
+     "hole": "x3",
+     "artifact_port": "b40",
+     "binding": "constant = 40"
+    }
+   ]
+  },
+  {
+   "artifact": "C_agent",
+   "domain": "computer",
+   "shape": "M2",
+   "root": "brand",
+   "nodes_in_artifact": [
+    "brand",
+    "pbyte"
+   ],
+   "holes_in_artifact": [
+    "data",
+    "ppos",
+    "b0"
+   ],
+   "digest": "a69fc2da0cb7dc38aaa7885c",
+   "spell": "eq(index(x0, x1), x2)",
+   "input_type_tags": [
+    "(4096xu8[byte])#349f0a05a816",
+    "u32<=4096#6af9ba73bb4b",
+    "u8[byte]#2ae091eca550"
+   ],
+   "input_labels": [
+    "(4096xu8[byte])",
+    "u32<=4096",
+    "u8[byte]"
+   ],
+   "arity": 3,
+   "output_type_tag": "BOOL#429cad1b3521",
+   "output_label": "BOOL",
+   "type_signature": "5b0e0368cba4c2f6",
+   "hole_bindings": [
+    {
+     "hole": "x0",
+     "artifact_port": "data",
+     "binding": "node = project(terminal)"
+    },
+    {
+     "hole": "x1",
+     "artifact_port": "ppos",
+     "binding": "node = identity(q0)"
+    },
+    {
+     "hole": "x2",
+     "artifact_port": "b0",
+     "binding": "constant = 123"
+    }
+   ]
+  },
+  {
+   "artifact": "C_agent",
+   "domain": "computer",
+   "shape": "M3_identity",
+   "root": "brand",
+   "nodes_in_artifact": [
+    "brand",
+    "pbyte",
+    "ppos"
+   ],
+   "holes_in_artifact": [
+    "q0",
+    "data",
+    "b0"
+   ],
+   "digest": "9a62ee528c698500438f91ae",
+   "spell": "eq(index(x1, identity(x0)), x2)",
+   "input_type_tags": [
+    "u32<=4096#6af9ba73bb4b",
+    "(4096xu8[byte])#349f0a05a816",
+    "u8[byte]#2ae091eca550"
+   ],
+   "input_labels": [
+    "u32<=4096",
+    "(4096xu8[byte])",
+    "u8[byte]"
+   ],
+   "arity": 3,
+   "output_type_tag": "BOOL#429cad1b3521",
+   "output_label": "BOOL",
+   "type_signature": "b48b2bd90d38475c",
+   "hole_bindings": [
+    {
+     "hole": "x0",
+     "artifact_port": "q0",
+     "binding": "constant = 0"
+    },
+    {
+     "hole": "x1",
+     "artifact_port": "data",
+     "binding": "node = project(terminal)"
+    },
+    {
+     "hole": "x2",
+     "artifact_port": "b0",
+     "binding": "constant = 123"
+    }
+   ]
+  }
+ ],
+ "mine_seconds": 168.0,
+ "by_shape": {
+  "M2": {
+   "domains": [
+    "computer",
+    "language",
+    "visual"
+   ],
+   "n_domains": 3,
+   "artifacts": [
+    "C_agent",
+    "L_stage_a",
+    "V_same"
+   ],
+   "occurrences": 5,
+   "distinct_digests": [
+    "a69fc2da0cb7dc38aaa7885c",
+    "c9522d87ebb54e07deacb402",
+    "fa7725dfc8e7d144784cdcc4"
+   ],
+   "distinct_type_signatures": [
+    "520fee240d8264e7",
+    "5b0e0368cba4c2f6",
+    "809603edfe1305d0"
+   ],
+   "buffer_widths": [
+    128,
+    3072,
+    4096
+   ],
+   "address_carriers": [
+    "u16",
+    "u32<=128",
+    "u32<=4096"
+   ]
+  },
+  "M3": {
+   "domains": [
+    "language",
+    "visual"
+   ],
+   "n_domains": 2,
+   "artifacts": [
+    "L_stage_a",
+    "V_same"
+   ],
+   "occurrences": 3,
+   "distinct_digests": [
+    "db59f9b09bb730340219425c",
+    "e38275a68420b419d27fb9dc"
+   ],
+   "distinct_type_signatures": [
+    "645db528ba8405f3",
+    "6c717470feed0e56"
+   ],
+   "buffer_widths": [
+    128,
+    3072
+   ],
+   "address_carriers": [
+    "u16",
+    "u32<=128"
+   ]
+  },
+  "M3_identity": {
+   "domains": [
+    "computer"
+   ],
+   "n_domains": 1,
+   "artifacts": [
+    "C_agent"
+   ],
+   "occurrences": 1,
+   "distinct_digests": [
+    "9a62ee528c698500438f91ae"
+   ],
+   "distinct_type_signatures": [
+    "b48b2bd90d38475c"
+   ],
+   "buffer_widths": [
+    4096
+   ],
+   "address_carriers": [
+    "u32<=4096"
+   ]
+  }
+ },
+ "F1": {
+  "claim_under_test": "the 3-node motif eq(index(buffer, add(base, offset)), literal) recurs in all three real artifacts (FINDINGS section 58 prose)",
+  "M3_domains": [
+   "language",
+   "visual"
+  ],
+  "M3_n_domains": 2,
+  "M2_domains": [
+   "computer",
+   "language",
+   "visual"
+  ],
+  "computer_three_node_shape": "M3_identity",
+  "fires": true,
+  "third_argument_role": {
+   "V_same/cmp_r": "node = index(obs, b)",
+   "V_same/cmp_g": "node = index(obs, b_g)",
+   "V_same/cmp_b": "node = index(obs, b_b)",
+   "L_stage_a/open": "constant = 40",
+   "C_agent/brand": "constant = 123"
+  }
+ },
+ "behaviour": [
+  {
+   "addresses_checked": 3072,
+   "address_range": [
+    0,
+    3071
+   ],
+   "buffer_fields": 3072,
+   "exhaustive_over_addresses": true,
+   "checks_per_address": 4,
+   "failures": [],
+   "n_failures": 0,
+   "seconds": 10.11,
+   "shape": "M2",
+   "artifact": "V_same",
+   "domain": "visual",
+   "digest": "fa7725dfc8e7d144784cdcc4"
+  },
+  {
+   "addresses_checked": 3072,
+   "address_range": [
+    0,
+    3071
+   ],
+   "buffer_fields": 3072,
+   "exhaustive_over_addresses": true,
+   "checks_per_address": 5,
+   "failures": [],
+   "n_failures": 0,
+   "seconds": 11.3,
+   "shape": "M3",
+   "artifact": "V_same",
+   "domain": "visual",
+   "digest": "e38275a68420b419d27fb9dc"
+  },
+  {
+   "addresses_checked": 128,
+   "address_range": [
+    0,
+    127
+   ],
+   "buffer_fields": 128,
+   "exhaustive_over_addresses": true,
+   "checks_per_address": 4,
+   "failures": [],
+   "n_failures": 0,
+   "seconds": 0.05,
+   "shape": "M2",
+   "artifact": "L_stage_a",
+   "domain": "language",
+   "digest": "c9522d87ebb54e07deacb402"
+  },
+  {
+   "addresses_checked": 128,
+   "address_range": [
+    0,
+    127
+   ],
+   "buffer_fields": 128,
+   "exhaustive_over_addresses": true,
+   "checks_per_address": 5,
+   "failures": [],
+   "n_failures": 0,
+   "seconds": 0.06,
+   "shape": "M3",
+   "artifact": "L_stage_a",
+   "domain": "language",
+   "digest": "db59f9b09bb730340219425c"
+  },
+  {
+   "addresses_checked": 4096,
+   "address_range": [
+    0,
+    4095
+   ],
+   "buffer_fields": 4096,
+   "exhaustive_over_addresses": true,
+   "checks_per_address": 4,
+   "failures": [],
+   "n_failures": 0,
+   "seconds": 47.96,
+   "shape": "M2",
+   "artifact": "C_agent",
+   "domain": "computer",
+   "digest": "a69fc2da0cb7dc38aaa7885c"
+  },
+  {
+   "addresses_checked": 4096,
+   "address_range": [
+    0,
+    4095
+   ],
+   "buffer_fields": 4096,
+   "exhaustive_over_addresses": true,
+   "checks_per_address": 4,
+   "failures": [],
+   "n_failures": 0,
+   "seconds": 48.06,
+   "shape": "M3_identity",
+   "artifact": "C_agent",
+   "domain": "computer",
+   "digest": "9a62ee528c698500438f91ae"
+  }
+ ]
+}
