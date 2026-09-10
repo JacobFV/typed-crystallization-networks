@@ -3174,8 +3174,8 @@ this change**, and nobody should cite §59 as delivering §56's factor.
 which are an off-by-one, since a *closed* bound `(0, N)` can never prove a
 half-open index into an `N`-tuple. And visual's hot function `_m1` — **3,100
 calls per screenshot, 73.7% of bytecodes** — loses **every** guard to a missing
-refinement bound on the raster address. **That missing bound is exactly §56's
-load-bearing `min(·, 3069)` clamp**: the same fact that made §56's R5a fail its
+refinement bound on the raster address. **That missing bound is related to §56's
+load-bearing `min(·, 3069)` clamp** — **[CORRECTED BY §61: `(0, 3069)` is *unsound* as a type bound, because `_m1` reads `obs[a+2]`, which carries `a`'s type and reaches 3071. The clamp's value is not the type's bound. The sound bound is `(0, 3071)`, and only after rewriting the clamp.]**: the same fact that made §56's R5a fail its
 gate is what blocks the hot path here. A refinement type carrying that bound
 would unlock the artifact's dominant function; the type algebra cannot currently
 express it.
@@ -3254,4 +3254,64 @@ search, which is exactly what buys nothing here.
 **Status of the cross-domain objective: still unsupported.** §58 established
 nothing non-trivial is shared; §60 establishes that the one mechanism that could
 have unified it transfers structure without transferring the answer.
+
+## 61. The refinement bound is declarable and sound — but only after a rewrite, and only pays behind a second flag
+
+`research/refinement-bounds/RESULTS.md`, branch
+`worktree-agent-a0350f1fdeac805b2` (`1532ebd`), branched from `main` `59252fc`
+with §59's three commits cherry-picked, so its **baseline is 344 tests**, **not
+merged**. `PREREGISTRATION.md` at `a99373f` before any change. §59 found visual's
+hot function `_m1` — 3,100 calls per screenshot, 73.7% of bytecodes — loses every
+guard to a missing refinement bound, and I noted that `Type` already carries a
+`bounds` field. Verified here from raw JSON.
+
+**§59's named bound is unsound, and that is a correction to my own write-up.**
+§59 (and my summary of it) named `(0, 3069)` — the value the `min(·, 3069)` clamp
+enforces. Verified from `out/soundness.json`: the reachable address maximum **is**
+3069, but `_m1` reads `obs[a+2]`, and **that derived node carries `a`'s type and
+reaches 3071**. Declaring `(0, 3069)` would therefore be unsound. **The clamp's
+value is not the type's bound**, and conflating them is exactly the class of
+error §56's R5a gate caught.
+
+**`(0, 3071)` is also unsound for the scaffold as written**, because
+`pos + k·step` reaches **6,138**. It becomes sound only after rewriting
+`min(p+d, L)` as `p + min(d, L−p)` — an identity verified over **9,424,900 pairs
+with 0 mismatches**, taking the maximum pre-clamp value from 6,138 to 3,069.
+After the rewrite the exhaustive range over all 339 address-typed nodes is
+exactly `[0, 3071]`, so the bound is **attained and unique**.
+
+**Guards: 6 of `_m1`'s 10 discharge** — all six index guards, and 12/12 index
+guards artifact-wide. The four range guards do **not**, because `add`'s output
+type is its input type; they are exchanged for a bounds check.
+
+**The headline negative: declaring the bound alone makes it 29% slower.**
+Verified across three runs against a byte-identical null control:
+
+| arm | run 1 | run 2 | run 3 | bytecodes |
+|---|---|---|---|---|
+| null control (A0 compiled twice) | 0.9994 | 0.9967 | 0.9972 — **all CIs contain 1** | 602,748 |
+| **bound declared alone** | **0.7784** | **0.7762** | **0.7723** — ~**29% slower** | **1,143,954 (+89.8%)** |
+| bound + conditional `inline_bounded` | **1.0870** | **1.0828** | **1.0844** — no CI contains 1 | **455,868 (1.32× fewer)** |
+
+The cause is measured, not guessed: `_fast_kind` **refused the inline path to any
+bounded carrier**, so declaring a bound bought guard elimination and lost
+inlining, at a net loss. The pre-registered, **off-by-default** `inline_bounded`
+flag restores it.
+
+**Certificates do not move.** Verified directly: §33's parse is **227/227 links
+and 12/12 trees in both arms**; spaces 256/400/25 identical; all 12 sweeps
+identical, with `node_evaluations` differing by exactly the record counts
+(+111/+117) from the one hoisted node. 348/349 tests, the known environmental
+worktree failure; fixture 0.248836 → 0.002231 at 4/4.
+
+**What this adds up to.** A refinement bound *is* expressible, *is* soundly
+declarable after a semantics-preserving rewrite, and *does* discharge the hot
+path's index guards — but the realised gain is **~1.08×** and requires a second,
+off-by-default emitter flag to avoid being a 29% regression. Combined with §59's
+1.10× on language and unbanked visual, **the whole guard-elimination line is
+worth single-digit percent on real artifacts**, far below the 2.834× §56's ladder
+attributed to it in isolation. §56's attribution remains correct for the ladder it
+measured; **it has now twice failed to predict the gain from an actual
+implementation**, and that gap between attribution and realisation is the durable
+lesson.
 
