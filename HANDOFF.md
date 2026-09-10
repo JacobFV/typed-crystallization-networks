@@ -21,7 +21,7 @@ git clone <repo> && cd typed-crystallization-networks
 |---|---|
 | what was measured, authoritatively | [`research/FINDINGS.md`](research/FINDINGS.md) — ~~44~~ numbered sections (the number 14 is headed §14a and §14b; §42 is a tombstone); supersedes everything else, and `research/record-audit/verify.py --gate` checks it against the artifacts |
 | **how the project got here, chronologically** | [`docs/PROJECT-LOG.md`](docs/PROJECT-LOG.md) — five phases, with commit SHAs |
-| **what we believed and got wrong** | [`docs/CORRECTIONS.md`](docs/CORRECTIONS.md) — ~~14~~ every reversal and corrections, plus process failures |
+| **what we believed and got wrong** | [`docs/CORRECTIONS.md`](docs/CORRECTIONS.md) — ~~14~~ every reversal and correction, plus process failures |
 | what a given session did | [`docs/handoffs/`](docs/handoffs/) — one dated file per session, never edited after the fact |
 | the short hostile summary | [`STATUS.md`](STATUS.md) |
 | the constitutional spec | [`ARCHITECTURE.md`](ARCHITECTURE.md) — §5 (commitment), §8.1 (four costs, three sizes) |
