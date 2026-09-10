@@ -2871,3 +2871,58 @@ reproduce from an independently re-derived pipeline (bit-exact on 198 classes).
 separately — §52 for identity, §54 for ranking — on one family. It is not yet
 demonstrated on a second family, and it does not address execution cost at all.
 
+## 55. A stored class saves 272× at unseen widths, rejects the unsound schema twice, and does not justify a core change
+
+`research/class-identity/RESULTS.md`, branch `research/class-identity`
+(`1778595`), **not merged at time of writing**; **`tcn/` has no diff at all**.
+`PREREGISTRATION.md` at `9224438` before any arm. Three tracks converged on the
+same gap — §30, §53 ("a schema and its certified widths have nowhere to live")
+and §52 (the library stores artifacts by digest, not classes). Verified here from
+raw JSON.
+
+**The saving is real and measured at genuinely unseen widths.** A class certified
+only at widths 3 and 6 instantiates the correct artifact at widths **15, 21 and
+36** — depths 5, 7, 12, untouched by any prior run:
+
+| | with the stored class | without it |
+|---|---|---|
+| programs evaluated | **1** | 272 |
+| episodes | **64** | 17,408 |
+| return | **4.00 / 4** | 4.00 / 4 |
+| certificate | **`none`** | `unique` |
+
+**272× in episodes, 267–269× in wall clock**, digest-identical program, against
+best constant ≤ 2.19, whole-space mean 2.00, second-best-of-272 ≤ 3.31.
+
+**And the pre-registered falsification F-b fires, which the track honoured rather
+than buried.** The ratio *equals the space size* (17 × 16 = 272), because "not
+enumerating" trivially saves exactly the enumeration. **This is a demonstrated
+mechanism, not a capability at scale**, and the price is explicit: **a class
+yields a conformance check, never a uniqueness certificate.**
+
+**The format rejects §53's unsound schema twice, for two independent reasons.**
+Arm F1 is refused by the **two-width rule** — certified at one width, whatever
+its certificate. Arm F2 is refused by **vector agreement** — admitted at two
+widths, the stored vector scores 1.75 at the second. Bypassing R1 on purpose to
+build the unsound format hands a consumer **1.625 / 1.9375 / 2.125** at widths 5,
+7 and 12 — at or below best constant every time. So §53's caution is now
+enforceable, not just stated.
+
+**A core change is premature, and my own design study was wrong in one part.**
+The entire saving came from a **240-line sidecar** with `tcn/` untouched.
+Measured on the real library: the manifest tolerates an extra `semantic_id` on
+read and **silently erases it on `_save()`** (`extra_keys_survive_save: false`),
+while all existing verification is unaffected (`all_identical: true`). So the
+field *is* a real core change and **nothing yet needs it**.
+
+**Refuted: DESIGN §7's "the class holds the schema".** `tcn.library` stores
+*programs*; a schema is *code*. A class record can hold a schema **reference**,
+and its validity is bounded by `source_fingerprint` — the guard that already
+exists and is exactly the right one. That is a better design than the one I
+proposed, and it needs no new machinery.
+
+**Unexpected, and worth recording:** §52's `arm2_syntactic` and `arm4s_runnerup`
+turn out to be **one class** (`tt/3/57`) — the same 2,709,504-program space was
+exhausted twice under two names. §52's verdict is unaffected (both scored 0), but
+it means §52's arm count overstates the distinct controls by one.
+

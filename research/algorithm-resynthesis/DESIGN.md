@@ -264,6 +264,12 @@ certified picks the bytecode-*maximal* program.
 
 ## 7. Feeding discovered algorithms back into `tcn.library`
 
+**§55 REFUTES part of this section:** "the class holds the schema" is wrong —
+`tcn.library` stores *programs* and a schema is *code*. A class record holds a
+schema **reference**, bounded by `source_fingerprint`. §55 also measured that a
+`semantic_id` field is silently erased by `_save()`, so it is a real core change
+and nothing yet needs it.
+
 `tcn/library.py` is content-addressed with fixtures and a source policy. Minimal
 change, additive:
 
