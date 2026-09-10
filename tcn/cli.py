@@ -549,77 +549,192 @@ def _demo_positional(out,quick):
                 ok,time.perf_counter()-start,'research/positional-reuse/RESULTS.md',
                 'tcn demo --only positional',detail)
 
-# The stage-B program a validation split selects from the ten that conform on
-# training episodes. Enumerating that 45,375-program space costs 363 s, and
-# declaration order returns a different member that fails at the longest unseen
-# length; the demo re-derives stage A, and applies this recorded selection.
-_LANGUAGE_RULE={'symbols':101,'plus':0,'minus':4,'answer':6}
+# Three recorded stage-B selections, applied rather than re-searched: their
+# spaces cost 431 s (the post-audit counting arm), 1,266 s (the Dyck window) and
+# 363 s (pre-audit) to enumerate, which is more than a first command may spend.
+# Each one's certificate travels with it in detail['recorded'].
+#
+# The Dyck reduction, on the stream this repository SHIPS: step +1 on '(' and -1
+# on ')' over the string's own symbols, accept iff the total is 0 and the running
+# minimum never went below 0. Both readouts come from the same {eq,ge,le}x{-2..2}
+# grid stage B searches. research/language-post-audit/dyck_witness.json; the same
+# member is returned by an exhausted enumeration over the window c in [95,110)
+# (84,375 evaluated, 110 conforming, certificate `complete`), and FINDINGS 47
+# exhausted the whole 680,625-program space to the same 110 and `complete`.
+_LANGUAGE_DYCK={'symbols':101,'plus':3,'minus':1,'total_ok':6,'min_ok':7}
+# Section 19's own recorded selection, on the PRE-AUDIT stream, taken from
+# research/language-capability/{stage_b,final_eval}.json -- the member
+# `enumerate_fit` returns in declaration order. Ten programs conform on the
+# training episodes and split 4 at 1.000 / 6 at 0.9986187845303868 on the
+# held-out lengths (conforming.json); training accuracy cannot separate them, so
+# what is reported is the recorded member and not the best of the tie.
+_LANGUAGE_RULE={'symbols':99,'plus':1,'minus':3,'answer':12}
+# The counting program -- eq(acc,0) over the string's own symbols -- which is
+# what section 19's headline turned out to be. Reported on the post-audit stream
+# as a control: the hardened draw makes bracket counts identical in both classes,
+# so it lands exactly on the majority.
+_LANGUAGE_COUNTING={'symbols':101,'plus':3,'minus':1,'answer':6}
+_LANGUAGE_RECORDED_PREAUDIT=(0.9986187845303868,724,0.5483425414364641)
+_LANGUAGE_RECORDED_POSTAUDIT=(1.0,859,0.5261932479627474)
 
 def _demo_language(out,quick):
-    """A language task learned from raw prompt bytes, lexical unit and all."""
+    """Balancedness from raw prompt bytes, on the stream this repository ships."""
     import time
-    _track('language-capability')
-    import common as L,scaffolds,baselines as B
+    _track('language-post-audit')
+    import common as L,splits as S,baselines as B
     from run_stage_a import examples as position_examples
-    from run_stage_b import accuracy,baselines as label_baselines,build_module
+    from run_stage_b import build_module,examples,accuracy,baselines as label_baselines,scaffolds
+    from dyck_scaffold import stage_b_dyck
     from .search import enumerate_fit,evaluate,space_size
     start=time.perf_counter()
-    seeds=300 if quick else 900
-    pool=L.dataset(seeds,seed0=0,split='train')
-    train=[e for e in pool if e['length'] in (2,4,6)][:12 if quick else 24]
-    tests=L.dataset(500 if quick else 1500,seed0=100000,split='test')
-    unseen=[e for e in tests if e['length'] not in (2,4,6)]
-    # Stage A: the agent is given no tokenizer, so it searches for its own
-    # lexical unit -- which byte denotes an opening bracket, over the whole
-    # 0-255 alphabet, and where the symbol field starts.
-    lexical,registry,signals=scaffolds.stage_a()
-    found=enumerate_fit(lexical,position_examples(train),signals,registry,tolerance=1e-6,max_programs=1<<20)
-    positions=evaluate(lexical,found.selections,position_examples(unseen[:40]),signals,registry)
-    # Stage B: that module is frozen and called at each of 16 positions; the
-    # grammaticality rule over the recovered symbol sequence is what is scored.
-    module,rule_registry,_=build_module()
-    scaffold,_=scaffolds.stage_b(module,rule_registry)
-    program=scaffold.harden(_LANGUAGE_RULE).pruned()
-    score,per_length=accuracy(program,{n.name:0 for n in program.nodes},rule_registry,unseen)
+    # Both arms draw from the pools their recorded numbers were taken on (900
+    # train / 1,500 test seeds) in quick and --full alike: n=859 and n=724 are
+    # part of what is being reproduced, so they do not move with the flag.
+    post=S.build(hardening=L.STREAM_POST_AUDIT)
+    train,seen,unseen=post['train'],post['heldout_seen_lengths'],post['heldout_unseen_lengths']
+    # Stage A, searched here and not recorded: the agent is given no tokenizer,
+    # so it looks for its own lexical unit -- which byte denotes an opening
+    # bracket, over the whole 0-255 alphabet, and where the symbol field starts.
+    lexical,registry_a,signals_a=scaffolds.stage_a()
+    found=enumerate_fit(lexical,position_examples(train[:12]),signals_a,registry_a,
+                        tolerance=1e-6,max_programs=1<<20)
+    positions=evaluate(lexical,found.selections,position_examples(unseen[:40]),signals_a,registry_a)
+    # Stage B on the shipped stream. Section 19's counting scaffold provably
+    # contains no conforming program here -- 45,375 exhausted, 0 conforming,
+    # certificate `complete` -- because the hardened draw of section 24 made
+    # bracket counts identical in both classes, so balanced <=> min prefix >= 0
+    # and a minimum is not a sum. This scaffold carries a running `min` beside
+    # the running `add`: `min` and `and`, both already in tcn/operators.py, no
+    # new operator and no change to core.
+    module,registry,frozen=build_module()
+    dyck,signals=stage_b_dyck(module,registry,positions=22)
+    dyck_sel={n.name:0 for n in dyck.nodes};dyck_sel.update(_LANGUAGE_DYCK)
+    train_error=evaluate(dyck,dyck_sel,examples(train),signals,registry,tolerance=1e-6)
+    score,per_length=accuracy(dyck,dyck_sel,registry,unseen)
+    seen_score,_=accuracy(dyck,dyck_sel,registry,seen)
     constant=label_baselines(unseen)['majority_constant']
     fitted={name:B.fit_predict(train,unseen,feature) for name,feature in B.FEATURES.items()}
     best=max(fitted.values())
-    ok=bool(found.solved and found.exhausted and found.unique and positions==0.
+    lookup=B.nearest_prompt(train,unseen)
+    oracle_counting=sum(L.counts_match(e['string'])==e['label'] for e in unseen)/len(unseen)
+    oracle_dyck=sum(L.balanced(e['string'])==e['label'] for e in unseen)/len(unseen)
+    # Control: section 19's own program, on the stream that is shipped today.
+    counting,_=scaffolds.stage_b(module,registry,positions=22)
+    counting_sel={n.name:0 for n in counting.nodes};counting_sel.update(_LANGUAGE_COUNTING)
+    counting_score,_=accuracy(counting,counting_sel,registry,unseen)
+    # Second arm: the pre-audit stream, which is the one section 19 was measured
+    # on. It is reported because it is the historical claim and because it is the
+    # control that shows the post-audit result is about the stream and not about
+    # this harness -- and never without saying that its lesson is the one the
+    # audit found exploitable.
+    pre=S.build(hardening=L.STREAM_PRE_AUDIT,n_train=24,train_lengths=(2,4,6),
+                heldout_lengths=(8,10,12,14,16,18,20,22))
+    pre_unseen=pre['heldout_unseen_lengths']
+    legacy,_=scaffolds.stage_b(module,registry,positions=16)
+    legacy_sel={n.name:0 for n in legacy.nodes};legacy_sel.update(_LANGUAGE_RULE)
+    pre_score,pre_per_length=accuracy(legacy,legacy_sel,registry,pre_unseen)
+    pre_constant=label_baselines(pre_unseen)['majority_constant']
+    pre_fitted=max(B.fit_predict(pre['train'],pre_unseen,f) for f in B.FEATURES.values())
+    pre_lookup=B.nearest_prompt(pre['train'],pre_unseen)
+    ra,rn,rm=_LANGUAGE_RECORDED_PREAUDIT
+    pa,pn,pm=_LANGUAGE_RECORDED_POSTAUDIT
+    ok=bool(found.solved and found.exhausted and found.unique
             and found.selections['base']==14 and found.selections['open']==40
-            and score>=.99 and score>best+.3)
-    detail={'stage_a':{'space_size':space_size(lexical),'evaluated':found.evaluated,
-                       'exhausted':found.exhausted,'unique':found.unique,
+            and positions==0. and train_error is not None and train_error<=1e-6
+            and len(unseen)==pn and score==pa and abs(constant-pm)<1e-12
+            and score>constant+.3 and score>best+.3 and score>lookup+.3
+            and len(pre_unseen)==rn and abs(pre_score-ra)<1e-12 and abs(pre_constant-rm)<1e-12
+            and pre_score>pre_constant+.3)
+    detail={'streams':{'headline':"post-audit, hardening='context_free_language' -- the "
+                       'hardened draw of FINDINGS 24, which is what an unconfigured '
+                       'generator emits today',
+                       'control':"pre-audit, hardening='none' -- bit-identical to the "
+                       'catalogue before the audit; the stream FINDINGS 19 was measured on',
+                       'why':'FINDINGS 39 exists because a language accuracy was quoted '
+                       'without its stream. Every episode drawn here pins hardening by name.'},
+            'stage_a':{'stream':L.STREAM_POST_AUDIT,'space_size':space_size(lexical),
+                       'evaluated':found.evaluated,'exhausted':found.exhausted,
+                       'unique':found.unique,'certificate':found.to_dict().get('certificate'),
                        'seconds':found.seconds,'selections':found.selections,
                        'held_out_position_max_error':positions,
                        'reading':'base 14, open byte 40 = ASCII "(" -- searched, not supplied'},
-            'stage_b':{'space_size':space_size(scaffold),'selection':_LANGUAGE_RULE,
+            'stage_b_post_audit':{'stream':L.STREAM_POST_AUDIT,'scaffold':'stage_b_dyck',
+                       'space_size':space_size(dyck),'selection':_LANGUAGE_DYCK,
+                       'reading':'symbols = length - 101, +1 on "(" and -1 on ")", '
+                       'answer = and(eq(total,0), ge(running_min,0))',
+                       'train_episodes':len(train),'train_max_error':train_error,
+                       'train_lengths':sorted({e['length'] for e in train}),
+                       'held_out_seen_length_accuracy':seen_score,
                        'held_out_unseen_length_accuracy':score,'per_length':per_length,
                        'episodes':len(unseen),'majority_constant':constant,
-                       'best_fitted_feature':best,'fitted_features':fitted},
-            'recorded':{'stage_b_enumeration':'45,375 programs in 363 s, 10 conforming, not unique',
-                        'gradient_on_the_same_spaces':'0 of 44 runs conform',
+                       'best_fitted_feature':best,'fitted_features':fitted,
+                       'training_string_lookup':lookup,'counting_oracle':oracle_counting,
+                       'dyck_oracle':oracle_dyck,'random':0.5,
+                       'section_19_counting_program_here':counting_score},
+            'stage_b_pre_audit':{'stream':L.STREAM_PRE_AUDIT,'scaffold':'stage_b',
+                       'space_size':space_size(legacy),'selection':_LANGUAGE_RULE,
+                       'held_out_unseen_length_accuracy':pre_score,'per_length':pre_per_length,
+                       'episodes':len(pre_unseen),'majority_constant':pre_constant,
+                       'best_fitted_feature':pre_fitted,'training_string_lookup':pre_lookup,
+                       'random':0.5,
+                       'this_is':'FINDINGS 19 reproduced on its own stream, from the '
+                       'selection recorded in research/language-capability/final_eval.json'},
+            'reproduces':{'pre_audit_recorded':{'accuracy':ra,'n':rn,'majority_constant':rm,
+                       'source':'research/language-capability/final_eval.json, FINDINGS 43/45'},
+                       'post_audit_recorded':{'accuracy':pa,'n':pn,'majority_constant':pm,
+                       'source':'research/language-post-audit/dyck_witness.json, FINDINGS 45'}},
+            'recorded':{'stage_b_post_audit_counting_scaffold':'45,375 programs exhausted, '
+                        '0 conforming, certificate complete -- no program in section 19\'s '
+                        'scaffold fits the post-audit training episodes',
+                        'stage_b_post_audit_dyck_window':'84,375 programs exhausted over '
+                        'c in [95,110), 110 conforming, certificate complete, 1,266 s',
+                        'stage_b_post_audit_dyck_full':'680,625 programs exhausted, 110 '
+                        'conforming, certificate complete (FINDINGS 47); the selected member '
+                        'sits 84.0% through the enumeration order',
+                        'stage_b_pre_audit':'45,375 programs in 363 s, 10 conforming, not unique',
+                        'gradient_on_the_dyck_space':'0 of 64 runs conform, median held-out '
+                        '0.4738 -- below both the 0.5262 majority and random (FINDINGS 47)',
+                        'gradient_on_the_pre_audit_spaces':'0 of 44 runs conform',
                         'undecomposed_space':41*256*121*5*5*15},
-            'caveats':['The lesson named context_free_language does not exercise a stack as '
-                       'sampled: its negatives always break the bracket count, so #( == #) and '
-                       'balanced agree on 20,000 of 20,000 seeds. What was learned is counting '
-                       'over a recovered symbol sequence, not recursion.',
+            'caveats':['The headline is the post-audit stream. The pre-audit row is section '
+                       "19's historical claim on a lesson the audit of FINDINGS 24 found "
+                       'exploitable -- nearest-neighbour scored 1.000 on it and 71% of its '
+                       'prompts repeated -- and it is reported only with that said.',
+                       'Section 19 demonstrated counting, not balancedness: on the shipped '
+                       'stream its own program scores exactly the majority '
+                       f'({counting_score:.4f} against {constant:.4f}), because the hardened '
+                       'negative is a transposition and preserves the bracket multiset.',
+                       'Stage B is applied from a recorded selection, not searched here; the '
+                       "search certificates that produced it are in detail['recorded'] and "
+                       'cost 431 s, 1,266 s and 363 s respectively. Stage A is searched live.',
+                       'The Dyck window enumeration returns 110 conforming programs, never '
+                       '`unique`: on this stream the running minimum is never positive, so '
+                       'eq(lo,0) and ge(lo,0) are the same function here.',
+                       'Ten programs conform on the pre-audit training episodes and split 4 '
+                       'at 1.000 / 6 at 0.9986 on the held-out lengths. Training accuracy '
+                       'cannot separate them, so the recorded member is reported and not the '
+                       'best of the tie; the 1.000 this demo used to print was the top of it.',
                        'Only 6 of 179 lessons have prompts byte-predictable at a fixed offset, '
                        'which bounds this method to a small corner of the catalogue.',
                        'construction fails to determine answer in 39 of 179 lessons, so dense '
                        'staging is not uniformly available.',
-                       'Ten of 45,375 programs conform on training episodes; declaration order '
-                       'returns one that fails at length 16. Requiring exactness on a validation '
-                       'split containing an unseen length is what separates them.',
-                       'Accuracy is 1.000 up to the scaffold\'s declared 16-position capacity and '
-                       'chance beyond it. Depth is generalized up to a declared capacity.']}
-    return _row('language','a lexical unit and a grammaticality rule learned from raw prompt bytes',
+                       'Accuracy is 1.000 up to the scaffold\'s declared 22-position capacity '
+                       'and chance beyond it. Depth is generalized up to a declared capacity.']}
+    return _row('language','balancedness and its lexical unit learned from raw prompt bytes',
+                f"post-audit stream (hardening='context_free_language', the shipped default): "
                 f"stage A unique among {space_size(lexical):,} (base 14, open byte 40), held-out "
-                f"position error {positions}; stage B {score:.3f} on {len(unseen)} episodes at "
-                f"lengths never trained on",
-                f"majority constant {constant:.3f}, best fitted feature {best:.3f}, random 0.500; "
-                f"gradient descent on the same spaces conforms 0 of 44 runs",
-                ok,time.perf_counter()-start,'research/language-capability/RESULTS.md',
+                f"position error {positions}; stage B {score:.3f} on {len(unseen)} held-out "
+                f"episodes at lengths 16-22 never trained on. Pre-audit stream "
+                f"(hardening='none', section 19's): {pre_score:.10f} on {len(pre_unseen)}",
+                f"post-audit majority constant {constant:.4f}, random 0.500, best fitted feature "
+                f"{best:.4f}, training-string lookup {lookup:.4f}, and section 19's own counting "
+                f"program {counting_score:.4f} on this stream; pre-audit majority constant "
+                f"{pre_constant:.4f}, best fitted feature {pre_fitted:.4f}; gradient descent "
+                f"conforms 0 of 64 runs on the post-audit space and 0 of 44 pre-audit",
+                ok,time.perf_counter()-start,
+                'research/language-post-audit/RESULTS.md, research/language-capability/RESULTS.md',
                 'tcn demo --only language',detail)
+
 
 _DEMO_RUNNERS={'synthesis':_demo_synthesis,'joint':_demo_joint,'structure':_demo_structure,
                'depth':_demo_depth,'abstraction':_demo_abstraction,'positional':_demo_positional,

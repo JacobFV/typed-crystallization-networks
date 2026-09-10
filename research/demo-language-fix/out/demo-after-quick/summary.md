@@ -1,0 +1,14 @@
+# tcn demo
+
+```
+demo     measured                                                           baseline                                                                                     verdict
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+language post-audit stream (hardening='context_free_language', the shipped… post-audit majority constant 0.5262, random 0.500, best fitted feature 0.4738, training-str… PASS
+```
+
+- **language** — balancedness and its lexical unit learned from raw prompt bytes
+  - measured: post-audit stream (hardening='context_free_language', the shipped default): stage A unique among 10,496 (base 14, open byte 40), held-out position error 0.0; stage B 1.000 on 859 held-out episodes at lengths 16-22 never trained on. Pre-audit stream (hardening='none', section 19's): 0.9986187845 on 724
+  - baseline: post-audit majority constant 0.5262, random 0.500, best fitted feature 0.4738, training-string lookup 0.4738, and section 19's own counting program 0.5262 on this stream; pre-audit majority constant 0.5483, best fitted feature 0.6478; gradient descent conforms 0 of 64 runs on the post-audit space and 0 of 44 pre-audit
+  - evidence: research/language-post-audit/RESULTS.md, research/language-capability/RESULTS.md
+  - reproduce: `tcn demo --only language`
+
