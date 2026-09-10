@@ -143,6 +143,53 @@ Then the decisive experiment, with criteria stated in advance:
 Two shipped numbers are corrected in the same phase: the language capability is
 **0.9986, not 1.000**, and it reproduces **only** on the pre-audit stream (§39).
 
+## Phase 6 — Both remaining limits turn out to be expressiveness
+**2026-09-09 13:40 → 19:00**, `4a0ad71` … `a1a5553`
+
+Two independent measurements land on the same diagnosis, which is the phase's
+result rather than either measurement alone.
+
+**§45 — the language capability was counting, not balancedness.** Run unchanged
+on an honestly-posed split of the re-drawn (non-exploitable) stream, the shipped
+stage-B scaffold contains **no conforming program**: space 45,375, exhausted,
+**0 conforming, certificate `complete`**. A proved non-existence, not a timeout.
+§24's re-draw made bracket counts identical across both classes, so the honest
+counting program scores **exactly the majority, 0.5262**. Post-audit,
+`balanced ⟺ min prefix ≥ 0`, and a minimum is not a sum. The repair needs **no
+new operator**: a running `min` beside the running `add` scores **1.000 on all
+859 held-out episodes** at unseen lengths 16–22. The control that makes the
+negative trustworthy is that the same code path reproduces §19 to every digit
+(0.9986187845303868, n=724) on the pre-audit stream — the harness reproduces
+where the result holds and proves non-existence where it does not.
+
+**§19 is bounded, not withdrawn.** Its program is real and solves the task as
+that lesson posed it. What is refuted is the implicit claim that the capability
+was about balancedness.
+
+**The convergence.** §41/§42 had already located the visual residue in
+expressiveness: `Program.execute` is an unconditional loop over every node and
+the depth scaffold *rejects* within-tick back-edges, so totality is a validator
+invariant and early exit is **inexpressible**, not merely unfound. §45 locates
+the language limit in expressiveness too — the scaffold cannot say "running
+minimum". Two tracks, different domains, same class of limit.
+
+`research/algorithm-resynthesis/DESIGN.md` is the design study that follows: an
+expressivity audit of 23 constructs cited to code, a recommendation of two
+languages (specification IR unchanged, separate algorithm IR) with oracle-guided
+synthesis, e-graphs kept as semantic-identity engine rather than algorithm
+inventor, Lean deferred to the parametric case where exhaustion is impossible,
+and a pre-registered miniature experiment. Its most consequential finding is that
+the **objective cannot currently see the fix** — `filter` is charged at declared
+capacity, `execution_cost` is constant across programs differing by 48 executed
+bytecodes, and early exit never improves worst-case count — so a cost model
+distinguishing expected from worst-case is a **precondition** for that direction,
+not a follow-on.
+
+**Documentation restructured** so history accumulates: dated append-only session
+handoffs under `docs/handoffs/`, this log, and `CORRECTIONS.md`. The previous
+single `HANDOFF.md` was being overwritten each session, destroying the prior
+record; session 1's was recovered from git verbatim.
+
 ---
 
 ## Standing shape of the project, as of 2026-09-09
@@ -154,6 +201,13 @@ persistent module library and curriculum flow; compilation to ordinary software.
 **Refuted, four times independently:** the progressive irreversible freezing
 schedule, most recently in the reversible form its third refutation asked for.
 
-**Open:** program length (the scaffold, not the selection); a cost model that
-carries signal; abstraction *selection* from non-minimised corpora; whether the
-language capability survives the re-drawn lesson.
+**The binding constraint, as of Phase 6:** not search, not compute, but **what
+the representation can express**. Established independently in two domains (§41,
+§42, §45).
+
+**Open:** whether the min-prefix fix is reachable by the *system* rather than by a
+human reading the diagnosis — enumeration without a hand-chosen window, and the
+gradient path against its own control; whether scaffold design can be proposed
+from pre-hoc evidence at all, or is currently a human input; abstraction
+*selection* from non-minimised corpora; a cost model that distinguishes expected
+from worst-case work.
