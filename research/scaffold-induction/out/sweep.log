@@ -8,3 +8,10 @@
   rel budget=192 (train=192): admissible 1  [4.6s]
   rel budget=384 (train=384): admissible 19  [23.9s]
   rel budget=768 (train=768): admissible 19  [46.6s]
+  rel budget=1536 (train=1536): admissible 19  [89.6s]
+  -> rel: chosen budget 384 (stable at B, 2B and 4B)
+== arith
+  arith budget=16 (train=16): admissible 24  [9.8s]
+  arith budget=32 (train=32): admissible 24  [19.1s]
+  arith budget=64 (train=64): admissible 24  [38.0s]
+  arith budget=128 (train=128): admissible 24  [75.3s]

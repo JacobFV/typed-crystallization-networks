@@ -240,10 +240,16 @@ def sweep():
     return out + "\n\nRule: " + d["rule"] + ".\n" + "\n".join(notes)
 
 
+DOMAINS = ("arith", "bool", "rel")
+
+
+def present_domains():
+    return [d for d in DOMAINS if (kit.OUT / f"cases_{d}.json").exists()]
+
+
 def ceilings():
-    a = A()
     rows = []
-    for dom in a["domains"]:
+    for dom in present_domains():
         c = C(dom)
         adm = c["admitted"]
         rows.append([dom, c["defects_tried"], c["rejected_invalid"],
