@@ -1,0 +1,1073 @@
+{
+  "entries_stamped": 22,
+  "extra_keys": [
+    "semantic_id",
+    "class_members"
+  ],
+  "stamped": {
+    "entries_loaded": 22,
+    "names": [
+      "sem_minall",
+      "sem_minall_runnerup",
+      "sem_trace",
+      "syn_minall",
+      "syn_minall_runnerup",
+      "sem_wo_t1",
+      "syn_wo_t1",
+      "sem_wo_t2",
+      "syn_wo_t2",
+      "sem_wo_t3",
+      "syn_wo_t3",
+      "sem_wo_t4",
+      "syn_wo_t4",
+      "sem_wo_t5",
+      "syn_wo_t5",
+      "sem_wo_t1_win",
+      "sem_wo_t2_win",
+      "sem_wo_t3_win",
+      "sem_wo_t4_win",
+      "sem_wo_t5_win",
+      "sem_off"
+    ],
+    "verify": [
+      {
+        "reference": "sem_minall@1",
+        "digest": "165bc290d9c82b70a8ea3cc2",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 4.0,
+        "description_bits": 10128
+      },
+      {
+        "reference": "sem_minall_runnerup@1",
+        "digest": "ca785ec948250acbf39b8f66",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 2.0,
+        "description_bits": 6048
+      },
+      {
+        "reference": "sem_trace@1",
+        "digest": "165bc290d9c82b70a8ea3cc2",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 4.0,
+        "description_bits": 10128
+      },
+      {
+        "reference": "syn_minall@1",
+        "digest": "ec516b3808ddef7e7d0e7d22",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 2.0,
+        "description_bits": 6048
+      },
+      {
+        "reference": "syn_minall_runnerup@1",
+        "digest": "ec516b3808ddef7e7d0e7d22",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 2.0,
+        "description_bits": 6048
+      },
+      {
+        "reference": "sem_wo_t1@1",
+        "digest": "08735e504400bf4879acf0a7",
+        "loads": true,
+        "fixture_cases": 16,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 5.0,
+        "description_bits": 12360
+      },
+      {
+        "reference": "syn_wo_t1@1",
+        "digest": "ec516b3808ddef7e7d0e7d22",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 2.0,
+        "description_bits": 6048
+      },
+      {
+        "reference": "sem_wo_t2@1",
+        "digest": "0ba4287a0409988fa2b5eff9",
+        "loads": true,
+        "fixture_cases": 16,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 5.0,
+        "description_bits": 12384
+      },
+      {
+        "reference": "syn_wo_t2@1",
+        "digest": "ec516b3808ddef7e7d0e7d22",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 2.0,
+        "description_bits": 6048
+      },
+      {
+        "reference": "sem_wo_t3@1",
+        "digest": "0ba4287a0409988fa2b5eff9",
+        "loads": true,
+        "fixture_cases": 16,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 5.0,
+        "description_bits": 12384
+      },
+      {
+        "reference": "syn_wo_t3@1",
+        "digest": "82b93e4bc7b294ff04c8f289",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 2.0,
+        "description_bits": 6056
+      },
+      {
+        "reference": "sem_wo_t4@1",
+        "digest": "08735e504400bf4879acf0a7",
+        "loads": true,
+        "fixture_cases": 16,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 5.0,
+        "description_bits": 12360
+      },
+      {
+        "reference": "syn_wo_t4@1",
+        "digest": "ec516b3808ddef7e7d0e7d22",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 2.0,
+        "description_bits": 6048
+      },
+      {
+        "reference": "sem_wo_t5@1",
+        "digest": "0ba4287a0409988fa2b5eff9",
+        "loads": true,
+        "fixture_cases": 16,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 5.0,
+        "description_bits": 12384
+      },
+      {
+        "reference": "syn_wo_t5@1",
+        "digest": "82b93e4bc7b294ff04c8f289",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 2.0,
+        "description_bits": 6056
+      },
+      {
+        "reference": "syn_minall_runnerup@2",
+        "digest": "82b93e4bc7b294ff04c8f289",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 2.0,
+        "description_bits": 6056
+      },
+      {
+        "reference": "sem_wo_t1_win@1",
+        "digest": "165bc290d9c82b70a8ea3cc2",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 4.0,
+        "description_bits": 10128
+      },
+      {
+        "reference": "sem_wo_t2_win@1",
+        "digest": "165bc290d9c82b70a8ea3cc2",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 4.0,
+        "description_bits": 10128
+      },
+      {
+        "reference": "sem_wo_t3_win@1",
+        "digest": "165bc290d9c82b70a8ea3cc2",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 4.0,
+        "description_bits": 10128
+      },
+      {
+        "reference": "sem_wo_t4_win@1",
+        "digest": "165bc290d9c82b70a8ea3cc2",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 4.0,
+        "description_bits": 10128
+      },
+      {
+        "reference": "sem_wo_t5_win@1",
+        "digest": "165bc290d9c82b70a8ea3cc2",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 4.0,
+        "description_bits": 10128
+      },
+      {
+        "reference": "sem_off@1",
+        "digest": "0b7ea9a5a2d4e4146eb1fa2b",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 4.0,
+        "description_bits": 10128
+      }
+    ],
+    "verify_all_ok": true,
+    "loads": [
+      {
+        "name": "sem_minall",
+        "policy": "strict",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_minall",
+        "policy": "revalidate",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_minall_runnerup",
+        "policy": "strict",
+        "operator": "module:ca785ec948250acbf39b8f66"
+      },
+      {
+        "name": "sem_minall_runnerup",
+        "policy": "revalidate",
+        "operator": "module:ca785ec948250acbf39b8f66"
+      },
+      {
+        "name": "sem_trace",
+        "policy": "strict",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_trace",
+        "policy": "revalidate",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "syn_minall",
+        "policy": "strict",
+        "operator": "module:ec516b3808ddef7e7d0e7d22"
+      },
+      {
+        "name": "syn_minall",
+        "policy": "revalidate",
+        "operator": "module:ec516b3808ddef7e7d0e7d22"
+      },
+      {
+        "name": "syn_minall_runnerup",
+        "policy": "strict",
+        "operator": "module:82b93e4bc7b294ff04c8f289"
+      },
+      {
+        "name": "syn_minall_runnerup",
+        "policy": "revalidate",
+        "operator": "module:82b93e4bc7b294ff04c8f289"
+      },
+      {
+        "name": "sem_wo_t1",
+        "policy": "strict",
+        "operator": "module:08735e504400bf4879acf0a7"
+      },
+      {
+        "name": "sem_wo_t1",
+        "policy": "revalidate",
+        "operator": "module:08735e504400bf4879acf0a7"
+      },
+      {
+        "name": "syn_wo_t1",
+        "policy": "strict",
+        "operator": "module:ec516b3808ddef7e7d0e7d22"
+      },
+      {
+        "name": "syn_wo_t1",
+        "policy": "revalidate",
+        "operator": "module:ec516b3808ddef7e7d0e7d22"
+      },
+      {
+        "name": "sem_wo_t2",
+        "policy": "strict",
+        "operator": "module:0ba4287a0409988fa2b5eff9"
+      },
+      {
+        "name": "sem_wo_t2",
+        "policy": "revalidate",
+        "operator": "module:0ba4287a0409988fa2b5eff9"
+      },
+      {
+        "name": "syn_wo_t2",
+        "policy": "strict",
+        "operator": "module:ec516b3808ddef7e7d0e7d22"
+      },
+      {
+        "name": "syn_wo_t2",
+        "policy": "revalidate",
+        "operator": "module:ec516b3808ddef7e7d0e7d22"
+      },
+      {
+        "name": "sem_wo_t3",
+        "policy": "strict",
+        "operator": "module:0ba4287a0409988fa2b5eff9"
+      },
+      {
+        "name": "sem_wo_t3",
+        "policy": "revalidate",
+        "operator": "module:0ba4287a0409988fa2b5eff9"
+      },
+      {
+        "name": "syn_wo_t3",
+        "policy": "strict",
+        "operator": "module:82b93e4bc7b294ff04c8f289"
+      },
+      {
+        "name": "syn_wo_t3",
+        "policy": "revalidate",
+        "operator": "module:82b93e4bc7b294ff04c8f289"
+      },
+      {
+        "name": "sem_wo_t4",
+        "policy": "strict",
+        "operator": "module:08735e504400bf4879acf0a7"
+      },
+      {
+        "name": "sem_wo_t4",
+        "policy": "revalidate",
+        "operator": "module:08735e504400bf4879acf0a7"
+      },
+      {
+        "name": "syn_wo_t4",
+        "policy": "strict",
+        "operator": "module:ec516b3808ddef7e7d0e7d22"
+      },
+      {
+        "name": "syn_wo_t4",
+        "policy": "revalidate",
+        "operator": "module:ec516b3808ddef7e7d0e7d22"
+      },
+      {
+        "name": "sem_wo_t5",
+        "policy": "strict",
+        "operator": "module:0ba4287a0409988fa2b5eff9"
+      },
+      {
+        "name": "sem_wo_t5",
+        "policy": "revalidate",
+        "operator": "module:0ba4287a0409988fa2b5eff9"
+      },
+      {
+        "name": "syn_wo_t5",
+        "policy": "strict",
+        "operator": "module:82b93e4bc7b294ff04c8f289"
+      },
+      {
+        "name": "syn_wo_t5",
+        "policy": "revalidate",
+        "operator": "module:82b93e4bc7b294ff04c8f289"
+      },
+      {
+        "name": "sem_wo_t1_win",
+        "policy": "strict",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_wo_t1_win",
+        "policy": "revalidate",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_wo_t2_win",
+        "policy": "strict",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_wo_t2_win",
+        "policy": "revalidate",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_wo_t3_win",
+        "policy": "strict",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_wo_t3_win",
+        "policy": "revalidate",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_wo_t4_win",
+        "policy": "strict",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_wo_t4_win",
+        "policy": "revalidate",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_wo_t5_win",
+        "policy": "strict",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_wo_t5_win",
+        "policy": "revalidate",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_off",
+        "policy": "strict",
+        "operator": "module:0b7ea9a5a2d4e4146eb1fa2b"
+      },
+      {
+        "name": "sem_off",
+        "policy": "revalidate",
+        "operator": "module:0b7ea9a5a2d4e4146eb1fa2b"
+      }
+    ],
+    "errors": []
+  },
+  "control": {
+    "entries_loaded": 22,
+    "names": [
+      "sem_minall",
+      "sem_minall_runnerup",
+      "sem_trace",
+      "syn_minall",
+      "syn_minall_runnerup",
+      "sem_wo_t1",
+      "syn_wo_t1",
+      "sem_wo_t2",
+      "syn_wo_t2",
+      "sem_wo_t3",
+      "syn_wo_t3",
+      "sem_wo_t4",
+      "syn_wo_t4",
+      "sem_wo_t5",
+      "syn_wo_t5",
+      "sem_wo_t1_win",
+      "sem_wo_t2_win",
+      "sem_wo_t3_win",
+      "sem_wo_t4_win",
+      "sem_wo_t5_win",
+      "sem_off"
+    ],
+    "verify": [
+      {
+        "reference": "sem_minall@1",
+        "digest": "165bc290d9c82b70a8ea3cc2",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 4.0,
+        "description_bits": 10128
+      },
+      {
+        "reference": "sem_minall_runnerup@1",
+        "digest": "ca785ec948250acbf39b8f66",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 2.0,
+        "description_bits": 6048
+      },
+      {
+        "reference": "sem_trace@1",
+        "digest": "165bc290d9c82b70a8ea3cc2",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 4.0,
+        "description_bits": 10128
+      },
+      {
+        "reference": "syn_minall@1",
+        "digest": "ec516b3808ddef7e7d0e7d22",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 2.0,
+        "description_bits": 6048
+      },
+      {
+        "reference": "syn_minall_runnerup@1",
+        "digest": "ec516b3808ddef7e7d0e7d22",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 2.0,
+        "description_bits": 6048
+      },
+      {
+        "reference": "sem_wo_t1@1",
+        "digest": "08735e504400bf4879acf0a7",
+        "loads": true,
+        "fixture_cases": 16,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 5.0,
+        "description_bits": 12360
+      },
+      {
+        "reference": "syn_wo_t1@1",
+        "digest": "ec516b3808ddef7e7d0e7d22",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 2.0,
+        "description_bits": 6048
+      },
+      {
+        "reference": "sem_wo_t2@1",
+        "digest": "0ba4287a0409988fa2b5eff9",
+        "loads": true,
+        "fixture_cases": 16,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 5.0,
+        "description_bits": 12384
+      },
+      {
+        "reference": "syn_wo_t2@1",
+        "digest": "ec516b3808ddef7e7d0e7d22",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 2.0,
+        "description_bits": 6048
+      },
+      {
+        "reference": "sem_wo_t3@1",
+        "digest": "0ba4287a0409988fa2b5eff9",
+        "loads": true,
+        "fixture_cases": 16,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 5.0,
+        "description_bits": 12384
+      },
+      {
+        "reference": "syn_wo_t3@1",
+        "digest": "82b93e4bc7b294ff04c8f289",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 2.0,
+        "description_bits": 6056
+      },
+      {
+        "reference": "sem_wo_t4@1",
+        "digest": "08735e504400bf4879acf0a7",
+        "loads": true,
+        "fixture_cases": 16,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 5.0,
+        "description_bits": 12360
+      },
+      {
+        "reference": "syn_wo_t4@1",
+        "digest": "ec516b3808ddef7e7d0e7d22",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 2.0,
+        "description_bits": 6048
+      },
+      {
+        "reference": "sem_wo_t5@1",
+        "digest": "0ba4287a0409988fa2b5eff9",
+        "loads": true,
+        "fixture_cases": 16,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 5.0,
+        "description_bits": 12384
+      },
+      {
+        "reference": "syn_wo_t5@1",
+        "digest": "82b93e4bc7b294ff04c8f289",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 2.0,
+        "description_bits": 6056
+      },
+      {
+        "reference": "syn_minall_runnerup@2",
+        "digest": "82b93e4bc7b294ff04c8f289",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 2.0,
+        "description_bits": 6056
+      },
+      {
+        "reference": "sem_wo_t1_win@1",
+        "digest": "165bc290d9c82b70a8ea3cc2",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 4.0,
+        "description_bits": 10128
+      },
+      {
+        "reference": "sem_wo_t2_win@1",
+        "digest": "165bc290d9c82b70a8ea3cc2",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 4.0,
+        "description_bits": 10128
+      },
+      {
+        "reference": "sem_wo_t3_win@1",
+        "digest": "165bc290d9c82b70a8ea3cc2",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 4.0,
+        "description_bits": 10128
+      },
+      {
+        "reference": "sem_wo_t4_win@1",
+        "digest": "165bc290d9c82b70a8ea3cc2",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 4.0,
+        "description_bits": 10128
+      },
+      {
+        "reference": "sem_wo_t5_win@1",
+        "digest": "165bc290d9c82b70a8ea3cc2",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 4.0,
+        "description_bits": 10128
+      },
+      {
+        "reference": "sem_off@1",
+        "digest": "0b7ea9a5a2d4e4146eb1fa2b",
+        "loads": true,
+        "fixture_cases": 8,
+        "fixture_reproduces": true,
+        "source_current": true,
+        "stale": [],
+        "ok": true,
+        "error": null,
+        "execution_cost": 4.0,
+        "description_bits": 10128
+      }
+    ],
+    "verify_all_ok": true,
+    "loads": [
+      {
+        "name": "sem_minall",
+        "policy": "strict",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_minall",
+        "policy": "revalidate",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_minall_runnerup",
+        "policy": "strict",
+        "operator": "module:ca785ec948250acbf39b8f66"
+      },
+      {
+        "name": "sem_minall_runnerup",
+        "policy": "revalidate",
+        "operator": "module:ca785ec948250acbf39b8f66"
+      },
+      {
+        "name": "sem_trace",
+        "policy": "strict",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_trace",
+        "policy": "revalidate",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "syn_minall",
+        "policy": "strict",
+        "operator": "module:ec516b3808ddef7e7d0e7d22"
+      },
+      {
+        "name": "syn_minall",
+        "policy": "revalidate",
+        "operator": "module:ec516b3808ddef7e7d0e7d22"
+      },
+      {
+        "name": "syn_minall_runnerup",
+        "policy": "strict",
+        "operator": "module:82b93e4bc7b294ff04c8f289"
+      },
+      {
+        "name": "syn_minall_runnerup",
+        "policy": "revalidate",
+        "operator": "module:82b93e4bc7b294ff04c8f289"
+      },
+      {
+        "name": "sem_wo_t1",
+        "policy": "strict",
+        "operator": "module:08735e504400bf4879acf0a7"
+      },
+      {
+        "name": "sem_wo_t1",
+        "policy": "revalidate",
+        "operator": "module:08735e504400bf4879acf0a7"
+      },
+      {
+        "name": "syn_wo_t1",
+        "policy": "strict",
+        "operator": "module:ec516b3808ddef7e7d0e7d22"
+      },
+      {
+        "name": "syn_wo_t1",
+        "policy": "revalidate",
+        "operator": "module:ec516b3808ddef7e7d0e7d22"
+      },
+      {
+        "name": "sem_wo_t2",
+        "policy": "strict",
+        "operator": "module:0ba4287a0409988fa2b5eff9"
+      },
+      {
+        "name": "sem_wo_t2",
+        "policy": "revalidate",
+        "operator": "module:0ba4287a0409988fa2b5eff9"
+      },
+      {
+        "name": "syn_wo_t2",
+        "policy": "strict",
+        "operator": "module:ec516b3808ddef7e7d0e7d22"
+      },
+      {
+        "name": "syn_wo_t2",
+        "policy": "revalidate",
+        "operator": "module:ec516b3808ddef7e7d0e7d22"
+      },
+      {
+        "name": "sem_wo_t3",
+        "policy": "strict",
+        "operator": "module:0ba4287a0409988fa2b5eff9"
+      },
+      {
+        "name": "sem_wo_t3",
+        "policy": "revalidate",
+        "operator": "module:0ba4287a0409988fa2b5eff9"
+      },
+      {
+        "name": "syn_wo_t3",
+        "policy": "strict",
+        "operator": "module:82b93e4bc7b294ff04c8f289"
+      },
+      {
+        "name": "syn_wo_t3",
+        "policy": "revalidate",
+        "operator": "module:82b93e4bc7b294ff04c8f289"
+      },
+      {
+        "name": "sem_wo_t4",
+        "policy": "strict",
+        "operator": "module:08735e504400bf4879acf0a7"
+      },
+      {
+        "name": "sem_wo_t4",
+        "policy": "revalidate",
+        "operator": "module:08735e504400bf4879acf0a7"
+      },
+      {
+        "name": "syn_wo_t4",
+        "policy": "strict",
+        "operator": "module:ec516b3808ddef7e7d0e7d22"
+      },
+      {
+        "name": "syn_wo_t4",
+        "policy": "revalidate",
+        "operator": "module:ec516b3808ddef7e7d0e7d22"
+      },
+      {
+        "name": "sem_wo_t5",
+        "policy": "strict",
+        "operator": "module:0ba4287a0409988fa2b5eff9"
+      },
+      {
+        "name": "sem_wo_t5",
+        "policy": "revalidate",
+        "operator": "module:0ba4287a0409988fa2b5eff9"
+      },
+      {
+        "name": "syn_wo_t5",
+        "policy": "strict",
+        "operator": "module:82b93e4bc7b294ff04c8f289"
+      },
+      {
+        "name": "syn_wo_t5",
+        "policy": "revalidate",
+        "operator": "module:82b93e4bc7b294ff04c8f289"
+      },
+      {
+        "name": "sem_wo_t1_win",
+        "policy": "strict",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_wo_t1_win",
+        "policy": "revalidate",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_wo_t2_win",
+        "policy": "strict",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_wo_t2_win",
+        "policy": "revalidate",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_wo_t3_win",
+        "policy": "strict",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_wo_t3_win",
+        "policy": "revalidate",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_wo_t4_win",
+        "policy": "strict",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_wo_t4_win",
+        "policy": "revalidate",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_wo_t5_win",
+        "policy": "strict",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_wo_t5_win",
+        "policy": "revalidate",
+        "operator": "module:165bc290d9c82b70a8ea3cc2"
+      },
+      {
+        "name": "sem_off",
+        "policy": "strict",
+        "operator": "module:0b7ea9a5a2d4e4146eb1fa2b"
+      },
+      {
+        "name": "sem_off",
+        "policy": "revalidate",
+        "operator": "module:0b7ea9a5a2d4e4146eb1fa2b"
+      }
+    ],
+    "errors": []
+  },
+  "identical_to_control": {
+    "entries_loaded": true,
+    "names": true,
+    "verify": true,
+    "verify_all_ok": true,
+    "loads": true,
+    "errors": true
+  },
+  "all_identical": true,
+  "extra_keys_survive_save": false
+}

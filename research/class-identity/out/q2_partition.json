@@ -1,0 +1,207 @@
+{
+  "library": "research/semantic-library/library",
+  "manifest_entries": 22,
+  "distinct_digests": 7,
+  "distinct_classes": 6,
+  "classes_with_multiple_members": {
+    "tt/3/57": [
+      "ca785ec948250acbf39b8f66",
+      "ec516b3808ddef7e7d0e7d22"
+    ]
+  },
+  "digests_per_class": {
+    "tt/3/17": 1,
+    "tt/3/57": 2,
+    "tt/4/577f": 1,
+    "tt/4/566a": 1,
+    "tt/3/14": 1,
+    "tt/3/29": 1
+  },
+  "rows": [
+    {
+      "digest": "165bc290d9c82b70a8ea3cc2",
+      "arity": 3,
+      "truth_table": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "class_id": "tt/3/17",
+      "nodes": 4,
+      "execution_cost": 4.0,
+      "description_bits": 10128,
+      "published_under": [
+        "sem_minall",
+        "sem_trace",
+        "sem_wo_t1_win",
+        "sem_wo_t2_win",
+        "sem_wo_t3_win",
+        "sem_wo_t4_win",
+        "sem_wo_t5_win"
+      ],
+      "entries": 7
+    },
+    {
+      "digest": "ca785ec948250acbf39b8f66",
+      "arity": 3,
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "class_id": "tt/3/57",
+      "nodes": 2,
+      "execution_cost": 2.0,
+      "description_bits": 6048,
+      "published_under": [
+        "sem_minall_runnerup"
+      ],
+      "entries": 1
+    },
+    {
+      "digest": "ec516b3808ddef7e7d0e7d22",
+      "arity": 3,
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "class_id": "tt/3/57",
+      "nodes": 2,
+      "execution_cost": 2.0,
+      "description_bits": 6048,
+      "published_under": [
+        "syn_minall",
+        "syn_minall_runnerup",
+        "syn_wo_t1",
+        "syn_wo_t2",
+        "syn_wo_t4"
+      ],
+      "entries": 5
+    },
+    {
+      "digest": "08735e504400bf4879acf0a7",
+      "arity": 4,
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "class_id": "tt/4/577f",
+      "nodes": 5,
+      "execution_cost": 5.0,
+      "description_bits": 12360,
+      "published_under": [
+        "sem_wo_t1",
+        "sem_wo_t4"
+      ],
+      "entries": 2
+    },
+    {
+      "digest": "0ba4287a0409988fa2b5eff9",
+      "arity": 4,
+      "truth_table": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "class_id": "tt/4/566a",
+      "nodes": 5,
+      "execution_cost": 5.0,
+      "description_bits": 12384,
+      "published_under": [
+        "sem_wo_t2",
+        "sem_wo_t3",
+        "sem_wo_t5"
+      ],
+      "entries": 3
+    },
+    {
+      "digest": "82b93e4bc7b294ff04c8f289",
+      "arity": 3,
+      "truth_table": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "class_id": "tt/3/14",
+      "nodes": 2,
+      "execution_cost": 2.0,
+      "description_bits": 6056,
+      "published_under": [
+        "syn_minall_runnerup",
+        "syn_wo_t3",
+        "syn_wo_t5"
+      ],
+      "entries": 3
+    },
+    {
+      "digest": "0b7ea9a5a2d4e4146eb1fa2b",
+      "arity": 3,
+      "truth_table": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "class_id": "tt/3/29",
+      "nodes": 4,
+      "execution_cost": 4.0,
+      "description_bits": 10128,
+      "published_under": [
+        "sem_off"
+      ],
+      "entries": 1
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "F1": {
+    "width_1_sweep": {
+      "space_size": 272,
+      "evaluated": 272,
+      "exhausted": true,
+      "conforming": 1,
+      "certificate": "unique",
+      "best_return": 4.0,
+      "episodes": 4352,
+      "seconds": 5.221422242000699
+    },
+    "selections": {
+      "relation": 16,
+      "goal_relation": 6
+    },
+    "artifact_digest": "aa29e3e3bad03fb8546f199d",
+    "admitted": false,
+    "refusal": "R1 two-width rule: schema/f72db2cf6eca/d24b464be2ed is certified at 1 width(s) [1]; a schema class needs at least 2 distinct widths. A `unique` certificate at one width is not evidence of a correct schema (FINDINGS section 53, arm F)",
+    "rule": "R1 two-width rule"
+  },
+  "F2": {
+    "width_2_whole_space": {
+      "space_size": 272,
+      "evaluated": 272,
+      "exhausted": true,
+      "conforming": 0,
+      "certificate": "complete",
+      "best_return": 3.0,
+      "episodes": 4352,
+      "seconds": 7.421656152990181
+    },
+    "stored_vector_mean_return_at_width_2": 1.75,
+    "artifact_digest": "e51415cfa9ec3933c3011c5f",
+    "admitted": false,
+    "refusal": "R2 vector agreement: schema/f72db2cf6eca/d24b464be2ed at width 2 has conforming=0 mean_return=1.75 against threshold 4.0; the stored selection vector must conform at every certified width",
+    "rule": "R2 vector agreement"
+  },
+  "F3": {
+    "note": "R1 bypassed on purpose; this is the unsound format",
+    "per_width": {
+      "5": {
+        "mean_return": 1.625,
+        "threshold": 4.0,
+        "conforms": false,
+        "artifact_digest": "e8753a39d391e7b1911321c5",
+        "episodes": 64
+      },
+      "7": {
+        "mean_return": 1.9375,
+        "threshold": 4.0,
+        "conforms": false,
+        "artifact_digest": "3c33d6ad89d8ddd31cb65291",
+        "episodes": 64
+      },
+      "12": {
+        "mean_return": 2.125,
+        "threshold": 4.0,
+        "conforms": false,
+        "artifact_digest": "57830eaba710a77d4bdaf458",
+        "episodes": 64
+      }
+    }
+  },
+  "F4": {
+    "5": {
+      "space_size": 272,
+      "evaluated": 272,
+      "exhausted": true,
+      "unusable": 0,
+      "conforming": 0,
+      "threshold": 4.0,
+      "certificate": "complete",
+      "best_return": 2.625,
+      "conforming_selections": [],
+      "distribution": {
+        "mean": 2.0,
+        "sd": 0.3847892028465797,
+        "n": 272,
+        "min": 1.375,
+        "max": 2.625
+      },
+      "seconds": 55.94284760003211,
+      "episodes": 17408,
+      "steps": 69632,
+      "free_nodes": [
+        [
+          "relation",
+          17
+        ],
+        [
+          "goal_relation",
+          16
+        ]
+      ],
+      "width": 5
+    },
+    "7": {
+      "space_size": 272,
+      "evaluated": 272,
+      "exhausted": true,
+      "unusable": 0,
+      "conforming": 0,
+      "threshold": 4.0,
+      "certificate": "complete",
+      "best_return": 2.3125,
+      "conforming_selections": [],
+      "distribution": {
+        "mean": 2.0,
+        "sd": 0.14956887613566897,
+        "n": 272,
+        "min": 1.6875,
+        "max": 2.3125
+      },
+      "seconds": 77.99828844697913,
+      "episodes": 17408,
+      "steps": 69632,
+      "free_nodes": [
+        [
+          "relation",
+          17
+        ],
+        [
+          "goal_relation",
+          16
+        ]
+      ],
+      "width": 7
+    },
+    "12": {
+      "space_size": 272,
+      "evaluated": 272,
+      "exhausted": true,
+      "unusable": 0,
+      "conforming": 0,
+      "threshold": 4.0,
+      "certificate": "complete",
+      "best_return": 2.5625,
+      "conforming_selections": [],
+      "distribution": {
+        "mean": 2.0,
+        "sd": 0.23280338694737615,
+        "n": 272,
+        "min": 1.4375,
+        "max": 2.5625
+      },
+      "seconds": 143.63109841599362,
+      "episodes": 17408,
+      "steps": 69632,
+      "free_nodes": [
+        [
+          "relation",
+          17
+        ],
+        [
+          "goal_relation",
+          16
+        ]
+      ],
+      "width": 12
+    }
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "held_out": {
+    "5": {
+      "always_true": {
+        "mean": 2.0,
+        "sd": 2.0158105227158787,
+        "n": 64,
+        "min": 0.0,
+        "max": 4.0
+      },
+      "always_false": {
+        "mean": 2.0,
+        "sd": 2.0158105227158787,
+        "n": 64,
+        "min": 0.0,
+        "max": 4.0
+      },
+      "uniform_random": {
+        "mean": 1.9375,
+        "sd": 0.9574271077563381,
+        "n": 64,
+        "min": 0.0,
+        "max": 4.0
+      },
+      "fraction_target_true": 0.5,
+      "best_constant": 2.0
+    },
+    "7": {
+      "always_true": {
+        "mean": 2.1875,
+        "sd": 2.0069324297987157,
+        "n": 64,
+        "min": 0.0,
+        "max": 4.0
+      },
+      "always_false": {
+        "mean": 1.8125,
+        "sd": 2.0069324297987157,
+        "n": 64,
+        "min": 0.0,
+        "max": 4.0
+      },
+      "uniform_random": {
+        "mean": 1.90625,
+        "sd": 0.9548331525488363,
+        "n": 64,
+        "min": 0.0,
+        "max": 4.0
+      },
+      "fraction_target_true": 0.546875,
+      "best_constant": 2.1875
+    },
+    "12": {
+      "always_true": {
+        "mean": 2.125,
+        "sd": 2.011869540407391,
+        "n": 64,
+        "min": 0.0,
+        "max": 4.0
+      },
+      "always_false": {
+        "mean": 1.875,
+        "sd": 2.011869540407391,
+        "n": 64,
+        "min": 0.0,
+        "max": 4.0
+      },
+      "uniform_random": {
+        "mean": 2.0,
+        "sd": 0.9594972228385659,
+        "n": 64,
+        "min": 0.0,
+        "max": 4.0
+      },
+      "fraction_target_true": 0.53125,
+      "best_constant": 2.125
+    }
+  },
+  "fit": {
+    "5": {
+      "always_true": {
+        "mean": 1.75,
+        "sd": 2.04939015319192,
+        "n": 16,
+        "min": 0.0,
+        "max": 4.0
+      },
+      "always_false": {
+        "mean": 2.25,
+        "sd": 2.04939015319192,
+        "n": 16,
+        "min": 0.0,
+        "max": 4.0
+      },
+      "uniform_random": {
+        "mean": 1.8125,
+        "sd": 0.9810708435174292,
+        "n": 16,
+        "min": 0.0,
+        "max": 4.0
+      },
+      "fraction_target_true": 0.4375,
+      "best_constant": 2.25
+    },
+    "7": {
+      "always_true": {
+        "mean": 1.75,
+        "sd": 2.04939015319192,
+        "n": 16,
+        "min": 0.0,
+        "max": 4.0
+      },
+      "always_false": {
+        "mean": 2.25,
+        "sd": 2.04939015319192,
+        "n": 16,
+        "min": 0.0,
+        "max": 4.0
+      },
+      "uniform_random": {
+        "mean": 1.6875,
+        "sd": 0.9464847243000456,
+        "n": 16,
+        "min": 0.0,
+        "max": 3.0
+      },
+      "fraction_target_true": 0.4375,
+      "best_constant": 2.25
+    },
+    "12": {
+      "always_true": {
+        "mean": 1.5,
+        "sd": 2.0,
+        "n": 16,
+        "min": 0.0,
+        "max": 4.0
+      },
+      "always_false": {
+        "mean": 2.5,
+        "sd": 2.0,
+        "n": 16,
+        "min": 0.0,
+        "max": 4.0
+      },
+      "uniform_random": {
+        "mean": 1.9375,
+        "sd": 0.9979144919948469,
+        "n": 16,
+        "min": 0.0,
+        "max": 4.0
+      },
+      "fraction_target_true": 0.375,
+      "best_constant": 2.5
+    }
+  }
+}
