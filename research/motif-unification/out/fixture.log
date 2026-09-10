@@ -1,0 +1,333 @@
+{
+  "episodes": 160,
+  "initial_prediction_loss": 0.248835613951087,
+  "final_prediction_loss": 0.0022308224288281053,
+  "evaluation_mean_return": 4.0,
+  "maximum_return": 4,
+  "evaluations": [
+    {
+      "episode": 10000,
+      "return": 4.0,
+      "prediction_loss": 0.0012288016732782125,
+      "probe_loss": 0.0012288016732782125,
+      "policy_loss": 0.03367333859205246,
+      "value_loss": 1.081193447113037,
+      "loss": 0.5737634897232056,
+      "goal": {
+        "invert": false
+      },
+      "split": "test"
+    },
+    {
+      "episode": 10001,
+      "return": 4.0,
+      "prediction_loss": 0.0027112720999866724,
+      "probe_loss": 0.0027112720999866724,
+      "policy_loss": 0.012995936907827854,
+      "value_loss": 1.081193447113037,
+      "loss": 0.5578446984291077,
+      "goal": {
+        "invert": true
+      },
+      "split": "test"
+    },
+    {
+      "episode": 10002,
+      "return": 4.0,
+      "prediction_loss": 0.0016090415883809328,
+      "probe_loss": 0.0016090415883809328,
+      "policy_loss": 0.034572552889585495,
+      "value_loss": 1.081193447113037,
+      "loss": 0.5753626227378845,
+      "goal": {
+        "invert": false
+      },
+      "split": "test"
+    },
+    {
+      "episode": 10003,
+      "return": 4.0,
+      "prediction_loss": 0.002243785187602043,
+      "probe_loss": 0.002243785187602043,
+      "policy_loss": 0.01265434455126524,
+      "value_loss": 1.081193447113037,
+      "loss": 0.556606650352478,
+      "goal": {
+        "invert": true
+      },
+      "split": "test"
+    },
+    {
+      "episode": 10004,
+      "return": 4.0,
+      "prediction_loss": 0.0016152297612279654,
+      "probe_loss": 0.0016152297612279654,
+      "policy_loss": 0.01183454878628254,
+      "value_loss": 1.081193447113037,
+      "loss": 0.5546239018440247,
+      "goal": {
+        "invert": false
+      },
+      "split": "test"
+    },
+    {
+      "episode": 10005,
+      "return": 4.0,
+      "prediction_loss": 0.0021326285786926746,
+      "probe_loss": 0.0021326285786926746,
+      "policy_loss": 0.03648568317294121,
+      "value_loss": 1.081193447113037,
+      "loss": 0.5781976580619812,
+      "goal": {
+        "invert": true
+      },
+      "split": "test"
+    },
+    {
+      "episode": 10006,
+      "return": 4.0,
+      "prediction_loss": 0.0016152297612279654,
+      "probe_loss": 0.0016152297612279654,
+      "policy_loss": 0.01183454878628254,
+      "value_loss": 1.081193447113037,
+      "loss": 0.5546239018440247,
+      "goal": {
+        "invert": false
+      },
+      "split": "test"
+    },
+    {
+      "episode": 10007,
+      "return": 4.0,
+      "prediction_loss": 0.0027112720999866724,
+      "probe_loss": 0.0027112720999866724,
+      "policy_loss": 0.012995936907827854,
+      "value_loss": 1.081193447113037,
+      "loss": 0.5578446984291077,
+      "goal": {
+        "invert": true
+      },
+      "split": "test"
+    },
+    {
+      "episode": 10008,
+      "return": 4.0,
+      "prediction_loss": 0.0012288016732782125,
+      "probe_loss": 0.0012288016732782125,
+      "policy_loss": 0.03367333859205246,
+      "value_loss": 1.081193447113037,
+      "loss": 0.5737634897232056,
+      "goal": {
+        "invert": false
+      },
+      "split": "test"
+    },
+    {
+      "episode": 10009,
+      "return": 4.0,
+      "prediction_loss": 0.002243785187602043,
+      "probe_loss": 0.002243785187602043,
+      "policy_loss": 0.01265434455126524,
+      "value_loss": 1.081193447113037,
+      "loss": 0.556606650352478,
+      "goal": {
+        "invert": true
+      },
+      "split": "test"
+    },
+    {
+      "episode": 10010,
+      "return": 4.0,
+      "prediction_loss": 0.0017822555964812636,
+      "probe_loss": 0.0017822555964812636,
+      "policy_loss": 0.01196639146655798,
+      "value_loss": 1.081193447113037,
+      "loss": 0.5550744533538818,
+      "goal": {
+        "invert": false
+      },
+      "split": "test"
+    },
+    {
+      "episode": 10011,
+      "return": 4.0,
+      "prediction_loss": 0.0021326285786926746,
+      "probe_loss": 0.0021326285786926746,
+      "policy_loss": 0.03648568317294121,
+      "value_loss": 1.081193447113037,
+      "loss": 0.5781976580619812,
+      "goal": {
+        "invert": true
+      },
+      "split": "test"
+    },
+    {
+      "episode": 10012,
+      "return": 4.0,
+      "prediction_loss": 0.0016152297612279654,
+      "probe_loss": 0.0016152297612279654,
+      "policy_loss": 0.01183454878628254,
+      "value_loss": 1.081193447113037,
+      "loss": 0.5546239018440247,
+      "goal": {
+        "invert": false
+      },
+      "split": "test"
+    },
+    {
+      "episode": 10013,
+      "return": 4.0,
+      "prediction_loss": 0.002315186196938157,
+      "probe_loss": 0.002315186196938157,
+      "policy_loss": 0.036860328167676926,
+      "value_loss": 1.081193447113037,
+      "loss": 0.5789134502410889,
+      "goal": {
+        "invert": true
+      },
+      "split": "test"
+    },
+    {
+      "episode": 10014,
+      "return": 4.0,
+      "prediction_loss": 0.0012288016732782125,
+      "probe_loss": 0.0012288016732782125,
+      "policy_loss": 0.03367333859205246,
+      "value_loss": 1.081193447113037,
+      "loss": 0.5737634897232056,
+      "goal": {
+        "invert": false
+      },
+      "split": "test"
+    },
+    {
+      "episode": 10015,
+      "return": 4.0,
+      "prediction_loss": 0.0021326285786926746,
+      "probe_loss": 0.0021326285786926746,
+      "policy_loss": 0.03648568317294121,
+      "value_loss": 1.081193447113037,
+      "loss": 0.5781976580619812,
+      "goal": {
+        "invert": true
+      },
+      "split": "test"
+    }
+  ],
+  "fully_frozen": true,
+  "freeze_events": [
+    {
+      "node": "goal_relation",
+      "accepted": true,
+      "before": 0.5584903955459595,
+      "after": 0.5518730282783508,
+      "reason": "validated"
+    },
+    {
+      "node": "relation",
+      "accepted": false,
+      "before": 0.5518730282783508,
+      "after": 0.5467768907546997,
+      "reason": "disconnected remaining region"
+    },
+    {
+      "node": "bit_0",
+      "accepted": true,
+      "before": 0.5518730282783508,
+      "after": 0.5469921827316284,
+      "reason": "validated"
+    },
+    {
+      "node": "bit_1",
+      "accepted": true,
+      "before": 0.5469921827316284,
+      "after": 0.5419942140579224,
+      "reason": "validated"
+    },
+    {
+      "node": "z",
+      "accepted": true,
+      "before": 0.5419942140579224,
+      "after": 0.5371061563491821,
+      "reason": "validated"
+    },
+    {
+      "node": "world",
+      "accepted": false,
+      "before": 0.5371061563491821,
+      "after": 0.5324326157569885,
+      "reason": "disconnected remaining region"
+    },
+    {
+      "node": "mul0",
+      "accepted": true,
+      "before": 0.5371061563491821,
+      "after": 0.5324946045875549,
+      "reason": "validated"
+    },
+    {
+      "node": "logit0",
+      "accepted": true,
+      "before": 0.5324946045875549,
+      "after": 0.5282871723175049,
+      "reason": "validated"
+    },
+    {
+      "node": "mul1",
+      "accepted": true,
+      "before": 0.5282871723175049,
+      "after": 0.5245167016983032,
+      "reason": "validated"
+    },
+    {
+      "node": "logit1",
+      "accepted": true,
+      "before": 0.5245167016983032,
+      "after": 0.5212286114692688,
+      "reason": "validated"
+    },
+    {
+      "node": "policy",
+      "accepted": true,
+      "before": 0.5212286114692688,
+      "after": 0.518405556678772,
+      "reason": "validated"
+    },
+    {
+      "node": "prediction",
+      "accepted": false,
+      "before": 0.518405556678772,
+      "after": 0.5160260200500488,
+      "reason": "disconnected remaining region"
+    },
+    {
+      "node": "value",
+      "accepted": true,
+      "before": 0.518405556678772,
+      "after": 0.5160260200500488,
+      "reason": "validated"
+    },
+    {
+      "node": "relation",
+      "accepted": true,
+      "before": 0.5158700942993164,
+      "after": 0.5158305168151855,
+      "reason": "validated"
+    },
+    {
+      "node": "world",
+      "accepted": true,
+      "before": 0.5158305168151855,
+      "after": 0.5158305168151855,
+      "reason": "validated"
+    },
+    {
+      "node": "prediction",
+      "accepted": true,
+      "before": 0.5158305168151855,
+      "after": 0.5158305168151855,
+      "reason": "validated"
+    }
+  ],
+  "frozen_evaluation_mean_return": 4.0
+}

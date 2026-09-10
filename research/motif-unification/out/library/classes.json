@@ -1,0 +1,60 @@
+{
+  "format": "tcn.classes/0",
+  "records": [
+    {
+      "certified": [
+        {
+          "artifact_digest": "db59f9b09bb730340219425c",
+          "certificate": "unique",
+          "conforming": 1,
+          "evaluated": 5,
+          "exhausted": true,
+          "mean_return": 1.0,
+          "space_size": 5,
+          "threshold": 1.0,
+          "width": 128
+        },
+        {
+          "artifact_digest": "e38275a68420b419d27fb9dc",
+          "certificate": "unique",
+          "conforming": 1,
+          "evaluated": 5,
+          "exhausted": true,
+          "mean_return": 1.0,
+          "space_size": 5,
+          "threshold": 1.0,
+          "width": 3072
+        }
+      ],
+      "class_id": "schema/f72db2cf6eca/a491efadcab4",
+      "kind": "schema",
+      "members": [
+        "db59f9b09bb730340219425c",
+        "e38275a68420b419d27fb9dc"
+      ],
+      "preferred": {},
+      "provenance": {
+        "derived_from": [
+          "language/128",
+          "visual/3072"
+        ],
+        "motif": "eq(index(buffer, add(base, offset)), other)",
+        "section": "FINDINGS 58"
+      },
+      "schema": {
+        "free_nodes": [
+          [
+            "n0",
+            5
+          ]
+        ],
+        "module": "research/motif-unification/schema.py",
+        "qualified_name": "research.motif-unification.schema:m3_schema",
+        "source_fingerprint": "f72db2cf6eca785fdf45145c6d96eef0b0c8f7365d3300c53a1a5d0e39f48947"
+      },
+      "selections": {
+        "n0": 0
+      }
+    }
+  ]
+}

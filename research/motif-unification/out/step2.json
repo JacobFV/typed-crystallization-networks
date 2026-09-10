@@ -1,0 +1,186 @@
+{
+ "rows": [
+  {
+   "schema": "M2",
+   "domain": "language",
+   "width": 128,
+   "address_label": "u32<=128",
+   "free_nodes": [],
+   "free_node_candidate_counts": {},
+   "selection_vector": {},
+   "built_digest": "c9522d87ebb54e07deacb402",
+   "artifact_present": true,
+   "artifact_digest": "c9522d87ebb54e07deacb402",
+   "artifact": "L_stage_a",
+   "bit_identical": true,
+   "input_types_identical": [
+    true,
+    true,
+    true
+   ],
+   "output_type_identical": true,
+   "to_dict_differing_keys": []
+  },
+  {
+   "schema": "M2",
+   "domain": "visual",
+   "width": 3072,
+   "address_label": "u16",
+   "free_nodes": [],
+   "free_node_candidate_counts": {},
+   "selection_vector": {},
+   "built_digest": "fa7725dfc8e7d144784cdcc4",
+   "artifact_present": true,
+   "artifact_digest": "fa7725dfc8e7d144784cdcc4",
+   "artifact": "V_same",
+   "bit_identical": true,
+   "input_types_identical": [
+    true,
+    true,
+    true
+   ],
+   "output_type_identical": true,
+   "to_dict_differing_keys": []
+  },
+  {
+   "schema": "M2",
+   "domain": "computer",
+   "width": 4096,
+   "address_label": "u32<=4096",
+   "free_nodes": [],
+   "free_node_candidate_counts": {},
+   "selection_vector": {},
+   "built_digest": "a69fc2da0cb7dc38aaa7885c",
+   "artifact_present": true,
+   "artifact_digest": "a69fc2da0cb7dc38aaa7885c",
+   "artifact": "C_agent",
+   "bit_identical": true,
+   "input_types_identical": [
+    true,
+    true,
+    true
+   ],
+   "output_type_identical": true,
+   "to_dict_differing_keys": []
+  },
+  {
+   "schema": "M3",
+   "domain": "language",
+   "width": 128,
+   "address_label": "u32<=128",
+   "free_nodes": [
+    "n0"
+   ],
+   "free_node_candidate_counts": {
+    "n0": 5
+   },
+   "selection_vector": {
+    "n0": 0
+   },
+   "built_digest": "db59f9b09bb730340219425c",
+   "artifact_present": true,
+   "artifact_digest": "db59f9b09bb730340219425c",
+   "artifact": "L_stage_a",
+   "bit_identical": true,
+   "input_types_identical": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "output_type_identical": true,
+   "to_dict_differing_keys": []
+  },
+  {
+   "schema": "M3",
+   "domain": "visual",
+   "width": 3072,
+   "address_label": "u16",
+   "free_nodes": [
+    "n0"
+   ],
+   "free_node_candidate_counts": {
+    "n0": 5
+   },
+   "selection_vector": {
+    "n0": 0
+   },
+   "built_digest": "e38275a68420b419d27fb9dc",
+   "artifact_present": true,
+   "artifact_digest": "e38275a68420b419d27fb9dc",
+   "artifact": "V_same",
+   "bit_identical": true,
+   "input_types_identical": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "output_type_identical": true,
+   "to_dict_differing_keys": []
+  },
+  {
+   "schema": "M3",
+   "domain": "computer",
+   "width": 4096,
+   "address_label": "u32<=4096",
+   "free_nodes": [
+    "n0"
+   ],
+   "free_node_candidate_counts": {
+    "n0": 5
+   },
+   "selection_vector": {
+    "n0": 0
+   },
+   "built_digest": "538ff495bdc967864b09dc5f",
+   "artifact_present": false,
+   "artifact_digest": null,
+   "artifact": null,
+   "bit_identical": false
+  }
+ ],
+ "computer_negative": {
+  "computer_three_node_fragment": "eq(index(x1, identity(x0)), x2)",
+  "computer_three_node_digest": "9a62ee528c698500438f91ae",
+  "computer_three_node_arity": 3,
+  "M3_arity": 4,
+  "reason": "the address is a program constant reached through `identity`, so the canonical fragment has three holes, not four; no selection of a four-hole schema can produce a three-hole program"
+ },
+ "G2": {
+  "tcn_diff_vs_main": "",
+  "generators_diff_vs_main": "",
+  "every_instantiation_validated": true,
+  "typeerror_caught_anywhere_in_schema_py": false,
+  "bounds_preserved": {
+   "language": {
+    "declared": [
+     0,
+     128
+    ],
+    "built": [
+     0,
+     128
+    ]
+   },
+   "visual": {
+    "declared": null,
+    "built": null
+   },
+   "computer": {
+    "declared": [
+     0,
+     4096
+    ],
+    "built": [
+     0,
+     4096
+    ]
+   }
+  },
+  "version_is_the_only_normalised_field": true
+ },
+ "G1_all_present_bit_identical": true,
+ "G1_n_gated": 5,
+ "G1_n_identical": 5
+}

@@ -1,0 +1,390 @@
+{
+ "sweeps": [
+  {
+   "solved": true,
+   "selections": {
+    "n0": 0,
+    "n1": 0,
+    "n2": 0
+   },
+   "exact_max_error": 0.0,
+   "evaluated": 5,
+   "space_size": 5,
+   "exhausted": true,
+   "unique": true,
+   "seconds": 0.01,
+   "continuous": [],
+   "conforming": 1,
+   "ranked_by": "order",
+   "description_bits": 283632,
+   "execution_cost": 3.0,
+   "certificate": "unique",
+   "mode": "fit",
+   "node_evaluations": 1440,
+   "episodes": 0,
+   "steps": 0,
+   "ticks": 0,
+   "settle_window": 0,
+   "best_return": null,
+   "threshold": null,
+   "beam": null,
+   "discarded": 0,
+   "free_nodes": [
+    [
+     "n0",
+     5
+    ]
+   ],
+   "width": 128,
+   "domain": "language",
+   "schema": "M3",
+   "per_candidate_accuracy": {
+    "0:add": 1.0,
+    "1:sub": 0.145833,
+    "2:mul": 0.09375,
+    "3:min": 0.552083,
+    "4:max": 0.635417
+   },
+   "n_examples": 96,
+   "label_rate": 0.46875,
+   "best_constant": 0.53125,
+   "uniform_random_over_space": 0.485417,
+   "whole_space_mean": 0.485417,
+   "stored_vector_accuracy": 1.0,
+   "artifact_digest": "db59f9b09bb730340219425c",
+   "held_out_stored_vector_accuracy": 1.0,
+   "held_out_best_constant": 0.53125,
+   "held_out_conforming": 1,
+   "held_out_certificate": "unique",
+   "held_out_n_examples": 96
+  },
+  {
+   "solved": true,
+   "selections": {
+    "n0": 0,
+    "n1": 0,
+    "n2": 0
+   },
+   "exact_max_error": 0.0,
+   "evaluated": 5,
+   "space_size": 5,
+   "exhausted": true,
+   "unique": true,
+   "seconds": 0.07,
+   "continuous": [],
+   "conforming": 1,
+   "ranked_by": "order",
+   "description_bits": 6358928,
+   "execution_cost": 3.0,
+   "certificate": "unique",
+   "mode": "fit",
+   "node_evaluations": 1440,
+   "episodes": 0,
+   "steps": 0,
+   "ticks": 0,
+   "settle_window": 0,
+   "best_return": null,
+   "threshold": null,
+   "beam": null,
+   "discarded": 0,
+   "free_nodes": [
+    [
+     "n0",
+     5
+    ]
+   ],
+   "width": 3072,
+   "domain": "visual",
+   "schema": "M3",
+   "per_candidate_accuracy": {
+    "0:add": 1.0,
+    "1:sub": 0.645833,
+    "2:mul": 0.447917,
+    "3:min": 0.614583,
+    "4:max": 0.59375
+   },
+   "n_examples": 96,
+   "label_rate": 0.520833,
+   "best_constant": 0.520833,
+   "uniform_random_over_space": 0.660417,
+   "whole_space_mean": 0.660417,
+   "stored_vector_accuracy": 1.0,
+   "artifact_digest": "e38275a68420b419d27fb9dc",
+   "held_out_stored_vector_accuracy": 1.0,
+   "held_out_best_constant": 0.541667,
+   "held_out_conforming": 1,
+   "held_out_certificate": "unique",
+   "held_out_n_examples": 96
+  }
+ ],
+ "admission": [
+  {
+   "arm": "M3, certified at 128 and 3072",
+   "admitted": true,
+   "refusal": null
+  },
+  {
+   "arm": "M3, certified at 128 only (R1 probe)",
+   "admitted": false,
+   "refusal": "R1 two-width rule: schema/f72db2cf6eca/a491efadcab4 is certified at 1 width(s) [128]; a schema class needs at least 2 distinct widths. A `unique` certificate at one width is not evidence of a correct schema (FINDINGS section 53, arm F)"
+  },
+  {
+   "arm": "M2, bit-identical at 128/3072/4096, empty vector",
+   "admitted": false,
+   "refusal": "R2 vector agreement: schema/f72db2cf6eca/70ff2dc91372 stores no selections"
+  }
+ ],
+ "arm_F": [
+  {
+   "arm": "F-a hard-coded width",
+   "admitted": false,
+   "refusal": "R2 vector agreement: schema/f72db2cf6eca/b92afff089d2 at width 3072 has conforming=0 mean_return=0.0 against threshold 1.0; the stored selection vector must conform at every certified width",
+   "sweeps": [
+    {
+     "solved": true,
+     "selections": {
+      "n0": 0,
+      "n1": 0,
+      "n2": 0
+     },
+     "exact_max_error": 0.0,
+     "evaluated": 5,
+     "space_size": 5,
+     "exhausted": true,
+     "unique": true,
+     "seconds": 0.0,
+     "continuous": [],
+     "conforming": 1,
+     "ranked_by": "order",
+     "description_bits": 283632,
+     "execution_cost": 3.0,
+     "certificate": "unique",
+     "mode": "fit",
+     "node_evaluations": 1440,
+     "episodes": 0,
+     "steps": 0,
+     "ticks": 0,
+     "settle_window": 0,
+     "best_return": null,
+     "threshold": null,
+     "beam": null,
+     "discarded": 0,
+     "free_nodes": [
+      [
+       "n0",
+       5
+      ]
+     ],
+     "width": 128,
+     "domain": "language",
+     "schema": "M3_wrong_hardcoded",
+     "per_candidate_accuracy": {
+      "0:add": 1.0,
+      "1:sub": 0.145833,
+      "2:mul": 0.09375,
+      "3:min": 0.552083,
+      "4:max": 0.635417
+     },
+     "n_examples": 96,
+     "label_rate": 0.46875,
+     "best_constant": 0.53125,
+     "uniform_random_over_space": 0.485417,
+     "whole_space_mean": 0.485417,
+     "stored_vector_accuracy": 1.0,
+     "artifact_digest": "db59f9b09bb730340219425c"
+    },
+    {
+     "solved": false,
+     "selections": null,
+     "exact_max_error": 0.0,
+     "evaluated": 5,
+     "space_size": 5,
+     "exhausted": true,
+     "unique": false,
+     "seconds": 0.0,
+     "continuous": [],
+     "conforming": 0,
+     "ranked_by": "order",
+     "description_bits": null,
+     "execution_cost": null,
+     "certificate": "complete",
+     "mode": "fit",
+     "node_evaluations": 1440,
+     "episodes": 0,
+     "steps": 0,
+     "ticks": 0,
+     "settle_window": 0,
+     "best_return": null,
+     "threshold": null,
+     "beam": null,
+     "discarded": 0,
+     "free_nodes": [
+      [
+       "n0",
+       5
+      ]
+     ],
+     "width": 3072,
+     "domain": "visual",
+     "schema": "M3_wrong_hardcoded",
+     "per_candidate_accuracy": {
+      "0:add": 0.0,
+      "1:sub": 0.0,
+      "2:mul": 0.0,
+      "3:min": 0.0,
+      "4:max": 0.0
+     },
+     "n_examples": 96,
+     "label_rate": 0.520833,
+     "best_constant": 0.520833,
+     "uniform_random_over_space": 0.0,
+     "whole_space_mean": 0.0,
+     "stored_vector_accuracy": 0.0,
+     "artifact_digest": "e0ad70c7d4f1263f3c33b0b9"
+    }
+   ],
+   "single_width": {
+    "arm": "F-a hard-coded width, one width",
+    "admitted": false,
+    "refusal": "R1 two-width rule: schema/f72db2cf6eca/b92afff089d2 is certified at 1 width(s) [128]; a schema class needs at least 2 distinct widths. A `unique` certificate at one width is not evidence of a correct schema (FINDINGS section 53, arm F)"
+   },
+   "digest_at_128_equals_right_schema": true,
+   "certificate_at_128": "unique",
+   "stored_vector_accuracy": [
+    1.0,
+    0.0
+   ]
+  },
+  {
+   "arm": "F-b width-dependent order",
+   "admitted": false,
+   "refusal": "R2 vector agreement: schema/f72db2cf6eca/16e158462192 at width 3072 has conforming=1 mean_return=0.59375 against threshold 1.0; the stored selection vector must conform at every certified width",
+   "sweeps": [
+    {
+     "solved": true,
+     "selections": {
+      "n0": 0,
+      "n1": 0,
+      "n2": 0
+     },
+     "exact_max_error": 0.0,
+     "evaluated": 5,
+     "space_size": 5,
+     "exhausted": true,
+     "unique": true,
+     "seconds": 0.0,
+     "continuous": [],
+     "conforming": 1,
+     "ranked_by": "order",
+     "description_bits": 283632,
+     "execution_cost": 3.0,
+     "certificate": "unique",
+     "mode": "fit",
+     "node_evaluations": 1440,
+     "episodes": 0,
+     "steps": 0,
+     "ticks": 0,
+     "settle_window": 0,
+     "best_return": null,
+     "threshold": null,
+     "beam": null,
+     "discarded": 0,
+     "free_nodes": [
+      [
+       "n0",
+       5
+      ]
+     ],
+     "width": 128,
+     "domain": "language",
+     "schema": "M3_wrong_reordered",
+     "per_candidate_accuracy": {
+      "0:add": 1.0,
+      "1:sub": 0.145833,
+      "2:mul": 0.09375,
+      "3:min": 0.552083,
+      "4:max": 0.635417
+     },
+     "n_examples": 96,
+     "label_rate": 0.46875,
+     "best_constant": 0.53125,
+     "uniform_random_over_space": 0.485417,
+     "whole_space_mean": 0.485417,
+     "stored_vector_accuracy": 1.0,
+     "artifact_digest": "db59f9b09bb730340219425c"
+    },
+    {
+     "solved": true,
+     "selections": {
+      "n0": 1,
+      "n1": 0,
+      "n2": 0
+     },
+     "exact_max_error": 0.0,
+     "evaluated": 5,
+     "space_size": 5,
+     "exhausted": true,
+     "unique": true,
+     "seconds": 0.07,
+     "continuous": [],
+     "conforming": 1,
+     "ranked_by": "order",
+     "description_bits": 6358928,
+     "execution_cost": 3.0,
+     "certificate": "unique",
+     "mode": "fit",
+     "node_evaluations": 1440,
+     "episodes": 0,
+     "steps": 0,
+     "ticks": 0,
+     "settle_window": 0,
+     "best_return": null,
+     "threshold": null,
+     "beam": null,
+     "discarded": 0,
+     "free_nodes": [
+      [
+       "n0",
+       5
+      ]
+     ],
+     "width": 3072,
+     "domain": "visual",
+     "schema": "M3_wrong_reordered",
+     "per_candidate_accuracy": {
+      "0:max": 0.59375,
+      "1:add": 1.0,
+      "2:sub": 0.645833,
+      "3:mul": 0.447917,
+      "4:min": 0.614583
+     },
+     "n_examples": 96,
+     "label_rate": 0.520833,
+     "best_constant": 0.520833,
+     "uniform_random_over_space": 0.660417,
+     "whole_space_mean": 0.660417,
+     "stored_vector_accuracy": 0.59375,
+     "artifact_digest": "2b40feb105eb50950fab062c"
+    }
+   ],
+   "single_width": {
+    "arm": "F-b width-dependent order, one width",
+    "admitted": false,
+    "refusal": "R1 two-width rule: schema/f72db2cf6eca/16e158462192 is certified at 1 width(s) [128]; a schema class needs at least 2 distinct widths. A `unique` certificate at one width is not evidence of a correct schema (FINDINGS section 53, arm F)"
+   },
+   "digest_at_128_equals_right_schema": true,
+   "certificate_at_128": "unique",
+   "stored_vector_accuracy": [
+    1.0,
+    0.59375
+   ]
+  }
+ ],
+ "class_id": "schema/f72db2cf6eca/a491efadcab4",
+ "M2_free_nodes": [],
+ "M2_digests": [
+  "c9522d87ebb54e07deacb402",
+  "fa7725dfc8e7d144784cdcc4",
+  "a69fc2da0cb7dc38aaa7885c"
+ ]
+}
