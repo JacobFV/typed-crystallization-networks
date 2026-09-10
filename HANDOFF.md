@@ -140,6 +140,38 @@ instrumented for which schema/class was selected, how much re-specialisation it
 needed, how many candidate programs and environment episodes disappeared, and
 whether compiled execution got cheaper.
 
+## Direction update, 2026-09-10 (after §65, the flagship)
+
+**The flagship answered its own criterion: NO.** C1 fails as pre-registered by
+10,925×; the matched distractor could not have succeeded (its space holds no
+conforming program), so C2 passes vacuously. Read §65 before proposing any
+"the library helps" experiment.
+
+**Run the hand-written baseline beside every inherited object.** §65's whole
+post-hoc generalization effect is one estimator fitted on 20 STEP rows, and the
+one-line rule "prefer single-pixel and single-row offsets" reproduces it *more
+cheaply*. An inherited object earns its name only when it beats (a) no library,
+(b) the schema alone, **and (c) the obvious hand-written prior for the same
+slot**. (c) was missing from the flagship's pre-registration and is now
+mandatory.
+
+**Pre-register on held-out conformance, not training conformance.** "Programs to
+the first training-conforming program" rewards spurious fits: on 12 training
+episodes the flat and schema-only first hits generalize 0/400. Also state a
+metric's failure mode in advance, and never swap metrics afterwards — §65 keeps
+its failed verdict and labels every corrected measurement exploratory.
+
+**A schema admitted on training conformance can still be refuted** (CORRECTIONS
+row 37): at `gap 1` the inherited schema has 2.6×10¹¹ training conformers and
+zero over all 48 episodes. Admission needs the held-out check.
+
+**Bound both directions before claiming a saving.** Sampling 0/20,000 gives only
+a lower bound; §65 could not separate N″ from flat N because that bound sits
+below N″'s exact cost. Quote exact counts where the space allows them.
+
+**Next:** scaffold induction as the cross-domain outer loop (priority 4), now
+with the hand-written baseline requirement built into its pre-registration.
+
 ## State as of 2026-09-09
 
 **Settled:** the inference overhead was *interpreter* overhead, not the typed

@@ -289,9 +289,20 @@ wrong outside the certified range: necessary but not sufficient (CORRECTIONS row
 36). The gate caught two bugs in the supervising session's own §64 checks before
 commit.
 
+**§65 — the integrated flagship.** The first task where the visual, language and
+computer tracks meet: screenshot + instruction -> relationally-specified widget
+-> click. **C1 fails as pre-registered** (schema+prior costs 10,925x the flat
+substrate, 1.78e6x at gap 1). The metric was mis-specified -- flat and
+schema-only first hits generalize 0/400 -- and that is recorded as a lesson, not
+used to rescue the criterion. Post-hoc, the generalization is carried by one
+estimator fitted on 20 STEP rows from the visual parse, and a one-line human rule
+reproduces it more cheaply (CORRECTIONS rows 37-38). At gap 1 the inherited
+schema is refuted outright: zero programs conform on all 48 episodes. 493 PASS,
+0 FAIL; peak RSS 4.25 GB under the caps.
+
 ---
 
-## Standing shape of the project, as of 2026-09-09
+## Standing shape of the project, as of 2026-09-10
 
 **Holds up:** exact typed execution; dense hierarchical supervision (the
 mechanism that actually works); recursive abstraction as a *mechanism*; the
@@ -304,4 +315,10 @@ schedule, most recently in the reversible form its third refutation asked for.
 the representation can express**. Established independently in two domains (§41,
 §42, §45).
 
-**Open:** the integrated flagship — screenshot + text instruction → relationally-specified widget → computer action, flat vs inherited vs distractor library — to test whether the accumulated instruction set makes integrated intelligence cheaper to acquire; scaffold induction as the outer loop; whether anything beyond a within-domain vector transfers (§58, §60, §64).
+**Open:** scaffold induction as the cross-domain outer loop; whether any
+inherited object earns its name once hand-written baselines are run alongside it
+(§65 says the one that generalized does not); whether anything beyond a
+within-domain vector transfers (§58, §60, §64, §65). The integrated flagship
+itself is **done** (§65): it answered its question in the negative, and the
+follow-up it proposes is a pre-registration on held-out conformance rather than
+training conformance.
