@@ -44,6 +44,12 @@ import schema as S                                                           # n
 from classes import (Certification, ClassError, ClassRecord, ClassStore,      # noqa: E402
                      schema_class_id)
 
+import torch                                                                 # noqa: E402
+
+# Host-safety rule after the 2026-09-10 unified-memory crash: one thread per
+# worker, so a capped scope's CPU quota is not multiplied by torch's pool.
+torch.set_num_threads(1)
+
 OUT = HERE / "out"
 TOL = 1e-6
 CERTIFIED = (24, 32)
