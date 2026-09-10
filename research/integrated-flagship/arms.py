@@ -73,9 +73,79 @@ class HandFeaturePrior:
         return {k: e.describe() for k, e in self.est.items()}
 
 
+class OccursRatioPrior:
+    """POST-HOC sensitivity (coordinator-requested): N''s fitted prior, except the
+    LIT estimator is pinned so that score(occurs) / score(absent) = `ratio`."""
+
+    def __init__(self, src, ratio):
+        base = prior.Prior(src)
+        occ = base.est["LIT"].score({"occurs": True})
+        self.est = dict(base.est)
+        self.est["LIT"] = _Pinned(occ, occ / ratio, ratio)
+        self._base = base
+
+    def describe(self):
+        d = self._base.describe()
+        d["LIT"] = self.est["LIT"].describe()
+        return d
+
+
+class _Pinned:
+    def __init__(self, on, off, ratio):
+        self.on, self.off, self.ratio = on, off, ratio
+
+    def score(self, row):
+        return self.on if row["occurs"] else self.off
+
+    def describe(self):
+        return {"rule": f"occurs ratio pinned at {self.ratio}", "p0": None, "rows": 0,
+                "features": ["occurs"],
+                "cells": {"(False,)": {"survive": None, "n": None, "score": self.off},
+                          "(True,)": {"survive": None, "n": None, "score": self.on}}}
+
+
+OCC_RATIOS = (1, 3, 10, 100, 3500)
+V_RATIOS = (1, 3, 10, 100)
+
+
+class _VPinned:
+    """N''s fitted ADDR estimator evaluated as if V were on, times 1/ratio when V is off:
+    the op/kinds ordering is kept and only the V penalty is set."""
+
+    def __init__(self, base, ratio):
+        self.base, self.ratio = base, ratio
+
+    def score(self, row):
+        s = self.base.score(dict(row, V=True))
+        return s if row["V"] else s / self.ratio
+
+    def describe(self):
+        d = self.base.describe()
+        d["rule"] = f"V ratio pinned at {self.ratio} over the fitted V=True cells"
+        return d
+
+
+class VRatioPrior:
+    """POST-HOC sensitivity (coordinator-requested): N''s fitted prior, ADDR's V
+    penalty pinned at `ratio`, LIT left at N''s fitted values."""
+
+    def __init__(self, src, ratio):
+        base = prior.Prior(src)
+        self.est = dict(base.est)
+        self.est["ADDR"] = _VPinned(base.est["ADDR"], ratio)
+        self._base = base
+
+    def describe(self):
+        d = self._base.describe()
+        d["ADDR"] = self.est["ADDR"].describe()
+        return d
+
+
 def arm_table(src):
     learned = prior.Prior(src)
     return {
+        **{f"OCC_{r}": ("schema", OccursRatioPrior(src, r)) for r in OCC_RATIOS},
+        **{f"V_{r}": ("schema", VRatioPrior(src, r)) for r in V_RATIOS},
         "U_feat": ("schema", HandFeaturePrior()),
         "N": ("flat", None), "N'": ("schema", None), "N''": ("schema", learned),
         "P": ("flat", learned), "D'": ("distractor", None),

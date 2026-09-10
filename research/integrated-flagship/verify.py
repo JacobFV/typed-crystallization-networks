@@ -72,8 +72,28 @@ for m in re.finditer(r"<!-- BEGIN:(\w+) -->\n(.*?)\n<!-- END:\1 -->", RESULTS, f
 
 # ------------------------------------------------------ layer 2: raw claims
 ARMS = ["N", "N'", "N''", "P", "D'", "A_noobs"] + [f"D''_{s}" for s in range(5)] + \
-       [f"R_{s}" for s in range(5)] + ["U_feat"]
+       [f"R_{s}" for s in range(5)] + ["U_feat"] + [f"OCC_{r}" for r in (1, 3, 10, 100, 3500)] + \
+       [f"V_{r}" for r in (1, 3, 10, 100)]
 costs = {}
+
+# mechanism table (post-hoc): reproduce the LIT occurs ratio and the V means
+# from each arm's stored estimator, independently of mechanism.py
+mech = J("mechanism_gap0.json")
+if mech is not None:
+    for row in mech["rows"]:
+        d = arm(0, row["arm"])
+        c = d["prior_estimators"]["LIT"].get("cells") or {}
+        mine = (c["(True,)"]["score"] / c["(False,)"]["score"]) if "(True,)" in c else \
+            (2.0 if "occurs" in d["prior_estimators"]["LIT"].get("rule", "") else 1.0)
+        claim(f"mechanism {row['arm']}: LIT occurs ratio reproduces from the stored estimator",
+              abs(mine - row["lit_occurs_ratio"]) <= 1e-9 * max(1, mine), f"{mine:.4g}")
+        a_ = d["prior_estimators"]["ADDR"].get("cells") or {}
+        on = [v["score"] for k, v in a_.items() if k.endswith(", True)")]
+        claim(f"mechanism {row['arm']}: generalize_count matches the arm file",
+              row["generalize_count"] == (d.get("first_solution_samples") or {}).get("generalize_count"))
+        if on and row["addr_V_mean_true"] is not None:
+            claim(f"mechanism {row['arm']}: ADDR V=True mean reproduces",
+                  abs(sum(on) / len(on) - row["addr_V_mean_true"]) < 1e-12)
 for gap in (0, 1):
     for a in ARMS:
         d = arm(gap, a)
