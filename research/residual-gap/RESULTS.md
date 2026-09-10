@@ -123,18 +123,21 @@ agree with the interpreter on all 41** (`all_agree: true`).
 ### 2.1 The failed rung is a finding, and it was pre-registered as the one at risk
 
 R5a removes the `min(·, 3069)` index clamp along with the other typed guards.
-It fails on **243 of 2,883** held-out records.  The reason is exact: the height
-loop's last iteration evaluates `obs[pos + 96·i]` at `i = 32 − y`, which is
-`3x + 3072 ≥ 3075`, outside the 3,072-element raster.  **The clamp is not dead
+It fails on **243 of 2,883** held-out records.  The reason is exact.  The height
+loop evaluates the pixel test *before* the bounds test, so on a record whose run
+reaches the bottom of the raster it reaches `i = 32 − y` and evaluates
+`obs[pos + 96·i]` at `3x + 3072 ≥ 3075` — outside the 3,072-element raster —
+one step before the bounds test would have stopped it.  **The clamp is not dead
 code.**  It is load-bearing *because the synthesizer chose to evaluate the pixel
 test before the bounds test*, and no compiler can delete it without reordering
 that conjunction — which is exactly what rung R6 does, and only then does the
 clamp become removable.  A cost the synthesizer's operand ordering imposes on
 the compiler, measured.
 
-It passes on all 54 corner records, so a track that gated only on the
-deployment distribution would have shipped a program that crashes on 8.4 % of
-the held-out set.
+It passes on all 54 corner records — a widget corner's run is bounded by the
+widget, not by the screen edge — so a track that gated only on the deployment
+distribution would have shipped a program that crashes on 8.4 % of the held-out
+set.
 
 ---
 
