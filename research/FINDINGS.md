@@ -3124,3 +3124,66 @@ library-induction results do not generalise to the curricula, and no amount of
 search fixes it, because the obstruction is in the type signatures rather than in
 the search space.
 
+## 59. Guard elimination in the emitter: correct, modest, and §56's 2.834× does not transfer
+
+`research/emitter-guards/RESULTS.md`, branch `research/emitter-guards`
+(`16e50df`), **not merged at time of writing**. This is the one core change of
+the session — 247 lines added to `tcn/compile.py`, an interval lattice over
+integer-encoded scalars gating four guard classes. `PREREGISTRATION.md` at
+`79778d8` **before `tcn/compile.py` was touched**. §56 relocated the work here.
+Verified from raw JSON.
+
+**Guards eliminated from the declared types alone: 206 of 282.** Visual 191/266,
+language 15/15, computer 0/1, mixed 0/0. G2 (dynamic index) discharged 0 of 14;
+G3/G4 never occur on these artifacts.
+
+**The measured gain is real but narrow.**
+
+| artifact | run 1 | run 2 | run 3 | banked? | source bytes |
+|---|---|---|---|---|---|
+| **language** | 1.1035 | 1.0993 | **1.1073** | **yes** — CI never contains 1 | 24,255 → 23,234 |
+| visual | 1.0170 | 1.0201 | 1.0028 | **no** — run 3's CI contains 1 | 171,232 → 161,352 |
+| mixed *(null control)* | 1.0061 | 1.0013 | 0.9988 | n/a | **byte-identical** |
+| computer *(null control)* | 0.9987 | 1.1745 | 1.0042 | n/a | **byte-identical** |
+
+**The null controls are the methodological point and they earn their place.**
+`mixed` and `computer` emit **byte-identical source** in both arms, so any
+difference is pure instrument. Run 1's `mixed` reads **1.0061× with a CI of
+[1.0003, 1.0113] that excludes 1** — a "significant" speedup on identical code —
+and run 2's `computer` reads 1.1745×. **That fixes this host's instrument floor
+at ~0.6%**, which is precisely why the visual result is *not* banked. Bytecodes:
+language −8.45%, visual −5.42%, others 0. Primitives 1.00× everywhere.
+
+**Every gate passed: 1,252 differential comparisons against the compiler at
+`ee7d63c` (both `validate` settings, value **or** exception at the identical
+edge) and 608 typed-interpreter checks — zero mismatches**, verified here by
+summing the raw fields.
+
+**§56's 2.834× does not transfer, and the track says so itself.** On the same S2
+subroutine in isolation the identical elimination is **1.1355×** [1.1290,
+1.1390], because `tcn/compile.py` already inlines its guards, §56's baseline was
+post-LICM, and §56's R5 bundled a copy-propagation excluded here. **§56's
+attribution stands for the ladder it measured; it does not predict the gain from
+this change**, and nobody should cite §59 as delivering §56's factor.
+
+**The unproved guards are the more interesting residue.** 75 G1 remain
+(full-width `add`/`sub`/`sum`, unbounded by construction) and all 14 G2 — two of
+which are an off-by-one, since a *closed* bound `(0, N)` can never prove a
+half-open index into an `N`-tuple. And visual's hot function `_m1` — **3,100
+calls per screenshot, 73.7% of bytecodes** — loses **every** guard to a missing
+refinement bound on the raster address. **That missing bound is exactly §56's
+load-bearing `min(·, 3069)` clamp**: the same fact that made §56's R5a fail its
+gate is what blocks the hot path here. A refinement type carrying that bound
+would unlock the artifact's dominant function; the type algebra cannot currently
+express it.
+
+**Verification:** 337 → 344 tests, **343 passed, 1 failed** — the known worktree
+replay test, confirmed environmental by reverting the core change. Fixture
+reproduces **0.248836 → 0.002231**, `fully_frozen: true`, **4.0 / 4.0**. Five
+amendments recorded, one moving a falsification threshold from 51.1% to 73.0%.
+
+**Merge verdict.** Correct, fully gated, no regression anywhere, and a real 1.10×
+plus 4–6% smaller artifacts on the one artifact where the types prove the most.
+Whether 247 lines of interval lattice in the emitter is worth that is a judgement
+call, recorded rather than made silently — see `research/MERGE-QUEUE.md`.
+

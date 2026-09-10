@@ -101,6 +101,31 @@ evaluation return and **4.0** from the exact frozen agent.
 
 ## Still waiting
 
+### `research/emitter-guards` (16e50df) — verified, CORRECT, merge is a judgement call
+
+**The only core change of the 2026-09-09/10 session.** 247 lines in
+`tcn/compile.py`: an interval lattice over integer-encoded scalars, gating four
+guard classes. Recorded as FINDINGS §59.
+
+**Independently verified from raw JSON:** 206 of 282 guards eliminated;
+**1,252 differential comparisons + 608 typed-interpreter checks, zero
+mismatches**; 343 of 344 tests pass with the one known environmental failure;
+fixture reproduces 0.248836 → 0.002231 at 4/4.
+
+**The case for:** a real, thrice-reproduced **1.10×** on `language` whose CI never
+contains 1, plus 4–6% smaller artifacts, and **no regression anywhere** — `mixed`
+and `computer` emit byte-identical source.
+
+**The case against:** 247 lines of core complexity for a gain on one of four
+artifacts. `visual` is **not banked** — its 1.003–1.020 straddles the ~0.6%
+instrument floor the track established from its own null controls, and run 3's CI
+contains 1. And **§56's 2.834× did not transfer** (1.1355× in isolation), so this
+delivers materially less than the finding that motivated it.
+
+**Do not merge expecting §56's factor.** If merged, it should be for the gated
+1.10× and the size reduction, both of which are solid.
+
+
 ### `seasons` (afb4191) — refuted, preserved deliberately, DO NOT MERGE
 
 Four independent tracks agree the progressive scheduler should not be used
