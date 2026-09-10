@@ -239,6 +239,58 @@ testing premises I handed them rather than confirming them.
 
 ---
 
+## Phase 8 — Crash, recovery, and the evidence layer made routine
+**2026-09-10**, `8a5f765` … `b342451`
+
+**The host crashed mid-run.** The kernel logged an NVRM GPU-allocation failure on
+the GB10's unified memory. The first diagnosis blamed this project's parallel
+agent jobs; it was corrected the same day. This project's torch is CPU-only and
+cannot make GPU allocations, so the failing allocation belonged to a GPU-using
+process — a separate project's training, later observed holding ~66 GB of GPU
+memory, is the most probable source — while this project's parallel CPU jobs
+added pressure on the shared pool. Policy since: one heavy agent at a time,
+`systemd-run` scopes with `MemoryMax`/`CPUQuota`, and `nvidia-smi` plus `free`
+before any heavy dispatch.
+
+**§61 — the refinement bound.** §59's named bound `(0, 3069)` was unsound (`a+2`
+reaches 3071); the sound bound `(0, 3071)` holds only after rewriting the clamp.
+Declaring it alone is 29% *slower*; ~1.08× appears only behind a second flag. The
+guard-elimination line is worth single-digit percent on real artifacts.
+
+**§62 — the audit.** 794 cited figures checked: 85 discrepancies, and two
+`CORRECTIONS` entries were themselves wrong (7/12, not 9/12; the 3.00/4 constant
+baseline *does* reproduce).
+
+**§63 — the language demo.** Fixed from 9/10 to 10/10. The shipped
+`_LANGUAGE_RULE` turned out not to be the recorded selection but the 1.000-scoring
+member of a ten-way tie — the overturned 1.000 was baked into shipped code.
+
+**The owner reset the priorities** (HANDOFF, "Direction as of 2026-09-10"):
+evidence before more research; schema + specialization as the abstraction
+hypothesis, with a hierarchy of identities never collapsed; no single abstraction
+score; no compiler archaeology; scaffold induction as the outer loop; an
+integrated screenshot-plus-instruction-to-action benchmark as the flagship.
+Merge calls: the demo fix in; `emitter-guards`, `refinement-bounds` and `seasons`
+out.
+
+**The evidence gate became routine.** `verify.py` went from 27 checks to over 300
+and section coverage from 7 to 60-plus, enforced inside pytest, so a new FINDINGS
+section without a check fails the suite. Reviewing the gate's own diff before
+merge caught it **overcorrecting**: it had struck the true module-library claim
+over a wrong citation and a `STATUS` line written before the library merged
+(CORRECTIONS row 35) — the third correction that was itself wrong (rows 8, 10, 35).
+Automated cleanup needs human review of its diff, not replacement by it.
+
+**§64 — width reuse on the real parser.** The first track under the new standard
+(141 PASS). Within one domain the certified vector transfers across widths — the
+reverse of §60's cross-domain result — but the saving never exceeds the space
+size, and the two-width soundness rule **admits a wrong schema** that is only
+wrong outside the certified range: necessary but not sufficient (CORRECTIONS row
+36). The gate caught two bugs in the supervising session's own §64 checks before
+commit.
+
+---
+
 ## Standing shape of the project, as of 2026-09-09
 
 **Holds up:** exact typed execution; dense hierarchical supervision (the
@@ -252,12 +304,4 @@ schedule, most recently in the reversible form its third refutation asked for.
 the representation can express**. Established independently in two domains (§41,
 §42, §45).
 
-**Open:** whether §49's expected-work gain survives to **wall clock** given the
-bytecode regression (§49's own closing question); whether §46's semantic pooling
-survives a pre-registered control and helps a task it was **not** mined from;
-whether the min-prefix fix is reachable by the *system* rather than by a
-human reading the diagnosis — enumeration without a hand-chosen window, and the
-gradient path against its own control; whether scaffold design can be proposed
-from pre-hoc evidence at all, or is currently a human input; abstraction
-*selection* from non-minimised corpora; a cost model that distinguishes expected
-from worst-case work.
+**Open:** the integrated flagship — screenshot + text instruction → relationally-specified widget → computer action, flat vs inherited vs distractor library — to test whether the accumulated instruction set makes integrated intelligence cheaper to acquire; scaffold induction as the outer loop; whether anything beyond a within-domain vector transfers (§58, §60, §64).
