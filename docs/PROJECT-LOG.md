@@ -192,6 +192,53 @@ record; session 1's was recovered from git verbatim.
 
 ---
 
+## Phase 7 — Resynthesis works; two exploratory findings meet their controls
+**2026-09-09 20:00 → 23:00**, `cbce0f4` … `94f7bf7`
+
+The queue emptied, the two stacked core branches landed (`tcn/compile.py` as
+**§48**, plus `rank` forwarding), and the suite went **288 → 337 passed** with the
+shipped fixture unchanged at 0.248836 → 0.002231, 4/4.
+
+**§49 — the design study's §9 experiment, and its architectural claim holds.** A
+CEGIS-style resynthesizer over a tiny algorithm IR **recovered a lazy conditional
+without being given it**: 107,260 candidates, exhaustively exact on all 65,536
+inputs, **5.09×** expected work. The ablation is what makes this discovery rather
+than template instantiation — `single_removals_that_block: ["Guard"]`, and
+removing `Guard` still yields an *exact* program at ratio **1.0**. Stage 2
+recovered `find` from 10.1M candidates and, **denied `find`, invented the scan
+form**. Stage 3 ran on the **shipped** visual parser's S2 and produced the
+hand-written reference's `while` loop, its bound derived by anti-unification.
+
+**And it failed its pre-registered performance bar where it counts.** On the
+distribution the parse actually feeds S2 — 54 corner records of 2,883, 1.87% —
+the gain is **2.48×, below the pre-registered 3×**. Worst case does not improve
+at all (1.00×), and in executed CPython bytecodes the resynthesized code is
+**worse** (0.67×, 0.63×), because branch tests are paid for nothing when the
+predicate hits. Since §48 decomposed the visual gap *in bytecodes*, that is not a
+footnote.
+
+**§50 — and the previous hour's headline was refuted by its own control.** §47
+Q3's information-content probe scored **4** repairs of 24; deleting the diagnosis
+and keeping only the operator sweep scored **15**; sweeping every hole with no
+diagnosis at all scored **21**. The framing was not inert but *actively harmful*.
+It false-positived on **8 of 8** solvable scaffolds for a structural reason worth
+keeping: in §44's arm 3 the two operands of the final `xor` each carry **exactly
+0.0 bits** while the output carries 1.000 — zero mutual information is what a
+correct XOR program looks like, so nothing local distinguishes §47's defect from
+§44's solution.
+
+**The pattern is now the phase's real lesson.** Twice in three hours an
+exploratory finding was killed by the pre-registered control that followed it
+(§47 Q3 → §50; §46's semantic pooling still unestablished for the same reason).
+Every brief since carries the control that would kill its own result, named
+explicitly.
+
+**Corrections this phase:** rows 16 and 17 — my prediction that no pre-hoc signal
+existed, and then the mechanism §47 Q3 implied. Both were caught by agents
+testing premises I handed them rather than confirming them.
+
+---
+
 ## Standing shape of the project, as of 2026-09-09
 
 **Holds up:** exact typed execution; dense hierarchical supervision (the
@@ -205,7 +252,10 @@ schedule, most recently in the reversible form its third refutation asked for.
 the representation can express**. Established independently in two domains (§41,
 §42, §45).
 
-**Open:** whether the min-prefix fix is reachable by the *system* rather than by a
+**Open:** whether §49's expected-work gain survives to **wall clock** given the
+bytecode regression (§49's own closing question); whether §46's semantic pooling
+survives a pre-registered control and helps a task it was **not** mined from;
+whether the min-prefix fix is reachable by the *system* rather than by a
 human reading the diagnosis — enumeration without a hand-chosen window, and the
 gradient path against its own control; whether scaffold design can be proposed
 from pre-hoc evidence at all, or is currently a human input; abstraction
