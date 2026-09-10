@@ -184,15 +184,21 @@ projected — a factor of about 1.2e4. `positional_scaffold` then applies one su
 module at any number of positions with three caller nodes. Three separate tracks
 found the same thing independently.
 
-**What does not exist is composition across domains, or any shared library.**
+**What does not exist is composition across domains** ~~, or any shared library~~. **[Corrected 2026-09-10: a within-domain shared library now exists — see below.]**
 Every row of section 1 is a separately authored graph with its own node names,
 its own supervision, and its own evaluation harness under `research/<track>/`.
 The segmentation module and the edge detector compose because one agent wrote
 both halves of the staging by hand. Nothing connects the edge detector to the
 control task, the language module to anything, or any of them to the joint
-policy. No registry outlives a single script. There is no curriculum stage that
+policy. ~~No registry outlives a single script. There is no curriculum stage that
 consumes a module another stage produced — `curricula/system.json` has exactly
-two learning stages and neither shares an artifact with the other.
+two learning stages and neither shares an artifact with the other.~~
+**[Corrected 2026-09-10 — the struck text was written before `60616f7`. A
+persistent registry now exists (`tcn/library.py`, tested by
+`tests/test_module_library.py`), and curricula pass artifacts between stages via
+`Stage.inherits` / `Stage.publishes`, which `curricula/system.json` uses. Measured
+within one domain on one chain: `research/module-library/RESULTS.md`. Composition
+*across* domains is still absent (FINDINGS §58).]**
 
 The honest statement of the project's position is: **the substrate supports ten
 demonstrations, and no demonstration of the substrate.** Everything below is

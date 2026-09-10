@@ -113,10 +113,16 @@ Read it before building on the architecture. In short:
   scaffold only — the wide arms' 1.93e22 and 3.46e24 spaces were never
   enumerated; chance rate for "module on the output path" is 0.816 tight /
   0.6886 wide, `recursive-abstraction-retest/baseline.json`]**;
-  ~~the persistent module library and curriculum artifact flow (section 25).~~
-  **[§62 audit, corrected 2026-09-10: section 25 contains neither. The module
-  library is `research/module-library/`, which has no FINDINGS section, and
-  `STATUS.md` B1 records that no registry outlives a single script.]**
+  the persistent module library and curriculum artifact flow — *within a domain,
+  on a single chain* (`research/module-library/RESULTS.md`: stage 2 given stage 1
+  is 48 programs, exhausted, `unique`, held-out error 0.0, against 4.9e10 programs
+  and 431.7 days projected without it; merged in `60616f7`, exercised by
+  `tests/test_module_library.py`). **[Citation corrected 2026-09-10: this first
+  cited section 25, which contains neither, and the library has no FINDINGS section
+  of its own. A first pass of the §62 audit struck the whole claim; that strike was
+  itself an overcorrection — it relied on a `STATUS.md` B1 line written before the
+  library was merged, and B1 itself says staging works inside a domain.
+  Cross-domain composition remains unsupported (§58).]**
 - **Refuted.** The *progressive irreversible freezing schedule*, four times over,
   most recently in its reversible form ~~(sections 7, 12, 37)~~ **(sections 1 and 3
   for track 1, 10 and 37; two of the four refutations — `perturbation-selection`
