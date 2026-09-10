@@ -2809,3 +2809,65 @@ width-specificity means each width is a different artifact. That is the same
 shape as §52's open problem and as `research/algorithm-resynthesis/DESIGN.md` §7
 — class identity beside artifact identity.
 
+## 54. A ranking objective that transfers — and it does not fix §41
+
+`research/reuse-ranking/RESULTS.md`, branch `research/reuse-ranking` (`0a69617`),
+**not merged at time of writing**; `tcn/` and `generators/` untouched.
+`PREREGISTRATION.md` at `69da5f8` before any arm. §52 localised the defect to the
+ranking layer: pooling selects the right *class*, but the description-bit score
+sums over entries, so removing a task penalises broad fragments and rank 1 flips
+by 0.85%. This finds objectives that do not. Verified here from raw JSON.
+
+**Two objectives transfer, and they are the ones §52's diagnosis predicts.**
+
+| objective | rank-1 digest across all six corpora | helps, of 5 held-out | off-family controls |
+|---|---|---|---|
+| O1 `description_bits` summed (incumbent) | **flips** — two digests | 2 of 5 (§52) | 0 |
+| **O2 breadth-weighted** `|T(c)|·Σs_e − D` | **one, stable** `165bc290d9c8` | **5 of 5** | 0 |
+| O3 per-task mean | one | 0 of 5 | 0 |
+| **O4 in-corpus leave-one-out CV** | **one, stable** `165bc290d9c8` | **5 of 5** | 0 |
+| O5 measured-cost-aware | flips | 0 of 5 | 0 |
+| **B1/B2 frequency count** | one | **0 of 5** | 0 |
+
+Every enumeration `exhausted: true`, certificate `complete`,
+`evaluated == space_size` — verified across all 70 rows. Both off-family controls
+stay at 0 for every arm while the `D134` module still scores 4 on `H_d134`, so the
+controls are live. **5 of 5 equals the hand-authored ceiling.**
+
+**The control I required is the one that makes this credible.** A trivial
+frequency baseline does **not** match: it helps **0 of 5**, and the right class
+sits at **rank 4** under a task count, strictly dominated by three broader
+classes — so no tie-break could rescue it. Sweeping `|T|^α`, both endpoints fail
+(`α=0` is the incumbent; `α=10` picks the frequency baseline's wrong class) and
+the right class holds only for **α ∈ [0.08, 3]**. **Neither term alone suffices**,
+which is precisely why this is not §50's failure mode, where deleting the clever
+part *improved* the result.
+
+**And it does not fix §41 — the pre-registered F6 fires.** On the one-task
+language family, O2, O3 and O4 are **degenerate** (every candidate covers the
+single task), and where they pick at all they pick the **bytecode-maximal**
+program, exactly as the incumbent does:
+
+| objective | description bits | bytecodes | bytecode-maximal? |
+|---|---|---|---|
+| O1, O2, O3 | 4,043,552 | 41,465 | **yes** |
+| **O5 measured-cost** | 4,043,560 | **41,417** | no — **minimal** |
+
+Only the measured-cost objective picks the bytecode-minimal program, and **it
+helps 0 of 5**. Related and worth keeping: **0 of 40 classes reduce measured
+operations and 0 of 40 reduce bytecodes**, so replacing §41's cost model with a
+real measurement does not create a reuse signal. **Transfer and execution cost
+are separate objectives here, and no single tested score serves both.**
+
+**Caveats the track carried itself**, none of which I had to find: the incumbent's
+module is the *better* module on the two tasks it does fit (24/24 against 4/24 on
+gradient); O4 is brittle, holding in 52 of 72 grid cells against O2's 72/72, so
+**O2 is the one to prefer**; the second-family replication corroborates selection
+but not the transfer failure; and this is **one family, seven tasks** —
+anecdote-strength on breadth. §52's numbers, margins and gradient rows all
+reproduce from an independently re-derived pipeline (bit-exact on 198 classes).
+
+**Status.** The library-induction chain now has both halves demonstrated
+separately — §52 for identity, §54 for ranking — on one family. It is not yet
+demonstrated on a second family, and it does not address execution cost at all.
+
