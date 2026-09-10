@@ -154,9 +154,21 @@ class SteepHandPrior:
         return {k: e.describe() for k, e in self.est.items()}
 
 
+class VOnlyHandPrior:
+    """POST-HOC control (coordinator-requested): ONE hand rule, V 10:1 on the address
+    slots, no op/kinds cells; LIT, TRUTH and STEP uniform; nothing fitted."""
+
+    def __init__(self):
+        self.est = {"ADDR": _Rule("V", .1), "LIT": _Rule(), "TRUTH": _Rule(), "STEP": _Rule()}
+
+    def describe(self):
+        return {k: e.describe() for k, e in self.est.items()}
+
+
 def arm_table(src):
     learned = prior.Prior(src)
     return {
+        "U_Vonly": ("schema", VOnlyHandPrior()),
         "U_steep": ("schema", SteepHandPrior()),
         **{f"OCC_{r}": ("schema", OccursRatioPrior(src, r)) for r in OCC_RATIOS},
         **{f"V_{r}": ("schema", VRatioPrior(src, r)) for r in V_RATIOS},

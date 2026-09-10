@@ -72,7 +72,7 @@ for m in re.finditer(r"<!-- BEGIN:(\w+) -->\n(.*?)\n<!-- END:\1 -->", RESULTS, f
 
 # ------------------------------------------------------ layer 2: raw claims
 ARMS = ["N", "N'", "N''", "P", "D'", "A_noobs"] + [f"D''_{s}" for s in range(5)] + \
-       [f"R_{s}" for s in range(5)] + ["U_feat", "U_steep"] + [f"OCC_{r}" for r in (1, 3, 10, 100, 3500)] + \
+       [f"R_{s}" for s in range(5)] + ["U_feat", "U_steep", "U_Vonly"] + [f"OCC_{r}" for r in (1, 3, 10, 100, 3500)] + \
        [f"V_{r}" for r in (1, 3, 10, 100)]
 costs = {}
 

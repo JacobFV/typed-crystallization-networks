@@ -18,10 +18,11 @@ HERE = pathlib.Path(__file__).resolve().parent
 OUT = HERE / "out"
 RESULTS = HERE / "RESULTS.md"
 ARMS = ["N", "N'", "N''", "P", "D'", "A_noobs"] + [f"D''_{s}" for s in range(5)] + \
-       [f"R_{s}" for s in range(5)] + ["U_feat", "U_steep"] + [f"OCC_{r}" for r in (1, 3, 10, 100, 3500)] + \
+       [f"R_{s}" for s in range(5)] + ["U_feat", "U_steep", "U_Vonly"] + [f"OCC_{r}" for r in (1, 3, 10, 100, 3500)] + \
        [f"V_{r}" for r in (1, 3, 10, 100)]
 LABEL = {"U_feat": "U — N″'s features, UNFITTED gentle 2× rule (post-hoc control)",
          "U_steep": "U_steep — hand rules at N″'s steepness, nothing fitted (post-hoc control)",
+         "U_Vonly": "U_Vonly — one hand rule, V 10:1, all else uniform, nothing fitted (post-hoc control)",
          **{f"OCC_{r}": f"N″ with occurs ratio pinned at {r} (post-hoc sweep)" for r in (1, 3, 10, 100, 3500)},
          **{f"V_{r}": f"N″ with V ratio pinned at {r} (post-hoc sweep)" for r in (1, 3, 10, 100)},"N": "N — flat, uniform", "N'": "N′ — schema, uniform", "N''": "N″ — schema + learned prior",
          "P": "P — flat + learned prior", "D'": "D′ — distractor schemas, uniform",
