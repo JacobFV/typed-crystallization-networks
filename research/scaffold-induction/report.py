@@ -394,6 +394,35 @@ def gate():
     return table(["`out/resource_gate.log`", "count"], rows)
 
 
+def grammar():
+    """The mutation grammar: which edit families exist, and how they are used."""
+    import collections
+    fam_total, fam_repair, fam_cases = collections.Counter(), collections.Counter(), {}
+    for dom in present_domains():
+        c = C(dom)
+        for x in c["cases"]:
+            if not x.get("admitted"):
+                continue
+            for e in x["edits"]:
+                fam_total[e["family"]] += 1
+                if e["repair"]:
+                    fam_repair[e["family"]] += 1
+                    fam_cases.setdefault(e["family"], set()).add(x["case_id"])
+    rows = []
+    for fam in ("SUBST", "WIDEN", "REWIRE", "ADD_NODE", "ADD_PATH"):
+        t, r = fam_total[fam], fam_repair[fam]
+        rows.append([f"`{fam}`", f"{t:,}", f"{r:,}",
+                     f"{(100.0 * r / t):.1f}%" if t else "—",
+                     len(fam_cases.get(fam, ()))])
+    rows.append(["**all**", f"{sum(fam_total.values()):,}",
+                 f"{sum(fam_repair.values()):,}",
+                 f"{(100.0 * sum(fam_repair.values()) / sum(fam_total.values())):.1f}%"
+                 if sum(fam_total.values()) else "—",
+                 len(set().union(*fam_cases.values())) if fam_cases else 0])
+    return table(["edit family", "edits proposed", "edits that are repairs",
+                  "repair rate", "cases it repairs"], rows)
+
+
 def outerloop():
     """The cost of the outer loop itself, so 'moving combinatorics up a level'
     can be checked rather than assumed."""
@@ -441,7 +470,7 @@ def resources():
 
 BLOCKS = {"corpus": corpus, "decider": decider, "sweep": sweep,
           "ceilings": ceilings, "cost": cost, "sites": sites,
-          "outerloop": outerloop, "pressure": pressure, "gate": gate, "costs": costs, "criteria": criteria, "ratios": ratios,
+          "outerloop": outerloop, "grammar": grammar, "pressure": pressure, "gate": gate, "costs": costs, "criteria": criteria, "ratios": ratios,
           "deployed": deployed, "validity": validity, "estimator": estimator,
           "families": families, "s50": s50, "percase": percase,
           "resources": resources}

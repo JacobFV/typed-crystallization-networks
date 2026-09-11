@@ -170,6 +170,46 @@ defect the generator produces is applied and put through the admission rule.
 
 ---
 
+## The mutation grammar, and whether its width earns its place
+
+Five typed edit families, all generic over `tcn.graph.Program` and all producing
+programs that must pass `Program.validate(registry)`:
+
+| family | what it does | why it is in the set |
+|---|---|---|
+| `SUBST(site, op)` | replace a site's candidates with every legal wiring of `op` | §50's whole space is this family at two named holes; it is the incumbent |
+| `WIDEN(site, op)` | union those candidates into the existing ones | the non-destructive form: keeps what the scaffold had and adds to it |
+| `REWIRE(site, port)` | admit wirings of the site's existing operators that read a port it did not use | changes *what a node reads* without changing what it computes |
+| `ADD_NODE(site, op, t)` | insert a new typed node below a site and let the site read it | §45's min-prefix repair is this: the scaffold could not say "running minimum" until a node was added |
+| `ADD_PATH(op)` | add an output-adjacent node combining the output with another value | §45's second accumulator conjoined at the readout |
+
+The set is deliberately wider than §50's operator sweep, which substitutes at
+holes the experimenter names. The question a wider grammar has to answer is
+whether the extra width pays, and on the evidence so far it does not:
+
+<!-- BEGIN:grammar -->
+<!-- END:grammar -->
+
+**The two structural families repair nothing.** `ADD_NODE` and `ADD_PATH`
+together account for a third of every edit proposed and produce **zero** repairs.
+The explanation is not subtle and it is a property of the corpus rather than of
+the families: a defect generator that *narrows* an existing scaffold produces
+defects that re-widening fixes, so `SUBST` and `WIDEN` are the natural inverses
+and the structural families are answering a question nobody asked. §45's repair
+— the one that motivated including them — was a case where the scaffold was never
+narrowed but was *written* unable to express a running minimum, and no defect in
+this generator produces that shape except `delete_node`, which is rare and
+usually unrepairable by a single edit.
+
+That is worth stating plainly because it bounds what this track can claim. A
+prior that learns "prefer `WIDEN` over `ADD_NODE`" has learned something true
+about this corpus and nothing about scaffold repair in general. If the structural
+families are to be tested properly they need defects that remove *expressiveness*
+rather than *options* — which is a different defect generator, and a thing to
+build next rather than to infer from here.
+
+---
+
 ## The `arith` corpus is capped, and the cap was set before the arms
 
 Recorded here before `arith` produced a single case, because a corpus size chosen
