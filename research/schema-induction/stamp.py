@@ -33,7 +33,19 @@ import time
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
-FORMAT = "schema-induction/provenance-1"
+FORMAT = "schema-induction/provenance-2"
+
+#: The owner's permanent provenance standard (2026-09-11): every evidence
+#: artifact carries the base scaffold/program digest, the split/corpus digest,
+#: the mutation-grammar version digest, the producing commit, and the
+#: pre-registration/amendment revision. The first two are per-artifact and live
+#: in `inputs`; the last three are recorded on every artifact by `make`.
+STANDARD = ("base_digest", "splits_digest", "grammar_digest", "commit", "revision")
+
+#: The pre-registration revision this code implements. Bumped by hand when
+#: PREREGISTRATION.md changes in a way that changes what an artifact means; the
+#: digest beside it is what actually detects drift.
+REVISION = "r2-2026-09-11-owner-rulings"
 
 
 class StampError(RuntimeError):
@@ -90,19 +102,57 @@ def source_digests(paths):
     return {str(pathlib.Path(p).relative_to(ROOT)): digest_file(p) for p in paths}
 
 
-def make(kind, inputs, parameters, sources):
+def prereg_digest():
+    return digest_file(HERE / "PREREGISTRATION.md")
+
+
+def grammar_digest():
+    """The mutation grammar's version digest, or an explicit absence.
+
+    A phase that runs before any grammar exists records `None` with a reason,
+    rather than omitting the field — an omitted field reads as "not recorded"
+    and would let a later artifact inherit the silence.
+    """
+    path = HERE / "grammar.py"
+    if not path.exists():
+        return {"digest": None, "version": None,
+                "absent_because": "no mutation grammar existed when this artifact "
+                                  "was produced (phase 0 precedes the grammar)"}
+    import importlib
+    module = importlib.import_module("grammar")
+    return {"digest": digest_file(path),
+            "version": getattr(module, "GRAMMAR_VERSION", None),
+            "families": list(getattr(module, "FAMILIES", ())),
+            "absent_because": None}
+
+
+def make(kind, inputs, parameters, sources, base=None, splits=None):
     """The provenance block to embed in an artifact.
 
     `inputs`     -- {name: digest} of every file or split the job read.
     `parameters` -- the declared constants a reader must be able to check the
                     artifact against (pool contents, pool sizes, gaps, seeds).
     `sources`    -- the code files whose behaviour produced the artifact.
+    `base`       -- the base scaffold/program this artifact is about, as a
+                    digestible object (its pools). Required by the owner's
+                    standard; pass the schema the job started from.
+    `splits`     -- {split name: digest} of every corpus split involved,
+                    including ones deliberately NOT read (the blind final
+                    split's digest belongs here, recorded but unopened).
     """
     return {"format": FORMAT, "kind": kind,
             "inputs": dict(inputs),
             "parameters": parameters,
             "parameters_digest": digest_json(parameters),
             "sources": source_digests(sources),
+            "base_digest": digest_json(base) if base is not None else None,
+            "base": base,
+            "splits_digest": digest_json(splits) if splits is not None else None,
+            "splits": splits,
+            "grammar_digest": grammar_digest(),
+            "revision": REVISION,
+            "prereg_digest": prereg_digest(),
+            "commit": git_head(),
             "git": git_head(),
             "written_unix": time.time(),
             "written_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
@@ -119,7 +169,7 @@ def write(path, payload, provenance):
 
 
 REQUIRED_FIELDS = ("kind", "inputs", "parameters", "parameters_digest", "sources",
-                   "git", "written_unix")
+                   "git", "written_unix") + STANDARD
 
 
 def present(artifact):
@@ -152,6 +202,24 @@ def present(artifact):
     if p["parameters_digest"] != digest_json(p["parameters"]):
         raise StampError("parameters_digest does not match the recorded parameters; "
                          "the block was edited after it was written")
+    # The owner's permanent standard: each of these is recorded, and an
+    # explicit absence (with a reason) is acceptable where an omission is not.
+    if not isinstance(p["grammar_digest"], dict) or \
+            set(p["grammar_digest"]) < {"digest", "absent_because"}:
+        raise StampError("grammar_digest must record the mutation grammar's version "
+                         "digest, or an explicit absence with a reason")
+    if p["grammar_digest"]["digest"] is None and not p["grammar_digest"]["absent_because"]:
+        raise StampError("grammar_digest is absent with no reason given")
+    if not isinstance(p["revision"], str) or not p["revision"]:
+        raise StampError("no pre-registration revision recorded")
+    if not (p["commit"] or {}).get("head"):
+        raise StampError("no producing commit recorded")
+    for field in ("base_digest", "splits_digest"):
+        if field not in p:
+            raise StampError(f"provenance omits {field}")
+        if p[field] is not None and p[field] != digest_json(p[field.split("_")[0]]):
+            raise StampError(f"{field} does not match the recorded {field.split('_')[0]}; "
+                             f"the block was edited after it was written")
     return sorted(p["inputs"]) + sorted(p["sources"])
 
 

@@ -102,6 +102,42 @@ def verify_v9_phase0_inputs(path, blob):
         claim(f"V9 provenance: {path.name} inputs and sources unchanged", False, exc)
 
 
+def verify_s1_provenance_standard():
+    """The owner's permanent standard (2026-09-11), on every artifact.
+
+    base scaffold/program digest, split/corpus digest, mutation-grammar version
+    digest, producing commit, pre-registration revision. An explicit absence
+    with a reason is acceptable where an omission is not — a missing field
+    reads as "not recorded" and would let a later artifact inherit the silence.
+    """
+    for path in sorted(p for p in OUT.glob("*.json") if p.name not in SELF_WRITTEN):
+        try:
+            p = json.loads(path.read_text())["provenance"]
+        except (json.JSONDecodeError, KeyError, TypeError):
+            claim(f"S1 standard: {path.name} has a readable provenance block", False, path.name)
+            continue
+        for field in stamp.STANDARD:
+            claim(f"S1 standard: {path.name} records {field}", field in p,
+                  "present" if field in p else "OMITTED")
+        g = p.get("grammar_digest") or {}
+        claim(f"S1 standard: {path.name} records the mutation-grammar version, "
+              f"or an explicit absence with a reason",
+              g.get("digest") is not None or bool(g.get("absent_because")),
+              g.get("digest") or g.get("absent_because"))
+        claim(f"S1 standard: {path.name}'s revision matches this code's",
+              p.get("revision") == stamp.REVISION,
+              f"{p.get('revision')} vs {stamp.REVISION}")
+        claim(f"S1 standard: {path.name} records a producing commit",
+              bool((p.get("commit") or {}).get("head")),
+              (p.get("commit") or {}).get("head", "")[:12])
+        claim(f"S1 standard: {path.name} records the base scaffold digest",
+              p.get("base_digest") is not None, (p.get("base") or {}).get("schema"))
+        claim(f"S1 standard: {path.name} records the split digests, "
+              f"including the blind ones it did not read",
+              p.get("splits_digest") is not None and "gap2.final" in (p.get("splits") or {}),
+              sorted(p.get("splits") or {}))
+
+
 def verify_v11_guards_bite():
     """The provenance guards are driven to their failure states and must raise.
 
@@ -193,7 +229,15 @@ def verify_v3_widen_insufficiency():
           v3["max_reachable"] == 51 and v3["min_required_offset"] == 55
           and v3["max_reachable"] < v3["min_required_offset"],
           f"{v3['max_reachable']} < {v3['min_required_offset']}")
-    claim("V3: widening-insufficiency holds", v3["holds"] is True)
+    claim("V3: widening-within-L insufficiency holds", v3["holds"] is True)
+    # The scope qualifier is load-bearing (owner, 2026-09-11) and must be in
+    # the artifact, not only in the prose that quotes it.
+    claim("V3: the artifact records the scope qualifier",
+          v3.get("scope") == "within S0's declared literal source only", v3.get("scope"))
+    claim("V3: the artifact explicitly disclaims the stronger reading",
+          "NOT a claim that widening cannot solve the task" in (v3.get("reading") or "")
+          and v3.get("does_not_claim") == "that unrestricted widening fails",
+          v3.get("does_not_claim"))
 
 
 def verify_f2_no_design_collapse():
@@ -257,7 +301,8 @@ def verify_v8_cost_model():
           all(counts.get(k) == v for k, v in expected.items()), counts)
 
 
-CHECKS = (verify_v9_provenance, verify_v10_promises_kept, verify_v11_guards_bite,
+CHECKS = (verify_v9_provenance, verify_s1_provenance_standard,
+          verify_v10_promises_kept, verify_v11_guards_bite,
           verify_v2_expressivity, verify_v3_widen_insufficiency,
           verify_f2_no_design_collapse, verify_v8_cost_model)
 

@@ -1,6 +1,6 @@
 {
  "format": "schema-induction/verify-1",
- "n_pass": 49,
+ "n_pass": 71,
  "n_fail": 0,
  "results": [
   {
@@ -30,13 +30,113 @@
   },
   {
    "pass": true,
+   "claim": "S1 standard: phase0.json records base_digest",
+   "detail": "present"
+  },
+  {
+   "pass": true,
+   "claim": "S1 standard: phase0.json records splits_digest",
+   "detail": "present"
+  },
+  {
+   "pass": true,
+   "claim": "S1 standard: phase0.json records grammar_digest",
+   "detail": "present"
+  },
+  {
+   "pass": true,
+   "claim": "S1 standard: phase0.json records commit",
+   "detail": "present"
+  },
+  {
+   "pass": true,
+   "claim": "S1 standard: phase0.json records revision",
+   "detail": "present"
+  },
+  {
+   "pass": true,
+   "claim": "S1 standard: phase0.json records the mutation-grammar version, or an explicit absence with a reason",
+   "detail": "no mutation grammar existed when this artifact was produced (phase 0 precedes the grammar)"
+  },
+  {
+   "pass": true,
+   "claim": "S1 standard: phase0.json's revision matches this code's",
+   "detail": "r2-2026-09-11-owner-rulings vs r2-2026-09-11-owner-rulings"
+  },
+  {
+   "pass": true,
+   "claim": "S1 standard: phase0.json records a producing commit",
+   "detail": "3e8605207a75"
+  },
+  {
+   "pass": true,
+   "claim": "S1 standard: phase0.json records the base scaffold digest",
+   "detail": "S0"
+  },
+  {
+   "pass": true,
+   "claim": "S1 standard: phase0.json records the split digests, including the blind ones it did not read",
+   "detail": "['gap0.admission', 'gap0.train', 'gap1.admission', 'gap1.train', 'gap2.final', 'gap3.final']"
+  },
+  {
+   "pass": true,
+   "claim": "S1 standard: phase_phase0.done.json records base_digest",
+   "detail": "present"
+  },
+  {
+   "pass": true,
+   "claim": "S1 standard: phase_phase0.done.json records splits_digest",
+   "detail": "present"
+  },
+  {
+   "pass": true,
+   "claim": "S1 standard: phase_phase0.done.json records grammar_digest",
+   "detail": "present"
+  },
+  {
+   "pass": true,
+   "claim": "S1 standard: phase_phase0.done.json records commit",
+   "detail": "present"
+  },
+  {
+   "pass": true,
+   "claim": "S1 standard: phase_phase0.done.json records revision",
+   "detail": "present"
+  },
+  {
+   "pass": true,
+   "claim": "S1 standard: phase_phase0.done.json records the mutation-grammar version, or an explicit absence with a reason",
+   "detail": "no mutation grammar existed when this artifact was produced (phase 0 precedes the grammar)"
+  },
+  {
+   "pass": true,
+   "claim": "S1 standard: phase_phase0.done.json's revision matches this code's",
+   "detail": "r2-2026-09-11-owner-rulings vs r2-2026-09-11-owner-rulings"
+  },
+  {
+   "pass": true,
+   "claim": "S1 standard: phase_phase0.done.json records a producing commit",
+   "detail": "3e8605207a75"
+  },
+  {
+   "pass": true,
+   "claim": "S1 standard: phase_phase0.done.json records the base scaffold digest",
+   "detail": "S0"
+  },
+  {
+   "pass": true,
+   "claim": "S1 standard: phase_phase0.done.json records the split digests, including the blind ones it did not read",
+   "detail": "['gap0.admission', 'gap0.train', 'gap1.admission', 'gap1.train', 'gap2.final', 'gap3.final']"
+  },
+  {
+   "pass": true,
    "claim": "V10 promises: every promise whose phase has run is implemented",
-   "detail": "['27 promises, 7 kept, 20 pending, 0 failures']"
+   "detail": "['30 promises, 8 kept, 22 pending, 0 failures']"
   },
   {
    "pass": true,
    "claim": "V11 guards: every provenance guard refuses its failure case",
-   "detail": "['13 PASS, 0 FAIL']"
+   "detail": "['20 PASS, 0 FAIL']"
   },
   {
    "pass": true,
@@ -190,8 +290,18 @@
   },
   {
    "pass": true,
-   "claim": "V3: widening-insufficiency holds",
+   "claim": "V3: widening-within-L insufficiency holds",
    "detail": ""
+  },
+  {
+   "pass": true,
+   "claim": "V3: the artifact records the scope qualifier",
+   "detail": "within S0's declared literal source only"
+  },
+  {
+   "pass": true,
+   "claim": "V3: the artifact explicitly disclaims the stronger reading",
+   "detail": "that unrestricted widening fails"
   },
   {
    "pass": true,
@@ -221,27 +331,27 @@
   {
    "pass": true,
    "claim": "V8: \u00a710's declared band \u2014 intercept in [45, 85] s",
-   "detail": "66.8 s"
+   "detail": "54.9 s"
   },
   {
    "pass": true,
    "claim": "V8: \u00a710's declared band \u2014 slope in [0.8, 1.4] s per step candidate",
-   "detail": "1.0278 s"
+   "detail": "0.9594 s"
   },
   {
    "pass": true,
    "claim": "V8: \u00a710's residual bound (< 3 s) holds",
-   "detail": "0.22 s"
+   "detail": "0.32 s"
   },
   {
    "pass": true,
    "claim": "V8: the counter is affine in the step pool, not superlinear (the 80-candidate point is within 10% of the 20/40 extrapolation)",
-   "detail": "149.1 s measured"
+   "detail": "131.6 s measured"
   },
   {
    "pass": true,
    "claim": "V8: \u00a710's peak RSS bound (< 0.5 GB) and the floor it implies (< 8 GB, the declared MemoryMax)",
-   "detail": "peak 0.374 GB, floor 7.5 GB"
+   "detail": "peak 0.384 GB, floor 7.7 GB"
   },
   {
    "pass": true,
@@ -250,15 +360,16 @@
   }
  ],
  "provenance": {
-  "format": "schema-induction/provenance-1",
+  "format": "schema-induction/provenance-2",
   "kind": "verify",
   "inputs": {
-   "phase0.json": "129744e83c06977f72fe1aab52965c71a29741482916f2f96c938f0a436a0d5c",
-   "phase_phase0.done.json": "90e7384d59d2e5e08dd3d836be80fa6f58794e469f83fd2162170f0be53265a1"
+   "phase0.json": "48cf82f305860260a2aa3d46a65603719e0099ff816a6af62449a81ae570ce9c",
+   "phase_phase0.done.json": "ea52da744c869740109b31681c3315ccb0bfae1842829947090521463e7bea9d"
   },
   "parameters": {
    "checks": [
     "verify_v9_provenance",
+    "verify_s1_provenance_standard",
     "verify_v10_promises_kept",
     "verify_v11_guards_bite",
     "verify_v2_expressivity",
@@ -271,18 +382,33 @@
     "headline.json"
    ]
   },
-  "parameters_digest": "daed5399a5ebd1614ed5bbd2bb32143259e6193de545c692629cb84a16f1b287",
+  "parameters_digest": "e6aff0ca619dfb01da5482b0ac3961426955240b71f31e47ac723da453e7ca89",
   "sources": {
-   "research/schema-induction/verify.py": "d3cc86ff0473577ef683871c656d06c1b588f818d23de0b28082a0c6eda91337",
-   "research/schema-induction/stamp.py": "f11feb2fe77bc911640f5a574d416696ea6fd8a4f45ade817065c49fdc1fc1c8",
+   "research/schema-induction/verify.py": "ff34ebc2b98cc461457c6be86d3a6fbf10af598863fbf7b1a718050178a5598f",
+   "research/schema-induction/stamp.py": "bab7a04f992fc9e04a9d4bf750f70d09eea2e226e1c1f5537661e0bc6910a321",
    "research/schema-induction/check_promises.py": "43b0394371e3170aa6885a586f44786ad35e1de79e010db51ead1d69a70fe92e",
-   "research/schema-induction/promises.json": "40001a335d1ba8feae618a6a873881de53215a5998e96d17c91426eedc910297"
+   "research/schema-induction/promises.json": "5451e0425665d651ed4330d9a483e7cd121aa1a3b9bc3662eab6c317b5b77b6e"
   },
-  "git": {
-   "head": "5978f1fe98dbcea00fef1c826741f93b676f9182",
+  "base_digest": null,
+  "base": null,
+  "splits_digest": null,
+  "splits": null,
+  "grammar_digest": {
+   "digest": null,
+   "version": null,
+   "absent_because": "no mutation grammar existed when this artifact was produced (phase 0 precedes the grammar)"
+  },
+  "revision": "r2-2026-09-11-owner-rulings",
+  "prereg_digest": "2d36d94c921449ac1ce908d093ea22ff166a117c07d8b5ac5b4939742d151ad7",
+  "commit": {
+   "head": "3e8605207a75a419392f3f7490c33c229445927d",
    "dirty": true
   },
-  "written_unix": 1789095674.0116298,
-  "written_utc": "2026-09-11T03:01:14Z"
+  "git": {
+   "head": "3e8605207a75a419392f3f7490c33c229445927d",
+   "dirty": true
+  },
+  "written_unix": 1789123876.920591,
+  "written_utc": "2026-09-11T10:51:16Z"
  }
 }

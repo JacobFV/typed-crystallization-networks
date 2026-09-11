@@ -1,6 +1,6 @@
 {
  "format": "schema-induction/promises-1",
- "note": "Every mechanical check this track's PREREGISTRATION.md promises. `check_promises.py` fails when a promise whose phase has run has no implementing check, and fails when a promise is deleted rather than amended. A promise ships in the same commit as its check; a promise whose phase has not run is `pending` and must name the phase that activates it.",
+ "note": "Every mechanical check this track's PREREGISTRATION.md promises. `check_promises.py` fails when a promise whose phase has run has no implementing check, and fails when a promise is deleted rather than amended. A promise ships in the same commit as its check; a promise whose phase has not run is `pending` and must name the phase that activates it. Promises are AMENDED in place, never deleted: an amended promise keeps its id and records what changed.",
  "phases": {
   "phase0": "the pre-arm validity checks (V2, V3, V8); run",
   "grammar": "the mutation grammar and its edit enumerator; not run",
@@ -8,79 +8,246 @@
   "final": "scoring against the blind gap 2 / gap 3 splits; not run"
  },
  "promises": [
-  {"id": "V1", "section": "9", "phase": "grammar", "artifact": "out/v1_copy.json",
+  {
+   "id": "V1",
+   "section": "9",
+   "phase": "grammar",
+   "artifact": "out/v1_copy.json",
    "check": "verify_v1_copy_reproduces_flagship_counts",
-   "statement": "this track's copied engine reproduces 686985984 (schema, gap 0, 48 episodes), 0 (schema, gap 1, 48 episodes) and 261654545280 (schema, gap 1, 12 training episodes), by integer token equality"},
-  {"id": "V2", "section": "2.2", "phase": "phase0", "artifact": "out/phase0.json",
+   "statement": "this track's copied engine reproduces 686985984 (schema, gap 0, 48 episodes), 0 (schema, gap 1, 48 episodes) and 261654545280 (schema, gap 1, 12 training episodes), by integer token equality"
+  },
+  {
+   "id": "V2",
+   "section": "2.2",
+   "phase": "phase0",
+   "artifact": "out/phase0.json",
    "check": "verify_v2_expressivity",
-   "statement": "the per-relation, per-configuration exact sets of conforming single-constant steps, and that S0 solves all three relations at gap 0"},
-  {"id": "V3", "section": "3.2", "phase": "phase0", "artifact": "out/phase0.json",
+   "statement": "the per-relation, per-configuration exact sets of conforming single-constant steps, and that S0 solves all three relations at gap 0"
+  },
+  {
+   "id": "V3",
+   "section": "3.2",
+   "phase": "phase0",
+   "artifact": "out/phase0.json",
    "check": "verify_v3_widen_insufficiency",
-   "statement": "max(L union S0 offsets) < min required offset at gap 1, and the intersection of reachable with required offsets is empty"},
-  {"id": "V4", "section": "3.3", "phase": "grammar", "artifact": "out/v4_grammar.json",
+   "statement": "within S0's declared literal source only: max(L union S0 offsets) < min required offset at gap 1, and the intersection of reachable with required offsets is empty. The artifact must record the scope qualifier and the explicit disclaimer that unrestricted widening is not claimed to fail."
+  },
+  {
+   "id": "V4",
+   "section": "3.3",
+   "phase": "grammar",
+   "artifact": "out/v4_grammar.json",
    "check": "verify_v4_grammar_excludes_answer",
-   "statement": "no integer literal of the gap 1 requirement set appears in the track's *.py; the PARAMETERIZE shapes are the three declared ones; the family enumeration order puts structure-inventing families last"},
-  {"id": "V5", "section": "5", "phase": "final", "artifact": "out/final_digest.json",
+   "statement": "no integer literal of the gap 1 requirement set appears in the track's *.py; the PARAMETERIZE shapes are the three declared ones; the family enumeration order puts structure-inventing families last"
+  },
+  {
+   "id": "V5",
+   "section": "5",
+   "phase": "final",
+   "artifact": "out/final_digest.json",
    "check": "verify_v5_blindness",
-   "statement": "every corpus artifact carries final_untouched true; all shards withheld the same digest; no induction-phase artifact contains a gap 2 or gap 3 field; the digest recorded before induction equals the one at scoring time"},
-  {"id": "V6", "section": "3.4", "phase": "outer", "artifact": "out/v6_decider.json",
+   "statement": "every corpus artifact carries final_untouched true; all shards withheld the same digest; no induction-phase artifact contains a gap 2 or gap 3 field; the digest recorded before induction equals the one at scoring time"
+  },
+  {
+   "id": "V6",
+   "section": "3.4",
+   "phase": "outer",
+   "artifact": "out/v6_decider.json",
    "check": "verify_v6_fast_decider",
-   "statement": "fast_decide agrees with engine.Counter(K>0) on at least 40 edited schemas spanning all six families and both admission configurations, at least 10 of them non-conforming"},
-  {"id": "V7", "section": "9", "phase": "final", "artifact": "out/v7_evaluator.json",
+   "statement": "fast_decide agrees with engine.Counter(K>0) on at least 40 edited schemas spanning all six families and both admission configurations, at least 10 of them non-conforming"
+  },
+  {
+   "id": "V7",
+   "section": "9",
+   "phase": "final",
+   "artifact": "out/v7_evaluator.json",
    "check": "verify_v7_evaluator_equivalence",
-   "statement": "the fast evaluator matches Program.execute on the declared sample at gap 2 and gap 3"},
-  {"id": "V8", "section": "10", "phase": "phase0", "artifact": "out/phase0.json",
+   "statement": "the fast evaluator matches Program.execute on the declared sample at gap 2 and gap 3"
+  },
+  {
+   "id": "V8",
+   "section": "10",
+   "phase": "phase0",
+   "artifact": "out/phase0.json",
    "check": "verify_v8_cost_model",
-   "statement": "the measured wall clock of the exact counter against step-pool size, and the affine fit quoted in section 10"},
-  {"id": "V9", "section": "13", "phase": "phase0", "artifact": "*",
+   "statement": "the measured wall clock of the exact counter against step-pool size, and the affine fit quoted in section 10"
+  },
+  {
+   "id": "V9",
+   "section": "13",
+   "phase": "phase0",
+   "artifact": "*",
    "check": "verify_v9_provenance",
-   "statement": "every artifact under out/ carries a provenance block that agrees with the inputs, parameters and sources on disk now; an absent block fails"},
-  {"id": "V10", "section": "13", "phase": "phase0", "artifact": "promises.json",
+   "statement": "every artifact under out/ carries a provenance block that agrees with the inputs, parameters and sources on disk now; an absent block fails"
+  },
+  {
+   "id": "V10",
+   "section": "13",
+   "phase": "phase0",
+   "artifact": "promises.json",
    "check": "verify_v10_promises_kept",
-   "statement": "every promise in promises.json whose phase has run has an implementing check in verify.py, and no promise has been deleted"},
-  {"id": "V11", "section": "13", "phase": "phase0", "artifact": "*",
+   "statement": "every promise in promises.json whose phase has run has an implementing check in verify.py, and no promise has been deleted"
+  },
+  {
+   "id": "V11",
+   "section": "13",
+   "phase": "phase0",
+   "artifact": "*",
    "check": "verify_v11_guards_bite",
-   "statement": "selftest_guards.py drives every provenance guard to its failure state and each one raises; a guard that does not refuse its failure case is itself a failure"},
-  {"id": "C1", "section": "6", "phase": "final", "artifact": "out/headline.json",
-   "check": "verify_c1_admission_repair", "statement": "S1 has K>0 complete at gap 0 and gap 1"},
-  {"id": "C2", "section": "6", "phase": "final", "artifact": "out/headline.json",
-   "check": "verify_c2_blind_generalization", "statement": "S1 has K>0 complete at gap 2 and gap 3"},
-  {"id": "C3", "section": "6", "phase": "final", "artifact": "out/headline.json",
+   "statement": "selftest_guards.py drives every provenance guard to its failure state and each one raises; a guard that does not refuse its failure case is itself a failure"
+  },
+  {
+   "id": "C1",
+   "section": "6",
+   "phase": "final",
+   "artifact": "out/headline.json",
+   "check": "verify_c1_admission_repair",
+   "statement": "S1 has K>0 complete at gap 0 and gap 1"
+  },
+  {
+   "id": "C2",
+   "section": "6",
+   "phase": "final",
+   "artifact": "out/headline.json",
+   "check": "verify_c2_blind_generalization",
+   "statement": "S1 has K>0 complete at gap 2 and gap 3"
+  },
+  {
+   "id": "C3",
+   "section": "6",
+   "phase": "final",
+   "artifact": "out/headline.json",
    "check": "verify_c3_structural_not_extensional",
-   "statement": "the conforming gap 3 offset is not an element of any pool S1 instantiated during induction"},
-  {"id": "C4", "section": "6", "phase": "final", "artifact": "out/headline.json",
-   "check": "verify_c4_cost_vs_blind", "statement": "S1's total cost is at least 10x below S_blind's"},
-  {"id": "C5", "section": "6", "phase": "final", "artifact": "out/headline.json",
-   "check": "verify_c5_prior_earns_its_name",
-   "statement": "S1_prior's outer cost is at least 2x below S1's while D_prior's is not"},
-  {"id": "C6", "section": "6", "phase": "final", "artifact": "out/headline.json",
-   "check": "verify_c6_beats_hand_baseline", "statement": "S1 passes C2 at a total cost strictly below S_hand's"},
-  {"id": "C7", "section": "6", "phase": "final", "artifact": "out/headline.json",
-   "check": "verify_c7_flat_insufficient", "statement": "S_flat fails C2 at gap 3, or F4 is reported"},
-  {"id": "F1", "section": "7", "phase": "final", "artifact": "out/headline.json",
-   "check": "verify_f1_patching_verdict",
-   "statement": "if S1 passes C1 and fails C2 while S_hand passes C2 at both, the recorded verdict is `patching, not induction`, and it is the headline"},
-  {"id": "F2", "section": "7", "phase": "phase0", "artifact": "out/phase0.json",
+   "statement": "the invariant of PREREGISTRATION 1.2, not a mechanism: at gap 3 the conforming displacement is NOT an element of any pool S1 instantiated during induction, i.e. it was re-derived from that configuration's geometry. Any rule shape qualifies -- row stride, affine displacement, relative-coordinate operator, derived spatial-step function, indexed generator -- and a generator whose range was fitted on admission fails C3."
+  },
+  {
+   "id": "C4",
+   "section": "6",
+   "phase": "final",
+   "artifact": "out/headline.json",
+   "check": "verify_r1_cost_vs_blind_widening",
+   "statement": "AMENDED r2: the invented 10x threshold is removed. S1's total cost against S_blind's full total cost is REPORTED, with no pass mark (R1); outcome O3 is recorded when S_blind is cheaper."
+  },
+  {
+   "id": "C5",
+   "section": "6",
+   "phase": "final",
+   "artifact": "out/headline.json",
+   "check": "verify_r3_outer_knowledge_reported",
+   "statement": "AMENDED r2: the invented 2x threshold is removed. S1_prior's outer cost against S1's and D_prior's is REPORTED as ratios with no pass mark (R3)."
+  },
+  {
+   "id": "C6",
+   "section": "6",
+   "phase": "final",
+   "artifact": "out/headline.json",
+   "check": "verify_r2_cost_vs_hand_schema",
+   "statement": "AMENDED r2: the `strictly below` pass mark is removed. S1's total cost against S_hand's is REPORTED (R2); outcome O4 is recorded when S_hand dominates."
+  },
+  {
+   "id": "C7",
+   "section": "6",
+   "phase": "final",
+   "artifact": "out/headline.json",
+   "check": "verify_r5_flat_substrate_reported",
+   "statement": "AMENDED r2: threshold removed. Whether S_flat reaches gap 2 and gap 3, and at what cost, is REPORTED (R5); F4 stands as a headline reading."
+  },
+  {
+   "id": "F1",
+   "section": "7",
+   "phase": "final",
+   "artifact": "out/headline.json",
+   "check": "verify_outcome_id",
+   "statement": "AMENDED r2: replaced by the outcome taxonomy O0-O6 of section 7.1. The headline of RESULTS.md is one of those ids, not pass/fail; O1 (frozen patch) and O2 (gap 1 only) are the patching verdicts and stand however good the gap 1 numbers are."
+  },
+  {
+   "id": "F2",
+   "section": "7",
+   "phase": "phase0",
+   "artifact": "out/phase0.json",
    "check": "verify_f2_no_design_collapse",
-   "statement": "WIDEN over L does not repair gap 1 (checked: 51 < 55)"},
-  {"id": "F3", "section": "7", "phase": "grammar", "artifact": "out/v1_copy.json",
+   "statement": "WIDEN *within S0's declared source L* does not repair gap 1 (checked: 51 < 55). This is NOT a claim that unrestricted widening fails: it reaches the answer and is the S_blind arm."
+  },
+  {
+   "id": "F3",
+   "section": "7",
+   "phase": "grammar",
+   "artifact": "out/v1_copy.json",
    "check": "verify_f3_no_contradiction_with_s65",
-   "statement": "S0's 48-episode conformer count at gap 1 is 0; a non-zero count halts the track"},
-  {"id": "F6", "section": "7", "phase": "outer", "artifact": "out/headline.json",
+   "statement": "S0's 48-episode conformer count at gap 1 is 0; a non-zero count halts the track"
+  },
+  {
+   "id": "F6",
+   "section": "7",
+   "phase": "outer",
+   "artifact": "out/headline.json",
    "check": "verify_f6_effective_grammar_width",
-   "statement": "the per-family repair counts are reported, and the grammar's effective width is stated from them"},
-  {"id": "F7", "section": "7", "phase": "outer", "artifact": "out/headline.json",
+   "statement": "the per-family repair counts are reported, and the grammar's effective width is stated from them"
+  },
+  {
+   "id": "F7",
+   "section": "7",
+   "phase": "outer",
+   "artifact": "out/headline.json",
    "check": "verify_f7_certificates",
-   "statement": "every quoted count carries a certificate; an unexhausted arm is `incomplete` with a two-sided bound and is never quoted as exact"},
-  {"id": "P1", "section": "2.4", "phase": "final", "artifact": "out/headline.json",
-   "check": "verify_p1_s0_fails_gap2_gap3", "statement": "prediction: S0 has zero conformers at gap 2 and gap 3"},
-  {"id": "P2", "section": "2.4", "phase": "final", "artifact": "out/headline.json",
-   "check": "verify_p2_flat_fails_gap3", "statement": "prediction: S_flat conforms at gap 2 and has zero conformers at gap 3"},
-  {"id": "P3", "section": "2.4", "phase": "final", "artifact": "out/headline.json",
+   "statement": "every quoted count carries a certificate; an unexhausted arm is `incomplete` with a two-sided bound and is never quoted as exact"
+  },
+  {
+   "id": "P1",
+   "section": "2.4",
+   "phase": "final",
+   "artifact": "out/headline.json",
+   "check": "verify_p1_s0_fails_gap2_gap3",
+   "statement": "prediction: S0 has zero conformers at gap 2 and gap 3"
+  },
+  {
+   "id": "P2",
+   "section": "2.4",
+   "phase": "final",
+   "artifact": "out/headline.json",
+   "check": "verify_p2_flat_fails_gap3",
+   "statement": "prediction: S_flat conforms at gap 2 and has zero conformers at gap 3"
+  },
+  {
+   "id": "P3",
+   "section": "2.4",
+   "phase": "final",
+   "artifact": "out/headline.json",
    "check": "verify_p3_no_constant_spans_gap0_gap3",
-   "statement": "prediction: the gap 0 and gap 3 `above` solution sets are disjoint"},
-  {"id": "P4", "section": "2.3", "phase": "outer", "artifact": "out/headline.json",
+   "statement": "prediction: the gap 0 and gap 3 `above` solution sets are disjoint"
+  },
+  {
+   "id": "P4",
+   "section": "2.3",
+   "phase": "outer",
+   "artifact": "out/headline.json",
    "check": "verify_p4_structural_families_repair",
-   "statement": "inherited prediction (scaffold-induction A16): structure-inventing edits are the only family that repairs anything here"}
- ]
+   "statement": "inherited prediction (scaffold-induction A16): structure-inventing edits are the only family that repairs anything here"
+  },
+  {
+   "id": "R4",
+   "section": "6",
+   "phase": "outer",
+   "artifact": "out/headline.json",
+   "check": "verify_r4_outer_loop_vs_downstream",
+   "statement": "cost measure 3 against measure 6 per arm is reported, so `the outer loop erased the saving` (O5) is decidable"
+  },
+  {
+   "id": "O",
+   "section": "7.1",
+   "phase": "final",
+   "artifact": "out/headline.json",
+   "check": "verify_outcome_id",
+   "statement": "the headline carries exactly one outcome id from O0-O6, mechanically derived from C1, C2, C3 and R1-R5, and the cost outcomes O3-O5 are reported alongside it rather than suppressing it"
+  },
+  {
+   "id": "S1",
+   "section": "13",
+   "phase": "phase0",
+   "artifact": "*",
+   "check": "verify_s1_provenance_standard",
+   "statement": "every artifact records the owner's permanent standard: base scaffold/program digest, split/corpus digest, mutation-grammar version digest, producing commit, and pre-registration revision; an explicit absence with a reason is acceptable where an omission is not"
+  }
+ ],
+ "revision": "r2-2026-09-11-owner-rulings"
 }

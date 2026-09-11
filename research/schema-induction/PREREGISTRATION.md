@@ -18,7 +18,28 @@ not criteria; they are reported whatever they say, and V3 is a stop condition
 
 Nothing else has run. No arm, no induction, no final-split episode.
 
-## 1. The question and the criterion
+## 1. The claim block, the question and the criterion
+
+```
+claim:             can an outer learner repair an expressivity failure by inducing
+                   a geometry-parametric schema that generalizes to unseen gaps?
+starting evidence: gap 0 works; gap 1 is a CEGIS/admission counterexample
+selection data:    train + admission/gap-1 only
+blind final:       gap 2 + gap 3
+comparators:       S0; blind unrestricted widening; induced S1;
+                   hand-written parametric schema; patch/frozen-index schema
+success:           S1 passes gap 2/3, with total induction + downstream-search cost
+                   reported against the blindly widened alternative
+failure modes reported separately:
+                   no repair found; repair is a frozen patch; repair works gap 1
+                   but not gap 2/3; blind widening is cheaper; hand-written schema
+                   dominates; outer-loop cost erases downstream savings
+```
+
+Each failure mode is a **distinct reported outcome**, not a single "fail". §7
+gives them ids (O0–O6) and §6 gives the criteria that decide between them.
+
+### 1.1 The question
 
 §65 refuted the inherited STEP schema at its second configuration: at `gap 1`
 the schema space holds 261,654,545,280 programs conforming on the 12 training
@@ -34,14 +55,31 @@ any `gap 2` / `gap 3` example — can an outer learner induce a schema S1 that
 (a) is admitted at `gap 0` and `gap 1`, and (b) generalizes to the blind
 `gap 2` and `gap 3` configurations?
 
-**The criterion is structural, not accuracy.**
+### 1.2 The criterion is structural, and it is an invariant, not a mechanism
 
-* **Patching** — the repair adds the one missing `gap 1` constant, or a special
-  case for it. It fits admission and does not extrapolate.
-* **Induction** — the repair constructs something *parameterized by geometry*
-  (a row stride, a relation displacement) whose instantiation at an unseen
-  configuration produces a constant that was never in any pool during
-  induction.
+> **bad:** S1 contains the `gap 1` numerical answer.
+> **good:** S1 contains a rule whose concrete displacement is **re-derived from
+> the new instance's geometry**.
+
+That is the whole criterion, and it is deliberately mechanism-free. **Any
+equivalent general solution counts** — a row-stride rule, an affine
+displacement, a relative-coordinate operator, a derived spatial-step function,
+an indexed generator. §3.1's `PARAMETERIZE` is *one* way to reach it, not a
+definition of it, and a repair that reaches the invariant by some other family
+is scored as induction just the same.
+
+This is §64's lesson applied one level up: **a concrete instantiation is
+evidence about a schema, never the schema itself.** A schema that carries the
+answer as a constant has recorded the evidence; a schema that re-derives the
+answer from the instance has kept the conjecture.
+
+* **Patching** — the repair carries the `gap 1` displacement (or a special case
+  producing it) as a value fixed during induction. It fits admission and does
+  not extrapolate. A *frozen index* — a generator whose range was fitted on
+  admission — is patching, however parametric it looks.
+* **Induction** — at `gap 2` and `gap 3` the concrete displacement is computed
+  from that configuration's geometry, and is a value that was in no pool S1
+  instantiated during induction.
 
 **The declared null.** The outer learner produces a patch. This is the default
 reading of any result that fits admission; induction has to be shown, with the
@@ -157,9 +195,11 @@ generic schema language — HANDOFF priority 7):
 | `COMPOSE` | fold one existing registered module into the step path | yes |
 | **`PARAMETERIZE`** | replace a slot's **constant pool** with an **indexed generator** `{f(s, t, i) : i ∈ 1…n}`, where `s`, `t` are values already present in that slot's pool and `f` ranges over the declared shapes `s·i`, `s·i + t`, `s + t·i`; **`n` is a free schema parameter, not fixed during induction** | yes |
 
-`PARAMETERIZE` is the only family that can produce, at an unseen
-configuration, a constant that appeared in no pool during induction. That is
-the operational definition of induction in §1, and §6's C3 tests exactly it.
+`PARAMETERIZE` is the family most likely to reach §1.2's invariant, and it is
+**one mechanism, not the definition**. C3 is stated on the invariant, so
+`ADD_NODE` or `COMPOSE` reaching a relative-coordinate operator, an affine
+displacement or a derived spatial-step function scores as induction just the
+same, and a `PARAMETERIZE` whose range was fitted on admission does not.
 
 The enumerator, the `Edit` frozen dataclass and the `apply_edit` /
 `enumerate_edits` signatures are **copied** from
@@ -169,7 +209,7 @@ Its A11 lesson is inherited: **candidate-truncation bounds stay off**
 (`MAX_NEW = MAX_NEW_NODE = None`); an over-budget edit is recorded
 **undecided**, never silently redefined as unrepairable.
 
-### 3.2 The declared literal source L, and the proof that widening is insufficient
+### 3.2 The declared literal source L, and why widening *within it* is insufficient
 
 `WIDEN` may only introduce integer constants from
 
@@ -187,11 +227,19 @@ constant of §65's scaffold. Measured (`out/phase0.json`,
     |{reachable offsets} ∩ {required offsets}| = 0
     holds = true
 
-So **no finite sequence of `WIDEN` edits over L can reach the `gap 1`
-repair**, and the grammar's structure-inventing families are *required*, not
-merely available. This is the requirement the owner named, discharged
-mechanically before any arm; `verify.py` re-derives it from `out/phase0.json`
-by token equality on the two integers.
+So **no finite sequence of `WIDEN` edits over L can reach the `gap 1` repair**,
+and the grammar's structure-generating families are *required relative to S0's
+starting representation*, not merely available. `verify.py` re-derives this
+from `out/phase0.json` by token equality on the two integers.
+
+**The qualifier is load-bearing and belongs in every statement of this result.**
+Never "widening cannot solve the task" — always "widening **within S0's
+declared source** cannot". Unrestricted widening *does* reach the answer; it is
+the `S_blind` arm, a first-class comparator charged its full total cost, and a
+genuine falsifier of this track: **if brute widening turns out cheaper than
+induced structure, the induction did not earn its complexity** (R1, outcome
+O3). The meaningful claim here is about the starting representation, not about
+widening as such.
 
 ### 3.3 The grammar does not contain the repaired schema verbatim
 
@@ -248,7 +296,7 @@ STEP pool is obtained; the coarse graph and every other pool are identical.
 | `S1` | induced by the outer learner, **uniform** edit order | the object under test |
 | `S1_prior` | induced with a **learned edit prior** fitted on the scaffold-induction corpus' repair history | "does inherited outer knowledge help?" |
 | `S_widen` | the grammar restricted to `WIDEN` over L | the mechanical proof of §3.2, run as an arm |
-| `S_blind` | blind widening: offsets 1…767, ops {add,sub}, bases {lo,hi} (3,068 step candidates) | expressivity without induction |
+| `S_blind` | **unrestricted widening**: offsets 1…767, ops {add,sub}, bases {lo,hi} (3,068 step candidates) | **first-class comparator and genuine falsifier** — it reaches the answer; charged its full total cost including the downstream search its larger pool forces (R1, O3) |
 | `S_hand` | **hand-written parametric schema**: offsets `{3·i} ∪ {48·i}`, `i` a free schema parameter | **mandatory** hand baseline |
 | `S_flat` | §65's flat substrate: 5 ops × 2 bases × offsets 1…128 | no schema at all |
 | `D_prior` | **the distractor**: the same six-family grammar (so its space *contains* the parametric repair) with an edit prior fitted on the scaffold-induction `bool` + `rel` corpus, where `WIDEN`/`SUBST` repair every case and `ADD_NODE`/`ADD_PATH` repair none | wrong *experience*, same expressivity |
@@ -307,54 +355,102 @@ contradicts that track's own record and is reported here rather than routed
 around**; it is also why this track's V5 is a validity check with an artifact,
 not a claim in prose.
 
-## 6. Criteria
+## 6. Criteria — an existence claim, with cost reported beside it
 
 All reported **per configuration**, never pooled. Each is decided by an exact
 count with a certificate; a bound is never quoted as an exact count.
+
+**The primary criterion is an existence claim, and it carries no cost
+threshold.** This track sets no 2× or 10× cutoff, because no cutoff can be
+justified before running (owner, 2026-09-11). Cost is measured exactly and
+**reported faithfully beside** the existence result, where the reader applies
+their own judgement. If blind widening wins by 20×, that is a devastating
+practical result on its own and needs no pre-declared cutoff to be worth
+recording.
+
+**PRIMARY — did parametric induction happen?** All three of:
 
 * **C1 — admission repair.** S1 has K > 0, certificate `complete`, on all 48
   `gap 0` episodes **and** all 48 `gap 1` episodes.
 * **C2 — blind generalization.** S1 has K > 0, certificate `complete`, at
   `gap 2` **and** at `gap 3`.
-* **C3 — structural, not extensional (the induction test).** The conforming
-  step offset S1 admits at `gap 3` is **not** an element of any pool S1
-  instantiated during induction. Equivalently: S1's offset pool is an indexed
-  generator whose index range is a free schema parameter. Recorded as the exact
-  offset sets, compared by integer token equality.
-* **C4 — cost against blind widening.** Total cost of S1 (§8's measure 3 +
-  measure 6, summed over the four configurations) is ≥ 10× below `S_blind`'s.
-  Expressivity bought by enumerating everything is not induction.
-* **C5 — inherited outer knowledge earns its name.** `S1_prior`'s outer cost
-  (measures 1–3) is ≥ 2× below `S1`'s, **while `D_prior`'s is not**.
-* **C6 — the hand baseline is beaten, not matched.** `S1` passes C2 at a total
-  cost **strictly below** `S_hand`'s. If it merely matches, the induced object
-  is reported as organisational reuse — §65's standing rule, where the whole
-  learned effect was reproduced by a one-line hand rule.
-* **C7 — the flat substrate does not suffice.** `S_flat` fails C2 at `gap 3`
-  (P2), or the schema story is reported as refuted (F4).
+* **C3 — the invariant of §1.2, not a mechanism.** At `gap 3`, the conforming
+  displacement S1 admits is **not** an element of any pool S1 instantiated
+  during induction; it was re-derived from that configuration's geometry.
+  Recorded as the exact displacement sets on both sides, compared by integer
+  token equality. Any rule shape satisfying this passes — row stride, affine
+  displacement, relative-coordinate operator, derived spatial-step function,
+  indexed generator. A generator whose range was fitted on admission fails C3
+  even if it happens to reach `gap 2`.
 
-## 7. Falsification — declared now, honoured whatever happens
+C1 ∧ C2 ∧ C3 is the claim. Nothing about cost enters it.
 
-* **F1 — the patching verdict (the headline).** If S1 passes C1 but fails C2 at
-  `gap 2` or `gap 3`, **while `S_hand` passes C2 at both**, the result is
-  recorded as **patching, not induction**. That verdict stands however good the
-  `gap 1` numbers are, and is the headline of `RESULTS.md`. No metric is
-  swapped afterwards; any corrected measurement is labelled exploratory.
-* **F1b — patching with a parametric face.** If S1 *is* an indexed generator
-  but freezes its index range to a constant fitted on admission (n ≤ 2) and
-  therefore fails `gap 2` / `gap 3`, that is still F1.
-* **F2 — design collapse (a stop condition, already checked).** If `WIDEN` over
-  L repairs `gap 1`, the experiment has collapsed into "restore a candidate"
-  and must be redesigned before any arm is read. **Checked in phase 0: it does
-  not** (51 < 55).
+**REPORTED BESIDE IT — measured exactly, with no threshold.** Each is a number
+in `out/headline.json` and a row in `RESULTS.md`, stated per configuration:
+
+* **R1 — total cost against blind widening.** S1's induction cost (§8 measures
+  1–5) plus downstream search cost (measure 6) against `S_blind`'s, which is
+  charged its **full** total including the downstream search its larger pool
+  forces. `S_blind` is a first-class comparator and a genuine falsifier: if it
+  is cheaper, the induced structure did not earn its complexity.
+* **R2 — total cost against the hand-written parametric schema.** §65's
+  standing rule is that the obvious hand prior often reproduces the learned
+  effect more cheaply; the comparison is reported, and its reading is stated in
+  prose, without a pass mark.
+* **R3 — did inherited outer knowledge change the outer search?** `S1_prior`'s
+  outer cost against `S1`'s, and `D_prior`'s against both. The distractor can
+  succeed by construction, so a null result here is informative.
+* **R4 — did the outer loop erase the downstream saving?** Measure 3 against
+  measure 6, per arm. Moving combinatorics up a level is not a win.
+* **R5 — the flat substrate.** Whether `S_flat` reaches `gap 2` and `gap 3` at
+  all (P2), and at what cost.
+
+## 7. Outcomes and falsification — declared now, honoured whatever happens
+
+### 7.1 The seven outcomes, each reported separately
+
+The headline of `RESULTS.md` is **one of these ids**, not "pass" or "fail".
+Several can hold at once — O3–O6 are about cost and are reported alongside
+whichever of O0–O2 obtained. Each is decided mechanically from
+`out/headline.json`.
+
+| id | outcome | decided by |
+|---|---|---|
+| **O0** | **no repair found** — the outer loop produced no schema passing C1 | ¬C1 |
+| **O1** | **repair is a frozen patch** — passes C1, carries the `gap 1` displacement as a fixed value | C1 ∧ ¬C3 |
+| **O2** | **works at `gap 1`, not at `gap 2`/`gap 3`** — the blind split refutes it | C1 ∧ ¬C2 |
+| **O3** | **blind widening is cheaper** — `S_blind` reaches `gap 2`/`gap 3` at lower total cost than S1 | R1 |
+| **O4** | **the hand-written schema dominates** — `S_hand` reaches the same configurations at lower total cost | R2 |
+| **O5** | **the outer loop erases the downstream saving** — measure 3 exceeds the measure-6 saving | R4 |
+| **O6** | **induction** — C1 ∧ C2 ∧ C3, with R1–R5 reported beside it | C1 ∧ C2 ∧ C3 |
+
+**O1 and O2 are the patching verdicts and they stand however good the `gap 1`
+numbers are.** A frozen index — a generator whose range was fitted on admission
+— is O1, however parametric it looks. No metric is swapped afterwards; any
+corrected measurement is labelled exploratory.
+
+**O6 is not weakened by O3, O4 or O5, and does not suppress them.** Induction
+can happen and still be the wrong engineering choice; that is exactly the pair
+of facts the record should carry, which is why the existence claim and the cost
+comparison are separate (§6).
+
+### 7.2 Stop conditions and standing commitments
+
+* **F2 — design collapse (a stop condition, already checked).** If `WIDEN`
+  **within S0's declared source L** repairs `gap 1`, the experiment has
+  collapsed into "restore a candidate" and must be redesigned before any arm is
+  read. **Checked in phase 0: it does not** (51 < 55). This says nothing about
+  unrestricted widening, which does reach the answer and is the `S_blind` arm.
 * **F3 — contradiction with §65.** If S0 shows a non-zero conformer count at
   `gap 1` over all 48 episodes, this track's premise is wrong and §65 is wrong.
   Halt and report the contradiction rather than proceeding.
-* **F4 — no schema needed.** If `S_flat` passes C2 at `gap 2` **and** `gap 3`
-  at a lower total cost than S1, schema induction is refuted here: the flat
-  substrate needed no repair. Keep as the headline.
-* **F5 — the prior carries nothing.** If `D_prior` matches `S1_prior` within
-  2×, C5 fails and the inherited edit prior is reported as not transferring.
+* **F4 — no schema needed.** If `S_flat` reaches `gap 2` **and** `gap 3` at a
+  lower total cost than S1, schema induction is refuted here: the flat
+  substrate needed no repair. Keep as the headline beside the outcome id.
+* **F5 — the prior carries nothing.** `D_prior`'s outer cost against
+  `S1_prior`'s is reported as a ratio with no pass mark (R3). The distractor
+  can succeed by construction, so a null result is informative rather than a
+  failure of the experiment.
 * **F6 — the grammar's effective width.** If `PARAMETERIZE`, `ADD_NODE` and
   `COMPOSE` produce zero repairs, the grammar is reported as having been
   effectively three families wide, and every arm as an ordering over that
@@ -397,8 +493,9 @@ later has not won, and C4 is written so the record shows it.
   and 0 (schema, `gap 1`), both `complete`; and 261,654,545,280 training
   conformers at `gap 1`. Any difference halts the track.
 * **V2 — expressivity.** §2.2's table, recomputed. **Done; passes.**
-* **V3 — widening insufficiency.** §3.2's two integers. **Done; passes
-  (51 < 55, empty intersection).**
+* **V3 — widening *within S0's declared source* is insufficient.** §3.2's two
+  integers. **Done; passes** (51 < 55, empty intersection). It is not, and is
+  never to be stated as, a claim that widening cannot solve the task.
 * **V4 — the grammar does not contain the answer.** §3.3's three checks.
 * **V5 — blindness.** §5's four `verify.py` assertions, plus the digest
   recorded before induction.
@@ -413,6 +510,12 @@ later has not won, and C4 is written so the record shows it.
 * **V9 — provenance.** §13's rule: every artifact under `out/` carries a stamp
   that agrees with the inputs, parameters and sources on disk now. An **absent**
   stamp fails exactly as a disagreeing one does.
+* **S1 — the owner's permanent provenance standard.** §13's Rule 0: every
+  artifact records the base scaffold digest, the split digests (including the
+  blind ones it did not read), the mutation-grammar version digest, the
+  producing commit and the pre-registration revision.
+* **V11 — the guards bite.** `selftest_guards.py` drives every provenance guard
+  to its failure state and each one must raise.
 * **V10 — promises are checks.** §13's registry: `check_promises.py` exits
   non-zero if any promise whose phase has run lacks an implementing `verify_*`
   function, or if a committed promise was deleted.
@@ -536,13 +639,32 @@ artifacts that have not been produced yet. It was nearly reported as current,
 and the verifier would have accepted it: its checks asserted "a validation ran
 and reported zero mismatches", never "it validated **this** corpus".
 
+**Rule 0 — the owner's permanent provenance standard (2026-09-11).** Every
+evidence artifact carries, as named fields that must be *present*:
+
+| field | what it pins |
+|---|---|
+| `base_digest` | the base scaffold / program the artifact is about |
+| `splits_digest` | the split / corpus digests, **including splits deliberately not read** — the blind final split's digest is recorded here, unopened |
+| `grammar_digest` | the mutation grammar's version digest (and its family list) |
+| `commit` | the producing commit |
+| `revision` | the pre-registration / amendment revision, plus the digest of `PREREGISTRATION.md` itself |
+
+An **explicit absence with a reason** is acceptable where an omission is not:
+`out/phase0.json` records `grammar_digest.digest = null` with
+`absent_because: "no mutation grammar existed when this artifact was produced"`,
+because a missing field reads as "not recorded" and would let a later artifact
+inherit the silence. `verify_s1_provenance_standard` checks all five on every
+artifact.
+
 **Rule 1 — every derived artifact carries a fingerprint of what it was derived
 from.** `stamp.py` embeds a `provenance` block in every artifact this track
-writes: the digest of every input file, the digest of each *split* computed
-from the fields a decision could depend on, the declared parameters (pool
-contents and sizes, gaps, seeds, configuration) and their digest, the digest of
-every source file whose behaviour produced it, and the git HEAD with its dirty
-flag. `stamp.require` fails when the block **disagrees** with disk and equally
+writes: the five standard fields above, plus the digest of every input file,
+the digest of each *split* computed from the fields a decision could depend on,
+the declared parameters (pool contents and sizes, gaps, seeds, configuration)
+and their digest, the digest of every source file whose behaviour produced it,
+and the git HEAD with its dirty flag. `stamp.require` fails when the block
+**disagrees** with disk and equally
 when it is **absent** — otherwise every artifact predating this rule silently
 counts as current. It also fails when called with nothing to compare: an
 assertion that checks nothing must fail, not pass.
@@ -615,3 +737,49 @@ criterion is read.
   plus `env.neighbour`.** If the `gap 2` / `gap 3` draws produce a smaller
   minimum target height than 3, P1–P3 may shift; they are stated as falsifiable
   predictions and will be reported as measured against.
+
+# Amendments, written before any arm ran
+
+## r2 — 2026-09-11, the owner's rulings
+
+Approved: unrestricted widening stays a first-class comparator; the scope
+ruling (one slot, one relation family, one resolution, an existence result)
+stands as written, with `left_of` / `right_of` staying expressible treated as a
+*feature*, because `above` isolates the missing-structure axis. Replication is
+the next experiment, not a prerequisite for this one. Four changes were
+required and are made here. **No arm had run; nothing is retrofitted.**
+
+* **A1 — the widening claim is always scoped.** Never "widening cannot solve
+  the task"; always "widening **within S0's declared source** cannot". The
+  meaningful claim is that a structure-generating move is required *relative to
+  that starting representation*. `S_blind` is therefore a genuine falsifier,
+  charged its full total cost: if brute widening is cheaper than induced
+  structure, the induction did not earn its complexity (§3.2, §4, R1/O3). The
+  qualifier is now enforced in the artifact, not only the prose —
+  `out/phase0.json` carries `scope` and `does_not_claim` fields and `verify.py`
+  checks both.
+* **A2 — the induction criterion is an invariant, not a mechanism** (§1.2).
+  *bad:* S1 contains the `gap 1` numerical answer. *good:* S1 contains a rule
+  whose concrete displacement is re-derived from the new instance's geometry.
+  Any equivalent general solution counts — row stride, affine displacement,
+  relative-coordinate operator, derived spatial-step function, indexed
+  generator. `PARAMETERIZE` is demoted from definition to one mechanism.
+  Frozen-index failure remains patching, and `gap 2` / `gap 3` still decide.
+  This is §64's lesson one level up: a concrete instantiation is evidence about
+  a schema, never the schema itself.
+* **A3 — every invented cost threshold is removed** (§6). The 10× (C4), 2×
+  (C5) and "strictly below" (C6) cutoffs could not be justified before running
+  and are gone. The primary criterion is now the existence claim C1 ∧ C2 ∧ C3;
+  cost is measured exactly and reported faithfully beside it as R1–R5, with no
+  pass mark. The four affected promises are **amended in place, not deleted**,
+  and record what changed.
+* **A4 — the claim block is stated explicitly** (§1), and the failure modes
+  become seven distinct reported outcomes **O0–O6** (§7.1) rather than a single
+  "fail". The headline of `RESULTS.md` is an outcome id. O6 (induction) neither
+  suppresses nor is weakened by O3–O5 (the cost outcomes): induction can happen
+  and still be the wrong engineering choice, and the record should carry both.
+* **Also adopted: the owner's permanent provenance standard** (§13 Rule 0) —
+  base scaffold digest, split/corpus digests including the blind ones, mutation
+  grammar version digest, producing commit, pre-registration revision. This
+  document's revision is `r2-2026-09-11-owner-rulings`; artifacts carry it and
+  `verify.py` fails when an artifact's revision differs from the code's.

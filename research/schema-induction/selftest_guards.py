@@ -71,6 +71,50 @@ def main():
     case("a provenance block whose parameters were edited after writing is refused",
          edited_parameters)
 
+    def grammar_absent_without_reason():
+        bad = copy.deepcopy(live)
+        bad["provenance"]["grammar_digest"]["absent_because"] = None
+        stamp.present(bad)
+    case("an absent mutation-grammar digest with no reason given is refused",
+         grammar_absent_without_reason)
+
+    def grammar_field_omitted():
+        bad = copy.deepcopy(live)
+        del bad["provenance"]["grammar_digest"]
+        stamp.present(bad)
+    case("an OMITTED mutation-grammar digest is refused (omission is not absence)",
+         grammar_field_omitted)
+
+    def no_revision():
+        bad = copy.deepcopy(live)
+        bad["provenance"]["revision"] = ""
+        stamp.present(bad)
+    case("a missing pre-registration revision is refused", no_revision)
+
+    def no_commit():
+        bad = copy.deepcopy(live)
+        bad["provenance"]["commit"] = {"head": None}
+        stamp.present(bad)
+    case("a missing producing commit is refused", no_commit)
+
+    def base_omitted():
+        bad = copy.deepcopy(live)
+        del bad["provenance"]["base_digest"]
+        stamp.present(bad)
+    case("an omitted base scaffold digest is refused", base_omitted)
+
+    def base_edited():
+        bad = copy.deepcopy(live)
+        bad["provenance"]["base"]["step_offsets"] = [6, 51, 3, 48, 96]
+        stamp.present(bad)
+    case("a base scaffold edited after the artifact was written is refused", base_edited)
+
+    def splits_edited():
+        bad = copy.deepcopy(live)
+        bad["provenance"]["splits"]["gap1.admission"] = "0" * 64
+        stamp.present(bad)
+    case("a split digest edited after the artifact was written is refused", splits_edited)
+
     case("an input digest that disagrees with disk is refused",
          lambda: stamp.require(live, inputs={"episodes_gap0.file": "0" * 64}))
 

@@ -15,12 +15,17 @@ Three things are established here, all with exact integers:
       narrowing of options (coordinator, 2026-09-10): no re-selection inside
       S0's pools can succeed, because the required displacement is not sayable.
 
-  V3  WIDEN-INSUFFICIENCY.  The declared generic literal source L of the
-      `WIDEN` family is the set of integer constants the scaffold already
-      declares. The check is `max(L union S0_offsets) < min(required)`, so no
-      finite sequence of `WIDEN` edits over L can reach the repair. If this
-      fails the experiment has collapsed into "restore a candidate" and the
-      design must change before anything else runs (F2).
+  V3  WIDENING WITHIN S0's DECLARED SOURCE IS INSUFFICIENT.  Note the
+      qualifier, which is load-bearing and belongs in every statement of this
+      result (owner, 2026-09-11): the claim is NOT "widening cannot solve the
+      task". Unrestricted widening reaches the answer and is a first-class
+      comparator (`S_blind`), charged its full total cost. The claim is that
+      relative to S0's *starting representation* -- the integer constants that
+      scaffold already declares -- some structure-generating move is required.
+      The check is `max(L union S0_offsets) < min(required)`, so no finite
+      sequence of `WIDEN` edits over L can reach the repair. If this fails the
+      experiment has collapsed into "restore a candidate" and the design must
+      change before anything else runs (F2).
 
   V8  COST PILOT.  The exact 48-episode conformer counter's wall clock as a
       function of the step pool's size, so the per-arm budget in
@@ -50,6 +55,7 @@ FLAGSHIP = ROOT / "research" / "integrated-flagship"
 OUT = HERE / "out"
 
 WIDTH = 16
+N_TRAIN = 12            # §5: the flagship's `split="train"` episodes, indices 0-11
 N_PIXELS = 256
 RAW = 3 * N_PIXELS
 ADMISSION_GAPS = (0, 1)
@@ -186,8 +192,13 @@ def v3_widen(expressivity):
             "min_required_offset": need,
             "reachable_and_required": sorted(set(reach) & required),
             "holds": max(reach) < need and not (set(reach) & required),
+            "scope": "within S0's declared literal source only",
             "reading": ("no finite sequence of WIDEN edits over the scaffold's own "
-                        "declared integer constants can reach the `gap 1` repair")}
+                        "declared integer constants can reach the `gap 1` repair; "
+                        "this is a statement about S0's starting representation, "
+                        "NOT a claim that widening cannot solve the task -- "
+                        "unrestricted widening reaches it and is the `S_blind` arm"),
+            "does_not_claim": "that unrestricted widening fails"}
 
 
 def v8_pilot(sizes):
@@ -224,12 +235,20 @@ def provenance(sizes, pilot):
     Obtained by running, never back-filled: `stamp.write` refuses an artifact
     that already carries a block, and there is no function that adds one.
     """
-    inputs = {}
+    inputs, splits = {}, {}
     for gap in ADMISSION_GAPS:
         path = FLAGSHIP / "out" / f"episodes_gap{gap}.json"
         payload = json.loads(path.read_text())
+        episodes = payload["episodes"]
         inputs[f"episodes_gap{gap}.file"] = stamp.digest_file(path)
-        inputs[f"episodes_gap{gap}.split"] = stamp.digest_episodes(payload["episodes"])
+        inputs[f"episodes_gap{gap}.split"] = stamp.digest_episodes(episodes)
+        splits[f"gap{gap}.train"] = stamp.digest_episodes(episodes[:N_TRAIN])
+        splits[f"gap{gap}.admission"] = stamp.digest_episodes(episodes[N_TRAIN:])
+    splits["gap2.final"] = None      # blind: not built, not read, not digestible yet
+    splits["gap3.final"] = None
+    base = {"schema": "S0", "step_offsets": list(S0_OFFSETS), "step_ops": list(S0_OPS),
+            "step_bases": list(S0_BASES), "source":
+                "research/integrated-flagship/family.py pools('schema', 16)"}
     parameters = {"width": WIDTH, "n_pixels": N_PIXELS, "raw": RAW,
                   "admission_gaps": list(ADMISSION_GAPS), "relations": list(RELATIONS),
                   "s0_offsets": list(S0_OFFSETS), "s0_ops": list(S0_OPS),
@@ -238,7 +257,8 @@ def provenance(sizes, pilot):
                   "widen_source": list(WIDEN_SOURCE),
                   "pilot": pilot, "pilot_sizes": list(sizes) if pilot else None}
     return stamp.make("phase0", inputs, parameters,
-                      [HERE / "phase0.py", HERE / "stamp.py"])
+                      [HERE / "phase0.py", HERE / "stamp.py"],
+                      base=base, splits=splits)
 
 
 def main():

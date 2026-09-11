@@ -1,7 +1,7 @@
 {
  "phase": "phase0",
  "provenance": {
-  "format": "schema-induction/provenance-1",
+  "format": "schema-induction/provenance-2",
   "kind": "phase0",
   "inputs": {
    "episodes_gap0.file": "e81d43f84a10b5e520f1609bbda3086a06024281d3007c1c8e418430523cb240",
@@ -67,14 +67,54 @@
   },
   "parameters_digest": "20a698a742801dc801d728c87eec635656b60d82ead5a58b51f5a405b407df68",
   "sources": {
-   "research/schema-induction/phase0.py": "587efe654d21e72e69af69041b4ee7f9e0ec4a31710a3995e29538fdab83ce73",
-   "research/schema-induction/stamp.py": "f11feb2fe77bc911640f5a574d416696ea6fd8a4f45ade817065c49fdc1fc1c8"
+   "research/schema-induction/phase0.py": "81a47c6adf3eaba64f622c621ea4569b2e7e84692b7a501d30df13a5ac4a7abd",
+   "research/schema-induction/stamp.py": "bab7a04f992fc9e04a9d4bf750f70d09eea2e226e1c1f5537661e0bc6910a321"
   },
-  "git": {
-   "head": "5978f1fe98dbcea00fef1c826741f93b676f9182",
+  "base_digest": "8c460d759698bcf9ff9039a52d897414651a1af306ff66ed125b3a8a4f12c7cd",
+  "base": {
+   "schema": "S0",
+   "step_offsets": [
+    6,
+    51,
+    3,
+    48,
+    9
+   ],
+   "step_ops": [
+    "add",
+    "sub"
+   ],
+   "step_bases": [
+    "lo",
+    "hi"
+   ],
+   "source": "research/integrated-flagship/family.py pools('schema', 16)"
+  },
+  "splits_digest": "14131e398a96674b3d9067aee71cdf0f54a8cf42fa9adebaf71f1009c7ca20ee",
+  "splits": {
+   "gap0.train": "b743051f5864c828f6a1baaf3a15bcba1e1a61477b5c92ae298a8a1264354c13",
+   "gap0.admission": "f98dc911f0772d3cce293b0b6392ee92efee84eb0b3bca2514f3f9939524fd9c",
+   "gap1.train": "901da5856c93d2d848731548d0d884e17f389d3e66a7b8558ed3f3cb71193307",
+   "gap1.admission": "69573c0b18cec87535756ca5084eb31fa104862fe0285fbfce2268319a987e06",
+   "gap2.final": null,
+   "gap3.final": null
+  },
+  "grammar_digest": {
+   "digest": null,
+   "version": null,
+   "absent_because": "no mutation grammar existed when this artifact was produced (phase 0 precedes the grammar)"
+  },
+  "revision": "r2-2026-09-11-owner-rulings",
+  "prereg_digest": "2d36d94c921449ac1ce908d093ea22ff166a117c07d8b5ac5b4939742d151ad7",
+  "commit": {
+   "head": "3e8605207a75a419392f3f7490c33c229445927d",
    "dirty": true
   },
-  "written_unix": 1789095616.6004543,
-  "written_utc": "2026-09-11T03:00:16Z"
+  "git": {
+   "head": "3e8605207a75a419392f3f7490c33c229445927d",
+   "dirty": true
+  },
+  "written_unix": 1789123869.5360003,
+  "written_utc": "2026-09-11T10:51:09Z"
  }
 }
