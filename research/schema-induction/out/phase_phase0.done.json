@@ -67,8 +67,14 @@
   },
   "parameters_digest": "20a698a742801dc801d728c87eec635656b60d82ead5a58b51f5a405b407df68",
   "sources": {
-   "research/schema-induction/phase0.py": "81a47c6adf3eaba64f622c621ea4569b2e7e84692b7a501d30df13a5ac4a7abd",
-   "research/schema-induction/stamp.py": "bab7a04f992fc9e04a9d4bf750f70d09eea2e226e1c1f5537661e0bc6910a321"
+   "research/schema-induction/phase0.py": {
+    "digest": "81a47c6adf3eaba64f622c621ea4569b2e7e84692b7a501d30df13a5ac4a7abd",
+    "tracked": true
+   },
+   "research/schema-induction/stamp.py": {
+    "digest": "de40b75496cc0f6d25ec114ed198a7dc7672957a4c6611cb85aa9049b7710c36",
+    "tracked": true
+   }
   },
   "base_digest": "8c460d759698bcf9ff9039a52d897414651a1af306ff66ed125b3a8a4f12c7cd",
   "base": {
@@ -104,17 +110,33 @@
    "version": null,
    "absent_because": "no mutation grammar existed when this artifact was produced (phase 0 precedes the grammar)"
   },
-  "revision": "r2-2026-09-11-owner-rulings",
-  "prereg_digest": "2d36d94c921449ac1ce908d093ea22ff166a117c07d8b5ac5b4939742d151ad7",
+  "revision": "r3-2026-09-11-clean-producer-and-structural-c3",
+  "prereg_digest": "3e03426af0411e97d137b9bb356429e5e089d3280a67d6d1a83b1c7d4795af29",
   "commit": {
-   "head": "3e8605207a75a419392f3f7490c33c229445927d",
-   "dirty": true
+   "head": "16be85ae5e3253c53e912c254d10bd96920e3646",
+   "dirty": true,
+   "dirty_tracked_paths": [
+    "D research/schema-induction/out/phase0.json",
+    " M research/schema-induction/out/phase0_pilot.log",
+    " D research/schema-induction/out/phase_phase0.done.json",
+    " D research/schema-induction/out/verify.json"
+   ],
+   "untracked_count": 0,
+   "dirty_means": "tracked modifications only; untracked outputs do not count, and untracked SOURCES are refused by `present`"
   },
   "git": {
-   "head": "3e8605207a75a419392f3f7490c33c229445927d",
-   "dirty": true
+   "head": "16be85ae5e3253c53e912c254d10bd96920e3646",
+   "dirty": true,
+   "dirty_tracked_paths": [
+    "D research/schema-induction/out/phase0.json",
+    " M research/schema-induction/out/phase0_pilot.log",
+    " D research/schema-induction/out/phase_phase0.done.json",
+    " D research/schema-induction/out/verify.json"
+   ],
+   "untracked_count": 0,
+   "dirty_means": "tracked modifications only; untracked outputs do not count, and untracked SOURCES are refused by `present`"
   },
-  "written_unix": 1789123869.5360003,
-  "written_utc": "2026-09-11T10:51:09Z"
+  "written_unix": 1789133392.770596,
+  "written_utc": "2026-09-11T13:29:52Z"
  }
 }

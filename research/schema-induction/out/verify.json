@@ -1,7 +1,7 @@
 {
  "format": "schema-induction/verify-1",
- "n_pass": 71,
- "n_fail": 0,
+ "n_pass": 67,
+ "n_fail": 8,
  "results": [
   {
    "pass": true,
@@ -9,24 +9,14 @@
    "detail": "verify.json, headline.json"
   },
   {
-   "pass": true,
+   "pass": false,
    "claim": "V9 provenance: phase0.json carries a stamp",
-   "detail": "6 recorded input/source field(s)"
+   "detail": "produced from a dirty tree: an evidence artifact must come from a clean source state. Commit the code and pre-registration, re-run, then commit the outputs"
   },
   {
-   "pass": true,
-   "claim": "V9 provenance: phase0.json inputs and sources unchanged",
-   "detail": "5 field(s) compared"
-  },
-  {
-   "pass": true,
+   "pass": false,
    "claim": "V9 provenance: phase_phase0.done.json carries a stamp",
-   "detail": "6 recorded input/source field(s)"
-  },
-  {
-   "pass": true,
-   "claim": "V9 provenance: phase_phase0.done.json inputs and sources unchanged",
-   "detail": "5 field(s) compared"
+   "detail": "produced from a dirty tree: an evidence artifact must come from a clean source state. Commit the code and pre-registration, re-run, then commit the outputs"
   },
   {
    "pass": true,
@@ -61,12 +51,22 @@
   {
    "pass": true,
    "claim": "S1 standard: phase0.json's revision matches this code's",
-   "detail": "r2-2026-09-11-owner-rulings vs r2-2026-09-11-owner-rulings"
+   "detail": "r3-2026-09-11-clean-producer-and-structural-c3 vs r3-2026-09-11-clean-producer-and-structural-c3"
   },
   {
    "pass": true,
    "claim": "S1 standard: phase0.json records a producing commit",
-   "detail": "3e8605207a75"
+   "detail": "16be85ae5e32"
+  },
+  {
+   "pass": false,
+   "claim": "S1 standard: phase0.json was produced from a CLEAN tree",
+   "detail": "['D research/schema-induction/out/phase0.json', ' M research/schema-induction/out/phase0_pilot.log', ' D research/schema-induction/out/phase_phase0.done.json', ' D research/schema-induction/out/verify.json']"
+  },
+  {
+   "pass": true,
+   "claim": "S1 standard: phase0.json's sources were all tracked",
+   "detail": "all tracked"
   },
   {
    "pass": true,
@@ -111,12 +111,22 @@
   {
    "pass": true,
    "claim": "S1 standard: phase_phase0.done.json's revision matches this code's",
-   "detail": "r2-2026-09-11-owner-rulings vs r2-2026-09-11-owner-rulings"
+   "detail": "r3-2026-09-11-clean-producer-and-structural-c3 vs r3-2026-09-11-clean-producer-and-structural-c3"
   },
   {
    "pass": true,
    "claim": "S1 standard: phase_phase0.done.json records a producing commit",
-   "detail": "3e8605207a75"
+   "detail": "16be85ae5e32"
+  },
+  {
+   "pass": false,
+   "claim": "S1 standard: phase_phase0.done.json was produced from a CLEAN tree",
+   "detail": "['D research/schema-induction/out/phase0.json', ' M research/schema-induction/out/phase0_pilot.log', ' D research/schema-induction/out/phase_phase0.done.json', ' D research/schema-induction/out/verify.json']"
+  },
+  {
+   "pass": true,
+   "claim": "S1 standard: phase_phase0.done.json's sources were all tracked",
+   "detail": "all tracked"
   },
   {
    "pass": true,
@@ -129,14 +139,24 @@
    "detail": "['gap0.admission', 'gap0.train', 'gap1.admission', 'gap1.train', 'gap2.final', 'gap3.final']"
   },
   {
-   "pass": true,
+   "pass": false,
+   "claim": "S2 clean producer: phase0.json passes the fail-closed gate",
+   "detail": "produced from a dirty tree: an evidence artifact must come from a clean source state. Commit the code and pre-registration, re-run, then commit the outputs"
+  },
+  {
+   "pass": false,
+   "claim": "S2 clean producer: phase_phase0.done.json passes the fail-closed gate",
+   "detail": "produced from a dirty tree: an evidence artifact must come from a clean source state. Commit the code and pre-registration, re-run, then commit the outputs"
+  },
+  {
+   "pass": false,
    "claim": "V10 promises: every promise whose phase has run is implemented",
-   "detail": "['30 promises, 8 kept, 22 pending, 0 failures']"
+   "detail": "['  FAIL F2: artifact out/phase0.json -- produced from a dirty tree: an evidence artifact must come from a clean source state. Commit the code and pre-registration, re-run, then commit the outputs']"
   },
   {
    "pass": true,
    "claim": "V11 guards: every provenance guard refuses its failure case",
-   "detail": "['20 PASS, 0 FAIL']"
+   "detail": "['23 PASS, 0 FAIL']"
   },
   {
    "pass": true,
@@ -331,27 +351,27 @@
   {
    "pass": true,
    "claim": "V8: \u00a710's declared band \u2014 intercept in [45, 85] s",
-   "detail": "54.9 s"
+   "detail": "64.1 s"
   },
   {
    "pass": true,
    "claim": "V8: \u00a710's declared band \u2014 slope in [0.8, 1.4] s per step candidate",
-   "detail": "0.9594 s"
+   "detail": "1.3235 s"
   },
   {
-   "pass": true,
+   "pass": false,
    "claim": "V8: \u00a710's residual bound (< 3 s) holds",
-   "detail": "0.32 s"
+   "detail": "7.10 s"
   },
   {
    "pass": true,
    "claim": "V8: the counter is affine in the step pool, not superlinear (the 80-candidate point is within 10% of the 20/40 extrapolation)",
-   "detail": "131.6 s measured"
+   "detail": "167.6 s measured"
   },
   {
    "pass": true,
    "claim": "V8: \u00a710's peak RSS bound (< 0.5 GB) and the floor it implies (< 8 GB, the declared MemoryMax)",
-   "detail": "peak 0.384 GB, floor 7.7 GB"
+   "detail": "peak 0.383 GB, floor 7.7 GB"
   },
   {
    "pass": true,
@@ -363,13 +383,14 @@
   "format": "schema-induction/provenance-2",
   "kind": "verify",
   "inputs": {
-   "phase0.json": "48cf82f305860260a2aa3d46a65603719e0099ff816a6af62449a81ae570ce9c",
-   "phase_phase0.done.json": "ea52da744c869740109b31681c3315ccb0bfae1842829947090521463e7bea9d"
+   "phase0.json": "372a83822562c657824b0516ad2b44768de23a87eeab1896d83196c306b53bd1",
+   "phase_phase0.done.json": "073755a4ea91aa48822084354dfca28a494a48efa7c9d3836921c149fa7fcac3"
   },
   "parameters": {
    "checks": [
     "verify_v9_provenance",
     "verify_s1_provenance_standard",
+    "verify_s2_clean_producer",
     "verify_v10_promises_kept",
     "verify_v11_guards_bite",
     "verify_v2_expressivity",
@@ -382,12 +403,24 @@
     "headline.json"
    ]
   },
-  "parameters_digest": "e6aff0ca619dfb01da5482b0ac3961426955240b71f31e47ac723da453e7ca89",
+  "parameters_digest": "e1c05659f84ee8f3f59d30934836bb5c2cb265ee57254d1e2e415cfdb39fc626",
   "sources": {
-   "research/schema-induction/verify.py": "ff34ebc2b98cc461457c6be86d3a6fbf10af598863fbf7b1a718050178a5598f",
-   "research/schema-induction/stamp.py": "bab7a04f992fc9e04a9d4bf750f70d09eea2e226e1c1f5537661e0bc6910a321",
-   "research/schema-induction/check_promises.py": "43b0394371e3170aa6885a586f44786ad35e1de79e010db51ead1d69a70fe92e",
-   "research/schema-induction/promises.json": "5451e0425665d651ed4330d9a483e7cd121aa1a3b9bc3662eab6c317b5b77b6e"
+   "research/schema-induction/verify.py": {
+    "digest": "7bbae4ee41d2cf5c41e2466e14f54743d1f20ba6a6a2735b39597df30a8a59e5",
+    "tracked": true
+   },
+   "research/schema-induction/stamp.py": {
+    "digest": "de40b75496cc0f6d25ec114ed198a7dc7672957a4c6611cb85aa9049b7710c36",
+    "tracked": true
+   },
+   "research/schema-induction/check_promises.py": {
+    "digest": "43b0394371e3170aa6885a586f44786ad35e1de79e010db51ead1d69a70fe92e",
+    "tracked": true
+   },
+   "research/schema-induction/promises.json": {
+    "digest": "2d3dcd4f3a38ddf55d47fb04e42b0cc9d648828c4f1e4d8c43d7a1bf512a47a9",
+    "tracked": true
+   }
   },
   "base_digest": null,
   "base": null,
@@ -398,17 +431,33 @@
    "version": null,
    "absent_because": "no mutation grammar existed when this artifact was produced (phase 0 precedes the grammar)"
   },
-  "revision": "r2-2026-09-11-owner-rulings",
-  "prereg_digest": "2d36d94c921449ac1ce908d093ea22ff166a117c07d8b5ac5b4939742d151ad7",
+  "revision": "r3-2026-09-11-clean-producer-and-structural-c3",
+  "prereg_digest": "3e03426af0411e97d137b9bb356429e5e089d3280a67d6d1a83b1c7d4795af29",
   "commit": {
-   "head": "3e8605207a75a419392f3f7490c33c229445927d",
-   "dirty": true
+   "head": "16be85ae5e3253c53e912c254d10bd96920e3646",
+   "dirty": true,
+   "dirty_tracked_paths": [
+    "M research/schema-induction/out/phase0.json",
+    " M research/schema-induction/out/phase0_pilot.log",
+    " M research/schema-induction/out/phase_phase0.done.json",
+    " D research/schema-induction/out/verify.json"
+   ],
+   "untracked_count": 0,
+   "dirty_means": "tracked modifications only; untracked outputs do not count, and untracked SOURCES are refused by `present`"
   },
   "git": {
-   "head": "3e8605207a75a419392f3f7490c33c229445927d",
-   "dirty": true
+   "head": "16be85ae5e3253c53e912c254d10bd96920e3646",
+   "dirty": true,
+   "dirty_tracked_paths": [
+    "M research/schema-induction/out/phase0.json",
+    " M research/schema-induction/out/phase0_pilot.log",
+    " M research/schema-induction/out/phase_phase0.done.json",
+    " D research/schema-induction/out/verify.json"
+   ],
+   "untracked_count": 0,
+   "dirty_means": "tracked modifications only; untracked outputs do not count, and untracked SOURCES are refused by `present`"
   },
-  "written_unix": 1789123876.920591,
-  "written_utc": "2026-09-11T10:51:16Z"
+  "written_unix": 1789133405.107325,
+  "written_utc": "2026-09-11T13:30:05Z"
  }
 }

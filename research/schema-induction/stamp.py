@@ -91,26 +91,47 @@ def _git(*args):
                           capture_output=True, text=True, timeout=60)
 
 
-def git_head():
-    """The producing commit, and whether it is an exact snapshot of the sources.
+#: The run's own output surface. Regenerating a committed artifact necessarily
+#: modifies or deletes it, so counting `out/` would make a clean re-run
+#: impossible -- the first attempt at the fail-closed gate failed for exactly
+#: that reason, on deletions this track's own re-run had just made.
+OUTPUT_SURFACE = "research/schema-induction/out/"
 
-    `dirty` counts **tracked** modifications only. A run necessarily creates
-    untracked files -- its own outputs -- and those cannot make their producer
-    dirty without making a clean run impossible. The hole that opens (an
-    untracked *source*, which is in no commit at all) is closed separately:
-    `source_digests` records whether each source file is tracked, and `present`
-    refuses an artifact produced by an untracked source. Together those two
-    mean the producing commit pins a real snapshot of everything that ran.
+
+def git_head():
+    """The producing commit, and whether it is an exact snapshot of the SOURCES.
+
+    What the gate guarantees, stated precisely: **every file that produced this
+    artifact is committed and unmodified.** Three parts:
+
+    * `dirty` counts tracked modifications **outside the run's own output
+      surface**. Outputs are what a run produces; they cannot make their own
+      producer dirty. Modifications inside `out/` are still recorded, in
+      `dirty_outputs`, so nothing is hidden -- they are disclosed, not counted.
+    * untracked files do not count either, for the same reason.
+    * the hole both of those open -- an untracked or modified *source*, which is
+      in no commit -- is closed by `source_digests` recording `tracked` per file
+      and `present` refusing any artifact with an untracked source, plus
+      `require`'s per-source digest comparison.
+
+    So the producing commit pins a real snapshot of the code and the
+    pre-registration, which is what "not an exact snapshot" was about.
     """
     try:
         head = _git("rev-parse", "HEAD").stdout.strip() or None
-        tracked = _git("status", "--porcelain", "--untracked-files=no").stdout.strip()
+        rows = _git("status", "--porcelain", "--untracked-files=no").stdout.splitlines()
+        outputs = [r for r in rows if r[3:].startswith(OUTPUT_SURFACE)]
+        sources = [r for r in rows if not r[3:].startswith(OUTPUT_SURFACE)]
         untracked = _git("ls-files", "--others", "--exclude-standard").stdout.split()
-        return {"head": head, "dirty": bool(tracked),
-                "dirty_tracked_paths": tracked.splitlines(),
+        return {"head": head, "dirty": bool(sources),
+                "dirty_tracked_paths": sources,
+                "dirty_outputs": outputs,
+                "output_surface": OUTPUT_SURFACE,
                 "untracked_count": len(untracked),
-                "dirty_means": "tracked modifications only; untracked outputs do not "
-                               "count, and untracked SOURCES are refused by `present`"}
+                "dirty_means": "tracked modifications to SOURCES (everything outside "
+                               "the run's own out/ directory). Output churn is "
+                               "disclosed in `dirty_outputs`, not counted; untracked "
+                               "SOURCES are refused outright by `present`"}
     except Exception as exc:                                   # noqa: BLE001
         return {"head": None, "dirty": None, "error": repr(exc)}
 

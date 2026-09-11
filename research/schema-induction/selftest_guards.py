@@ -97,6 +97,15 @@ def main():
         stamp.present(bad)
     case("an artifact produced from a DIRTY tree is refused", dirty_producer)
 
+    def dirty_sources_despite_clean_outputs():
+        bad = copy.deepcopy(live)
+        bad["provenance"]["commit"]["dirty"] = True
+        bad["provenance"]["commit"]["dirty_tracked_paths"] = [" M research/schema-induction/grammar.py"]
+        bad["provenance"]["commit"]["dirty_outputs"] = []
+        stamp.present(bad)
+    case("a modified SOURCE is refused even when the outputs are clean",
+         dirty_sources_despite_clean_outputs)
+
     def unknown_dirtiness():
         bad = copy.deepcopy(live)
         bad["provenance"]["commit"]["dirty"] = None

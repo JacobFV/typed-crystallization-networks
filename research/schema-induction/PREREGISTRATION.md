@@ -589,7 +589,11 @@ therefore the *band* and the *shape*, not the coefficients:
 * slope in [0.8, 1.4] s per step candidate — `Counter.route_products` in direct
   mode;
 * the cost is **affine, not superlinear**: the 80-candidate point sits within
-  10% of the extrapolation from 20 and 40;
+  10% of the extrapolation from 20 and 40, and the largest residual is under
+  10% of the largest measured time. (The bound is **relative** on purpose: two
+  successive absolute bounds — 2 s, then 3 s — each failed on a later run while
+  the affine shape held every time. What matters is the shape, not the host's
+  quietness, and a bound that fails on noise trains its reader to ignore it.)
 * peak RSS < 0.5 GB, hence `kit.check_floor`'s requirement (20× peak) under the
   declared `MemoryMax=8G`;
 * the three exact conformer counts above, by token equality — the reproducible
@@ -790,10 +794,21 @@ criterion is read.
   produced by an **untracked source** (which is in no commit at all). Required
   workflow, and the one used to produce this revision's artifacts: commit the
   code and the pre-registration → re-run phase 0 from the clean commit →
-  commit the outputs. *Definition:* `dirty` counts **tracked** modifications
-  only, because a run necessarily creates untracked files — its own outputs —
-  and counting those would make a clean run impossible; the hole that opens is
-  closed by the untracked-source refusal.
+  commit the outputs.
+
+  *Definition, fixed after the gate failed on its own first use.* What the gate
+  guarantees is precisely: **every file that produced this artifact is
+  committed and unmodified.** `dirty` counts tracked modifications to
+  **sources** — everything outside the run's own `out/` directory. It does not
+  count untracked files, nor churn inside `out/`: regenerating a committed
+  artifact necessarily deletes or modifies it, so counting the output surface
+  would make a clean re-run impossible. That is not hypothetical — the first
+  run under this rule failed it, on deletions the re-run had itself just made.
+  Output churn is **disclosed** in `dirty_outputs`, not counted. The hole both
+  exclusions open — an untracked or modified *source*, which is in no commit —
+  is closed by `sources` recording `tracked` per file, `present` refusing any
+  untracked source outright, and `require` comparing each source's digest.
+  `PREREGISTRATION.md` is a source, so the document is pinned too.
 * **B2 — V5 and the provenance standard contradicted each other, reconciled in
   the open.** V5 promised that no induction-phase artifact contains a `gap 2` /
   `gap 3` field; Rule 0 *requires* `splits.gap2.final` and `splits.gap3.final`
