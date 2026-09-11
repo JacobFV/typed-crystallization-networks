@@ -1359,6 +1359,67 @@ def checks_early_sections() -> None:
                   and dig(J(fh), "generalize_gap1.N''.generalize") == 0,
                   "gap0 %s/400, gap1 %s/400" % (dig(J(fh), "generalize_gap0.N''.generalize"),
                                                 dig(J(fh), "generalize_gap1.N''.generalize"))), fh)
+    # §66 -- repairing narrowed scaffolds; inherited edit history vs no library
+    s66 = S("66")
+    sv, sh, sa, sf = ("research/scaffold-induction/out/verify.json",
+                      "research/scaffold-induction/out/headline.json",
+                      "research/scaffold-induction/out/analysis.json",
+                      "research/scaffold-induction/out/final_scores.json")
+    claim("§66/verifier-pass", sec_ids(66), s66, r"`verify\.py` reports (\d+) PASS, 0 FAIL",
+          lambda: J(sv)["pass"], sv)
+    claim("§66/c1-ratio", sec_ids(66), s66, r"a ratio of ([\d.]+)×, not the pre-registered",
+          lambda: dig(J(sh), "criteria.ratios.N/N''"), sh, tol=0.001)
+    fact("§66/criterion-not-met", sec_ids(66), s66, r"criterion is NOT MET, in both domains",
+         lambda: (J(sh)["criteria"]["met"] is False
+                  and not any(J(sh)["criteria"]["met_per_domain"].values()),
+                  "met=%s, per-domain %s" % (J(sh)["criteria"]["met"],
+                                             J(sh)["criteria"]["met_per_domain"])), sh)
+    fact("§66/distractors-worse", sec_ids(66), s66, r"both distractors cost ~2\.5× N″",
+         lambda: (J(sh)["criteria"]["C4_D1_fails_C1"] is True
+                  and min(J(sh)["criteria"]["ratios"]["D1/N''"],
+                          J(sh)["criteria"]["ratios"]["D2/N''"]) > 2.0,
+                  "D1 %.2f, D2 %.2f" % (J(sh)["criteria"]["ratios"]["D1/N''"],
+                                        J(sh)["criteria"]["ratios"]["D2/N''"])), sh)
+    ROW66 = {("bool", "N''"): r"N″ — learned prior \| ([\d.]+)",
+             ("bool", "N"): r"N — no library \| ([\d.]+)",
+             ("bool", "H2"): r"H2 — one-line hand rule \| ([\d.]+)",
+             ("rel", "N''"): r"N″ — learned prior \| [\d.]+ \(worse than nothing\) \| ([\d.]+)",
+             ("rel", "N"): r"N — no library \| [\d.]+ \| ([\d.]+)"}
+    for (dom, arm), pat in ROW66.items():
+        claim("§66/%s-%s" % (dom, arm.replace("'", "p")), sec_ids(66), s66, pat,
+              lambda d=dom, a=arm: dig(J(sa), "per_domain.%s.mean_cost.%s" % (d, a)), sa, tol=0.01)
+    fact("§66/oracle-uncaptured", sec_ids(66), s66, r"ORACLE = 1\.00 against a best arm of 18\.59",
+         lambda: (dig(J(sa), "per_domain.rel.mean_cost.ORACLE") == 1.0
+                  and abs(min(v for k, v in dig(J(sa), "per_domain.rel.mean_cost").items()
+                              if k != "ORACLE") - 18.59) < 0.01,
+                  "oracle 1.00, best non-oracle %.2f" % min(
+                      v for k, v in dig(J(sa), "per_domain.rel.mean_cost").items() if k != "ORACLE")), sa)
+    fact("§66/blind-split", sec_ids(66), s66, r"generalizes 28/28 for every arm",
+         lambda: (all(t_["M1"]["generalizes"] == 28 and t_["M1"]["of"] == 28
+                      for t_ in J(sf)["tally"].values())
+                  and all(t_["M2"]["generalizes"] == 19
+                          for a_, t_ in J(sf)["tally"].items() if a_ != "ORACLE"),
+                  "M1 %s; M2 (non-oracle) %s" % (
+                      sorted({t_["M1"]["generalizes"] for t_ in J(sf)["tally"].values()}),
+                      sorted({t_["M2"]["generalizes"] for a_, t_ in J(sf)["tally"].items()
+                              if a_ != "ORACLE"}))), sf)
+
+    def _fam(dom):
+        cs = [c for c in J(sa)["cases"] if c["case_id"].startswith(dom)]
+        return cs, {f for c in cs for f in c["repair_families"]}
+
+    fact("§66/add-path-dead", sec_ids(66), s66, r"`ADD_PATH` repairs zero cases in either domain",
+         lambda: (all("ADD_PATH" not in _fam(d)[1] for d in ("bool", "rel")),
+                  "bool %s | rel %s" % (sorted(_fam("bool")[1]), sorted(_fam("rel")[1]))), sa)
+    fact("§66/add-node-is-bool-specific", sec_ids(66), s66,
+         r"repairs zero of\s*9 in `bool` but appears in the repair set of 19 of 19 `rel` cases",
+         lambda: ("ADD_NODE" not in _fam("bool")[1] and len(_fam("bool")[0]) == 9
+                  and sum("ADD_NODE" in c["repair_families"] for c in _fam("rel")[0]) == 19
+                  and len(_fam("rel")[0]) == 19,
+                  "bool %d cases without ADD_NODE; rel %d/%d with it" % (
+                      len(_fam("bool")[0]),
+                      sum("ADD_NODE" in c["repair_families"] for c in _fam("rel")[0]),
+                      len(_fam("rel")[0]))), sa)
     cp, dw = "research/language-post-audit/control_preaudit.json", "research/language-post-audit/dyck_p22_c95-110.json"
     s45 = S("45")
     claim("§45/window-conforming", sec_ids(45), s45, r"exhausted, (\d+) conforming, certificate `complete`", lambda: _enum(J(dw))["conforming"], dw)

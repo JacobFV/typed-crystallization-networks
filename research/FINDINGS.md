@@ -3791,3 +3791,73 @@ resolution 16; `gap 1` is the only second configuration.]
 
 **Resources.** Every job ran inside the capped scope; peak RSS 4.25 GB, and the
 25 GB floor never blocked a phase (0 refusals in 69 starts).
+
+## 66. Inherited edit history does not beat no library at repairing narrowed scaffolds — and where it helps, it is choosing *where* to edit
+
+`research/scaffold-induction/RESULTS.md`, merged as `HEAD`; `tcn/` and
+`generators/` untouched. `PREREGISTRATION.md` committed before any arm, with
+every later change a numbered amendment (A1–A20). `verify.py` reports 169 PASS,
+0 FAIL. Verified here from raw JSON.
+
+**Scope, stated before the result.** The defect generator only *narrows*
+scaffolds, so this measures **repair of synthetically narrowed scaffolds**, not
+scaffold induction: re-widening is the natural inverse of a narrowing, and a
+prior that learns "prefer `WIDEN`" has learned a fact about the generator.
+`ADD_PATH` repairs **zero** cases in either domain. `ADD_NODE` repairs **zero of
+9** in `bool` but appears in the repair set of **19 of 19** `rel` cases — so the
+dead structural family is a property of `bool`'s single-site scaffold, **not of
+the generator**, exactly as pre-registered amendment A15 required be reported if
+a structural family repaired anywhere. Testing structural repair still needs
+defects that remove *expressiveness*, which is §65's `gap 1` one level up and the
+next track's subject.
+
+**The pre-registered criterion is NOT MET, in both domains.** Mean exact expected
+edits to the first repair, macro-pooled (equal weight per domain, A12):
+N″ (schema + learned cross-domain prior) 35.24 against N (no library) 36.81 —
+a ratio of **1.045×**, not the pre-registered ≤0.5×. C2 also fails (N′/N″ 1.036:
+the edit-family class is organisational reuse). **C4 passes**: both distractors
+cost ~2.5× N″, so the ordering is not an artifact of the tiering — answered from
+data, not from construction, unlike §65's vacuous distractor.
+
+**The per-domain split is the finding, and A12 fixed its reading in advance.**
+
+| arm | `bool` — 9 cases, **1 defect site** | `rel` — 19 cases, **4 sites** |
+|---|---|---|
+| N — no library | 48.90 | 24.72 |
+| N″ — learned prior | **51.89** (worse than nothing) | **18.59** (1.33× better) |
+| H2 — one-line hand rule | **19.74** (best) | 50.17 |
+| ORACLE | 1.00 | 1.00 |
+
+Where every defect sits at one node, the prior is worse than no library and the
+one-line rule *prefer output-adjacent edits* beats everything. Where defects
+spread over four sites, the prior leads — below the bar, but only there. A12
+wrote before the arms ran that a prior helping only where site structure exists
+is discriminating on **where to edit**, not **what edit to make**; that is what
+happened. It is evidence that the reusable object is a constraint on the search
+language rather than a preference over candidates (§60, §64, §65).
+
+**ORACLE = 1.00 against a best arm of 18.59.** The orderable signal is present
+and essentially uncaptured — by the learned prior, by both hand rules, by
+everything tried. That is stronger than "the library does not help": the
+information exists and ten domain-general features do not express it.
+
+**The blind split, read once, at scoring.** A repair admitted on
+`train ∪ admission` generalizes **28/28** for every arm; the first merely
+*training-conforming* edit generalizes **19/28**, identically across arms that
+each select different edits. §65's mis-specified-metric trap, measured directly.
+
+**Method corrections this track paid for** (`docs/CORRECTIONS.md`, and the
+amendments): a declared enumeration bound was deleting the repairs it was meant
+to be neutral about (9 of 11 `bool` cases were false "no repair" verdicts); a
+prose-number guard was checking ~4% of the document; an amendment promised three
+mechanical checks that were never implemented; a superseded validation
+reappeared in a *cleaned* directory and was nearly reported as current. The rule
+that covers them: **a claim about the verifier belongs inside the verifier**, and
+every evidence artifact carries provenance for what produced it.
+
+[single-configuration evidence: two domains, one scaffold each, one defect
+generator, one narrowing defect family set; `arith` was cancelled on cost before
+any arm was read (A17) and is an absence, not a negative.]
+
+**Resources.** Both resource gates fail closed in code after the human-enforced
+worker cap was breached within the hour; peak RSS 0.225 GB.

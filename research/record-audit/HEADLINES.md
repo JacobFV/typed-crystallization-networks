@@ -199,3 +199,10 @@ these figures is checked against this value by the gate (`verify.py --gate`). Qu
 | §64 | `§64/verifier-pass` | 141 | `research/visual-width-reuse/out/verify.json` |
 | §65 | `§65/c1-ratio` | 10925.4 | `research/integrated-flagship/out/headline.json` |
 | §65 | `§65/verifier-pass` | 493 | `research/integrated-flagship/out/verify.json` |
+| §66 | `§66/bool-H2` | 19.7407 | `research/scaffold-induction/out/analysis.json` |
+| §66 | `§66/bool-N` | 48.8963 | `research/scaffold-induction/out/analysis.json` |
+| §66 | `§66/bool-Npp` | 51.8889 | `research/scaffold-induction/out/analysis.json` |
+| §66 | `§66/c1-ratio` | 1.0445 | `research/scaffold-induction/out/headline.json` |
+| §66 | `§66/rel-N` | 24.718 | `research/scaffold-induction/out/analysis.json` |
+| §66 | `§66/rel-Npp` | 18.5877 | `research/scaffold-induction/out/analysis.json` |
+| §66 | `§66/verifier-pass` | 169 | `research/scaffold-induction/out/verify.json` |
