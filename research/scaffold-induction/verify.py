@@ -178,6 +178,15 @@ def main():
               all(e["certificate_all"] == "complete"
                   for x in adm for e in x["edits"]
                   if e["decided"] and not e["repair"]))
+        # A corpus that was killed mid-run is a partial corpus.  It is allowed to
+        # exist -- it is written deliberately so a kill costs one defect -- but it
+        # must never silently become the corpus an arm is costed on.
+        claim(f"{d}: the corpus was not stopped by a signal",
+              c.get("stopped_by_signal") is None,
+              f"stopped_by_signal={c.get('stopped_by_signal')}, "
+              f"last defect started {c.get('last_defect_started')}")
+        claim(f"{d}: the corpus records whether its defect list was exhausted",
+              "complete" in c, "no `complete` field")
 
     # ---- layer 2a2: the episode budgets are the ones the rule chose (A8)
     sw = J("episode_sweep")

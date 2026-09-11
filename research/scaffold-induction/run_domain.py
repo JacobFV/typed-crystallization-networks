@@ -20,6 +20,8 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import signal
+import sys
 import time
 
 import kit
@@ -156,6 +158,19 @@ def name_for(a):
     return f"cases_{a.domain}" + (f"_s{a.shard}" if a.of > 1 else "")
 
 
+class Stopped(Exception):
+    """Raised when the process is asked to stop, so the partial corpus is saved."""
+
+
+def install_stop_handler(state):
+    """A shard killed by the cap or by a stop must leave a record, not a gap."""
+    def handler(signum, _frame):
+        state["stopped_by_signal"] = signal.Signals(signum).name
+        raise Stopped(signal.Signals(signum).name)
+    for sig in (signal.SIGTERM, signal.SIGINT):
+        signal.signal(sig, handler)
+
+
 APPLY = {"drop_operator": lambda p, r, s, a: E.drop_operator(p, r, s, a),
          "drop_source": lambda p, r, s, a: E.drop_source(p, r, s, a),
          "keep_prefix": lambda p, r, s, a: E.keep_prefix(p, r, s, a),
@@ -190,18 +205,33 @@ def main():
 
     defects = enumerate_defects(base, r, [nd.name for nd in base.nodes])
     report["defects_tried"] = len(defects)
+    report["stopped_by_signal"] = None
+    report["last_defect_started"] = None
+    report["complete"] = False
     mine = [x for i, x in enumerate(defects) if i % a.of == a.shard]
+    install_stop_handler(report)
 
-    for kind, site, arg in mine:
+    def checkpoint():
+        """Write after every defect, so a kill costs one defect, not the corpus."""
+        report["seconds"] = time.perf_counter() - t0
+        report["peak_rss_gb"] = round(kit.peak_rss_gb(), 3)
+        kit.dump(name_for(a), report)
+
+    try:
+      for kind, site, arg in mine:
         if report["admitted"] >= a.max_cases:
             break
+        report["last_defect_started"] = f"{kind}:{site}:{arg}"
+        print(f"  [start] {report['last_defect_started']}", flush=True)
         failed = APPLY[kind](base, r, site, arg)
         if failed is None:
             report["rejected_invalid"] += 1
+            checkpoint()
             continue
         tr = decide(failed, train, sig, r)
         if not tr["decided"] or tr["conforming"] or not tr["exhausted"]:
             report["rejected_solvable_on_train"] += 1
+            checkpoint()
             continue
         case_id = f"{a.domain}:{kind}:{site}:{arg}"
         es = E.enumerate_edits(failed, r)
@@ -239,6 +269,7 @@ def main():
                                     "failed": tr, "n_edits": len(rows),
                                     "n_repairs": 0,
                                     "n_undecided": sum(1 for x in rows if not x["decided"])})
+            checkpoint()
             continue
         report["admitted"] += 1
         report["cases"].append({
@@ -251,17 +282,17 @@ def main():
         print(f"  {case_id}: {len(rows)} edits, {n_rep} repairs, "
               f"{report['cases'][-1]['n_undecided']} undecided "
               f"[{time.perf_counter() - t0:.0f}s]", flush=True)
-        # Written after every admitted case, so a run that is stopped early
-        # still leaves a usable, self-describing corpus.
-        report["seconds"] = time.perf_counter() - t0
-        report["peak_rss_gb"] = round(kit.peak_rss_gb(), 3)
-        report["complete"] = False
-        kit.dump(name_for(a), report)
+        checkpoint()
 
-    report["seconds"] = time.perf_counter() - t0
-    report["peak_rss_gb"] = round(kit.peak_rss_gb(), 3)
+    except Stopped as exc:
+        checkpoint()
+        print(f"STOPPED by {exc}: partial corpus written to "
+              f"{name_for(a)}.json with stopped_by_signal set", flush=True)
+        sys.exit(143)
+
     report["complete"] = True
-    print("wrote", kit.dump(name_for(a), report))
+    checkpoint()
+    print("wrote", kit.OUT / (name_for(a) + ".json"))
 
 
 if __name__ == "__main__":
