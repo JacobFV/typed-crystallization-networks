@@ -89,6 +89,7 @@ def choose(rows):
 
 
 def main():
+    kit.check_workers(1)
     kit.check_floor("episode_sweep")
     out = {"rule": ("the smallest budget whose admissible defect SET is "
                     "identical at B, 2B and 4B"),

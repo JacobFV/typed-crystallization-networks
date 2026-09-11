@@ -306,6 +306,43 @@ def percase():
                  [x for x in ARMS], rows)
 
 
+def pressure():
+    h = kit.load("host_pressure")
+    m = kit.load("mem_arith")
+    peak = max(m["peak_rss_gb"].values())
+    rows = [["measured peak RSS of the heaviest phase (build a domain, enumerate "
+             "a case's typed edits, decide them)", f"{peak:.3f} GB"],
+            ["candidates held at once across every edited program of one case",
+             f"{m['total_candidates_held']:,}"],
+            ["this track's live workers, combined", f"{h['this_track_total_gb']:.2f} GB"],
+            ["two shards, projected", f"{h['four_shard_projected_total_gb']:.2f} GB"],
+            ["`MemAvailable` before the corpus phase",
+             f"{h['mem_available_gb_before']:.1f} GB"],
+            ["`MemAvailable` when the flat floor refused the launch",
+             f"{h['mem_available_gb_at_breach']:.1f} GB"]]
+    for k, v in h["this_track_workers_gb"].items():
+        rows.append([f"this track: {k}", f"{v:.2f} GB"])
+    for k, v in h["other_consumers_gb"].items():
+        rows.append([f"other project: {k}", f"{v:.1f} GB"])
+    return table(["host memory at the launch decision", "measured"], rows)
+
+
+def gate():
+    log = kit.OUT / "resource_gate.log"
+    if not log.exists():
+        return "No resource-gate decisions recorded."
+    lines = [x for x in log.read_text().splitlines() if x.strip()]
+    rows = [["decisions recorded", len(lines)],
+            ["phases admitted", sum(1 for x in lines if x.endswith("START"))],
+            ["phases refused by a gate", sum(1 for x in lines if x.endswith("REFUSED"))],
+            ["launches held by hand, before the gates existed",
+             sum(1 for x in lines if "HELD" in x)]]
+    for x in lines:
+        if x.endswith("REFUSED"):
+            rows.append(["a refusal, verbatim", "`" + x.replace("\t", " | ") + "`"])
+    return table(["`out/resource_gate.log`", "count"], rows)
+
+
 def resources():
     a = A()
     rows = []
@@ -316,7 +353,7 @@ def resources():
 
 
 BLOCKS = {"corpus": corpus, "decider": decider, "sweep": sweep,
-          "ceilings": ceilings, "cost": cost, "costs": costs, "criteria": criteria, "ratios": ratios,
+          "ceilings": ceilings, "cost": cost, "pressure": pressure, "gate": gate, "costs": costs, "criteria": criteria, "ratios": ratios,
           "deployed": deployed, "validity": validity, "estimator": estimator,
           "families": families, "s50": s50, "percase": percase,
           "resources": resources}

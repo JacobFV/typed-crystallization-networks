@@ -39,6 +39,8 @@ pre-registration that is quietly re-read is not one.
 | A9 the 12–24 case floor was unreachable | `PREREGISTRATION.md` | `admissible.py` |
 | A10 F7 counts domains where it should count cases | `PREREGISTRATION.md` | wording only |
 | A11 the candidate-truncation bound removed | `PREREGISTRATION.md` | `edits.py`, all three corpora re-run |
+| R1 the memory floor scales to the measured peak | `8fd4673` | `kit.py`, `run_all.sh` |
+| R2 the four-worker cap is enforced in code | `kit.py` | every launch path |
 
 A8 to A11 are written out in full at the end of `PREREGISTRATION.md`, each
 quoting the clause it replaces, and all four were written before the first arm.
@@ -48,65 +50,14 @@ records a falsification condition I wrote counting the wrong thing, and A11
 records a declared bound that was deleting the repairs it was supposed to be
 neutral about.
 
----
-
-## The training-episode budget, fixed by rule
-
-The number of admitted cases depends strongly on how many training episodes are
-drawn — `rel` admits one defect at 96 and nineteen at 384 — so choosing that
-number after seeing those counts would be tuning a corpus parameter on the
-quantity the corpus exists to measure. A8 fixes it by rule instead: **the
-smallest budget on a doubling ladder whose admissible defect *set* is identical
-at `B`, `2B` and `4B`**. Every budget tried is below, including the ones the rule
-rejects.
-
-<!-- BEGIN:sweep -->
-<!-- END:sweep -->
-
-`bool` is the interesting row and the rule earns its keep there: its ladder is
-bounded by its own data — episodes are rows of a complete 64-row truth table, so
-past half the table the held-out set is smaller than the training set and at the
-whole table there is none — and **no budget on that ladder is stable**. The rule
-therefore does not pick a budget for `bool`; it falls back to the largest swept
-value and hands back a disclosure. Had I chosen `bool`'s budget by yield I would
-have written down 32 and said nothing.
+**R1 and R2 are resource-policy amendments, not pre-registration ones**, and are
+written up in the Resources section rather than here. They are listed in the same
+table because they change what the track is allowed to run and when, and a reader
+tracing why a phase started or did not should find them in one place.
 
 ---
 
-## What each domain can admit at all
-
-The pre-registration asked for 12–24 admitted cases per domain without checking
-that the defect generator could produce that many. It cannot, and A9 records that
-as a pre-registration error. These are exhaustive enumerations, not samples: every
-defect the generator produces is applied and put through the admission rule.
-
-<!-- BEGIN:ceilings -->
-<!-- END:ceilings -->
-
----
-
-## Why one domain costs fourteen times another per case
-
-`arith` costs about 89 minutes per case against `bool`'s 6, on the same
-machinery, and the reason is not the size of its space — it is **where its
-supervision sits**. `arith` carries a single probe, on the output node.
-`enumerate_prefix` prunes a prefix only when a *probed* node's value already
-misses its target, so with the only probe at the end of the program there is
-nothing to prune against: every selection in the space is walked to the last node
-before it can be rejected. `bool`'s scaffold is three nodes deep, so the walk is
-short whatever happens; `arith`'s is nine, and every one of them is paid for
-every candidate program.
-
-This is §41 and §45's "dense supervision is what makes search tractable" showing
-up as a wall-clock bill rather than as an argument, and it is worth recording
-because it inverts the usual intuition about cost: the expensive domain here is
-not the one with the biggest space (`bool`'s edited scaffolds reach 2.7×10⁷
-selections, larger than `arith`'s) but the one whose supervision cannot reject a
-partial program. Anyone budgeting an enumeration in this substrate should count
-probed nodes before counting candidates.
-
-<!-- BEGIN:cost -->
-<!-- END:cost -->
+### The amendments in full
 
 **A1 — `rel` is a three-step scaffold over three entities, replacing §2.1's
 "two-step reachability relation of a 4-entity directed graph".** The generator's
@@ -152,6 +103,64 @@ measured number changes, because none had been produced. The cost metric and
 the independent check it now carries are set out in the next section.
 
 ---
+
+## The training-episode budget, fixed by rule
+
+The number of admitted cases depends strongly on how many training episodes are
+drawn — `rel` admits one defect at 96 and nineteen at 384 — so choosing that
+number after seeing those counts would be tuning a corpus parameter on the
+quantity the corpus exists to measure. A8 fixes it by rule instead: **the
+smallest budget on a doubling ladder whose admissible defect *set* is identical
+at `B`, `2B` and `4B`**. Every budget tried is below, including the ones the rule
+rejects.
+
+<!-- BEGIN:sweep -->
+<!-- END:sweep -->
+
+`bool` is the interesting row and the rule earns its keep there: its ladder is
+bounded by its own data — episodes are rows of a complete 64-row truth table, so
+past half the table the held-out set is smaller than the training set and at the
+whole table there is none — and **no budget on that ladder is stable**. The rule
+therefore does not pick a budget for `bool`; it falls back to the largest swept
+value and hands back a disclosure. Had I chosen `bool`'s budget by yield I would
+have written down 32 and said nothing.
+
+---
+
+## What each domain can admit at all
+
+The pre-registration asked for 12–24 admitted cases per domain without checking
+that the defect generator could produce that many. It cannot, and A9 records that
+as a pre-registration error. These are exhaustive enumerations, not samples: every
+defect the generator produces is applied and put through the admission rule.
+
+<!-- BEGIN:ceilings -->
+<!-- END:ceilings -->
+
+---
+
+## Why one domain costs fourteen times another per case
+
+`arith` costs more than an order of magnitude more per case than `bool`, on the same
+machinery, and the reason is not the size of its space — it is **where its
+supervision sits**. `arith` carries a single probe, on the output node.
+`enumerate_prefix` prunes a prefix only when a *probed* node's value already
+misses its target, so with the only probe at the end of the program there is
+nothing to prune against: every selection in the space is walked to the last node
+before it can be rejected. `bool`'s scaffold is three nodes deep, so the walk is
+short whatever happens; `arith`'s is nine, and every one of them is paid for
+every candidate program.
+
+This is §41 and §45's "dense supervision is what makes search tractable" showing
+up as a wall-clock bill rather than as an argument, and it is worth recording
+because it inverts the usual intuition about cost: the expensive domain here is
+not the one with the biggest space — `bool`'s edited scaffolds reach a larger
+maximum than `arith`'s — but the one whose supervision cannot reject a partial
+program. Anyone budgeting an enumeration in this substrate should count
+probed nodes before counting candidates.
+
+<!-- BEGIN:cost -->
+<!-- END:cost -->
 
 ## The cost metric, and how it is checked without re-using its own derivation
 
@@ -238,7 +247,7 @@ constant pool, and `legal_candidates` exceeds its enumeration budget on almost
 every operator, so the typed edit space collapses to a handful of edits and
 takes longer to *enumerate* than a whole corpus takes to decide in the other
 domains. §2.1's drop clause is exercised: the domain is dropped, disclosed here,
-and its partial numbers are in `out/memory_floor.log` and the probe scripts. The
+and its partial numbers are in `out/resource_gate.log` and the probe scripts. The
 cross-domain claim therefore rests on the remaining domains, which is the
 pre-registered minimum and no more.
 
@@ -354,16 +363,15 @@ corpus job had finished rather than beside four.
 
 Every job ran inside a capped scope (`MemoryMax=20G`, `CPUQuota=100%` per
 worker, single-threaded BLAS, at most four workers), with `MemAvailable` checked
-against the floor before each phase and logged to `out/memory_floor.log`. The
+against the floor before each phase and logged to `out/resource_gate.log`. The
 other project's GPU processes were never touched.
 
 **This track's own footprint is small enough that the floor is about the host,
 not about it.** Measured peak resident memory for the heaviest operation —
 building a domain, enumerating a whole case's typed edits, and deciding them — is
-**0.025 GB**, and the live corpus workers sat between 0.03 and 0.24 GB. An early
-guess that `enumerate_edits` was expensive because it materialises every edited
-program at once was wrong: 465 edited programs holding 35,621 candidates occupy
-about 3 MB. Four shards would total roughly 0.15 GB.
+**0.025 GB**, and the live corpus workers sat between 0.03 and 0.24 GB. An early guess that `enumerate_edits` was expensive because it
+materialises every edited program at once was wrong: holding every edited program of a case at once costs a few megabytes,
+as the table below records. Four shards would total roughly 0.15 GB.
 
 **R1 — the flat floor is replaced by one that scales to the measured peak.**
 This is a resource-policy amendment and is recorded as visibly as the
@@ -382,16 +390,42 @@ protects a nearly-full host. Per-shard `MemoryMax` is set to **2 GB** rather tha
 20 GB — about eighty times the measured peak — so a genuine runaway is killed
 alone instead of taking the host with it, and the `SIGTERM` handler records the
 kill. The rule lives in `kit.check_floor`, which logs the requirement, the
-arithmetic behind it and the headroom to `out/memory_floor.log` at every phase.
+arithmetic behind it and the headroom to `out/resource_gate.log` at every phase.
 Unmeasured phases are unaffected: they keep the original floor, which is what
 `kit.measured_peak` returning `None` selects.
 
-**The floor was breached under the old rule, and the launch was held.** During the
-corpus phase `MemAvailable` fell from 79 GB to 13 GB. None of it was this track:
-its three running jobs held 0.23 GB between them, against a `next-server` at
-20.0 GB, a node/vite runtime at 2.1 GB, another project's training at 1.8 GB and
-an esbuild at 1.3 GB. The `arith` phase was **not started**, the hold is recorded
-in `out/memory_floor.log` with the cause, and no other project's process was
+**R2 — the four-worker cap is enforced in code, because enforcing it by
+attention failed within the hour.** The cap had always been stated and was
+restated in the exchange that produced R1; minutes later it was breached. Two
+`arith` shards were launched while `bool` and two `rel` shards were still
+running, putting **five** workers on the host. The combined footprint was the 0.23 GB the block below records,
+so in substance it was never a host risk — but *"it looked fine"* is the argument
+that preceded this project's crash, and a cap that depends on someone
+remembering the other three jobs is not a cap. It is now `kit.check_workers`,
+which counts this track's live workers and **fails closed** before any phase
+starts. Processes are identified by PID and `/proc/<pid>/cwd`, never by a
+command-line substring — `docs/CORRECTIONS.md` records `pkill` patterns matching
+the running shell and killing the session twice, and this track reproduced the
+same mistake once before writing the gate.
+
+It was tested against the breach it exists to prevent: with the four workers
+live it refuses the fifth, naming the PIDs, and logs `REFUSED`. Every launch path
+goes through it — `run_domain.py`, `episode_sweep.py`, `admissible.py`,
+`validate_decider.py`, `s50_rescore.py`, `analyse.py` — so no phase can start on
+anyone's say-so.
+
+**Both resource rules now fail closed in code, and one of them exists because the
+human-enforced version failed within the hour.** That is the part worth carrying
+out of this track: the memory floor and the worker cap were equally well known,
+equally well intentioned and equally stated; the one that held was the one a
+program checked. Their decisions share `out/resource_gate.log`, renamed from
+`memory_floor.log` now that it records both kinds — admissions, refusals, the
+requirement and the arithmetic behind it.
+
+**The floor was breached under the old rule, and the launch was held.** During the corpus phase `MemAvailable` fell from 79.0 GB to 13.2 GB. None of it was this track:
+its running jobs held a fraction of a gigabyte between them, against the other
+projects' processes tabulated below. The `arith` phase was **not started**, the hold is recorded
+in `out/resource_gate.log` with the cause, and no other project's process was
 touched — including the one holding twenty gigabytes, which is the only one whose
 removal would have helped. Running jobs were left alone deliberately: stopping
 them would have freed 0.23 GB and lost an hour of work, and they checkpoint after
@@ -405,6 +439,15 @@ real shard, not by inspection: it recorded `stopped_by_signal: SIGTERM` at
 `delete_node:inner:None`. The path exists because an earlier timing probe died
 leaving no output and no diagnosable cause — measurement later ruled memory out,
 but by then the evidence of what had happened was gone.
+
+<!-- BEGIN:pressure -->
+<!-- END:pressure -->
+
+Every resource decision this track made, admitted or refused, is in
+`out/resource_gate.log`:
+
+<!-- BEGIN:gate -->
+<!-- END:gate -->
 
 <!-- BEGIN:resources -->
 <!-- END:resources -->

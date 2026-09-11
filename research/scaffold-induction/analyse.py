@@ -144,6 +144,7 @@ def load_domain(name):
 
 
 def main():
+    kit.check_workers(1)
     data = {n: load_domain(n) for n in DOMAINS if (kit.OUT / f"cases_{n}.json").exists()}
     present = sorted(data)
     out = {"domains": present, "arms": ARMS, "alpha": ALPHA, "per_domain": {},

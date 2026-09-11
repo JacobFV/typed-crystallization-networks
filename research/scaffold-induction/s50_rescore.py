@@ -89,6 +89,7 @@ def run_bool(cid, case):
 
 
 def main():
+    kit.check_workers(1)
     kit.check_floor("s50_rescore")
     t0 = time.perf_counter()
     out = {"n_held_out_used": N_HELD, "cases": [],

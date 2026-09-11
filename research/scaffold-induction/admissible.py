@@ -25,6 +25,7 @@ from tcn.search import space_size
 
 
 def scan(name):
+    kit.check_workers(1)
     t0 = time.perf_counter()
     d = domains.BUILDERS[name]()
     base, r, sig = d["program"], d["registry"], d["signals"]

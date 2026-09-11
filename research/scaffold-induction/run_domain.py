@@ -188,6 +188,7 @@ def main():
     # The floor scales to this domain's own committed peak measurement when one
     # exists (`out/mem_<domain>.json`), and falls back to the unmeasured-phase
     # floor when it does not.
+    kit.check_workers(1)
     kit.check_floor(f"run_domain:{a.domain}:shard{a.shard}",
                     peak_gb=kit.measured_peak(a.domain))
     t0 = time.perf_counter()

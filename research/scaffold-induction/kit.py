@@ -75,7 +75,66 @@ def measured_peak(domain):
     return max(marks.values()) if marks else None
 
 
-def check_floor(phase, peak_gb=None, log="memory_floor.log"):
+# --- the worker-count gate (amendment R2) -------------------------------------
+#
+# The four-worker cap was enforced by whoever was paying attention, and within an
+# hour of being restated it was breached: two `arith` shards were launched while
+# `bool` and two `rel` shards were still running, putting five workers on the
+# host.  The total footprint was 0.21 GB, so it was not a host risk in substance
+# -- but "it looked fine" is the argument that preceded the crash this project
+# already had.  A cap enforced by attention is not a cap.
+#
+# Processes are identified by PID and `/proc/<pid>/cwd`, never by a command-line
+# substring alone: `docs/CORRECTIONS.md` records `pkill` patterns matching the
+# running shell and killing the session twice.
+WORKER_LIMIT = 4
+WORKER_SCRIPTS = ("run_domain.py", "validate_decider.py", "s50_rescore.py",
+                  "episode_sweep.py", "admissible.py", "rate.py", "mem_probe.py",
+                  "notrunc_probe.py", "rel_floor.py", "analyse.py")
+
+
+def live_workers():
+    """This track's live worker processes, as (pid, script) pairs."""
+    me = os.getpid()
+    found = []
+    for entry in pathlib.Path("/proc").iterdir():
+        if not entry.name.isdigit():
+            continue
+        pid = int(entry.name)
+        if pid == me:
+            continue
+        try:
+            cwd = pathlib.Path(os.readlink(entry / "cwd")).resolve()
+            if cwd != HERE:
+                continue                  # not one of ours: never touch it
+            args = (entry / "cmdline").read_bytes().decode().split("\0")
+        except (OSError, PermissionError, UnicodeDecodeError):
+            continue
+        for a in args:
+            if os.path.basename(a) in WORKER_SCRIPTS:
+                found.append((pid, os.path.basename(a)))
+                break
+    return found
+
+
+def check_workers(n=1, limit=WORKER_LIMIT, log="resource_gate.log"):
+    """Refuse to start `n` more workers than the cap allows.  Fails closed."""
+    live = live_workers()
+    ok = len(live) + n <= limit
+    OUT.mkdir(exist_ok=True)
+    with open(OUT / log, "a") as fh:
+        fh.write(f"check_workers\tlive={len(live)}\trequesting={n}\t"
+                 f"limit={limit}\t{sorted(s for _, s in live)}\t"
+                 f"{'START' if ok else 'REFUSED'}\n")
+    if not ok:
+        raise SystemExit(
+            f"refusing to start: {len(live)} of this track's workers are live "
+            f"({sorted(f'{p}:{s}' for p, s in live)}), requesting {n} more, "
+            f"cap {limit}")
+    return live
+
+
+def check_floor(phase, peak_gb=None, log="resource_gate.log"):
     """Refuse to start a phase below the available-memory floor (HANDOFF trap)."""
     avail = mem_available_gb()
     need, why = required_floor(peak_gb)

@@ -34,7 +34,9 @@ def rebuild(domain):
 
 
 def check(domain, per_case):
-    kit.check_floor(f"validate_decider:{domain}")
+    kit.check_workers(1)
+    kit.check_floor(f"validate_decider:{domain}",
+                    peak_gb=kit.measured_peak(domain))
     t0 = time.perf_counter()
     d = rebuild(domain)
     base, r, sig = d["program"], d["registry"], d["signals"]

@@ -426,6 +426,9 @@ ALLOWED = {
     # by the pre-registration or by an amendment.  Nothing measured belongs here.
     "1", "2", "3", "4", "6", "8",          # keep_prefix's k values (amendment A3)
     "48", "12", "400,000",                 # MAX_NEW, MAX_NEW_NODE, MAX_SPACE
+    "20", "25", "80",                      # the resource policy: 20x the measured
+                                           # peak, the 25 GB unmeasured-phase
+                                           # floor, ~80x for MemoryMax (R1, R2)
 }
 
 
