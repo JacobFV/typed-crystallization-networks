@@ -770,3 +770,37 @@ either of mine.
 check, the same commit must contain the check.* An amendment is a claim like any
 other, and the gate's premise is that claims are verified against artifacts
 rather than trusted.
+
+
+## A20 — a superseded validation artifact was nearly reported as current
+
+`out/validate_rel.json` was stamped 18:08 and described the **pre-A13** corpus. I
+read it at 19:40, saw "0 mismatches", and almost reported it as the validation of
+the three-way-split corpus. Its wall-clock figure did not fit the run I had just
+started, which is the only reason it was caught.
+
+**The mechanism is worth recording because it defeats the obvious precaution.**
+`out/` *was* cleaned before the re-run. But the superseded validation job was
+still running at the time, and wrote its output **after** the cleanup — so a
+stale artifact reappeared in a directory that had just been emptied, with nothing
+in the file to say which corpus it referred to. Deleting outputs does not remove
+artifacts that have not been produced yet.
+
+`verify.py` would have accepted it. Its V2 checks asserted that a validation had
+run and that its mismatch counts were zero; nothing asserted that the validation
+referred to *this* corpus.
+
+**Fixed:** every validation now stamps the corpus it validated — the `final`
+fingerprint, the training-split size and the admitted-case count — and
+`verify.py` fails both when the stamp is absent (an artifact predating A20, which
+therefore cannot be shown to be current) and when it disagrees with the corpus on
+disk. The check is in `REQUIRED_CLAIMS`, so its own removal fails too. Both
+domains' validations were re-run under the stamping code rather than
+hand-annotated, because back-filling a provenance stamp is precisely the move
+that would make the stamp worthless.
+
+**The general rule, for the handoff:** *every derived artifact should carry a
+fingerprint of the artifact it was derived from.* Cleaning a directory is not a
+sufficient defence against staleness when jobs outlive the cleanup, and "the file
+is present and says zero errors" is not evidence that it is about the thing you
+are looking at.

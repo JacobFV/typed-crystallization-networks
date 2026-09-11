@@ -42,7 +42,15 @@ def check(domain, per_case):
     base, r, sig = d["program"], d["registry"], d["signals"]
     allep = d["train"] + d["admission"]
     corpus = kit.load(f"cases_{domain}")
+    corpus = kit.load(f"cases_{domain}")
     out = {"domain": domain, "per_case": per_case,
+           # A20: stamp the corpus this validation refers to.  A stale artifact
+           # from a superseded run was very nearly reported as current: it was
+           # written by a job still running when out/ was cleaned, so it
+           # reappeared after the cleanup with nothing to tell it apart.
+           "corpus_final_digest": corpus.get("final_digest"),
+           "corpus_n_train": corpus.get("n_train"),
+           "corpus_admitted": corpus.get("admitted"),
            "fit_checked": 0, "fit_mismatches": [],
            "witnesses_checked": 0, "witness_mismatches": [],
            "episode_evaluations": 0}

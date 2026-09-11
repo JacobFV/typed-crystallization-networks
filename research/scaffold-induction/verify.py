@@ -445,6 +445,18 @@ def main():
         claim(f"V2[{d}]: every repair's witness was checked, not a sample",
               v["witnesses_checked"] == want,
               f"{v['witnesses_checked']} vs {want}")
+        # A20: the validation must refer to THIS corpus, not a superseded one.
+        claim(f"V2[{d}]: the validation stamps the corpus it validated",
+              v.get("corpus_final_digest") is not None,
+              "no corpus stamp: the artifact predates A20 and may be stale")
+        claim(f"V2[{d}]: the validation refers to the current corpus",
+              v.get("corpus_final_digest") == cases[d].get("final_digest")
+              and v.get("corpus_n_train") == cases[d].get("n_train")
+              and v.get("corpus_admitted") == cases[d].get("admitted"),
+              f"stamp {v.get('corpus_final_digest')}/{v.get('corpus_n_train')}/"
+              f"{v.get('corpus_admitted')} vs corpus "
+              f"{cases[d].get('final_digest')}/{cases[d].get('n_train')}/"
+              f"{cases[d].get('admitted')}")
 
     # ---- layer 2f: S1
     s = J("s50_rescore")
@@ -545,6 +557,7 @@ REQUIRED_CLAIMS = (
     "the corpus was not stopped by a signal",
     "no superseded two-way split formulation is live",
     "the closed form matches a simulated draw",
+    "the validation refers to the current corpus",
 )
 
 
