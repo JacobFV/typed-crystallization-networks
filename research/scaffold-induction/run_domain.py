@@ -159,6 +159,22 @@ def name_for(a):
     return f"cases_{a.domain}" + (f"_s{a.shard}" if a.of > 1 else "")
 
 
+class _Blind:
+    """Stands in for a withheld split: any access raises, naming the violation."""
+
+    def __init__(self, name):
+        object.__setattr__(self, "_name", name)
+
+    def _fail(self, *_a, **_k):
+        raise RuntimeError(
+            f"blind-split violation: the `{object.__getattribute__(self, '_name')}` "
+            f"split must not be read while the corpus is built (A13). It is "
+            f"scored only by score_final.py, after the arms are ordered.")
+
+    __getattr__ = __getitem__ = __iter__ = __len__ = __call__ = _fail
+    __contains__ = __bool__ = __repr__ = _fail
+
+
 class Stopped(Exception):
     """Raised when the process is asked to stop, so the partial corpus is saved."""
 
@@ -213,7 +229,10 @@ def main():
     train, admis = d["train"], d["admission"]
     allep = train + admis
     final_digest = _digest(d["final"])
-    del d["final"]                     # make a later read of it an AttributeError
+    # A19: deleting the key would raise a bare KeyError, which reads like a typo.
+    # A sentinel that raises on ANY access names the violation instead.  Adopted
+    # from the schema-induction track, which got this right first.
+    d["final"] = _Blind("final")
 
     report = {"domain": a.domain, "note": d["note"],
               "n_train": len(train), "n_admission": len(admis),

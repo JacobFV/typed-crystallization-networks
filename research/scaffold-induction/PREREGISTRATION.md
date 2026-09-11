@@ -721,3 +721,52 @@ its image; ask whether it discovers structure whose necessity was not encoded
 into the generator.** This track's defect generator rewards inverse edits, and
 §65's learned prior rediscovered a one-line heuristic. Same warning, two tracks,
 independently arrived at.
+
+
+## A19 — A13 promised three mechanical checks and shipped none of them
+
+Found by the schema-induction agent, confirmed independently by the supervising
+session, and recorded here rather than quietly repaired.
+
+A13's closing paragraph states that `verify.py` "fails if the fingerprints
+disagree, if a corpus artifact lacks `final_untouched`, or if any arm's ordering
+was computed from anything but `train`". **None of those checks existed.**
+`git grep -n final verify.py` returned nothing. The fingerprint and the
+`final_untouched` flag were both being *written* into every corpus artifact, and
+nothing was *reading* them.
+
+This is worse than an unchecked claim, and the distinction is worth stating: a
+reader who trusts A13 believes the blind split is protected by a program, when it
+was protected only by intention. An amendment that promises a mechanical
+guarantee and does not ship it turns the evidence layer from a safeguard into a
+decoration — and it did so in the middle of the machinery this track is most
+likely to be reused for.
+
+**What is now implemented**, per domain, in `verify.py`:
+
+* the corpus declares `final_untouched`, and the claim fails if it does not;
+* the corpus records a final-split fingerprint and size;
+* when `score_final.py` has run, the fingerprint it scored equals the one the
+  corpus withheld — so a corpus and its blind scoring provably refer to the same
+  split;
+* no stored feature is derived from `admission` or `final`: the per-edit feature
+  set is exactly the declared ten fields, which is what makes "no arm orders by
+  anything but `train`" checkable from the artifacts rather than asserted.
+
+**And a check on the claim itself.** `REQUIRED_CLAIMS` lists the assertions this
+document says exist; `check_claims_exist()` runs after every other check and
+**fails for each one that is missing**. A claim about the verifier belongs inside
+the verifier. Had it existed, A13's promise would have failed the moment it was
+written.
+
+**The sentinel is strengthened too.** The corpus builder previously *deleted* the
+`final` key, so an accidental read raised a bare `KeyError` that reads like a
+typo. It is now a sentinel whose every access path — attribute, index, iteration,
+truth test, call — raises `RuntimeError` naming the violation and pointing at
+A13. That construction is the schema-induction track's, which is better than
+either of mine.
+
+**The general rule, for the handoff:** *when an amendment promises a mechanical
+check, the same commit must contain the check.* An amendment is a claim like any
+other, and the gate's premise is that claims are verified against artifacts
+rather than trusted.

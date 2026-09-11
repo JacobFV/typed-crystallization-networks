@@ -188,6 +188,42 @@ def main():
         claim(f"{d}: the corpus records whether its defect list was exhausted",
               "complete" in c, "no `complete` field")
 
+    # ---- layer 2a1: A13's blind-split guarantees.  A19 records that these
+    # assertions were PROMISED by A13 before they were implemented; the claim
+    # stood for several hours with nothing behind it.
+    FEATURE_FIELDS = {"family", "added_candidates", "log_added", "log_space",
+                      "op_class", "novel_operator", "site_depth_frac",
+                      "site_is_output", "site_constant_on_train", "max_arity"}
+    fps = {}
+    for d in domains:
+        c = cases[d]
+        claim(f"A13[{d}]: the corpus declares the final split untouched",
+              c.get("final_untouched") is True,
+              f"final_untouched={c.get('final_untouched')}")
+        claim(f"A13[{d}]: the corpus records a final-split fingerprint and size",
+              bool(c.get("final_digest")) and isinstance(c.get("n_final"), int),
+              f"digest={c.get('final_digest')} n_final={c.get('n_final')}")
+        fps[d] = c.get("final_digest")
+        # No ordering may be computed off anything but `train`: every feature an
+        # arm orders by is stored per edit, and the stored field set is exactly
+        # the declared one -- nothing derived from `admission` or `final`.
+        adm = [x for x in c["cases"] if x.get("admitted")]
+        extra = set()
+        for x in adm:
+            for e in x["edits"]:
+                extra |= set(e["features"]) - FEATURE_FIELDS
+        claim(f"A13[{d}]: no stored feature is derived from admission or final",
+              not extra, f"unexpected feature fields: {sorted(extra)}")
+        claim(f"A13[{d}]: the only episode-derived feature names the train split",
+              all("site_constant_on_train" in e["features"]
+                  for x in adm for e in x["edits"]))
+    sc = J("final_scores")
+    if sc is not None:
+        for d in domains:
+            rec = (sc.get("domains", {}).get(d) or {}).get("final_digest")
+            claim(f"A13[{d}]: final scoring used the split the corpus withheld",
+                  rec == fps[d], f"{rec} vs {fps[d]}")
+
     # ---- layer 2a2: the episode budgets are the ones the rule chose (A8)
     sw = J("episode_sweep")
     if sw is None:
@@ -499,7 +535,29 @@ ALLOWED = {
 }
 
 
+REQUIRED_CLAIMS = (
+    # A19: a claim about the verifier belongs inside the verifier.  If an
+    # amendment promises a mechanical check, the absence of that check must
+    # itself fail -- A13 promised three and shipped none.
+    "the corpus declares the final split untouched",
+    "the corpus records a final-split fingerprint",
+    "no stored feature is derived from admission or final",
+    "the corpus was not stopped by a signal",
+    "no superseded two-way split formulation is live",
+    "the closed form matches a simulated draw",
+)
+
+
+def check_claims_exist():
+    names = " || ".join(n for _, n, _ in results)
+    for required in REQUIRED_CLAIMS:
+        claim(f"A19: the verifier contains the check '{required}'",
+              required in names,
+              "an amendment promised this check and nothing implements it")
+
+
 def finish():
+    check_claims_exist()
     passed = sum(1 for ok, _, _ in results if ok)
     failed = len(results) - passed
     for ok, name, detail in results:
