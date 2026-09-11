@@ -18,6 +18,7 @@ the failed scaffold and the **training** episodes only.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import math
 import signal
@@ -171,6 +172,17 @@ def install_stop_handler(state):
         signal.signal(sig, handler)
 
 
+def _digest(episodes):
+    """A fingerprint of a split, computed without using it for any decision."""
+    h = hashlib.sha256()
+    for ex in episodes:
+        for k in sorted(ex["inputs"]):
+            h.update(repr(ex["inputs"][k].flat()).encode())
+        for k in sorted(ex["targets"]):
+            h.update(repr(ex["targets"][k].flat()).encode())
+    return {"n": len(episodes), "sha256": h.hexdigest()[:32]}
+
+
 APPLY = {"drop_operator": lambda p, r, s, a: E.drop_operator(p, r, s, a),
          "drop_source": lambda p, r, s, a: E.drop_source(p, r, s, a),
          "keep_prefix": lambda p, r, s, a: E.keep_prefix(p, r, s, a),
@@ -194,11 +206,19 @@ def main():
     t0 = time.perf_counter()
     d = domains.BUILDERS[a.domain]()
     base, r, sig = d["program"], d["registry"], d["signals"]
-    train, held = d["train"], d["heldout"]
-    allep = train + held
+    # A13: the corpus sees `train` and `admission` ONLY.  `final` is never read
+    # here -- not to admit a defect, not to label a repair, not to pick a
+    # witness.  It is fingerprinted so `score_final.py` can prove later that it
+    # scored the same split this corpus deliberately did not touch.
+    train, admis = d["train"], d["admission"]
+    allep = train + admis
+    final_digest = _digest(d["final"])
+    del d["final"]                     # make a later read of it an AttributeError
 
     report = {"domain": a.domain, "note": d["note"],
-              "n_train": len(train), "n_heldout": len(held),
+              "n_train": len(train), "n_admission": len(admis),
+              "n_final": final_digest["n"], "final_digest": final_digest["sha256"],
+              "final_untouched": True, "splits": d.get("splits"),
               "base": {"nodes": len(base.nodes), "space": space_size(base),
                        "on_train": decide(base, train, sig, r),
                        "on_all": decide(base, allep, sig, r)},
@@ -233,7 +253,10 @@ def main():
             report["rejected_invalid"] += 1
             checkpoint()
             continue
-        tr = decide(failed, train, sig, r)
+        # A13: a defect is admissible when NO member conforms on
+        # train+admission -- the same predicate a repair must satisfy,
+        # so admission and repair are complements on one criterion.
+        tr = decide(failed, allep, sig, r)
         if not tr["decided"] or tr["conforming"] or not tr["exhausted"]:
             report["rejected_solvable_on_train"] += 1
             checkpoint()
@@ -248,8 +271,8 @@ def main():
                 on_train = {"decided": False, "conforming": None,
                             "certificate": "undecided"}
             elif on_all["conforming"]:
-                # a member conforming on every episode conforms on the training
-                # ones, so the second decision is skipped, not guessed
+                # a member conforming on train+admission conforms on the
+                # training ones, so the second decision is skipped, not guessed
                 on_train = {"decided": True, "conforming": True,
                             "certificate": "implied by the all-episode witness"}
             else:

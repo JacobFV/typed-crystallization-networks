@@ -41,7 +41,7 @@ def main():
     marks = {"start": rss_gb()}
     d = domains.BUILDERS[a.domain]()
     base, r, sig = d["program"], d["registry"], d["signals"]
-    allep = d["train"] + d["heldout"]
+    allep = d["train"] + d["admission"]
     marks["after_domain"] = rss_gb()
 
     failed = None

@@ -28,7 +28,7 @@ def main():
     a = ap.parse_args()
     d = domains.BUILDERS[a.domain]()
     base, r, sig = d["program"], d["registry"], d["signals"]
-    allep = d["train"] + d["heldout"]
+    allep = d["train"] + d["admission"]
     defects = R.enumerate_defects(base, r, [nd.name for nd in base.nodes])
     case, seen = None, -1
     for kind, site, arg in defects:

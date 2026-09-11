@@ -106,6 +106,35 @@ the independent check it now carries are set out in the next section.
 
 ---
 
+## The methodological correction also improved the evidence
+
+This is worth stating separately, because it is a result about the method rather
+than about the domains. The owner's objection to the two-way split (A13) was
+methodological: a held-out set used to make admission decisions has become
+selection data, so nothing was left genuinely blind. Splitting three ways was
+the fix. It also changed the **admission predicate** — a defect is now admissible
+when no member conforms on `train ∪ admission`, the same predicate a repair must
+satisfy, rather than on `train` alone — and that turned out to make the corpus
+substantially better, not merely different.
+
+Under the two-way split, `bool` was **unstable across its entire ladder** (0, 0,
+11 admissible at 8, 16, 32 training rows), so the budget rule declined to choose
+and fell back to the largest value with a disclosure. `rel` admitted **one** case
+at 96 training episodes and needed 384 to reach nineteen. Under the three-way
+split `bool` is **stable from 8** — 11 admissible at 8, 16 and 32 — and `rel`
+admits eighteen at 96 rather than one.
+
+The mechanism is not mysterious. Admitting on `train` alone asks whether any
+member fits the training episodes, which a weak scaffold often manages by
+accident; admitting on `train ∪ admission` asks whether any member fits enough
+data to be a real solution, which is both the question the corpus is about and a
+far more stable thing to measure. The old predicate was sensitive to the training
+budget precisely because it was measuring spurious fits. So the correction that
+made the evidence honest also made it cheaper and more stable — the two were not
+in tension here, and it is worth recording that they were not.
+
+---
+
 ## The training-episode budget, fixed by rule
 
 The number of admitted cases depends strongly on how many training episodes are
@@ -255,10 +284,24 @@ per-domain verdicts and never instead of them. A split verdict is **NOT MET**
 
 ## The corpus
 
-Defects are typed narrowings of a base scaffold; a defective scaffold is
-admitted only when it has **no** member conforming on the training episodes,
-exhausted, certificate `complete` — a proof, not a timeout — and its typed edit
-space contains at least one repair.
+Defects are typed narrowings of a base scaffold. A defective scaffold is admitted
+only when it has **no** member conforming on `train ∪ admission`, exhausted,
+certificate `complete` — a proof, not a timeout — and its typed edit space
+contains at least one repair, where a repair is an edit whose scaffold *does*
+have such a member. Admission and repair are complements of one predicate on one
+split (A13), so no decision straddles two criteria.
+
+**The two-way corpora are superseded, not re-labelled.** They are kept under
+`out/superseded-twoway/`. They could not be re-scored into the three-way
+structure, and the reason is worth stating because it is the kind of shortcut
+that would have been easy to take: the new repair predicate, `train ∪ admission`,
+is **strictly weaker** than the old one, which required conformance on every
+evaluation episode. So an edit stored as a non-repair under the old criterion may
+be a repair under the new one — and those edits are precisely the ones where the
+`final` split does its work, the repairs that fit the admission data and fail the
+blind data. Re-using the stored labels would have kept the old, stricter
+criterion while claiming the new one, and would have hidden exactly the
+population the third split exists to expose. Every per-edit decision was re-run.
 
 <!-- BEGIN:corpus -->
 <!-- END:corpus -->

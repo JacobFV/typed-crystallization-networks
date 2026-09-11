@@ -36,7 +36,7 @@ def scan(name):
         if failed is None:
             counts["invalid"] += 1
             continue
-        tr = R.decide(failed, d["train"], sig, r)
+        tr = R.decide(failed, d["train"] + d["admission"], sig, r)
         ok = tr["decided"] and not tr["conforming"] and tr["exhausted"]
         counts["admissible" if ok else "solvable_on_train"] += 1
         if ok:

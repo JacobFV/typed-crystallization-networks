@@ -1,20 +1,9 @@
 == bool
-  bool budget=8 (train=8): admissible 0  [0.5s]
-  bool budget=16 (train=16): admissible 0  [0.1s]
-  bool budget=32 (train=32): admissible 11  [1.8s]
-  -> bool: chosen budget 32 (no budget on the ladder is stable across two doublings; the largest swept budget is used and the instability is reported as a limitation)
+  bool budget=8 (train=8): admissible 11  [3.6s]
+  bool budget=16 (train=16): admissible 11  [2.5s]
+  bool budget=32 (train=32): admissible 11  [2.7s]
+  -> bool: chosen budget 8 (stable at B, 2B and 4B)
 == rel
-  rel budget=96 (train=96): admissible 1  [2.4s]
-  rel budget=192 (train=192): admissible 1  [4.6s]
-  rel budget=384 (train=384): admissible 19  [23.9s]
-  rel budget=768 (train=768): admissible 19  [46.6s]
-  rel budget=1536 (train=1536): admissible 19  [89.6s]
-  -> rel: chosen budget 384 (stable at B, 2B and 4B)
-== arith
-  arith budget=16 (train=16): admissible 24  [9.8s]
-  arith budget=32 (train=32): admissible 24  [19.1s]
-  arith budget=64 (train=64): admissible 24  [38.0s]
-  arith budget=128 (train=128): admissible 24  [75.3s]
-  arith budget=256 (train=256): admissible 24  [151.0s]
-  -> arith: chosen budget 16 (stable at B, 2B and 4B)
-/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-ab7a54ef3e67ae786/research/scaffold-induction/out/episode_sweep.json
+  rel budget=96 (train=96): admissible 18  [14.6s]
+  rel budget=192 (train=192): admissible 18  [21.5s]
+  rel budget=384 (train=384): admissible 19  [34.6s]

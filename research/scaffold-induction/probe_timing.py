@@ -21,7 +21,7 @@ def probe(name, sample=24):
     t = time.perf_counter()
     d = domains.BUILDERS[name]()
     p, r = d["program"], d["registry"]
-    allep = d["train"] + d["heldout"]
+    allep = d["train"] + d["admission"]
     print(f"== {name}  build {time.perf_counter() - t:.2f}s  nodes {len(p.nodes)}  "
           f"space {space_size(p)}  train {len(d['train'])} heldout {len(d['heldout'])}")
     t = time.perf_counter()

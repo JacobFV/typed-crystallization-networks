@@ -13,8 +13,15 @@ repository already has a recorded result for.  Nothing under `tcn/` or
     rel    `generators/relations` -- membership in the two-step reachability
            relation of a small directed graph.
 
-Each `build()` returns a dict with `registry, program, signals, train, heldout,
-sites` and is deterministic.
+Each `build()` returns a dict with `registry, program, signals, train,
+admission, final, splits, sites` and is deterministic.
+
+**Three disjoint splits (amendment A13).**  `train` is what a repaired scaffold
+must fit to be a candidate; `admission` decides both that a defect is admissible
+and that a candidate is a repair; `final` is touched by nothing until the arms
+are scored.  A counterexample drawn from `admission` is training information the
+moment it is used, so a two-way split would leave nothing genuinely blind to
+report a generalization number on.
 """
 from __future__ import annotations
 
@@ -71,22 +78,28 @@ def build_bool(n_train=32):                 # budget fixed by A8
              Node("y", BOOL, tuple(y), "core", 2))
     prog = Program(inputs, nodes, (("out", "y"),)).validate(r)
     rows = later.later_examples()
-    # `n_train` rows taken at an even stride over the complete 64-row table; the
-    # held-out set is exactly the complement, so the two never overlap.
+    # A13: three disjoint splits over the complete 64-row table.  `train` is an
+    # even stride; the complement is dealt alternately into `admission` and
+    # `final`, so neither is a contiguous or otherwise special region.
     stride = 64 // n_train
-    picked = set(range(0, 64, stride))
-    train = [rows[i] for i in sorted(picked)]
-    heldout = [rows[i] for i in range(64) if i not in picked]
+    picked = sorted(range(0, 64, stride))
+    rest = [i for i in range(64) if i not in set(picked)]
+    train = [rows[i] for i in picked]
+    admission = [rows[i] for i in rest[0::2]]
+    final = [rows[i] for i in rest[1::2]]
+    splits = {"train_rows": picked, "admission_rows": rest[0::2],
+              "final_rows": rest[1::2]}
     sig = [Signal("y", "out", ("core",), BOOL, "bce")]
     return {"name": "bool", "registry": r, "program": prog, "signals": sig,
-            "train": train, "heldout": heldout,
-            "sites": ["n1", "n2", "y"],
-            "note": "section 44/46 task; 64-row truth table split by row parity"}
+            "train": train, "admission": admission, "final": final,
+            "splits": splits, "sites": ["n1", "n2", "y"],
+            "note": "section 44/46 task; complete 64-row truth table, three "
+                    "disjoint splits over row indices"}
 
 
 # ------------------------------------------------------------------ arith
 
-def build_arith(n_train=16, n_heldout=32):  # budget fixed by A8
+def build_arith(n_train=16, n_eval=32):  # budget fixed by A8
     r = Registry()
     goal_t = product(SCALAR, SCALAR, SCALAR)
     inputs = (("x", I16), ("y", I16), ("goal", goal_t))
@@ -112,11 +125,18 @@ def build_arith(n_train=16, n_heldout=32):  # budget fixed by A8
                                        ("is_add", "v0", "inner")),), "core", 4),
     ]
     prog = Program(inputs, tuple(nodes), (("out", "answer"),), consts).validate(r)
-    train = _episodes_from("arithmetic", range(0, n_train), "train", {})
-    heldout = _episodes_from("arithmetic", range(1000, 1000 + n_heldout), "test", {})
+    # A13: three disjoint seed ranges, recorded.
+    tr = range(0, n_train)
+    ad = range(1000, 1000 + n_eval)
+    fi = range(5000, 5000 + n_eval)
+    train = _episodes_from("arithmetic", tr, "train", {})
+    admission = _episodes_from("arithmetic", ad, "test", {})
+    final = _episodes_from("arithmetic", fi, "test", {})
+    splits = {"train_seeds": [tr.start, tr.stop], "admission_seeds": [ad.start, ad.stop],
+              "final_seeds": [fi.start, fi.stop], "split_names": ["train", "test", "test"]}
     sig = [Signal("answer", "target", ("core",), I16, "mse")]
     return {"name": "arith", "registry": r, "program": prog, "signals": sig,
-            "train": train, "heldout": heldout,
+            "train": train, "admission": admission, "final": final, "splits": splits,
             "sites": ["v0", "v1", "v2", "inner", "answer"],
             "note": "generators/arithmetic, objective drawn per episode"}
 
@@ -149,7 +169,7 @@ def _pair_module(r, pp):
 BOOLCOMB = ("and", "or", "xor", "nand", "nor", "xnor", "eq", "not", "identity")
 
 
-def build_rel(n_train=384, n_heldout=96):   # budget fixed by A8
+def build_rel(n_train=384, n_eval=96):   # budget fixed by A8
     """Reachability over a 3-entity digraph: one, two and three edge steps.
 
     Three steps is what the closure needs at three entities -- a simple path
@@ -193,11 +213,17 @@ def build_rel(n_train=384, n_heldout=96):   # budget fixed by A8
     )
     prog = Program(inputs, nodes, (("out", "ans"),)).validate(r)
     cfg = {"entities": 3}
-    train = _episodes_from("relations", range(0, n_train), "train", cfg)
-    heldout = _episodes_from("relations", range(1000, 1000 + n_heldout), "test", cfg)
+    tr = range(0, n_train)
+    ad = range(1000, 1000 + n_eval)
+    fi = range(5000, 5000 + n_eval)
+    train = _episodes_from("relations", tr, "train", cfg)
+    admission = _episodes_from("relations", ad, "test", cfg)
+    final = _episodes_from("relations", fi, "test", cfg)
+    splits = {"train_seeds": [tr.start, tr.stop], "admission_seeds": [ad.start, ad.stop],
+              "final_seeds": [fi.start, fi.stop], "split_names": ["train", "test", "test"]}
     sig = [Signal("ans", "target", ("core",), BOOL, "bce")]
     return {"name": "rel", "registry": r, "program": prog, "signals": sig,
-            "train": train, "heldout": heldout,
+            "train": train, "admission": admission, "final": final, "splits": splits,
             "sites": ["chain2", "chain3", "o1", "ans"],
             "note": "generators/relations at 3 entities, one/two/three edge steps"}
 
@@ -210,7 +236,7 @@ def _lang_rows(eps, positions):
              "targets": {"answer": Value.of(BOOL, bool(e["label"]))}} for e in eps]
 
 
-def build_lang(positions=12, stream="none"):
+def build_lang(positions=12, stream="none"):  # dropped, A4
     """Bracket grammaticality, section 45's family, at a reduced width."""
     sys.path.insert(0, str(kit.ROOT / "research" / "scaffold-diagnosis"))
     sys.path.insert(0, str(kit.ROOT / "research" / "language-capability"))

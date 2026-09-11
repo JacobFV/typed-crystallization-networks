@@ -25,7 +25,7 @@ from tcn.search import space_size
 def probe(domain, keys=("WIDEN|y|xor",)):
     d = domains.BUILDERS[domain]()
     base, r, sig = d["program"], d["registry"], d["signals"]
-    allep = d["train"] + d["heldout"]
+    allep = d["train"] + d["admission"]
     defects = R.enumerate_defects(base, r, [nd.name for nd in base.nodes])
     out = {"domain": domain, "cases": []}
     for kind, site, arg in defects:

@@ -125,6 +125,15 @@ def cost_for(edits, keys, optimistic):
                                          [reps[i] for i in order]))
 
 
+def first_repair(edits, keys):
+    """The edit M1 stops at: the first repair in this arm's order."""
+    order = sorted(range(len(edits)), key=lambda i: (keys[i], i))
+    for i in order:
+        if edits[i]["repair"]:
+            return edits[i]["key"]
+    return None
+
+
 def deployed(edits, keys):
     """M2: stop at the first edit with a *training* conformer; is it a repair?"""
     order = sorted(range(len(edits)), key=lambda i: (keys[i], i))
@@ -200,10 +209,13 @@ def main():
                                           if e["repair"] and e["is_inverse"]),
                    "repair_families": sorted({e["family"] for e in edits if e["repair"]}),
                    "cost": {}, "cost_optimistic": {}, "deployed": {}}
+            row["selected"] = {}
             for a in ARMS:
                 row["cost"][a] = cost_for(edits, keys[a], False)
                 row["cost_optimistic"][a] = cost_for(edits, keys[a], True)
                 row["deployed"][a] = deployed(edits, keys[a])
+                row["selected"][a] = {"M1": first_repair(edits, keys[a]),
+                                      "M2": row["deployed"][a]["key"]}
             # D1 spread over the 20 permutations
             rows_d = [discretize(e["features"]) for e in edits]
             d1 = [cost_for(edits, [-score(p, rr) for rr in rows_d], False)

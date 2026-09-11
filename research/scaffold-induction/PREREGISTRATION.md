@@ -531,3 +531,54 @@ test is labelled exploratory and post-hoc. The converse — a pass confined to t
 single-site domain — would indicate the opposite, that the prior carries operator
 knowledge and no localisation. Neither is the pre-registered success condition,
 and neither will be presented as one.
+
+
+## A13 — three splits, not two: `admission` is selection data, `final` is not
+
+**Raised by the owner, reviewing the §65 handoff.** That handoff says
+"pre-register on held-out conformance, not training conformance". His objection:
+a held-out set that is *used to make admission decisions* has become selection
+data. Counterexamples drawn from it may legitimately refine a schema — that is
+what CEGIS is — but once used they are training information. Keep calling the
+same set "held-out" afterwards and the project ends up optimising against
+something it believes is blind. §65's own lesson was that the metric, not the
+number, was the defect; this is the same failure one level up.
+
+He is right, and it applies directly to this track as §5 originally wrote it.
+§5 defined a repair as a member conforming on "every training *and* held-out
+episode", and §2.3 admitted a defect on the training episodes. So the set that
+decided what counts as a repair was also the only set left to report
+generalization on. There was nothing blind.
+
+**The structure, replacing §2.3's admission rule and §5's repair definition:**
+
+    train  →  admission / CEGIS validation  →  untouched final test
+
+* **`train`** — what a repaired scaffold must fit to be a candidate at all.
+* **`admission`** — decides both that a defect is admissible (no member conforms
+  on `train ∪ admission`, exhausted) and that an edit is a repair (at least one
+  member does). Admission and repair are deliberately complements of one
+  predicate on one split, so no decision straddles two criteria.
+* **`final`** — read by nothing until the arms have been ordered and scored.
+  It is used for exactly one thing: whether the edit an arm actually selected
+  generalizes. Every number derived from it is labelled as coming from it.
+
+**What this invalidates, stated plainly.** The corpora built under the two-way
+split are **superseded, not re-labelled**, and are kept under
+`out/superseded-twoway/`. They cannot be re-scored into the new structure: the
+new repair predicate (`train ∪ admission`) is *weaker* than the old one
+(`train ∪ all evaluation episodes`), so edits recorded as non-repairs may be
+repairs under it, and those are precisely the cases where `final` would bite.
+Re-using the stored labels would silently keep the old, stricter criterion while
+claiming the new one. Every per-edit decision is therefore re-run. The
+`episode_sweep` ladder and the admissible-defect ceilings are re-run too, because
+A8's rule and `admissible.py` both evaluate the admission predicate, which has
+changed.
+
+**Enforcement, not intention.** `run_domain.py` fingerprints `final` and then
+**deletes it from the domain dictionary** before the corpus loop begins, so a
+later read raises rather than quietly succeeding; the corpus records
+`final_untouched`, `n_final` and the fingerprint. Scoring against `final` happens
+in a separate step that records the same fingerprint, and `verify.py` fails if
+the fingerprints disagree, if a corpus artifact lacks `final_untouched`, or if any
+arm's ordering was computed from anything but `train`.

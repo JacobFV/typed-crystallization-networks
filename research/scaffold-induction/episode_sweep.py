@@ -41,9 +41,9 @@ def build(domain, budget):
     if domain == "bool":
         return domains.build_bool(n_train=budget)
     if domain == "rel":
-        return domains.build_rel(n_train=budget, n_heldout=96)
+        return domains.build_rel(n_train=budget, n_eval=96)
     if domain == "arith":
-        return domains.build_arith(n_train=budget, n_heldout=32)
+        return domains.build_arith(n_train=budget, n_eval=32)
     raise ValueError(domain)
 
 
@@ -58,13 +58,14 @@ def admissible_set(domain, budget):
         if f is None:
             inv += 1
             continue
-        tr = R.decide(f, d["train"], sig, r)
+        tr = R.decide(f, d["train"] + d["admission"], sig, r)
         if tr["decided"] and not tr["conforming"] and tr["exhausted"]:
             names.append(f"{kind}:{site}:{arg}")
         else:
             solv += 1
     row = {"budget": budget, "n_train": len(d["train"]),
-           "n_heldout": len(d["heldout"]), "defects": len(defects),
+           "n_admission": len(d["admission"]), "n_final": len(d["final"]),
+           "defects": len(defects),
            "invalid": inv, "solvable_on_train": solv,
            "admissible": len(names), "admissible_set": sorted(names),
            "seconds": round(time.perf_counter() - t0, 1)}

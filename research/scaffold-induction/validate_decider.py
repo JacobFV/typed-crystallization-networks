@@ -40,7 +40,7 @@ def check(domain, per_case):
     t0 = time.perf_counter()
     d = rebuild(domain)
     base, r, sig = d["program"], d["registry"], d["signals"]
-    allep = d["train"] + d["heldout"]
+    allep = d["train"] + d["admission"]
     corpus = kit.load(f"cases_{domain}")
     out = {"domain": domain, "per_case": per_case,
            "fit_checked": 0, "fit_mismatches": [],
