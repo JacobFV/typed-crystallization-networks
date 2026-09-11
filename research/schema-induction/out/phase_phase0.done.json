@@ -1,0 +1,80 @@
+{
+ "phase": "phase0",
+ "provenance": {
+  "format": "schema-induction/provenance-1",
+  "kind": "phase0",
+  "inputs": {
+   "episodes_gap0.file": "e81d43f84a10b5e520f1609bbda3086a06024281d3007c1c8e418430523cb240",
+   "episodes_gap0.split": "dfd637ac784b932eceb24d6b4ac89efc106162dd8460205faf6e1fbde73f5c70",
+   "episodes_gap1.file": "fd5beb9f024ee8a829c3b23e77ea22b1add4e38062547e20120ca0a3bffadb20",
+   "episodes_gap1.split": "fb580ce97c791923a9e9928b21f2ed46a7a3d566889d187d7a00eac343cf6c4f"
+  },
+  "parameters": {
+   "width": 16,
+   "n_pixels": 256,
+   "raw": 768,
+   "admission_gaps": [
+    0,
+    1
+   ],
+   "relations": [
+    "above",
+    "left_of",
+    "right_of"
+   ],
+   "s0_offsets": [
+    6,
+    51,
+    3,
+    48,
+    9
+   ],
+   "s0_ops": [
+    "add",
+    "sub"
+   ],
+   "s0_bases": [
+    "lo",
+    "hi"
+   ],
+   "s0_step_candidates": 20,
+   "widen_source": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    48,
+    51
+   ],
+   "pilot": true,
+   "pilot_sizes": [
+    5,
+    10,
+    20
+   ]
+  },
+  "parameters_digest": "20a698a742801dc801d728c87eec635656b60d82ead5a58b51f5a405b407df68",
+  "sources": {
+   "research/schema-induction/phase0.py": "587efe654d21e72e69af69041b4ee7f9e0ec4a31710a3995e29538fdab83ce73",
+   "research/schema-induction/stamp.py": "f11feb2fe77bc911640f5a574d416696ea6fd8a4f45ade817065c49fdc1fc1c8"
+  },
+  "git": {
+   "head": "5978f1fe98dbcea00fef1c826741f93b676f9182",
+   "dirty": true
+  },
+  "written_unix": 1789095616.6004543,
+  "written_utc": "2026-09-11T03:00:16Z"
+ }
+}

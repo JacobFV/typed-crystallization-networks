@@ -407,7 +407,15 @@ later has not won, and C4 is written so the record shows it.
   evaluator matches `Program.execute` on a declared sample of programs at
   `gap 2` and `gap 3`, as §65's V1/V2 did at `gap 0`. Run at scoring time only.
 * **V8 — the cost model.** §10's wall clock measured against step-pool size, so
-  the budget below is measured rather than guessed.
+  the budget below is measured rather than guessed. The *band*, not a point
+  estimate: wall clock on this shared host is not reproducible and is not
+  verified as though it were.
+* **V9 — provenance.** §13's rule: every artifact under `out/` carries a stamp
+  that agrees with the inputs, parameters and sources on disk now. An **absent**
+  stamp fails exactly as a disagreeing one does.
+* **V10 — promises are checks.** §13's registry: `check_promises.py` exits
+  non-zero if any promise whose phase has run lacks an implementing `verify_*`
+  function, or if a committed promise was deleted.
 
 Verifiers compare **typed fields**, not prose; numeric checks use token
 equality; any process selection uses PID plus `/proc/<pid>/cwd`. Substring
@@ -420,51 +428,62 @@ bugs in this project.
 `V8_cost_pilot`). One exact 48-episode `engine.Counter` run at `gap 0`, with
 S0's non-STEP pools and a STEP pool of n candidates:
 
-| n step candidates | seconds | peak RSS |
-|---|---|---|
-| 20 (S0) | 88.08 | 0.354 GB |
-| 40 | 104.72 | 0.363 GB |
-| 80 | 147.37 | 0.363 GB |
+| n step candidates | conformers (exact, 48 episodes) | seconds | peak RSS |
+|---|---|---|---|
+| 20 (S0) | 1,376,372,736 | 83.40 | 0.371 GB |
+| 40 | 2,767,343,616 | 103.44 | 0.371 GB |
+| 80 | 11,224,903,680 | 151.44 | 0.371 GB |
 
-Least squares over those three points:
+Least squares over those three points gives `seconds ≈ 59.4 + 1.14 × candidates`
+with residuals under 1.7 s. **The fit is not a reproducible claim and is not
+verified as one.** The pilot was run twice on this shared host; the exact
+conformer counts were identical both times, and the wall clock was not
+(the earlier run fitted `66.8 + 1.00 × candidates`). §10's verified claims are
+therefore the *band* and the *shape*, not the coefficients:
 
-    seconds ≈ 66.8 + 1.00 × (step candidates)        [residuals < 2 s]
+* intercept in [45, 85] s — the route/class/matcher-table enumeration, which no
+  arm in this track changes;
+* slope in [0.8, 1.4] s per step candidate — `Counter.route_products` in direct
+  mode;
+* the cost is **affine, not superlinear**: the 80-candidate point sits within
+  10% of the extrapolation from 20 and 40;
+* peak RSS < 0.5 GB, hence `kit.check_floor`'s requirement (20× peak) under the
+  declared `MemoryMax=8G`;
+* the three exact conformer counts above, by token equality — the reproducible
+  quantity the pilot also produces.
 
-The fixed 66.8 s is the route/class/matcher-table enumeration, which no arm in
-this track changes; the slope is `Counter.route_products` in direct mode. An
-independent anchor agrees: 85.58 s at n = 20 in
-`integrated-flagship/out/generalize_gap0.json`. Peak RSS is 0.36 GB, so
-`MemoryMax=8G` is ~22× the measured peak and `kit.check_floor`'s requirement is
-MemAvailable ≥ 7.3 GB.
+An independent anchor sits inside the band: 85.58 s at n = 20 in
+`integrated-flagship/out/generalize_gap0.json`. Every estimate below carries a
+±20% wall-clock tolerance and is rounded up.
 
 **Per arm** (4 configurations each; the outer loop runs only at the two
 admission configurations):
 
 | arm | step candidates | exact counts | outer loop | total |
 |---|---|---|---|---|
-| `S0` | 20 | 4 × 87 s = 6 min | — | **6 min** |
-| `S_widen` | ≤ 92 | 4 × 159 s = 11 min | ~500 edits × 2 × fast decide ≈ 4 min | **15 min** |
-| `S_hand` | ≤ 96 | 4 × 163 s = 11 min | — | **11 min** |
-| `S1` | ≤ 96 expected | 11 min | ~4 min | **15 min** |
-| `S1_prior` | ≤ 96 expected | 11 min | ~4 min | **15 min** |
-| `D_prior` | ≤ 96 expected | 11 min | ~4 min | **15 min** |
-| `S_blind` | 3,068 | 4 × 3,133 s ≈ **3.5 h** | — | **3.5 h**, capped 2 h/configuration |
-| `S_flat` | 1,280 | model says 4 × 1,346 s ≈ 1.5 h, **but the model does not apply** (see below) | — | capped **2 h/configuration** |
+| `S0` | 20 | 4 × ~85 s ≈ 6 min | — | **≤ 8 min** |
+| `S_widen` | ≤ 92 | 4 × ~165 s ≈ 11 min | ~500 edits × 2 × fast decide ≈ 4 min | **≤ 18 min** |
+| `S_hand` | ≤ 96 | 4 × ~170 s ≈ 12 min | — | **≤ 14 min** |
+| `S1` | ≤ 96 expected | ~12 min | ~4 min | **≤ 20 min** |
+| `S1_prior` | ≤ 96 expected | ~12 min | ~4 min | **≤ 20 min** |
+| `D_prior` | ≤ 96 expected | ~12 min | ~4 min | **≤ 20 min** |
+| `S_blind` | 3,068 | 4 × ~3,600 s ≈ **4 h** | — | **≤ 5 h**, capped 2 h/configuration |
+| `S_flat` | 1,280 | band says 4 × ~1,600 s ≈ 1.8 h, **but the band does not apply** (see below) | — | capped **2 h/configuration** |
 
 Plus: final-split cache ~25 s (12 s per configuration, measured); V6 (40
 schemas × fast decide + 40 exact counts at ≤ 96 candidates) ≈ 1.8 h; V1, V4,
 V5, V7, scoring, `report.py`, `verify.py` ≈ 1 h.
 
 **Headline path** — `S0`, `S1`, `S1_prior`, `S_widen`, `S_hand`, `D_prior`,
-plus V6 and the verifiers — ≈ **4 h** of capped single-worker compute, peak RSS
+plus V6 and the verifiers — **≤ 5 h** of capped single-worker compute, peak RSS
 well under 0.5 GB.
 
 **Two honest caveats on the controls.**
 
-* The affine model is fitted with S0's ADDR/LIT/MATCH pools held fixed. It
+* The affine band is measured with S0's ADDR/LIT/MATCH pools held fixed. It
   applies to `S_blind` (which changes only STEP) and **not** to `S_flat`, whose
   ADDR pool admits arity-1 operators and whose MATCH pool is 2,304 rather than
-  256 — both feed the 66.8 s fixed term. §65 never exhausted the flat arm's
+  256 — both feed the fixed term. §65 never exhausted the flat arm's
   48-episode count and reported a sampled bound instead. `S_flat` is therefore
   budgeted as *unknown, capped at 2 h per configuration*, and is expected to be
   reported `incomplete` with two-sided bounds (F7).
@@ -504,7 +523,78 @@ well under 0.5 GB.
 No change is proposed to `tcn/` or `generators/`. A construct is promoted to
 core only when several domains need it; nothing here qualifies yet.
 
-## 13. Limitations, declared before the result
+## 13. Provenance, and promises that are checks
+
+Two failures from the scaffold-induction track — both found *inside* the
+machinery built to prevent this class of error — set the rules here. Assume
+they do not exhaust the class.
+
+**The incident.** A validation JSON describing a superseded corpus reappeared
+in `out/` *after* the directory was cleaned, because the superseded job was
+still running and wrote afterwards. Cleaning a directory cannot remove
+artifacts that have not been produced yet. It was nearly reported as current,
+and the verifier would have accepted it: its checks asserted "a validation ran
+and reported zero mismatches", never "it validated **this** corpus".
+
+**Rule 1 — every derived artifact carries a fingerprint of what it was derived
+from.** `stamp.py` embeds a `provenance` block in every artifact this track
+writes: the digest of every input file, the digest of each *split* computed
+from the fields a decision could depend on, the declared parameters (pool
+contents and sizes, gaps, seeds, configuration) and their digest, the digest of
+every source file whose behaviour produced it, and the git HEAD with its dirty
+flag. `stamp.require` fails when the block **disagrees** with disk and equally
+when it is **absent** — otherwise every artifact predating this rule silently
+counts as current. It also fails when called with nothing to compare: an
+assertion that checks nothing must fail, not pass.
+
+**Rule 2 — re-run to obtain a stamp; never back-fill one.** There is no
+function in `stamp.py` that adds a block to an existing artifact, and
+`stamp.write` refuses a payload that already carries one. A hand-added stamp
+asserts exactly what it cannot check. The `out/phase0.json` committed with this
+document was **re-run, not annotated**, after this rule was adopted.
+
+**Rule 3 — a promise is a check, shipped in the same commit.** Amendment A13 of
+the scaffold-induction track promises that its `verify.py` enforces the blind
+split's fingerprint, `final_untouched`, and train-only ordering; that file
+contains no such check, and nothing failed because of it. So this track keeps
+`promises.json`: every mechanical check this document promises, with the phase
+that activates it and the name of the `verify_*` function that implements it.
+`check_promises.py` fails when
+
+1. a promise whose phase has **run** has no implementing function in
+   `verify.py`;
+2. a promise committed earlier has been **deleted** — promises are amended,
+   never removed;
+3. a promise's artifact exists but carries **no** provenance stamp, or one that
+   disagrees with disk;
+4. the registry is malformed, or a promise names no declared phase.
+
+A phase counts as run when its marker exists under `out/`, and markers are
+written by the phase's own job — `check_promises.mark_phase` — never by hand.
+
+**Rule 4 — a guard nobody has seen fail is a guard nobody has tested.**
+`selftest_guards.py` drives each provenance guard to its failure state — absent
+block, unknown format, missing field, empty inputs, parameters edited after
+writing, an input digest disagreeing with disk, an unnamed input, a changed
+source, the wrong kind, a comparison with nothing to compare, an overwrite of
+an existing block, a missing input file — and asserts each one raises. 13 cases,
+all refusing. `verify_v11_guards_bite` runs it, so the guards cannot rot into
+no-ops.
+
+**Shipped with this document**, because `phase0` has run: `verify_v2_expressivity`,
+`verify_v3_widen_insufficiency`, `verify_f2_no_design_collapse`,
+`verify_v8_cost_model`, `verify_v9_provenance`, `verify_v10_promises_kept` and
+`verify_v11_guards_bite`. The remaining 20 promises are `pending` against the
+`grammar`, `outer` and `final` phases, and each becomes a hard failure the
+moment its phase's marker appears. `verify.py` records two narrow, named exemptions from the provenance
+scan — its own `verify.json` and `headline.json`, which the run in progress
+overwrites — and reports the exemption as a claim so it cannot become a silent
+hole.
+
+**V9** and **V10** are added to §9's validity checks and run before any
+criterion is read.
+
+## 14. Limitations, declared before the result
 
 * **One slot, one relation.** Measured in §2.2: `left_of` and `right_of` remain
   expressible in S0 at `gap 1`, and are predicted to stay expressible at

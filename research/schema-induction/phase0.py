@@ -41,6 +41,9 @@ from collections import defaultdict
 
 import numpy as np
 
+import check_promises
+import stamp
+
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 FLAGSHIP = ROOT / "research" / "integrated-flagship"
@@ -215,6 +218,29 @@ def v8_pilot(sizes):
     return {"gap": 0, "rows": rows}
 
 
+def provenance(sizes, pilot):
+    """The identity of everything this artifact was derived from (§14).
+
+    Obtained by running, never back-filled: `stamp.write` refuses an artifact
+    that already carries a block, and there is no function that adds one.
+    """
+    inputs = {}
+    for gap in ADMISSION_GAPS:
+        path = FLAGSHIP / "out" / f"episodes_gap{gap}.json"
+        payload = json.loads(path.read_text())
+        inputs[f"episodes_gap{gap}.file"] = stamp.digest_file(path)
+        inputs[f"episodes_gap{gap}.split"] = stamp.digest_episodes(payload["episodes"])
+    parameters = {"width": WIDTH, "n_pixels": N_PIXELS, "raw": RAW,
+                  "admission_gaps": list(ADMISSION_GAPS), "relations": list(RELATIONS),
+                  "s0_offsets": list(S0_OFFSETS), "s0_ops": list(S0_OPS),
+                  "s0_bases": list(S0_BASES), "s0_step_candidates":
+                      len(S0_OFFSETS) * len(S0_OPS) * len(S0_BASES),
+                  "widen_source": list(WIDEN_SOURCE),
+                  "pilot": pilot, "pilot_sizes": list(sizes) if pilot else None}
+    return stamp.make("phase0", inputs, parameters,
+                      [HERE / "phase0.py", HERE / "stamp.py"])
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--pilot", action="store_true")
@@ -226,7 +252,10 @@ def main():
     report["V3_widen_insufficiency"] = v3_widen(report["V2_expressivity"])
     if a.pilot:
         report["V8_cost_pilot"] = v8_pilot(a.sizes)
-    (OUT / "phase0.json").write_text(json.dumps(report, indent=1))
+    prov = provenance(a.sizes, a.pilot)
+    stamp.write(OUT / "phase0.json", report, prov)
+    if a.pilot:
+        check_promises.mark_phase("phase0", prov)
     print(json.dumps({k: v for k, v in report.items() if k != "V8_cost_pilot"},
                      indent=1)[:4000])
     print("V2 counterexample holds:", report["V2_expressivity"]["counterexample"]["holds"])

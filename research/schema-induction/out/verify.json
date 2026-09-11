@@ -1,0 +1,288 @@
+{
+ "format": "schema-induction/verify-1",
+ "n_pass": 49,
+ "n_fail": 0,
+ "results": [
+  {
+   "pass": true,
+   "claim": "V9 provenance: the only artifacts exempt from the scan are this run's own",
+   "detail": "verify.json, headline.json"
+  },
+  {
+   "pass": true,
+   "claim": "V9 provenance: phase0.json carries a stamp",
+   "detail": "6 recorded input/source field(s)"
+  },
+  {
+   "pass": true,
+   "claim": "V9 provenance: phase0.json inputs and sources unchanged",
+   "detail": "5 field(s) compared"
+  },
+  {
+   "pass": true,
+   "claim": "V9 provenance: phase_phase0.done.json carries a stamp",
+   "detail": "6 recorded input/source field(s)"
+  },
+  {
+   "pass": true,
+   "claim": "V9 provenance: phase_phase0.done.json inputs and sources unchanged",
+   "detail": "5 field(s) compared"
+  },
+  {
+   "pass": true,
+   "claim": "V10 promises: every promise whose phase has run is implemented",
+   "detail": "['27 promises, 7 kept, 20 pending, 0 failures']"
+  },
+  {
+   "pass": true,
+   "claim": "V11 guards: every provenance guard refuses its failure case",
+   "detail": "['13 PASS, 0 FAIL']"
+  },
+  {
+   "pass": true,
+   "claim": "V2: S0's offsets are \u00a72.1's five",
+   "detail": "[6, 51, 3, 48, 9]"
+  },
+  {
+   "pass": true,
+   "claim": "V2: gap 0 covers all three relations",
+   "detail": "['above', 'left_of', 'right_of']"
+  },
+  {
+   "pass": true,
+   "claim": "V2: gap 0 above used 16 episodes",
+   "detail": "16"
+  },
+  {
+   "pass": true,
+   "claim": "V2: gap 0 above min-required re-derived from its ranges",
+   "detail": "7 vs 7"
+  },
+  {
+   "pass": true,
+   "claim": "V2: gap 0 above S0 coverage re-derived",
+   "detail": "[['sub(lo)', 9], ['sub(lo)', 48]] vs [['sub(lo)', 9], ['sub(lo)', 48]]"
+  },
+  {
+   "pass": true,
+   "claim": "V2: gap 0 left_of used 16 episodes",
+   "detail": "16"
+  },
+  {
+   "pass": true,
+   "claim": "V2: gap 0 left_of min-required re-derived from its ranges",
+   "detail": "1 vs 1"
+  },
+  {
+   "pass": true,
+   "claim": "V2: gap 0 left_of S0 coverage re-derived",
+   "detail": "[['sub(lo)', 3], ['sub(lo)', 6], ['sub(lo)', 9]] vs [['sub(lo)', 3], ['sub(lo)', 6], ['sub(lo)', 9]]"
+  },
+  {
+   "pass": true,
+   "claim": "V2: gap 0 right_of used 16 episodes",
+   "detail": "16"
+  },
+  {
+   "pass": true,
+   "claim": "V2: gap 0 right_of min-required re-derived from its ranges",
+   "detail": "3 vs 3"
+  },
+  {
+   "pass": true,
+   "claim": "V2: gap 0 right_of S0 coverage re-derived",
+   "detail": "[['add(hi)', 3], ['add(hi)', 6], ['add(hi)', 9]] vs [['add(hi)', 3], ['add(hi)', 6], ['add(hi)', 9]]"
+  },
+  {
+   "pass": true,
+   "claim": "V2: gap 1 covers all three relations",
+   "detail": "['above', 'left_of', 'right_of']"
+  },
+  {
+   "pass": true,
+   "claim": "V2: gap 1 above used 16 episodes",
+   "detail": "16"
+  },
+  {
+   "pass": true,
+   "claim": "V2: gap 1 above min-required re-derived from its ranges",
+   "detail": "55 vs 55"
+  },
+  {
+   "pass": true,
+   "claim": "V2: gap 1 above S0 coverage re-derived",
+   "detail": "[] vs []"
+  },
+  {
+   "pass": true,
+   "claim": "V2: gap 1 left_of used 16 episodes",
+   "detail": "16"
+  },
+  {
+   "pass": true,
+   "claim": "V2: gap 1 left_of min-required re-derived from its ranges",
+   "detail": "4 vs 4"
+  },
+  {
+   "pass": true,
+   "claim": "V2: gap 1 left_of S0 coverage re-derived",
+   "detail": "[['sub(lo)', 6], ['sub(lo)', 9]] vs [['sub(lo)', 6], ['sub(lo)', 9]]"
+  },
+  {
+   "pass": true,
+   "claim": "V2: gap 1 right_of used 16 episodes",
+   "detail": "16"
+  },
+  {
+   "pass": true,
+   "claim": "V2: gap 1 right_of min-required re-derived from its ranges",
+   "detail": "6 vs 6"
+  },
+  {
+   "pass": true,
+   "claim": "V2: gap 1 right_of S0 coverage re-derived",
+   "detail": "[['add(hi)', 6], ['add(hi)', 9]] vs [['add(hi)', 6], ['add(hi)', 9]]"
+  },
+  {
+   "pass": true,
+   "claim": "V2: S0 solves every relation at gap 0",
+   "detail": ""
+  },
+  {
+   "pass": true,
+   "claim": "V2: the counterexample is `above` at gap 1, unsayable in S0",
+   "detail": ""
+  },
+  {
+   "pass": true,
+   "claim": "V2: min required 55 > max S0 offset 51",
+   "detail": "55 > 51"
+  },
+  {
+   "pass": true,
+   "claim": "V2: max S0 offset equals max of \u00a72.1's pool",
+   "detail": ""
+  },
+  {
+   "pass": true,
+   "claim": "V3: the declared literal source L is \u00a73.2's",
+   "detail": "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 48, 51]"
+  },
+  {
+   "pass": true,
+   "claim": "V3: reachable offsets re-derived as L union S0",
+   "detail": ""
+  },
+  {
+   "pass": true,
+   "claim": "V3: max reachable re-derived",
+   "detail": "51 vs 51"
+  },
+  {
+   "pass": true,
+   "claim": "V3: reachable and required offsets are disjoint",
+   "detail": ""
+  },
+  {
+   "pass": true,
+   "claim": "V3: max(reachable) < min(required), by token equality on both integers",
+   "detail": "51 < 55"
+  },
+  {
+   "pass": true,
+   "claim": "V3: widening-insufficiency holds",
+   "detail": ""
+  },
+  {
+   "pass": true,
+   "claim": "F2: the experiment has NOT collapsed into `restore a candidate`",
+   "detail": "no literal in L reaches it"
+  },
+  {
+   "pass": true,
+   "claim": "V8: at least three points, so the fit is over-determined",
+   "detail": "3"
+  },
+  {
+   "pass": true,
+   "claim": "V8: n=20 candidate count re-derived from offsets",
+   "detail": "20 vs 5 * 4"
+  },
+  {
+   "pass": true,
+   "claim": "V8: n=40 candidate count re-derived from offsets",
+   "detail": "40 vs 10 * 4"
+  },
+  {
+   "pass": true,
+   "claim": "V8: n=80 candidate count re-derived from offsets",
+   "detail": "80 vs 20 * 4"
+  },
+  {
+   "pass": true,
+   "claim": "V8: \u00a710's declared band \u2014 intercept in [45, 85] s",
+   "detail": "66.8 s"
+  },
+  {
+   "pass": true,
+   "claim": "V8: \u00a710's declared band \u2014 slope in [0.8, 1.4] s per step candidate",
+   "detail": "1.0278 s"
+  },
+  {
+   "pass": true,
+   "claim": "V8: \u00a710's residual bound (< 3 s) holds",
+   "detail": "0.22 s"
+  },
+  {
+   "pass": true,
+   "claim": "V8: the counter is affine in the step pool, not superlinear (the 80-candidate point is within 10% of the 20/40 extrapolation)",
+   "detail": "149.1 s measured"
+  },
+  {
+   "pass": true,
+   "claim": "V8: \u00a710's peak RSS bound (< 0.5 GB) and the floor it implies (< 8 GB, the declared MemoryMax)",
+   "detail": "peak 0.374 GB, floor 7.5 GB"
+  },
+  {
+   "pass": true,
+   "claim": "V8: the pilot's exact 48-episode conformer counts, by token equality",
+   "detail": "{20: '1376372736', 40: '2767343616', 80: '11224903680'}"
+  }
+ ],
+ "provenance": {
+  "format": "schema-induction/provenance-1",
+  "kind": "verify",
+  "inputs": {
+   "phase0.json": "129744e83c06977f72fe1aab52965c71a29741482916f2f96c938f0a436a0d5c",
+   "phase_phase0.done.json": "90e7384d59d2e5e08dd3d836be80fa6f58794e469f83fd2162170f0be53265a1"
+  },
+  "parameters": {
+   "checks": [
+    "verify_v9_provenance",
+    "verify_v10_promises_kept",
+    "verify_v11_guards_bite",
+    "verify_v2_expressivity",
+    "verify_v3_widen_insufficiency",
+    "verify_f2_no_design_collapse",
+    "verify_v8_cost_model"
+   ],
+   "exempt": [
+    "verify.json",
+    "headline.json"
+   ]
+  },
+  "parameters_digest": "daed5399a5ebd1614ed5bbd2bb32143259e6193de545c692629cb84a16f1b287",
+  "sources": {
+   "research/schema-induction/verify.py": "d3cc86ff0473577ef683871c656d06c1b588f818d23de0b28082a0c6eda91337",
+   "research/schema-induction/stamp.py": "f11feb2fe77bc911640f5a574d416696ea6fd8a4f45ade817065c49fdc1fc1c8",
+   "research/schema-induction/check_promises.py": "43b0394371e3170aa6885a586f44786ad35e1de79e010db51ead1d69a70fe92e",
+   "research/schema-induction/promises.json": "40001a335d1ba8feae618a6a873881de53215a5998e96d17c91426eedc910297"
+  },
+  "git": {
+   "head": "5978f1fe98dbcea00fef1c826741f93b676f9182",
+   "dirty": true
+  },
+  "written_unix": 1789095674.0116298,
+  "written_utc": "2026-09-11T03:01:14Z"
+ }
+}
