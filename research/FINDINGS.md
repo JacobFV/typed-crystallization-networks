@@ -3796,7 +3796,7 @@ resolution 16; `gap 1` is the only second configuration.]
 
 `research/scaffold-induction/RESULTS.md`, merged as `HEAD`; `tcn/` and
 `generators/` untouched. `PREREGISTRATION.md` committed before any arm, with
-every later change a numbered amendment (A1–A20). `verify.py` reports 169 PASS,
+every later change a numbered amendment (A1–A20). `verify.py` reports 176 PASS,
 0 FAIL. Verified here from raw JSON.
 
 **Scope, stated before the result.** The defect generator only *narrows*
@@ -3804,10 +3804,14 @@ scaffolds, so this measures **repair of synthetically narrowed scaffolds**, not
 scaffold induction: re-widening is the natural inverse of a narrowing, and a
 prior that learns "prefer `WIDEN`" has learned a fact about the generator.
 `ADD_PATH` repairs **zero** cases in either domain. `ADD_NODE` repairs **zero of
-9** in `bool` but appears in the repair set of **19 of 19** `rel` cases — so the
-dead structural family is a property of `bool`'s single-site scaffold, **not of
-the generator**, exactly as pre-registered amendment A15 required be reported if
-a structural family repaired anywhere. Testing structural repair still needs
+9** in `bool` but appears in the repair set of **19 of 19** `rel` cases — where
+it is the *most productive* family, 86 repairing edits against `SUBST`'s 32, at
+all four defect sites. So the dead structural family is a property of `bool`'s
+three-node scaffold with every defect at its output, **not of the generator**,
+exactly as pre-registered amendment A15 required be reported if a structural
+family repaired anywhere. `ADD_PATH`'s uniform failure has its own mechanism: it
+appends only at the output, so it can add a final combiner but never supply a
+missing intermediate. Testing structural repair still needs
 defects that remove *expressiveness*, which is §65's `gap 1` one level up and the
 next track's subject.
 

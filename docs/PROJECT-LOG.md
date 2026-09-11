@@ -300,9 +300,28 @@ reproduces it more cheaply (CORRECTIONS rows 37-38). At gap 1 the inherited
 schema is refuted outright: zero programs conform on all 48 episodes. 493 PASS,
 0 FAIL; peak RSS 4.25 GB under the caps.
 
+**§66 — repairing narrowed scaffolds.** The cross-domain outer loop, run as a
+bounded diagnostic after its own corpus turned out to be built in the mechanism's
+image. Inherited edit history does **not** beat no library (1.045x), and the
+edit-family class is organisational reuse. The finding is the per-domain split,
+whose reading A12 fixed before the arms ran: on a single-site scaffold the prior
+is worse than nothing and a one-line "prefer output-adjacent edits" rule wins; on
+a four-site scaffold the prior leads. It discriminates on *where* to edit, not
+*what* edit to make. ORACLE at 1.00 against a best arm of 18.59 says the
+orderable signal is almost entirely uncaptured. Both resource gates now fail
+closed in code, after the human-enforced worker cap was breached within an hour
+of being stated.
+
+**Paused, not abandoned: `research/schema-induction/`.** The structural
+experiment the owner specified -- induce a repaired schema from §65's `gap 1`
+counterexample, blind-tested at `gap 2`/`gap 3`. Pre-registration approved at
+r3, phase 0 committed (the counterexample is two integers: `gap 1` needs offset
+>= 55, S0 tops out at 51), gates green, arms **not** run. `RESUME.md` carries the
+exact commands and the ~5 h capped estimate.
+
 ---
 
-## Standing shape of the project, as of 2026-09-10
+## Standing shape of the project, as of 2026-09-11
 
 **Holds up:** exact typed execution; dense hierarchical supervision (the
 mechanism that actually works); recursive abstraction as a *mechanism*; the

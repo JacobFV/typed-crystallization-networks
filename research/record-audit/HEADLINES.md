@@ -205,4 +205,4 @@ these figures is checked against this value by the gate (`verify.py --gate`). Qu
 | §66 | `§66/c1-ratio` | 1.0445 | `research/scaffold-induction/out/headline.json` |
 | §66 | `§66/rel-N` | 24.718 | `research/scaffold-induction/out/analysis.json` |
 | §66 | `§66/rel-Npp` | 18.5877 | `research/scaffold-induction/out/analysis.json` |
-| §66 | `§66/verifier-pass` | 169 | `research/scaffold-induction/out/verify.json` |
+| §66 | `§66/verifier-pass` | 176 | `research/scaffold-induction/out/verify.json` |

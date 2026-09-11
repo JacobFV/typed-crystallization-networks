@@ -226,6 +226,14 @@ factors as locate anchor → instantiate relation → resolve target → bind ac
 each operation re-specialized. That would reconcile schemas crossing domains
 while concrete selection vectors do not (§60, §64, §65).
 
+**A scoped claim needs its scope re-checked when the evidence base grows**
+(§66). "The structure-inventing families repair nothing" was *true when written*
+-- only `bool` existed -- and became false when `rel` landed, with `ADD_NODE`
+repairing 19 of 19 `rel` cases. Nobody edited the sentence; the world changed
+under it. Unlike every other correction on that track there was no moment of
+carelessness to point at, which is exactly why only a check catches it. Treat
+every domain-scoped sentence as a future error unless something re-derives it.
+
 **Provenance standard for evidence artifacts (owner, 2026-09-10, permanent).**
 Every artifact used as evidence carries provenance for: the base
 scaffold/program digest, the split/corpus digest, the mutation-grammar version
