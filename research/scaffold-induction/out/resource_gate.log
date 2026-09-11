@@ -10,3 +10,4 @@ check_workers	live=3	requesting=1	limit=4	['run_domain.py', 'run_domain.py', 'ru
 run_domain:arith:shard0	MemAvailable=43.94GB	required=2.00GB (max(2.0GB, 20 x measured peak 0.025GB))	headroom_after=43.91GB	START
 check_workers	live=3	requesting=1	limit=4	['run_domain.py', 'run_domain.py', 'run_domain.py']	START
 run_domain:arith:shard1	MemAvailable=23.81GB	required=2.00GB (max(2.0GB, 20 x measured peak 0.025GB))	headroom_after=23.78GB	START
+check_workers	live=4	requesting=1	limit=4	['run_domain.py', 'run_domain.py', 'run_domain.py', 'run_domain.py']	REFUSED

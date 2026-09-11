@@ -1,10 +1,26 @@
-# Scaffold induction as a cross-domain outer loop — results
+# Repairing **narrowed** scaffolds, as a cross-domain outer loop — results
+
+> **What this track measures, stated before anything else.** Its defect generator
+> only ever **narrows** an existing scaffold — it removes operators, sources or
+> candidates from a scaffold that could already solve the task. So every result
+> here is about **re-widening narrowed scaffolds**, not about scaffold repair in
+> general. The two structural edit families, `ADD_NODE` and `ADD_PATH`, repair
+> **nothing** in this corpus, because the inverse of a narrowing is a widening
+> and nothing here needs a node that was never there. A prior that learns
+> "prefer `WIDEN` over `ADD_NODE`" has learned a fact about the **generator**.
+> Every claim below should be read with "narrowing defects" in place of
+> "scaffold repair", and the missing experiment is named in its own section.
 
 `PREREGISTRATION.md` was committed before the first arm. `tcn/` and
 `generators/` are untouched. Every figure below sits inside a
 `<!-- BEGIN:x -->` block rendered from `out/` by `report.py`; `verify.py`
 re-renders each block, re-derives every headline from raw JSON without importing
 the run or report scripts, and writes `out/verify.json` and `out/headline.json`.
+
+**[Scope, repeated because it is the main limitation.]** Narrowing defects only.
+The expressiveness-removing case — a scaffold that *cannot say* what the task
+needs, §45's running minimum — is absent from this corpus and is the experiment
+this track's gap motivates rather than patches over.
 
 **[Single-configuration evidence.]** One seed set per domain, one base scaffold
 per domain, one defect generator, one edit enumerator, one estimator family, one
@@ -203,10 +219,49 @@ usually unrepairable by a single edit.
 
 That is worth stating plainly because it bounds what this track can claim. A
 prior that learns "prefer `WIDEN` over `ADD_NODE`" has learned something true
-about this corpus and nothing about scaffold repair in general. If the structural
-families are to be tested properly they need defects that remove *expressiveness*
-rather than *options* — which is a different defect generator, and a thing to
-build next rather than to infer from here.
+about this corpus and nothing about scaffold repair in general.
+
+**Pre-committed (A15), before `rel` and `arith` reported their counts:** if
+`ADD_NODE` and `ADD_PATH` repair nothing in *every* domain, the grammar is
+reported as having been **effectively two families wide**, and the arms are
+reported as orderings over that two-family space rather than the five-family
+space the enumerator nominally explores. No claim is then made about a prior's
+ability to choose between structural and non-structural edits, because on this
+corpus that choice never arises. If a structural family does repair something
+somewhere, that is reported with the domain and defect named — it would show the
+limitation belongs to `bool`'s single-site structure rather than to the
+generator.
+
+---
+
+## The missing experiment, named rather than patched over
+
+The gap is a missing **defect shape**, not a flaw in the edit enumerator. This
+corpus removes *options*; it never removes *expressiveness*.
+
+**The shape needed** is a scaffold that **cannot say** what the task requires —
+not one whose vocabulary was trimmed, but one whose vocabulary never held the
+needed construction. §45 is the canonical instance: the counting scaffold has no
+way to express a running minimum, so *no* selection of its existing candidates
+conforms, and the repair must **add** a reduction rather than restore one.
+
+**The same failure appears one level up in §65.** At `gap 1` the inherited
+schema's STEP pool did not contain the two-row displacement the task needed —
+2.6×10¹¹ programs conforming on training and **zero** conforming over all
+episodes, exhausted. That is expressiveness-removal arriving as a *schema* defect
+rather than a scaffold defect, and it is why that arm could not generalize there:
+no prior over that pool could. The two observations are the same phenomenon at
+two levels, which is the argument for treating it as the next experiment rather
+than as an artefact of either track.
+
+**So this track's gap motivates the owner's next phase rather than being patched
+over.** Build a defect generator that removes a construction the task needs —
+delete a reduction from the operator pool, drop an arity, remove a type from the
+scaffold's vocabulary — and re-run these same arms against it. The prediction
+worth pre-registering there, from §45 and §65 together, is that `ADD_NODE`
+becomes the only family that repairs anything: the present corpus and that one
+would then be exact complements, and the pair would say something about scaffold
+repair that neither says alone.
 
 ---
 

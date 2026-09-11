@@ -619,3 +619,57 @@ arithmetic failure on my part, caught in review.
   at least three admitted cases per domain — applied to the one domain whose
   cost made it a live question. F7 as originally written would not have fired
   here either, and that is precisely the weakness A10 records.
+
+
+## A15 — the grammar's effective width, pre-committed
+
+Recorded before `rel` and `arith` have reported their per-family counts, so the
+reading cannot be chosen to suit them.
+
+On `bool` — the first complete corpus — the two structural families produce
+**zero** repairs: `ADD_NODE` and `ADD_PATH` are a third of the edits proposed and
+repair nothing, while `SUBST` and `WIDEN` each repair every case.
+
+**The commitment: if `ADD_NODE` and `ADD_PATH` produce zero repairs in *every*
+domain, the mutation grammar is reported as having been effectively two families
+wide**, and the arms are reported as orderings over that two-family space, not
+over the five-family space the enumerator nominally explores. The headline says
+so, `C1`–`C4` are read against it, and no claim is made about a prior's ability
+to choose between structural and non-structural edits, because on this corpus
+that choice never arises.
+
+If instead a structural family repairs something in some domain, that is reported
+too, with the domain and the defect named — it would show the limitation is a
+property of `bool`'s single-site structure rather than of the generator.
+
+## A16 — the missing experiment, named rather than patched over
+
+The gap is specific and it is not a flaw in the edit enumerator: it is a missing
+**defect shape**. This corpus removes *options*. What it never removes is
+*expressiveness*.
+
+* **The shape needed.** A scaffold that **cannot say** what the task requires —
+  not one whose vocabulary was trimmed, but one whose vocabulary never contained
+  the needed construction. §45 is the canonical instance: the counting scaffold
+  has no way to express a running minimum, so **no** selection of its existing
+  candidates conforms, and the repair must *add* a reduction rather than restore
+  one. `delete_node` gestures at this but is usually unrepairable by a single
+  edit and is rare in the enumeration.
+* **The same failure, one level up, in §65.** At `gap 1` the inherited schema's
+  STEP pool did not contain the two-row displacement the task needed: 2.6×10¹¹
+  programs conforming on training and **zero** conforming over all episodes,
+  exhausted. That is expressiveness-removal arriving as a *schema* defect rather
+  than a scaffold defect, and it is why the flagship's N″ arm could not
+  generalize there — no prior over that pool could.
+* **Why it matters here.** The structural families exist to repair exactly that
+  shape, and this corpus never presents it. So the track cannot say whether an
+  inherited prior helps choose a structural edit; it can only say that on
+  narrowing defects, structural edits are never the answer.
+
+**This is the experiment the owner's next phase should run**, and this track's
+gap is the argument for it: build a defect generator that removes a construction
+the task needs — delete a reduction from the operator pool, drop an arity, remove
+a type from the scaffold's vocabulary — and re-run these same arms against it.
+The prediction to pre-register there, from §45 and §65 together, is that
+`ADD_NODE` becomes the only family that repairs anything, which would make the
+present corpus and that one exact complements.
