@@ -582,3 +582,40 @@ later read raises rather than quietly succeeding; the corpus records
 in a separate step that records the same fingerprint, and `verify.py` fails if
 the fingerprints disagree, if a corpus artifact lacks `final_untouched`, or if any
 arm's ordering was computed from anything but `train`.
+
+
+## A14 — `arith` is capped at eight cases and a four-hour wall clock
+
+Set **before** the arms and before `arith` has produced a single case, so the
+corpus size cannot be chosen after seeing what the arms do with it. Deciding a
+corpus size on the strength of the result it produces is the §65 error in its
+purest form.
+
+`arith` measures ~89 minutes per case (`out/rate_arith.json`), for the structural
+reason recorded in the supervision-density section: its only probe sits on the
+output node, so prefix enumeration cannot reject a partial program and every
+selection is walked to the last node. At that rate the twelve-cases-per-shard
+budget originally set would have been about eighteen hours per shard. That was an
+arithmetic failure on my part, caught in review.
+
+**The rule, fixed now:**
+
+* **Target: 8 admitted `arith` cases**, run as four shards of two rather than two
+  shards of six, because four shards finish in roughly the wall clock of two
+  cases instead of six. Memory is not the constraint — 0.025 GB per shard — and
+  the worker cap is respected by starting them only as `bool` and `rel` release
+  their slots.
+* **Hard stop at four hours** of `arith` wall clock. Whatever has landed at the
+  stop **is** the corpus. It is reported as a reduced corpus with the measured
+  per-case cost as the stated reason. The run is not extended, and the stop is
+  not revisited after seeing the arms.
+* **Work already done is kept.** A shard mid-case finishes that case rather than
+  restarting it; `merge_shards.py` de-duplicates by `case_id`, so a defect
+  decided under one sharding is not decided again under another.
+* **Minimum for the cross-domain claim: three `arith` cases.** Below three,
+  `arith` is reported as **not having supplied a corpus**, the track is stated as
+  **two-domain rather than three**, and every cross-domain figure carries that
+  qualification. This is the stronger post-hoc condition recorded in A10 —
+  at least three admitted cases per domain — applied to the one domain whose
+  cost made it a live question. F7 as originally written would not have fired
+  here either, and that is precisely the weakness A10 records.

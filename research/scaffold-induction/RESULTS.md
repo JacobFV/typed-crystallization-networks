@@ -170,6 +170,36 @@ defect the generator produces is applied and put through the admission rule.
 
 ---
 
+## The `arith` corpus is capped, and the cap was set before the arms
+
+Recorded here before `arith` produced a single case, because a corpus size chosen
+after seeing what the arms do with it would be §65's error in its purest form.
+
+`arith` measures about eighty-nine minutes per case, for the structural reason
+in the supervision-density section below: its only probe sits on the output node,
+so prefix enumeration cannot reject a partial program and every selection is
+walked to the last node. The budget originally set — twelve cases per shard —
+was therefore about eighteen hours per shard. That was an arithmetic failure on
+my part, caught in review rather than by me.
+
+Amendment A14 fixes: a target of **eight** admitted cases, run as **four shards
+of two** rather than two of six, because four shards finish in roughly the wall
+clock of two cases instead of six; a **hard stop at four hours** of `arith` wall
+clock, at which whatever has landed *is* the corpus; work already done is kept,
+with `merge_shards.py` de-duplicating by case identity so a re-shard never
+decides a defect twice; and a **minimum of three cases** for `arith` to count as
+having supplied a corpus at all. Below three, the track is reported as
+**two-domain, not three**, and every cross-domain figure carries that
+qualification.
+
+That minimum is the stronger post-hoc condition recorded in A10 — at least three
+admitted cases per domain — applied to the one domain whose cost made it a live
+question. It is worth noting that F7 as originally written would not have fired
+here either: it counts domains, and `arith` would have counted as a domain on a
+single case. That is exactly the weakness A10 records, now with a second instance.
+
+---
+
 ## What the outer loop itself costs
 
 The point of an outer loop is to move search up a level: instead of enumerating
