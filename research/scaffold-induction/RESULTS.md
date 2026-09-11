@@ -357,5 +357,54 @@ worker, single-threaded BLAS, at most four workers), with `MemAvailable` checked
 against the floor before each phase and logged to `out/memory_floor.log`. The
 other project's GPU processes were never touched.
 
+**This track's own footprint is small enough that the floor is about the host,
+not about it.** Measured peak resident memory for the heaviest operation —
+building a domain, enumerating a whole case's typed edits, and deciding them — is
+**0.025 GB**, and the live corpus workers sat between 0.03 and 0.24 GB. An early
+guess that `enumerate_edits` was expensive because it materialises every edited
+program at once was wrong: 465 edited programs holding 35,621 candidates occupy
+about 3 MB. Four shards would total roughly 0.15 GB.
+
+**R1 — the flat floor is replaced by one that scales to the measured peak.**
+This is a resource-policy amendment and is recorded as visibly as the
+pre-registration ones. The original rule was a flat 25 GB of `MemAvailable`
+before any phase. It was written for heavy phases, and it cannot tell a 50 MB job
+from a 50 GB one; on a host loaded by *other* projects it blocks work that could
+not possibly tip the host. The replacement:
+
+> A phase may start when `MemAvailable` ≥ max(2 GB, 20 × the phase's measured
+> peak RSS) **and** at least 1 GB of headroom remains once the phase is resident.
+> A phase with no measured peak keeps the 25 GB floor.
+
+For `arith` that is max(2 GB, 20 × 0.025 GB) = **2 GB**, two orders of magnitude
+of slack over the measurement, and the 1 GB headroom test is what actually
+protects a nearly-full host. Per-shard `MemoryMax` is set to **2 GB** rather than
+20 GB — about eighty times the measured peak — so a genuine runaway is killed
+alone instead of taking the host with it, and the `SIGTERM` handler records the
+kill. The rule lives in `kit.check_floor`, which logs the requirement, the
+arithmetic behind it and the headroom to `out/memory_floor.log` at every phase.
+Unmeasured phases are unaffected: they keep the original floor, which is what
+`kit.measured_peak` returning `None` selects.
+
+**The floor was breached under the old rule, and the launch was held.** During the
+corpus phase `MemAvailable` fell from 79 GB to 13 GB. None of it was this track:
+its three running jobs held 0.23 GB between them, against a `next-server` at
+20.0 GB, a node/vite runtime at 2.1 GB, another project's training at 1.8 GB and
+an esbuild at 1.3 GB. The `arith` phase was **not started**, the hold is recorded
+in `out/memory_floor.log` with the cause, and no other project's process was
+touched — including the one holding twenty gigabytes, which is the only one whose
+removal would have helped. Running jobs were left alone deliberately: stopping
+them would have freed 0.23 GB and lost an hour of work, and they checkpoint after
+every defect, so even a host-level kill costs one defect rather than a corpus.
+
+**A killed worker leaves a record rather than a gap.** `run_domain.py` installs a
+`SIGTERM`/`SIGINT` handler that writes the partial corpus with
+`stopped_by_signal` and `last_defect_started` set; `verify.py` fails if any
+corpus an arm is costed on carries that marker. This was verified by killing a
+real shard, not by inspection: it recorded `stopped_by_signal: SIGTERM` at
+`delete_node:inner:None`. The path exists because an earlier timing probe died
+leaving no output and no diagnosable cause — measurement later ruled memory out,
+but by then the evidence of what had happened was gone.
+
 <!-- BEGIN:resources -->
 <!-- END:resources -->

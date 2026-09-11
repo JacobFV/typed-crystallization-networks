@@ -185,7 +185,11 @@ def main():
     ap.add_argument("--max-cases", type=int, default=24)
     a = ap.parse_args()
 
-    kit.check_floor(f"run_domain:{a.domain}:shard{a.shard}")
+    # The floor scales to this domain's own committed peak measurement when one
+    # exists (`out/mem_<domain>.json`), and falls back to the unmeasured-phase
+    # floor when it does not.
+    kit.check_floor(f"run_domain:{a.domain}:shard{a.shard}",
+                    peak_gb=kit.measured_peak(a.domain))
     t0 = time.perf_counter()
     d = domains.BUILDERS[a.domain]()
     base, r, sig = d["program"], d["registry"], d["signals"]

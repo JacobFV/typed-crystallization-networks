@@ -3,3 +3,6 @@ run_domain:bool:shard0	MemAvailable=85.81GB	floor=25.0GB	START
 run_domain:rel:shard0	MemAvailable=84.75GB	floor=25.0GB	START
 run_domain:rel:shard1	MemAvailable=85.02GB	floor=25.0GB	START
 run_domain:arith:shard3	MemAvailable=73.48GB	floor=25.0GB	START
+arith-launch-check	MemAvailable=13.22GB	floor=25.0GB	HELD (this track holds 0.23GB; pressure is other projects: next-server 20.0GB, node/vite 2.1GB, IBM-1 training 1.8GB, esbuild 1.3GB)
+run_domain:arith:shard0	MemAvailable=11.10GB	required=2.00GB (max(2.0GB, 20 x measured peak 0.025GB))	headroom_after=11.07GB	START
+run_domain:arith:shard1	MemAvailable=10.55GB	required=2.00GB (max(2.0GB, 20 x measured peak 0.025GB))	headroom_after=10.52GB	START
