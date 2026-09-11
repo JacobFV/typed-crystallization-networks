@@ -1,0 +1,56 @@
+{
+ "note": "admission rule only; no edit decided",
+ "rows": [
+  {
+   "admissible": 1,
+   "defects": 103,
+   "invalid": 62,
+   "n_train": 96,
+   "names": [
+    "drop_source:ans:o1"
+   ],
+   "seconds": 2.4,
+   "solvable_on_train": 40
+  },
+  {
+   "admissible": 1,
+   "defects": 103,
+   "invalid": 62,
+   "n_train": 192,
+   "names": [
+    "drop_source:ans:o1"
+   ],
+   "seconds": 4.5,
+   "solvable_on_train": 40
+  },
+  {
+   "admissible": 19,
+   "defects": 103,
+   "invalid": 62,
+   "n_train": 384,
+   "names": [
+    "drop_operator:ans:or",
+    "drop_source:ans:m3",
+    "drop_source:ans:o1",
+    "keep_prefix:ans:1",
+    "keep_prefix:ans:2",
+    "keep_prefix:ans:3",
+    "keep_prefix:ans:4",
+    "keep_prefix:chain2:1",
+    "keep_prefix:chain2:2",
+    "keep_prefix:chain3:1",
+    "keep_prefix:chain3:2",
+    "drop_operator:o1:or",
+    "drop_source:o1:m1",
+    "drop_source:o1:m2",
+    "keep_prefix:o1:1",
+    "keep_prefix:o1:2",
+    "keep_prefix:o1:3",
+    "keep_prefix:o1:4",
+    "delete_node:o1:None"
+   ],
+   "seconds": 23.2,
+   "solvable_on_train": 22
+  }
+ ]
+}

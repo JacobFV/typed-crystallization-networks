@@ -1,0 +1,17 @@
+{
+ "admissible": 1,
+ "admissible_defects": [
+  {
+   "certificate": "complete",
+   "defect": "drop_source:ans:o1",
+   "failed_space": 4608
+  }
+ ],
+ "base_space": 16384,
+ "defects_enumerated": 103,
+ "domain": "rel",
+ "invalid": 62,
+ "note": "an upper bound on corpus size: a defect admitted here is still rejected by run_domain.py if its edit space contains no repair",
+ "seconds": 2.4274459189982736,
+ "solvable_on_train": 40
+}

@@ -1,0 +1,56 @@
+  [start] drop_operator:n1:module:8ceedf7b792a7116514f90ab
+  [start] drop_source:n1:a
+  [start] drop_source:n1:b
+  [start] drop_source:n1:c
+  [start] drop_source:n1:d
+  [start] drop_source:n1:e
+  [start] drop_source:n1:f
+  [start] keep_prefix:n1:1
+  [start] keep_prefix:n1:2
+  [start] keep_prefix:n1:3
+  [start] keep_prefix:n1:4
+  [start] keep_prefix:n1:6
+  [start] keep_prefix:n1:8
+  [start] delete_node:n1:None
+  [start] drop_operator:n2:module:8ceedf7b792a7116514f90ab
+  [start] drop_source:n2:a
+  [start] drop_source:n2:b
+  [start] drop_source:n2:c
+  [start] drop_source:n2:d
+  [start] drop_source:n2:e
+  [start] drop_source:n2:f
+  [start] keep_prefix:n2:1
+  [start] keep_prefix:n2:2
+  [start] keep_prefix:n2:3
+  [start] keep_prefix:n2:4
+  [start] keep_prefix:n2:6
+  [start] keep_prefix:n2:8
+  [start] delete_node:n2:None
+  [start] drop_operator:y:and
+  [start] drop_operator:y:eq
+  [start] drop_operator:y:identity
+  [start] drop_operator:y:nand
+  [start] drop_operator:y:nor
+  [start] drop_operator:y:not
+  [start] drop_operator:y:or
+  [start] drop_operator:y:xnor
+  [start] drop_operator:y:xor
+  bool:drop_operator:y:xor: 160 edits, 2 repairs, 43 undecided [92s]
+  [start] drop_source:y:n1
+  bool:drop_source:y:n1: 160 edits, 4 repairs, 31 undecided [205s]
+  [start] drop_source:y:n2
+  bool:drop_source:y:n2: 160 edits, 4 repairs, 31 undecided [304s]
+  [start] keep_prefix:y:1
+  bool:keep_prefix:y:1: 160 edits, 2 repairs, 10 undecided [880s]
+  [start] keep_prefix:y:2
+  bool:keep_prefix:y:2: 160 edits, 2 repairs, 10 undecided [1442s]
+  [start] keep_prefix:y:3
+  bool:keep_prefix:y:3: 160 edits, 2 repairs, 10 undecided [2026s]
+  [start] keep_prefix:y:4
+  bool:keep_prefix:y:4: 160 edits, 2 repairs, 24 undecided [2133s]
+  [start] keep_prefix:y:6
+  bool:keep_prefix:y:6: 160 edits, 2 repairs, 25 undecided [2249s]
+  [start] keep_prefix:y:8
+  bool:keep_prefix:y:8: 160 edits, 2 repairs, 25 undecided [2380s]
+  [start] delete_node:y:None
+wrote /home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-ab7a54ef3e67ae786/research/scaffold-induction/out/cases_bool.json

@@ -1,0 +1,68 @@
+{
+ "domains": [
+  "bool",
+  "rel"
+ ],
+ "n_cases": 28,
+ "mean_cost": {
+  "D1": 79.875,
+  "D2": 84.41071428571429,
+  "H1": 96.34821428571429,
+  "H2": 40.38846371882086,
+  "N": 32.48962585034013,
+  "N'": 33.6108843537415,
+  "N''": 29.291666666666668,
+  "ORACLE": 1.0
+ },
+ "mean_cost_optimistic": {
+  "D1": 39.86904761904762,
+  "D2": 72.58928571428571,
+  "H1": 96.34821428571429,
+  "H2": 13.792882910740053,
+  "N": 16.806673815602387,
+  "N'": 21.47242281527996,
+  "N''": 6.455433455433456,
+  "ORACLE": 1.0
+ },
+ "criteria": {
+  "C1_N''_le_half_N": false,
+  "C2_N''_le_half_Nprime": false,
+  "C3a_N''_le_half_H1": true,
+  "C3b_N''_le_half_H2": false,
+  "C4_D1_fails_C1": true,
+  "inconclusive": false,
+  "met": false,
+  "met_all_domains": false,
+  "met_optimistic": false,
+  "met_per_domain": {
+   "bool": false,
+   "rel": false
+  },
+  "ratios": {
+   "D1/N''": 2.5962,
+   "D2/N''": 2.487,
+   "H1/N''": 2.6727,
+   "H2/N''": 0.992,
+   "N'/N''": 1.0362,
+   "N/N''": 1.0445,
+   "ORACLE/N''": 0.0284
+  },
+  "split_verdict": false
+ },
+ "validity": {
+  "V1_inverse_fraction_overall": 0.3548,
+  "V3_distractor_space_equals_N''_space": true,
+  "V3_note": "every arm re-orders the identical edit list; repairs are therefore identical by construction and equal in count"
+ },
+ "deployed_repairs": {
+  "D1": 19,
+  "D2": 19,
+  "H1": 19,
+  "H2": 19,
+  "N": 19,
+  "N'": 19,
+  "N''": 19,
+  "ORACLE": 28
+ },
+ "deployed_of": 28
+}

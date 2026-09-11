@@ -1,0 +1,138 @@
+{
+ "base_member_survived": 20,
+ "domain": "bool",
+ "fraction_not_really_defects": 0.625,
+ "note": "`base_member_survives` means the narrowing removed only candidates the base scaffold's own conforming member never used, so the 'defect' did not damage the program",
+ "rejected_solvable": 32,
+ "rows": [
+  {
+   "base_member_survives": false,
+   "defect": "drop_source:n1:a"
+  },
+  {
+   "base_member_survives": false,
+   "defect": "drop_source:n1:b"
+  },
+  {
+   "base_member_survives": false,
+   "defect": "drop_source:n1:c"
+  },
+  {
+   "base_member_survives": true,
+   "defect": "drop_source:n1:d"
+  },
+  {
+   "base_member_survives": true,
+   "defect": "drop_source:n1:e"
+  },
+  {
+   "base_member_survives": true,
+   "defect": "drop_source:n1:f"
+  },
+  {
+   "base_member_survives": true,
+   "defect": "keep_prefix:n1:1"
+  },
+  {
+   "base_member_survives": true,
+   "defect": "keep_prefix:n1:2"
+  },
+  {
+   "base_member_survives": true,
+   "defect": "keep_prefix:n1:3"
+  },
+  {
+   "base_member_survives": true,
+   "defect": "keep_prefix:n1:4"
+  },
+  {
+   "base_member_survives": true,
+   "defect": "keep_prefix:n1:6"
+  },
+  {
+   "base_member_survives": true,
+   "defect": "keep_prefix:n1:8"
+  },
+  {
+   "base_member_survives": true,
+   "defect": "drop_source:n2:a"
+  },
+  {
+   "base_member_survives": true,
+   "defect": "drop_source:n2:b"
+  },
+  {
+   "base_member_survives": true,
+   "defect": "drop_source:n2:c"
+  },
+  {
+   "base_member_survives": false,
+   "defect": "drop_source:n2:d"
+  },
+  {
+   "base_member_survives": false,
+   "defect": "drop_source:n2:e"
+  },
+  {
+   "base_member_survives": false,
+   "defect": "drop_source:n2:f"
+  },
+  {
+   "base_member_survives": false,
+   "defect": "keep_prefix:n2:1"
+  },
+  {
+   "base_member_survives": false,
+   "defect": "keep_prefix:n2:2"
+  },
+  {
+   "base_member_survives": false,
+   "defect": "keep_prefix:n2:3"
+  },
+  {
+   "base_member_survives": false,
+   "defect": "keep_prefix:n2:4"
+  },
+  {
+   "base_member_survives": false,
+   "defect": "keep_prefix:n2:6"
+  },
+  {
+   "base_member_survives": false,
+   "defect": "keep_prefix:n2:8"
+  },
+  {
+   "base_member_survives": true,
+   "defect": "drop_operator:y:and"
+  },
+  {
+   "base_member_survives": true,
+   "defect": "drop_operator:y:eq"
+  },
+  {
+   "base_member_survives": true,
+   "defect": "drop_operator:y:identity"
+  },
+  {
+   "base_member_survives": true,
+   "defect": "drop_operator:y:nand"
+  },
+  {
+   "base_member_survives": true,
+   "defect": "drop_operator:y:nor"
+  },
+  {
+   "base_member_survives": true,
+   "defect": "drop_operator:y:not"
+  },
+  {
+   "base_member_survives": true,
+   "defect": "drop_operator:y:or"
+  },
+  {
+   "base_member_survives": true,
+   "defect": "drop_operator:y:xnor"
+  }
+ ],
+ "scaffold_routed_around_it": 12
+}

@@ -1,0 +1,37 @@
+check_workers	live=1	requesting=1	limit=4	['validate_decider.py']	START
+episode_sweep	MemAvailable=25.28GB	required=25.00GB (no measured peak; unmeasured-phase floor)	headroom_after=25.28GB	START
+check_workers	live=0	requesting=1	limit=4	[]	START
+run_domain:bool:shard0	MemAvailable=44.27GB	required=25.00GB (no measured peak; unmeasured-phase floor)	headroom_after=44.27GB	START
+check_workers	live=1	requesting=1	limit=4	['run_domain.py']	START
+run_domain:rel:shard0	MemAvailable=44.13GB	required=25.00GB (no measured peak; unmeasured-phase floor)	headroom_after=44.13GB	START
+check_workers	live=2	requesting=1	limit=4	['run_domain.py', 'run_domain.py']	START
+run_domain:rel:shard1	MemAvailable=44.01GB	required=25.00GB (no measured peak; unmeasured-phase floor)	headroom_after=44.01GB	START
+check_workers	live=3	requesting=1	limit=4	['run_domain.py', 'run_domain.py', 'run_domain.py']	START
+run_domain:arith:shard0	MemAvailable=43.94GB	required=2.00GB (max(2.0GB, 20 x measured peak 0.025GB))	headroom_after=43.91GB	START
+check_workers	live=3	requesting=1	limit=4	['run_domain.py', 'run_domain.py', 'run_domain.py']	START
+run_domain:arith:shard1	MemAvailable=23.81GB	required=2.00GB (max(2.0GB, 20 x measured peak 0.025GB))	headroom_after=23.78GB	START
+check_workers	live=4	requesting=1	limit=4	['run_domain.py', 'run_domain.py', 'run_domain.py', 'run_domain.py']	REFUSED
+check_workers	live=2	requesting=1	limit=4	['run_domain.py', 'run_domain.py']	START
+check_workers	live=2	requesting=1	limit=4	['run_domain.py', 'run_domain.py']	START
+validate_decider:bool	MemAvailable=23.27GB	required=25.00GB (no measured peak; unmeasured-phase floor)	headroom_after=23.27GB	REFUSED
+check_workers	live=2	requesting=1	limit=4	['run_domain.py', 'run_domain.py']	START
+mem_probe:bool	MemAvailable=20.95GB	required=25.00GB (MEASURING exemption; would otherwise need 25.00GB (no measured peak; unmeasured-phase floor))	headroom_after=20.95GB	MEASURING-START
+check_workers	live=2	requesting=1	limit=4	['run_domain.py', 'run_domain.py']	START
+mem_probe:bool	MemAvailable=21.80GB	required=25.00GB (MEASURING exemption; would otherwise need 25.00GB (no measured peak; unmeasured-phase floor))	headroom_after=21.80GB	MEASURING-START
+check_workers	live=2	requesting=1	limit=4	['run_domain.py', 'run_domain.py']	START
+validate_decider:bool	MemAvailable=22.20GB	required=4.50GB (max(2.0GB, 20 x measured peak 0.225GB))	headroom_after=21.97GB	START
+check_workers	live=0	requesting=1	limit=4	[]	START
+mem_probe:rel	MemAvailable=38.25GB	required=25.00GB (MEASURING exemption; would otherwise need 25.00GB (no measured peak; unmeasured-phase floor))	headroom_after=38.25GB	MEASURING-START
+check_workers	live=0	requesting=1	limit=4	[]	START
+validate_decider:rel	MemAvailable=37.31GB	required=2.00GB (max(2.0GB, 20 x measured peak 0.029GB))	headroom_after=37.28GB	START
+check_workers	live=0	requesting=1	limit=4	[]	START
+validate_decider:bool	MemAvailable=42.06GB	required=4.50GB (max(2.0GB, 20 x measured peak 0.225GB))	headroom_after=41.83GB	START
+check_workers	live=0	requesting=1	limit=4	[]	START
+validate_decider:rel	MemAvailable=42.46GB	required=2.00GB (max(2.0GB, 20 x measured peak 0.029GB))	headroom_after=42.43GB	START
+check_workers	live=0	requesting=1	limit=4	[]	START
+check_workers	live=0	requesting=1	limit=4	[]	START
+score_final	MemAvailable=101.02GB	required=2.00GB (max(2.0GB, 20 x measured peak 0.025GB))	headroom_after=101.00GB	START
+check_workers	live=0	requesting=1	limit=4	[]	START
+validate_decider:bool	MemAvailable=103.27GB	required=4.50GB (max(2.0GB, 20 x measured peak 0.225GB))	headroom_after=103.05GB	START
+check_workers	live=0	requesting=1	limit=4	[]	START
+validate_decider:rel	MemAvailable=102.01GB	required=2.00GB (max(2.0GB, 20 x measured peak 0.029GB))	headroom_after=101.98GB	START

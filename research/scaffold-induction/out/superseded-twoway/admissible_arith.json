@@ -1,0 +1,132 @@
+{
+ "admissible": 24,
+ "admissible_defects": [
+  {
+   "certificate": "complete",
+   "defect": "delete_node:inner:None",
+   "failed_space": 8000
+  },
+  {
+   "certificate": "complete",
+   "defect": "drop_operator:v0:add",
+   "failed_space": 6400
+  },
+  {
+   "certificate": "complete",
+   "defect": "drop_source:v0:x",
+   "failed_space": 2400
+  },
+  {
+   "certificate": "complete",
+   "defect": "drop_source:v0:y",
+   "failed_space": 2400
+  },
+  {
+   "certificate": "complete",
+   "defect": "keep_prefix:v0:1",
+   "failed_space": 400
+  },
+  {
+   "certificate": "complete",
+   "defect": "delete_node:v0:None",
+   "failed_space": 400
+  },
+  {
+   "certificate": "complete",
+   "defect": "drop_operator:v1:sub",
+   "failed_space": 6400
+  },
+  {
+   "certificate": "complete",
+   "defect": "drop_source:v1:x",
+   "failed_space": 2400
+  },
+  {
+   "certificate": "complete",
+   "defect": "drop_source:v1:y",
+   "failed_space": 2400
+  },
+  {
+   "certificate": "complete",
+   "defect": "keep_prefix:v1:1",
+   "failed_space": 400
+  },
+  {
+   "certificate": "complete",
+   "defect": "keep_prefix:v1:2",
+   "failed_space": 800
+  },
+  {
+   "certificate": "complete",
+   "defect": "keep_prefix:v1:3",
+   "failed_space": 1200
+  },
+  {
+   "certificate": "complete",
+   "defect": "keep_prefix:v1:4",
+   "failed_space": 1600
+  },
+  {
+   "certificate": "complete",
+   "defect": "delete_node:v1:None",
+   "failed_space": 400
+  },
+  {
+   "certificate": "complete",
+   "defect": "drop_operator:v2:max",
+   "failed_space": 6400
+  },
+  {
+   "certificate": "complete",
+   "defect": "drop_source:v2:x",
+   "failed_space": 2400
+  },
+  {
+   "certificate": "complete",
+   "defect": "drop_source:v2:y",
+   "failed_space": 2400
+  },
+  {
+   "certificate": "complete",
+   "defect": "keep_prefix:v2:1",
+   "failed_space": 400
+  },
+  {
+   "certificate": "complete",
+   "defect": "keep_prefix:v2:2",
+   "failed_space": 800
+  },
+  {
+   "certificate": "complete",
+   "defect": "keep_prefix:v2:3",
+   "failed_space": 1200
+  },
+  {
+   "certificate": "complete",
+   "defect": "keep_prefix:v2:4",
+   "failed_space": 1600
+  },
+  {
+   "certificate": "complete",
+   "defect": "keep_prefix:v2:6",
+   "failed_space": 2400
+  },
+  {
+   "certificate": "complete",
+   "defect": "keep_prefix:v2:8",
+   "failed_space": 3200
+  },
+  {
+   "certificate": "complete",
+   "defect": "delete_node:v2:None",
+   "failed_space": 400
+  }
+ ],
+ "base_space": 8000,
+ "defects_enumerated": 105,
+ "domain": "arith",
+ "invalid": 59,
+ "note": "an upper bound on corpus size: a defect admitted here is still rejected by run_domain.py if its edit space contains no repair",
+ "seconds": 18.673847138001292,
+ "solvable_on_train": 22
+}

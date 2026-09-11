@@ -1,0 +1,19 @@
+{
+ "four_shard_projected_total_gb": 0.15,
+ "mem_available_gb_at_breach": 13.2,
+ "mem_available_gb_before": 79.0,
+ "note": "a point-in-time observation of host memory pressure, recorded when the flat 25 GB floor refused the arith launch; other projects are named because the pressure was theirs, and none of their processes was touched",
+ "other_consumers_gb": {
+  "another project training script": 1.8,
+  "esbuild": 1.3,
+  "next-server (v15.5.18)": 20.0,
+  "node / vite-plus runtime": 2.1
+ },
+ "recorded_at": "2026-09-10 17:29 PDT, during the corpus phase",
+ "this_track_total_gb": 0.23,
+ "this_track_workers_gb": {
+  "bool": 0.24,
+  "rel shard 0": 0.03,
+  "rel shard 1": 0.03
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "defect": "delete_node:n1:None",
+ "domain": "bool",
+ "episodes_all": 36,
+ "episodes_train": 8,
+ "max_space": 1016064,
+ "median_space": 1792,
+ "n_edits": 111,
+ "note": "ru_maxrss is a high-water mark, so later marks include earlier peaks; the jump at after_full_edit_list is the cost of materialising every edited program at once",
+ "peak_rss_gb": {
+  "after_admission_scan": 0.222,
+  "after_decisions": 0.225,
+  "after_domain": 0.222,
+  "after_full_edit_list": 0.225,
+  "after_release": 0.225,
+  "start": 0.021
+ },
+ "total_candidates_held": 13355
+}
