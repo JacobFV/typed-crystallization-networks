@@ -39,16 +39,18 @@ pre-registration that is quietly re-read is not one.
 | A9 the 12–24 case floor was unreachable | `PREREGISTRATION.md` | `admissible.py` |
 | A10 F7 counts domains where it should count cases | `PREREGISTRATION.md` | wording only |
 | A11 the candidate-truncation bound removed | `PREREGISTRATION.md` | `edits.py`, all three corpora re-run |
+| A12 the headline is per domain, with a stated pooling rule | `PREREGISTRATION.md` | `analyse.py`, `report.py`, `verify.py` |
 | R1 the memory floor scales to the measured peak | `8fd4673` | `kit.py`, `run_all.sh` |
 | R2 the four-worker cap is enforced in code | `kit.py` | every launch path |
 
-A8 to A11 are written out in full at the end of `PREREGISTRATION.md`, each
-quoting the clause it replaces, and all four were written before the first arm.
-Three of them are corrections to my own pre-registration rather than adaptations
+A8 to A12 are written out in full at the end of `PREREGISTRATION.md`, each
+quoting the clause it replaces, and all five were written before the first arm.
+Four of them are corrections to my own pre-registration rather than adaptations
 to results: A9 records a floor I set without checking it was reachable, A10
-records a falsification condition I wrote counting the wrong thing, and A11
-records a declared bound that was deleting the repairs it was supposed to be
-neutral about.
+records a falsification condition I wrote counting the wrong thing, A11 records a
+declared bound that was deleting the repairs it was supposed to be neutral about,
+and A12 fixes a reporting unit that would have averaged a single-site domain
+together with a multi-site one.
 
 **R1 and R2 are resource-policy amendments, not pre-registration ones**, and are
 written up in the Resources section rather than here. They are listed in the same
@@ -216,7 +218,29 @@ been carrying.
 
 ---
 
+## The site structure, before any verdict
+
+Amendment A12 fixes the reporting unit before the arms run, because one of these
+domains is structurally unlike the others and pooling would hide it. `bool`'s
+admitted defects all sit at a **single node** — its output — so every candidate
+edit attaches to the same place and an ordering prior has only the choice of
+operator to discriminate on. `rel`'s defects are spread across several sites,
+where an arm can be right or wrong about *where* to act as well as *what* to do.
+A reader should have this table before reading any verdict.
+
+<!-- BEGIN:sites -->
+<!-- END:sites -->
+
+---
+
 ## The pre-registered verdict
+
+Every criterion is resolved **per domain** (A12(1)). The pooled column is the
+unweighted mean of the per-domain means (A12(2)) — equal weight per domain, not
+per case, because corpus sizes here reflect how many defects each scaffold
+tolerates rather than how much each domain should count. It appears beside the
+per-domain verdicts and never instead of them. A split verdict is **NOT MET**
+(A12(4)).
 
 <!-- BEGIN:criteria -->
 <!-- END:criteria -->

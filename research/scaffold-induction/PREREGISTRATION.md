@@ -485,3 +485,49 @@ comparison between arms; it does nothing to protect the meaning of the object
 being compared. This one was declared in the pre-registration, flagged in the
 code as a risk, and still went unnoticed until a domain returned an implausible
 number of "no repair" verdicts.
+
+## A12 — the headline is per domain, with a stated pooling rule
+
+Written before any arm was costed, and before the site structure could be known
+to favour any arm.
+
+`bool`'s admitted cases are **all defects at one node**, its output `y`; `rel`'s
+are spread over four sites. A domain whose defects sit at a single site gives an
+ordering prior almost nothing to discriminate on, because every candidate edit
+attaches to the same place: what separates the arms there is the choice of
+operator, not the choice of where to act. Averaging such a domain with a
+multi-site one produces a number that is neither domain's behaviour, weighted by
+corpus sizes that are artifacts of each domain's defect ceiling rather than of
+its importance. §65's lesson was not that a number came out wrong; it was that a
+true number answered a question nobody had asked.
+
+**1. Every criterion is resolved per domain.** C1, C2, C3a, C3b and C4 are
+computed separately for `bool`, `rel` and `arith`, and all three verdicts appear
+in the headline table. A pooled figure may appear **alongside** them and never
+instead of them.
+
+**2. The pooling rule, fixed now: equal weight per domain (macro-average).** Any
+pooled cost is the unweighted mean of the per-domain mean costs. The question is
+cross-domain transfer, and per-case weighting would let the domain with the
+largest ceiling decide the answer — `rel` admits nineteen cases and `bool` at
+most eight, a ratio reflecting how many defects each scaffold tolerates, not how
+much either domain should count. The per-case (micro) average is reported beside
+it, so the difference between the two is visible rather than buried in a choice
+of denominator.
+
+**3. The site structure is disclosed as a rendered block**, before any verdict:
+defects per site, distinct sites per domain, and repairs per case. A reader
+should be able to see that `bool` is single-site before reading `bool`'s verdict.
+
+**4. What a split verdict means, stated before it is known.** If the criteria
+pass on some domains and fail on others, the pre-registered verdict is **NOT
+MET** — the criterion is about transfer to a genuinely new domain, and a prior
+that helps only where it happens to fit has not transferred. The result is then
+reported as *which structure the inherited knowledge fits*, not as a qualified
+success. In particular, a pass confined to multi-site domains would indicate the
+prior is discriminating on **where to edit** rather than on **what edit to make**;
+that reading is testable by knocking out the site-derived features, and any such
+test is labelled exploratory and post-hoc. The converse — a pass confined to the
+single-site domain — would indicate the opposite, that the prior carries operator
+knowledge and no localisation. Neither is the pre-registered success condition,
+and neither will be presented as one.

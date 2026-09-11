@@ -73,46 +73,97 @@ def costs():
         r = [LABEL[arm]]
         for d in a["domains"]:
             r.append(_n(a["per_domain"].get(d, {}).get("mean_cost", {}).get(arm)))
-        r.append("**" + _n(a["overall"]["mean_cost"][arm]) + "**")
-        r.append(_n(a["overall"]["mean_cost_optimistic"][arm]))
+        r.append("**" + _n((a["overall"].get("mean_cost_macro")
+                            or a["overall"]["mean_cost"])[arm]) + "**")
+        r.append(_n(a["overall"]["mean_cost"][arm]))
+        r.append(_n((a["overall"].get("mean_cost_macro_optimistic")
+                     or a["overall"]["mean_cost_optimistic"])[arm]))
         rows.append(r)
-    return table(["arm"] + list(a["domains"]) + ["**overall**", "overall, optimistic"],
+    return table(["arm"] + list(a["domains"]) +
+                 ["**pooled (macro)**", "per-case (micro)", "macro, optimistic"],
                  rows)
 
 
+CRIT = (("C1", "N", "C1_N''_le_half_N", "E(N″) ≤ E(N)/2"),
+        ("C2", "N'", "C2_N''_le_half_Nprime", "E(N″) ≤ E(N′)/2"),
+        ("C3a", "H1", "C3a_N''_le_half_H1", "E(N″) ≤ E(H1)/2"),
+        ("C3b", "H2", "C3b_N''_le_half_H2", "E(N″) ≤ E(H2)/2"))
+
+
+def _verdict(c, key):
+    v = (c or {}).get(key)
+    return "**PASS**" if v is True else ("**FAIL**" if v is False else "—")
+
+
+def _dom_crit(a, dom):
+    return ((a.get("criteria_by_domain", {}).get(dom) or {}).get("criteria")) or {}
+
+
 def criteria():
+    """A12: per-domain verdicts first; a pooled figure only beside them."""
     a = A()
-    c = a["criteria"]
-    m = a["overall"]["mean_cost"]
-    nn = m["N''"]
     rows = []
-    for tag, other, key, text in (
-            ("C1", "N", "C1_N''_le_half_N", "E(N\u2033) \u2264 E(N)/2"),
-            ("C2", "N'", "C2_N''_le_half_Nprime", "E(N\u2033) \u2264 E(N\u2032)/2"),
-            ("C3a", "H1", "C3a_N''_le_half_H1", "E(N\u2033) \u2264 E(H1)/2"),
-            ("C3b", "H2", "C3b_N''_le_half_H2", "E(N\u2033) \u2264 E(H2)/2")):
-        got = m.get(other)
-        shown = "\u2014" if got is None or nn is None else f"{_n(nn)} vs {_n(got / 2)}"
-        rows.append([tag, text, shown, "**PASS**" if c[key] else "**FAIL**"])
-    d1, nflat = m.get("D1"), m.get("N")
-    shown = ("\u2014" if d1 is None or nflat is None
-             else f"E(D1) {_n(d1)} vs E(N)/2 {_n(nflat / 2)}")
-    rows.append(["C4", "D1 does not meet C1", shown,
-                 "**PASS**" if c["C4_D1_fails_C1"] else "**FAIL**"])
-    tail = ("\n\nPre-registered verdict: "
-            + ("**MET**" if c["met"] else "**NOT MET**")
-            + ". Same verdict when undecided edits are counted as repairs: "
-            + ("yes" if not c["inconclusive"] else "NO \u2014 inconclusive") + ".")
-    return table(["criterion", "as pre-registered", "measured", "outcome"], rows) + tail
+    for tag, _other, key, text in CRIT:
+        rows.append([tag, text] +
+                    [_verdict(_dom_crit(a, d), key) for d in a["domains"]] +
+                    [_verdict(a["criteria"], key)])
+    rows.append(["C4", "D1 does not meet C1"] +
+                [_verdict(_dom_crit(a, d), "C4_D1_fails_C1") for d in a["domains"]] +
+                [_verdict(a["criteria"], "C4_D1_fails_C1")])
+    rows.append(["**verdict**", "all of C1-C4"] +
+                ["**MET**" if _dom_crit(a, d).get("met") else "**NOT MET**"
+                 for d in a["domains"]] +
+                ["**MET**" if a["criteria"].get("met_all_domains") else "**NOT MET**"])
+    head = ["criterion", "as pre-registered"] + list(a["domains"]) + ["pooled (macro)"]
+
+    c = a["criteria"]
+    tail = ["", "Pre-registered verdict: "
+            + ("**MET**" if c.get("met_all_domains") else "**NOT MET**")
+            + ". Per domain: "
+            + ", ".join(f"`{k}` {'met' if v else 'not met'}"
+                        for k, v in sorted(c.get("met_per_domain", {}).items()))
+            + "."]
+    if c.get("split_verdict"):
+        tail += ["", "**This is a split verdict.** Under amendment A12(4) a split "
+                 "is **NOT MET**: the criterion is about transfer to a genuinely "
+                 "new domain, and a prior that helps only where it happens to fit "
+                 "has not transferred. What it is evidence *for* is read off the "
+                 "site structure below, not presented as a qualified success."]
+    tail += ["", "Same verdict when undecided edits are counted as repairs: "
+             + ("yes" if not c.get("inconclusive") else "NO — inconclusive") + "."]
+    return table(head, rows) + "\n".join(tail)
+
+
+def sites():
+    """A12(3): the site structure, disclosed before any verdict is read."""
+    rows = []
+    for dom in present_domains():
+        c = C(dom)
+        adm = [x for x in c["cases"] if x.get("admitted")]
+        if not adm:
+            rows.append([dom, 0, 0, "—", "—", "—"])
+            continue
+        per_site, per_kind = {}, {}
+        for x in adm:
+            per_site[x["defect"]["site"]] = per_site.get(x["defect"]["site"], 0) + 1
+            per_kind[x["defect"]["kind"]] = per_kind.get(x["defect"]["kind"], 0) + 1
+        reps = [x["n_repairs"] for x in adm]
+        rows.append([dom, len(adm), f"**{len(per_site)}**",
+                     ", ".join(f"`{k}` {v}" for k, v in sorted(per_site.items())),
+                     ", ".join(f"{k} {v}" for k, v in sorted(per_kind.items())),
+                     f"{min(reps)}–{max(reps)} (mean {sum(reps) / len(reps):.1f})"])
+    return table(["domain", "admitted cases", "distinct defect sites",
+                  "defects per site", "defect kinds", "repairs per case"], rows)
 
 
 def ratios():
     a = A()
-    m = a["overall"]["mean_cost"]
+    m = a["overall"].get("mean_cost_macro") or a["overall"]["mean_cost"]
     rows = [[LABEL[arm], _n(m[arm]),
              _n(m[arm] / m["N''"], 3) if m.get("N''") and m.get(arm) else "—"]
             for arm in ARMS if arm != "N''"]
-    return table(["arm", "mean exact expected edits", "× N″'s cost"], rows)
+    return table(["arm", "pooled (macro) mean exact expected edits",
+                  "× N″'s cost"], rows)
 
 
 def deployed():
@@ -353,7 +404,7 @@ def resources():
 
 
 BLOCKS = {"corpus": corpus, "decider": decider, "sweep": sweep,
-          "ceilings": ceilings, "cost": cost, "pressure": pressure, "gate": gate, "costs": costs, "criteria": criteria, "ratios": ratios,
+          "ceilings": ceilings, "cost": cost, "sites": sites, "pressure": pressure, "gate": gate, "costs": costs, "criteria": criteria, "ratios": ratios,
           "deployed": deployed, "validity": validity, "estimator": estimator,
           "families": families, "s50": s50, "percase": percase,
           "resources": resources}

@@ -98,10 +98,13 @@ def main():
         print(f"== {domain}")
         rows = [admissible_set(domain, b) for b in LADDERS[domain]]
         chosen, why = choose(rows)
+        stable = chosen is not None
         if chosen is None:
             chosen = LADDERS[domain][-1]
+        # `stable` is recorded explicitly so a verifier never has to substring
+        # match the prose: "no budget on the ladder is stable" contains "stable".
         out["domains"][domain] = {"rows": rows, "chosen_budget": chosen,
-                                  "reason": why}
+                                  "reason": why, "stable": stable}
         print(f"  -> {domain}: chosen budget {chosen} ({why})", flush=True)
     print(kit.dump("episode_sweep", out))
 

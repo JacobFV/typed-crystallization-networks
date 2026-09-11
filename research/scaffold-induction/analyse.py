@@ -250,30 +250,69 @@ def main():
                              for a in ARMS},
         "deployed_of": len(allrows),
     }
-    if allrows:
-        m = out["overall"]["mean_cost"]
-        def ratio(a, b):
-            return round(m[b] / m[a], 4) if m.get(a) and m.get(b) else None
-        out["criteria"] = {
+    # --- A12: criteria are resolved PER DOMAIN; any pooled figure is the
+    # unweighted mean of the per-domain means (macro), never the per-case mean.
+    def criteria_from(m):
+        if not m or m.get("N''") is None:
+            return None
+        c = {
             "C1_N''_le_half_N": _crit(m, "N''", "N", 2.0),
             "C2_N''_le_half_Nprime": _crit(m, "N''", "N'", 2.0),
             "C3a_N''_le_half_H1": _crit(m, "N''", "H1", 2.0),
             "C3b_N''_le_half_H2": _crit(m, "N''", "H2", 2.0),
-            "C4_D1_fails_C1": (None if not m.get("D1") or not m.get("N")
+            "C4_D1_fails_C1": (None if m.get("D1") is None or m.get("N") is None
                                else not (m["D1"] <= m["N"] / 2.0)),
-            "ratios": {f"{a}/N''": ratio("N''", a) for a in ARMS if a != "N''"},
         }
-        out["criteria"]["met"] = all(
-            out["criteria"][k] is True for k in
-            ("C1_N''_le_half_N", "C2_N''_le_half_Nprime",
-             "C3a_N''_le_half_H1", "C3b_N''_le_half_H2", "C4_D1_fails_C1"))
-        mo = out["overall"]["mean_cost_optimistic"]
-        out["criteria"]["met_optimistic"] = all(
-            [_crit(mo, "N''", "N", 2.0), _crit(mo, "N''", "N'", 2.0),
-             _crit(mo, "N''", "H1", 2.0), _crit(mo, "N''", "H2", 2.0),
-             (None if not mo.get("D1") else not (mo["D1"] <= mo["N"] / 2.0))])
+        c["met"] = all(c[k] is True for k in
+                       ("C1_N''_le_half_N", "C2_N''_le_half_Nprime",
+                        "C3a_N''_le_half_H1", "C3b_N''_le_half_H2",
+                        "C4_D1_fails_C1"))
+        c["ratios"] = {f"{a}/N''": (round(m[a] / m["N''"], 4)
+                                    if m.get(a) and m.get("N''") else None)
+                       for a in ARMS if a != "N''"}
+        return c
+
+    out["criteria_by_domain"] = {}
+    for n in present:
+        pd = out["per_domain"].get(n)
+        if not pd:
+            continue
+        out["criteria_by_domain"][n] = {
+            "n_cases": pd["n_cases"],
+            "criteria": criteria_from(pd["mean_cost"]),
+            "criteria_optimistic": criteria_from(pd["mean_cost_optimistic"]),
+        }
+
+    def macro(key="mean_cost"):
+        """Unweighted mean of the per-domain means (A12's pooling rule)."""
+        acc = {}
+        for a in ARMS:
+            vals = [out["per_domain"][n][key][a] for n in present
+                    if n in out["per_domain"] and out["per_domain"][n][key][a] is not None]
+            acc[a] = (sum(vals) / len(vals)) if vals else None
+        return acc
+
+    if allrows:
+        out["overall"]["mean_cost_macro"] = macro("mean_cost")
+        out["overall"]["mean_cost_macro_optimistic"] = macro("mean_cost_optimistic")
+        out["overall"]["pooling_rule"] = (
+            "equal weight per domain (macro): the unweighted mean of the "
+            "per-domain mean costs, per amendment A12.  `mean_cost` is the "
+            "per-case (micro) mean, reported beside it and never used for a "
+            "criterion.")
+        out["criteria"] = criteria_from(out["overall"]["mean_cost_macro"]) or {}
+        mo = out["overall"]["mean_cost_macro_optimistic"]
+        co = criteria_from(mo) or {}
+        out["criteria"]["met_optimistic"] = co.get("met")
         out["criteria"]["inconclusive"] = (
-            out["criteria"]["met"] != out["criteria"]["met_optimistic"])
+            out["criteria"].get("met") != co.get("met"))
+        # A12(4): a split verdict is NOT MET, and is reported as such.
+        per = {n: v["criteria"]["met"] for n, v in out["criteria_by_domain"].items()
+               if v["criteria"] is not None}
+        out["criteria"]["met_per_domain"] = per
+        out["criteria"]["split_verdict"] = (len(set(per.values())) > 1)
+        out["criteria"]["met_all_domains"] = bool(per) and all(per.values())
+
     out["validity"] = {
         "V1_inverse_fraction_overall": round(
             sum(r["inverse_repairs"] for r in allrows) /

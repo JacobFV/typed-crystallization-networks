@@ -211,10 +211,13 @@ def main():
             stable = (two is not None and four is not None and
                       row["admissible_set"] == two["admissible_set"]
                       == four["admissible_set"])
-            declared = "stable" in info["reason"]
+            # Compare against the explicit flag, never the prose: the sentence
+            # "no budget on the ladder is stable" contains the word "stable",
+            # and a substring test on it passed a domain that was not stable.
+            declared = info.get("stable")
             claim(f"A8[{d}]: the sweep's stability verdict is re-derived",
-                  stable == declared,
-                  f"recomputed stable={stable}, recorded reason={info['reason'][:60]}")
+                  declared is not None and stable == declared,
+                  f"recomputed stable={stable}, recorded stable={declared}")
         claim("A11: no edit's candidate list was truncated",
               all(not e.get("truncated") for d in domains
                   for x in cases[d]["cases"] if x.get("admitted")
@@ -305,28 +308,69 @@ def main():
         for field, key in (("cost", "mean_cost"),
                            ("cost_optimistic", "mean_cost_optimistic")):
             got, want = mean(arm, field), a["overall"][key][arm]
-            claim(f"overall {key}[{arm}] re-derived",
+            claim(f"per-case (micro) {key}[{arm}] re-derived — reported only "
+                  f"beside the macro figure, never used for a criterion",
                   (got is None and want is None) or
                   (got is not None and want is not None and abs(got - want) < 1e-9),
                   f"{got} vs {want}")
 
-    m = {arm: mean(arm) for arm in ARMS}
+    # ---- A12: criteria are re-derived PER DOMAIN, and the pooled figure is the
+    # unweighted mean of the per-domain means, never the per-case mean.
+    KEYS = (("C1_N''_le_half_N", "N"), ("C2_N''_le_half_Nprime", "N'"),
+            ("C3a_N''_le_half_H1", "H1"), ("C3b_N''_le_half_H2", "H2"))
+
+    def dmean(dom, arm, field="cost"):
+        vals = [Fraction(r[field][arm]) for r in a["cases"]
+                if r["domain"] == dom and r[field][arm] is not None]
+        return float(sum(vals) / len(vals)) if vals else None
+
+    for dom in domains:
+        got_m = {arm: dmean(dom, arm) for arm in ARMS}
+        rec = (a.get("criteria_by_domain", {}).get(dom) or {}).get("criteria")
+        if rec is None:
+            claim(f"A12[{dom}]: per-domain criteria are recorded", False)
+            continue
+        for key, arm in KEYS:
+            want = rec[key]
+            got = (None if got_m["N''"] is None or got_m[arm] is None
+                   else bool(got_m["N''"] <= got_m[arm] / 2))
+            claim(f"A12[{dom}]: {key} re-derived", got == want, f"{got} vs {want}")
+        want4 = rec["C4_D1_fails_C1"]
+        got4 = (None if got_m["D1"] is None or got_m["N"] is None
+                else not (got_m["D1"] <= got_m["N"] / 2))
+        claim(f"A12[{dom}]: C4 re-derived", got4 == want4, f"{got4} vs {want4}")
+        claim(f"A12[{dom}]: the domain verdict is the conjunction of C1-C4",
+              rec["met"] == all(rec[k] is True for k, _ in KEYS) and
+              rec["met"] == (all(rec[k] is True for k, _ in KEYS)
+                             and rec["C4_D1_fails_C1"] is True))
+
     c = a["criteria"]
-    for tag, arm, field in (("C1_N''_le_half_N", "N", "C1"),
-                            ("C2_N''_le_half_Nprime", "N'", "C2"),
-                            ("C3a_N''_le_half_H1", "H1", "C3a"),
-                            ("C3b_N''_le_half_H2", "H2", "C3b")):
-        want = c[tag]
-        got = None if m["N''"] is None or m[arm] is None else bool(m["N''"] <= m[arm] / 2)
-        claim(f"{field} re-derived", got == want, f"{got} vs {want}")
-    claim("C4 re-derived",
-          c["C4_D1_fails_C1"] == (None if m["D1"] is None or m["N"] is None
-                                  else not (m["D1"] <= m["N"] / 2)))
-    claim("the pre-registered verdict is the conjunction of C1-C4",
-          c["met"] == all(c[k] is True for k in
-                          ("C1_N''_le_half_N", "C2_N''_le_half_Nprime",
-                           "C3a_N''_le_half_H1", "C3b_N''_le_half_H2",
-                           "C4_D1_fails_C1")))
+    macro = {arm: (lambda v: (sum(v) / len(v)) if v else None)(
+                 [x for x in (dmean(d, arm) for d in domains) if x is not None])
+             for arm in ARMS}
+    for arm in ARMS:
+        rec = a["overall"].get("mean_cost_macro", {}).get(arm)
+        got = macro[arm]
+        claim(f"A12: pooled (macro) cost for {arm} is the unweighted mean of the "
+              f"per-domain means",
+              (got is None and rec is None) or
+              (got is not None and rec is not None and abs(got - rec) < 1e-9),
+              f"{got} vs {rec}")
+    for key, arm in KEYS:
+        want = c.get(key)
+        got = (None if macro["N''"] is None or macro[arm] is None
+               else bool(macro["N''"] <= macro[arm] / 2))
+        claim(f"pooled {key} re-derived from the macro means", got == want,
+              f"{got} vs {want}")
+    per = {d: ((a.get("criteria_by_domain", {}).get(d) or {}).get("criteria") or {})
+              .get("met") for d in domains}
+    claim("A12(4): the headline verdict is met on EVERY domain, not pooled",
+          c.get("met_all_domains") == (bool(per) and all(per.values())),
+          f"per-domain {per}")
+    claim("A12(4): a split verdict is flagged as split",
+          c.get("split_verdict") == (len({v for v in per.values()}) > 1))
+    claim("A12(4): a split verdict is never reported as MET",
+          not (c.get("split_verdict") and c.get("met_all_domains")))
 
     # ---- layer 2e: validity
     tot_rep = sum(r["n_repairs"] for r in a["cases"])
