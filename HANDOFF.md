@@ -226,6 +226,45 @@ factors as locate anchor → instantiate relation → resolve target → bind ac
 each operation re-specialized. That would reconcile schemas crossing domains
 while concrete selection vectors do not (§60, §64, §65).
 
+**Provenance standard for evidence artifacts (owner, 2026-09-10, permanent).**
+Every artifact used as evidence carries provenance for: the base
+scaffold/program digest, the split/corpus digest, the mutation-grammar version
+digest, the producing commit, and the pre-registration/amendment revision. **A
+verifier compares those identities**; it must never merely ask whether some file
+named "validation" says PASS. Two failures in one hour forced this: an amendment
+promised a blind-split fingerprint check that was never implemented, and a
+validation from a superseded corpus reappeared in a *cleaned* directory — the
+job was still running and wrote afterwards — and would have been accepted,
+because the check asserted that *a* validation passed, not that it described
+*this* corpus. Corollaries: an amendment promising a mechanical check ships that
+check in the same commit; an absent stamp fails rather than passes; a guard
+called with nothing to compare fails; and you re-run to obtain a stamp, never
+back-fill one.
+
+**Design rulings on the structural track (owner, 2026-09-11).**
+- **Widening.** Claim only that *widening within S0's declared source* cannot
+  repair it — never "widening cannot solve the task". Unrestricted raw-offset
+  widening stays as a **first-class comparator charged its full total cost**: if
+  brute widening is cheaper than induced structure, the induction did not earn
+  its complexity.
+- **Parametricity as an invariant, not a mechanism.** Bad: S1 contains the
+  gap-1 numerical answer. Good: S1 contains a rule whose concrete displacement
+  is **re-derived from the new instance's geometry** — row stride, affine
+  displacement, relative-coordinate operator or derived spatial-step function
+  all qualify. Frozen-index failure counts as patching; gap 2/3 decides.
+- **No invented cost cutoff.** Do not require beating a comparator by 2× or 10×
+  on a first existence track unless the threshold is justified before running.
+  Establish *whether parametric induction happened*, and report total-cost
+  comparisons faithfully beside it.
+- **Narrow scope is correct** for an existence test: one slot, one relation
+  family, one resolution. `above` isolates the missing-structure axis while
+  `left_of`/`right_of` stay expressible. Replication across relation, resolution
+  and domain is the *next* experiment, not a prerequisite.
+- **Report each failure mode separately**, never as one "fail": no repair found;
+  repair is a frozen patch; repair works at gap 1 but not gap 2/3; blind
+  widening is cheaper; the hand-written schema dominates; outer-loop cost erases
+  downstream savings.
+
 ## State as of 2026-09-09
 
 **Settled:** the inference overhead was *interpreter* overhead, not the typed
