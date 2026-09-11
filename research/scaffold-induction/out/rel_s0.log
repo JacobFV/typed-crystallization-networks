@@ -13,3 +13,9 @@
   [start] keep_prefix:ans:8
   [start] drop_operator:chain2:join
   [start] keep_prefix:chain2:1
+  rel:keep_prefix:chain2:1: 207 edits, 7 repairs, 1 undecided [2933s]
+  [start] keep_prefix:chain2:3
+  [start] keep_prefix:chain2:6
+  [start] delete_node:chain2:None
+  [start] drop_source:chain3:edges
+  [start] keep_prefix:chain3:1

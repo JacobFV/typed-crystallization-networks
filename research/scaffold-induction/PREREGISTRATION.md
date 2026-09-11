@@ -673,3 +673,51 @@ a type from the scaffold's vocabulary — and re-run these same arms against it.
 The prediction to pre-register there, from §45 and §65 together, is that
 `ADD_NODE` becomes the only family that repairs anything, which would make the
 present corpus and that one exact complements.
+
+
+## A17 — `arith` is cancelled; the track is two-domain, on cost, before any arm
+
+Taken **before a single arm was read**, on cost grounds, and recorded as the
+pre-registered consequence of A14 rather than as a finding about `arith`.
+
+`arith` produced **no** admitted case in roughly one hour across two shards, at a
+measured ~89 minutes per case. Under A14 the minimum for a domain to count is
+three admitted cases. It did not reach one, so:
+
+* **`arith` did not supply a corpus.** This is not a failure *of* `arith` — the
+  domain was never run to completion, and nothing about it was measured except
+  its cost. No claim is made about it, in either direction.
+* **The track is two-domain: `bool` and `rel`.** Every cross-domain figure
+  carries that qualification, and the leave-one-domain-out protocol has two folds
+  rather than three.
+* **The reason is cost, and the cost is structural**, not incidental: `arith`'s
+  only supervision probe sits on its output node, so prefix enumeration can
+  never reject a partial program and every selection is walked to the last node.
+  That is the supervision-density effect recorded in its own section, and it is
+  why `arith` was expensive rather than unlucky.
+
+The decision was taken after the track's question had been narrowed to
+*"can cross-domain edit history accelerate repair of **synthetically narrowed**
+scaffolds?"* — a question two domains can answer as well as three, and for which
+a third domain costing several more hours buys little. Recording it here, before
+the arms, is what stops it being read afterwards as a corpus chosen to suit a
+result.
+
+## A18 — the question, renamed
+
+The track no longer claims to study scaffold induction or scaffold repair. Its
+question, in full:
+
+> **Can cross-domain edit history accelerate repair of synthetically narrowed
+> scaffolds?**
+
+"Synthetically narrowed" is the operative qualifier and is load-bearing: the
+defect generator only removes options from a scaffold that already worked, 62% of
+its rejected narrowings did not even damage the base scaffold's own conforming
+member, and the two structural edit families repair nothing. The reviewer's
+framing, which belongs in the record because it is §65's lesson arriving a second
+time by a different route: **do not ask whether a mechanism solves tasks built in
+its image; ask whether it discovers structure whose necessity was not encoded
+into the generator.** This track's defect generator rewards inverse edits, and
+§65's learned prior rediscovered a one-line heuristic. Same warning, two tracks,
+independently arrived at.

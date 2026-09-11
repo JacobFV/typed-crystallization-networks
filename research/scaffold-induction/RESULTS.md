@@ -1,4 +1,8 @@
-# Repairing **narrowed** scaffolds, as a cross-domain outer loop — results
+# Can cross-domain edit history accelerate repair of **synthetically narrowed** scaffolds?
+
+*Two domains — `bool` and `rel`. Formerly "scaffold induction as a cross-domain
+outer loop"; renamed under A18, because that was a wider claim than the evidence
+supports.*
 
 > **What this track measures, stated before anything else.** Its defect generator
 > only ever **narrows** an existing scaffold — it removes operators, sources or
@@ -17,16 +21,32 @@
 re-renders each block, re-derives every headline from raw JSON without importing
 the run or report scripts, and writes `out/verify.json` and `out/headline.json`.
 
+**[Two domains, not three.]** `arith` was **cancelled on cost before any arm was
+read** (A17): it produced no admitted case in about an hour across two shards, at
+a measured ~89 minutes per case, against A14's three-case minimum. That is not a
+finding about `arith` — the domain was never run to completion and nothing about
+it was measured except its cost. Every cross-domain figure below is a two-fold
+leave-one-domain-out over `bool` and `rel`, and says so.
+
 **[Scope, repeated because it is the main limitation.]** Narrowing defects only.
 The expressiveness-removing case — a scaffold that *cannot say* what the task
 needs, §45's running minimum — is absent from this corpus and is the experiment
 this track's gap motivates rather than patches over.
 
 **[Single-configuration evidence.]** One seed set per domain, one base scaffold
-per domain, one defect generator, one edit enumerator, one estimator family, one
-train/held-out split per domain. The domain count is small enough that the
-cross-domain result is anecdote-strength and is labelled so wherever it is
-stated — the same disclosure §50 made about its own task count.
+per domain, one defect generator, one edit enumerator, one estimator family, and
+~~one train/held-out split per domain~~ **— superseded by A13: the split is
+three-way, `train` → `admission` → `final`, and there is no "held-out" set in this
+track.** The domain count is small enough that the cross-domain result is
+anecdote-strength and is labelled so wherever it is stated — the same disclosure
+§50 made about its own task count.
+
+> **One formulation only.** The wording above, superseded by A13, is struck
+> rather than deleted, because the record should show what it said before.
+> Everywhere else in this document the split is three-way. `verify.py` fails if a
+> two-way formulation appears outside a struck passage or an amendment: two live
+> formulations in an audited document is precisely what this infrastructure
+> exists to prevent, and it had one for several hours.
 
 ---
 
@@ -56,17 +76,24 @@ pre-registration that is quietly re-read is not one.
 | A10 F7 counts domains where it should count cases | `PREREGISTRATION.md` | wording only |
 | A11 the candidate-truncation bound removed | `PREREGISTRATION.md` | `edits.py`, all three corpora re-run |
 | A12 the headline is per domain, with a stated pooling rule | `PREREGISTRATION.md` | `analyse.py`, `report.py`, `verify.py` |
+| A13 three splits, not two — `admission` is selection data | `5e0904e` | `domains.py`, `run_domain.py`, `score_final.py` |
+| A14 `arith` capped at 8 cases and a four-hour stop | `6cd2d94` | `merge_shards.py`, `out/arith_stop.json` |
+| A15 the grammar's effective width, pre-committed | `0876af2` | wording only |
+| A16 the missing experiment, named | `0876af2` | wording only |
+| A17 `arith` cancelled; the track is two-domain | this commit | `out/cases_arith_s*.json` |
+| A18 the question renamed to "synthetically narrowed scaffolds" | this commit | title and every claim |
 | R1 the memory floor scales to the measured peak | `8fd4673` | `kit.py`, `run_all.sh` |
 | R2 the four-worker cap is enforced in code | `kit.py` | every launch path |
 
-A8 to A12 are written out in full at the end of `PREREGISTRATION.md`, each
-quoting the clause it replaces, and all five were written before the first arm.
-Four of them are corrections to my own pre-registration rather than adaptations
+A8 to A17 are written out in full at the end of `PREREGISTRATION.md`, each
+quoting the clause it replaces, and every one was written before the first arm.
+Five of them are corrections to my own pre-registration rather than adaptations
 to results: A9 records a floor I set without checking it was reachable, A10
 records a falsification condition I wrote counting the wrong thing, A11 records a
 declared bound that was deleting the repairs it was supposed to be neutral about,
-and A12 fixes a reporting unit that would have averaged a single-site domain
-together with a multi-site one.
+A12 fixes a reporting unit that would have averaged a single-site domain
+together with a multi-site one, and A13 corrects a split structure in which
+nothing was genuinely blind.
 
 **R1 and R2 are resource-policy amendments, not pre-registration ones**, and are
 written up in the Resources section rather than here. They are listed in the same
@@ -205,6 +232,18 @@ whether the extra width pays, and on the evidence so far it does not:
 
 <!-- BEGIN:grammar -->
 <!-- END:grammar -->
+
+**Most of the rejected defects were not defects at all.** Of the 32 `bool`
+defects rejected because the narrowed scaffold could still be solved, **20 — 62%
+— left the base scaffold's own conforming member completely intact**
+(`out/notdefects_bool.json`): the narrowing removed candidates the solution never
+used, so nothing was damaged and nothing needed repairing. Only 12 removed the
+base's member and were routed around by some other member. That is a fact about
+the generator worth handing to whoever builds the next one: **a narrowing applied
+at a uniformly random site mostly misses**, because a scaffold's conforming
+member uses a small fraction of the candidates available to it. A generator that
+wants defects should narrow *along the solution*, not at random — or, better,
+remove expressiveness, which cannot miss.
 
 **The two structural families repair nothing.** `ADD_NODE` and `ADD_PATH`
 together account for a third of every edit proposed and produce **zero** repairs.

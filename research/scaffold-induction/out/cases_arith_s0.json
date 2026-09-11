@@ -46,7 +46,7 @@
  "domain": "arith",
  "final_digest": "85c4342a20c6664e6f62bf9be59554b7",
  "final_untouched": true,
- "last_defect_started": "keep_prefix:is_sub:8",
+ "last_defect_started": "drop_operator:v0:add",
  "max_new": null,
  "max_new_node": null,
  "max_space": 400000,
@@ -54,11 +54,11 @@
  "n_final": 32,
  "n_train": 16,
  "note": "generators/arithmetic, objective drawn per episode",
- "peak_rss_gb": 0.023,
+ "peak_rss_gb": 0.027,
  "rejected_invalid": 30,
  "rejected_no_repair": 0,
  "rejected_solvable_on_train": 0,
- "seconds": 0.6430331320007099,
+ "seconds": 3078.253273278002,
  "splits": {
   "admission_seeds": [
    1000,
@@ -78,6 +78,6 @@
    16
   ]
  },
- "stopped_by_signal": null,
+ "stopped_by_signal": "SIGTERM",
  "tolerance": 1e-06
 }

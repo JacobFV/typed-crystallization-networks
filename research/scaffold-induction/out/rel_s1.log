@@ -18,3 +18,25 @@
   [start] drop_operator:chain3:join
   [start] drop_source:chain3:step2
   [start] keep_prefix:chain3:2
+  rel:keep_prefix:chain3:2: 204 edits, 8 repairs, 3 undecided [2896s]
+  [start] keep_prefix:chain3:4
+  [start] keep_prefix:chain3:8
+  [start] drop_operator:m1:member
+  [start] drop_source:m1:query
+  [start] keep_prefix:m1:2
+  [start] keep_prefix:m1:4
+  [start] keep_prefix:m1:8
+  [start] drop_operator:m2:member
+  [start] drop_source:m2:step2
+  [start] keep_prefix:m2:2
+  [start] keep_prefix:m2:4
+  [start] keep_prefix:m2:8
+  [start] drop_operator:m3:member
+  [start] drop_source:m3:step3
+  [start] keep_prefix:m3:2
+  [start] keep_prefix:m3:4
+  [start] keep_prefix:m3:8
+  [start] drop_operator:o1:and
+  [start] drop_operator:o1:identity
+  [start] drop_operator:o1:nor
+  [start] drop_operator:o1:or

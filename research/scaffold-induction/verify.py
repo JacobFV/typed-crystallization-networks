@@ -457,6 +457,29 @@ def main():
         claim("the prose strip leaves most of RESULTS.md to be checked",
               len(prose) > 0.35 * before,
               f"{len(prose)} of {before} characters survived the strip")
+        # A13 left one superseded formulation of the split in the opening
+        # paragraph while the amendment stated another.  Two live formulations in
+        # an audited document is what this infrastructure exists to prevent, so
+        # the check is mechanical: the two-way wording may appear only inside a
+        # struck passage (~~...~~) or an amendment section.
+        body = re.sub(r"~~.*?~~", "", text, flags=re.S)
+        amend = body.find("## Amendments to the pre-registration")
+        aend = body.find("## ", amend + 10) if amend >= 0 else -1
+        scanned = (body[:amend] + body[aend:]) if amend >= 0 and aend > amend else body
+        # A retrospective mention ("under the two-way split ...", "superseded
+        # by A13") is fine and is part of the record; a LIVE claim that the split
+        # is two-way is not.  An occurrence counts as retrospective only if a
+        # marker sits within 200 characters before it.
+        MARK = re.compile(r"superseded|under the|the old|previously|was |had been"
+                          r"|objection to|A1[0-9]\b", re.I)
+        bad = []
+        for m in re.finditer(r"train/held-out|held-out split|two-way split", scanned):
+            before = scanned[max(0, m.start() - 200):m.start()]
+            if not MARK.search(before):
+                bad.append(scanned[max(0, m.start() - 60):m.end() + 20].replace("\n", " "))
+        claim("no superseded two-way split formulation is live in RESULTS.md",
+              not bad, f"{len(bad)} live occurrence(s): {bad[:2]}")
+
         stray = [t for t in re.findall(NUMBER, prose)
                  if t not in allow and t not in inside]
         claim("no number in RESULTS.md prose is outside a block or the allow-list",

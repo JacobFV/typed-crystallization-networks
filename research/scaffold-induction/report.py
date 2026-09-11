@@ -291,7 +291,7 @@ def sweep():
     return out + "\n\nRule: " + d["rule"] + ".\n" + "\n".join(notes)
 
 
-DOMAINS = ("arith", "bool", "rel")
+DOMAINS = ("bool", "rel")         # A17
 
 
 def present_domains():

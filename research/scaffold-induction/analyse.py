@@ -18,7 +18,7 @@ from fractions import Fraction
 import kit
 
 ALPHA = 1.0
-DOMAINS = ["bool", "arith", "rel"]
+DOMAINS = ["bool", "rel"]          # A17: arith cancelled on cost, before any arm
 ARMS = ["N", "N'", "N''", "H1", "H2", "D1", "D2", "ORACLE"]
 
 
