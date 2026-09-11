@@ -1,0 +1,339 @@
+{'n_offsets': 5, 'n_step_candidates': 20, 'conformers_48ep': '1376372736', 'seconds': 88.07591210799728, 'peak_rss_gb': 0.3536224365234375}
+{'n_offsets': 10, 'n_step_candidates': 40, 'conformers_48ep': '2767343616', 'seconds': 104.72045734200219, 'peak_rss_gb': 0.36305999755859375}
+{'n_offsets': 20, 'n_step_candidates': 80, 'conformers_48ep': '11224903680', 'seconds': 147.37059515000146, 'peak_rss_gb': 0.36305999755859375}
+{
+ "format": "schema-induction/phase0-1",
+ "V2_expressivity": {
+  "width": 16,
+  "s0_offsets": [
+   6,
+   51,
+   3,
+   48,
+   9
+  ],
+  "per_gap": {
+   "gap0": {
+    "right_of": {
+     "n_episodes": 16,
+     "solution_ranges": {
+      "add(hi)": [
+       [
+        3,
+        11
+       ]
+      ],
+      "sub(hi)": [
+       [
+        37,
+        45
+       ],
+       [
+        85,
+        93
+       ],
+       [
+        133,
+        141
+       ],
+       [
+        181,
+        189
+       ],
+       [
+        229,
+        237
+       ],
+       [
+        277,
+        285
+       ],
+       [
+        325,
+        333
+       ],
+       [
+        373,
+        381
+       ],
+       [
+        421,
+        429
+       ],
+       [
+        469,
+        477
+       ],
+       [
+        517,
+        525
+       ],
+       [
+        565,
+        573
+       ],
+       [
+        613,
+        621
+       ]
+      ]
+     },
+     "s0_solutions": [
+      [
+       "add(hi)",
+       3
+      ],
+      [
+       "add(hi)",
+       6
+      ],
+      [
+       "add(hi)",
+       9
+      ]
+     ],
+     "s0_expressible": true,
+     "min_required_offset": 3
+    },
+    "left_of": {
+     "n_episodes": 16,
+     "solution_ranges": {
+      "add(lo)": [
+       [
+        36,
+        47
+       ],
+       [
+        84,
+        95
+       ],
+       [
+        132,
+        143
+       ],
+       [
+        180,
+        191
+       ],
+       [
+        228,
+        239
+       ],
+       [
+        276,
+        287
+       ],
+       [
+        324,
+        335
+       ],
+       [
+        372,
+        383
+       ],
+       [
+        420,
+        431
+       ],
+       [
+        468,
+        479
+       ],
+       [
+        516,
+        527
+       ],
+       [
+        564,
+        575
+       ],
+       [
+        612,
+        623
+       ]
+      ],
+      "sub(lo)": [
+       [
+        1,
+        12
+       ]
+      ]
+     },
+     "s0_solutions": [
+      [
+       "sub(lo)",
+       3
+      ],
+      [
+       "sub(lo)",
+       6
+      ],
+      [
+       "sub(lo)",
+       9
+      ]
+     ],
+     "s0_expressible": true,
+     "min_required_offset": 1
+    },
+    "above": {
+     "n_episodes": 16,
+     "solution_ranges": {
+      "sub(lo)": [
+       [
+        7,
+        48
+       ],
+       [
+        55,
+        96
+       ],
+       [
+        103,
+        144
+       ]
+      ]
+     },
+     "s0_solutions": [
+      [
+       "sub(lo)",
+       9
+      ],
+      [
+       "sub(lo)",
+       48
+      ]
+     ],
+     "s0_expressible": true,
+     "min_required_offset": 7
+    }
+   },
+   "gap1": {
+    "right_of": {
+     "n_episodes": 16,
+     "solution_ranges": {
+      "add(hi)": [
+       [
+        6,
+        14
+       ]
+      ],
+      "sub(hi)": [
+       [
+        34,
+        42
+       ],
+       [
+        82,
+        90
+       ],
+       [
+        130,
+        138
+       ],
+       [
+        178,
+        186
+       ],
+       [
+        226,
+        234
+       ],
+       [
+        274,
+        282
+       ],
+       [
+        322,
+        330
+       ],
+       [
+        370,
+        378
+       ],
+       [
+        418,
+        426
+       ],
+       [
+        466,
+        474
+       ],
+       [
+        514,
+        522
+       ],
+       [
+        562,
+        570
+       ],
+       [
+        610,
+        618
+       ]
+      ]
+     },
+     "s0_solutions": [
+      [
+       "add(hi)",
+       6
+      ],
+      [
+       "add(hi)",
+       9
+      ]
+     ],
+     "s0_expressible": true,
+     "min_required_offset": 6
+    },
+    "left_of": {
+     "n_episodes": 16,
+     "solution_ranges": {
+      "add(lo)": [
+       [
+        36,
+        44
+       ],
+       [
+        84,
+        92
+       ],
+       [
+        132,
+        140
+       ],
+       [
+        180,
+        188
+       ],
+       [
+        228,
+        236
+       ],
+       [
+        276,
+        284
+       ],
+       [
+        324,
+        332
+       ],
+       [
+        372,
+        380
+       ],
+       [
+        420,
+        428
+       ],
+       [
+        468,
+        476
+       ],
+       [
+        516,
+        524
+      
+V2 counterexample holds: True
+V2 S0 solves gap 0: True
+V3 widen-insufficiency holds: True
