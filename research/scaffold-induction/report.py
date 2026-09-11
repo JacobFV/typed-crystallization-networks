@@ -52,7 +52,7 @@ def corpus():
     for d in a["domains"]:
         c = C(d)
         pd = a["per_domain"].get(d, {})
-        rows.append([d, c["note"], c["n_train"], c["n_heldout"],
+        rows.append([d, c["note"], c["n_train"], c["n_admission"], c["n_final"],
                      c["base"]["nodes"], f"{c['base']['space']:,}",
                      c["defects_tried"], c["admitted"],
                      c["rejected_solvable_on_train"], c["rejected_no_repair"],
@@ -60,7 +60,7 @@ def corpus():
                      _n(pd.get("n_edits_mean"), 1), _n(pd.get("n_repairs_mean"), 1),
                      "yes" if c.get("complete") else
                      "**no — stopped early, cases so far**"])
-    return table(["domain", "task", "train", "held out", "nodes", "base space",
+    return table(["domain", "task", "train", "admission", "final", "nodes", "base space",
                   "defects tried", "**admitted**", "rejected: solvable on train",
                   "rejected: no repair", "rejected: invalid",
                   "edits/case", "repairs/case", "defect list exhausted"], rows)
@@ -280,10 +280,11 @@ def sweep():
         info = d["domains"][dom]
         for r in info["rows"]:
             mark = " **<- chosen**" if r["budget"] == info["chosen_budget"] else ""
-            rows.append([dom, r["budget"], r["n_train"], r["n_heldout"],
+            rows.append([dom, r["budget"], r["n_train"],
+                         r.get("n_admission", r.get("n_heldout")), r.get("n_final"),
                          r["defects"], r["invalid"], r["solvable_on_train"],
                          f"**{r['admissible']}**{mark}"])
-    out = table(["domain", "budget", "train", "held out", "defects", "invalid",
+    out = table(["domain", "budget", "train", "admission", "final", "defects", "invalid",
                  "solvable on train", "admissible"], rows)
     notes = []
     for dom in sorted(d["domains"]):
@@ -423,6 +424,34 @@ def grammar():
                   "repair rate", "cases it repairs"], rows)
 
 
+def blind():
+    """A13's blind split: does the edit an arm stopped at actually generalize?"""
+    try:
+        d = kit.load("final_scores")
+    except FileNotFoundError:
+        return "The blind split has not been scored."
+    a = A()
+    rows = []
+    for arm in a["arms"]:
+        t = d["tally"][arm]
+        rows.append([LABEL.get(arm, arm),
+                     f"{t['M1']['generalizes']} / {t['M1']['of']}",
+                     f"{t['M2']['generalizes']} / {t['M2']['of']}"])
+    n = len(d["cases"])
+    dm1 = sum(1 for c in d["cases"]
+              if len({c["arms"][x]["M1"]["edit"] for x in a["arms"]}) > 1)
+    dm2 = sum(1 for c in d["cases"]
+              if len({c["arms"][x]["M2"]["edit"] for x in a["arms"]}) > 1)
+    out = table(["arm", "M1: the first repair generalizes",
+                 "M2: the first training-conforming edit generalizes"], rows)
+    return out + (
+        f"\n\nThe arms do select different edits: {dm1} of {n} cases have "
+        f"distinct M1 choices across arms and {dm2} of {n} distinct M2 choices. "
+        f"The identical M2 rate is therefore a property of the "
+        f"training-conforming population, not an artefact of every arm stopping "
+        f"at the same edit.")
+
+
 def outerloop():
     """The cost of the outer loop itself, so 'moving combinatorics up a level'
     can be checked rather than assumed."""
@@ -470,7 +499,7 @@ def resources():
 
 BLOCKS = {"corpus": corpus, "decider": decider, "sweep": sweep,
           "ceilings": ceilings, "cost": cost, "sites": sites,
-          "outerloop": outerloop, "grammar": grammar, "pressure": pressure, "gate": gate, "costs": costs, "criteria": criteria, "ratios": ratios,
+          "outerloop": outerloop, "grammar": grammar, "blind": blind, "pressure": pressure, "gate": gate, "costs": costs, "criteria": criteria, "ratios": ratios,
           "deployed": deployed, "validity": validity, "estimator": estimator,
           "families": families, "s50": s50, "percase": percase,
           "resources": resources}

@@ -28,3 +28,10 @@ check_workers	live=0	requesting=1	limit=4	[]	START
 validate_decider:bool	MemAvailable=42.06GB	required=4.50GB (max(2.0GB, 20 x measured peak 0.225GB))	headroom_after=41.83GB	START
 check_workers	live=0	requesting=1	limit=4	[]	START
 validate_decider:rel	MemAvailable=42.46GB	required=2.00GB (max(2.0GB, 20 x measured peak 0.029GB))	headroom_after=42.43GB	START
+check_workers	live=0	requesting=1	limit=4	[]	START
+check_workers	live=0	requesting=1	limit=4	[]	START
+score_final	MemAvailable=101.02GB	required=2.00GB (max(2.0GB, 20 x measured peak 0.025GB))	headroom_after=101.00GB	START
+check_workers	live=0	requesting=1	limit=4	[]	START
+validate_decider:bool	MemAvailable=103.27GB	required=4.50GB (max(2.0GB, 20 x measured peak 0.225GB))	headroom_after=103.05GB	START
+check_workers	live=0	requesting=1	limit=4	[]	START
+validate_decider:rel	MemAvailable=102.01GB	required=2.00GB (max(2.0GB, 20 x measured peak 0.029GB))	headroom_after=101.98GB	START

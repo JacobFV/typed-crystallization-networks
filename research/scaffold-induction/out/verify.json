@@ -1,0 +1,846 @@
+{
+ "pass": 166,
+ "fail": 2,
+ "claims": [
+  {
+   "ok": true,
+   "claim": "tier (s=1, k=1): the closed form matches a simulated draw",
+   "detail": "simulated 1.0000 vs closed form 1.0000"
+  },
+  {
+   "ok": true,
+   "claim": "tier (s=3, k=1): the closed form matches a simulated draw",
+   "detail": "simulated 1.9995 vs closed form 2.0000"
+  },
+  {
+   "ok": true,
+   "claim": "tier (s=5, k=1): the closed form matches a simulated draw",
+   "detail": "simulated 3.0036 vs closed form 3.0000"
+  },
+  {
+   "ok": true,
+   "claim": "tier (s=6, k=2): the closed form matches a simulated draw",
+   "detail": "simulated 2.3347 vs closed form 2.3333"
+  },
+  {
+   "ok": true,
+   "claim": "tier (s=10, k=3): the closed form matches a simulated draw",
+   "detail": "simulated 2.7479 vs closed form 2.7500"
+  },
+  {
+   "ok": true,
+   "claim": "tier (s=8, k=8): the closed form matches a simulated draw",
+   "detail": "simulated 1.0000 vs closed form 1.0000"
+  },
+  {
+   "ok": true,
+   "claim": "degenerate tier [0]/[True] costs 1",
+   "detail": "1 vs 1"
+  },
+  {
+   "ok": true,
+   "claim": "degenerate tier [0, 0]/[False, True] costs 3/2",
+   "detail": "3/2 vs 3/2"
+  },
+  {
+   "ok": true,
+   "claim": "degenerate tier [0, 0, 0]/[True, True, True] costs 1",
+   "detail": "1 vs 1"
+  },
+  {
+   "ok": true,
+   "claim": "degenerate tier [0, 1]/[False, True] costs 2",
+   "detail": "2 vs 2"
+  },
+  {
+   "ok": true,
+   "claim": "degenerate tier [0]/[False] costs None",
+   "detail": "None vs None"
+  },
+  {
+   "ok": true,
+   "claim": "out/cases_bool.json exists",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "out/cases_rel.json exists",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "bool: admitted count in the file equals its `admitted` field",
+   "detail": "9 vs 9"
+  },
+  {
+   "ok": true,
+   "claim": "bool: every admitted case has 0 conformers on train, exhausted, complete",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "bool: every admitted case has at least one repair",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "bool: n_repairs equals the repairs in the edit list",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "bool: n_undecided equals the undecided edits",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "bool: every repair is proved by a witness",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "bool: every non-repair with a decision is proved by exhaustion",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "bool: the corpus was not stopped by a signal",
+   "detail": "stopped_by_signal=None, last defect started delete_node:y:None"
+  },
+  {
+   "ok": true,
+   "claim": "bool: the corpus records whether its defect list was exhausted",
+   "detail": "no `complete` field"
+  },
+  {
+   "ok": true,
+   "claim": "rel: admitted count in the file equals its `admitted` field",
+   "detail": "19 vs 19"
+  },
+  {
+   "ok": true,
+   "claim": "rel: every admitted case has 0 conformers on train, exhausted, complete",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "rel: every admitted case has at least one repair",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "rel: n_repairs equals the repairs in the edit list",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "rel: n_undecided equals the undecided edits",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "rel: every repair is proved by a witness",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "rel: every non-repair with a decision is proved by exhaustion",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "rel: the corpus was not stopped by a signal",
+   "detail": "stopped_by_signal=None, last defect started delete_node:o1:None"
+  },
+  {
+   "ok": true,
+   "claim": "rel: the corpus records whether its defect list was exhausted",
+   "detail": "no `complete` field"
+  },
+  {
+   "ok": true,
+   "claim": "A13[bool]: the corpus declares the final split untouched",
+   "detail": "final_untouched=True"
+  },
+  {
+   "ok": true,
+   "claim": "A13[bool]: the corpus records a final-split fingerprint and size",
+   "detail": "digest=02d5bb6c96cba55fdebcc31bf49681a6 n_final=28"
+  },
+  {
+   "ok": true,
+   "claim": "A13[bool]: no stored feature is derived from admission or final",
+   "detail": "unexpected feature fields: []"
+  },
+  {
+   "ok": true,
+   "claim": "A13[bool]: the only episode-derived feature names the train split",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "A13[rel]: the corpus declares the final split untouched",
+   "detail": "final_untouched=True"
+  },
+  {
+   "ok": true,
+   "claim": "A13[rel]: the corpus records a final-split fingerprint and size",
+   "detail": "digest=82c56babbe2dc4b5fbb768ea0479700b n_final=96"
+  },
+  {
+   "ok": true,
+   "claim": "A13[rel]: no stored feature is derived from admission or final",
+   "detail": "unexpected feature fields: []"
+  },
+  {
+   "ok": true,
+   "claim": "A13[rel]: the only episode-derived feature names the train split",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "A13[bool]: final scoring used the split the corpus withheld",
+   "detail": "02d5bb6c96cba55fdebcc31bf49681a6 vs 02d5bb6c96cba55fdebcc31bf49681a6"
+  },
+  {
+   "ok": true,
+   "claim": "A13[rel]: final scoring used the split the corpus withheld",
+   "detail": "82c56babbe2dc4b5fbb768ea0479700b vs 82c56babbe2dc4b5fbb768ea0479700b"
+  },
+  {
+   "ok": true,
+   "claim": "A21[analysis/bool]: carries all five provenance identities",
+   "detail": "missing []"
+  },
+  {
+   "ok": true,
+   "claim": "A21[analysis/rel]: carries all five provenance identities",
+   "detail": "missing []"
+  },
+  {
+   "ok": true,
+   "claim": "A21[final_scores/bool]: carries all five provenance identities",
+   "detail": "missing []"
+  },
+  {
+   "ok": true,
+   "claim": "A21[final_scores/rel]: carries all five provenance identities",
+   "detail": "missing []"
+  },
+  {
+   "ok": true,
+   "claim": "A21[validate_bool]: carries all five provenance identities",
+   "detail": "missing []"
+  },
+  {
+   "ok": false,
+   "claim": "A21[validate_rel]: carries all five provenance identities",
+   "detail": "no provenance block (artifact predates A21 and cannot be shown current)"
+  },
+  {
+   "ok": true,
+   "claim": "A21[cases_bool]: provenance is RECONSTRUCTED, not stamped at build time",
+   "detail": "reconstruction is missing its evidence fields"
+  },
+  {
+   "ok": true,
+   "claim": "A21[cases_bool]: every changed producer since the corpus is disclosed with its diff",
+   "detail": "changed without a recorded diff: ['run_domain.py']"
+  },
+  {
+   "ok": true,
+   "claim": "A21[cases_rel]: provenance is RECONSTRUCTED, not stamped at build time",
+   "detail": "reconstruction is missing its evidence fields"
+  },
+  {
+   "ok": true,
+   "claim": "A21[cases_rel]: every changed producer since the corpus is disclosed with its diff",
+   "detail": "changed without a recorded diff: []"
+  },
+  {
+   "ok": true,
+   "claim": "A21[bool]: every artifact used one mutation-grammar version",
+   "detail": "grammar digests differ: {'47579b87c7b186b7'}"
+  },
+  {
+   "ok": true,
+   "claim": "A21[bool]: every artifact refers to one blind split",
+   "detail": "split digests differ: {'02d5bb6c96cba55fdebcc31bf49681a6'}"
+  },
+  {
+   "ok": true,
+   "claim": "A21[bool]: every artifact refers to one base scaffold",
+   "detail": "base digests differ: {'f34a4bc78e932307796b92d9'}"
+  },
+  {
+   "ok": true,
+   "claim": "A21[rel]: every artifact used one mutation-grammar version",
+   "detail": "grammar digests differ: {'47579b87c7b186b7'}"
+  },
+  {
+   "ok": true,
+   "claim": "A21[rel]: every artifact refers to one blind split",
+   "detail": "split digests differ: {'82c56babbe2dc4b5fbb768ea0479700b'}"
+  },
+  {
+   "ok": true,
+   "claim": "A21[rel]: every artifact refers to one base scaffold",
+   "detail": "base digests differ: {'631b0e69432076d21d35ff34'}"
+  },
+  {
+   "ok": true,
+   "claim": "A8[bool]: the corpus was built at the budget the rule chose",
+   "detail": "sweep chose train=8, corpus used train=8"
+  },
+  {
+   "ok": true,
+   "claim": "A8[bool]: the sweep's stability verdict is re-derived",
+   "detail": "recomputed stable=True, recorded stable=True"
+  },
+  {
+   "ok": true,
+   "claim": "A8[rel]: the corpus was built at the budget the rule chose",
+   "detail": "sweep chose train=384, corpus used train=384"
+  },
+  {
+   "ok": true,
+   "claim": "A8[rel]: the sweep's stability verdict is re-derived",
+   "detail": "recomputed stable=True, recorded stable=True"
+  },
+  {
+   "ok": true,
+   "claim": "A11: no edit's candidate list was truncated",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "estimator[bool]: repair-row count re-derived",
+   "detail": "164 vs 164"
+  },
+  {
+   "ok": true,
+   "claim": "estimator[bool]: non-repair-row count re-derived",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "estimator[bool]: every log-odds entry re-derived from raw rows",
+   "detail": "0 differing entries"
+  },
+  {
+   "ok": true,
+   "claim": "estimator[bool]: the held-out domain contributes no row (V4)",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "estimator[bool]: the inherited edit-family class re-derived",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "estimator[rel]: repair-row count re-derived",
+   "detail": "22 vs 22"
+  },
+  {
+   "ok": true,
+   "claim": "estimator[rel]: non-repair-row count re-derived",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "estimator[rel]: every log-odds entry re-derived from raw rows",
+   "detail": "0 differing entries"
+  },
+  {
+   "ok": true,
+   "claim": "estimator[rel]: the held-out domain contributes no row (V4)",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "estimator[rel]: the inherited edit-family class re-derived",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "all 392 per-case arm costs re-derived from raw edits",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "per-case (micro) mean_cost[N] re-derived \u2014 reported only beside the macro figure, never used for a criterion",
+   "detail": "32.48962585034013 vs 32.48962585034013"
+  },
+  {
+   "ok": true,
+   "claim": "per-case (micro) mean_cost_optimistic[N] re-derived \u2014 reported only beside the macro figure, never used for a criterion",
+   "detail": "16.806673815602387 vs 16.806673815602387"
+  },
+  {
+   "ok": true,
+   "claim": "per-case (micro) mean_cost[N'] re-derived \u2014 reported only beside the macro figure, never used for a criterion",
+   "detail": "33.6108843537415 vs 33.6108843537415"
+  },
+  {
+   "ok": true,
+   "claim": "per-case (micro) mean_cost_optimistic[N'] re-derived \u2014 reported only beside the macro figure, never used for a criterion",
+   "detail": "21.47242281527996 vs 21.47242281527996"
+  },
+  {
+   "ok": true,
+   "claim": "per-case (micro) mean_cost[N''] re-derived \u2014 reported only beside the macro figure, never used for a criterion",
+   "detail": "29.291666666666668 vs 29.291666666666668"
+  },
+  {
+   "ok": true,
+   "claim": "per-case (micro) mean_cost_optimistic[N''] re-derived \u2014 reported only beside the macro figure, never used for a criterion",
+   "detail": "6.455433455433456 vs 6.455433455433456"
+  },
+  {
+   "ok": true,
+   "claim": "per-case (micro) mean_cost[H1] re-derived \u2014 reported only beside the macro figure, never used for a criterion",
+   "detail": "96.34821428571429 vs 96.34821428571429"
+  },
+  {
+   "ok": true,
+   "claim": "per-case (micro) mean_cost_optimistic[H1] re-derived \u2014 reported only beside the macro figure, never used for a criterion",
+   "detail": "96.34821428571429 vs 96.34821428571429"
+  },
+  {
+   "ok": true,
+   "claim": "per-case (micro) mean_cost[H2] re-derived \u2014 reported only beside the macro figure, never used for a criterion",
+   "detail": "40.38846371882086 vs 40.38846371882086"
+  },
+  {
+   "ok": true,
+   "claim": "per-case (micro) mean_cost_optimistic[H2] re-derived \u2014 reported only beside the macro figure, never used for a criterion",
+   "detail": "13.792882910740053 vs 13.792882910740053"
+  },
+  {
+   "ok": true,
+   "claim": "per-case (micro) mean_cost[D1] re-derived \u2014 reported only beside the macro figure, never used for a criterion",
+   "detail": "79.875 vs 79.875"
+  },
+  {
+   "ok": true,
+   "claim": "per-case (micro) mean_cost_optimistic[D1] re-derived \u2014 reported only beside the macro figure, never used for a criterion",
+   "detail": "39.86904761904762 vs 39.86904761904762"
+  },
+  {
+   "ok": true,
+   "claim": "per-case (micro) mean_cost[D2] re-derived \u2014 reported only beside the macro figure, never used for a criterion",
+   "detail": "84.41071428571429 vs 84.41071428571429"
+  },
+  {
+   "ok": true,
+   "claim": "per-case (micro) mean_cost_optimistic[D2] re-derived \u2014 reported only beside the macro figure, never used for a criterion",
+   "detail": "72.58928571428571 vs 72.58928571428571"
+  },
+  {
+   "ok": true,
+   "claim": "per-case (micro) mean_cost[ORACLE] re-derived \u2014 reported only beside the macro figure, never used for a criterion",
+   "detail": "1.0 vs 1.0"
+  },
+  {
+   "ok": true,
+   "claim": "per-case (micro) mean_cost_optimistic[ORACLE] re-derived \u2014 reported only beside the macro figure, never used for a criterion",
+   "detail": "1.0 vs 1.0"
+  },
+  {
+   "ok": true,
+   "claim": "A12[bool]: C1_N''_le_half_N re-derived",
+   "detail": "False vs False"
+  },
+  {
+   "ok": true,
+   "claim": "A12[bool]: C2_N''_le_half_Nprime re-derived",
+   "detail": "False vs False"
+  },
+  {
+   "ok": true,
+   "claim": "A12[bool]: C3a_N''_le_half_H1 re-derived",
+   "detail": "False vs False"
+  },
+  {
+   "ok": true,
+   "claim": "A12[bool]: C3b_N''_le_half_H2 re-derived",
+   "detail": "False vs False"
+  },
+  {
+   "ok": true,
+   "claim": "A12[bool]: C4 re-derived",
+   "detail": "True vs True"
+  },
+  {
+   "ok": true,
+   "claim": "A12[bool]: the domain verdict is the conjunction of C1-C4",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "A12[rel]: C1_N''_le_half_N re-derived",
+   "detail": "False vs False"
+  },
+  {
+   "ok": true,
+   "claim": "A12[rel]: C2_N''_le_half_Nprime re-derived",
+   "detail": "False vs False"
+  },
+  {
+   "ok": true,
+   "claim": "A12[rel]: C3a_N''_le_half_H1 re-derived",
+   "detail": "True vs True"
+  },
+  {
+   "ok": true,
+   "claim": "A12[rel]: C3b_N''_le_half_H2 re-derived",
+   "detail": "True vs True"
+  },
+  {
+   "ok": true,
+   "claim": "A12[rel]: C4 re-derived",
+   "detail": "True vs True"
+  },
+  {
+   "ok": true,
+   "claim": "A12[rel]: the domain verdict is the conjunction of C1-C4",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "A12: pooled (macro) cost for N is the unweighted mean of the per-domain means",
+   "detail": "36.807170704539125 vs 36.807170704539125"
+  },
+  {
+   "ok": true,
+   "claim": "A12: pooled (macro) cost for N' is the unweighted mean of the per-domain means",
+   "detail": "36.51445279866333 vs 36.51445279866333"
+  },
+  {
+   "ok": true,
+   "claim": "A12: pooled (macro) cost for N'' is the unweighted mean of the per-domain means",
+   "detail": "35.23830409356725 vs 35.23830409356725"
+  },
+  {
+   "ok": true,
+   "claim": "A12: pooled (macro) cost for H1 is the unweighted mean of the per-domain means",
+   "detail": "94.18055555555556 vs 94.18055555555556"
+  },
+  {
+   "ok": true,
+   "claim": "A12: pooled (macro) cost for H2 is the unweighted mean of the per-domain means",
+   "detail": "34.95485240879978 vs 34.95485240879978"
+  },
+  {
+   "ok": true,
+   "claim": "A12: pooled (macro) cost for D1 is the unweighted mean of the per-domain means",
+   "detail": "91.48684210526315 vs 91.48684210526315"
+  },
+  {
+   "ok": true,
+   "claim": "A12: pooled (macro) cost for D2 is the unweighted mean of the per-domain means",
+   "detail": "87.63596491228071 vs 87.63596491228071"
+  },
+  {
+   "ok": true,
+   "claim": "A12: pooled (macro) cost for ORACLE is the unweighted mean of the per-domain means",
+   "detail": "1.0 vs 1.0"
+  },
+  {
+   "ok": true,
+   "claim": "pooled C1_N''_le_half_N re-derived from the macro means",
+   "detail": "False vs False"
+  },
+  {
+   "ok": true,
+   "claim": "pooled C2_N''_le_half_Nprime re-derived from the macro means",
+   "detail": "False vs False"
+  },
+  {
+   "ok": true,
+   "claim": "pooled C3a_N''_le_half_H1 re-derived from the macro means",
+   "detail": "True vs True"
+  },
+  {
+   "ok": true,
+   "claim": "pooled C3b_N''_le_half_H2 re-derived from the macro means",
+   "detail": "False vs False"
+  },
+  {
+   "ok": true,
+   "claim": "A12(4): the headline verdict is met on EVERY domain, not pooled",
+   "detail": "per-domain {'bool': False, 'rel': False}"
+  },
+  {
+   "ok": true,
+   "claim": "A12(4): a split verdict is flagged as split",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "A12(4): a split verdict is never reported as MET",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "V1 inverse fraction re-derived",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "V1 inverse repairs re-derived from the raw edit lists",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "V3 every arm orders the identical edit list, so repairs are identical",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "D1's per-case mean equals the mean of its 20 stored permutations",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "D1's headline ordering is the seed-0 permutation, which is one of the 20",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "V2[bool]: the flat walk agrees with the prefix walk on every sample",
+   "detail": "0 disagreements"
+  },
+  {
+   "ok": true,
+   "claim": "V2[bool]: every recorded witness re-executes to the target",
+   "detail": "0 witnesses did not reproduce"
+  },
+  {
+   "ok": true,
+   "claim": "V2[bool]: every repair's witness was checked, not a sample",
+   "detail": "22 vs 22"
+  },
+  {
+   "ok": true,
+   "claim": "V2[bool]: the validation stamps the corpus it validated",
+   "detail": "no corpus stamp: the artifact predates A20 and may be stale"
+  },
+  {
+   "ok": true,
+   "claim": "V2[bool]: the validation refers to the current corpus",
+   "detail": "stamp 02d5bb6c96cba55fdebcc31bf49681a6/8/9 vs corpus 02d5bb6c96cba55fdebcc31bf49681a6/8/9"
+  },
+  {
+   "ok": true,
+   "claim": "V2[rel]: the flat walk agrees with the prefix walk on every sample",
+   "detail": "0 disagreements"
+  },
+  {
+   "ok": true,
+   "claim": "V2[rel]: every recorded witness re-executes to the target",
+   "detail": "0 witnesses did not reproduce"
+  },
+  {
+   "ok": true,
+   "claim": "V2[rel]: every repair's witness was checked, not a sample",
+   "detail": "164 vs 164"
+  },
+  {
+   "ok": true,
+   "claim": "V2[rel]: the validation stamps the corpus it validated",
+   "detail": "no corpus stamp: the artifact predates A20 and may be stale"
+  },
+  {
+   "ok": true,
+   "claim": "V2[rel]: the validation refers to the current corpus",
+   "detail": "stamp 82c56babbe2dc4b5fbb768ea0479700b/384/19 vs corpus 82c56babbe2dc4b5fbb768ea0479700b/384/19"
+  },
+  {
+   "ok": true,
+   "claim": "S1: failed-case count re-derived",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "S1: repair-exists count re-derived",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "S1: training-stop count re-derived",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `sweep` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `ceilings` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `grammar` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `outerloop` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `cost` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `sites` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `criteria` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `costs` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `ratios` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `corpus` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `percase` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `estimator` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `families` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `deployed` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `blind` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `validity` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `decider` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `s50` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `pressure` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": false,
+   "claim": "block `gate` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `resources` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "every block report.py can render appears in RESULTS.md",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "the prose strip leaves most of RESULTS.md to be checked",
+   "detail": "36863 of 54520 characters survived the strip"
+  },
+  {
+   "ok": true,
+   "claim": "no superseded two-way split formulation is live in RESULTS.md",
+   "detail": "0 live occurrence(s): []"
+  },
+  {
+   "ok": true,
+   "claim": "no number in RESULTS.md prose is outside a block or the allow-list",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "A19: the verifier contains the check 'the corpus declares the final split untouched'",
+   "detail": "an amendment promised this check and nothing implements it"
+  },
+  {
+   "ok": true,
+   "claim": "A19: the verifier contains the check 'the corpus records a final-split fingerprint'",
+   "detail": "an amendment promised this check and nothing implements it"
+  },
+  {
+   "ok": true,
+   "claim": "A19: the verifier contains the check 'no stored feature is derived from admission or final'",
+   "detail": "an amendment promised this check and nothing implements it"
+  },
+  {
+   "ok": true,
+   "claim": "A19: the verifier contains the check 'the corpus was not stopped by a signal'",
+   "detail": "an amendment promised this check and nothing implements it"
+  },
+  {
+   "ok": true,
+   "claim": "A19: the verifier contains the check 'no superseded two-way split formulation is live'",
+   "detail": "an amendment promised this check and nothing implements it"
+  },
+  {
+   "ok": true,
+   "claim": "A19: the verifier contains the check 'the closed form matches a simulated draw'",
+   "detail": "an amendment promised this check and nothing implements it"
+  },
+  {
+   "ok": true,
+   "claim": "A19: the verifier contains the check 'the validation refers to the current corpus'",
+   "detail": "an amendment promised this check and nothing implements it"
+  },
+  {
+   "ok": true,
+   "claim": "A19: the verifier contains the check 'carries all five provenance identities'",
+   "detail": "an amendment promised this check and nothing implements it"
+  },
+  {
+   "ok": true,
+   "claim": "A19: the verifier contains the check 'every artifact used one mutation-grammar version'",
+   "detail": "an amendment promised this check and nothing implements it"
+  }
+ ]
+}

@@ -243,11 +243,34 @@ def main():
                       f"missing {sorted(set(FIVE) - set(pv or {}))}")
                 prov.setdefault(dom, []).append((name, pv))
         else:
-            claim(f"A21[{name}]: carries all five provenance identities",
-                  isinstance(got, dict) and all(f in got for f in FIVE),
-                  f"missing {sorted(set(FIVE) - set(got or {}))}"
-                  if got is not None else "no provenance block "
-                  "(artifact predates A21 and cannot be shown current)")
+            rec = art.get("provenance_reconstructed")
+            if got is None and isinstance(rec, dict):
+                # A20/A21: a corpus built before A21 is not back-filled.  It
+                # carries a reconstruction whose evidence is git, and the
+                # verifier treats that as weaker than a build-time stamp and
+                # says so rather than accepting it silently.
+                claim(f"A21[{name}]: provenance is RECONSTRUCTED, not stamped "
+                      f"at build time",
+                      all(k in rec for k in
+                          ("kind", "producing_files", "corpus_recorded_at",
+                           "diff_since_corpus", "digests_now")),
+                      "reconstruction is missing its evidence fields")
+                changed = [f for f, v in (rec.get("diff_since_corpus") or {}).items()
+                           if not isinstance(v, str)]
+                claim(f"A21[{name}]: every changed producer since the corpus is "
+                      f"disclosed with its diff",
+                      all(isinstance((rec['diff_since_corpus'] or {})[f], dict)
+                          and "diff" in rec["diff_since_corpus"][f]
+                          for f in changed),
+                      f"changed without a recorded diff: {changed}")
+                prov.setdefault(name.replace("cases_", ""), []).append(
+                    (name, rec.get("digests_now") or {}))
+            else:
+                claim(f"A21[{name}]: carries all five provenance identities",
+                      isinstance(got, dict) and all(f in got for f in FIVE),
+                      f"missing {sorted(set(FIVE) - set(got or {}))}"
+                      if got is not None else "no provenance block "
+                      "(artifact predates A21 and cannot be shown current)")
     for dom, entries in prov.items():
         grammars = {p.get("grammar_digest") for _, p in entries}
         claim(f"A21[{dom}]: every artifact used one mutation-grammar version",
@@ -545,7 +568,9 @@ def main():
         # an audited document is what this infrastructure exists to prevent, so
         # the check is mechanical: the two-way wording may appear only inside a
         # struck passage (~~...~~) or an amendment section.
-        body = re.sub(r"~~.*?~~", "", text, flags=re.S)
+        body = re.sub(r"<!-- BEGIN:(\w+) -->\n?.*?\n?<!-- END:\1 -->", "",
+                      text, flags=re.S)
+        body = re.sub(r"~~.*?~~", "", body, flags=re.S)
         amend = body.find("## Amendments to the pre-registration")
         aend = body.find("## ", amend + 10) if amend >= 0 else -1
         scanned = (body[:amend] + body[aend:]) if amend >= 0 and aend > amend else body
@@ -576,6 +601,9 @@ ALLOWED = {
     # by the pre-registration or by an amendment.  Nothing measured belongs here.
     "1", "2", "3", "4", "6", "8",          # keep_prefix's k values (amendment A3)
     "48", "12", "400,000",                 # MAX_NEW, MAX_NEW_NODE, MAX_SPACE
+    "2.6", "89",                           # cited: section 65's gap-1 conformer
+                                           # count (2.6e11) and arith's measured
+                                           # ~89 min/case, both named in prose
     "20", "25", "80",                      # the resource policy: 20x the measured
                                            # peak, the 25 GB unmeasured-phase
                                            # floor, ~80x for MemoryMax (R1, R2)

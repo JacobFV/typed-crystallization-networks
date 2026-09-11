@@ -1,0 +1,4365 @@
+{
+ "alpha": 1.0,
+ "arms": [
+  "N",
+  "N'",
+  "N''",
+  "H1",
+  "H2",
+  "D1",
+  "D2",
+  "ORACLE"
+ ],
+ "cases": [
+  {
+   "D1_mean": "281/4",
+   "D1_permutations": [
+    "89",
+    "74",
+    "80",
+    "71",
+    "94",
+    "81",
+    "56",
+    "85",
+    "47",
+    "66",
+    "46",
+    "88",
+    "75",
+    "58",
+    "21",
+    "84",
+    "92",
+    "63",
+    "16",
+    "119"
+   ],
+   "case_id": "bool:drop_operator:y:xor",
+   "cost": {
+    "D1": "89",
+    "D2": "73",
+    "H1": "65",
+    "H2": "65/3",
+    "N": "161/3",
+    "N'": "49",
+    "N''": "65",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "32",
+    "D2": "29",
+    "H1": "65",
+    "H2": "65/18",
+    "N": "7/2",
+    "N'": "49/15",
+    "N''": "1",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": "xor",
+    "kind": "drop_operator",
+    "site": "y"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_PATH|xor",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "D2": {
+     "key": "SUBST|n1|identity",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "H1": {
+     "key": "SUBST|n1|decode",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "H2": {
+     "key": "SUBST|y|and",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "N": {
+     "key": "SUBST|n1|and",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "N'": {
+     "key": "SUBST|n1|and",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "N''": {
+     "key": "WIDEN|y|mux",
+     "repair": false,
+     "stopped_at": 3
+    },
+    "ORACLE": {
+     "key": "SUBST|y|xor",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "bool",
+   "inverse_repairs": 2,
+   "n_edits": 160,
+   "n_repairs": 2,
+   "n_train_conforming": 112,
+   "n_undecided": 43,
+   "repair_families": [
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "SUBST|y|xor",
+     "M2": "ADD_PATH|xor"
+    },
+    "D2": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|identity"
+    },
+    "H1": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|decode"
+    },
+    "H2": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|y|and"
+    },
+    "N": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|and"
+    },
+    "N'": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|and"
+    },
+    "N''": {
+     "M1": "WIDEN|y|xor",
+     "M2": "WIDEN|y|mux"
+    },
+    "ORACLE": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|y|xor"
+    }
+   }
+  },
+  {
+   "D1_mean": "107/2",
+   "D1_permutations": [
+    "112",
+    "118",
+    "15",
+    "16",
+    "95/2",
+    "133/2",
+    "24",
+    "87/2",
+    "17",
+    "21",
+    "83/2",
+    "39",
+    "72",
+    "111/2",
+    "7/2",
+    "55",
+    "60",
+    "77",
+    "149/2",
+    "223/2"
+   ],
+   "case_id": "bool:drop_source:y:n1",
+   "cost": {
+    "D1": "112",
+    "D2": "72",
+    "H1": "81",
+    "H2": "13",
+    "N": "161/5",
+    "N'": "147/5",
+    "N''": "135/2",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "21",
+    "D2": "45",
+    "H1": "81",
+    "H2": "13/4",
+    "N": "161/36",
+    "N'": "21/5",
+    "N''": "15/13",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": "n1",
+    "kind": "drop_source",
+    "site": "y"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_PATH|and",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "D2": {
+     "key": "SUBST|n1|identity",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "H1": {
+     "key": "SUBST|n1|decode",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "H2": {
+     "key": "SUBST|y|and",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "N": {
+     "key": "SUBST|n1|and",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "N'": {
+     "key": "SUBST|n1|and",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "N''": {
+     "key": "ADD_NODE|n1|not|bool0:integer::0",
+     "repair": false,
+     "stopped_at": 4
+    },
+    "ORACLE": {
+     "key": "SUBST|y|xor",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "bool",
+   "inverse_repairs": 1,
+   "n_edits": 160,
+   "n_repairs": 4,
+   "n_train_conforming": 110,
+   "n_undecided": 31,
+   "repair_families": [
+    "REWIRE",
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "REWIRE|y|n1",
+     "M2": "ADD_PATH|and"
+    },
+    "D2": {
+     "M1": "REWIRE|y|n1",
+     "M2": "SUBST|n1|identity"
+    },
+    "H1": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|decode"
+    },
+    "H2": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|y|and"
+    },
+    "N": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|and"
+    },
+    "N'": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|and"
+    },
+    "N''": {
+     "M1": "WIDEN|y|xor",
+     "M2": "ADD_NODE|n1|not|bool0:integer::0"
+    },
+    "ORACLE": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|y|xor"
+    }
+   }
+  },
+  {
+   "D1_mean": "107/2",
+   "D1_permutations": [
+    "112",
+    "118",
+    "15",
+    "16",
+    "95/2",
+    "133/2",
+    "24",
+    "87/2",
+    "17",
+    "21",
+    "83/2",
+    "39",
+    "72",
+    "111/2",
+    "7/2",
+    "55",
+    "60",
+    "77",
+    "149/2",
+    "223/2"
+   ],
+   "case_id": "bool:drop_source:y:n2",
+   "cost": {
+    "D1": "112",
+    "D2": "72",
+    "H1": "81",
+    "H2": "13",
+    "N": "161/5",
+    "N'": "147/5",
+    "N''": "135/2",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "21",
+    "D2": "45",
+    "H1": "81",
+    "H2": "13/4",
+    "N": "161/36",
+    "N'": "21/5",
+    "N''": "15/13",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": "n2",
+    "kind": "drop_source",
+    "site": "y"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_PATH|and",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "D2": {
+     "key": "SUBST|n2|identity",
+     "repair": false,
+     "stopped_at": 2
+    },
+    "H1": {
+     "key": "SUBST|n2|decode",
+     "repair": false,
+     "stopped_at": 5
+    },
+    "H2": {
+     "key": "SUBST|y|and",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "N": {
+     "key": "SUBST|n2|and",
+     "repair": false,
+     "stopped_at": 15
+    },
+    "N'": {
+     "key": "SUBST|n2|and",
+     "repair": false,
+     "stopped_at": 15
+    },
+    "N''": {
+     "key": "ADD_NODE|n1|not|bool0:integer::0",
+     "repair": false,
+     "stopped_at": 4
+    },
+    "ORACLE": {
+     "key": "SUBST|y|xor",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "bool",
+   "inverse_repairs": 1,
+   "n_edits": 160,
+   "n_repairs": 4,
+   "n_train_conforming": 110,
+   "n_undecided": 31,
+   "repair_families": [
+    "REWIRE",
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "REWIRE|y|n1",
+     "M2": "ADD_PATH|and"
+    },
+    "D2": {
+     "M1": "REWIRE|y|n1",
+     "M2": "SUBST|n2|identity"
+    },
+    "H1": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n2|decode"
+    },
+    "H2": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|y|and"
+    },
+    "N": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n2|and"
+    },
+    "N'": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n2|and"
+    },
+    "N''": {
+     "M1": "WIDEN|y|xor",
+     "M2": "ADD_NODE|n1|not|bool0:integer::0"
+    },
+    "ORACLE": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|y|xor"
+    }
+   }
+  },
+  {
+   "D1_mean": "797/10",
+   "D1_permutations": [
+    "148",
+    "148",
+    "60",
+    "76",
+    "62",
+    "78",
+    "64",
+    "45",
+    "41",
+    "42",
+    "50",
+    "145",
+    "112",
+    "42",
+    "5",
+    "81",
+    "67",
+    "142",
+    "76",
+    "110"
+   ],
+   "case_id": "bool:keep_prefix:y:1",
+   "cost": {
+    "D1": "148",
+    "D2": "112",
+    "H1": "189/2",
+    "H2": "65/3",
+    "N": "161/3",
+    "N'": "49",
+    "N''": "41",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "67/3",
+    "D2": "82",
+    "H1": "189/2",
+    "H2": "65/11",
+    "N": "161/13",
+    "N'": "147/13",
+    "N''": "13/3",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": 1,
+    "kind": "keep_prefix",
+    "site": "y"
+   },
+   "deployed": {
+    "D1": {
+     "key": "SUBST|y|mux",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "D2": {
+     "key": "SUBST|n2|identity",
+     "repair": false,
+     "stopped_at": 2
+    },
+    "H1": {
+     "key": "SUBST|n2|decode",
+     "repair": false,
+     "stopped_at": 7
+    },
+    "H2": {
+     "key": "SUBST|y|and",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "N": {
+     "key": "SUBST|n2|and",
+     "repair": false,
+     "stopped_at": 15
+    },
+    "N'": {
+     "key": "SUBST|n2|and",
+     "repair": false,
+     "stopped_at": 15
+    },
+    "N''": {
+     "key": "ADD_NODE|n1|nand|bool0:integer::0",
+     "repair": false,
+     "stopped_at": 2
+    },
+    "ORACLE": {
+     "key": "SUBST|y|xor",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "bool",
+   "inverse_repairs": 2,
+   "n_edits": 160,
+   "n_repairs": 2,
+   "n_train_conforming": 131,
+   "n_undecided": 10,
+   "repair_families": [
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|y|mux"
+    },
+    "D2": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n2|identity"
+    },
+    "H1": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n2|decode"
+    },
+    "H2": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|y|and"
+    },
+    "N": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n2|and"
+    },
+    "N'": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n2|and"
+    },
+    "N''": {
+     "M1": "WIDEN|y|xor",
+     "M2": "ADD_NODE|n1|nand|bool0:integer::0"
+    },
+    "ORACLE": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|y|xor"
+    }
+   }
+  },
+  {
+   "D1_mean": "393/5",
+   "D1_permutations": [
+    "134",
+    "148",
+    "62",
+    "72",
+    "64",
+    "74",
+    "50",
+    "42",
+    "40",
+    "44",
+    "58",
+    "146",
+    "100",
+    "40",
+    "5",
+    "81",
+    "68",
+    "142",
+    "80",
+    "122"
+   ],
+   "case_id": "bool:keep_prefix:y:2",
+   "cost": {
+    "D1": "134",
+    "D2": "112",
+    "H1": "189/2",
+    "H2": "65/3",
+    "N": "161/3",
+    "N'": "49",
+    "N''": "41",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "91",
+    "D2": "80",
+    "H1": "189/2",
+    "H2": "65/11",
+    "N": "161/13",
+    "N'": "147/13",
+    "N''": "17",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": 2,
+    "kind": "keep_prefix",
+    "site": "y"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_PATH|nand",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "D2": {
+     "key": "SUBST|n2|identity",
+     "repair": false,
+     "stopped_at": 2
+    },
+    "H1": {
+     "key": "SUBST|n1|not",
+     "repair": false,
+     "stopped_at": 5
+    },
+    "H2": {
+     "key": "SUBST|y|and",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "N": {
+     "key": "SUBST|n1|eq",
+     "repair": false,
+     "stopped_at": 5
+    },
+    "N'": {
+     "key": "SUBST|n1|eq",
+     "repair": false,
+     "stopped_at": 5
+    },
+    "N''": {
+     "key": "ADD_NODE|n1|nand|bool0:integer::0",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "ORACLE": {
+     "key": "SUBST|y|xor",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "bool",
+   "inverse_repairs": 2,
+   "n_edits": 160,
+   "n_repairs": 2,
+   "n_train_conforming": 138,
+   "n_undecided": 10,
+   "repair_families": [
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "SUBST|y|xor",
+     "M2": "ADD_PATH|nand"
+    },
+    "D2": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n2|identity"
+    },
+    "H1": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|not"
+    },
+    "H2": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|y|and"
+    },
+    "N": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|eq"
+    },
+    "N'": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|eq"
+    },
+    "N''": {
+     "M1": "WIDEN|y|xor",
+     "M2": "ADD_NODE|n1|nand|bool0:integer::0"
+    },
+    "ORACLE": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|y|xor"
+    }
+   }
+  },
+  {
+   "D1_mean": "783/10",
+   "D1_permutations": [
+    "134",
+    "148",
+    "64",
+    "72",
+    "65",
+    "74",
+    "50",
+    "42",
+    "40",
+    "46",
+    "56",
+    "142",
+    "98",
+    "36",
+    "5",
+    "82",
+    "68",
+    "142",
+    "80",
+    "122"
+   ],
+   "case_id": "bool:keep_prefix:y:3",
+   "cost": {
+    "D1": "134",
+    "D2": "112",
+    "H1": "189/2",
+    "H2": "65/3",
+    "N": "161/3",
+    "N'": "49",
+    "N''": "43",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "94",
+    "D2": "80",
+    "H1": "189/2",
+    "H2": "65/11",
+    "N": "161/13",
+    "N'": "147/13",
+    "N''": "19",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": 3,
+    "kind": "keep_prefix",
+    "site": "y"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_PATH|nand",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "D2": {
+     "key": "SUBST|n2|identity",
+     "repair": false,
+     "stopped_at": 2
+    },
+    "H1": {
+     "key": "SUBST|n1|not",
+     "repair": false,
+     "stopped_at": 5
+    },
+    "H2": {
+     "key": "SUBST|y|and",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "N": {
+     "key": "SUBST|n1|eq",
+     "repair": false,
+     "stopped_at": 5
+    },
+    "N'": {
+     "key": "SUBST|n1|eq",
+     "repair": false,
+     "stopped_at": 5
+    },
+    "N''": {
+     "key": "ADD_NODE|n1|nand|bool0:integer::0",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "ORACLE": {
+     "key": "SUBST|y|xor",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "bool",
+   "inverse_repairs": 2,
+   "n_edits": 160,
+   "n_repairs": 2,
+   "n_train_conforming": 138,
+   "n_undecided": 10,
+   "repair_families": [
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "SUBST|y|xor",
+     "M2": "ADD_PATH|nand"
+    },
+    "D2": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n2|identity"
+    },
+    "H1": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|not"
+    },
+    "H2": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|y|and"
+    },
+    "N": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|eq"
+    },
+    "N'": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|eq"
+    },
+    "N''": {
+     "M1": "WIDEN|y|xor",
+     "M2": "ADD_NODE|n1|nand|bool0:integer::0"
+    },
+    "ORACLE": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|y|xor"
+    }
+   }
+  },
+  {
+   "D1_mean": "1569/20",
+   "D1_permutations": [
+    "134",
+    "148",
+    "64",
+    "72",
+    "65",
+    "74",
+    "49",
+    "42",
+    "40",
+    "46",
+    "55",
+    "142",
+    "99",
+    "37",
+    "5",
+    "88",
+    "68",
+    "142",
+    "76",
+    "123"
+   ],
+   "case_id": "bool:keep_prefix:y:4",
+   "cost": {
+    "D1": "134",
+    "D2": "112",
+    "H1": "189/2",
+    "H2": "65/3",
+    "N": "161/3",
+    "N'": "49",
+    "N''": "43",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "11",
+    "D2": "80",
+    "H1": "189/2",
+    "H2": "65/11",
+    "N": "161/27",
+    "N'": "49/9",
+    "N''": "1",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": 4,
+    "kind": "keep_prefix",
+    "site": "y"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_PATH|nand",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "D2": {
+     "key": "SUBST|n1|identity",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "H1": {
+     "key": "SUBST|n1|decode",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "H2": {
+     "key": "SUBST|y|and",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "N": {
+     "key": "SUBST|n1|and",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "N'": {
+     "key": "SUBST|n1|and",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "N''": {
+     "key": "WIDEN|y|mux",
+     "repair": false,
+     "stopped_at": 13
+    },
+    "ORACLE": {
+     "key": "SUBST|y|xor",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "bool",
+   "inverse_repairs": 2,
+   "n_edits": 160,
+   "n_repairs": 2,
+   "n_train_conforming": 131,
+   "n_undecided": 24,
+   "repair_families": [
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "SUBST|y|xor",
+     "M2": "ADD_PATH|nand"
+    },
+    "D2": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|identity"
+    },
+    "H1": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|decode"
+    },
+    "H2": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|y|and"
+    },
+    "N": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|and"
+    },
+    "N'": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|and"
+    },
+    "N''": {
+     "M1": "WIDEN|y|xor",
+     "M2": "WIDEN|y|mux"
+    },
+    "ORACLE": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|y|xor"
+    }
+   }
+  },
+  {
+   "D1_mean": "79",
+   "D1_permutations": [
+    "253/2",
+    "295/2",
+    "111/2",
+    "153/2",
+    "125/2",
+    "133/2",
+    "107/2",
+    "121/2",
+    "97/2",
+    "69/2",
+    "85/2",
+    "277/2",
+    "175/2",
+    "99/2",
+    "13/2",
+    "171/2",
+    "167/2",
+    "291/2",
+    "167/2",
+    "251/2"
+   ],
+   "case_id": "bool:keep_prefix:y:6",
+   "cost": {
+    "D1": "253/2",
+    "D2": "205/2",
+    "H1": "94",
+    "H2": "65/3",
+    "N": "161/3",
+    "N'": "49",
+    "N''": "99/2",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "9",
+    "D2": "49",
+    "H1": "94",
+    "H2": "65/12",
+    "N": "23/4",
+    "N'": "49/9",
+    "N''": "11/9",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": 6,
+    "kind": "keep_prefix",
+    "site": "y"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_PATH|nand",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "D2": {
+     "key": "SUBST|n1|identity",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "H1": {
+     "key": "SUBST|n1|decode",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "H2": {
+     "key": "SUBST|y|and",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "N": {
+     "key": "SUBST|n1|and",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "N'": {
+     "key": "SUBST|n1|and",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "N''": {
+     "key": "ADD_NODE|n1|not|bool0:integer::0",
+     "repair": false,
+     "stopped_at": 3
+    },
+    "ORACLE": {
+     "key": "SUBST|y|xor",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "bool",
+   "inverse_repairs": 2,
+   "n_edits": 160,
+   "n_repairs": 2,
+   "n_train_conforming": 130,
+   "n_undecided": 25,
+   "repair_families": [
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "SUBST|y|xor",
+     "M2": "ADD_PATH|nand"
+    },
+    "D2": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|identity"
+    },
+    "H1": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|decode"
+    },
+    "H2": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|y|and"
+    },
+    "N": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|and"
+    },
+    "N'": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|and"
+    },
+    "N''": {
+     "M1": "WIDEN|y|xor",
+     "M2": "ADD_NODE|n1|not|bool0:integer::0"
+    },
+    "ORACLE": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|y|xor"
+    }
+   }
+  },
+  {
+   "D1_mean": "396/5",
+   "D1_permutations": [
+    "253/2",
+    "295/2",
+    "111/2",
+    "153/2",
+    "125/2",
+    "133/2",
+    "109/2",
+    "121/2",
+    "97/2",
+    "69/2",
+    "85/2",
+    "277/2",
+    "175/2",
+    "101/2",
+    "13/2",
+    "169/2",
+    "167/2",
+    "291/2",
+    "175/2",
+    "249/2"
+   ],
+   "case_id": "bool:keep_prefix:y:8",
+   "cost": {
+    "D1": "253/2",
+    "D2": "205/2",
+    "H1": "94",
+    "H2": "65/3",
+    "N": "161/3",
+    "N'": "49",
+    "N''": "99/2",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "9",
+    "D2": "49",
+    "H1": "94",
+    "H2": "65/12",
+    "N": "23/4",
+    "N'": "49/9",
+    "N''": "11/9",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": 8,
+    "kind": "keep_prefix",
+    "site": "y"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_PATH|nand",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "D2": {
+     "key": "SUBST|n1|identity",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "H1": {
+     "key": "SUBST|n1|decode",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "H2": {
+     "key": "SUBST|y|and",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "N": {
+     "key": "SUBST|n1|and",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "N'": {
+     "key": "SUBST|n1|and",
+     "repair": false,
+     "stopped_at": 1
+    },
+    "N''": {
+     "key": "ADD_NODE|n1|not|bool0:integer::0",
+     "repair": false,
+     "stopped_at": 3
+    },
+    "ORACLE": {
+     "key": "SUBST|y|xor",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "bool",
+   "inverse_repairs": 2,
+   "n_edits": 160,
+   "n_repairs": 2,
+   "n_train_conforming": 130,
+   "n_undecided": 25,
+   "repair_families": [
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "SUBST|y|xor",
+     "M2": "ADD_PATH|nand"
+    },
+    "D2": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|identity"
+    },
+    "H1": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|decode"
+    },
+    "H2": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|y|and"
+    },
+    "N": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|and"
+    },
+    "N'": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|n1|and"
+    },
+    "N''": {
+     "M1": "WIDEN|y|xor",
+     "M2": "ADD_NODE|n1|not|bool0:integer::0"
+    },
+    "ORACLE": {
+     "M1": "SUBST|y|xor",
+     "M2": "SUBST|y|xor"
+    }
+   }
+  },
+  {
+   "D1_mean": "1207/20",
+   "D1_permutations": [
+    "104",
+    "81/2",
+    "37",
+    "37/2",
+    "79/2",
+    "193/2",
+    "59",
+    "43/2",
+    "126",
+    "43",
+    "17",
+    "148",
+    "10",
+    "141/2",
+    "123/2",
+    "133/2",
+    "79",
+    "52",
+    "177/2",
+    "57/2"
+   ],
+   "case_id": "rel:drop_operator:ans:or",
+   "cost": {
+    "D1": "104",
+    "D2": "259/2",
+    "H1": "61/2",
+    "H2": "13",
+    "N": "205/6",
+    "N'": "23",
+    "N''": "41/2",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "12",
+    "D2": "259/2",
+    "H1": "61/2",
+    "H2": "26/5",
+    "N": "41/3",
+    "N'": "23",
+    "N''": "15",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": "or",
+    "kind": "drop_operator",
+    "site": "ans"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_NODE|ans|not|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 104
+    },
+    "D2": {
+     "key": "SUBST|ans|or",
+     "repair": true,
+     "stopped_at": 130
+    },
+    "H1": {
+     "key": "SUBST|ans|or",
+     "repair": true,
+     "stopped_at": 24
+    },
+    "H2": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 8
+    },
+    "N": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 8
+    },
+    "N'": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 8
+    },
+    "N''": {
+     "key": "WIDEN|ans|or",
+     "repair": true,
+     "stopped_at": 21
+    },
+    "ORACLE": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "rel",
+   "inverse_repairs": 2,
+   "n_edits": 204,
+   "n_repairs": 5,
+   "n_train_conforming": 5,
+   "n_undecided": 9,
+   "repair_families": [
+    "ADD_NODE",
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "ADD_NODE|ans|not|bool0:integer::0",
+     "M2": "ADD_NODE|ans|not|bool0:integer::0"
+    },
+    "D2": {
+     "M1": "SUBST|ans|or",
+     "M2": "SUBST|ans|or"
+    },
+    "H1": {
+     "M1": "SUBST|ans|or",
+     "M2": "SUBST|ans|or"
+    },
+    "H2": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "N": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "N'": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "N''": {
+     "M1": "WIDEN|ans|or",
+     "M2": "WIDEN|ans|or"
+    },
+    "ORACLE": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    }
+   }
+  },
+  {
+   "D1_mean": "727/20",
+   "D1_permutations": [
+    "7",
+    "8",
+    "17",
+    "31/2",
+    "141/2",
+    "80",
+    "22",
+    "161/2",
+    "111",
+    "2",
+    "14",
+    "3",
+    "16",
+    "30",
+    "21",
+    "155/2",
+    "12",
+    "1",
+    "217/2",
+    "61/2"
+   ],
+   "case_id": "rel:drop_source:ans:o1",
+   "cost": {
+    "D1": "7",
+    "D2": "293/2",
+    "H1": "277/2",
+    "H2": "39/7",
+    "N": "205/14",
+    "N'": "115/7",
+    "N''": "2",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "7",
+    "D2": "293/2",
+    "H1": "277/2",
+    "H2": "39/11",
+    "N": "205/22",
+    "N'": "115/7",
+    "N''": "2",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": "o1",
+    "kind": "drop_source",
+    "site": "ans"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_NODE|ans|identity|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 7
+    },
+    "D2": {
+     "key": "SUBST|ans|or",
+     "repair": true,
+     "stopped_at": 147
+    },
+    "H1": {
+     "key": "SUBST|ans|or",
+     "repair": true,
+     "stopped_at": 139
+    },
+    "H2": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 8
+    },
+    "N": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 8
+    },
+    "N'": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 8
+    },
+    "N''": {
+     "key": "REWIRE|ans|o1",
+     "repair": true,
+     "stopped_at": 3
+    },
+    "ORACLE": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "rel",
+   "inverse_repairs": 1,
+   "n_edits": 204,
+   "n_repairs": 13,
+   "n_train_conforming": 13,
+   "n_undecided": 8,
+   "repair_families": [
+    "ADD_NODE",
+    "REWIRE",
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "ADD_NODE|ans|identity|bool0:integer::0",
+     "M2": "ADD_NODE|ans|identity|bool0:integer::0"
+    },
+    "D2": {
+     "M1": "SUBST|ans|or",
+     "M2": "SUBST|ans|or"
+    },
+    "H1": {
+     "M1": "SUBST|ans|or",
+     "M2": "SUBST|ans|or"
+    },
+    "H2": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "N": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "N'": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "N''": {
+     "M1": "REWIRE|ans|o1",
+     "M2": "REWIRE|ans|o1"
+    },
+    "ORACLE": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    }
+   }
+  },
+  {
+   "D1_mean": "6293/120",
+   "D1_permutations": [
+    "54",
+    "28",
+    "18",
+    "29/2",
+    "91/2",
+    "77",
+    "9",
+    "165/2",
+    "117",
+    "49",
+    "13",
+    "102",
+    "13",
+    "201/2",
+    "123/2",
+    "135/2",
+    "41",
+    "18",
+    "328/3",
+    "57/2"
+   ],
+   "case_id": "rel:keep_prefix:ans:2",
+   "cost": {
+    "D1": "54",
+    "D2": "487/3",
+    "H1": "154",
+    "H2": "64/7",
+    "N": "191/7",
+    "N'": "109/5",
+    "N''": "4",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "54",
+    "D2": "487/3",
+    "H1": "154",
+    "H2": "64/7",
+    "N": "191/7",
+    "N'": "109/5",
+    "N''": "4",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": 2,
+    "kind": "keep_prefix",
+    "site": "ans"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_NODE|ans|mux|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 54
+    },
+    "D2": {
+     "key": "SUBST|ans|or",
+     "repair": true,
+     "stopped_at": 162
+    },
+    "H1": {
+     "key": "SUBST|ans|or",
+     "repair": true,
+     "stopped_at": 154
+    },
+    "H2": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 8
+    },
+    "N": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 8
+    },
+    "N'": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 8
+    },
+    "N''": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 4
+    },
+    "ORACLE": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "rel",
+   "inverse_repairs": 4,
+   "n_edits": 190,
+   "n_repairs": 6,
+   "n_train_conforming": 6,
+   "n_undecided": 0,
+   "repair_families": [
+    "ADD_NODE",
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "ADD_NODE|ans|mux|bool0:integer::0",
+     "M2": "ADD_NODE|ans|mux|bool0:integer::0"
+    },
+    "D2": {
+     "M1": "SUBST|ans|or",
+     "M2": "SUBST|ans|or"
+    },
+    "H1": {
+     "M1": "SUBST|ans|or",
+     "M2": "SUBST|ans|or"
+    },
+    "H2": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "N": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "N'": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "N''": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "ORACLE": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    }
+   }
+  },
+  {
+   "D1_mean": "2349/40",
+   "D1_permutations": [
+    "231/2",
+    "34",
+    "20",
+    "29/2",
+    "68",
+    "86",
+    "16",
+    "155/2",
+    "119",
+    "21/2",
+    "13",
+    "103",
+    "9/2",
+    "201/2",
+    "69",
+    "79",
+    "48",
+    "125/2",
+    "103",
+    "31"
+   ],
+   "case_id": "rel:keep_prefix:ans:4",
+   "cost": {
+    "D1": "231/2",
+    "D2": "152",
+    "H1": "285/2",
+    "H2": "32/3",
+    "N": "191/6",
+    "N'": "109/5",
+    "N''": "5",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "53",
+    "D2": "152",
+    "H1": "285/2",
+    "H2": "64/7",
+    "N": "191/7",
+    "N'": "109/5",
+    "N''": "5",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": 4,
+    "kind": "keep_prefix",
+    "site": "ans"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_NODE|ans|or|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 116
+    },
+    "D2": {
+     "key": "SUBST|ans|or",
+     "repair": true,
+     "stopped_at": 152
+    },
+    "H1": {
+     "key": "SUBST|ans|or",
+     "repair": true,
+     "stopped_at": 142
+    },
+    "H2": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 8
+    },
+    "N": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 8
+    },
+    "N'": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 8
+    },
+    "N''": {
+     "key": "WIDEN|ans|or",
+     "repair": true,
+     "stopped_at": 5
+    },
+    "ORACLE": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "rel",
+   "inverse_repairs": 4,
+   "n_edits": 190,
+   "n_repairs": 5,
+   "n_train_conforming": 5,
+   "n_undecided": 1,
+   "repair_families": [
+    "ADD_NODE",
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "ADD_NODE|ans|or|bool0:integer::0",
+     "M2": "ADD_NODE|ans|or|bool0:integer::0"
+    },
+    "D2": {
+     "M1": "SUBST|ans|or",
+     "M2": "SUBST|ans|or"
+    },
+    "H1": {
+     "M1": "SUBST|ans|or",
+     "M2": "SUBST|ans|or"
+    },
+    "H2": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "N": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "N'": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "N''": {
+     "M1": "WIDEN|ans|or",
+     "M2": "WIDEN|ans|or"
+    },
+    "ORACLE": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    }
+   }
+  },
+  {
+   "D1_mean": "6061/120",
+   "D1_permutations": [
+    "69/2",
+    "147/2",
+    "101/2",
+    "85/2",
+    "115/2",
+    "123/2",
+    "9/2",
+    "115/2",
+    "77/2",
+    "79/2",
+    "43/2",
+    "3/2",
+    "368/3",
+    "39/2",
+    "111/2",
+    "111/2",
+    "95/2",
+    "97/2",
+    "197/2",
+    "159/2"
+   ],
+   "case_id": "rel:keep_prefix:chain2:1",
+   "cost": {
+    "D1": "69/2",
+    "D2": "119/2",
+    "H1": "227/2",
+    "H2": "1531/8",
+    "N": "26",
+    "N'": "59/2",
+    "N''": "75/2",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "69/2",
+    "D2": "119/2",
+    "H1": "227/2",
+    "H2": "39",
+    "N": "208/9",
+    "N'": "59/2",
+    "N''": "14",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": 1,
+    "kind": "keep_prefix",
+    "site": "chain2"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_NODE|chain2|identity|set0:integer::1",
+     "repair": true,
+     "stopped_at": 34
+    },
+    "D2": {
+     "key": "ADD_NODE|chain2|identity|set0:integer::1",
+     "repair": true,
+     "stopped_at": 59
+    },
+    "H1": {
+     "key": "SUBST|chain2|join",
+     "repair": true,
+     "stopped_at": 113
+    },
+    "H2": {
+     "key": "SUBST|chain2|join",
+     "repair": true,
+     "stopped_at": 190
+    },
+    "N": {
+     "key": "SUBST|chain2|join",
+     "repair": true,
+     "stopped_at": 16
+    },
+    "N'": {
+     "key": "SUBST|chain2|join",
+     "repair": true,
+     "stopped_at": 16
+    },
+    "N''": {
+     "key": "REWIRE|chain2|edges",
+     "repair": true,
+     "stopped_at": 37
+    },
+    "ORACLE": {
+     "key": "SUBST|chain2|join",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "rel",
+   "inverse_repairs": 2,
+   "n_edits": 207,
+   "n_repairs": 7,
+   "n_train_conforming": 7,
+   "n_undecided": 1,
+   "repair_families": [
+    "ADD_NODE",
+    "REWIRE",
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "ADD_NODE|chain2|identity|set0:integer::1",
+     "M2": "ADD_NODE|chain2|identity|set0:integer::1"
+    },
+    "D2": {
+     "M1": "ADD_NODE|chain2|identity|set0:integer::1",
+     "M2": "ADD_NODE|chain2|identity|set0:integer::1"
+    },
+    "H1": {
+     "M1": "SUBST|chain2|join",
+     "M2": "SUBST|chain2|join"
+    },
+    "H2": {
+     "M1": "SUBST|chain2|join",
+     "M2": "SUBST|chain2|join"
+    },
+    "N": {
+     "M1": "SUBST|chain2|join",
+     "M2": "SUBST|chain2|join"
+    },
+    "N'": {
+     "M1": "SUBST|chain2|join",
+     "M2": "SUBST|chain2|join"
+    },
+    "N''": {
+     "M1": "REWIRE|chain2|edges",
+     "M2": "REWIRE|chain2|edges"
+    },
+    "ORACLE": {
+     "M1": "SUBST|chain2|join",
+     "M2": "SUBST|chain2|join"
+    }
+   }
+  },
+  {
+   "D1_mean": "382/5",
+   "D1_permutations": [
+    "69/2",
+    "145/2",
+    "96",
+    "85/2",
+    "72",
+    "421/4",
+    "70",
+    "94",
+    "633/4",
+    "49",
+    "14",
+    "13",
+    "657/4",
+    "20",
+    "61",
+    "71",
+    "425/4",
+    "97/2",
+    "153",
+    "83"
+   ],
+   "case_id": "rel:keep_prefix:chain3:1",
+   "cost": {
+    "D1": "69/2",
+    "D2": "117/2",
+    "H1": "139",
+    "H2": "1294/9",
+    "N": "205/9",
+    "N'": "23",
+    "N''": "64",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "69/2",
+    "D2": "117/2",
+    "H1": "139",
+    "H2": "39",
+    "N": "41/2",
+    "N'": "23",
+    "N''": "14",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": 1,
+    "kind": "keep_prefix",
+    "site": "chain3"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_NODE|chain3|identity|set0:integer::1",
+     "repair": true,
+     "stopped_at": 35
+    },
+    "D2": {
+     "key": "ADD_NODE|chain3|identity|set0:integer::1",
+     "repair": true,
+     "stopped_at": 59
+    },
+    "H1": {
+     "key": "SUBST|chain3|join",
+     "repair": true,
+     "stopped_at": 139
+    },
+    "H2": {
+     "key": "SUBST|chain3|join",
+     "repair": true,
+     "stopped_at": 139
+    },
+    "N": {
+     "key": "SUBST|chain3|join",
+     "repair": true,
+     "stopped_at": 17
+    },
+    "N'": {
+     "key": "SUBST|chain3|join",
+     "repair": true,
+     "stopped_at": 17
+    },
+    "N''": {
+     "key": "REWIRE|chain3|edges",
+     "repair": true,
+     "stopped_at": 64
+    },
+    "ORACLE": {
+     "key": "SUBST|chain3|join",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "rel",
+   "inverse_repairs": 2,
+   "n_edits": 204,
+   "n_repairs": 8,
+   "n_train_conforming": 8,
+   "n_undecided": 1,
+   "repair_families": [
+    "ADD_NODE",
+    "REWIRE",
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "ADD_NODE|chain3|identity|set0:integer::1",
+     "M2": "ADD_NODE|chain3|identity|set0:integer::1"
+    },
+    "D2": {
+     "M1": "ADD_NODE|chain3|identity|set0:integer::1",
+     "M2": "ADD_NODE|chain3|identity|set0:integer::1"
+    },
+    "H1": {
+     "M1": "SUBST|chain3|join",
+     "M2": "SUBST|chain3|join"
+    },
+    "H2": {
+     "M1": "SUBST|chain3|join",
+     "M2": "SUBST|chain3|join"
+    },
+    "N": {
+     "M1": "SUBST|chain3|join",
+     "M2": "SUBST|chain3|join"
+    },
+    "N'": {
+     "M1": "SUBST|chain3|join",
+     "M2": "SUBST|chain3|join"
+    },
+    "N''": {
+     "M1": "REWIRE|chain3|edges",
+     "M2": "REWIRE|chain3|edges"
+    },
+    "ORACLE": {
+     "M1": "SUBST|chain3|join",
+     "M2": "SUBST|chain3|join"
+    }
+   }
+  },
+  {
+   "D1_mean": "1439/40",
+   "D1_permutations": [
+    "29",
+    "130/3",
+    "58/3",
+    "45",
+    "19/2",
+    "119/2",
+    "8",
+    "25/2",
+    "107",
+    "43",
+    "2",
+    "4",
+    "25/3",
+    "23",
+    "49",
+    "127/2",
+    "15",
+    "44",
+    "145/2",
+    "62"
+   ],
+   "case_id": "rel:drop_source:o1:m1",
+   "cost": {
+    "D1": "29",
+    "D2": "9",
+    "H1": "17/2",
+    "H2": "26",
+    "N": "43/4",
+    "N'": "125/7",
+    "N''": "28/3",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "29",
+    "D2": "9",
+    "H1": "17/2",
+    "H2": "39/2",
+    "N": "215/21",
+    "N'": "125/7",
+    "N''": "28/3",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": "m1",
+    "kind": "drop_source",
+    "site": "o1"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_NODE|o1|identity|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 29
+    },
+    "D2": {
+     "key": "WIDEN|o1|mux",
+     "repair": true,
+     "stopped_at": 9
+    },
+    "H1": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 15
+    },
+    "H2": {
+     "key": "ADD_NODE|ans|nor|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 56
+    },
+    "N": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 43
+    },
+    "N'": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 43
+    },
+    "N''": {
+     "key": "ADD_NODE|ans|nor|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 10
+    },
+    "ORACLE": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "rel",
+   "inverse_repairs": 1,
+   "n_edits": 214,
+   "n_repairs": 19,
+   "n_train_conforming": 19,
+   "n_undecided": 1,
+   "repair_families": [
+    "ADD_NODE",
+    "REWIRE",
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "ADD_NODE|o1|identity|bool0:integer::0",
+     "M2": "ADD_NODE|o1|identity|bool0:integer::0"
+    },
+    "D2": {
+     "M1": "WIDEN|o1|mux",
+     "M2": "WIDEN|o1|mux"
+    },
+    "H1": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    },
+    "H2": {
+     "M1": "ADD_NODE|ans|nor|bool0:integer::0",
+     "M2": "ADD_NODE|ans|nor|bool0:integer::0"
+    },
+    "N": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    },
+    "N'": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    },
+    "N''": {
+     "M1": "ADD_NODE|ans|nor|bool0:integer::0",
+     "M2": "ADD_NODE|ans|nor|bool0:integer::0"
+    },
+    "ORACLE": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    }
+   }
+  },
+  {
+   "D1_mean": "1211/20",
+   "D1_permutations": [
+    "128",
+    "61",
+    "74",
+    "57/2",
+    "19/2",
+    "115/2",
+    "97/2",
+    "17/2",
+    "237/2",
+    "135/2",
+    "2",
+    "251/2",
+    "137/2",
+    "97/2",
+    "131/2",
+    "121/2",
+    "66",
+    "57",
+    "86",
+    "30"
+   ],
+   "case_id": "rel:keep_prefix:o1:1",
+   "cost": {
+    "D1": "128",
+    "D2": "5",
+    "H1": "215/2",
+    "H2": "26",
+    "N": "202/9",
+    "N'": "24",
+    "N''": "9/2",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "128",
+    "D2": "5",
+    "H1": "215/2",
+    "H2": "26",
+    "N": "202/9",
+    "N'": "24",
+    "N''": "9/2",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": 1,
+    "kind": "keep_prefix",
+    "site": "o1"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_NODE|ans|mux|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 128
+    },
+    "D2": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 5
+    },
+    "H1": {
+     "key": "SUBST|o1|or",
+     "repair": true,
+     "stopped_at": 106
+    },
+    "H2": {
+     "key": "ADD_NODE|ans|mux|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 52
+    },
+    "N": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 43
+    },
+    "N'": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 43
+    },
+    "N''": {
+     "key": "ADD_NODE|ans|or|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 5
+    },
+    "ORACLE": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "rel",
+   "inverse_repairs": 4,
+   "n_edits": 201,
+   "n_repairs": 8,
+   "n_train_conforming": 8,
+   "n_undecided": 0,
+   "repair_families": [
+    "ADD_NODE",
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "ADD_NODE|ans|mux|bool0:integer::0",
+     "M2": "ADD_NODE|ans|mux|bool0:integer::0"
+    },
+    "D2": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    },
+    "H1": {
+     "M1": "SUBST|o1|or",
+     "M2": "SUBST|o1|or"
+    },
+    "H2": {
+     "M1": "ADD_NODE|ans|mux|bool0:integer::0",
+     "M2": "ADD_NODE|ans|mux|bool0:integer::0"
+    },
+    "N": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    },
+    "N'": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    },
+    "N''": {
+     "M1": "ADD_NODE|ans|or|bool0:integer::0",
+     "M2": "ADD_NODE|ans|or|bool0:integer::0"
+    },
+    "ORACLE": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    }
+   }
+  },
+  {
+   "D1_mean": "231/5",
+   "D1_permutations": [
+    "53",
+    "28",
+    "18",
+    "93/2",
+    "21/2",
+    "113/2",
+    "30",
+    "17/2",
+    "223/2",
+    "55",
+    "1",
+    "113",
+    "13",
+    "125/2",
+    "137/2",
+    "129/2",
+    "34",
+    "22",
+    "73",
+    "55"
+   ],
+   "case_id": "rel:keep_prefix:o1:3",
+   "cost": {
+    "D1": "53",
+    "D2": "13",
+    "H1": "62",
+    "H2": "26",
+    "N": "67/3",
+    "N'": "119/5",
+    "N''": "5",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "53",
+    "D2": "13",
+    "H1": "62",
+    "H2": "26",
+    "N": "67/3",
+    "N'": "119/5",
+    "N''": "5",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": 3,
+    "kind": "keep_prefix",
+    "site": "o1"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_NODE|ans|mux|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 53
+    },
+    "D2": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 13
+    },
+    "H1": {
+     "key": "SUBST|o1|or",
+     "repair": true,
+     "stopped_at": 52
+    },
+    "H2": {
+     "key": "ADD_NODE|ans|mux|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 52
+    },
+    "N": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 43
+    },
+    "N'": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 43
+    },
+    "N''": {
+     "key": "ADD_NODE|ans|or|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 6
+    },
+    "ORACLE": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "rel",
+   "inverse_repairs": 4,
+   "n_edits": 200,
+   "n_repairs": 8,
+   "n_train_conforming": 8,
+   "n_undecided": 0,
+   "repair_families": [
+    "ADD_NODE",
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "ADD_NODE|ans|mux|bool0:integer::0",
+     "M2": "ADD_NODE|ans|mux|bool0:integer::0"
+    },
+    "D2": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    },
+    "H1": {
+     "M1": "SUBST|o1|or",
+     "M2": "SUBST|o1|or"
+    },
+    "H2": {
+     "M1": "ADD_NODE|ans|mux|bool0:integer::0",
+     "M2": "ADD_NODE|ans|mux|bool0:integer::0"
+    },
+    "N": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    },
+    "N'": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    },
+    "N''": {
+     "M1": "ADD_NODE|ans|or|bool0:integer::0",
+     "M2": "ADD_NODE|ans|or|bool0:integer::0"
+    },
+    "ORACLE": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    }
+   }
+  },
+  {
+   "D1_mean": "221/2",
+   "D1_permutations": [
+    "119",
+    "59",
+    "76",
+    "31",
+    "353/2",
+    "115",
+    "87/2",
+    "349/2",
+    "143",
+    "143/2",
+    "61/2",
+    "241/2",
+    "143/2",
+    "359/2",
+    "327/2",
+    "357/2",
+    "65",
+    "52",
+    "177",
+    "163"
+   ],
+   "case_id": "rel:delete_node:o1:None",
+   "cost": {
+    "D1": "119",
+    "D2": "177",
+    "H1": "357/2",
+    "H2": "77/3",
+    "N": "184/3",
+    "N'": "412/3",
+    "N''": "7/2",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "119",
+    "D2": "177",
+    "H1": "357/2",
+    "H2": "77/3",
+    "N": "184/3",
+    "N'": "412/3",
+    "N''": "7/2",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": null,
+    "kind": "delete_node",
+    "site": "o1"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_NODE|ans|mux|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 119
+    },
+    "D2": {
+     "key": "ADD_NODE|ans|mux|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 177
+    },
+    "H1": {
+     "key": "ADD_NODE|ans|or|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 179
+    },
+    "H2": {
+     "key": "ADD_NODE|ans|mux|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 51
+    },
+    "N": {
+     "key": "ADD_NODE|ans|mux|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 126
+    },
+    "N'": {
+     "key": "ADD_NODE|ans|mux|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 126
+    },
+    "N''": {
+     "key": "ADD_NODE|ans|or|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 4
+    },
+    "ORACLE": {
+     "key": "ADD_NODE|ans|mux|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "rel",
+   "inverse_repairs": 2,
+   "n_edits": 183,
+   "n_repairs": 2,
+   "n_train_conforming": 2,
+   "n_undecided": 0,
+   "repair_families": [
+    "ADD_NODE"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "ADD_NODE|ans|mux|bool0:integer::0",
+     "M2": "ADD_NODE|ans|mux|bool0:integer::0"
+    },
+    "D2": {
+     "M1": "ADD_NODE|ans|mux|bool0:integer::0",
+     "M2": "ADD_NODE|ans|mux|bool0:integer::0"
+    },
+    "H1": {
+     "M1": "ADD_NODE|ans|or|bool0:integer::0",
+     "M2": "ADD_NODE|ans|or|bool0:integer::0"
+    },
+    "H2": {
+     "M1": "ADD_NODE|ans|mux|bool0:integer::0",
+     "M2": "ADD_NODE|ans|mux|bool0:integer::0"
+    },
+    "N": {
+     "M1": "ADD_NODE|ans|mux|bool0:integer::0",
+     "M2": "ADD_NODE|ans|mux|bool0:integer::0"
+    },
+    "N'": {
+     "M1": "ADD_NODE|ans|mux|bool0:integer::0",
+     "M2": "ADD_NODE|ans|mux|bool0:integer::0"
+    },
+    "N''": {
+     "M1": "ADD_NODE|ans|or|bool0:integer::0",
+     "M2": "ADD_NODE|ans|or|bool0:integer::0"
+    },
+    "ORACLE": {
+     "M1": "ADD_NODE|ans|mux|bool0:integer::0",
+     "M2": "ADD_NODE|ans|mux|bool0:integer::0"
+    }
+   }
+  },
+  {
+   "D1_mean": "727/20",
+   "D1_permutations": [
+    "7",
+    "8",
+    "17",
+    "31/2",
+    "141/2",
+    "80",
+    "22",
+    "161/2",
+    "111",
+    "2",
+    "14",
+    "3",
+    "16",
+    "30",
+    "21",
+    "155/2",
+    "12",
+    "1",
+    "217/2",
+    "61/2"
+   ],
+   "case_id": "rel:drop_source:ans:m3",
+   "cost": {
+    "D1": "7",
+    "D2": "293/2",
+    "H1": "277/2",
+    "H2": "39/7",
+    "N": "205/14",
+    "N'": "115/7",
+    "N''": "2",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "7",
+    "D2": "293/2",
+    "H1": "277/2",
+    "H2": "39/11",
+    "N": "205/22",
+    "N'": "115/7",
+    "N''": "2",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": "m3",
+    "kind": "drop_source",
+    "site": "ans"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_NODE|ans|identity|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 7
+    },
+    "D2": {
+     "key": "SUBST|ans|or",
+     "repair": true,
+     "stopped_at": 147
+    },
+    "H1": {
+     "key": "SUBST|ans|or",
+     "repair": true,
+     "stopped_at": 139
+    },
+    "H2": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 8
+    },
+    "N": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 8
+    },
+    "N'": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 8
+    },
+    "N''": {
+     "key": "REWIRE|ans|m3",
+     "repair": true,
+     "stopped_at": 3
+    },
+    "ORACLE": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "rel",
+   "inverse_repairs": 1,
+   "n_edits": 204,
+   "n_repairs": 13,
+   "n_train_conforming": 13,
+   "n_undecided": 8,
+   "repair_families": [
+    "ADD_NODE",
+    "REWIRE",
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "ADD_NODE|ans|identity|bool0:integer::0",
+     "M2": "ADD_NODE|ans|identity|bool0:integer::0"
+    },
+    "D2": {
+     "M1": "SUBST|ans|or",
+     "M2": "SUBST|ans|or"
+    },
+    "H1": {
+     "M1": "SUBST|ans|or",
+     "M2": "SUBST|ans|or"
+    },
+    "H2": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "N": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "N'": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "N''": {
+     "M1": "REWIRE|ans|m3",
+     "M2": "REWIRE|ans|m3"
+    },
+    "ORACLE": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    }
+   }
+  },
+  {
+   "D1_mean": "6533/120",
+   "D1_permutations": [
+    "65",
+    "41",
+    "36",
+    "27/2",
+    "65/2",
+    "77",
+    "19",
+    "171/2",
+    "125",
+    "37",
+    "18",
+    "113",
+    "33",
+    "165/2",
+    "95/2",
+    "129/2",
+    "47",
+    "16",
+    "340/3",
+    "45/2"
+   ],
+   "case_id": "rel:keep_prefix:ans:1",
+   "cost": {
+    "D1": "65",
+    "D2": "484/3",
+    "H1": "154",
+    "H2": "64/7",
+    "N": "191/7",
+    "N'": "109/5",
+    "N''": "4",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "65",
+    "D2": "484/3",
+    "H1": "154",
+    "H2": "64/7",
+    "N": "191/7",
+    "N'": "109/5",
+    "N''": "4",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": 1,
+    "kind": "keep_prefix",
+    "site": "ans"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_NODE|ans|mux|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 65
+    },
+    "D2": {
+     "key": "SUBST|ans|or",
+     "repair": true,
+     "stopped_at": 161
+    },
+    "H1": {
+     "key": "SUBST|ans|or",
+     "repair": true,
+     "stopped_at": 154
+    },
+    "H2": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 8
+    },
+    "N": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 8
+    },
+    "N'": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 8
+    },
+    "N''": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 4
+    },
+    "ORACLE": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "rel",
+   "inverse_repairs": 4,
+   "n_edits": 190,
+   "n_repairs": 6,
+   "n_train_conforming": 6,
+   "n_undecided": 0,
+   "repair_families": [
+    "ADD_NODE",
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "ADD_NODE|ans|mux|bool0:integer::0",
+     "M2": "ADD_NODE|ans|mux|bool0:integer::0"
+    },
+    "D2": {
+     "M1": "SUBST|ans|or",
+     "M2": "SUBST|ans|or"
+    },
+    "H1": {
+     "M1": "SUBST|ans|or",
+     "M2": "SUBST|ans|or"
+    },
+    "H2": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "N": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "N'": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "N''": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "ORACLE": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    }
+   }
+  },
+  {
+   "D1_mean": "6167/120",
+   "D1_permutations": [
+    "54",
+    "29",
+    "19",
+    "29/2",
+    "79/2",
+    "77",
+    "15",
+    "153/2",
+    "118",
+    "49",
+    "13",
+    "103",
+    "13",
+    "199/2",
+    "111/2",
+    "135/2",
+    "41",
+    "18",
+    "310/3",
+    "45/2"
+   ],
+   "case_id": "rel:keep_prefix:ans:3",
+   "cost": {
+    "D1": "54",
+    "D2": "463/3",
+    "H1": "305/2",
+    "H2": "64/7",
+    "N": "191/7",
+    "N'": "109/5",
+    "N''": "4",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "54",
+    "D2": "463/3",
+    "H1": "305/2",
+    "H2": "64/7",
+    "N": "191/7",
+    "N'": "109/5",
+    "N''": "4",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": 3,
+    "kind": "keep_prefix",
+    "site": "ans"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_NODE|ans|mux|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 54
+    },
+    "D2": {
+     "key": "SUBST|ans|or",
+     "repair": true,
+     "stopped_at": 154
+    },
+    "H1": {
+     "key": "SUBST|ans|or",
+     "repair": true,
+     "stopped_at": 151
+    },
+    "H2": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 8
+    },
+    "N": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 8
+    },
+    "N'": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 8
+    },
+    "N''": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 4
+    },
+    "ORACLE": {
+     "key": "SUBST|ans|mux",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "rel",
+   "inverse_repairs": 4,
+   "n_edits": 190,
+   "n_repairs": 6,
+   "n_train_conforming": 6,
+   "n_undecided": 0,
+   "repair_families": [
+    "ADD_NODE",
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "ADD_NODE|ans|mux|bool0:integer::0",
+     "M2": "ADD_NODE|ans|mux|bool0:integer::0"
+    },
+    "D2": {
+     "M1": "SUBST|ans|or",
+     "M2": "SUBST|ans|or"
+    },
+    "H1": {
+     "M1": "SUBST|ans|or",
+     "M2": "SUBST|ans|or"
+    },
+    "H2": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "N": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "N'": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "N''": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    },
+    "ORACLE": {
+     "M1": "SUBST|ans|mux",
+     "M2": "SUBST|ans|mux"
+    }
+   }
+  },
+  {
+   "D1_mean": "1853/40",
+   "D1_permutations": [
+    "95/2",
+    "151/2",
+    "89/2",
+    "85/2",
+    "71/2",
+    "107/2",
+    "17/2",
+    "93/2",
+    "111/2",
+    "63/2",
+    "39/2",
+    "9/2",
+    "114",
+    "35/2",
+    "87/2",
+    "101/2",
+    "103/2",
+    "95/2",
+    "131/2",
+    "143/2"
+   ],
+   "case_id": "rel:keep_prefix:chain2:2",
+   "cost": {
+    "D1": "95/2",
+    "D2": "79/2",
+    "H1": "415/4",
+    "H2": "1531/8",
+    "N": "26",
+    "N'": "59/2",
+    "N''": "113/2",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "7",
+    "D2": "79/2",
+    "H1": "415/4",
+    "H2": "39/2",
+    "N": "208/11",
+    "N'": "59/2",
+    "N''": "7",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": 2,
+    "kind": "keep_prefix",
+    "site": "chain2"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_NODE|chain2|identity|set0:integer::1",
+     "repair": true,
+     "stopped_at": 47
+    },
+    "D2": {
+     "key": "ADD_NODE|chain2|identity|set0:integer::1",
+     "repair": true,
+     "stopped_at": 39
+    },
+    "H1": {
+     "key": "SUBST|chain2|join",
+     "repair": true,
+     "stopped_at": 101
+    },
+    "H2": {
+     "key": "SUBST|chain2|join",
+     "repair": true,
+     "stopped_at": 190
+    },
+    "N": {
+     "key": "SUBST|chain2|join",
+     "repair": true,
+     "stopped_at": 16
+    },
+    "N'": {
+     "key": "SUBST|chain2|join",
+     "repair": true,
+     "stopped_at": 16
+    },
+    "N''": {
+     "key": "REWIRE|chain2|edges",
+     "repair": true,
+     "stopped_at": 53
+    },
+    "ORACLE": {
+     "key": "SUBST|chain2|join",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "rel",
+   "inverse_repairs": 2,
+   "n_edits": 207,
+   "n_repairs": 7,
+   "n_train_conforming": 7,
+   "n_undecided": 3,
+   "repair_families": [
+    "ADD_NODE",
+    "REWIRE",
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "ADD_NODE|chain2|identity|set0:integer::1",
+     "M2": "ADD_NODE|chain2|identity|set0:integer::1"
+    },
+    "D2": {
+     "M1": "ADD_NODE|chain2|identity|set0:integer::1",
+     "M2": "ADD_NODE|chain2|identity|set0:integer::1"
+    },
+    "H1": {
+     "M1": "SUBST|chain2|join",
+     "M2": "SUBST|chain2|join"
+    },
+    "H2": {
+     "M1": "SUBST|chain2|join",
+     "M2": "SUBST|chain2|join"
+    },
+    "N": {
+     "M1": "SUBST|chain2|join",
+     "M2": "SUBST|chain2|join"
+    },
+    "N'": {
+     "M1": "SUBST|chain2|join",
+     "M2": "SUBST|chain2|join"
+    },
+    "N''": {
+     "M1": "REWIRE|chain2|edges",
+     "M2": "REWIRE|chain2|edges"
+    },
+    "ORACLE": {
+     "M1": "SUBST|chain2|join",
+     "M2": "SUBST|chain2|join"
+    }
+   }
+  },
+  {
+   "D1_mean": "773/10",
+   "D1_permutations": [
+    "95/2",
+    "151/2",
+    "132",
+    "85/2",
+    "58",
+    "409/4",
+    "86",
+    "91",
+    "605/4",
+    "50",
+    "14",
+    "13",
+    "641/4",
+    "19",
+    "54",
+    "57",
+    "445/4",
+    "95/2",
+    "153",
+    "81"
+   ],
+   "case_id": "rel:keep_prefix:chain3:2",
+   "cost": {
+    "D1": "95/2",
+    "D2": "79/2",
+    "H1": "137",
+    "H2": "1294/9",
+    "N": "205/9",
+    "N'": "23",
+    "N''": "81",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "7",
+    "D2": "79/2",
+    "H1": "137",
+    "H2": "39/2",
+    "N": "205/12",
+    "N'": "23",
+    "N''": "7",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": 2,
+    "kind": "keep_prefix",
+    "site": "chain3"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_NODE|chain3|identity|set0:integer::1",
+     "repair": true,
+     "stopped_at": 48
+    },
+    "D2": {
+     "key": "ADD_NODE|chain3|identity|set0:integer::1",
+     "repair": true,
+     "stopped_at": 40
+    },
+    "H1": {
+     "key": "SUBST|chain3|join",
+     "repair": true,
+     "stopped_at": 137
+    },
+    "H2": {
+     "key": "SUBST|chain3|join",
+     "repair": true,
+     "stopped_at": 139
+    },
+    "N": {
+     "key": "SUBST|chain3|join",
+     "repair": true,
+     "stopped_at": 17
+    },
+    "N'": {
+     "key": "SUBST|chain3|join",
+     "repair": true,
+     "stopped_at": 17
+    },
+    "N''": {
+     "key": "REWIRE|chain3|edges",
+     "repair": true,
+     "stopped_at": 81
+    },
+    "ORACLE": {
+     "key": "SUBST|chain3|join",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "rel",
+   "inverse_repairs": 2,
+   "n_edits": 204,
+   "n_repairs": 8,
+   "n_train_conforming": 8,
+   "n_undecided": 3,
+   "repair_families": [
+    "ADD_NODE",
+    "REWIRE",
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "ADD_NODE|chain3|identity|set0:integer::1",
+     "M2": "ADD_NODE|chain3|identity|set0:integer::1"
+    },
+    "D2": {
+     "M1": "ADD_NODE|chain3|identity|set0:integer::1",
+     "M2": "ADD_NODE|chain3|identity|set0:integer::1"
+    },
+    "H1": {
+     "M1": "SUBST|chain3|join",
+     "M2": "SUBST|chain3|join"
+    },
+    "H2": {
+     "M1": "SUBST|chain3|join",
+     "M2": "SUBST|chain3|join"
+    },
+    "N": {
+     "M1": "SUBST|chain3|join",
+     "M2": "SUBST|chain3|join"
+    },
+    "N'": {
+     "M1": "SUBST|chain3|join",
+     "M2": "SUBST|chain3|join"
+    },
+    "N''": {
+     "M1": "REWIRE|chain3|edges",
+     "M2": "REWIRE|chain3|edges"
+    },
+    "ORACLE": {
+     "M1": "SUBST|chain3|join",
+     "M2": "SUBST|chain3|join"
+    }
+   }
+  },
+  {
+   "D1_mean": "631/12",
+   "D1_permutations": [
+    "87",
+    "64",
+    "31",
+    "49",
+    "15/2",
+    "129/2",
+    "85/3",
+    "15/2",
+    "207/2",
+    "43",
+    "10/3",
+    "221/2",
+    "5",
+    "48",
+    "137/2",
+    "151/2",
+    "43",
+    "52",
+    "185/2",
+    "68"
+   ],
+   "case_id": "rel:drop_operator:o1:or",
+   "cost": {
+    "D1": "87",
+    "D2": "5",
+    "H1": "17/2",
+    "H2": "39",
+    "N": "206/9",
+    "N'": "116/5",
+    "N''": "32",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "8",
+    "D2": "5",
+    "H1": "17/2",
+    "H2": "78/11",
+    "N": "103/9",
+    "N'": "116/5",
+    "N''": "15",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": "or",
+    "kind": "drop_operator",
+    "site": "o1"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_NODE|o1|mux|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 87
+    },
+    "D2": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 5
+    },
+    "H1": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 15
+    },
+    "H2": {
+     "key": "ADD_NODE|ans|not|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 57
+    },
+    "N": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 43
+    },
+    "N'": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 43
+    },
+    "N''": {
+     "key": "ADD_NODE|ans|not|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 32
+    },
+    "ORACLE": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "rel",
+   "inverse_repairs": 2,
+   "n_edits": 205,
+   "n_repairs": 8,
+   "n_train_conforming": 8,
+   "n_undecided": 9,
+   "repair_families": [
+    "ADD_NODE",
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "ADD_NODE|o1|mux|bool0:integer::0",
+     "M2": "ADD_NODE|o1|mux|bool0:integer::0"
+    },
+    "D2": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    },
+    "H1": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    },
+    "H2": {
+     "M1": "ADD_NODE|ans|not|bool0:integer::0",
+     "M2": "ADD_NODE|ans|not|bool0:integer::0"
+    },
+    "N": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    },
+    "N'": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    },
+    "N''": {
+     "M1": "ADD_NODE|ans|not|bool0:integer::0",
+     "M2": "ADD_NODE|ans|not|bool0:integer::0"
+    },
+    "ORACLE": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    }
+   }
+  },
+  {
+   "D1_mean": "1439/40",
+   "D1_permutations": [
+    "29",
+    "130/3",
+    "58/3",
+    "45",
+    "19/2",
+    "119/2",
+    "8",
+    "25/2",
+    "107",
+    "43",
+    "2",
+    "4",
+    "25/3",
+    "23",
+    "49",
+    "127/2",
+    "15",
+    "44",
+    "145/2",
+    "62"
+   ],
+   "case_id": "rel:drop_source:o1:m2",
+   "cost": {
+    "D1": "29",
+    "D2": "9",
+    "H1": "17/2",
+    "H2": "26",
+    "N": "43/4",
+    "N'": "125/7",
+    "N''": "28/3",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "29",
+    "D2": "9",
+    "H1": "17/2",
+    "H2": "39/2",
+    "N": "215/21",
+    "N'": "125/7",
+    "N''": "28/3",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": "m2",
+    "kind": "drop_source",
+    "site": "o1"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_NODE|o1|identity|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 29
+    },
+    "D2": {
+     "key": "WIDEN|o1|mux",
+     "repair": true,
+     "stopped_at": 9
+    },
+    "H1": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 15
+    },
+    "H2": {
+     "key": "ADD_NODE|ans|nor|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 56
+    },
+    "N": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 43
+    },
+    "N'": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 43
+    },
+    "N''": {
+     "key": "ADD_NODE|ans|nor|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 10
+    },
+    "ORACLE": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "rel",
+   "inverse_repairs": 1,
+   "n_edits": 214,
+   "n_repairs": 19,
+   "n_train_conforming": 19,
+   "n_undecided": 1,
+   "repair_families": [
+    "ADD_NODE",
+    "REWIRE",
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "ADD_NODE|o1|identity|bool0:integer::0",
+     "M2": "ADD_NODE|o1|identity|bool0:integer::0"
+    },
+    "D2": {
+     "M1": "WIDEN|o1|mux",
+     "M2": "WIDEN|o1|mux"
+    },
+    "H1": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    },
+    "H2": {
+     "M1": "ADD_NODE|ans|nor|bool0:integer::0",
+     "M2": "ADD_NODE|ans|nor|bool0:integer::0"
+    },
+    "N": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    },
+    "N'": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    },
+    "N''": {
+     "M1": "ADD_NODE|ans|nor|bool0:integer::0",
+     "M2": "ADD_NODE|ans|nor|bool0:integer::0"
+    },
+    "ORACLE": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    }
+   }
+  },
+  {
+   "D1_mean": "939/20",
+   "D1_permutations": [
+    "53",
+    "28",
+    "17",
+    "93/2",
+    "23/2",
+    "113/2",
+    "31",
+    "17/2",
+    "223/2",
+    "56",
+    "1",
+    "114",
+    "13",
+    "127/2",
+    "151/2",
+    "129/2",
+    "34",
+    "22",
+    "76",
+    "56"
+   ],
+   "case_id": "rel:keep_prefix:o1:2",
+   "cost": {
+    "D1": "53",
+    "D2": "13",
+    "H1": "99",
+    "H2": "26",
+    "N": "202/9",
+    "N'": "24",
+    "N''": "5",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "53",
+    "D2": "13",
+    "H1": "99",
+    "H2": "26",
+    "N": "202/9",
+    "N'": "24",
+    "N''": "5",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": 2,
+    "kind": "keep_prefix",
+    "site": "o1"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_NODE|ans|mux|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 53
+    },
+    "D2": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 13
+    },
+    "H1": {
+     "key": "SUBST|o1|or",
+     "repair": true,
+     "stopped_at": 93
+    },
+    "H2": {
+     "key": "ADD_NODE|ans|mux|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 52
+    },
+    "N": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 43
+    },
+    "N'": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 43
+    },
+    "N''": {
+     "key": "ADD_NODE|ans|or|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 6
+    },
+    "ORACLE": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "rel",
+   "inverse_repairs": 4,
+   "n_edits": 201,
+   "n_repairs": 8,
+   "n_train_conforming": 8,
+   "n_undecided": 0,
+   "repair_families": [
+    "ADD_NODE",
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "ADD_NODE|ans|mux|bool0:integer::0",
+     "M2": "ADD_NODE|ans|mux|bool0:integer::0"
+    },
+    "D2": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    },
+    "H1": {
+     "M1": "SUBST|o1|or",
+     "M2": "SUBST|o1|or"
+    },
+    "H2": {
+     "M1": "ADD_NODE|ans|mux|bool0:integer::0",
+     "M2": "ADD_NODE|ans|mux|bool0:integer::0"
+    },
+    "N": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    },
+    "N'": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    },
+    "N''": {
+     "M1": "ADD_NODE|ans|or|bool0:integer::0",
+     "M2": "ADD_NODE|ans|or|bool0:integer::0"
+    },
+    "ORACLE": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    }
+   }
+  },
+  {
+   "D1_mean": "1691/40",
+   "D1_permutations": [
+    "52",
+    "22",
+    "12",
+    "44",
+    "10",
+    "56",
+    "30",
+    "11",
+    "66",
+    "55",
+    "11/2",
+    "106",
+    "7",
+    "50",
+    "67",
+    "63",
+    "34",
+    "22",
+    "71",
+    "62"
+   ],
+   "case_id": "rel:keep_prefix:o1:4",
+   "cost": {
+    "D1": "52",
+    "D2": "13",
+    "H1": "57/2",
+    "H2": "26",
+    "N": "22",
+    "N'": "116/5",
+    "N''": "4",
+    "ORACLE": "1"
+   },
+   "cost_optimistic": {
+    "D1": "52",
+    "D2": "13",
+    "H1": "57/2",
+    "H2": "26",
+    "N": "22",
+    "N'": "116/5",
+    "N''": "4",
+    "ORACLE": "1"
+   },
+   "defect": {
+    "arg": 4,
+    "kind": "keep_prefix",
+    "site": "o1"
+   },
+   "deployed": {
+    "D1": {
+     "key": "ADD_NODE|ans|mux|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 52
+    },
+    "D2": {
+     "key": "WIDEN|o1|mux",
+     "repair": true,
+     "stopped_at": 13
+    },
+    "H1": {
+     "key": "SUBST|o1|or",
+     "repair": true,
+     "stopped_at": 39
+    },
+    "H2": {
+     "key": "ADD_NODE|ans|mux|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 52
+    },
+    "N": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 42
+    },
+    "N'": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 42
+    },
+    "N''": {
+     "key": "ADD_NODE|ans|or|bool0:integer::0",
+     "repair": true,
+     "stopped_at": 5
+    },
+    "ORACLE": {
+     "key": "SUBST|o1|mux",
+     "repair": true,
+     "stopped_at": 1
+    }
+   },
+   "domain": "rel",
+   "inverse_repairs": 4,
+   "n_edits": 197,
+   "n_repairs": 8,
+   "n_train_conforming": 8,
+   "n_undecided": 0,
+   "repair_families": [
+    "ADD_NODE",
+    "SUBST",
+    "WIDEN"
+   ],
+   "selected": {
+    "D1": {
+     "M1": "ADD_NODE|ans|mux|bool0:integer::0",
+     "M2": "ADD_NODE|ans|mux|bool0:integer::0"
+    },
+    "D2": {
+     "M1": "WIDEN|o1|mux",
+     "M2": "WIDEN|o1|mux"
+    },
+    "H1": {
+     "M1": "SUBST|o1|or",
+     "M2": "SUBST|o1|or"
+    },
+    "H2": {
+     "M1": "ADD_NODE|ans|mux|bool0:integer::0",
+     "M2": "ADD_NODE|ans|mux|bool0:integer::0"
+    },
+    "N": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    },
+    "N'": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    },
+    "N''": {
+     "M1": "ADD_NODE|ans|or|bool0:integer::0",
+     "M2": "ADD_NODE|ans|or|bool0:integer::0"
+    },
+    "ORACLE": {
+     "M1": "SUBST|o1|mux",
+     "M2": "SUBST|o1|mux"
+    }
+   }
+  }
+ ],
+ "criteria": {
+  "C1_N''_le_half_N": false,
+  "C2_N''_le_half_Nprime": false,
+  "C3a_N''_le_half_H1": true,
+  "C3b_N''_le_half_H2": false,
+  "C4_D1_fails_C1": true,
+  "inconclusive": false,
+  "met": false,
+  "met_all_domains": false,
+  "met_optimistic": false,
+  "met_per_domain": {
+   "bool": false,
+   "rel": false
+  },
+  "ratios": {
+   "D1/N''": 2.5962,
+   "D2/N''": 2.487,
+   "H1/N''": 2.6727,
+   "H2/N''": 0.992,
+   "N'/N''": 1.0362,
+   "N/N''": 1.0445,
+   "ORACLE/N''": 0.0284
+  },
+  "split_verdict": false
+ },
+ "criteria_by_domain": {
+  "bool": {
+   "criteria": {
+    "C1_N''_le_half_N": false,
+    "C2_N''_le_half_Nprime": false,
+    "C3a_N''_le_half_H1": false,
+    "C3b_N''_le_half_H2": false,
+    "C4_D1_fails_C1": true,
+    "met": false,
+    "ratios": {
+     "D1/N''": 2.3897,
+     "D2/N''": 1.863,
+     "H1/N''": 1.6981,
+     "H2/N''": 0.3804,
+     "N'/N''": 0.8604,
+     "N/N''": 0.9423,
+     "ORACLE/N''": 0.0193
+    }
+   },
+   "criteria_optimistic": {
+    "C1_N''_le_half_N": false,
+    "C2_N''_le_half_Nprime": false,
+    "C3a_N''_le_half_H1": true,
+    "C3b_N''_le_half_H2": false,
+    "C4_D1_fails_C1": true,
+    "met": false,
+    "ratios": {
+     "D1/N''": 6.5909,
+     "D2/N''": 11.4473,
+     "H1/N''": 16.8417,
+     "H2/N''": 0.9468,
+     "N'/N''": 1.3151,
+     "N/N''": 1.4242,
+     "ORACLE/N''": 0.1911
+    }
+   },
+   "n_cases": 9
+  },
+  "rel": {
+   "criteria": {
+    "C1_N''_le_half_N": false,
+    "C2_N''_le_half_Nprime": false,
+    "C3a_N''_le_half_H1": true,
+    "C3b_N''_le_half_H2": true,
+    "C4_D1_fails_C1": true,
+    "met": false,
+    "ratios": {
+     "D1/N''": 3.1727,
+     "D2/N''": 4.2289,
+     "H1/N''": 5.3933,
+     "H2/N''": 2.699,
+     "N'/N''": 1.5271,
+     "N/N''": 1.3298,
+     "ORACLE/N''": 0.0538
+    }
+   },
+   "criteria_optimistic": {
+    "C1_N''_le_half_N": true,
+    "C2_N''_le_half_Nprime": true,
+    "C3a_N''_le_half_H1": true,
+    "C3b_N''_le_half_H2": true,
+    "C4_D1_fails_C1": true,
+    "met": true,
+    "ratios": {
+     "D1/N''": 6.0299,
+     "D2/N''": 11.1733,
+     "H1/N''": 14.25,
+     "H2/N''": 2.5558,
+     "N'/N''": 4.0347,
+     "N/N''": 3.0189,
+     "ORACLE/N''": 0.1421
+    }
+   },
+   "n_cases": 19
+  }
+ },
+ "domains": [
+  "bool",
+  "rel"
+ ],
+ "estimators": {
+  "bool": {
+   "family_class": [
+    "ADD_NODE",
+    "REWIRE",
+    "SUBST",
+    "WIDEN"
+   ],
+   "flat": false,
+   "n_neg": 3600,
+   "n_pos": 164,
+   "sources": [
+    "rel"
+   ],
+   "table": {
+    "added=0": -1.319067,
+    "added=1-4": -1.516821,
+    "added=17-48": 1.009724,
+    "added=5-16": 0.631416,
+    "added=>48": 1.61928,
+    "arity=1": -2.766202,
+    "arity=2": -0.070924,
+    "arity=3": 1.972916,
+    "const_site=False": 0.0,
+    "family=ADD_NODE": 0.408881,
+    "family=ADD_PATH": -2.511976,
+    "family=REWIRE": -0.134405,
+    "family=SUBST": -0.2666,
+    "family=WIDEN": -0.157485,
+    "is_output=False": -0.102965,
+    "is_output=True": 0.161032,
+    "novel=False": -0.060547,
+    "novel=True": 0.085003,
+    "op_class=comparison": -2.25865,
+    "op_class=conversion": -0.612018,
+    "op_class=identity": -0.637097,
+    "op_class=logical": 0.572079,
+    "op_class=none": -0.140027,
+    "op_class=structural": -0.383295,
+    "space=<3": -2.876964,
+    "space=<4": -1.001573,
+    "space=<5": 0.772572,
+    "space=<6": 1.947223
+   },
+   "top_features": [
+    [
+     "space=<3",
+     -2.876964
+    ],
+    [
+     "arity=1",
+     -2.766202
+    ],
+    [
+     "family=ADD_PATH",
+     -2.511976
+    ],
+    [
+     "op_class=comparison",
+     -2.25865
+    ],
+    [
+     "arity=3",
+     1.972916
+    ],
+    [
+     "space=<6",
+     1.947223
+    ],
+    [
+     "added=>48",
+     1.61928
+    ],
+    [
+     "added=1-4",
+     -1.516821
+    ],
+    [
+     "added=0",
+     -1.319067
+    ],
+    [
+     "added=17-48",
+     1.009724
+    ],
+    [
+     "space=<4",
+     -1.001573
+    ],
+    [
+     "space=<5",
+     0.772572
+    ]
+   ]
+  },
+  "rel": {
+   "family_class": [
+    "REWIRE",
+    "SUBST",
+    "WIDEN"
+   ],
+   "flat": false,
+   "n_neg": 1209,
+   "n_pos": 22,
+   "sources": [
+    "bool"
+   ],
+   "table": {
+    "added=0": -1.08451,
+    "added=1-4": -0.398854,
+    "added=17-48": -1.014442,
+    "added=5-16": -2.020161,
+    "added=>48": 0.840098,
+    "arity=1": -1.212599,
+    "arity=2": 0.774422,
+    "arity=3": -2.401115,
+    "const_site=False": 0.0,
+    "family=ADD_NODE": -1.358947,
+    "family=ADD_PATH": -0.998182,
+    "family=REWIRE": 0.239127,
+    "family=SUBST": 0.194921,
+    "family=WIDEN": 0.194921,
+    "is_output=False": -2.700258,
+    "is_output=True": 0.925416,
+    "novel=False": 0.066283,
+    "novel=True": -0.037759,
+    "op_class=comparison": -0.442656,
+    "op_class=conversion": -2.026043,
+    "op_class=identity": -0.648508,
+    "op_class=logical": 0.458709,
+    "op_class=none": 0.239127,
+    "space=<3": -0.866775,
+    "space=<4": -2.441379,
+    "space=<5": 0.912141,
+    "space=<6": -1.062519
+   },
+   "top_features": [
+    [
+     "is_output=False",
+     -2.700258
+    ],
+    [
+     "space=<4",
+     -2.441379
+    ],
+    [
+     "arity=3",
+     -2.401115
+    ],
+    [
+     "op_class=conversion",
+     -2.026043
+    ],
+    [
+     "added=5-16",
+     -2.020161
+    ],
+    [
+     "family=ADD_NODE",
+     -1.358947
+    ],
+    [
+     "arity=1",
+     -1.212599
+    ],
+    [
+     "added=0",
+     -1.08451
+    ],
+    [
+     "space=<6",
+     -1.062519
+    ],
+    [
+     "added=17-48",
+     -1.014442
+    ],
+    [
+     "family=ADD_PATH",
+     -0.998182
+    ],
+    [
+     "is_output=True",
+     0.925416
+    ]
+   ]
+  }
+ },
+ "overall": {
+  "deployed_of": 28,
+  "deployed_repairs": {
+   "D1": 19,
+   "D2": 19,
+   "H1": 19,
+   "H2": 19,
+   "N": 19,
+   "N'": 19,
+   "N''": 19,
+   "ORACLE": 28
+  },
+  "mean_cost": {
+   "D1": 79.875,
+   "D2": 84.41071428571429,
+   "H1": 96.34821428571429,
+   "H2": 40.38846371882086,
+   "N": 32.48962585034013,
+   "N'": 33.6108843537415,
+   "N''": 29.291666666666668,
+   "ORACLE": 1.0
+  },
+  "mean_cost_macro": {
+   "D1": 91.48684210526315,
+   "D2": 87.63596491228071,
+   "H1": 94.18055555555556,
+   "H2": 34.95485240879978,
+   "N": 36.807170704539125,
+   "N'": 36.51445279866333,
+   "N''": 35.23830409356725,
+   "ORACLE": 1.0
+  },
+  "mean_cost_macro_optimistic": {
+   "D1": 38.45126705653021,
+   "D2": 69.24707602339181,
+   "H1": 94.18055555555556,
+   "H2": 11.466709281621563,
+   "N": 14.34472028404777,
+   "N'": 17.632401516612042,
+   "N''": 6.133403308841905,
+   "ORACLE": 1.0
+  },
+  "mean_cost_optimistic": {
+   "D1": 39.86904761904762,
+   "D2": 72.58928571428571,
+   "H1": 96.34821428571429,
+   "H2": 13.792882910740053,
+   "N": 16.806673815602387,
+   "N'": 21.47242281527996,
+   "N''": 6.455433455433456,
+   "ORACLE": 1.0
+  },
+  "n_cases": 28,
+  "pooling_rule": "equal weight per domain (macro): the unweighted mean of the per-domain mean costs, per amendment A12.  `mean_cost` is the per-case (micro) mean, reported beside it and never used for a criterion."
+ },
+ "per_domain": {
+  "bool": {
+   "deployed_repairs": {
+    "D1": 0,
+    "D2": 0,
+    "H1": 0,
+    "H2": 0,
+    "N": 0,
+    "N'": 0,
+    "N''": 0,
+    "ORACLE": 9
+   },
+   "inverse_fraction": 0.7273,
+   "mean_cost": {
+    "D1": 124.0,
+    "D2": 96.66666666666667,
+    "H1": 88.11111111111111,
+    "H2": 19.74074074074074,
+    "N": 48.8962962962963,
+    "N'": 44.644444444444446,
+    "N''": 51.888888888888886,
+    "ORACLE": 1.0
+   },
+   "mean_cost_optimistic": {
+    "D1": 34.48148148148148,
+    "D2": 59.888888888888886,
+    "H1": 88.11111111111111,
+    "H2": 4.953423120089787,
+    "N": 7.45125039569484,
+    "N'": 6.880341880341881,
+    "N''": 5.231718898385565,
+    "ORACLE": 1.0
+   },
+   "n_cases": 9,
+   "n_edits_mean": 160.0,
+   "n_repairs_mean": 2.44,
+   "undecided_fraction": 0.1451
+  },
+  "rel": {
+   "deployed_repairs": {
+    "D1": 19,
+    "D2": 19,
+    "H1": 19,
+    "H2": 19,
+    "N": 19,
+    "N'": 19,
+    "N''": 19,
+    "ORACLE": 19
+   },
+   "inverse_fraction": 0.3049,
+   "mean_cost": {
+    "D1": 58.973684210526315,
+    "D2": 78.60526315789474,
+    "H1": 100.25,
+    "H2": 50.16896407685881,
+    "N": 24.718045112781954,
+    "N'": 28.384461152882206,
+    "N''": 18.587719298245613,
+    "ORACLE": 1.0
+   },
+   "mean_cost_optimistic": {
+    "D1": 42.421052631578945,
+    "D2": 78.60526315789474,
+    "H1": 100.25,
+    "H2": 17.97999544315334,
+    "N": 21.2381901724007,
+    "N'": 28.384461152882206,
+    "N''": 7.035087719298246,
+    "ORACLE": 1.0
+   },
+   "n_cases": 19,
+   "n_edits_mean": 200.47,
+   "n_repairs_mean": 8.63,
+   "undecided_fraction": 0.0118
+  }
+ },
+ "provenance": {
+  "bool": {
+   "base_digest": null,
+   "git": {
+    "commit": "f6f5e85d28e4",
+    "dirty": true
+   },
+   "grammar_digest": "47579b87c7b186b7",
+   "prereg": {
+    "amendments": 13,
+    "digest": "98b941066b7a7e3e"
+   },
+   "split_digest": "02d5bb6c96cba55fdebcc31bf49681a6"
+  },
+  "rel": {
+   "base_digest": null,
+   "git": {
+    "commit": "f6f5e85d28e4",
+    "dirty": true
+   },
+   "grammar_digest": "47579b87c7b186b7",
+   "prereg": {
+    "amendments": 13,
+    "digest": "98b941066b7a7e3e"
+   },
+   "split_digest": "82c56babbe2dc4b5fbb768ea0479700b"
+  }
+ },
+ "validity": {
+  "V1_inverse_fraction_overall": 0.3548,
+  "V3_distractor_space_equals_N''_space": true,
+  "V3_note": "every arm re-orders the identical edit list; repairs are therefore identical by construction and equal in count",
+  "V3_repairs_per_case": {
+   "bool:drop_operator:y:xor": 2,
+   "bool:drop_source:y:n1": 4,
+   "bool:drop_source:y:n2": 4,
+   "bool:keep_prefix:y:1": 2,
+   "bool:keep_prefix:y:2": 2,
+   "bool:keep_prefix:y:3": 2,
+   "bool:keep_prefix:y:4": 2,
+   "bool:keep_prefix:y:6": 2,
+   "bool:keep_prefix:y:8": 2,
+   "rel:delete_node:o1:None": 2,
+   "rel:drop_operator:ans:or": 5,
+   "rel:drop_operator:o1:or": 8,
+   "rel:drop_source:ans:m3": 13,
+   "rel:drop_source:ans:o1": 13,
+   "rel:drop_source:o1:m1": 19,
+   "rel:drop_source:o1:m2": 19,
+   "rel:keep_prefix:ans:1": 6,
+   "rel:keep_prefix:ans:2": 6,
+   "rel:keep_prefix:ans:3": 6,
+   "rel:keep_prefix:ans:4": 5,
+   "rel:keep_prefix:chain2:1": 7,
+   "rel:keep_prefix:chain2:2": 7,
+   "rel:keep_prefix:chain3:1": 8,
+   "rel:keep_prefix:chain3:2": 8,
+   "rel:keep_prefix:o1:1": 8,
+   "rel:keep_prefix:o1:2": 8,
+   "rel:keep_prefix:o1:3": 8,
+   "rel:keep_prefix:o1:4": 8
+  }
+ }
+}

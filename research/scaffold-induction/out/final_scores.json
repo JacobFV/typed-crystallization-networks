@@ -1,0 +1,2992 @@
+{
+ "arms": [
+  "N",
+  "N'",
+  "N''",
+  "H1",
+  "H2",
+  "D1",
+  "D2",
+  "ORACLE"
+ ],
+ "cases": [
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_PATH|xor",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|identity",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|decode",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|y|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "WIDEN|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "WIDEN|y|mux",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "bool:drop_operator:y:xor",
+   "domain": "bool"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "REWIRE|y|n1",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_PATH|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "REWIRE|y|n1",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|identity",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|decode",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|y|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "WIDEN|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|n1|not|bool0:integer::0",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "bool:drop_source:y:n1",
+   "domain": "bool"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "REWIRE|y|n1",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_PATH|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "REWIRE|y|n1",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n2|identity",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n2|decode",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|y|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n2|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n2|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "WIDEN|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|n1|not|bool0:integer::0",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "bool:drop_source:y:n2",
+   "domain": "bool"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|y|mux",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n2|identity",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n2|decode",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|y|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n2|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n2|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "WIDEN|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|n1|nand|bool0:integer::0",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "bool:keep_prefix:y:1",
+   "domain": "bool"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_PATH|nand",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n2|identity",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|not",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|y|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|eq",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|eq",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "WIDEN|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|n1|nand|bool0:integer::0",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "bool:keep_prefix:y:2",
+   "domain": "bool"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_PATH|nand",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n2|identity",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|not",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|y|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|eq",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|eq",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "WIDEN|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|n1|nand|bool0:integer::0",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "bool:keep_prefix:y:3",
+   "domain": "bool"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_PATH|nand",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|identity",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|decode",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|y|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "WIDEN|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "WIDEN|y|mux",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "bool:keep_prefix:y:4",
+   "domain": "bool"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_PATH|nand",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|identity",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|decode",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|y|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "WIDEN|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|n1|not|bool0:integer::0",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "bool:keep_prefix:y:6",
+   "domain": "bool"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_PATH|nand",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|identity",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|decode",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|y|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|n1|and",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "WIDEN|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|n1|not|bool0:integer::0",
+      "generalizes": false,
+      "was_repair": false
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|y|xor",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "bool:keep_prefix:y:8",
+   "domain": "bool"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "ADD_NODE|ans|not|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|not|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "WIDEN|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "WIDEN|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "rel:drop_operator:ans:or",
+   "domain": "rel"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "ADD_NODE|ans|identity|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|identity|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "REWIRE|ans|o1",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "REWIRE|ans|o1",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "rel:drop_source:ans:o1",
+   "domain": "rel"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "rel:keep_prefix:ans:2",
+   "domain": "rel"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "ADD_NODE|ans|or|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|or|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "WIDEN|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "WIDEN|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "rel:keep_prefix:ans:4",
+   "domain": "rel"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "ADD_NODE|chain2|identity|set0:integer::1",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|chain2|identity|set0:integer::1",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "ADD_NODE|chain2|identity|set0:integer::1",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|chain2|identity|set0:integer::1",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|chain2|join",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|chain2|join",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "SUBST|chain2|join",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|chain2|join",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|chain2|join",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|chain2|join",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|chain2|join",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|chain2|join",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "REWIRE|chain2|edges",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "REWIRE|chain2|edges",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|chain2|join",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|chain2|join",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "rel:keep_prefix:chain2:1",
+   "domain": "rel"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "ADD_NODE|chain3|identity|set0:integer::1",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|chain3|identity|set0:integer::1",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "ADD_NODE|chain3|identity|set0:integer::1",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|chain3|identity|set0:integer::1",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|chain3|join",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|chain3|join",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "SUBST|chain3|join",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|chain3|join",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|chain3|join",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|chain3|join",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|chain3|join",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|chain3|join",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "REWIRE|chain3|edges",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "REWIRE|chain3|edges",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|chain3|join",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|chain3|join",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "rel:keep_prefix:chain3:1",
+   "domain": "rel"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "ADD_NODE|o1|identity|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|o1|identity|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "WIDEN|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "WIDEN|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "ADD_NODE|ans|nor|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|nor|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "ADD_NODE|ans|nor|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|nor|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "rel:drop_source:o1:m1",
+   "domain": "rel"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|o1|or",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|or",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "ADD_NODE|ans|or|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|or|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "rel:keep_prefix:o1:1",
+   "domain": "rel"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|o1|or",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|or",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "ADD_NODE|ans|or|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|or|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "rel:keep_prefix:o1:3",
+   "domain": "rel"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "ADD_NODE|ans|or|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|or|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "ADD_NODE|ans|or|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|or|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "rel:delete_node:o1:None",
+   "domain": "rel"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "ADD_NODE|ans|identity|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|identity|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "REWIRE|ans|m3",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "REWIRE|ans|m3",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "rel:drop_source:ans:m3",
+   "domain": "rel"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "rel:keep_prefix:ans:1",
+   "domain": "rel"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|or",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|ans|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "rel:keep_prefix:ans:3",
+   "domain": "rel"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "ADD_NODE|chain2|identity|set0:integer::1",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|chain2|identity|set0:integer::1",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "ADD_NODE|chain2|identity|set0:integer::1",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|chain2|identity|set0:integer::1",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|chain2|join",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|chain2|join",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "SUBST|chain2|join",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|chain2|join",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|chain2|join",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|chain2|join",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|chain2|join",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|chain2|join",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "REWIRE|chain2|edges",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "REWIRE|chain2|edges",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|chain2|join",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|chain2|join",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "rel:keep_prefix:chain2:2",
+   "domain": "rel"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "ADD_NODE|chain3|identity|set0:integer::1",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|chain3|identity|set0:integer::1",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "ADD_NODE|chain3|identity|set0:integer::1",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|chain3|identity|set0:integer::1",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|chain3|join",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|chain3|join",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "SUBST|chain3|join",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|chain3|join",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|chain3|join",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|chain3|join",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|chain3|join",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|chain3|join",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "REWIRE|chain3|edges",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "REWIRE|chain3|edges",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|chain3|join",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|chain3|join",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "rel:keep_prefix:chain3:2",
+   "domain": "rel"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "ADD_NODE|o1|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|o1|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "ADD_NODE|ans|not|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|not|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "ADD_NODE|ans|not|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|not|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "rel:drop_operator:o1:or",
+   "domain": "rel"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "ADD_NODE|o1|identity|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|o1|identity|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "WIDEN|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "WIDEN|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "ADD_NODE|ans|nor|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|nor|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "ADD_NODE|ans|nor|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|nor|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "rel:drop_source:o1:m2",
+   "domain": "rel"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|o1|or",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|or",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "ADD_NODE|ans|or|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|or|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "rel:keep_prefix:o1:2",
+   "domain": "rel"
+  },
+  {
+   "arms": {
+    "D1": {
+     "M1": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "D2": {
+     "M1": {
+      "edit": "WIDEN|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "WIDEN|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H1": {
+     "M1": {
+      "edit": "SUBST|o1|or",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|or",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "H2": {
+     "M1": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|mux|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N'": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "N''": {
+     "M1": {
+      "edit": "ADD_NODE|ans|or|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "ADD_NODE|ans|or|bool0:integer::0",
+      "generalizes": true,
+      "was_repair": true
+     }
+    },
+    "ORACLE": {
+     "M1": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     },
+     "M2": {
+      "edit": "SUBST|o1|mux",
+      "generalizes": true,
+      "was_repair": true
+     }
+    }
+   },
+   "case_id": "rel:keep_prefix:o1:4",
+   "domain": "rel"
+  }
+ ],
+ "domains": {
+  "bool": {
+   "corpus_final_untouched": true,
+   "final_digest": "02d5bb6c96cba55fdebcc31bf49681a6",
+   "n_final": 28,
+   "provenance": {
+    "base_digest": "f34a4bc78e932307796b92d9",
+    "git": {
+     "commit": "f6f5e85d28e4",
+     "dirty": true
+    },
+    "grammar_digest": "47579b87c7b186b7",
+    "prereg": {
+     "amendments": 13,
+     "digest": "98b941066b7a7e3e"
+    },
+    "split_digest": "02d5bb6c96cba55fdebcc31bf49681a6"
+   }
+  },
+  "rel": {
+   "corpus_final_untouched": true,
+   "final_digest": "82c56babbe2dc4b5fbb768ea0479700b",
+   "n_final": 96,
+   "provenance": {
+    "base_digest": "631b0e69432076d21d35ff34",
+    "git": {
+     "commit": "f6f5e85d28e4",
+     "dirty": true
+    },
+    "grammar_digest": "47579b87c7b186b7",
+    "prereg": {
+     "amendments": 13,
+     "digest": "98b941066b7a7e3e"
+    },
+    "split_digest": "82c56babbe2dc4b5fbb768ea0479700b"
+   }
+  }
+ },
+ "note": "the only step that reads the `final` split",
+ "seconds": 32.82756114700169,
+ "tally": {
+  "D1": {
+   "M1": {
+    "generalizes": 28,
+    "of": 28
+   },
+   "M2": {
+    "generalizes": 19,
+    "of": 28
+   }
+  },
+  "D2": {
+   "M1": {
+    "generalizes": 28,
+    "of": 28
+   },
+   "M2": {
+    "generalizes": 19,
+    "of": 28
+   }
+  },
+  "H1": {
+   "M1": {
+    "generalizes": 28,
+    "of": 28
+   },
+   "M2": {
+    "generalizes": 19,
+    "of": 28
+   }
+  },
+  "H2": {
+   "M1": {
+    "generalizes": 28,
+    "of": 28
+   },
+   "M2": {
+    "generalizes": 19,
+    "of": 28
+   }
+  },
+  "N": {
+   "M1": {
+    "generalizes": 28,
+    "of": 28
+   },
+   "M2": {
+    "generalizes": 19,
+    "of": 28
+   }
+  },
+  "N'": {
+   "M1": {
+    "generalizes": 28,
+    "of": 28
+   },
+   "M2": {
+    "generalizes": 19,
+    "of": 28
+   }
+  },
+  "N''": {
+   "M1": {
+    "generalizes": 28,
+    "of": 28
+   },
+   "M2": {
+    "generalizes": 19,
+    "of": 28
+   }
+  },
+  "ORACLE": {
+   "M1": {
+    "generalizes": 28,
+    "of": 28
+   },
+   "M2": {
+    "generalizes": 28,
+    "of": 28
+   }
+  }
+ }
+}

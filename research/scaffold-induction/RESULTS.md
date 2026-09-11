@@ -189,6 +189,26 @@ at `B`, `2B` and `4B`**. Every budget tried is below, including the ones the rul
 rejects.
 
 <!-- BEGIN:sweep -->
+| domain | budget | train | admission | final | defects | invalid | solvable on train | admissible |
+|---|---|---|---|---|---|---|---|---|
+| arith | 16 | 16 | 32 | 32 | 105 | 59 | 22 | **24** **<- chosen** |
+| arith | 32 | 32 | 32 | 32 | 105 | 59 | 22 | **24** |
+| arith | 64 | 64 | 32 | 32 | 105 | 59 | 22 | **24** |
+| arith | 128 | 128 | 32 | 32 | 105 | 59 | 22 | **24** |
+| arith | 256 | 256 | 32 | 32 | 105 | 59 | 22 | **24** |
+| bool | 8 | 8 | 28 | 28 | 46 | 3 | 32 | **11** **<- chosen** |
+| bool | 16 | 16 | 24 | 24 | 46 | 3 | 32 | **11** |
+| bool | 32 | 32 | 16 | 16 | 46 | 3 | 32 | **11** |
+| rel | 96 | 96 | 96 | 96 | 103 | 62 | 23 | **18** |
+| rel | 192 | 192 | 96 | 96 | 103 | 62 | 23 | **18** |
+| rel | 384 | 384 | 96 | 96 | 103 | 62 | 22 | **19** **<- chosen** |
+| rel | 768 | 768 | 96 | 96 | 103 | 62 | 22 | **19** |
+| rel | 1536 | 1536 | 96 | 96 | 103 | 62 | 22 | **19** |
+
+Rule: the smallest budget whose admissible defect SET is identical at B, 2B and 4B.
+- `arith`: stable at B, 2B and 4B
+- `bool`: stable at B, 2B and 4B
+- `rel`: stable at B, 2B and 4B
 <!-- END:sweep -->
 
 `bool` is the interesting row and the rule earns its keep there: its ladder is
@@ -209,6 +229,10 @@ as a pre-registration error. These are exhaustive enumerations, not samples: eve
 defect the generator produces is applied and put through the admission rule.
 
 <!-- BEGIN:ceilings -->
+| domain | defects enumerated | invalid | solvable on train | rejected before the edit sweep | admissible | no repair in the edit space | admitted cases |
+|---|---|---|---|---|---|---|---|
+| bool | 46 | 3 | 32 | 35 | 11 | 2 | **9** |
+| rel | 103 | 53 | 22 | 75 | 28 | 0 | **19** |
 <!-- END:ceilings -->
 
 ---
@@ -231,6 +255,14 @@ holes the experimenter names. The question a wider grammar has to answer is
 whether the extra width pays, and on the evidence so far it does not:
 
 <!-- BEGIN:grammar -->
+| edit family | edits proposed | edits that are repairs | repair rate | cases it repairs |
+|---|---|---|---|---|
+| `SUBST` | 1,328 | 41 | 3.1% | 27 |
+| `WIDEN` | 1,233 | 41 | 3.3% | 27 |
+| `REWIRE` | 559 | 18 | 3.2% | 10 |
+| `ADD_NODE` | 1,737 | 86 | 5.0% | 19 |
+| `ADD_PATH` | 392 | 0 | 0.0% | 0 |
+| **all** | 5,249 | 186 | 3.5% | 28 |
 <!-- END:grammar -->
 
 **Most of the rejected defects were not defects at all.** Of the 32 `bool`
@@ -345,6 +377,12 @@ space those decisions covered, the episodes each decision consumed, the wall
 clock, and the size of the search a repair actually leaves behind.
 
 <!-- BEGIN:outerloop -->
+| domain | cases | edits proposed | edits decided | undecided (over cap) | selection space of the decided edits (upper bound on programs) | episodes per decision | episode-evaluations (upper bound) | corpus wall clock | mean space of a repaired scaffold (downstream search) |
+|---|---|---|---|---|---|---|---|---|---|
+| bool | 9 | 1,440 | 1,231 | 209 | 39,695,520 | 36 | 1,429,038,720 | 40 min | 30,291 |
+| rel | 19 | 3,809 | 3,764 | 45 | 68,508,992 | 480 | 32,884,316,160 | 159 min | 63,787 |
+
+The program and episode-evaluation columns are **upper bounds**, not counts: `enumerate_prefix` stops at the first conforming member and prunes a prefix as soon as a probed node misses, so a decided edit usually costs far less than its selection space. This corpus does not carry the exact `evaluated` figure — `decide()` did not record it, and adding the field mid-run would have made shards of one domain inconsistent with each other. The bound is reported as a bound.
 <!-- END:outerloop -->
 
 The honest reading is that the outer loop is **not** free and is not obviously a
@@ -378,6 +416,9 @@ program. Anyone budgeting an enumeration in this substrate should count
 probed nodes before counting candidates.
 
 <!-- BEGIN:cost -->
+| case | episodes | edits | over cap | mean s/edit | worst s/edit | **projected min/case** |
+|---|---|---|---|---|---|---|
+| `bool` `keep_prefix:y:8` | 64 | 160 | 0 | 2.366 | 12.34 | 6.3 |
 <!-- END:cost -->
 
 ## The cost metric, and how it is checked without re-using its own derivation
@@ -445,6 +486,10 @@ where an arm can be right or wrong about *where* to act as well as *what* to do.
 A reader should have this table before reading any verdict.
 
 <!-- BEGIN:sites -->
+| domain | admitted cases | distinct defect sites | defects per site | defect kinds | repairs per case |
+|---|---|---|---|---|---|
+| bool | 9 | **1** | `y` 9 | drop_operator 1, drop_source 2, keep_prefix 6 | 2–4 (mean 2.4) |
+| rel | 19 | **4** | `ans` 7, `chain2` 2, `chain3` 2, `o1` 8 | delete_node 1, drop_operator 2, drop_source 4, keep_prefix 12 | 2–19 (mean 8.6) |
 <!-- END:sites -->
 
 ---
@@ -459,12 +504,42 @@ per-domain verdicts and never instead of them. A split verdict is **NOT MET**
 (A12(4)).
 
 <!-- BEGIN:criteria -->
+| criterion | as pre-registered | bool | rel | pooled (macro) |
+|---|---|---|---|---|
+| C1 | E(N″) ≤ E(N)/2 | **FAIL** | **FAIL** | **FAIL** |
+| C2 | E(N″) ≤ E(N′)/2 | **FAIL** | **FAIL** | **FAIL** |
+| C3a | E(N″) ≤ E(H1)/2 | **FAIL** | **PASS** | **PASS** |
+| C3b | E(N″) ≤ E(H2)/2 | **FAIL** | **PASS** | **FAIL** |
+| C4 | D1 does not meet C1 | **PASS** | **PASS** | **PASS** |
+| **verdict** | all of C1-C4 | **NOT MET** | **NOT MET** | **NOT MET** |
+Pre-registered verdict: **NOT MET**. Per domain: `bool` not met, `rel` not met.
+
+Same verdict when undecided edits are counted as repairs: yes.
 <!-- END:criteria -->
 
 <!-- BEGIN:costs -->
+| arm | bool | rel | **pooled (macro)** | per-case (micro) | macro, optimistic |
+|---|---|---|---|---|---|
+| N — no library | 48.90 | 24.72 | **36.81** | 32.49 | 14.34 |
+| N′ — edit-family class only | 44.64 | 28.38 | **36.51** | 33.61 | 17.63 |
+| N″ — learned cross-domain edit prior | 51.89 | 18.59 | **35.24** | 29.29 | 6.13 |
+| H1 — hand: smallest and newest first | 88.11 | 100.25 | **94.18** | 96.35 | 94.18 |
+| H2 — hand: output-adjacent first | 19.74 | 50.17 | **34.95** | 40.39 | 11.47 |
+| D1 — distractor, permuted labels | 124.00 | 58.97 | **91.49** | 79.88 | 38.45 |
+| D2 — distractor, reversed prior | 96.67 | 78.61 | **87.64** | 84.41 | 69.25 |
+| ORACLE — perfect ordering | 1.00 | 1.00 | **1.00** | 1.00 | 1.00 |
 <!-- END:costs -->
 
 <!-- BEGIN:ratios -->
+| arm | pooled (macro) mean exact expected edits | × N″'s cost |
+|---|---|---|
+| N — no library | 36.81 | 1.045 |
+| N′ — edit-family class only | 36.51 | 1.036 |
+| H1 — hand: smallest and newest first | 94.18 | 2.673 |
+| H2 — hand: output-adjacent first | 34.95 | 0.992 |
+| D1 — distractor, permuted labels | 91.49 | 2.596 |
+| D2 — distractor, reversed prior | 87.64 | 2.487 |
+| ORACLE — perfect ordering | 1.00 | 0.028 |
 <!-- END:ratios -->
 
 ---
@@ -491,6 +566,10 @@ criterion while claiming the new one, and would have hidden exactly the
 population the third split exists to expose. Every per-edit decision was re-run.
 
 <!-- BEGIN:corpus -->
+| domain | task | train | admission | final | nodes | base space | defects tried | **admitted** | rejected: solvable on train | rejected: no repair | rejected: invalid | edits/case | repairs/case | defect list exhausted |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| bool | section 44/46 task; complete 64-row truth table, three disjoint splits over row indices | 8 | 28 | 28 | 3 | 12,800 | 46 | 9 | 32 | 2 | 3 | 160.0 | 2.4 | yes |
+| rel | generators/relations at 3 entities, one/two/three edge steps | 384 | 96 | 96 | 9 | 16,384 | 103 | 19 | 22 | 0 | 53 | 200.5 | 8.6 | yes |
 <!-- END:corpus -->
 
 **The `lang` domain was dropped, and why.** §19/§45's bracket-grammaticality
@@ -506,6 +585,36 @@ cross-domain claim therefore rests on the remaining domains, which is the
 pre-registered minimum and no more.
 
 <!-- BEGIN:percase -->
+| case | edits | repairs | undecided | N | N' | N'' | H1 | H2 | D1 | D2 | ORACLE |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| bool:drop_operator:y:xor | 160 | 2 | 43 | 53.7 | 49.0 | 65.0 | 65.0 | 21.7 | 89.0 | 73.0 | 1.0 |
+| bool:drop_source:y:n1 | 160 | 4 | 31 | 32.2 | 29.4 | 67.5 | 81.0 | 13.0 | 112.0 | 72.0 | 1.0 |
+| bool:drop_source:y:n2 | 160 | 4 | 31 | 32.2 | 29.4 | 67.5 | 81.0 | 13.0 | 112.0 | 72.0 | 1.0 |
+| bool:keep_prefix:y:1 | 160 | 2 | 10 | 53.7 | 49.0 | 41.0 | 94.5 | 21.7 | 148.0 | 112.0 | 1.0 |
+| bool:keep_prefix:y:2 | 160 | 2 | 10 | 53.7 | 49.0 | 41.0 | 94.5 | 21.7 | 134.0 | 112.0 | 1.0 |
+| bool:keep_prefix:y:3 | 160 | 2 | 10 | 53.7 | 49.0 | 43.0 | 94.5 | 21.7 | 134.0 | 112.0 | 1.0 |
+| bool:keep_prefix:y:4 | 160 | 2 | 24 | 53.7 | 49.0 | 43.0 | 94.5 | 21.7 | 134.0 | 112.0 | 1.0 |
+| bool:keep_prefix:y:6 | 160 | 2 | 25 | 53.7 | 49.0 | 49.5 | 94.0 | 21.7 | 126.5 | 102.5 | 1.0 |
+| bool:keep_prefix:y:8 | 160 | 2 | 25 | 53.7 | 49.0 | 49.5 | 94.0 | 21.7 | 126.5 | 102.5 | 1.0 |
+| rel:drop_operator:ans:or | 204 | 5 | 9 | 34.2 | 23.0 | 20.5 | 30.5 | 13.0 | 104.0 | 129.5 | 1.0 |
+| rel:drop_source:ans:o1 | 204 | 13 | 8 | 14.6 | 16.4 | 2.0 | 138.5 | 5.6 | 7.0 | 146.5 | 1.0 |
+| rel:keep_prefix:ans:2 | 190 | 6 | 0 | 27.3 | 21.8 | 4.0 | 154.0 | 9.1 | 54.0 | 162.3 | 1.0 |
+| rel:keep_prefix:ans:4 | 190 | 5 | 1 | 31.8 | 21.8 | 5.0 | 142.5 | 10.7 | 115.5 | 152.0 | 1.0 |
+| rel:keep_prefix:chain2:1 | 207 | 7 | 1 | 26.0 | 29.5 | 37.5 | 113.5 | 191.4 | 34.5 | 59.5 | 1.0 |
+| rel:keep_prefix:chain3:1 | 204 | 8 | 1 | 22.8 | 23.0 | 64.0 | 139.0 | 143.8 | 34.5 | 58.5 | 1.0 |
+| rel:drop_source:o1:m1 | 214 | 19 | 1 | 10.8 | 17.9 | 9.3 | 8.5 | 26.0 | 29.0 | 9.0 | 1.0 |
+| rel:keep_prefix:o1:1 | 201 | 8 | 0 | 22.4 | 24.0 | 4.5 | 107.5 | 26.0 | 128.0 | 5.0 | 1.0 |
+| rel:keep_prefix:o1:3 | 200 | 8 | 0 | 22.3 | 23.8 | 5.0 | 62.0 | 26.0 | 53.0 | 13.0 | 1.0 |
+| rel:delete_node:o1:None | 183 | 2 | 0 | 61.3 | 137.3 | 3.5 | 178.5 | 25.7 | 119.0 | 177.0 | 1.0 |
+| rel:drop_source:ans:m3 | 204 | 13 | 8 | 14.6 | 16.4 | 2.0 | 138.5 | 5.6 | 7.0 | 146.5 | 1.0 |
+| rel:keep_prefix:ans:1 | 190 | 6 | 0 | 27.3 | 21.8 | 4.0 | 154.0 | 9.1 | 65.0 | 161.3 | 1.0 |
+| rel:keep_prefix:ans:3 | 190 | 6 | 0 | 27.3 | 21.8 | 4.0 | 152.5 | 9.1 | 54.0 | 154.3 | 1.0 |
+| rel:keep_prefix:chain2:2 | 207 | 7 | 3 | 26.0 | 29.5 | 56.5 | 103.8 | 191.4 | 47.5 | 39.5 | 1.0 |
+| rel:keep_prefix:chain3:2 | 204 | 8 | 3 | 22.8 | 23.0 | 81.0 | 137.0 | 143.8 | 47.5 | 39.5 | 1.0 |
+| rel:drop_operator:o1:or | 205 | 8 | 9 | 22.9 | 23.2 | 32.0 | 8.5 | 39.0 | 87.0 | 5.0 | 1.0 |
+| rel:drop_source:o1:m2 | 214 | 19 | 1 | 10.8 | 17.9 | 9.3 | 8.5 | 26.0 | 29.0 | 9.0 | 1.0 |
+| rel:keep_prefix:o1:2 | 201 | 8 | 0 | 22.4 | 24.0 | 5.0 | 99.0 | 26.0 | 53.0 | 13.0 | 1.0 |
+| rel:keep_prefix:o1:4 | 197 | 8 | 0 | 22.0 | 23.2 | 4.0 | 28.5 | 26.0 | 52.0 | 13.0 | 1.0 |
 <!-- END:percase -->
 
 ---
@@ -513,9 +622,18 @@ pre-registered minimum and no more.
 ## What the inherited prior learned
 
 <!-- BEGIN:estimator -->
+| held-out domain | fitted on | repair rows | non-repair rows | strongest features |
+|---|---|---|---|---|
+| bool | rel | 164 | 3600 | `space=<3` -2.88, `arity=1` -2.77, `family=ADD_PATH` -2.51, `op_class=comparison` -2.26, `arity=3` +1.97 |
+| rel | bool | 22 | 1209 | `is_output=False` -2.70, `space=<4` -2.44, `arity=3` -2.40, `op_class=conversion` -2.03, `added=5-16` -2.02 |
 <!-- END:estimator -->
 
 <!-- BEGIN:families -->
+| held-out domain | inherited edit-family class |
+|---|---|
+| bool | ADD_NODE, REWIRE, SUBST, WIDEN |
+| rel | REWIRE, SUBST, WIDEN |
+| **repairs observed, by family** | ADD_NODE (19 cases), REWIRE (10 cases), SUBST (27 cases), WIDEN (27 cases) |
 <!-- END:families -->
 
 ---
@@ -529,13 +647,64 @@ the first edit with a **training** conformer — and it is reported beside M1, n
 substituted for it.
 
 <!-- BEGIN:deployed -->
+| arm | M2: first training-conforming edit is a repair |
+|---|---|
+| N — no library | 19 / 28 |
+| N′ — edit-family class only | 19 / 28 |
+| N″ — learned cross-domain edit prior | 19 / 28 |
+| H1 — hand: smallest and newest first | 19 / 28 |
+| H2 — hand: output-adjacent first | 19 / 28 |
+| D1 — distractor, permuted labels | 19 / 28 |
+| D2 — distractor, reversed prior | 19 / 28 |
+| ORACLE — perfect ordering | 28 / 28 |
 <!-- END:deployed -->
+
+---
+
+## The blind split: do the repairs actually generalize?
+
+A13's third split is read by nothing until this point. The question it answers is
+narrow and it is the only thing it is used for: **the edit each arm stopped at —
+does it still conform on episodes no part of the pipeline has seen?**
+
+<!-- BEGIN:blind -->
+| arm | M1: the first repair generalizes | M2: the first training-conforming edit generalizes |
+|---|---|---|
+| N — no library | 28 / 28 | 19 / 28 |
+| N′ — edit-family class only | 28 / 28 | 19 / 28 |
+| N″ — learned cross-domain edit prior | 28 / 28 | 19 / 28 |
+| H1 — hand: smallest and newest first | 28 / 28 | 19 / 28 |
+| H2 — hand: output-adjacent first | 28 / 28 | 19 / 28 |
+| D1 — distractor, permuted labels | 28 / 28 | 19 / 28 |
+| D2 — distractor, reversed prior | 28 / 28 | 19 / 28 |
+| ORACLE — perfect ordering | 28 / 28 | 28 / 28 |
+
+The arms do select different edits: 28 of 28 cases have distinct M1 choices across arms and 28 of 28 distinct M2 choices. The identical M2 rate is therefore a property of the training-conforming population, not an artefact of every arm stopping at the same edit.
+<!-- END:blind -->
+
+Two readings, and the second is the one worth keeping. First, **M1 is perfect for
+every arm**: an edit that qualifies as a repair on `train ∪ admission` conforms on
+the blind split without exception. The admission split is sufficient to pin a
+genuine repair, which is what justifies using it as the repair criterion at all.
+Second, **M2 fails about a third of the time**: the first edit that merely fits
+the *training* episodes does not generalize in nine of twenty-eight cases. That
+is §65's trap measured directly in this corpus — and the failure rate is the same
+for every arm despite each stopping at a different edit, so it is a property of
+the training-conforming population rather than of any ordering. A system with no
+admission split would accept a non-repair roughly a third of the time here, and
+no amount of better ordering would save it.
 
 ---
 
 ## Validity checks, read before the criteria
 
 <!-- BEGIN:validity -->
+| check | result |
+|---|---|
+| V1 — repairs that are the defect's syntactic inverse (a deliberately generous test: for `keep_prefix` any widening at the same site counts, for `delete_node` any node addition) | 0.3548 of all repairs |
+| V3 — the distractor's edit space contains the repairs | yes, identical list; every arm re-orders the identical edit list; repairs are therefore identical by construction and equal in count |
+| undecided edits (space over the declared cap) | bool: 0.1451, rel: 0.0118 |
+| D1 over the 20 label permutations (the headline D1 is the seed-0 one) | mean of per-case means 60.07; per-case range 6.69 to 129.18 |
 <!-- END:validity -->
 
 **V2 — the decider.** Every (case, edit) pair is decided by
@@ -550,6 +719,10 @@ yields exactly the committed key set — because an ordering claim over an
 irreproducible list would mean nothing.
 
 <!-- BEGIN:decider -->
+| domain | edits re-decided by the flat walk | disagreements | witnesses re-executed through `Program.execute` | witnesses that did not reproduce |
+|---|---|---|---|---|
+| bool | 360 | 0 | 22 (792 episode evaluations) | 0 |
+| rel | 760 | 0 | 164 (78,720 episode evaluations) | 0 |
 <!-- END:decider -->
 
 ---
@@ -599,6 +772,23 @@ pins the program, while the edit spaces here are wide enough to contain many fit
 that do not.
 
 <!-- BEGIN:s50 -->
+| S1 — §50's corpus on held-out conformance | count |
+|---|---|
+| failed scaffolds re-decided | 24 |
+| §50's own count, training conformance (recorded) | 21 / 24 |
+| cases keeping a repair under the stricter metric | 22 / 24 |
+| the training-stop variant also conforms on all episodes | 22 / 24 |
+| of those, the language cases (the only ones with a held-out split) | 22 / 22 |
+| the Boolean cases, which have no held-out split | 2, both with no conforming variant at all |
+| variants enumerated across every case | 395 |
+| variants conforming on training | 45 |
+| variants conforming on training **and** on the held-out episodes | 44 |
+| **variants lost to the stricter metric** | 1 |
+| cases that lose a variant | 1 / 24 |
+| — `C_max2_add`, train-conforming → all-conforming | 3 (`add/max`, `add/min`, `sub/add`) → 2 (`add/max`, `add/min`), out of 16 variants |
+| — `C_max2_add` variant `add/max`: family members conforming on training → on training and held out | 527 → 324 |
+| — `C_max2_add` variant `add/min`: family members conforming on training → on training and held out | 527 → 324 |
+| — `C_max2_add` variant `sub/add`: family members conforming on training → on training and held out | 24 → 0 |
 <!-- END:s50 -->
 
 ---
@@ -695,13 +885,40 @@ leaving no output and no diagnosable cause — measurement later ruled memory ou
 but by then the evidence of what had happened was gone.
 
 <!-- BEGIN:pressure -->
+| host memory at the launch decision | measured |
+|---|---|
+| measured peak RSS of the heaviest phase (build a domain, enumerate a case's typed edits, decide them) | 0.025 GB |
+| candidates held at once across every edited program of one case | 35,621 |
+| this track's live workers, combined | 0.23 GB |
+| two shards, projected | 0.15 GB |
+| `MemAvailable` before the corpus phase | 79.0 GB |
+| `MemAvailable` when the flat floor refused the launch | 13.2 GB |
+| this track: bool | 0.24 GB |
+| this track: rel shard 0 | 0.03 GB |
+| this track: rel shard 1 | 0.03 GB |
+| other project: another project training script | 1.8 GB |
+| other project: esbuild | 1.3 GB |
+| other project: next-server (v15.5.18) | 20.0 GB |
+| other project: node / vite-plus runtime | 2.1 GB |
 <!-- END:pressure -->
 
 Every resource decision this track made, admitted or refused, is in
 `out/resource_gate.log`:
 
 <!-- BEGIN:gate -->
+| `out/resource_gate.log` | count |
+|---|---|
+| decisions recorded | 33 |
+| phases admitted | 31 |
+| phases refused by a gate | 2 |
+| launches held by hand, before the gates existed | 0 |
+| a refusal, verbatim | `check_workers | live=4 | requesting=1 | limit=4 | ['run_domain.py', 'run_domain.py', 'run_domain.py', 'run_domain.py'] | REFUSED` |
+| a refusal, verbatim | `validate_decider:bool | MemAvailable=23.27GB | required=25.00GB (no measured peak; unmeasured-phase floor) | headroom_after=23.27GB | REFUSED` |
 <!-- END:gate -->
 
 <!-- BEGIN:resources -->
+| domain | corpus seconds | peak RSS (GB) |
+|---|---|---|
+| bool | 2380 | 0.23 |
+| rel | 9530 | 0.14 |
 <!-- END:resources -->
