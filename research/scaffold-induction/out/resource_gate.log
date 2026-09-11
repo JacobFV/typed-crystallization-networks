@@ -7,3 +7,8 @@ arith-launch-check	MemAvailable=13.22GB	floor=25.0GB	HELD (this track holds 0.23
 run_domain:arith:shard0	MemAvailable=11.10GB	required=2.00GB (max(2.0GB, 20 x measured peak 0.025GB))	headroom_after=11.07GB	START
 run_domain:arith:shard1	MemAvailable=10.55GB	required=2.00GB (max(2.0GB, 20 x measured peak 0.025GB))	headroom_after=10.52GB	START
 check_workers	live=4	requesting=1	limit=4	['run_domain.py', 'run_domain.py', 'run_domain.py', 'run_domain.py']	REFUSED
+watchdog	MemAvailable dipped to 2.10GB (<3GB alarm), recovered to 13.06GB before any action	this track held 0.19GB across 4 workers	transient spike from another project (seat_breast_sliding.py)	NO_ACTION
+check_workers	live=3	requesting=1	limit=4	['run_domain.py', 'run_domain.py', 'run_domain.py']	START
+run_domain:arith:shard1	MemAvailable=34.39GB	required=2.00GB (max(2.0GB, 20 x measured peak 0.025GB))	headroom_after=34.37GB	START
+check_workers	live=3	requesting=1	limit=4	['run_domain.py', 'run_domain.py', 'run_domain.py']	START
+validate_decider:rel	MemAvailable=37.34GB	required=25.00GB (no measured peak; unmeasured-phase floor)	headroom_after=37.34GB	START
