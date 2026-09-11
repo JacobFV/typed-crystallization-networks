@@ -38,6 +38,8 @@ def main():
     ap.add_argument("--decide", type=int, default=6)
     a = ap.parse_args()
 
+    kit.check_workers(1)
+    kit.check_floor(f"mem_probe:{a.domain}", measuring=True)
     marks = {"start": rss_gb()}
     d = domains.BUILDERS[a.domain]()
     base, r, sig = d["program"], d["registry"], d["signals"]
@@ -49,7 +51,7 @@ def main():
         f = R.APPLY[kind](base, r, site, arg)
         if f is None:
             continue
-        tr = R.decide(f, d["train"], sig, r)
+        tr = R.decide(f, allep, sig, r)
         if tr["decided"] and not tr["conforming"] and tr["exhausted"]:
             failed, defect = f, f"{kind}:{site}:{arg}"
             break

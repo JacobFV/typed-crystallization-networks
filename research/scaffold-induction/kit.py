@@ -134,17 +134,30 @@ def check_workers(n=1, limit=WORKER_LIMIT, log="resource_gate.log"):
     return live
 
 
-def check_floor(phase, peak_gb=None, log="resource_gate.log"):
-    """Refuse to start a phase below the available-memory floor (HANDOFF trap)."""
+def check_floor(phase, peak_gb=None, log="resource_gate.log", measuring=False):
+    """Refuse to start a phase below the available-memory floor (HANDOFF trap).
+
+    `measuring=True` marks the narrow exemption for a phase whose *purpose* is to
+    produce the peak measurement the floor needs.  Without it the rule is
+    circular: an unmeasured phase needs 25 GB, and the only way to measure it is
+    to run it.  The exemption is bounded rather than a widening -- such a phase
+    must still pass the worker cap, must run under an explicit small `MemoryMax`
+    so a runaway is killed alone, and is logged as MEASURING with the floor it
+    would otherwise have faced.  It is never used for a phase that produces a
+    result.
+    """
     avail = mem_available_gb()
     need, why = required_floor(peak_gb)
     headroom = avail - (peak_gb or 0.0)
     ok = avail >= need and headroom >= FLOOR_HEADROOM_GB
+    if measuring:
+        ok = avail >= FLOOR_MIN_GB + FLOOR_HEADROOM_GB
+        why = f"MEASURING exemption; would otherwise need {need:.2f}GB ({why})"
     OUT.mkdir(exist_ok=True)
     with open(OUT / log, "a") as fh:
         fh.write(f"{phase}\tMemAvailable={avail:.2f}GB\trequired={need:.2f}GB "
                  f"({why})\theadroom_after={headroom:.2f}GB\t"
-                 f"{'START' if ok else 'REFUSED'}\n")
+                 f"{('MEASURING-START' if measuring else 'START') if ok else 'REFUSED'}\n")
     if not ok:
         raise SystemExit(
             f"refusing {phase}: MemAvailable {avail:.2f} GB, required "

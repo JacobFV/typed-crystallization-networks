@@ -19,3 +19,27 @@
   [start] delete_node:chain2:None
   [start] drop_source:chain3:edges
   [start] keep_prefix:chain3:1
+  rel:keep_prefix:chain3:1: 204 edits, 8 repairs, 1 undecided [3233s]
+  [start] keep_prefix:chain3:3
+  [start] keep_prefix:chain3:6
+  [start] delete_node:chain3:None
+  [start] drop_source:m1:edges
+  [start] keep_prefix:m1:1
+  [start] keep_prefix:m1:3
+  [start] keep_prefix:m1:6
+  [start] delete_node:m1:None
+  [start] drop_source:m2:query
+  [start] keep_prefix:m2:1
+  [start] keep_prefix:m2:3
+  [start] keep_prefix:m2:6
+  [start] delete_node:m2:None
+  [start] drop_source:m3:query
+  [start] keep_prefix:m3:1
+  [start] keep_prefix:m3:3
+  [start] keep_prefix:m3:6
+  [start] delete_node:m3:None
+  [start] drop_operator:o1:eq
+  [start] drop_operator:o1:nand
+  [start] drop_operator:o1:not
+  [start] drop_operator:o1:xnor
+  [start] drop_source:o1:m1

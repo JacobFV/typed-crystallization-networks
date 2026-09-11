@@ -1,0 +1,11 @@
+  bool:drop_operator:y:xor: fit 40 witnesses 2 mismatches 0/0
+  bool:drop_source:y:n1: fit 80 witnesses 6 mismatches 0/0
+  bool:drop_source:y:n2: fit 120 witnesses 10 mismatches 0/0
+  bool:keep_prefix:y:1: fit 160 witnesses 12 mismatches 0/0
+  bool:keep_prefix:y:2: fit 200 witnesses 14 mismatches 0/0
+  bool:keep_prefix:y:3: fit 240 witnesses 16 mismatches 0/0
+  bool:keep_prefix:y:4: fit 280 witnesses 18 mismatches 0/0
+  bool:keep_prefix:y:6: fit 320 witnesses 20 mismatches 0/0
+  bool:keep_prefix:y:8: fit 360 witnesses 22 mismatches 0/0
+wrote /home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-ab7a54ef3e67ae786/research/scaffold-induction/out/validate_bool.json
+{'domain': 'bool', 'per_case': 40, 'fit_checked': 360, 'witnesses_checked': 22, 'episode_evaluations': 792, 'seconds': 70.9152890109981, 'peak_rss_gb': 0.233} mismatches 0 0
