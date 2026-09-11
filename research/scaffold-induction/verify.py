@@ -317,6 +317,45 @@ def main():
                   for x in cases[d]["cases"] if x.get("admitted")
                   for e in x["edits"]))
 
+    # ---- A22: the per-domain family claim, asserted directly.
+    #
+    # "Both structural families repair nothing" was true when written (only
+    # `bool` existed) and became false when `rel` landed, with no edit to the
+    # sentence.  A scoped claim needs its scope re-checked whenever its evidence
+    # base grows; only a check does that reliably.  These assertions state the
+    # per-domain counts, so the corrected claim fails loudly if a later domain
+    # changes them.
+    FAMILIES = ("SUBST", "WIDEN", "REWIRE", "ADD_NODE", "ADD_PATH")
+    fam_cases = {}
+    for d in domains:
+        adm = [x for x in cases[d]["cases"] if x.get("admitted")]
+        per = {f: set() for f in FAMILIES}
+        for x in adm:
+            for e in x["edits"]:
+                if e["repair"] and e["family"] in per:
+                    per[e["family"]].add(x["case_id"])
+        fam_cases[d] = {f: len(v) for f, v in per.items()}
+        claim(f"A22[{d}]: every repairing edit belongs to a declared family",
+              all(e["family"] in FAMILIES for x in adm for e in x["edits"]
+                  if e["repair"]))
+    # ADD_PATH is claimed dead in EVERY domain; that is checkable and must stay so.
+    dead_everywhere = [d for d in domains if fam_cases[d]["ADD_PATH"] == 0]
+    claim("A22: `ADD_PATH` repairs nothing in every domain, as RESULTS states",
+          len(dead_everywhere) == len(domains),
+          f"ADD_PATH repairs in {[d for d in domains if d not in dead_everywhere]}")
+    # ADD_NODE is claimed domain-specific: dead somewhere, alive somewhere.
+    alive = [d for d in domains if fam_cases[d]["ADD_NODE"] > 0]
+    dead = [d for d in domains if fam_cases[d]["ADD_NODE"] == 0]
+    claim("A22: `ADD_NODE` is domain-specific -- dead in at least one domain and "
+          "repairing in at least one, as RESULTS states (A15's second branch)",
+          bool(alive) and bool(dead),
+          f"alive in {alive}, dead in {dead}: RESULTS' framing assumes both")
+    claim("A22: RESULTS does not claim both structural families are dead "
+          "everywhere",
+          not (RESULTS_PATH.exists() and
+               "structural families repair nothing" in RESULTS_PATH.read_text()),
+          "the superseded over-generalisation is back in RESULTS.md")
+
     # ---- layer 2b: the estimator table is consistent with the source rows
     for held, est in a["estimators"].items():
         if "error" in est:
@@ -623,6 +662,8 @@ REQUIRED_CLAIMS = (
     "the validation refers to the current corpus",
     "carries all five provenance identities",
     "every artifact used one mutation-grammar version",
+    "is domain-specific -- dead in at least one domain",
+    "repairs nothing in every domain, as RESULTS states",
 )
 
 

@@ -1,5 +1,5 @@
 {
- "pass": 169,
+ "pass": 176,
  "fail": 0,
  "claims": [
   {
@@ -311,6 +311,31 @@
    "ok": true,
    "claim": "A11: no edit's candidate list was truncated",
    "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "A22[bool]: every repairing edit belongs to a declared family",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "A22[rel]: every repairing edit belongs to a declared family",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "A22: `ADD_PATH` repairs nothing in every domain, as RESULTS states",
+   "detail": "ADD_PATH repairs in []"
+  },
+  {
+   "ok": true,
+   "claim": "A22: `ADD_NODE` is domain-specific -- dead in at least one domain and repairing in at least one, as RESULTS states (A15's second branch)",
+   "detail": "alive in ['rel'], dead in ['bool']: RESULTS' framing assumes both"
+  },
+  {
+   "ok": true,
+   "claim": "A22: RESULTS does not claim both structural families are dead everywhere",
+   "detail": "the superseded over-generalisation is back in RESULTS.md"
   },
   {
    "ok": true,
@@ -790,7 +815,7 @@
   {
    "ok": true,
    "claim": "the prose strip leaves most of RESULTS.md to be checked",
-   "detail": "38391 of 56451 characters survived the strip"
+   "detail": "40116 of 58859 characters survived the strip"
   },
   {
    "ok": true,
@@ -845,6 +870,16 @@
   {
    "ok": true,
    "claim": "A19: the verifier contains the check 'every artifact used one mutation-grammar version'",
+   "detail": "an amendment promised this check and nothing implements it"
+  },
+  {
+   "ok": true,
+   "claim": "A19: the verifier contains the check 'is domain-specific -- dead in at least one domain'",
+   "detail": "an amendment promised this check and nothing implements it"
+  },
+  {
+   "ok": true,
+   "claim": "A19: the verifier contains the check 'repairs nothing in every domain, as RESULTS states'",
    "detail": "an amendment promised this check and nothing implements it"
   }
  ]
