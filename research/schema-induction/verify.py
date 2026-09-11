@@ -130,12 +130,36 @@ def verify_s1_provenance_standard():
         claim(f"S1 standard: {path.name} records a producing commit",
               bool((p.get("commit") or {}).get("head")),
               (p.get("commit") or {}).get("head", "")[:12])
+        claim(f"S1 standard: {path.name} was produced from a CLEAN tree",
+              (p.get("commit") or {}).get("dirty") is False,
+              (p.get("commit") or {}).get("dirty_tracked_paths") or "clean")
+        claim(f"S1 standard: {path.name}'s sources were all tracked",
+              all(v.get("tracked") for v in (p.get("sources") or {}).values()),
+              sorted(k for k, v in (p.get("sources") or {}).items()
+                     if not v.get("tracked")) or "all tracked")
         claim(f"S1 standard: {path.name} records the base scaffold digest",
               p.get("base_digest") is not None, (p.get("base") or {}).get("schema"))
         claim(f"S1 standard: {path.name} records the split digests, "
               f"including the blind ones it did not read",
               p.get("splits_digest") is not None and "gap2.final" in (p.get("splits") or {}),
               sorted(p.get("splits") or {}))
+
+
+def verify_s2_clean_producer():
+    """Fail closed on a dirty producer (owner, 2026-09-11).
+
+    Source hashes mean the evidence is not lost; they do not make the commit
+    field mean what it says. The required workflow is: commit the code and the
+    pre-registration, re-run from the clean commit, then commit the outputs.
+    """
+    for path in sorted(p for p in OUT.glob("*.json") if p.name not in SELF_WRITTEN):
+        try:
+            blob = json.loads(path.read_text())
+            stamp.present(blob)
+            claim(f"S2 clean producer: {path.name} passes the fail-closed gate", True,
+                  blob["provenance"]["commit"]["head"][:12] + " clean")
+        except (json.JSONDecodeError, KeyError, TypeError, stamp.StampError) as exc:
+            claim(f"S2 clean producer: {path.name} passes the fail-closed gate", False, exc)
 
 
 def verify_v11_guards_bite():
@@ -302,7 +326,7 @@ def verify_v8_cost_model():
 
 
 CHECKS = (verify_v9_provenance, verify_s1_provenance_standard,
-          verify_v10_promises_kept, verify_v11_guards_bite,
+          verify_s2_clean_producer, verify_v10_promises_kept, verify_v11_guards_bite,
           verify_v2_expressivity, verify_v3_widen_insufficiency,
           verify_f2_no_design_collapse, verify_v8_cost_model)
 

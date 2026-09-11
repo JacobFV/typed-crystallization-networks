@@ -46,7 +46,7 @@
    "phase": "final",
    "artifact": "out/final_digest.json",
    "check": "verify_v5_blindness",
-   "statement": "every corpus artifact carries final_untouched true; all shards withheld the same digest; no induction-phase artifact contains a gap 2 or gap 3 field; the digest recorded before induction equals the one at scoring time"
+   "statement": "AMENDED r3 (reconciliation, recorded not silent): every corpus artifact carries final_untouched true; all shards withheld the same digest; NO INDUCTION-PHASE ARTIFACT CONTAINS NON-NULL gap-2/gap-3 EPISODE DATA, DERIVED STATISTICS, OR VALUES READ FROM THOSE SPLITS -- null/unopened provenance entries are REQUIRED AND PERMITTED; and the digest recorded before induction equals the one at scoring time. The r2 wording ('no gap 2/gap 3 field at all') directly contradicted promise S1, which requires splits.gap2.final and splits.gap3.final to be present-and-null. Fixed before V5's phase (final) activated."
   },
   {
    "id": "V6",
@@ -117,8 +117,8 @@
    "section": "6",
    "phase": "final",
    "artifact": "out/headline.json",
-   "check": "verify_c3_structural_not_extensional",
-   "statement": "the invariant of PREREGISTRATION 1.2, not a mechanism: at gap 3 the conforming displacement is NOT an element of any pool S1 instantiated during induction, i.e. it was re-derived from that configuration's geometry. Any rule shape qualifies -- row stride, affine displacement, relative-coordinate operator, derived spatial-step function, indexed generator -- and a generator whose range was fitted on admission fails C3."
+   "check": "verify_c3_structural_induction",
+   "statement": "AMENDED r3: C3 = C3a and C3b and C3c. Novelty of the final displacement is kept as a NECESSARY CONDITION (C3c), not as the criterion, because 'the value was unseen therefore it was re-derived from geometry' can hold by accident. The criterion is structural: C3a a free geometry parameter in the AST/dataflow, C3b structure digest constant across instantiation at gaps 0/1/2/3 while the emitted constant varies as geometry predicts."
   },
   {
    "id": "C4",
@@ -247,7 +247,39 @@
    "artifact": "*",
    "check": "verify_s1_provenance_standard",
    "statement": "every artifact records the owner's permanent standard: base scaffold/program digest, split/corpus digest, mutation-grammar version digest, producing commit, and pre-registration revision; an explicit absence with a reason is acceptable where an omission is not"
+  },
+  {
+   "id": "C3a",
+   "section": "6",
+   "phase": "final",
+   "artifact": "out/headline.json",
+   "check": "verify_c3a_free_geometry_parameter",
+   "statement": "S1's AST/dataflow contains at least one declared geometry parameter (stride, gap, relative coordinate) whose value is not fixed during induction and is bound per configuration; the serialized AST and its named, typed free-parameter set are recorded"
+  },
+  {
+   "id": "C3b",
+   "section": "6",
+   "phase": "final",
+   "artifact": "out/headline.json",
+   "check": "verify_c3b_structure_invariant_under_instantiation",
+   "statement": "digest(structure(S1 @ gap g)) is IDENTICAL for g in {0,1,2,3} while the emitted concrete displacements differ where geometry requires and each matches section 2.4's predicted law -- the schema is what stays fixed, the vector is what moves (section 64's distinction, made checkable)"
+  },
+  {
+   "id": "C3c",
+   "section": "6",
+   "phase": "final",
+   "artifact": "out/headline.json",
+   "check": "verify_c3c_unseen_displacement",
+   "statement": "NECESSARY CONDITION, not the criterion: the gap-3 conforming displacement is not an element of any pool S1 instantiated during induction, by integer token equality on the exact sets"
+  },
+  {
+   "id": "S2",
+   "section": "13",
+   "phase": "phase0",
+   "artifact": "*",
+   "check": "verify_s2_clean_producer",
+   "statement": "FAIL CLOSED on a dirty producer: every evidence artifact records commit.dirty == false (tracked modifications only) and every file in `sources` tracked in git, so the producing commit pins a real snapshot rather than 'some tree state'. Untracked outputs do not count as dirt; untracked SOURCES are refused."
   }
  ],
- "revision": "r2-2026-09-11-owner-rulings"
+ "revision": "r3-2026-09-11-clean-producer-and-structural-c3"
 }

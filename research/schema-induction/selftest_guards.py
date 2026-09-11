@@ -91,6 +91,26 @@ def main():
         stamp.present(bad)
     case("a missing pre-registration revision is refused", no_revision)
 
+    def dirty_producer():
+        bad = copy.deepcopy(live)
+        bad["provenance"]["commit"]["dirty"] = True
+        stamp.present(bad)
+    case("an artifact produced from a DIRTY tree is refused", dirty_producer)
+
+    def unknown_dirtiness():
+        bad = copy.deepcopy(live)
+        bad["provenance"]["commit"]["dirty"] = None
+        stamp.present(bad)
+    case("an artifact whose tree state is unknown is refused (not-false, not just true)",
+         unknown_dirtiness)
+
+    def untracked_source():
+        bad = copy.deepcopy(live)
+        key = next(iter(bad["provenance"]["sources"]))
+        bad["provenance"]["sources"][key]["tracked"] = False
+        stamp.present(bad)
+    case("an artifact produced by an UNTRACKED source is refused", untracked_source)
+
     def no_commit():
         bad = copy.deepcopy(live)
         bad["provenance"]["commit"] = {"head": None}

@@ -344,11 +344,28 @@ committed one.
 3. `score_final.py` — the only file that reads `out/final/` — refuses to score
    if the corpus' `final_digest` differs from the digest it recomputes.
 4. **`verify.py` asserts** (a) every corpus artifact carries
-   `final_untouched: true`, (b) all shards withheld the same digest, (c) no
-   induction-phase artifact contains any `gap 2` / `gap 3` field, and (d) the
-   digest recorded before induction equals the one at scoring time.
+   `final_untouched: true`, (b) all shards withheld the same digest, (c) the
+   blindness condition below, and (d) the digest recorded before induction
+   equals the one at scoring time.
 
-Point 4 closes a hole: scaffold-induction's amendment A13 states that its
+**(c), in the owner's wording, after a reconciliation (r3, 2026-09-11):**
+
+> no induction-phase artifact contains **non-null** `gap 2` / `gap 3` episode
+> data, derived statistics, or values read from those splits; **null / unopened
+> provenance entries are required and permitted.**
+
+The earlier wording — "no induction-phase artifact contains any `gap 2` /
+`gap 3` field" — **directly contradicted §13's Rule 0**, which *requires*
+`splits.gap2.final` and `splits.gap3.final` to be present-and-null so that the
+blind splits are recorded as withheld rather than silently unmentioned.
+`out/phase0.json` already carries both, so the old V5 would have failed the
+artifact that best demonstrates the standard. Two guards promising incompatible
+things is exactly the failure mode §13's registry exists to catch, so the
+reconciliation is **recorded here and in `promises.json` (V5, amended in
+place)** rather than edited silently. It was fixed **before V5 activated** — its
+phase (`final`) has not run.
+
+Point 4 also closes a hole: scaffold-induction's amendment A13 states that its
 `verify.py` performs these checks, and `git grep -n final verify.py` on that
 branch returns **nothing** — the check was never implemented. **This
 contradicts that track's own record and is reported here rather than routed
@@ -374,14 +391,37 @@ recording.
   `gap 0` episodes **and** all 48 `gap 1` episodes.
 * **C2 — blind generalization.** S1 has K > 0, certificate `complete`, at
   `gap 2` **and** at `gap 3`.
-* **C3 — the invariant of §1.2, not a mechanism.** At `gap 3`, the conforming
-  displacement S1 admits is **not** an element of any pool S1 instantiated
-  during induction; it was re-derived from that configuration's geometry.
-  Recorded as the exact displacement sets on both sides, compared by integer
-  token equality. Any rule shape satisfying this passes — row stride, affine
-  displacement, relative-coordinate operator, derived spatial-step function,
-  indexed generator. A generator whose range was fitted on admission fails C3
-  even if it happens to reach `gap 2`.
+* **C3 — the invariant of §1.2, established *structurally*.** "The final
+  displacement was not in an induction pool, **therefore** it was re-derived
+  from geometry" is not logically sufficient: the implication can hold by
+  accident (owner, 2026-09-11). So C3 is a conjunction of three checks, the
+  first two structural and the third the old novelty test kept as a **necessary
+  condition, not the criterion**:
+
+  * **C3a — a free geometry parameter exists in the object.** S1's AST /
+    dataflow contains at least one node that is a declared geometry parameter —
+    a stride, a gap, a relative coordinate — whose value is **not fixed during
+    induction** and is bound per configuration. Recorded as the serialized AST
+    with its free-parameter set named and typed.
+  * **C3b — structure constant, emission varying.** Re-instantiating **the same
+    schema** at `gap 0`, `gap 1`, `gap 2` and `gap 3` leaves the structure
+    unchanged while the emitted concrete displacement changes as geometry
+    predicts. Mechanically: `digest(structure(S1 @ gap g))` is **identical** for
+    all four g, the emitted constants are **pairwise different** where geometry
+    says they must be, and each matches the prediction of §2.4's law. This is
+    §64's schema/vector distinction in a form a verifier can check: the schema
+    is what stays fixed, the vector is what moves.
+  * **C3c — the unseen-value condition (necessary, not sufficient).** At
+    `gap 3` the conforming displacement is **not** an element of any pool S1
+    instantiated during induction. Exact sets on both sides, integer token
+    equality.
+
+  Any rule shape can satisfy this — row stride, affine displacement,
+  relative-coordinate operator, derived spatial-step function, indexed
+  generator. A generator whose range was fitted on admission fails C3a (its
+  parameter is not free) even if it happens to reach `gap 2`, and a schema that
+  passes C3c by luck fails C3b (its structure would have to change to emit the
+  new constant).
 
 C1 ∧ C2 ∧ C3 is the claim. Nothing about cost enters it.
 
@@ -739,6 +779,45 @@ criterion is read.
   predictions and will be reported as measured against.
 
 # Amendments, written before any arm ran
+
+## r3 — 2026-09-11, three fixes required before the arms are released
+
+* **B1 — fail closed on a dirty producer.** `r2`'s `out/phase0.json` named
+  `3e86052` with `dirty: true`. Source hashes mean the evidence is not lost,
+  but a dirty tree is not an exact snapshot and the commit field then pins
+  "some tree state" rather than a real one. `stamp.present` now **refuses** any
+  artifact whose `commit.dirty` is not `false`, and refuses any artifact
+  produced by an **untracked source** (which is in no commit at all). Required
+  workflow, and the one used to produce this revision's artifacts: commit the
+  code and the pre-registration → re-run phase 0 from the clean commit →
+  commit the outputs. *Definition:* `dirty` counts **tracked** modifications
+  only, because a run necessarily creates untracked files — its own outputs —
+  and counting those would make a clean run impossible; the hole that opens is
+  closed by the untracked-source refusal.
+* **B2 — V5 and the provenance standard contradicted each other, reconciled in
+  the open.** V5 promised that no induction-phase artifact contains a `gap 2` /
+  `gap 3` field; Rule 0 *requires* `splits.gap2.final` and `splits.gap3.final`
+  to be present-and-null. `out/phase0.json` already carried both, so the old V5
+  would have failed the artifact that best demonstrates the standard. The
+  owner's wording replaces it (§5 point 4c), and the reconciliation is recorded
+  in `promises.json` (V5, amended in place) rather than edited silently. Fixed
+  **before V5 activated** — its phase has not run. Two guards promising
+  incompatible things is precisely the failure mode the registry exists to
+  catch, and this is the registry catching one.
+* **B3 — C3 is now structural, not an inference from novelty.** "The value was
+  unseen, therefore it was re-derived from geometry" can hold by accident. C3
+  becomes C3a ∧ C3b ∧ C3c: a **free geometry parameter** in the AST/dataflow;
+  **structure digest constant across instantiation at `gap 0…3` while the
+  emitted constant varies as geometry predicts**; and the unseen-value test
+  kept as a **necessary condition** beside them. This is §64's schema/vector
+  distinction in the only form a verifier can actually check — the schema is
+  what stays fixed, the vector is what moves.
+
+**What a positive result would and would not mean.** It would **not** mean "the
+answer was restored". It would mean **a missing computational schema was
+induced from a counterexample and then instantiated correctly outside the
+induction range.** `RESULTS.md` states it in exactly those terms, and reports
+each of O0–O6 on its own merits.
 
 ## r2 — 2026-09-11, the owner's rulings
 

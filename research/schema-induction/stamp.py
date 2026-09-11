@@ -45,7 +45,7 @@ STANDARD = ("base_digest", "splits_digest", "grammar_digest", "commit", "revisio
 #: The pre-registration revision this code implements. Bumped by hand when
 #: PREREGISTRATION.md changes in a way that changes what an artifact means; the
 #: digest beside it is what actually detects drift.
-REVISION = "r2-2026-09-11-owner-rulings"
+REVISION = "r3-2026-09-11-clean-producer-and-structural-c3"
 
 
 class StampError(RuntimeError):
@@ -86,20 +86,43 @@ def digest_episodes(episodes):
     return h.hexdigest()
 
 
+def _git(*args):
+    return subprocess.run(["git", "-C", str(ROOT), *args],
+                          capture_output=True, text=True, timeout=60)
+
+
 def git_head():
+    """The producing commit, and whether it is an exact snapshot of the sources.
+
+    `dirty` counts **tracked** modifications only. A run necessarily creates
+    untracked files -- its own outputs -- and those cannot make their producer
+    dirty without making a clean run impossible. The hole that opens (an
+    untracked *source*, which is in no commit at all) is closed separately:
+    `source_digests` records whether each source file is tracked, and `present`
+    refuses an artifact produced by an untracked source. Together those two
+    mean the producing commit pins a real snapshot of everything that ran.
+    """
     try:
-        out = subprocess.run(["git", "-C", str(ROOT), "rev-parse", "HEAD"],
-                             capture_output=True, text=True, timeout=30)
-        head = out.stdout.strip() or None
-        dirty = subprocess.run(["git", "-C", str(ROOT), "status", "--porcelain"],
-                               capture_output=True, text=True, timeout=30).stdout.strip()
-        return {"head": head, "dirty": bool(dirty)}
+        head = _git("rev-parse", "HEAD").stdout.strip() or None
+        tracked = _git("status", "--porcelain", "--untracked-files=no").stdout.strip()
+        untracked = _git("ls-files", "--others", "--exclude-standard").stdout.split()
+        return {"head": head, "dirty": bool(tracked),
+                "dirty_tracked_paths": tracked.splitlines(),
+                "untracked_count": len(untracked),
+                "dirty_means": "tracked modifications only; untracked outputs do not "
+                               "count, and untracked SOURCES are refused by `present`"}
     except Exception as exc:                                   # noqa: BLE001
         return {"head": None, "dirty": None, "error": repr(exc)}
 
 
 def source_digests(paths):
-    return {str(pathlib.Path(p).relative_to(ROOT)): digest_file(p) for p in paths}
+    """{relative path: {digest, tracked}} for every source that produced an artifact."""
+    out = {}
+    for p in paths:
+        rel = str(pathlib.Path(p).relative_to(ROOT))
+        tracked = _git("ls-files", "--error-unmatch", rel).returncode == 0
+        out[rel] = {"digest": digest_file(p), "tracked": tracked}
+    return out
 
 
 def prereg_digest():
@@ -214,6 +237,20 @@ def present(artifact):
         raise StampError("no pre-registration revision recorded")
     if not (p["commit"] or {}).get("head"):
         raise StampError("no producing commit recorded")
+    # FAIL CLOSED on a dirty producer (owner, 2026-09-11). A dirty tree is not
+    # an exact snapshot, and source hashes alone only mean the evidence is not
+    # lost -- they do not make the commit field mean what it says. The required
+    # path is: commit the code, re-run from the clean commit, commit outputs.
+    if (p["commit"] or {}).get("dirty") is not False:
+        raise StampError(
+            "produced from a dirty tree: an evidence artifact must come from a "
+            "clean source state. Commit the code and pre-registration, re-run, "
+            "then commit the outputs")
+    untracked = sorted(k for k, v in p["sources"].items()
+                       if isinstance(v, dict) and not v.get("tracked"))
+    if untracked:
+        raise StampError(f"produced by untracked source(s) {untracked}: they are in "
+                         f"no commit, so the producing commit pins nothing")
     for field in ("base_digest", "splits_digest"):
         if field not in p:
             raise StampError(f"provenance omits {field}")
@@ -224,7 +261,7 @@ def present(artifact):
 
 
 def require(artifact, kind=None, inputs=None, parameters=None, sources=None,
-            allow_dirty=True):
+            allow_dirty=False):
     """Fail when the stamp is absent, malformed, or disagrees with disk.
 
     Returns the list of agreed field names, so a verifier can assert that the
@@ -262,11 +299,13 @@ def require(artifact, kind=None, inputs=None, parameters=None, sources=None,
         got = (p.get("sources") or {}).get(rel)
         if got is None:
             raise StampError(f"provenance names no source {rel!r}")
-        if got != digest_file(path):
+        if got.get("digest") != digest_file(path):
             raise StampError(f"source {rel!r} changed since the artifact was written; "
                              f"re-run the job rather than trusting the stamp")
+        if not got.get("tracked"):
+            raise StampError(f"source {rel!r} was untracked when the artifact was written")
         checked.append(f"sources.{rel}")
-    if not allow_dirty and (p.get("git") or {}).get("dirty"):
+    if not allow_dirty and (p.get("commit") or {}).get("dirty") is not False:
         raise StampError("artifact was produced from a dirty tree")
     if not checked:
         raise StampError("require() was called with nothing to compare: an "
