@@ -224,6 +224,41 @@ def main():
             claim(f"A13[{d}]: final scoring used the split the corpus withheld",
                   rec == fps[d], f"{rec} vs {fps[d]}")
 
+    # ---- A21: every evidence artifact carries the five provenance identities,
+    # and derived artifacts agree with what they were derived from.
+    FIVE = ("base_digest", "split_digest", "grammar_digest", "git", "prereg")
+    prov = {}
+    for name in ("analysis", "final_scores", *[f"validate_{d}" for d in domains],
+                 *[f"cases_{d}" for d in domains]):
+        art = J(name)
+        if art is None:
+            continue
+        got = art.get("provenance")
+        if got is None and isinstance(art.get("domains"), dict):
+            got = {k: v.get("provenance") for k, v in art["domains"].items()}
+        if isinstance(got, dict) and set(got) & set(domains):
+            for dom, pv in got.items():
+                claim(f"A21[{name}/{dom}]: carries all five provenance identities",
+                      isinstance(pv, dict) and all(f in pv for f in FIVE),
+                      f"missing {sorted(set(FIVE) - set(pv or {}))}")
+                prov.setdefault(dom, []).append((name, pv))
+        else:
+            claim(f"A21[{name}]: carries all five provenance identities",
+                  isinstance(got, dict) and all(f in got for f in FIVE),
+                  f"missing {sorted(set(FIVE) - set(got or {}))}"
+                  if got is not None else "no provenance block "
+                  "(artifact predates A21 and cannot be shown current)")
+    for dom, entries in prov.items():
+        grammars = {p.get("grammar_digest") for _, p in entries}
+        claim(f"A21[{dom}]: every artifact used one mutation-grammar version",
+              len(grammars) == 1, f"grammar digests differ: {grammars}")
+        splits = {p.get("split_digest") for _, p in entries if p.get("split_digest")}
+        claim(f"A21[{dom}]: every artifact refers to one blind split",
+              len(splits) <= 1, f"split digests differ: {splits}")
+        bases = {p.get("base_digest") for _, p in entries if p.get("base_digest")}
+        claim(f"A21[{dom}]: every artifact refers to one base scaffold",
+              len(bases) <= 1, f"base digests differ: {bases}")
+
     # ---- layer 2a2: the episode budgets are the ones the rule chose (A8)
     sw = J("episode_sweep")
     if sw is None:
@@ -558,6 +593,8 @@ REQUIRED_CLAIMS = (
     "no superseded two-way split formulation is live",
     "the closed form matches a simulated draw",
     "the validation refers to the current corpus",
+    "carries all five provenance identities",
+    "every artifact used one mutation-grammar version",
 )
 
 

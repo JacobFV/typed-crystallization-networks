@@ -42141,6 +42141,39 @@
  "n_train": 8,
  "note": "section 44/46 task; complete 64-row truth table, three disjoint splits over row indices",
  "peak_rss_gb": 0.234,
+ "provenance_reconstructed": {
+  "corpus_recorded_at": "498152104d45223745b6f7319ae2ac04468ba129 2026-09-10 18:54:43 -0700",
+  "diff_since_corpus": {
+   "domains.py": "unchanged since the corpus was recorded",
+   "edits.py": "unchanged since the corpus was recorded",
+   "run_domain.py": {
+    "REVIEW_REQUIRED": "a changed producer means the current digests may not describe this corpus",
+    "diff": "diff --git a/research/scaffold-induction/run_domain.py b/research/scaffold-induction/run_domain.py\nindex 763ea48..4d251ea 100644\n--- a/research/scaffold-induction/run_domain.py\n+++ b/research/scaffold-induction/run_domain.py\n@@ -159,6 +159,22 @@ def name_for(a):\n     return f\"cases_{a.domain}\" + (f\"_s{a.shard}\" if a.of > 1 else \"\")\n \n \n+class _Blind:\n+    \"\"\"Stands in for a withheld split: any access raises, naming the violation.\"\"\"\n+\n+    def __init__(self, name):\n+        object.__setattr__(self, \"_name\", name)\n+\n+    def _fail(self, *_a, **_k):\n+        raise RuntimeError(\n+            f\"blind-split violation: the `{object.__getattribute__(self, '_name')}` \"\n+            f\"split must not be read while the corpus is built (A13). It is \"\n+            f\"scored only by score_final.py, after the arms are ordered.\")\n+\n+    __getattr__ = __getitem__ = __iter__ = __len__ = __call__ = _fail\n+    __contains__ = __bool__ = __repr__ = _fail\n+\n+\n class Stopped(Exception):\n     \"\"\"Raised when the process is asked to stop, so the partial corpus is saved.\"\"\"\n \n@@ -213,7 +229,10 @@ def main():\n     train, admis = d[\"train\"], d[\"admission\"]\n     allep = train + admis\n     final_digest = _digest(d[\"final\"])\n-    del d[\"final\"]                     # make a later read of it an AttributeError\n+    # A19: deleting the key would raise a bare KeyError, which reads like a typo.\n+    # A sentinel that raises on ANY access names the violation instead.  Adopted\n+    # from the schema-induction track, which got this right first.\n+    d[\"final\"] = _Blind(\"final\")\n \n     report = {\"domain\": a.domain, \"note\": d[\"note\"],\n               \"n_train\": len(train), \"n_admission\": len(admis),\n",
+    "lines_added": 20,
+    "lines_removed": 1
+   }
+  },
+  "digests_now": {
+   "base_digest": null,
+   "git": {
+    "commit": "7fa774b97eab",
+    "dirty": true
+   },
+   "grammar_digest": "47579b87c7b186b7",
+   "prereg": {
+    "amendments": 13,
+    "digest": "98b941066b7a7e3e"
+   },
+   "split_digest": "02d5bb6c96cba55fdebcc31bf49681a6"
+  },
+  "kind": "reconstructed, not stamped at build time",
+  "producing_files": {
+   "domains.py": "b31d82b9d0e8a940135cef3c1f91b04381a9d002 2026-09-10 18:37:13 -0700",
+   "edits.py": "d5d6c3d5cfbf01ac8db6b27072dee72ebbb85e76 2026-09-10 16:36:36 -0700",
+   "run_domain.py": "2d940f67cc6ae93c05d689bf8554c516fd9ded33 2026-09-10 19:24:51 -0700"
+  },
+  "why": "the corpus predates A21; a stamp written now would assert only what is currently believed, so the producing files' git history is given as the evidence instead"
+ },
  "rejected_invalid": 3,
  "rejected_no_repair": 2,
  "rejected_solvable_on_train": 32,

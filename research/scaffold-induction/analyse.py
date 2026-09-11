@@ -157,7 +157,10 @@ def main():
     data = {n: load_domain(n) for n in DOMAINS if (kit.OUT / f"cases_{n}.json").exists()}
     present = sorted(data)
     out = {"domains": present, "arms": ARMS, "alpha": ALPHA, "per_domain": {},
-           "cases": [], "estimators": {}, "validity": {}}
+           "cases": [], "estimators": {}, "validity": {},
+           "provenance": {n: kit.provenance(
+               base_digest=(data[n].get("base") or {}).get("digest"),
+               split_digest=data[n].get("final_digest")) for n in present}}
 
     # rows per domain, decided edits only (labels must exist to fit on them)
     rows_by_domain, labels_by_domain, fams_by_domain = {}, {}, {}

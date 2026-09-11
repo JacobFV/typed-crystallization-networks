@@ -169,3 +169,65 @@ def check_floor(phase, peak_gb=None, log="resource_gate.log", measuring=False):
 def peak_rss_gb():
     import resource
     return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / (1024 * 1024)
+
+
+# --- provenance: the five identities every evidence artifact carries ----------
+#
+# The standard, adopted after a superseded validation artifact was nearly
+# reported as current (A20): a verifier should compare *identities*, not ask
+# whether a file named "validation" says PASS.  Every artifact used as evidence
+# records:
+#
+#   base_digest         the base scaffold it was built from (`Program.digest`)
+#   split_digest        the corpus/split it refers to (the blind-split
+#                       fingerprint, which also identifies the episode draw)
+#   grammar_digest      the mutation grammar version -- a hash of `edits.py`
+#                       together with the declared families and operator names
+#   commit              the producing commit (dirty flag included; a dirty tree
+#                       means the artifact cannot be reproduced from git alone)
+#   prereg_revision     the pre-registration revision, as a hash of
+#                       PREREGISTRATION.md plus its amendment count
+#
+# A field that cannot be determined is recorded as None rather than omitted, so
+# its absence is visible rather than silent.
+
+def _sha(data, n=16):
+    import hashlib
+    return hashlib.sha256(data if isinstance(data, bytes)
+                          else str(data).encode()).hexdigest()[:n]
+
+
+def grammar_digest():
+    """Identity of the mutation grammar: its source and its declared surface."""
+    import edits as _E
+    src = (HERE / "edits.py").read_bytes()
+    surface = (tuple(_E.FAMILIES), tuple(_E.OP_NAMES), _E.MAX_NEW, _E.MAX_NEW_NODE)
+    return _sha(src + str(surface).encode())
+
+
+def prereg_revision():
+    text = (HERE / "PREREGISTRATION.md").read_text()
+    amendments = text.count("\n## A")
+    return {"digest": _sha(text), "amendments": amendments}
+
+
+def git_commit():
+    import subprocess
+    try:
+        head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=HERE,
+                              capture_output=True, text=True, timeout=20)
+        dirty = subprocess.run(["git", "status", "--porcelain", "."], cwd=HERE,
+                               capture_output=True, text=True, timeout=20)
+        if head.returncode:
+            return None
+        return {"commit": head.stdout.strip()[:12],
+                "dirty": bool(dirty.stdout.strip())}
+    except Exception:                                          # noqa: BLE001
+        return None
+
+
+def provenance(base_digest=None, split_digest=None):
+    """The five identities, for stamping into an evidence artifact."""
+    return {"base_digest": base_digest, "split_digest": split_digest,
+            "grammar_digest": grammar_digest(), "git": git_commit(),
+            "prereg": prereg_revision()}

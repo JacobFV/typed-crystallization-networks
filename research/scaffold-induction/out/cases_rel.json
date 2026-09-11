@@ -112679,6 +112679,34 @@
  "n_train": 384,
  "note": "generators/relations at 3 entities, one/two/three edge steps",
  "peak_rss_gb": 0.138,
+ "provenance_reconstructed": {
+  "corpus_recorded_at": "7fa774b97eab72a2da5ffd6ae80b5d4bde6ce334 2026-09-10 19:42:52 -0700",
+  "diff_since_corpus": {
+   "domains.py": "unchanged since the corpus was recorded",
+   "edits.py": "unchanged since the corpus was recorded",
+   "run_domain.py": "unchanged since the corpus was recorded"
+  },
+  "digests_now": {
+   "base_digest": null,
+   "git": {
+    "commit": "7fa774b97eab",
+    "dirty": true
+   },
+   "grammar_digest": "47579b87c7b186b7",
+   "prereg": {
+    "amendments": 13,
+    "digest": "98b941066b7a7e3e"
+   },
+   "split_digest": "82c56babbe2dc4b5fbb768ea0479700b"
+  },
+  "kind": "reconstructed, not stamped at build time",
+  "producing_files": {
+   "domains.py": "b31d82b9d0e8a940135cef3c1f91b04381a9d002 2026-09-10 18:37:13 -0700",
+   "edits.py": "d5d6c3d5cfbf01ac8db6b27072dee72ebbb85e76 2026-09-10 16:36:36 -0700",
+   "run_domain.py": "2d940f67cc6ae93c05d689bf8554c516fd9ded33 2026-09-10 19:24:51 -0700"
+  },
+  "why": "the corpus predates A21; a stamp written now would assert only what is currently believed, so the producing files' git history is given as the evidence instead"
+ },
  "rejected_invalid": 53,
  "rejected_no_repair": 0,
  "rejected_solvable_on_train": 22,

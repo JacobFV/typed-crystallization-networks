@@ -75,7 +75,10 @@ def main():
                 f"({corpus.get('final_digest')} vs {fp['sha256']}); refusing to "
                 f"score, because the blind split would not be the one withheld")
         out["domains"][dom] = {"final_digest": fp["sha256"], "n_final": fp["n"],
-                               "corpus_final_untouched": corpus.get("final_untouched")}
+                               "corpus_final_untouched": corpus.get("final_untouched"),
+                               "provenance": kit.provenance(
+                                   base_digest=base.digest,
+                                   split_digest=fp["sha256"])}
 
         by_case = {c["case_id"]: c for c in corpus["cases"] if c.get("admitted")}
         for row in [x for x in a["cases"] if x["domain"] == dom]:

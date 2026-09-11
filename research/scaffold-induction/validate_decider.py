@@ -51,6 +51,9 @@ def check(domain, per_case):
            "corpus_final_digest": corpus.get("final_digest"),
            "corpus_n_train": corpus.get("n_train"),
            "corpus_admitted": corpus.get("admitted"),
+           "provenance": kit.provenance(
+               base_digest=d["program"].digest,
+               split_digest=corpus.get("final_digest")),
            "fit_checked": 0, "fit_mismatches": [],
            "witnesses_checked": 0, "witness_mismatches": [],
            "episode_evaluations": 0}
