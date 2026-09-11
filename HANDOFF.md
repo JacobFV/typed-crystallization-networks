@@ -155,10 +155,16 @@ cheaply*. An inherited object earns its name only when it beats (a) no library,
 slot**. (c) was missing from the flagship's pre-registration and is now
 mandatory.
 
-**Pre-register on held-out conformance, not training conformance.** "Programs to
-the first training-conforming program" rewards spurious fits: on 12 training
-episodes the flat and schema-only first hits generalize 0/400. Also state a
-metric's failure mode in advance, and never swap metrics afterwards — §65 keeps
+**Three splits, not two — `train → admission/CEGIS → untouched final test`**
+(owner, 2026-09-10, correcting this file's earlier "pre-register on held-out
+conformance"). Training conformance alone rewards spurious fits: on 12 training
+episodes §65's flat and schema-only first hits generalize 0/400. But a held-out
+set used for admission *is* selection data. So: `train` is what a candidate must
+fit; the **admission** split decides admissibility and supplies CEGIS
+counterexamples — once consumed, a counterexample is training information; the
+**final** split is touched by nothing until the headline is scored. Otherwise we
+end up optimising directly against something still called "held-out". Also state
+a metric's failure mode in advance, and never swap metrics afterwards — §65 keeps
 its failed verdict and labels every corrected measurement exploratory.
 
 **A schema admitted on training conformance can still be refuted** (CORRECTIONS
@@ -169,8 +175,56 @@ zero over all 48 episodes. Admission needs the held-out check.
 a lower bound; §65 could not separate N″ from flat N because that bound sits
 below N″'s exact cost. Quote exact counts where the space allows them.
 
-**Next:** scaffold induction as the cross-domain outer loop (priority 4), now
-with the hand-written baseline requirement built into its pre-registration.
+**Priority order, re-ordered by the owner after reading §65:**
+
+1. **Scaffold/schema induction before specialization-prior research.** §65 shows
+   the more fundamental failure is sometimes *expressibility*: at `gap 1` the
+   STEP schema excludes the required two-row `above` displacement, so there are
+   ~2.6×10¹¹ training-conforming programs and **zero** conforming across all 48
+   episodes. No prior repairs a space that excludes the answer. Use that as the
+   first real CEGIS counterexample (the concrete experiment is below).
+2. **Three-split semantics** (above), so the final test stays blind.
+3. **A distractor that can succeed.** §65's could not express the answer, so C2
+   was vacuous and says nothing about whether irrelevant knowledge is harmless.
+   Next distractor: same expressivity, space contains generalizing programs, but
+   its learned prior ranks the wrong structures highly — wrong *experience*, not
+   a smaller space.
+4. **Keep the hand-written-prior control permanently.** Otherwise we keep
+   rediscovering common-sense inductive bias with thousands of corpus rows and
+   calling it transfer (§65: 20 STEP rows, replaced by a one-line rule).
+5. **The next integrated benchmark tests learned factorizations, not priors over
+   slots.** An earned visual relation abstraction, an earned language
+   abstraction and an earned action abstraction should become *callable
+   structure* in the later program, with per-abstraction ablations showing
+   removal raises acquisition cost. Closer to the recursive instruction-set
+   thesis than survival statistics over candidates.
+6. **Measure outer-loop cost:** schemas proposed → programs evaluated →
+   counterexamples consumed → wall time → downstream search cost. Moving
+   combinatorics one level up is not a win.
+7. **No giant generic schema language.** Keep the spec IR intact, experiment in
+   a sidecar, start with a deliberately small mutation grammar (add/remove one
+   typed node, replace one fold, insert one state path, widen one candidate
+   family, compose one existing module). Promote to core only when several
+   domains need the same construct.
+
+**The owner's concrete next experiment — schema induction from the §65
+counterexample.** Start from schema S0, which passes `gap 0` and is refuted by
+`gap 1`. The outer learner gets S0, the training examples, the CEGIS
+counterexamples, and a generic typed mutation grammar. It does **not** get the
+correct offset, the fact that "above means two rows", or a hand-written repaired
+schema. Require an induced S1 passing `gap 0` admission, `gap 1` admission, and
+an unseen **`gap 2`/`gap 3` final test**. Compare S0, induced S1, a blindly
+widened schema, a hand-written parametric schema and the flat substrate, on
+outer-search cost, downstream-search cost, total cost and final generalization.
+The `gap 2`/`gap 3` test is the point: inserting the missing constant is
+patching; discovering a parameterized spatial-step construction that generalizes
+is schema induction.
+
+**Where this is heading:** reuse may be less about copying solutions than about
+**constraints on the search language** — not "use candidate #7" but "this family
+factors as locate anchor → instantiate relation → resolve target → bind action",
+each operation re-specialized. That would reconcile schemas crossing domains
+while concrete selection vectors do not (§60, §64, §65).
 
 ## State as of 2026-09-09
 
