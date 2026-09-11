@@ -50,6 +50,114 @@ anecdote-strength and is labelled so wherever it is stated — the same disclosu
 
 ---
 
+## The site structure, before any verdict
+
+Amendment A12 fixes the reporting unit before the arms run, because one of these
+domains is structurally unlike the others and pooling would hide it. `bool`'s
+admitted defects all sit at a **single node** — its output — so every candidate
+edit attaches to the same place and an ordering prior has only the choice of
+operator to discriminate on. `rel`'s defects are spread across several sites,
+where an arm can be right or wrong about *where* to act as well as *what* to do.
+A reader should have this table before reading any verdict.
+
+<!-- BEGIN:sites -->
+| domain | admitted cases | distinct defect sites | defects per site | defect kinds | repairs per case |
+|---|---|---|---|---|---|
+| bool | 9 | **1** | `y` 9 | drop_operator 1, drop_source 2, keep_prefix 6 | 2–4 (mean 2.4) |
+| rel | 19 | **4** | `ans` 7, `chain2` 2, `chain3` 2, `o1` 8 | delete_node 1, drop_operator 2, drop_source 4, keep_prefix 12 | 2–19 (mean 8.6) |
+<!-- END:sites -->
+
+---
+
+## The verdict
+
+**NOT MET, on both domains.** The inherited edit prior does not make repair
+cheaper: pooled, it costs **1.045×** what no library costs. The pre-registered
+bar was half.
+
+**What bounds the claim, before the numbers.** The defect generator only
+*narrows*, and the two structural edit families repair **nothing** — a third of
+every edit proposed, zero repairs:
+
+<!-- BEGIN:grammar -->
+| edit family | edits proposed | edits that are repairs | repair rate | cases it repairs |
+|---|---|---|---|---|
+| `SUBST` | 1,328 | 41 | 3.1% | 27 |
+| `WIDEN` | 1,233 | 41 | 3.3% | 27 |
+| `REWIRE` | 559 | 18 | 3.2% | 10 |
+| `ADD_NODE` | 1,737 | 86 | 5.0% | 19 |
+| `ADD_PATH` | 392 | 0 | 0.0% | 0 |
+| **all** | 5,249 | 186 | 3.5% | 28 |
+<!-- END:grammar -->
+
+So the arms are orderings over an effectively **two-family** space (A15), and no
+claim is made here about a prior choosing between structural and non-structural
+edits: on this corpus that choice never arises.
+
+**The finding is the per-domain split.** On `rel`, which has four defect sites,
+the prior beats both hand rules, and beats the flat substrate 18.59 against
+24.72 — a real saving, but under the bar. On `bool`, which has one, it is **worse than no library** (51.89 against
+48.90), and a one-line rule — *prefer edits at the output-adjacent site* — beats
+everything at 19.74. A12 wrote that reading down in advance: **a prior that helps
+only where site structure exists is discriminating on *where* to edit, not on
+*what* edit to make.** `bool`'s defects all sit at the output node, so H2 wins
+there by encoding the generator's shape, not by knowing anything about repair.
+
+**The headroom is almost entirely unclaimed.** A perfect ordering costs **1.00**;
+the best arm costs **18.59**. The signal needed to order these edits well exists
+and nothing tried here — learned or hand-written — captures more than a few
+percent of it. That is a more useful negative than "the library did not help".
+
+Every criterion is resolved **per domain** (A12(1)). The pooled column is the
+unweighted mean of the per-domain means (A12(2)) — equal weight per domain, not
+per case, because corpus sizes here reflect how many defects each scaffold
+tolerates rather than how much each domain should count. It appears beside the
+per-domain verdicts and never instead of them. A split verdict is **NOT MET**
+(A12(4)).
+
+<!-- BEGIN:criteria -->
+| criterion | as pre-registered | bool | rel | pooled (macro) |
+|---|---|---|---|---|
+| C1 | E(N″) ≤ E(N)/2 | **FAIL** | **FAIL** | **FAIL** |
+| C2 | E(N″) ≤ E(N′)/2 | **FAIL** | **FAIL** | **FAIL** |
+| C3a | E(N″) ≤ E(H1)/2 | **FAIL** | **PASS** | **PASS** |
+| C3b | E(N″) ≤ E(H2)/2 | **FAIL** | **PASS** | **FAIL** |
+| C4 | D1 does not meet C1 | **PASS** | **PASS** | **PASS** |
+| **verdict** | all of C1-C4 | **NOT MET** | **NOT MET** | **NOT MET** |
+Pre-registered verdict: **NOT MET**. Per domain: `bool` not met, `rel` not met.
+
+Same verdict when undecided edits are counted as repairs: yes.
+<!-- END:criteria -->
+
+<!-- BEGIN:costs -->
+| arm | bool | rel | **pooled (macro)** | per-case (micro) | macro, optimistic |
+|---|---|---|---|---|---|
+| N — no library | 48.90 | 24.72 | **36.81** | 32.49 | 14.34 |
+| N′ — edit-family class only | 44.64 | 28.38 | **36.51** | 33.61 | 17.63 |
+| N″ — learned cross-domain edit prior | 51.89 | 18.59 | **35.24** | 29.29 | 6.13 |
+| H1 — hand: smallest and newest first | 88.11 | 100.25 | **94.18** | 96.35 | 94.18 |
+| H2 — hand: output-adjacent first | 19.74 | 50.17 | **34.95** | 40.39 | 11.47 |
+| D1 — distractor, permuted labels | 124.00 | 58.97 | **91.49** | 79.88 | 38.45 |
+| D2 — distractor, reversed prior | 96.67 | 78.61 | **87.64** | 84.41 | 69.25 |
+| ORACLE — perfect ordering | 1.00 | 1.00 | **1.00** | 1.00 | 1.00 |
+<!-- END:costs -->
+
+<!-- BEGIN:ratios -->
+| arm | pooled (macro) mean exact expected edits | × N″'s cost |
+|---|---|---|
+| N — no library | 36.81 | 1.045 |
+| N′ — edit-family class only | 36.51 | 1.036 |
+| H1 — hand: smallest and newest first | 94.18 | 2.673 |
+| H2 — hand: output-adjacent first | 34.95 | 0.992 |
+| D1 — distractor, permuted labels | 91.49 | 2.596 |
+| D2 — distractor, reversed prior | 87.64 | 2.487 |
+| ORACLE — perfect ordering | 1.00 | 0.028 |
+<!-- END:ratios -->
+
+---
+
+---
+
 ## Amendments to the pre-registration
 
 Every change to `PREREGISTRATION.md` after it was committed, in order, with what
@@ -475,75 +583,6 @@ been carrying.
 
 ---
 
-## The site structure, before any verdict
-
-Amendment A12 fixes the reporting unit before the arms run, because one of these
-domains is structurally unlike the others and pooling would hide it. `bool`'s
-admitted defects all sit at a **single node** — its output — so every candidate
-edit attaches to the same place and an ordering prior has only the choice of
-operator to discriminate on. `rel`'s defects are spread across several sites,
-where an arm can be right or wrong about *where* to act as well as *what* to do.
-A reader should have this table before reading any verdict.
-
-<!-- BEGIN:sites -->
-| domain | admitted cases | distinct defect sites | defects per site | defect kinds | repairs per case |
-|---|---|---|---|---|---|
-| bool | 9 | **1** | `y` 9 | drop_operator 1, drop_source 2, keep_prefix 6 | 2–4 (mean 2.4) |
-| rel | 19 | **4** | `ans` 7, `chain2` 2, `chain3` 2, `o1` 8 | delete_node 1, drop_operator 2, drop_source 4, keep_prefix 12 | 2–19 (mean 8.6) |
-<!-- END:sites -->
-
----
-
-## The pre-registered verdict
-
-Every criterion is resolved **per domain** (A12(1)). The pooled column is the
-unweighted mean of the per-domain means (A12(2)) — equal weight per domain, not
-per case, because corpus sizes here reflect how many defects each scaffold
-tolerates rather than how much each domain should count. It appears beside the
-per-domain verdicts and never instead of them. A split verdict is **NOT MET**
-(A12(4)).
-
-<!-- BEGIN:criteria -->
-| criterion | as pre-registered | bool | rel | pooled (macro) |
-|---|---|---|---|---|
-| C1 | E(N″) ≤ E(N)/2 | **FAIL** | **FAIL** | **FAIL** |
-| C2 | E(N″) ≤ E(N′)/2 | **FAIL** | **FAIL** | **FAIL** |
-| C3a | E(N″) ≤ E(H1)/2 | **FAIL** | **PASS** | **PASS** |
-| C3b | E(N″) ≤ E(H2)/2 | **FAIL** | **PASS** | **FAIL** |
-| C4 | D1 does not meet C1 | **PASS** | **PASS** | **PASS** |
-| **verdict** | all of C1-C4 | **NOT MET** | **NOT MET** | **NOT MET** |
-Pre-registered verdict: **NOT MET**. Per domain: `bool` not met, `rel` not met.
-
-Same verdict when undecided edits are counted as repairs: yes.
-<!-- END:criteria -->
-
-<!-- BEGIN:costs -->
-| arm | bool | rel | **pooled (macro)** | per-case (micro) | macro, optimistic |
-|---|---|---|---|---|---|
-| N — no library | 48.90 | 24.72 | **36.81** | 32.49 | 14.34 |
-| N′ — edit-family class only | 44.64 | 28.38 | **36.51** | 33.61 | 17.63 |
-| N″ — learned cross-domain edit prior | 51.89 | 18.59 | **35.24** | 29.29 | 6.13 |
-| H1 — hand: smallest and newest first | 88.11 | 100.25 | **94.18** | 96.35 | 94.18 |
-| H2 — hand: output-adjacent first | 19.74 | 50.17 | **34.95** | 40.39 | 11.47 |
-| D1 — distractor, permuted labels | 124.00 | 58.97 | **91.49** | 79.88 | 38.45 |
-| D2 — distractor, reversed prior | 96.67 | 78.61 | **87.64** | 84.41 | 69.25 |
-| ORACLE — perfect ordering | 1.00 | 1.00 | **1.00** | 1.00 | 1.00 |
-<!-- END:costs -->
-
-<!-- BEGIN:ratios -->
-| arm | pooled (macro) mean exact expected edits | × N″'s cost |
-|---|---|---|
-| N — no library | 36.81 | 1.045 |
-| N′ — edit-family class only | 36.51 | 1.036 |
-| H1 — hand: smallest and newest first | 94.18 | 2.673 |
-| H2 — hand: output-adjacent first | 34.95 | 0.992 |
-| D1 — distractor, permuted labels | 91.49 | 2.596 |
-| D2 — distractor, reversed prior | 87.64 | 2.487 |
-| ORACLE — perfect ordering | 1.00 | 0.028 |
-<!-- END:ratios -->
-
----
-
 ## The corpus
 
 Defects are typed narrowings of a base scaffold. A defective scaffold is admitted
@@ -908,8 +947,8 @@ Every resource decision this track made, admitted or refused, is in
 <!-- BEGIN:gate -->
 | `out/resource_gate.log` | count |
 |---|---|
-| decisions recorded | 33 |
-| phases admitted | 31 |
+| decisions recorded | 37 |
+| phases admitted | 35 |
 | phases refused by a gate | 2 |
 | launches held by hand, before the gates existed | 0 |
 | a refusal, verbatim | `check_workers | live=4 | requesting=1 | limit=4 | ['run_domain.py', 'run_domain.py', 'run_domain.py', 'run_domain.py'] | REFUSED` |

@@ -1,6 +1,6 @@
 {
- "pass": 166,
- "fail": 2,
+ "pass": 169,
+ "fail": 0,
  "claims": [
   {
    "ok": true,
@@ -233,9 +233,9 @@
    "detail": "missing []"
   },
   {
-   "ok": false,
+   "ok": true,
    "claim": "A21[validate_rel]: carries all five provenance identities",
-   "detail": "no provenance block (artifact predates A21 and cannot be shown current)"
+   "detail": "missing []"
   },
   {
    "ok": true,
@@ -674,6 +674,31 @@
   },
   {
    "ok": true,
+   "claim": "block `sites` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `grammar` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `criteria` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `costs` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
+   "claim": "block `ratios` equals its rendering from out/",
+   "detail": ""
+  },
+  {
+   "ok": true,
    "claim": "block `sweep` equals its rendering from out/",
    "detail": ""
   },
@@ -695,26 +720,6 @@
   {
    "ok": true,
    "claim": "block `cost` equals its rendering from out/",
-   "detail": ""
-  },
-  {
-   "ok": true,
-   "claim": "block `sites` equals its rendering from out/",
-   "detail": ""
-  },
-  {
-   "ok": true,
-   "claim": "block `criteria` equals its rendering from out/",
-   "detail": ""
-  },
-  {
-   "ok": true,
-   "claim": "block `costs` equals its rendering from out/",
-   "detail": ""
-  },
-  {
-   "ok": true,
-   "claim": "block `ratios` equals its rendering from out/",
    "detail": ""
   },
   {
@@ -768,7 +773,7 @@
    "detail": ""
   },
   {
-   "ok": false,
+   "ok": true,
    "claim": "block `gate` equals its rendering from out/",
    "detail": ""
   },
@@ -785,7 +790,7 @@
   {
    "ok": true,
    "claim": "the prose strip leaves most of RESULTS.md to be checked",
-   "detail": "36863 of 54520 characters survived the strip"
+   "detail": "38391 of 56451 characters survived the strip"
   },
   {
    "ok": true,

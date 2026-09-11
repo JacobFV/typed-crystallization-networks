@@ -380,7 +380,13 @@ def pressure():
 
 
 def gate():
-    log = kit.OUT / "resource_gate.log"
+    # The live gate log grows whenever any phase starts -- including the
+    # verifier's own run in some configurations -- so a block rendered from it
+    # is unstable by construction and would fail its own equality check.  The
+    # block renders from a SNAPSHOT written by `report.py --fill`; the live log
+    # remains the complete record and the snapshot is committed beside it.
+    snap = kit.OUT / "resource_gate_snapshot.log"
+    log = snap if snap.exists() else kit.OUT / "resource_gate.log"
     if not log.exists():
         return "No resource-gate decisions recorded."
     lines = [x for x in log.read_text().splitlines() if x.strip()]
@@ -508,6 +514,10 @@ BLOCKS = {"corpus": corpus, "decider": decider, "sweep": sweep,
 def fill(path):
     """Rewrite every block in RESULTS.md in place from `out/`."""
     import re
+    import shutil
+    live = kit.OUT / "resource_gate.log"
+    if live.exists():
+        shutil.copyfile(live, kit.OUT / "resource_gate_snapshot.log")
     text = path.read_text()
     def sub(m):
         name = m.group(1)
