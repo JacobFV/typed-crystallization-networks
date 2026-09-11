@@ -402,32 +402,35 @@ def gate():
 
 
 def grammar():
-    """The mutation grammar: which edit families exist, and how they are used."""
+    """Per-family repair counts, PER DOMAIN.
+
+    The aggregate version of this block carried an over-generalisation: it was
+    written when only `bool` existed, where both structural families repair
+    nothing, and stayed true-looking after `rel` landed, where `ADD_NODE`
+    repairs every case.  A15 pre-registered this exact branch, so the block is
+    per-domain and the pooled row is dropped.
+    """
     import collections
-    fam_total, fam_repair, fam_cases = collections.Counter(), collections.Counter(), {}
+    rows = []
     for dom in present_domains():
         c = C(dom)
-        for x in c["cases"]:
-            if not x.get("admitted"):
-                continue
+        adm = [x for x in c["cases"] if x.get("admitted")]
+        if not adm:
+            continue
+        prop, edits, cases_ = collections.Counter(), collections.Counter(), {}
+        for x in adm:
             for e in x["edits"]:
-                fam_total[e["family"]] += 1
+                prop[e["family"]] += 1
                 if e["repair"]:
-                    fam_repair[e["family"]] += 1
-                    fam_cases.setdefault(e["family"], set()).add(x["case_id"])
-    rows = []
-    for fam in ("SUBST", "WIDEN", "REWIRE", "ADD_NODE", "ADD_PATH"):
-        t, r = fam_total[fam], fam_repair[fam]
-        rows.append([f"`{fam}`", f"{t:,}", f"{r:,}",
-                     f"{(100.0 * r / t):.1f}%" if t else "—",
-                     len(fam_cases.get(fam, ()))])
-    rows.append(["**all**", f"{sum(fam_total.values()):,}",
-                 f"{sum(fam_repair.values()):,}",
-                 f"{(100.0 * sum(fam_repair.values()) / sum(fam_total.values())):.1f}%"
-                 if sum(fam_total.values()) else "—",
-                 len(set().union(*fam_cases.values())) if fam_cases else 0])
-    return table(["edit family", "edits proposed", "edits that are repairs",
-                  "repair rate", "cases it repairs"], rows)
+                    edits[e["family"]] += 1
+                    cases_.setdefault(e["family"], set()).add(x["case_id"])
+        for fam in ("SUBST", "WIDEN", "REWIRE", "ADD_NODE", "ADD_PATH"):
+            n = len(cases_.get(fam, ()))
+            mark = " **dead**" if n == 0 else ""
+            rows.append([dom, f"`{fam}`", f"{prop[fam]:,}", f"{edits[fam]:,}",
+                         f"**{n} / {len(adm)}**{mark}"])
+    return table(["domain", "edit family", "edits proposed",
+                  "edits that are repairs", "cases it repairs"], rows)
 
 
 def blind():

@@ -8,12 +8,12 @@ supports.*
 > only ever **narrows** an existing scaffold — it removes operators, sources or
 > candidates from a scaffold that could already solve the task. So every result
 > here is about **re-widening narrowed scaffolds**, not about scaffold repair in
-> general. The two structural edit families, `ADD_NODE` and `ADD_PATH`, repair
-> **nothing** in this corpus, because the inverse of a narrowing is a widening
-> and nothing here needs a node that was never there. A prior that learns
-> "prefer `WIDEN` over `ADD_NODE`" has learned a fact about the **generator**.
-> Every claim below should be read with "narrowing defects" in place of
-> "scaffold repair", and the missing experiment is named in its own section.
+> general. One edit family, **`ADD_PATH`, is dead in both domains** — every edit
+> it proposes, in either domain, repairs nothing. The other structural family, **`ADD_NODE`, is dead in
+> `bool` and repairs every case in `rel`**, which locates that limitation in
+> `bool`'s single-site scaffold rather than in the generator. Every claim below
+> should be read with "narrowing defects" in place of "scaffold repair", and the
+> missing experiment is named in its own section.
 
 `PREREGISTRATION.md` was committed before the first arm. `tcn/` and
 `generators/` are untouched. Every figure below sits inside a
@@ -76,23 +76,46 @@ cheaper: pooled, it costs **1.045×** what no library costs. The pre-registered
 bar was half.
 
 **What bounds the claim, before the numbers.** The defect generator only
-*narrows*, and the two structural edit families repair **nothing** — a third of
-every edit proposed, zero repairs:
+*narrows*. Per domain, which family repairs what:
 
 <!-- BEGIN:grammar -->
-| edit family | edits proposed | edits that are repairs | repair rate | cases it repairs |
+| domain | edit family | edits proposed | edits that are repairs | cases it repairs |
 |---|---|---|---|---|
-| `SUBST` | 1,328 | 41 | 3.1% | 27 |
-| `WIDEN` | 1,233 | 41 | 3.3% | 27 |
-| `REWIRE` | 559 | 18 | 3.2% | 10 |
-| `ADD_NODE` | 1,737 | 86 | 5.0% | 19 |
-| `ADD_PATH` | 392 | 0 | 0.0% | 0 |
-| **all** | 5,249 | 186 | 3.5% | 28 |
+| bool | `SUBST` | 378 | 9 | **9 / 9** |
+| bool | `WIDEN` | 378 | 9 | **9 / 9** |
+| bool | `REWIRE` | 180 | 4 | **2 / 9** |
+| bool | `ADD_NODE` | 378 | 0 | **0 / 9** **dead** |
+| bool | `ADD_PATH` | 126 | 0 | **0 / 9** **dead** |
+| rel | `SUBST` | 950 | 32 | **18 / 19** |
+| rel | `WIDEN` | 855 | 32 | **18 / 19** |
+| rel | `REWIRE` | 379 | 14 | **8 / 19** |
+| rel | `ADD_NODE` | 1,359 | 86 | **19 / 19** |
+| rel | `ADD_PATH` | 266 | 0 | **0 / 19** **dead** |
 <!-- END:grammar -->
 
-So the arms are orderings over an effectively **two-family** space (A15), and no
-claim is made here about a prior choosing between structural and non-structural
-edits: on this corpus that choice never arises.
+**A15 pre-registered both branches of this, and the data took the second one.**
+It committed: *"if `ADD_NODE` and `ADD_PATH` produce zero repairs in every
+domain, the grammar is reported as effectively two families wide … if a
+structural family does repair something somewhere, that is reported with the
+domain and defect named — it would show the limitation belongs to `bool`'s
+single-site structure rather than to the generator."*
+
+The second branch is what happened, and it is the more interesting one:
+
+* **`ADD_PATH` is dead in both domains** — 126 edits in `bool`, 266 in `rel`,
+  **zero** repairs in either. That family earned nothing anywhere.
+* **`ADD_NODE` is dead in `bool` (0 of 9 cases) and repairs every case in `rel`
+  (19 of 19)**, at all four of its defect sites — `ans` (7 cases), `o1` (8),
+  `chain2` (2), `chain3` (2). By repairing-edit count it is `rel`'s *most*
+  productive family: 86 repairing edits against `SUBST`'s 32.
+
+So the grammar is **not** effectively two families wide, and the generator is
+**not** uniformly hostile to structure-inventing edits. What kills `ADD_NODE` in
+`bool` is that `bool`'s scaffold is three nodes with every defect at the output:
+there is no room below the site for an inserted node to earn its place. The
+scope limit on this track is correspondingly narrower than "structural edits
+never help here" — it is that **`ADD_PATH` never helps, and `ADD_NODE` needs a
+scaffold with depth to act in.**
 
 **The finding is the per-domain split.** On `rel`, which has four defect sites,
 the prior beats both hand rules, and beats the flat substrate 18.59 against
@@ -363,14 +386,18 @@ holes the experimenter names. The question a wider grammar has to answer is
 whether the extra width pays, and on the evidence so far it does not:
 
 <!-- BEGIN:grammar -->
-| edit family | edits proposed | edits that are repairs | repair rate | cases it repairs |
+| domain | edit family | edits proposed | edits that are repairs | cases it repairs |
 |---|---|---|---|---|
-| `SUBST` | 1,328 | 41 | 3.1% | 27 |
-| `WIDEN` | 1,233 | 41 | 3.3% | 27 |
-| `REWIRE` | 559 | 18 | 3.2% | 10 |
-| `ADD_NODE` | 1,737 | 86 | 5.0% | 19 |
-| `ADD_PATH` | 392 | 0 | 0.0% | 0 |
-| **all** | 5,249 | 186 | 3.5% | 28 |
+| bool | `SUBST` | 378 | 9 | **9 / 9** |
+| bool | `WIDEN` | 378 | 9 | **9 / 9** |
+| bool | `REWIRE` | 180 | 4 | **2 / 9** |
+| bool | `ADD_NODE` | 378 | 0 | **0 / 9** **dead** |
+| bool | `ADD_PATH` | 126 | 0 | **0 / 9** **dead** |
+| rel | `SUBST` | 950 | 32 | **18 / 19** |
+| rel | `WIDEN` | 855 | 32 | **18 / 19** |
+| rel | `REWIRE` | 379 | 14 | **8 / 19** |
+| rel | `ADD_NODE` | 1,359 | 86 | **19 / 19** |
+| rel | `ADD_PATH` | 266 | 0 | **0 / 19** **dead** |
 <!-- END:grammar -->
 
 **Most of the rejected defects were not defects at all.** Of the 32 `bool`
@@ -385,31 +412,44 @@ member uses a small fraction of the candidates available to it. A generator that
 wants defects should narrow *along the solution*, not at random — or, better,
 remove expressiveness, which cannot miss.
 
-**The two structural families repair nothing.** `ADD_NODE` and `ADD_PATH`
-together account for a third of every edit proposed and produce **zero** repairs.
-The explanation is not subtle and it is a property of the corpus rather than of
-the families: a defect generator that *narrows* an existing scaffold produces
-defects that re-widening fixes, so `SUBST` and `WIDEN` are the natural inverses
-and the structural families are answering a question nobody asked. §45's repair
-— the one that motivated including them — was a case where the scaffold was never
-narrowed but was *written* unable to express a running minimum, and no defect in
-this generator produces that shape except `delete_node`, which is rare and
-usually unrepairable by a single edit.
+**`ADD_PATH` is dead everywhere; `ADD_NODE` is dead only in `bool`.** Every
+`ADD_PATH` edit in either domain produces zero repairs. `ADD_NODE` produces
+zero in `bool` and 86 in `rel`, repairing all nineteen of its cases.
 
-That is worth stating plainly because it bounds what this track can claim. A
-prior that learns "prefer `WIDEN` over `ADD_NODE`" has learned something true
-about this corpus and nothing about scaffold repair in general.
+The difference is structural rather than mysterious. `bool`'s scaffold is three
+nodes deep with every defect at the output node, so an inserted node has nowhere
+useful to sit: the site it would feed is the site that was narrowed, and
+re-widening that site directly is always available and always cheaper. `rel`'s
+scaffold is nine nodes over four defect sites, and there an inserted node can
+supply a value the narrowed site can no longer construct for itself. Depth and
+site variety are what make structure-inventing edits viable — not the presence or
+absence of narrowing.
 
-**Pre-committed (A15), before `rel` and `arith` reported their counts:** if
-`ADD_NODE` and `ADD_PATH` repair nothing in *every* domain, the grammar is
-reported as having been **effectively two families wide**, and the arms are
-reported as orderings over that two-family space rather than the five-family
-space the enumerator nominally explores. No claim is then made about a prior's
-ability to choose between structural and non-structural edits, because on this
-corpus that choice never arises. If a structural family does repair something
-somewhere, that is reported with the domain and defect named — it would show the
-limitation belongs to `bool`'s single-site structure rather than to the
-generator.
+`ADD_PATH`'s uniform failure has a simpler cause: it only ever appends a node at
+the output and re-points the program there, so it can add a final combining step
+but cannot supply a missing intermediate. Nothing in a narrowing corpus needs a
+different final combiner that `SUBST`/`WIDEN` at the output cannot already
+reach.
+
+That is worth stating plainly because it bounds what this track can claim — and
+the bound is narrower than it first appeared. A prior that learns "prefer
+`WIDEN` over `ADD_NODE`" would be learning a fact about `bool` specifically, not
+about the generator: in `rel` that preference would be actively wrong.
+
+**A15 was pre-committed before `rel` reported its counts, and the data took its
+second branch.** The first branch — both structural families dead everywhere,
+grammar reported as effectively two families wide — did **not** occur. The second
+did: `ADD_NODE` repairs in `rel`, so the limitation is reported with its domain
+and defect sites named, and it belongs to `bool`'s single-site structure rather
+than to the generator. The arms are orderings over a genuinely five-family space
+in `rel` and an effectively three-family space in `bool`.
+
+**This claim drifted once, and the drift is instructive.** "Both structural
+families repair nothing" was *true when written* — only `bool` existed then — and
+became false the moment `rel` landed, without anyone editing it. No amount of
+care at writing time protects a scoped claim whose evidence base later grows;
+only a check does. `verify.py` now asserts the per-domain family counts directly,
+so the corrected statement cannot drift the way the original did.
 
 ---
 

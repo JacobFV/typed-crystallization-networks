@@ -27,12 +27,23 @@ here.
 `delete_node`) are the part to throw away, and the reason matters more than the
 fact.
 
-They only ever **remove options from a scaffold that already worked**. The
-inverse of a narrowing is a widening, so `SUBST` and `WIDEN` repair everything
-and **`ADD_NODE` and `ADD_PATH` repair nothing** — a third of every edit
-proposed, zero repairs, in both domains. The mutation grammar was nominally five
-families wide and effectively two. Any prior learned on this corpus has learned a
-fact about the generator.
+They only ever **remove options from a scaffold that already worked**, so
+`SUBST` and `WIDEN` — the direct inverses — repair nearly every case in both
+domains. But the structural families split, and the split is the useful part:
+
+* **`ADD_PATH` is dead in both domains.** It only appends a node at the output
+  and re-points the program there, so it can add a final combining step but never
+  supply a missing intermediate. Nothing in a narrowing corpus needs that.
+* **`ADD_NODE` is dead in `bool` (0 of 9) and repairs every case in `rel`
+  (19 of 19, 86 repairing edits — more than `SUBST`'s 32).** `bool`'s scaffold is
+  three nodes with every defect at the output, so an inserted node has nowhere
+  useful to sit; `rel`'s is nine nodes over four defect sites, where an inserted
+  node can supply a value the narrowed site can no longer construct.
+
+So the generator is **not** uniformly hostile to structure-inventing edits.
+Depth and site variety are what make them viable. A prior that learned "prefer
+`WIDEN` over `ADD_NODE`" would be learning a fact about `bool`, and would be
+actively wrong in `rel`.
 
 Two measurements bound it further:
 
@@ -82,7 +93,17 @@ anything — making that corpus and this one exact complements.
    that is neither domain's behaviour. A12 fixed per-domain reporting and the
    macro pooling rule in advance, and the split verdict it anticipated is what
    happened.
-7. **A budget chosen by its yield is tuning.** A8 fixes the episode budget by a
+7. **A scoped claim needs its scope re-checked when its evidence base grows.**
+   "Both structural families repair nothing" was **true when written** — only
+   `bool` existed then — and became false the moment `rel` landed, with nobody
+   editing the sentence. `ADD_NODE` repairs every one of `rel`'s nineteen cases
+   and is its most productive family. No amount of care at writing time protects
+   against this: the claim did not change, the world did. Only a check catches
+   it, and `verify.py` now asserts the per-domain family counts directly. Assume
+   every domain-scoped sentence in a growing record is a future error unless
+   something re-derives it.
+
+8. **A budget chosen by its yield is tuning.** A8 fixes the episode budget by a
    stated rule — the smallest budget whose admissible defect *set* is stable
    across two doublings — applied identically to every domain, with every
    rejected rung recorded.
