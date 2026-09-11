@@ -72,7 +72,7 @@
     "tracked": true
    },
    "research/schema-induction/stamp.py": {
-    "digest": "de40b75496cc0f6d25ec114ed198a7dc7672957a4c6611cb85aa9049b7710c36",
+    "digest": "7cc29bd678eb16ced13e12a4d479bc081c260c57c9e70591ef02f6c51b53bdd6",
     "tracked": true
    }
   },
@@ -111,32 +111,30 @@
    "absent_because": "no mutation grammar existed when this artifact was produced (phase 0 precedes the grammar)"
   },
   "revision": "r3-2026-09-11-clean-producer-and-structural-c3",
-  "prereg_digest": "3e03426af0411e97d137b9bb356429e5e089d3280a67d6d1a83b1c7d4795af29",
+  "prereg_digest": "238c19bf4bfdae3512f39f75fd1bc1651f6f290acab512aef2dd219a017e68e1",
   "commit": {
-   "head": "16be85ae5e3253c53e912c254d10bd96920e3646",
-   "dirty": true,
-   "dirty_tracked_paths": [
-    "D research/schema-induction/out/phase0.json",
-    " M research/schema-induction/out/phase0_pilot.log",
-    " D research/schema-induction/out/phase_phase0.done.json",
-    " D research/schema-induction/out/verify.json"
+   "head": "2012f1e4aa3b2ef95ec9f5b9831e9f25ff5a2ac5",
+   "dirty": false,
+   "dirty_tracked_paths": [],
+   "dirty_outputs": [
+    " M research/schema-induction/out/phase0_pilot.log"
    ],
+   "output_surface": "research/schema-induction/out/",
    "untracked_count": 0,
-   "dirty_means": "tracked modifications only; untracked outputs do not count, and untracked SOURCES are refused by `present`"
+   "dirty_means": "tracked modifications to SOURCES (everything outside the run's own out/ directory). Output churn is disclosed in `dirty_outputs`, not counted; untracked SOURCES are refused outright by `present`"
   },
   "git": {
-   "head": "16be85ae5e3253c53e912c254d10bd96920e3646",
-   "dirty": true,
-   "dirty_tracked_paths": [
-    "D research/schema-induction/out/phase0.json",
-    " M research/schema-induction/out/phase0_pilot.log",
-    " D research/schema-induction/out/phase_phase0.done.json",
-    " D research/schema-induction/out/verify.json"
+   "head": "2012f1e4aa3b2ef95ec9f5b9831e9f25ff5a2ac5",
+   "dirty": false,
+   "dirty_tracked_paths": [],
+   "dirty_outputs": [
+    " M research/schema-induction/out/phase0_pilot.log"
    ],
+   "output_surface": "research/schema-induction/out/",
    "untracked_count": 0,
-   "dirty_means": "tracked modifications only; untracked outputs do not count, and untracked SOURCES are refused by `present`"
+   "dirty_means": "tracked modifications to SOURCES (everything outside the run's own out/ directory). Output churn is disclosed in `dirty_outputs`, not counted; untracked SOURCES are refused outright by `present`"
   },
-  "written_unix": 1789133392.770596,
-  "written_utc": "2026-09-11T13:29:52Z"
+  "written_unix": 1789133811.4932048,
+  "written_utc": "2026-09-11T13:36:51Z"
  }
 }

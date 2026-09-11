@@ -1,7 +1,7 @@
 {
  "format": "schema-induction/verify-1",
- "n_pass": 67,
- "n_fail": 8,
+ "n_pass": 77,
+ "n_fail": 0,
  "results": [
   {
    "pass": true,
@@ -9,14 +9,24 @@
    "detail": "verify.json, headline.json"
   },
   {
-   "pass": false,
+   "pass": true,
    "claim": "V9 provenance: phase0.json carries a stamp",
-   "detail": "produced from a dirty tree: an evidence artifact must come from a clean source state. Commit the code and pre-registration, re-run, then commit the outputs"
+   "detail": "6 recorded input/source field(s)"
   },
   {
-   "pass": false,
+   "pass": true,
+   "claim": "V9 provenance: phase0.json inputs and sources unchanged",
+   "detail": "5 field(s) compared"
+  },
+  {
+   "pass": true,
    "claim": "V9 provenance: phase_phase0.done.json carries a stamp",
-   "detail": "produced from a dirty tree: an evidence artifact must come from a clean source state. Commit the code and pre-registration, re-run, then commit the outputs"
+   "detail": "6 recorded input/source field(s)"
+  },
+  {
+   "pass": true,
+   "claim": "V9 provenance: phase_phase0.done.json inputs and sources unchanged",
+   "detail": "5 field(s) compared"
   },
   {
    "pass": true,
@@ -56,12 +66,12 @@
   {
    "pass": true,
    "claim": "S1 standard: phase0.json records a producing commit",
-   "detail": "16be85ae5e32"
+   "detail": "2012f1e4aa3b"
   },
   {
-   "pass": false,
+   "pass": true,
    "claim": "S1 standard: phase0.json was produced from a CLEAN tree",
-   "detail": "['D research/schema-induction/out/phase0.json', ' M research/schema-induction/out/phase0_pilot.log', ' D research/schema-induction/out/phase_phase0.done.json', ' D research/schema-induction/out/verify.json']"
+   "detail": "clean"
   },
   {
    "pass": true,
@@ -116,12 +126,12 @@
   {
    "pass": true,
    "claim": "S1 standard: phase_phase0.done.json records a producing commit",
-   "detail": "16be85ae5e32"
+   "detail": "2012f1e4aa3b"
   },
   {
-   "pass": false,
+   "pass": true,
    "claim": "S1 standard: phase_phase0.done.json was produced from a CLEAN tree",
-   "detail": "['D research/schema-induction/out/phase0.json', ' M research/schema-induction/out/phase0_pilot.log', ' D research/schema-induction/out/phase_phase0.done.json', ' D research/schema-induction/out/verify.json']"
+   "detail": "clean"
   },
   {
    "pass": true,
@@ -139,24 +149,24 @@
    "detail": "['gap0.admission', 'gap0.train', 'gap1.admission', 'gap1.train', 'gap2.final', 'gap3.final']"
   },
   {
-   "pass": false,
+   "pass": true,
    "claim": "S2 clean producer: phase0.json passes the fail-closed gate",
-   "detail": "produced from a dirty tree: an evidence artifact must come from a clean source state. Commit the code and pre-registration, re-run, then commit the outputs"
+   "detail": "2012f1e4aa3b clean"
   },
   {
-   "pass": false,
+   "pass": true,
    "claim": "S2 clean producer: phase_phase0.done.json passes the fail-closed gate",
-   "detail": "produced from a dirty tree: an evidence artifact must come from a clean source state. Commit the code and pre-registration, re-run, then commit the outputs"
+   "detail": "2012f1e4aa3b clean"
   },
   {
-   "pass": false,
+   "pass": true,
    "claim": "V10 promises: every promise whose phase has run is implemented",
-   "detail": "['  FAIL F2: artifact out/phase0.json -- produced from a dirty tree: an evidence artifact must come from a clean source state. Commit the code and pre-registration, re-run, then commit the outputs']"
+   "detail": "['34 promises, 9 kept, 25 pending, 0 failures']"
   },
   {
    "pass": true,
    "claim": "V11 guards: every provenance guard refuses its failure case",
-   "detail": "['23 PASS, 0 FAIL']"
+   "detail": "['24 PASS, 0 FAIL']"
   },
   {
    "pass": true,
@@ -351,22 +361,22 @@
   {
    "pass": true,
    "claim": "V8: \u00a710's declared band \u2014 intercept in [45, 85] s",
-   "detail": "64.1 s"
+   "detail": "65.6 s"
   },
   {
    "pass": true,
    "claim": "V8: \u00a710's declared band \u2014 slope in [0.8, 1.4] s per step candidate",
-   "detail": "1.3235 s"
+   "detail": "0.8477 s"
   },
   {
-   "pass": false,
-   "claim": "V8: \u00a710's residual bound (< 3 s) holds",
-   "detail": "7.10 s"
+   "pass": true,
+   "claim": "V8: \u00a710's residual bound (< 10% of the largest measured time) holds",
+   "detail": "4.12 s vs 13.48 s"
   },
   {
    "pass": true,
    "claim": "V8: the counter is affine in the step pool, not superlinear (the 80-candidate point is within 10% of the 20/40 extrapolation)",
-   "detail": "167.6 s measured"
+   "detail": "134.8 s measured"
   },
   {
    "pass": true,
@@ -383,8 +393,8 @@
   "format": "schema-induction/provenance-2",
   "kind": "verify",
   "inputs": {
-   "phase0.json": "372a83822562c657824b0516ad2b44768de23a87eeab1896d83196c306b53bd1",
-   "phase_phase0.done.json": "073755a4ea91aa48822084354dfca28a494a48efa7c9d3836921c149fa7fcac3"
+   "phase0.json": "70093595bf3fb4eea90ab0ff189b40c5169802b12007e453dfa929f63a4fd52d",
+   "phase_phase0.done.json": "5974d1f253cb764bb905a0ed8e8c79a4532edb86829bf87b5413a6e052828989"
   },
   "parameters": {
    "checks": [
@@ -406,11 +416,11 @@
   "parameters_digest": "e1c05659f84ee8f3f59d30934836bb5c2cb265ee57254d1e2e415cfdb39fc626",
   "sources": {
    "research/schema-induction/verify.py": {
-    "digest": "7bbae4ee41d2cf5c41e2466e14f54743d1f20ba6a6a2735b39597df30a8a59e5",
+    "digest": "6cc4fa67b54259b5ff5c79c67ae5acea68d4aaef406aedb673c336d3513148c2",
     "tracked": true
    },
    "research/schema-induction/stamp.py": {
-    "digest": "de40b75496cc0f6d25ec114ed198a7dc7672957a4c6611cb85aa9049b7710c36",
+    "digest": "7cc29bd678eb16ced13e12a4d479bc081c260c57c9e70591ef02f6c51b53bdd6",
     "tracked": true
    },
    "research/schema-induction/check_promises.py": {
@@ -432,32 +442,34 @@
    "absent_because": "no mutation grammar existed when this artifact was produced (phase 0 precedes the grammar)"
   },
   "revision": "r3-2026-09-11-clean-producer-and-structural-c3",
-  "prereg_digest": "3e03426af0411e97d137b9bb356429e5e089d3280a67d6d1a83b1c7d4795af29",
+  "prereg_digest": "238c19bf4bfdae3512f39f75fd1bc1651f6f290acab512aef2dd219a017e68e1",
   "commit": {
-   "head": "16be85ae5e3253c53e912c254d10bd96920e3646",
-   "dirty": true,
-   "dirty_tracked_paths": [
-    "M research/schema-induction/out/phase0.json",
+   "head": "2012f1e4aa3b2ef95ec9f5b9831e9f25ff5a2ac5",
+   "dirty": false,
+   "dirty_tracked_paths": [],
+   "dirty_outputs": [
+    " M research/schema-induction/out/phase0.json",
     " M research/schema-induction/out/phase0_pilot.log",
-    " M research/schema-induction/out/phase_phase0.done.json",
-    " D research/schema-induction/out/verify.json"
+    " M research/schema-induction/out/phase_phase0.done.json"
    ],
+   "output_surface": "research/schema-induction/out/",
    "untracked_count": 0,
-   "dirty_means": "tracked modifications only; untracked outputs do not count, and untracked SOURCES are refused by `present`"
+   "dirty_means": "tracked modifications to SOURCES (everything outside the run's own out/ directory). Output churn is disclosed in `dirty_outputs`, not counted; untracked SOURCES are refused outright by `present`"
   },
   "git": {
-   "head": "16be85ae5e3253c53e912c254d10bd96920e3646",
-   "dirty": true,
-   "dirty_tracked_paths": [
-    "M research/schema-induction/out/phase0.json",
+   "head": "2012f1e4aa3b2ef95ec9f5b9831e9f25ff5a2ac5",
+   "dirty": false,
+   "dirty_tracked_paths": [],
+   "dirty_outputs": [
+    " M research/schema-induction/out/phase0.json",
     " M research/schema-induction/out/phase0_pilot.log",
-    " M research/schema-induction/out/phase_phase0.done.json",
-    " D research/schema-induction/out/verify.json"
+    " M research/schema-induction/out/phase_phase0.done.json"
    ],
+   "output_surface": "research/schema-induction/out/",
    "untracked_count": 0,
-   "dirty_means": "tracked modifications only; untracked outputs do not count, and untracked SOURCES are refused by `present`"
+   "dirty_means": "tracked modifications to SOURCES (everything outside the run's own out/ directory). Output churn is disclosed in `dirty_outputs`, not counted; untracked SOURCES are refused outright by `present`"
   },
-  "written_unix": 1789133405.107325,
-  "written_utc": "2026-09-11T13:30:05Z"
+  "written_unix": 1789134105.571,
+  "written_utc": "2026-09-11T13:41:45Z"
  }
 }
