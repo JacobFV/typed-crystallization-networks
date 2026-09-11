@@ -170,6 +170,29 @@ defect the generator produces is applied and put through the admission rule.
 
 ---
 
+## What the outer loop itself costs
+
+The point of an outer loop is to move search up a level: instead of enumerating
+programs, enumerate *edits to the scaffold* and let each edit's own search be
+small. That is only a win if the level above is cheaper than the level below, and
+the record should show it either way rather than assume it. This block reports
+the loop's own bill — edits proposed, how many could be decided, the selection
+space those decisions covered, the episodes each decision consumed, the wall
+clock, and the size of the search a repair actually leaves behind.
+
+<!-- BEGIN:outerloop -->
+<!-- END:outerloop -->
+
+The honest reading is that the outer loop is **not** free and is not obviously a
+saving at this scale: proposing a few hundred typed edits per case costs a
+selection space in the tens of millions to decide, against a repaired scaffold
+whose own search is four orders of magnitude smaller. What buys the saving, if
+anything does, is an *ordering* that reaches a repair early — which is exactly
+what the arms measure, and why the cost metric counts edits enumerated rather
+than wall clock.
+
+---
+
 ## Why one domain costs fourteen times another per case
 
 `arith` costs more than an order of magnitude more per case than `bool`, on the same

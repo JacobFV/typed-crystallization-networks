@@ -394,6 +394,42 @@ def gate():
     return table(["`out/resource_gate.log`", "count"], rows)
 
 
+def outerloop():
+    """The cost of the outer loop itself, so 'moving combinatorics up a level'
+    can be checked rather than assumed."""
+    rows = []
+    for dom in present_domains():
+        c = C(dom)
+        adm = [x for x in c["cases"] if x.get("admitted")]
+        if not adm:
+            continue
+        proposed = sum(x["n_edits"] for x in adm)
+        undec = sum(x["n_undecided"] for x in adm)
+        decided = proposed - undec
+        space = sum(e["space"] for x in adm for e in x["edits"] if e["decided"])
+        reps = [e["space"] for x in adm for e in x["edits"] if e["repair"]]
+        eps = c["n_train"] + c["n_admission"]
+        rows.append([
+            dom, len(adm), f"{proposed:,}", f"{decided:,}", f"{undec:,}",
+            f"{space:,}", f"{eps}", f"{space * eps:,}",
+            f"{c['seconds'] / 60:.0f} min",
+            f"{(sum(reps) / len(reps)):,.0f}" if reps else "—"])
+    out = table(["domain", "cases", "edits proposed", "edits decided",
+                 "undecided (over cap)",
+                 "selection space of the decided edits (upper bound on programs)",
+                 "episodes per decision",
+                 "episode-evaluations (upper bound)", "corpus wall clock",
+                 "mean space of a repaired scaffold (downstream search)"], rows)
+    return out + (
+        "\n\nThe program and episode-evaluation columns are **upper bounds**, not "
+        "counts: `enumerate_prefix` stops at the first conforming member and "
+        "prunes a prefix as soon as a probed node misses, so a decided edit "
+        "usually costs far less than its selection space. This corpus does not "
+        "carry the exact `evaluated` figure — `decide()` did not record it, and "
+        "adding the field mid-run would have made shards of one domain "
+        "inconsistent with each other. The bound is reported as a bound.")
+
+
 def resources():
     a = A()
     rows = []
@@ -404,7 +440,8 @@ def resources():
 
 
 BLOCKS = {"corpus": corpus, "decider": decider, "sweep": sweep,
-          "ceilings": ceilings, "cost": cost, "sites": sites, "pressure": pressure, "gate": gate, "costs": costs, "criteria": criteria, "ratios": ratios,
+          "ceilings": ceilings, "cost": cost, "sites": sites,
+          "outerloop": outerloop, "pressure": pressure, "gate": gate, "costs": costs, "criteria": criteria, "ratios": ratios,
           "deployed": deployed, "validity": validity, "estimator": estimator,
           "families": families, "s50": s50, "percase": percase,
           "resources": resources}

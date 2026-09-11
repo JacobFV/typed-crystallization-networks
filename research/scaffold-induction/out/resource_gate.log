@@ -1,2 +1,10 @@
 check_workers	live=1	requesting=1	limit=4	['validate_decider.py']	START
 episode_sweep	MemAvailable=25.28GB	required=25.00GB (no measured peak; unmeasured-phase floor)	headroom_after=25.28GB	START
+check_workers	live=0	requesting=1	limit=4	[]	START
+run_domain:bool:shard0	MemAvailable=44.27GB	required=25.00GB (no measured peak; unmeasured-phase floor)	headroom_after=44.27GB	START
+check_workers	live=1	requesting=1	limit=4	['run_domain.py']	START
+run_domain:rel:shard0	MemAvailable=44.13GB	required=25.00GB (no measured peak; unmeasured-phase floor)	headroom_after=44.13GB	START
+check_workers	live=2	requesting=1	limit=4	['run_domain.py', 'run_domain.py']	START
+run_domain:rel:shard1	MemAvailable=44.01GB	required=25.00GB (no measured peak; unmeasured-phase floor)	headroom_after=44.01GB	START
+check_workers	live=3	requesting=1	limit=4	['run_domain.py', 'run_domain.py', 'run_domain.py']	START
+run_domain:arith:shard0	MemAvailable=43.94GB	required=2.00GB (max(2.0GB, 20 x measured peak 0.025GB))	headroom_after=43.91GB	START

@@ -58,7 +58,7 @@ def _maj_module(r):
     return r.register_module(prog)
 
 
-def build_bool(n_train=32):                 # budget fixed by A8
+def build_bool(n_train=8):                  # budget fixed by A8 (re-run under A13)
     r = Registry()
     mn = _maj_module(r)
     import later

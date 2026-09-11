@@ -7,3 +7,14 @@
   rel budget=96 (train=96): admissible 18  [14.6s]
   rel budget=192 (train=192): admissible 18  [21.5s]
   rel budget=384 (train=384): admissible 19  [34.6s]
+  rel budget=768 (train=768): admissible 19  [61.9s]
+  rel budget=1536 (train=1536): admissible 19  [114.7s]
+  -> rel: chosen budget 384 (stable at B, 2B and 4B)
+== arith
+  arith budget=16 (train=16): admissible 24  [30.7s]
+  arith budget=32 (train=32): admissible 24  [40.3s]
+  arith budget=64 (train=64): admissible 24  [61.7s]
+  arith budget=128 (train=128): admissible 24  [99.1s]
+  arith budget=256 (train=256): admissible 24  [179.5s]
+  -> arith: chosen budget 16 (stable at B, 2B and 4B)
+/home/brandonin/Documents/typed-crystallization-networks/.claude/worktrees/agent-ab7a54ef3e67ae786/research/scaffold-induction/out/episode_sweep.json
